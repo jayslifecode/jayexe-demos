@@ -1,518 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nick'z Renovation & Home Repairs | 292 W Evans St, Florence</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root {
-      --primary: #16a34a;
-      --dark: #14532d;
-      --accent: #dcfce7;
-      --text: #111827;
-      --muted: #6b7280;
-      --border: #e5e7eb;
-      --font: 'Plus Jakarta Sans', system-ui, sans-serif;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--font);
-      color: var(--text);
-      background: #fff;
-      line-height: 1.6;
-    }
-
-    /* NAV */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 60px;
-    }
-
-    .nav-brand {
-      font-weight: 800;
-      font-size: 17px;
-      color: var(--primary);
-      letter-spacing: -0.3px;
-    }
-
-    .nav-phone {
-      font-weight: 700;
-      font-size: 15px;
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .nav-cta {
-      background: var(--primary);
-      color: #fff;
-      padding: 8px 18px;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 700;
-      text-decoration: none;
-      display: none;
-    }
-
-    @media (min-width: 640px) { .nav-cta { display: inline-block; } }
-
-    /* HERO */
-    .hero {
-      background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
-      color: #fff;
-      padding: 80px 24px 72px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
-
-    .hero-content { position: relative; max-width: 680px; margin: 0 auto; }
-
-    .hero-badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.25);
-      color: #fff;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 5px 14px;
-      border-radius: 100px;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      font-size: clamp(28px, 6vw, 48px);
-      font-weight: 800;
-      letter-spacing: -1px;
-      line-height: 1.1;
-      margin-bottom: 16px;
-    }
-
-    .hero p {
-      font-size: clamp(15px, 2.5vw, 18px);
-      opacity: 0.85;
-      margin-bottom: 36px;
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      background: #fff;
-      color: var(--primary);
-      font-weight: 800;
-      font-size: 15px;
-      padding: 14px 28px;
-      border-radius: 10px;
-      text-decoration: none;
-      display: inline-block;
-      transition: transform 0.15s, box-shadow 0.15s;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-    }
-
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.25); }
-
-    .btn-secondary {
-      background: transparent;
-      color: #fff;
-      font-weight: 700;
-      font-size: 15px;
-      padding: 14px 28px;
-      border-radius: 10px;
-      text-decoration: none;
-      border: 2px solid rgba(255,255,255,0.5);
-      display: inline-block;
-      transition: background 0.15s;
-    }
-
-    .btn-secondary:hover { background: rgba(255,255,255,0.1); }
-
-    /* TRUST BAR */
-    .trust-bar {
-      background: var(--accent);
-      padding: 16px 24px;
-      display: flex;
-      gap: 24px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--dark);
-    }
-
-    .trust-icon { font-size: 16px; }
-
-    /* SECTIONS */
-    section { padding: 72px 24px; }
-    .section-inner { max-width: 960px; margin: 0 auto; }
-    .section-label {
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--primary);
-      margin-bottom: 10px;
-    }
-    .section-title {
-      font-size: clamp(24px, 4vw, 36px);
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      margin-bottom: 12px;
-    }
-    .section-sub {
-      color: var(--muted);
-      font-size: 16px;
-      max-width: 520px;
-      margin-bottom: 48px;
-    }
-
-    /* SERVICES */
-    .services { background: #f9fafb; }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 16px;
-    }
-
-    .service-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-      transition: box-shadow 0.2s, border-color 0.2s;
-    }
-
-    .service-card:hover {
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      border-color: var(--primary);
-    }
-
-    .service-icon {
-      width: 44px;
-      height: 44px;
-      background: var(--accent);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      margin-bottom: 14px;
-    }
-
-    .service-card h3 {
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    .service-card p {
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    /* REVIEWS */
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 16px;
-    }
-
-    .review-card {
-      background: #f9fafb;
-      border-radius: 12px;
-      padding: 24px;
-    }
-
-    .stars { color: #f59e0b; font-size: 16px; margin-bottom: 10px; }
-
-    .review-text {
-      font-size: 14px;
-      color: var(--text);
-      margin-bottom: 16px;
-      line-height: 1.7;
-      font-style: italic;
-    }
-
-    .reviewer {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--muted);
-    }
-
-    /* CONTACT */
-    .contact { background: var(--dark); color: #fff; }
-
-    .contact .section-label { color: rgba(255,255,255,0.5); }
-    .contact .section-title { color: #fff; }
-    .contact .section-sub { color: rgba(255,255,255,0.6); }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-    }
-
-    @media (max-width: 640px) { .contact-grid { grid-template-columns: 1fr; } }
-
-    .contact-info { display: flex; flex-direction: column; gap: 20px; }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .contact-item-icon {
-      width: 44px;
-      height: 44px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      flex-shrink: 0;
-    }
-
-    .contact-item-text { font-size: 15px; font-weight: 600; color: #fff; }
-    .contact-item-label { font-size: 12px; color: rgba(255,255,255,0.5); margin-bottom: 2px; }
-
-    .contact-form { display: flex; flex-direction: column; gap: 12px; }
-
-    .form-input {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
-      color: #fff;
-      padding: 13px 16px;
-      border-radius: 8px;
-      font-size: 14px;
-      font-family: var(--font);
-      outline: none;
-      transition: border-color 0.2s;
-    }
-
-    .form-input::placeholder { color: rgba(255,255,255,0.35); }
-    .form-input:focus { border-color: rgba(255,255,255,0.4); }
-
-    .form-submit {
-      background: var(--primary);
-      color: #fff;
-      font-family: var(--font);
-      font-size: 15px;
-      font-weight: 700;
-      padding: 14px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: opacity 0.2s;
-    }
-
-    .form-submit:hover { opacity: 0.9; }
-
-    /* FOOTER */
-    footer {
-      background: #111827;
-      color: rgba(255,255,255,0.4);
-      text-align: center;
-      padding: 24px;
-      font-size: 12px;
-    }
-
-    footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
-
-    /* DEMO BADGE */
-    .demo-badge {
-      position: fixed;
-      bottom: 16px;
-      right: 16px;
-      background: rgba(0,0,0,0.75);
-      backdrop-filter: blur(8px);
-      color: rgba(255,255,255,0.7);
-      font-size: 11px;
-      font-family: var(--font);
-      padding: 6px 12px;
-      border-radius: 100px;
-      z-index: 1000;
-      text-decoration: none;
-    }
-
-    .demo-badge span { color: #fff; font-weight: 700; }
-  </style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Nick'z Renovation & Home Repairs &mdash; 292 W Evans St</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#fdf8f0;--surf:#f5efe5;--brd:#e5d9c8;--tx:#1a2e1a;--mu:#7a6e5f;--ac:#c17d11;--gr:#264e36}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:'Nunito',sans-serif;font-size:15px;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;background:rgba(253,248,240,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--brd);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:66px}
+.nn{font-family:'Lora',serif;font-size:16px;color:var(--gr)}
+.nlinks{display:flex;gap:28px;align-items:center}
+.nlinks a{color:var(--mu);text-decoration:none;font-size:14px;font-weight:600;transition:color .2s}
+.nlinks a:hover{color:var(--ac)}
+.ncta{background:var(--gr);color:#fff;padding:10px 22px;border-radius:24px;font-size:13px;font-weight:700;text-decoration:none;transition:opacity .2s}
+.ncta:hover{opacity:.85}
+@media(max-width:640px){.nlinks{display:none};nav{padding:0 20px}}
+.hero{padding:80px 40px 64px;display:flex;align-items:center;gap:60px;max-width:1080px;margin:0 auto}
+.hleft{flex:1}
+.hpill{display:inline-block;background:var(--surf);border:1px solid var(--brd);color:var(--ac);font-size:12px;font-weight:700;padding:5px 16px;border-radius:100px;margin-bottom:24px}
+h1{font-family:'Lora',serif;font-size:clamp(32px,5vw,58px);line-height:1.1;letter-spacing:-.5px;color:var(--gr);margin-bottom:18px}
+.hsub{color:var(--mu);font-size:15px;max-width:420px;margin-bottom:36px;line-height:1.8}
+.hact{display:flex;gap:10px;flex-wrap:wrap}
+.ba{background:var(--gr);color:#fff;padding:13px 28px;border-radius:28px;font-size:14px;font-weight:700;text-decoration:none;transition:opacity .2s}
+.ba:hover{opacity:.85}
+.bg{background:var(--surf);border:1px solid var(--brd);color:var(--tx);padding:13px 28px;border-radius:28px;font-size:14px;font-weight:700;text-decoration:none;transition:background .2s}
+.bg:hover{background:var(--brd)}
+.hright{flex:0 0 300px;background:var(--surf);border:1px solid var(--brd);border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:16px}
+.htile{display:flex;align-items:center;gap:12px}
+.htile-ic{width:40px;height:40px;background:var(--bg);border:1px solid var(--brd);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.htile-txt{font-size:13px;font-weight:600;color:var(--tx)}
+.htile-sub{font-size:11px;color:var(--mu)}
+@media(max-width:768px){.hero{flex-direction:column;padding:52px 20px 40px;gap:32px}.hright{width:100%}}
+.sec{padding:80px 40px;max-width:1080px;margin:0 auto}
+.slbl{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ac);margin-bottom:12px}
+.stit{font-family:'Lora',serif;font-size:clamp(26px,4vw,38px);color:var(--gr);letter-spacing:-.3px;margin-bottom:8px}
+.ssub{color:var(--mu);font-size:14px;max-width:460px;margin-bottom:44px}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.scard{background:var(--bg);border:1px solid var(--brd);border-radius:16px;padding:24px;transition:box-shadow .2s,transform .2s}
+.scard:hover{box-shadow:0 6px 24px rgba(38,78,54,.08);transform:translateY(-2px)}
+.scname{font-family:'Lora',serif;font-size:16px;color:var(--gr);margin-bottom:6px}
+.scdesc{font-size:13px;color:var(--mu)}
+@media(max-width:640px){.sec{padding:52px 20px}}
+.rvsec{background:var(--surf);padding:80px 40px}
+.rvi{max-width:720px;margin:0 auto;text-align:center}
+.rcar{margin:40px 0 24px}
+.rs{display:none;background:var(--bg);border:1px solid var(--brd);border-radius:20px;padding:36px;animation:fw .35s ease}
+.rs.active{display:block}
+@keyframes fw{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:scale(1)}}
+.rstars{color:#f59e0b;font-size:18px;margin-bottom:14px}
+.rst{font-family:'Lora',serif;font-style:italic;font-size:17px;line-height:1.75;color:var(--tx);margin-bottom:16px}
+.rsa{font-size:12px;font-weight:700;color:var(--mu)}
+.rdots{display:flex;gap:8px;justify-content:center;margin-bottom:16px}
+.rd{width:8px;height:8px;border-radius:50%;background:var(--brd);border:none;cursor:pointer;transition:background .2s}
+.rd.active{background:var(--ac)}
+.rnav{display:flex;gap:8px;justify-content:center}
+.rb{background:var(--bg);border:1px solid var(--brd);color:var(--mu);padding:10px 20px;border-radius:24px;cursor:pointer;font-family:'Nunito',sans-serif;font-size:16px;transition:background .2s,color .2s}
+.rb:hover{background:var(--gr);border-color:var(--gr);color:#fff}
+@media(max-width:640px){.rvsec{padding:52px 20px}.rs{padding:24px}}
+.csec{padding:80px 40px;max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.ctit{font-family:'Lora',serif;font-size:clamp(24px,3.5vw,36px);color:var(--gr);margin-bottom:28px}
+.cinfo{display:flex;flex-direction:column;gap:14px}
+.crow{display:flex;align-items:center;gap:14px;padding:14px;background:var(--surf);border-radius:12px}
+.ctic{width:40px;height:40px;background:var(--bg);border:1px solid var(--brd);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.ctxt{display:flex;flex-direction:column;gap:2px}
+.clbl{font-size:11px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.08em}
+.cval{font-size:14px;font-weight:600;color:var(--tx)}
+.cval a{color:var(--ac);text-decoration:none}
+.cform{display:flex;flex-direction:column;gap:12px}
+.cf{background:var(--surf);border:1px solid var(--brd);color:var(--tx);padding:13px 16px;font-family:'Nunito',sans-serif;font-size:14px;border-radius:12px;outline:none;transition:border-color .2s;width:100%}
+.cf:focus{border-color:var(--ac)}
+.cf::placeholder{color:var(--mu)}
+.cs{background:var(--gr);color:#fff;border:none;padding:14px;font-family:'Nunito',sans-serif;font-size:15px;font-weight:700;cursor:pointer;border-radius:28px;transition:opacity .2s}
+.cs:hover{opacity:.85}
+@media(max-width:768px){.csec{grid-template-columns:1fr;gap:36px;padding:52px 20px}}
+footer{border-top:1px solid var(--brd);padding:24px 40px;display:flex;justify-content:space-between;align-items:center}
+.fc{font-size:13px;color:var(--mu)}
+footer a{font-size:13px;color:var(--mu);text-decoration:none;transition:color .2s}
+footer a:hover{color:var(--ac)}
+@media(max-width:640px){footer{flex-direction:column;gap:10px;padding:20px;text-align:center}}
+.dbadge{position:fixed;bottom:20px;right:20px;background:var(--gr);color:rgba(255,255,255,.7);font-size:10px;padding:7px 16px;border-radius:100px;text-decoration:none;z-index:1000;transition:opacity .2s}
+.dbadge:hover{opacity:.85}
+.dbadge strong{color:#fff}
+.mcta{position:fixed;bottom:0;left:0;right:0;background:var(--gr);padding:15px;text-align:center;display:none;z-index:99}
+.mcta a{color:#fff;font-weight:700;font-size:15px;text-decoration:none}
+@media(max-width:640px){.mcta{display:block};body{padding-bottom:54px}}
+</style>
 </head>
 <body>
-
-  <nav>
-    <div class="nav-brand">Nick'z Renovation & Home Repairs</div>
-    <a class="nav-phone" href="tel:+1 843-618-4545">843-618-4545</a>
-    <a class="nav-cta" href="#contact">Get a Quote</a>
-  </nav>
-
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-badge">📍 292 W Evans St, Florence</div>
-      <h1>Nick'z Renovation & Home Repairs</h1>
-      <p>Professional  services in 292 W Evans St, Florence. Licensed, insured, and trusted by hundreds of local customers.</p>
-      <div class="hero-actions">
-        <a class="btn-primary" href="tel:+1 843-618-4545">📞 Call 843-618-4545</a>
-        <a class="btn-secondary" href="#contact">Get Free Quote</a>
-      </div>
-    </div>
-  </section>
-
-  <div class="trust-bar">
-    <div class="trust-item"><span class="trust-icon">✅</span> Licensed & Insured</div>
-    <div class="trust-item"><span class="trust-icon">⭐</span> 5-Star Rated</div>
-    <div class="trust-item"><span class="trust-icon">⚡</span> Same-Day Service</div>
-    <div class="trust-item"><span class="trust-icon">💯</span> Satisfaction Guaranteed</div>
+<nav>
+  <div class="nn">Nick'z Renovation & Home Repairs</div>
+  <div class="nlinks">
+    <a href="#services">Services</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
+    <a href="https://maps.google.com/?cid=12402211696272166803&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Maps</a>
   </div>
-
-  <section class="services">
-    <div class="section-inner">
-      <div class="section-label">What We Do</div>
-      <div class="section-title">Our Services</div>
-      <div class="section-sub">Everything you need from a trusted local  — done right the first time.</div>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">🔧</div>
-          <h3>Roach & Ant Elimination</h3>
-          <p>Professional, reliable service from licensed technicians you can trust.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🛡️</div>
-          <h3>Termite Inspection & Treatment</h3>
-          <p>Professional, reliable service from licensed technicians you can trust.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">⚡</div>
-          <h3>Rodent Control</h3>
-          <p>Professional, reliable service from licensed technicians you can trust.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🏠</div>
-          <h3>Bed Bug Treatment</h3>
-          <p>Professional, reliable service from licensed technicians you can trust.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">✨</div>
-          <h3>Mosquito Control</h3>
-          <p>Professional, reliable service from licensed technicians you can trust.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🔑</div>
-          <h3>Spider & Wasp Removal</h3>
-          <p>Professional, reliable service from licensed technicians you can trust.</p>
-        </div>
-      </div>
+  <a class="ncta" href="tel:+1 843-618-4545">Call Now</a>
+</nav>
+<section class="hero">
+  <div class="hleft">
+    <div class="hpill">292 W Evans St, Florence</div>
+    <h1>Nick'z Renovation & Home Repairs</h1>
+    <p class="hsub">Local home renovation you can actually trust. Serving 292 W Evans St and the surrounding community with honest, reliable work.</p>
+    <div class="hact">
+      <a class="ba" href="tel:+1 843-618-4545">Call (843) 618-4545</a>
+      <a class="bg" href="#contact">Free Estimate</a>
+      <a class="bg" href="https://maps.google.com/?cid=12402211696272166803&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Find Us</a>
     </div>
-  </section>
-
-  <section>
-    <div class="section-inner">
-      <div class="section-label">Reviews</div>
-      <div class="section-title">What Our Customers Say</div>
-      <div class="section-sub">Real feedback from real customers in 292 W Evans St, Florence.</div>
-      <div class="reviews-grid">
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p class="review-text">"Absolutely fantastic service. They came out the same day and took care of everything professionally. Highly recommend to anyone in the area!"</p>
-          <div class="reviewer">— Sarah M., 292 W Evans St</div>
-        </div>
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p class="review-text">"Very professional team. Fair pricing, showed up on time, and did an excellent job. I've already recommended them to my neighbors."</p>
-          <div class="reviewer">— James T., 292 W Evans St</div>
-        </div>
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p class="review-text">"Best in the business. Quick response, thorough work, and great communication throughout. Will definitely be calling them again."</p>
-          <div class="reviewer">— Maria R., 292 W Evans St</div>
-        </div>
-      </div>
+  </div>
+  <div class="hright">
+    <div class="htile"><div class="htile-ic">&#9989;</div><div><div class="htile-txt">Licensed &amp; Insured</div><div class="htile-sub">Fully covered, every job</div></div></div>
+    <div class="htile"><div class="htile-ic">&#11088;</div><div><div class="htile-txt">5-Star Rated</div><div class="htile-sub">Trusted by 292 W Evans St locals</div></div></div>
+    <div class="htile"><div class="htile-ic">&#9200;</div><div><div class="htile-txt">Fast Response</div><div class="htile-sub">Same or next-day service</div></div></div>
+    <div class="htile"><div class="htile-ic">&#128200;</div><div><div class="htile-txt">Fair Pricing</div><div class="htile-sub">Free estimates, no surprises</div></div></div>
+  </div>
+</section>
+<section class="sec" id="services">
+  <div class="slbl">Services</div>
+  <h2 class="stit">What We Do</h2>
+  <p class="ssub">Everything you need, done right the first time — by people who take pride in their craft.</p>
+  <div class="sgrid">
+    <div class="scard"><div class="scname">Kitchen Renovation</div><div class="scdesc">Handled professionally by our experienced local team.</div></div>
+    <div class="scard"><div class="scname">Bathroom Remodeling</div><div class="scdesc">Handled professionally by our experienced local team.</div></div>
+    <div class="scard"><div class="scname">Interior Painting</div><div class="scdesc">Handled professionally by our experienced local team.</div></div>
+    <div class="scard"><div class="scname">Flooring Installation</div><div class="scdesc">Handled professionally by our experienced local team.</div></div>
+    <div class="scard"><div class="scname">Carpentry & Trim</div><div class="scdesc">Handled professionally by our experienced local team.</div></div>
+    <div class="scard"><div class="scname">Deck Restoration</div><div class="scdesc">Handled professionally by our experienced local team.</div></div>
+  </div>
+</section>
+<section class="rvsec" id="reviews">
+  <div class="rvi">
+    <div class="slbl">Reviews</div>
+    <h2 class="stit" style="margin-bottom:4px">Neighbors Trust Us</h2>
+    <p style="color:var(--mu);font-size:14px;margin-bottom:0">Real feedback from real customers in 292 W Evans St.</p>
+    <div class="rcar">
+      <div class="rs active"><div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rst">&ldquo;Best home renovation experience I've had in 292 W Evans St. They were on time, professional, and actually fixed the problem permanently. Already recommended them to three friends.&rdquo;</p><div class="rsa">&mdash; Michael R., 292 W Evans St</div></div>
+      <div class="rs"><div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rst">&ldquo;After a bad experience with another company, Nick'z Renovation & Home Repairs completely restored my confidence. Thorough, honest, and genuinely great to work with.&rdquo;</p><div class="rsa">&mdash; Sandra K., 292 W Evans St</div></div>
+      <div class="rs"><div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rst">&ldquo;Fast response, fair pricing, and no upselling. They explained everything clearly and the results speak for themselves. This is the home renovation team 292 W Evans St deserves.&rdquo;</p><div class="rsa">&mdash; James T., 292 W Evans St</div></div>
+      <div class="rs"><div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rst">&ldquo;Top-notch from the first call to the final walkthrough. Nick'z Renovation & Home Repairs treats your home like their own. Couldn't ask for better service.&rdquo;</p><div class="rsa">&mdash; Patricia M., 292 W Evans St</div></div>
     </div>
-  </section>
-
-  <section class="contact" id="contact">
-    <div class="section-inner">
-      <div class="section-label">Contact Us</div>
-      <div class="section-title">Get Your Free Quote</div>
-      <div class="section-sub">Reach out today — we respond fast and always offer free estimates.</div>
-      <div class="contact-grid">
-        <div class="contact-info">
-          <div class="contact-item">
-            <div class="contact-item-icon">📞</div>
-            <div>
-              <div class="contact-item-label">Call or Text</div>
-              <a class="contact-item-text" href="tel:+1 843-618-4545" style="color:#fff;text-decoration:none">843-618-4545</a>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">📍</div>
-            <div>
-              <div class="contact-item-label">Service Area</div>
-              <div class="contact-item-text">292 W Evans St, Florence & Surrounding Areas</div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">🕐</div>
-            <div>
-              <div class="contact-item-label">Hours</div>
-              <div class="contact-item-text">Mon–Sat 7am–7pm</div>
-            </div>
-          </div>
-        </div>
-        <form class="contact-form" onsubmit="event.preventDefault(); alert('Thanks! We\'ll be in touch shortly.');">
-          <input class="form-input" type="text" placeholder="Your Name" required>
-          <input class="form-input" type="tel" placeholder="Phone Number" required>
-          <input class="form-input" type="email" placeholder="Email Address">
-          <textarea class="form-input" placeholder="Describe your issue..." rows="3" style="resize:vertical"></textarea>
-          <button class="form-submit" type="submit">Send My Request →</button>
-        </form>
-      </div>
+    <div class="rdots"><button class="rd active" data-i="0"></button><button class="rd" data-i="1"></button><button class="rd" data-i="2"></button><button class="rd" data-i="3"></button></div>
+    <div class="rnav"><button class="rb" id="rp">&#8592;</button><button class="rb" id="rn">&#8594;</button></div>
+  </div>
+</section>
+<section id="contact"><div class="csec">
+  <div>
+    <div class="slbl">Contact</div>
+    <h2 class="ctit">Let&rsquo;s Talk</h2>
+    <div class="cinfo">
+      <div class="crow"><div class="ctic">&#128222;</div><div class="ctxt"><div class="clbl">Call or Text</div><div class="cval"><a href="tel:+1 843-618-4545">(843) 618-4545</a></div></div></div>
+      <div class="crow"><div class="ctic">&#128205;</div><div class="ctxt"><div class="clbl">Service Area</div><div class="cval">292 W Evans St, Florence &amp; Surrounding</div></div></div>
+      <div class="crow"><div class="ctic">&#128336;</div><div class="ctxt"><div class="clbl">Hours</div><div class="cval">Mon &ndash; Sat, 7am &ndash; 7pm</div></div></div>
     </div>
-  </section>
-
-  <footer>
-    <p>© 2026 Nick'z Renovation & Home Repairs · 292 W Evans St, Florence · All rights reserved</p>
-  </footer>
-
-  <a class="demo-badge" href="https://jayexe.com" target="_blank" rel="noopener">Demo by <span>Jay @ jayexe.com</span></a>
-
-</body>
-</html>
+  </div>
+  <form class="cform" onsubmit="this.innerHTML='<p style=color:var(--ac);padding:20px 0;font-family:Lora,serif;font-size:18px>Thank you! We\'ll be in touch soon.</p>';return false;">
+    <input class="cf" type="text" placeholder="Your name" required>
+    <input class="cf" type="tel" placeholder="Phone number" required>
+    <input class="cf" type="email" placeholder="Email (optional)">
+    <textarea class="cf" placeholder="What do you need help with?" rows="4" style="resize:vertical"></textarea>
+    <button class="cs">Send Message</button>
+  </form>
+</div></section>
+<footer>
+  <span class="fc">&copy; 2026 Nick'z Renovation & Home Repairs &middot; 292 W Evans St</span>
+  <a href="https://maps.google.com/?cid=12402211696272166803&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Google Maps</a>
+</footer>
+<div class="mcta"><a href="tel:+1 843-618-4545">Call (843) 618-4545</a></div>
+<a class="dbadge" href="https://jayexe.com" target="_blank" rel="noopener">Demo by <strong>Jay @ jayexe.com</strong></a>
+<script>
+(function(){
+  let i=0;
+  const slides=document.querySelectorAll('.rs');
+  const dots=document.querySelectorAll('.rd');
+  let t;
+  function go(n){
+    slides[i].classList.remove('active');
+    dots[i].classList.remove('active');
+    i=(n+slides.length)%slides.length;
+    slides[i].classList.add('active');
+    dots[i].classList.add('active');
+  }
+  function start(){t=setInterval(()=>go(i+1),4800);}
+  function reset(){clearInterval(t);start();}
+  document.getElementById('rn')?.addEventListener('click',()=>{go(i+1);reset();});
+  document.getElementById('rp')?.addEventListener('click',()=>{go(i-1);reset();});
+  dots.forEach((d,j)=>d.addEventListener('click',()=>{go(j);reset();}));
+  start();
+})();
+</script>
+</body></html>
