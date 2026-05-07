@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exclusive Handyman Services | 435 SW 6th St #26, Miami</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #16a34a;
+      --dark: #14532d;
+      --accent: #dcfce7;
+      --text: #111827;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --font: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      color: var(--text);
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+
+    .nav-brand {
+      font-weight: 800;
+      font-size: 17px;
+      color: var(--primary);
+      letter-spacing: -0.3px;
+    }
+
+    .nav-phone {
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-cta {
+      background: var(--primary);
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      display: none;
+    }
+
+    @media (min-width: 640px) { .nav-cta { display: inline-block; } }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
+      color: #fff;
+      padding: 80px 24px 72px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .hero-content { position: relative; max-width: 680px; margin: 0 auto; }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 6vw, 48px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: clamp(15px, 2.5vw, 18px);
+      opacity: 0.85;
+      margin-bottom: 36px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: #fff;
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 15px;
+      padding: 14px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      display: inline-block;
+      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.25); }
+
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      border: 2px solid rgba(255,255,255,0.5);
+      display: inline-block;
+      transition: background 0.15s;
+    }
+
+    .btn-secondary:hover { background: rgba(255,255,255,0.1); }
+
+    /* TRUST BAR */
+    .trust-bar {
+      background: var(--accent);
+      padding: 16px 24px;
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .trust-icon { font-size: 16px; }
+
+    /* SECTIONS */
+    section { padding: 72px 24px; }
+    .section-inner { max-width: 960px; margin: 0 auto; }
+    .section-label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+    .section-sub {
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 520px;
+      margin-bottom: 48px;
+    }
+
+    /* SERVICES */
+    .services { background: #f9fafb; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .service-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+
+    .service-card:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      border-color: var(--primary);
+    }
+
+    .service-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--accent);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+
+    .service-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .service-card p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* REVIEWS */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .review-card {
+      background: #f9fafb;
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .stars { color: #f59e0b; font-size: 16px; margin-bottom: 10px; }
+
+    .review-text {
+      font-size: 14px;
+      color: var(--text);
+      margin-bottom: 16px;
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    .reviewer {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    /* CONTACT */
+    .contact { background: var(--dark); color: #fff; }
+
+    .contact .section-label { color: rgba(255,255,255,0.5); }
+    .contact .section-title { color: #fff; }
+    .contact .section-sub { color: rgba(255,255,255,0.6); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+
+    @media (max-width: 640px) { .contact-grid { grid-template-columns: 1fr; } }
+
+    .contact-info { display: flex; flex-direction: column; gap: 20px; }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .contact-item-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .contact-item-text { font-size: 15px; font-weight: 600; color: #fff; }
+    .contact-item-label { font-size: 12px; color: rgba(255,255,255,0.5); margin-bottom: 2px; }
+
+    .contact-form { display: flex; flex-direction: column; gap: 12px; }
+
+    .form-input {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #fff;
+      padding: 13px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: var(--font);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-input::placeholder { color: rgba(255,255,255,0.35); }
+    .form-input:focus { border-color: rgba(255,255,255,0.4); }
+
+    .form-submit {
+      background: var(--primary);
+      color: #fff;
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .form-submit:hover { opacity: 0.9; }
+
+    /* FOOTER */
+    footer {
+      background: #111827;
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+    }
+
+    footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
+
+    /* DEMO BADGE */
+    .demo-badge {
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(8px);
+      color: rgba(255,255,255,0.7);
+      font-size: 11px;
+      font-family: var(--font);
+      padding: 6px 12px;
+      border-radius: 100px;
+      z-index: 1000;
+      text-decoration: none;
+    }
+
+    .demo-badge span { color: #fff; font-weight: 700; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-brand">Exclusive Handyman Services</div>
+    <a class="nav-phone" href="tel:+1 786-543-7991">786-543-7991</a>
+    <a class="nav-cta" href="#contact">Get a Quote</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">📍 435 SW 6th St #26, Miami</div>
+      <h1>Exclusive Handyman Services</h1>
+      <p>Professional  services in 435 SW 6th St #26, Miami. Licensed, insured, and trusted by hundreds of local customers.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="tel:+1 786-543-7991">📞 Call 786-543-7991</a>
+        <a class="btn-secondary" href="#contact">Get Free Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-bar">
+    <div class="trust-item"><span class="trust-icon">✅</span> Licensed & Insured</div>
+    <div class="trust-item"><span class="trust-icon">⭐</span> 5-Star Rated</div>
+    <div class="trust-item"><span class="trust-icon">⚡</span> Same-Day Service</div>
+    <div class="trust-item"><span class="trust-icon">💯</span> Satisfaction Guaranteed</div>
+  </div>
+
+  <section class="services">
+    <div class="section-inner">
+      <div class="section-label">What We Do</div>
+      <div class="section-title">Our Services</div>
+      <div class="section-sub">Everything you need from a trusted local  — done right the first time.</div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🔧</div>
+          <h3>Roach & Ant Elimination</h3>
+          <p>Professional, reliable service from licensed technicians you can trust.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🛡️</div>
+          <h3>Termite Inspection & Treatment</h3>
+          <p>Professional, reliable service from licensed technicians you can trust.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">⚡</div>
+          <h3>Rodent Control</h3>
+          <p>Professional, reliable service from licensed technicians you can trust.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🏠</div>
+          <h3>Bed Bug Treatment</h3>
+          <p>Professional, reliable service from licensed technicians you can trust.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">✨</div>
+          <h3>Mosquito Control</h3>
+          <p>Professional, reliable service from licensed technicians you can trust.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔑</div>
+          <h3>Spider & Wasp Removal</h3>
+          <p>Professional, reliable service from licensed technicians you can trust.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-inner">
+      <div class="section-label">Reviews</div>
+      <div class="section-title">What Our Customers Say</div>
+      <div class="section-sub">Real feedback from real customers in 435 SW 6th St #26, Miami.</div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Absolutely fantastic service. They came out the same day and took care of everything professionally. Highly recommend to anyone in the area!"</p>
+          <div class="reviewer">— Sarah M., 435 SW 6th St #26</div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Very professional team. Fair pricing, showed up on time, and did an excellent job. I've already recommended them to my neighbors."</p>
+          <div class="reviewer">— James T., 435 SW 6th St #26</div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Best in the business. Quick response, thorough work, and great communication throughout. Will definitely be calling them again."</p>
+          <div class="reviewer">— Maria R., 435 SW 6th St #26</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="section-inner">
+      <div class="section-label">Contact Us</div>
+      <div class="section-title">Get Your Free Quote</div>
+      <div class="section-sub">Reach out today — we respond fast and always offer free estimates.</div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-item-icon">📞</div>
+            <div>
+              <div class="contact-item-label">Call or Text</div>
+              <a class="contact-item-text" href="tel:+1 786-543-7991" style="color:#fff;text-decoration:none">786-543-7991</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <div>
+              <div class="contact-item-label">Service Area</div>
+              <div class="contact-item-text">435 SW 6th St #26, Miami & Surrounding Areas</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">🕐</div>
+            <div>
+              <div class="contact-item-label">Hours</div>
+              <div class="contact-item-text">Mon–Sat 7am–7pm</div>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Thanks! We\'ll be in touch shortly.');">
+          <input class="form-input" type="text" placeholder="Your Name" required>
+          <input class="form-input" type="tel" placeholder="Phone Number" required>
+          <input class="form-input" type="email" placeholder="Email Address">
+          <textarea class="form-input" placeholder="Describe your issue..." rows="3" style="resize:vertical"></textarea>
+          <button class="form-submit" type="submit">Send My Request →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Exclusive Handyman Services · 435 SW 6th St #26, Miami · All rights reserved</p>
+  </footer>
+
+  <a class="demo-badge" href="https://jayexe.com" target="_blank" rel="noopener">Demo by <span>Jay @ jayexe.com</span></a>
+
+</body>
+</html>
