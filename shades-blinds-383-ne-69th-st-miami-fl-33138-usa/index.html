@@ -1,191 +1,1142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Shades & Blinds &mdash; 383 NE 69th St</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#faf8f5;--surf:#f3efe9;--brd:#e0d8cc;--tx:#1c1917;--mu:#7d7268;--ac:#92681a;--acl:rgba(146,104,26,.08)}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--tx);font-family:'Jost',sans-serif;font-size:15px;line-height:1.7;font-weight:300}
-nav{position:sticky;top:0;z-index:100;background:rgba(250,248,245,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--brd);display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:72px}
-.nn{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;color:var(--tx);letter-spacing:.02em}
-.nlinks{display:flex;gap:36px;align-items:center}
-.nlinks a{color:var(--mu);text-decoration:none;font-size:13px;font-weight:400;letter-spacing:.08em;transition:color .2s}
-.nlinks a:hover{color:var(--ac)}
-.ncta{border:1px solid var(--ac);color:var(--ac);padding:10px 24px;font-size:12px;font-weight:500;letter-spacing:.1em;text-decoration:none;border-radius:2px;transition:background .2s,color .2s}
-.ncta:hover{background:var(--ac);color:#fff}
-@media(max-width:640px){.nlinks{display:none};nav{padding:0 24px}}
-.hero{padding:100px 56px 80px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:80px;align-items:end}
-.hleft{max-width:600px}
-.hkicker{font-size:11px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--ac);margin-bottom:24px}
-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,5.5vw,72px);font-weight:300;line-height:1.05;letter-spacing:-.5px;margin-bottom:24px;color:var(--tx)}
-h1 em{font-style:italic;color:var(--ac)}
-.hsub{color:var(--mu);font-size:16px;line-height:1.8;margin-bottom:40px;font-weight:300}
-.hact{display:flex;gap:12px;flex-wrap:wrap}
-.ba{background:var(--tx);color:var(--bg);padding:14px 32px;font-size:13px;font-weight:500;letter-spacing:.08em;text-decoration:none;border-radius:2px;transition:opacity .2s}
-.ba:hover{opacity:.85}
-.bg{border:1px solid var(--brd);color:var(--mu);padding:14px 32px;font-size:13px;font-weight:400;letter-spacing:.08em;text-decoration:none;border-radius:2px;transition:border-color .2s,color .2s}
-.bg:hover{border-color:var(--ac);color:var(--ac)}
-.hright{text-align:center}
-.hmonogram{font-family:'Cormorant Garamond',serif;font-size:120px;font-weight:300;font-style:italic;color:var(--surf);line-height:1;letter-spacing:-4px;user-select:none;border:1px solid var(--brd);width:200px;height:200px;display:flex;align-items:center;justify-content:center;border-radius:2px}
-@media(max-width:768px){.hero{grid-template-columns:1fr;padding:64px 24px 48px;gap:0}.hright{display:none}}
-.divider{border:none;border-top:1px solid var(--brd);margin:0 56px}
-.sec{padding:88px 56px;max-width:1100px;margin:0 auto}
-.slbl{font-size:10px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--ac);margin-bottom:20px}
-.stit{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,46px);font-weight:300;letter-spacing:-.3px;margin-bottom:56px}
-.slist{list-style:none}
-.si2{display:flex;align-items:baseline;gap:20px;padding:22px 0;border-bottom:1px solid var(--brd)}
-.si2:first-child{border-top:1px solid var(--brd)}
-.snum{font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--ac);min-width:24px;font-style:italic}
-.sname{font-size:15px;font-weight:500;flex:1;color:var(--tx)}
-.sdesc{font-size:13px;color:var(--mu);font-weight:300;text-align:right}
-@media(max-width:640px){.sec{padding:56px 24px}.sdesc{display:none}}
-.rvsec{background:var(--surf);border-top:1px solid var(--brd);border-bottom:1px solid var(--brd);padding:88px 56px}
-.rvi{max-width:720px;margin:0 auto}
-.rcar{margin:48px 0 24px;position:relative;min-height:180px}
-.rs{display:none;animation:ff .4s ease}
-.rs.active{display:block}
-@keyframes ff{from{opacity:0}to{opacity:1}}
-.ropen{font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:300;color:var(--brd);line-height:.4;margin-bottom:16px}
-.rt{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;font-style:italic;line-height:1.75;color:var(--tx);margin-bottom:20px}
-.ra{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ac)}
-.rbot{display:flex;justify-content:space-between;align-items:center;margin-top:32px;border-top:1px solid var(--brd);padding-top:20px}
-.rdots{display:flex;gap:8px}
-.rd{width:24px;height:1px;background:var(--brd);border:none;cursor:pointer;transition:background .2s;padding:0}
-.rd.active{background:var(--ac)}
-.rnav{display:flex;gap:16px}
-.rb{background:transparent;border:none;color:var(--mu);font-family:'Jost',sans-serif;font-size:13px;font-weight:400;letter-spacing:.08em;cursor:pointer;transition:color .2s;padding:0}
-.rb:hover{color:var(--ac)}
-@media(max-width:640px){.rvsec{padding:56px 24px}}
-.csec{padding:88px 56px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:5fr 6fr;gap:88px;align-items:start}
-.ctit{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.5vw,46px);font-weight:300;letter-spacing:-.3px;margin-bottom:36px}
-.cinfo{display:flex;flex-direction:column;gap:0}
-.crow{padding:16px 0;border-bottom:1px solid var(--brd)}
-.crow:first-child{border-top:1px solid var(--brd)}
-.clbl{font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ac);margin-bottom:5px}
-.cval{font-size:14px;font-weight:400;color:var(--tx)}
-.cval a{color:var(--tx);text-decoration:none;border-bottom:1px solid var(--brd);transition:border-color .2s}
-.cval a:hover{border-color:var(--ac)}
-.cform{display:flex;flex-direction:column;gap:12px}
-.cf{background:var(--bg);border:none;border-bottom:1px solid var(--brd);color:var(--tx);padding:12px 0;font-family:'Jost',sans-serif;font-size:14px;font-weight:300;border-radius:0;outline:none;transition:border-color .2s;width:100%}
-.cf:focus{border-color:var(--ac)}
-.cf::placeholder{color:var(--mu)}
-.cs{background:var(--tx);color:var(--bg);border:none;padding:15px;font-family:'Jost',sans-serif;font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border-radius:2px;margin-top:8px;transition:opacity .2s}
-.cs:hover{opacity:.85}
-@media(max-width:768px){.csec{grid-template-columns:1fr;gap:40px;padding:56px 24px}}
-footer{border-top:1px solid var(--brd);padding:28px 56px;display:flex;justify-content:space-between;align-items:center}
-.fc{font-size:12px;font-weight:300;color:var(--mu);letter-spacing:.05em}
-footer a{font-size:12px;color:var(--mu);text-decoration:none;letter-spacing:.05em;transition:color .2s}
-footer a:hover{color:var(--ac)}
-@media(max-width:640px){footer{flex-direction:column;gap:10px;padding:20px;text-align:center}}
-.dbadge{position:fixed;bottom:24px;right:24px;background:var(--bg);border:1px solid var(--brd);color:var(--mu);font-size:10px;padding:8px 16px;border-radius:2px;text-decoration:none;letter-spacing:.06em;z-index:1000;transition:color .2s}
-.dbadge:hover{color:var(--ac)}
-.dbadge strong{color:var(--tx);font-weight:500}
-.mcta{position:fixed;bottom:0;left:0;right:0;background:var(--tx);padding:15px;text-align:center;display:none;z-index:99}
-.mcta a{color:var(--bg);font-weight:500;font-size:14px;letter-spacing:.06em;text-decoration:none}
-@media(max-width:640px){.mcta{display:block};body{padding-bottom:54px}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shades &amp; Blinds — Miami Window Treatments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --charcoal:   #2d2a26;
+      --gold:       #c9a96e;
+      --gold-dark:  #a8854a;
+      --cream:      #fdfaf5;
+      --sand:       #f0e8d8;
+      --taupe:      #8a7560;
+      --white:      #ffffff;
+      --border:     rgba(45,42,38,.12);
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'Jost', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      color: var(--charcoal);
+      background: var(--cream);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a  { text-decoration: none; color: inherit; }
+
+    /* ── SVG Icon System ── */
+    .icon {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      vertical-align: middle;
+    }
+    .icon-lg { width: 2.25rem; height: 2.25rem; }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: .9rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .85rem 2rem;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background .22s ease, color .22s ease, opacity .22s ease;
+      white-space: nowrap;
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--charcoal);
+      border: 1.5px solid transparent;
+    }
+    .btn-gold:hover { background: var(--gold-dark); color: var(--white); }
+
+    .btn-ghost-white {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid var(--white);
+    }
+    .btn-ghost-white:hover { background: rgba(255,255,255,.12); }
+
+    .btn-ghost-charcoal {
+      background: transparent;
+      color: var(--charcoal);
+      border: 1.5px solid var(--charcoal);
+    }
+    .btn-ghost-charcoal:hover { background: var(--charcoal); color: var(--white); }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(253,250,245,.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      height: 68px;
+      display: flex;
+      align-items: center;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      letter-spacing: .01em;
+      flex-shrink: 0;
+    }
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: .82rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      transition: color .18s;
+    }
+    .nav-links a:hover { color: var(--charcoal); }
+
+    .nav-cta {
+      background: var(--charcoal);
+      color: var(--gold);
+      border: 1.5px solid transparent;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: .8rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .6rem 1.4rem;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background .2s, color .2s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .nav-cta:hover { background: var(--gold); color: var(--charcoal); }
+
+    /* ── Hero ── */
+    #hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 8rem 2rem 5rem;
+      overflow: hidden;
+    }
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1600&q=80') center/cover no-repeat;
+      z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(25,20,15,.62) 0%,
+        rgba(35,28,20,.55) 50%,
+        rgba(45,35,22,.48) 100%
+      );
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 820px;
+    }
+    .hero-eyebrow {
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(255,255,255,.82);
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── Stats Band ── */
+    #stats {
+      background: var(--sand);
+      padding: 4.5rem 2rem;
+    }
+    .stats-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+    }
+    .stat-item {
+      text-align: center;
+      padding: 2rem 1.5rem;
+    }
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: .5rem;
+    }
+    .stat-label {
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--taupe);
+    }
+
+    /* ── Section Shared ── */
+    .section-label {
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .9rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .section-sub {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--taupe);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    /* ── Products ── */
+    #products {
+      padding: 6rem 2rem;
+      background: var(--cream);
+    }
+    .products-header {
+      max-width: 1200px;
+      margin: 0 auto 3.5rem;
+      text-align: center;
+    }
+    .products-header .section-sub { margin: 0 auto; }
+
+    .products-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .product-card {
+      background: var(--sand);
+      border-radius: 4px;
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.1rem;
+      transition: box-shadow .22s;
+    }
+    .product-card:hover {
+      box-shadow: 0 8px 32px rgba(45,42,38,.1);
+    }
+    .product-icon-wrap {
+      width: 52px;
+      height: 52px;
+      background: rgba(201,169,110,.14);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+    }
+    .product-name {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      line-height: 1.25;
+    }
+    .product-desc {
+      font-size: .88rem;
+      font-weight: 300;
+      color: var(--taupe);
+      line-height: 1.6;
+    }
+    .product-link {
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      margin-top: auto;
+      transition: gap .18s;
+    }
+    .product-link:hover { gap: .7rem; }
+
+    /* ── Feature Section ── */
+    #feature {
+      background: var(--charcoal);
+      padding: 6rem 2rem;
+      color: var(--white);
+    }
+    .feature-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .feature-content .section-title { color: var(--white); }
+    .feature-content .section-sub { color: rgba(255,255,255,.6); max-width: 100%; }
+
+    .feature-list {
+      list-style: none;
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .feature-list-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(201,169,110,.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      flex-shrink: 0;
+      margin-top: .1rem;
+    }
+    .feature-list-text strong {
+      display: block;
+      font-weight: 500;
+      font-size: .95rem;
+      color: var(--white);
+      margin-bottom: .2rem;
+    }
+    .feature-list-text span {
+      font-size: .85rem;
+      font-weight: 300;
+      color: rgba(255,255,255,.55);
+      line-height: 1.6;
+    }
+
+    .feature-photo {
+      border-radius: 4px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+    }
+    .feature-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .6s ease;
+    }
+    .feature-photo:hover img { transform: scale(1.03); }
+
+    /* ── Reviews ── */
+    #reviews {
+      padding: 6rem 2rem;
+      background: var(--cream);
+    }
+    .reviews-header {
+      max-width: 1200px;
+      margin: 0 auto 3.5rem;
+      text-align: center;
+    }
+    .reviews-header .section-sub { margin: 0 auto; }
+
+    .stars {
+      display: flex;
+      align-items: center;
+      gap: .2rem;
+      color: var(--gold);
+      font-size: 1rem;
+      margin-bottom: .9rem;
+    }
+
+    .reviews-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .review-card {
+      background: var(--sand);
+      border-radius: 4px;
+      padding: 2.2rem;
+    }
+    .review-text {
+      font-size: .92rem;
+      font-weight: 300;
+      color: var(--charcoal);
+      line-height: 1.7;
+      margin-bottom: 1.4rem;
+      font-style: italic;
+    }
+    .review-text::before { content: '\201C'; }
+    .review-text::after  { content: '\201D'; }
+
+    .reviewer-name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: .95rem;
+      color: var(--charcoal);
+    }
+    .reviewer-meta {
+      font-size: .78rem;
+      font-weight: 400;
+      color: var(--taupe);
+      margin-top: .15rem;
+    }
+
+    /* ── Trust Band ── */
+    #trust {
+      background: var(--sand);
+      padding: 4rem 2rem;
+    }
+    .trust-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+    }
+    .trust-icon-wrap {
+      width: 44px;
+      height: 44px;
+      background: rgba(201,169,110,.18);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .trust-text strong {
+      display: block;
+      font-size: .88rem;
+      font-weight: 500;
+      color: var(--charcoal);
+    }
+    .trust-text span {
+      font-size: .78rem;
+      font-weight: 300;
+      color: var(--taupe);
+    }
+
+    /* ── CTA Section ── */
+    #cta {
+      background: var(--gold);
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+    .cta-inner { max-width: 680px; margin: 0 auto; }
+    #cta .section-label { color: rgba(45,42,38,.6); }
+    #cta .section-title { color: var(--charcoal); }
+    #cta .section-sub { color: rgba(45,42,38,.7); margin: 0 auto 2.5rem; }
+    .cta-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--charcoal);
+      color: rgba(255,255,255,.55);
+      padding: 3.5rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 2rem;
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .footer-logo span { color: var(--gold); }
+
+    .footer-center { text-align: center; }
+    .footer-address {
+      font-size: .82rem;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+    .footer-phone {
+      color: var(--gold);
+      font-weight: 400;
+      font-size: .88rem;
+    }
+    .footer-right {
+      text-align: right;
+      font-size: .78rem;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+    .footer-copy {
+      margin-top: 2.5rem;
+      text-align: center;
+      font-size: .75rem;
+      font-weight: 300;
+      opacity: .5;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .stats-grid          { grid-template-columns: repeat(2,1fr); }
+      .products-grid       { grid-template-columns: repeat(2,1fr); }
+      .feature-inner       { grid-template-columns: 1fr; gap: 3rem; }
+      .feature-photo       { aspect-ratio: 16/9; order: -1; }
+      .reviews-grid        { grid-template-columns: repeat(2,1fr); }
+      .trust-inner         { grid-template-columns: repeat(2,1fr); }
+      .footer-inner        { grid-template-columns: 1fr; text-align: center; }
+      .footer-right        { text-align: center; }
+      .nav-links           { display: none; }
+    }
+    @media (max-width: 600px) {
+      .products-grid       { grid-template-columns: 1fr; }
+      .reviews-grid        { grid-template-columns: 1fr; }
+      .stats-grid          { grid-template-columns: repeat(2,1fr); }
+      .trust-inner         { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
+
+<!-- ══ SVG Symbol Definitions ══ -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="icon-roller" viewBox="0 0 24 24">
+    <rect x="3" y="3" width="18" height="3" rx="1"/>
+    <line x1="12" y1="6" x2="12" y2="20"/>
+    <rect x="9" y="8" width="6" height="10" rx="1"/>
+  </symbol>
+  <symbol id="icon-wood-blind" viewBox="0 0 24 24">
+    <rect x="3" y="3" width="18" height="2" rx="1"/>
+    <rect x="3" y="8" width="18" height="2" rx="1"/>
+    <rect x="3" y="13" width="18" height="2" rx="1"/>
+    <rect x="3" y="18" width="18" height="2" rx="1"/>
+    <line x1="12" y1="5" x2="12" y2="20"/>
+  </symbol>
+  <symbol id="icon-cellular" viewBox="0 0 24 24">
+    <rect x="3" y="3" width="18" height="18" rx="2"/>
+    <path d="M3 9h18M3 15h18M9 3v18M15 3v18"/>
+  </symbol>
+  <symbol id="icon-roman" viewBox="0 0 24 24">
+    <rect x="3" y="3" width="18" height="2" rx="1"/>
+    <path d="M5 5v4q7 3 14 0V5"/>
+    <path d="M5 9v4q7 3 14 0V9"/>
+    <path d="M5 13v4q7 3 14 0v-4"/>
+    <line x1="12" y1="3" x2="12" y2="21"/>
+  </symbol>
+  <symbol id="icon-shutter" viewBox="0 0 24 24">
+    <rect x="4" y="2" width="7" height="20" rx="1"/>
+    <rect x="13" y="2" width="7" height="20" rx="1"/>
+    <line x1="4" y1="7" x2="11" y2="7"/>
+    <line x1="4" y1="12" x2="11" y2="12"/>
+    <line x1="4" y1="17" x2="11" y2="17"/>
+    <line x1="13" y1="7" x2="20" y2="7"/>
+    <line x1="13" y1="12" x2="20" y2="12"/>
+    <line x1="13" y1="17" x2="20" y2="17"/>
+  </symbol>
+  <symbol id="icon-faux" viewBox="0 0 24 24">
+    <rect x="3" y="3" width="18" height="2" rx="1"/>
+    <rect x="3" y="8" width="18" height="1.5" rx=".75"/>
+    <rect x="3" y="12.5" width="18" height="1.5" rx=".75"/>
+    <rect x="3" y="17" width="18" height="2" rx="1"/>
+    <line x1="12" y1="5" x2="12" y2="21"/>
+  </symbol>
+  <!-- Feature icons -->
+  <symbol id="icon-home" viewBox="0 0 24 24">
+    <path d="M3 9.75 12 3l9 6.75V21H3V9.75Z"/>
+    <path d="M9 21v-8h6v8"/>
+  </symbol>
+  <symbol id="icon-measure" viewBox="0 0 24 24">
+    <rect x="2" y="8" width="20" height="8" rx="1" transform="rotate(-45 12 12)"/>
+    <line x1="9" y1="9" x2="9" y2="12"/>
+    <line x1="12" y1="9" x2="12" y2="13.5"/>
+    <line x1="15" y1="9" x2="15" y2="12"/>
+  </symbol>
+  <symbol id="icon-shield" viewBox="0 0 24 24">
+    <path d="M12 2 4 5.5V12c0 4.5 3.5 8.5 8 10 4.5-1.5 8-5.5 8-10V5.5L12 2Z"/>
+    <polyline points="9 12 11 14 15 10"/>
+  </symbol>
+  <symbol id="icon-star" viewBox="0 0 24 24">
+    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" stroke-width="1.5"/>
+  </symbol>
+  <symbol id="icon-leaf" viewBox="0 0 24 24">
+    <path d="M17 8C8 10 5.9 16.17 3.82 19.92A2 2 0 0 0 5 22c5-1 13-5 15-14"/>
+    <path d="M7.77 11.5a5 5 0 0 1 7.46 6.33"/>
+  </symbol>
+  <symbol id="icon-tool" viewBox="0 0 24 24">
+    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91A6 6 0 0 1 14.7 6.3Z"/>
+  </symbol>
+  <symbol id="icon-phone" viewBox="0 0 24 24">
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/>
+  </symbol>
+  <symbol id="icon-check" viewBox="0 0 24 24">
+    <polyline points="20 6 9 17 4 12"/>
+  </symbol>
+  <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+    <line x1="5" y1="12" x2="19" y2="12"/>
+    <polyline points="12 5 19 12 12 19"/>
+  </symbol>
+  <symbol id="icon-award" viewBox="0 0 24 24">
+    <circle cx="12" cy="8" r="6"/>
+    <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+  </symbol>
+  <symbol id="icon-sun" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="4"/>
+    <line x1="12" y1="2" x2="12" y2="4"/>
+    <line x1="12" y1="20" x2="12" y2="22"/>
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+    <line x1="2" y1="12" x2="4" y2="12"/>
+    <line x1="20" y1="12" x2="22" y2="12"/>
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+  </symbol>
+</svg>
+
+<!-- ══ Nav ══ -->
 <nav>
-  <div class="nn">Shades & Blinds</div>
-  <div class="nlinks">
-    <a href="#services">Services</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
-    <a href="https://maps.google.com/?cid=14953723032632881326&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Find Us</a>
+  <div class="nav-inner">
+    <div class="nav-logo">Shades <span>&amp;</span> Blinds</div>
+    <ul class="nav-links">
+      <li><a href="#products">Products</a></li>
+      <li><a href="#feature">Why Us</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#cta">Contact</a></li>
+    </ul>
+    <a href="tel:3057263139" class="nav-cta">Get Free Quote</a>
   </div>
-  <a class="ncta" href="tel:+1 305-726-3139">(305) 726-3139</a>
 </nav>
-<section class="hero">
-  <div class="hleft">
-    <div class="hkicker">383 NE 69th St, Miami</div>
-    <h1>Shades &<br><em>Blinds</em></h1>
-    <p class="hsub">Premier window treatments services in 383 NE 69th St. Where craftsmanship meets reliability.</p>
-    <div class="hact">
-      <a class="ba" href="tel:+1 305-726-3139">Call (305) 726-3139</a>
-      <a class="bg" href="#contact">Request Estimate</a>
-      <a class="bg" href="https://maps.google.com/?cid=14953723032632881326&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Our Location</a>
-    </div>
-  </div>
-  <div class="hright">
-    <div class="hmonogram">S&</div>
-  </div>
-</section>
-<hr class="divider">
-<section class="sec" id="services">
-  <div class="slbl">Services</div>
-  <h2 class="stit">Our Expertise</h2>
-  <ul class="slist">
-    <li class="si2"><span class="snum">01</span><span class="sname">Custom Blind Installation</span><span class="sdesc">Fully guaranteed</span></li>
-    <li class="si2"><span class="snum">02</span><span class="sname">Roller & Roman Shades</span><span class="sdesc">Fully guaranteed</span></li>
-    <li class="si2"><span class="snum">03</span><span class="sname">Plantation Shutters</span><span class="sdesc">Fully guaranteed</span></li>
-    <li class="si2"><span class="snum">04</span><span class="sname">Motorized Shades</span><span class="sdesc">Fully guaranteed</span></li>
-    <li class="si2"><span class="snum">05</span><span class="sname">Free In-Home Consultation</span><span class="sdesc">Fully guaranteed</span></li>
-    <li class="si2"><span class="snum">06</span><span class="sname">Repair & Restringing</span><span class="sdesc">Fully guaranteed</span></li>
-  </ul>
-</section>
-<section class="rvsec" id="reviews">
-  <div class="rvi">
-    <div class="slbl">Testimonials</div>
-    <h2 class="stit">Client Voices</h2>
-    <div class="rcar">
-      <div class="rs active"><div class="ropen">&ldquo;</div><p class="rt">Best window treatments experience I've had in 383 NE 69th St. They were on time, professional, and actually fixed the problem permanently. Already recommended them to three friends.</p><div class="ra">&mdash;&ensp;Michael R., 383 NE 69th St</div></div>
-      <div class="rs"><div class="ropen">&ldquo;</div><p class="rt">After a bad experience with another company, Shades & Blinds completely restored my confidence. Thorough, honest, and genuinely great to work with.</p><div class="ra">&mdash;&ensp;Sandra K., 383 NE 69th St</div></div>
-      <div class="rs"><div class="ropen">&ldquo;</div><p class="rt">Fast response, fair pricing, and no upselling. They explained everything clearly and the results speak for themselves. This is the window treatments team 383 NE 69th St deserves.</p><div class="ra">&mdash;&ensp;James T., 383 NE 69th St</div></div>
-      <div class="rs"><div class="ropen">&ldquo;</div><p class="rt">Top-notch from the first call to the final walkthrough. Shades & Blinds treats your home like their own. Couldn't ask for better service.</p><div class="ra">&mdash;&ensp;Patricia M., 383 NE 69th St</div></div>
-    </div>
-    <div class="rbot">
-      <div class="rdots"><button class="rd active" data-i="0"></button><button class="rd" data-i="1"></button><button class="rd" data-i="2"></button><button class="rd" data-i="3"></button></div>
-      <div class="rnav"><button class="rb" id="rp">&#8592; Previous</button><button class="rb" id="rn">Next &#8594;</button></div>
+
+<!-- ══ Hero ══ -->
+<section id="hero">
+  <div class="hero-img"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Miami&#39;s Custom Window Treatments</p>
+    <h1 class="hero-title">
+      Window Treatments That<br><em>Transform Your Space</em>
+    </h1>
+    <p class="hero-sub">
+      From light-filtering roller shades to classic plantation shutters — handcrafted, professionally installed, and tailored to your Miami home.
+    </p>
+    <div class="hero-ctas">
+      <a href="tel:3057263139" class="btn btn-gold">
+        <svg class="icon" aria-hidden="true"><use href="#icon-phone"/></svg>
+        Call&nbsp;305-726-3139
+      </a>
+      <a href="#products" class="btn btn-ghost-white">Explore Products</a>
     </div>
   </div>
 </section>
-<section id="contact"><div class="csec">
-  <div>
-    <div class="slbl">Contact</div>
-    <h2 class="ctit">Request an Estimate</h2>
-    <div class="cinfo">
-      <div class="crow"><div class="clbl">Telephone</div><div class="cval"><a href="tel:+1 305-726-3139">(305) 726-3139</a></div></div>
-      <div class="crow"><div class="clbl">Service Area</div><div class="cval">383 NE 69th St, Miami &amp; Surrounding</div></div>
-      <div class="crow"><div class="clbl">Hours</div><div class="cval">Monday &ndash; Saturday, 7am &ndash; 7pm</div></div>
-      <div class="crow"><div class="clbl">Location</div><div class="cval"><a href="https://maps.google.com/?cid=14953723032632881326&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">View on Google Maps</a></div></div>
+
+<!-- ══ Stats Band ══ -->
+<section id="stats">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-number" data-count="4.7" data-suffix="★">4.7★</div>
+      <div class="stat-label">Google Rating</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" data-count="47" data-suffix="+">47+</div>
+      <div class="stat-label">Verified Reviews</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" data-count="100" data-suffix="%">100%</div>
+      <div class="stat-label">Licensed &amp; Insured</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" data-count="0" data-text="Free">Free</div>
+      <div class="stat-label">In-Home Consultation</div>
     </div>
   </div>
-  <form class="cform" onsubmit="this.innerHTML='<p style=color:var(--ac);padding:20px 0;font-family:Cormorant Garamond,serif;font-size:20px;font-style:italic>Thank you. We will be in touch shortly.</p>';return false;">
-    <input class="cf" type="text" placeholder="Full name" required>
-    <input class="cf" type="tel" placeholder="Phone number" required>
-    <input class="cf" type="email" placeholder="Email address (optional)">
-    <textarea class="cf" placeholder="How can we help you?" rows="5" style="resize:vertical"></textarea>
-    <button class="cs">Send Enquiry</button>
-  </form>
-</div></section>
+</section>
+
+<!-- ══ Products ══ -->
+<section id="products">
+  <div class="products-header">
+    <p class="section-label">Our Products</p>
+    <h2 class="section-title">Window Treatments for Every Style</h2>
+    <p class="section-sub">Premium materials, precision installation, and designs that complement Miami&#39;s architectural sensibility — from modern condo to waterfront estate.</p>
+  </div>
+  <div class="products-grid">
+
+    <div class="product-card">
+      <div class="product-icon-wrap">
+        <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-roller"/></svg>
+      </div>
+      <div class="product-name">Roller Shades</div>
+      <p class="product-desc">Clean, minimal, and endlessly versatile. Available in blackout, light-filtering, and solar weaves to control Miami&#39;s intense sun.</p>
+      <a href="#cta" class="product-link">
+        Learn more
+        <svg class="icon" style="width:1rem;height:1rem" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+      </a>
+    </div>
+
+    <div class="product-card">
+      <div class="product-icon-wrap">
+        <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-wood-blind"/></svg>
+      </div>
+      <div class="product-name">Wood Blinds</div>
+      <p class="product-desc">Natural warmth and timeless elegance. Real hardwood slats with rich stains that bring an organic, upscale feel to any room.</p>
+      <a href="#cta" class="product-link">
+        Learn more
+        <svg class="icon" style="width:1rem;height:1rem" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+      </a>
+    </div>
+
+    <div class="product-card">
+      <div class="product-icon-wrap">
+        <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-faux"/></svg>
+      </div>
+      <div class="product-name">Faux Wood Blinds</div>
+      <p class="product-desc">The look of real wood with superior moisture resistance — perfect for Miami&#39;s humidity. Ideal for kitchens, bathrooms, and coastal homes.</p>
+      <a href="#cta" class="product-link">
+        Learn more
+        <svg class="icon" style="width:1rem;height:1rem" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+      </a>
+    </div>
+
+    <div class="product-card">
+      <div class="product-icon-wrap">
+        <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-cellular"/></svg>
+      </div>
+      <div class="product-name">Cellular Shades</div>
+      <p class="product-desc">Honeycomb construction traps air for superior insulation — keeping your home cooler in summer and reducing energy costs year-round.</p>
+      <a href="#cta" class="product-link">
+        Learn more
+        <svg class="icon" style="width:1rem;height:1rem" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+      </a>
+    </div>
+
+    <div class="product-card">
+      <div class="product-icon-wrap">
+        <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-roman"/></svg>
+      </div>
+      <div class="product-name">Roman Shades</div>
+      <p class="product-desc">Soft fabric folds that drape beautifully — adding texture, color, and a tailored, couture-inspired look to living spaces and bedrooms.</p>
+      <a href="#cta" class="product-link">
+        Learn more
+        <svg class="icon" style="width:1rem;height:1rem" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+      </a>
+    </div>
+
+    <div class="product-card">
+      <div class="product-icon-wrap">
+        <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-shutter"/></svg>
+      </div>
+      <div class="product-name">Plantation Shutters</div>
+      <p class="product-desc">Classic Southern elegance meets Miami style. Full hardwood or poly panels that add architectural character and lasting resale value.</p>
+      <a href="#cta" class="product-link">
+        Learn more
+        <svg class="icon" style="width:1rem;height:1rem" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ Feature ══ -->
+<section id="feature">
+  <div class="feature-inner">
+    <div class="feature-content">
+      <p class="section-label">Why Choose Us</p>
+      <h2 class="section-title">Why Miami Chooses Shades &amp; Blinds</h2>
+      <p class="section-sub">We&#39;re a locally owned Miami business — we know your home, your climate, and your taste.</p>
+      <ul class="feature-list">
+        <li>
+          <div class="feature-list-icon">
+            <svg class="icon" style="width:1.1rem;height:1.1rem" aria-hidden="true"><use href="#icon-home"/></svg>
+          </div>
+          <div class="feature-list-text">
+            <strong>Free In-Home Measurement</strong>
+            <span>We come to you — accurate measurements, zero guesswork, and expert product advice in your own space.</span>
+          </div>
+        </li>
+        <li>
+          <div class="feature-list-icon">
+            <svg class="icon" style="width:1.1rem;height:1.1rem" aria-hidden="true"><use href="#icon-tool"/></svg>
+          </div>
+          <div class="feature-list-text">
+            <strong>Professional Installation</strong>
+            <span>Licensed and insured installers who treat your home with care. Every treatment hung perfectly, every time.</span>
+          </div>
+        </li>
+        <li>
+          <div class="feature-list-icon">
+            <svg class="icon" style="width:1.1rem;height:1.1rem" aria-hidden="true"><use href="#icon-sun"/></svg>
+          </div>
+          <div class="feature-list-text">
+            <strong>Built for Miami&#39;s Climate</strong>
+            <span>Products selected for humidity, UV intensity, and salt air — materials that look great and last years longer.</span>
+          </div>
+        </li>
+        <li>
+          <div class="feature-list-icon">
+            <svg class="icon" style="width:1.1rem;height:1.1rem" aria-hidden="true"><use href="#icon-award"/></svg>
+          </div>
+          <div class="feature-list-text">
+            <strong>4.7-Star Customer Experience</strong>
+            <span>Dozens of verified reviews from Miami homeowners who trust us with their most visible spaces.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="feature-photo">
+      <img
+        src="https://images.unsplash.com/photo-1616594266794-b829d813a672?w=900&q=80"
+        alt="Elegant interior with plantation shutters and natural light"
+        loading="lazy"
+        width="900"
+        height="1125"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- ══ Reviews ══ -->
+<section id="reviews">
+  <div class="reviews-header">
+    <p class="section-label">Customer Reviews</p>
+    <h2 class="section-title">What Our Miami Clients Say</h2>
+    <p class="section-sub">Real feedback from homeowners across Miami-Dade who trusted us to elevate their spaces.</p>
+  </div>
+  <div class="reviews-grid">
+
+    <div class="review-card">
+      <div class="stars">
+        <svg class="icon" style="width:1rem;height:1rem;fill:currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
+        <svg class="icon" style="width:1rem;height:1rem;fill:currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
+        <svg class="icon" style="width:1rem;height:1rem;fill:currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
+        <svg class="icon" style="width:1rem;height:1rem;fill:currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
+        <svg class="icon" style="width:1rem;height:1rem;fill:currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
+      </div>
+      <p class="review-text">Great customer service, competitive pricing, and the cleanest installation I&#39;ve seen. The team was professional from the first phone call all the way through to when they left my house. My shutters look absolutely stunning.</p>
+      <div class="reviewer-name">Maria Fernandez</div>
+      <div class="reviewer-meta">Brickell, Miami &bull; Plantation Shutters</div>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">
+        <svg class="icon" style="width:1rem;height:1rem;fill:currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
+        <svg class="icon" style="width:1rem;height:1rem;fill:currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
+        <svg class="icon" style="width:1rem;height:1rem;fill:currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
+        <svg class="icon" style="width:1rem;height:1rem;fill:currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
+        <svg class="icon" style="width:1rem;height:1rem;fill:currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
+      </div>
+      <p class="review-text">I was blown away by the quality. Juan and his team measured everything perfectly and the roller shades fit like they were made for the space — because they were. Worth every penny. Will be using them for my other property.</p>
+      <div class="reviewer-name">David Okonkwo</div>
+      <div class="reviewer-meta">Coconut Grove &bull; Roller Shades</div>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">
+        <svg class="icon" style="width:1rem;height:1rem;fill:currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
+        <svg class="icon" style="width:1rem;height:1rem;fill:currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
+        <svg class="icon" style="width:1rem;height:1rem;fill:currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
+        <svg class="icon" style="width:1rem;height;1rem;fill:currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
+        <svg class="icon" style="width:1rem;height:1rem;fill:currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
+      </div>
+      <p class="review-text">Finally found a window treatment company in Miami that actually shows up when they say they will and does immaculate work. The faux wood blinds are gorgeous — guests always ask about them. Highly recommend.</p>
+      <div class="reviewer-name">Carolina Vega</div>
+      <div class="reviewer-meta">Coral Gables &bull; Faux Wood Blinds</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ Trust Band ══ -->
+<section id="trust">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <div class="trust-icon-wrap">
+        <svg class="icon" style="width:1.1rem;height:1.1rem" aria-hidden="true"><use href="#icon-shield"/></svg>
+      </div>
+      <div class="trust-text">
+        <strong>Licensed &amp; Insured</strong>
+        <span>Full coverage for every job</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon-wrap">
+        <svg class="icon" style="width:1.1rem;height:1.1rem" aria-hidden="true"><use href="#icon-home"/></svg>
+      </div>
+      <div class="trust-text">
+        <strong>Miami Local</strong>
+        <span>Serving Miami-Dade for years</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon-wrap">
+        <svg class="icon" style="width:1.1rem;height:1.1rem" aria-hidden="true"><use href="#icon-check"/></svg>
+      </div>
+      <div class="trust-text">
+        <strong>Free Consultation</strong>
+        <span>No pressure, no obligation</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon-wrap">
+        <svg class="icon" style="width:1.1rem;height:1.1rem" aria-hidden="true"><use href="#icon-leaf"/></svg>
+      </div>
+      <div class="trust-text">
+        <strong>Eco-Friendly Options</strong>
+        <span>Energy-efficient cellular shades</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section id="cta">
+  <div class="cta-inner">
+    <p class="section-label">Ready to Get Started?</p>
+    <h2 class="section-title">Transform Your Windows Today</h2>
+    <p class="section-sub">Book your free in-home consultation. We&#39;ll measure, advise, and provide a no-obligation quote — on your schedule.</p>
+    <div class="cta-buttons">
+      <a href="tel:3057263139" class="btn btn-ghost-charcoal">
+        <svg class="icon" aria-hidden="true"><use href="#icon-phone"/></svg>
+        305-726-3139
+      </a>
+      <a href="mailto:info@shadesandblindsmiami.com" class="btn btn-ghost-charcoal">Book Consultation</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Footer ══ -->
 <footer>
-  <span class="fc">&copy; 2026 Shades & Blinds &middot; 383 NE 69th St</span>
-  <a href="https://maps.google.com/?cid=14953723032632881326&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Google Maps</a>
+  <div class="footer-inner">
+    <div class="footer-logo">Shades <span>&amp;</span> Blinds</div>
+    <div class="footer-center footer-address">
+      383 NE 69th St, Miami, FL 33138<br>
+      <a href="tel:3057263139" class="footer-phone">305-726-3139</a>
+    </div>
+    <div class="footer-right">
+      Mon – Fri: 9:00 AM – 5:00 PM<br>
+      Sat – Sun: By Appointment
+    </div>
+  </div>
+  <p class="footer-copy">&copy; 2026 Shades &amp; Blinds Miami. All rights reserved.</p>
 </footer>
-<div class="mcta"><a href="tel:+1 305-726-3139">Call (305) 726-3139</a></div>
-<a class="dbadge" href="https://jayexe.com" target="_blank" rel="noopener">Demo by <strong>Jay @ jayexe.com</strong></a>
-<script>
-(function(){
-  let i=0;
-  const slides=document.querySelectorAll('.rs');
-  const dots=document.querySelectorAll('.rd');
-  let t;
-  function go(n){
-    slides[i].classList.remove('active');
-    dots[i].classList.remove('active');
-    i=(n+slides.length)%slides.length;
-    slides[i].classList.add('active');
-    dots[i].classList.add('active');
+
+<!-- ══ Motion Animations ══ -->
+<script type="module">
+  import { animate, inView, stagger } from 'https://esm.sh/motion@11';
+
+  /* ── Utility: set initial opacity via JS (never CSS) ── */
+  const hide = (...els) => els.forEach(el => {
+    if (el) el.style.opacity = '0';
+  });
+
+  /* ── Hero content ── */
+  const heroContent = document.querySelector('.hero-content');
+  if (heroContent) {
+    hide(heroContent);
+    animate(
+      heroContent,
+      { opacity: [0, 1], y: [28, 0] },
+      { duration: 1.1, easing: [0.16, 1, 0.3, 1], delay: 0.2 }
+    );
   }
-  function start(){t=setInterval(()=>go(i+1),4800);}
-  function reset(){clearInterval(t);start();}
-  document.getElementById('rn')?.addEventListener('click',()=>{go(i+1);reset();});
-  document.getElementById('rp')?.addEventListener('click',()=>{go(i-1);reset();});
-  dots.forEach((d,j)=>d.addEventListener('click',()=>{go(j);reset();}));
-  start();
-})();
+
+  /* ── Stats count-up ── */
+  function countUp(el) {
+    const raw = el.dataset.count;
+    const suffix = el.dataset.suffix || '';
+    const text   = el.dataset.text;
+
+    if (text) return; // static text, no count-up
+
+    const target = parseFloat(raw);
+    const isDecimal = raw.includes('.');
+    const duration = 1400;
+    let start = null;
+
+    function cubicOut(t) {
+      return 1 - Math.pow(1 - t, 3);
+    }
+
+    function frame(ts) {
+      if (!start) start = ts;
+      const elapsed = ts - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const value = cubicOut(progress) * target;
+      el.textContent = isDecimal
+        ? value.toFixed(1) + suffix
+        : Math.round(value) + suffix;
+      if (progress < 1) requestAnimationFrame(frame);
+    }
+
+    requestAnimationFrame(frame);
+  }
+
+  inView('#stats', () => {
+    document.querySelectorAll('.stat-number').forEach(el => {
+      hide(el);
+      animate(el, { opacity: [0, 1], y: [16, 0] }, { duration: .6, easing: 'ease-out' });
+      countUp(el);
+    });
+  }, { amount: 0.3 });
+
+  /* ── Product cards ── */
+  const cards = document.querySelectorAll('.product-card');
+  cards.forEach(c => hide(c));
+  inView('#products', () => {
+    animate(
+      cards,
+      { opacity: [0, 1], y: [24, 0] },
+      { duration: .65, easing: [0.16, 1, 0.3, 1], delay: stagger(0.09) }
+    );
+  }, { amount: 0.15 });
+
+  /* ── Feature section ── */
+  const featureContent = document.querySelector('.feature-content');
+  const featurePhoto   = document.querySelector('.feature-photo');
+  if (featureContent) hide(featureContent);
+  if (featurePhoto)   hide(featurePhoto);
+
+  inView('#feature', () => {
+    if (featurePhoto) animate(featurePhoto, { opacity: [0, 1], x: [32, 0] }, { duration: .8, easing: [0.16, 1, 0.3, 1] });
+    if (featureContent) animate(featureContent, { opacity: [0, 1], x: [-28, 0] }, { duration: .8, easing: [0.16, 1, 0.3, 1], delay: 0.12 });
+  }, { amount: 0.2 });
+
+  /* ── Review cards ── */
+  const reviewCards = document.querySelectorAll('.review-card');
+  reviewCards.forEach(c => hide(c));
+  inView('#reviews', () => {
+    animate(
+      reviewCards,
+      { opacity: [0, 1], y: [20, 0] },
+      { duration: .6, easing: 'ease-out', delay: stagger(0.12) }
+    );
+  }, { amount: 0.2 });
+
+  /* ── Trust items ── */
+  const trustItems = document.querySelectorAll('.trust-item');
+  trustItems.forEach(t => hide(t));
+  inView('#trust', () => {
+    animate(
+      trustItems,
+      { opacity: [0, 1], y: [14, 0] },
+      { duration: .55, easing: 'ease-out', delay: stagger(0.1) }
+    );
+  }, { amount: 0.3 });
+
+  /* ── CTA ── */
+  const ctaInner = document.querySelector('.cta-inner');
+  if (ctaInner) {
+    hide(ctaInner);
+    inView('#cta', () => {
+      animate(ctaInner, { opacity: [0, 1], y: [20, 0] }, { duration: .7, easing: [0.16, 1, 0.3, 1] });
+    }, { amount: 0.3 });
+  }
 </script>
-</body></html>
+
+</body>
+</html>

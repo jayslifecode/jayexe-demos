@@ -1,191 +1,1144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Apest Services &mdash; 54 Op Zaemer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#faf8f5;--surf:#f3efe9;--brd:#e0d8cc;--tx:#1c1917;--mu:#7d7268;--ac:#92681a;--acl:rgba(146,104,26,.08)}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--tx);font-family:'Jost',sans-serif;font-size:15px;line-height:1.7;font-weight:300}
-nav{position:sticky;top:0;z-index:100;background:rgba(250,248,245,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--brd);display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:72px}
-.nn{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;color:var(--tx);letter-spacing:.02em}
-.nlinks{display:flex;gap:36px;align-items:center}
-.nlinks a{color:var(--mu);text-decoration:none;font-size:13px;font-weight:400;letter-spacing:.08em;transition:color .2s}
-.nlinks a:hover{color:var(--ac)}
-.ncta{border:1px solid var(--ac);color:var(--ac);padding:10px 24px;font-size:12px;font-weight:500;letter-spacing:.1em;text-decoration:none;border-radius:2px;transition:background .2s,color .2s}
-.ncta:hover{background:var(--ac);color:#fff}
-@media(max-width:640px){.nlinks{display:none};nav{padding:0 24px}}
-.hero{padding:100px 56px 80px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:80px;align-items:end}
-.hleft{max-width:600px}
-.hkicker{font-size:11px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--ac);margin-bottom:24px}
-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,5.5vw,72px);font-weight:300;line-height:1.05;letter-spacing:-.5px;margin-bottom:24px;color:var(--tx)}
-h1 em{font-style:italic;color:var(--ac)}
-.hsub{color:var(--mu);font-size:16px;line-height:1.8;margin-bottom:40px;font-weight:300}
-.hact{display:flex;gap:12px;flex-wrap:wrap}
-.ba{background:var(--tx);color:var(--bg);padding:14px 32px;font-size:13px;font-weight:500;letter-spacing:.08em;text-decoration:none;border-radius:2px;transition:opacity .2s}
-.ba:hover{opacity:.85}
-.bg{border:1px solid var(--brd);color:var(--mu);padding:14px 32px;font-size:13px;font-weight:400;letter-spacing:.08em;text-decoration:none;border-radius:2px;transition:border-color .2s,color .2s}
-.bg:hover{border-color:var(--ac);color:var(--ac)}
-.hright{text-align:center}
-.hmonogram{font-family:'Cormorant Garamond',serif;font-size:120px;font-weight:300;font-style:italic;color:var(--surf);line-height:1;letter-spacing:-4px;user-select:none;border:1px solid var(--brd);width:200px;height:200px;display:flex;align-items:center;justify-content:center;border-radius:2px}
-@media(max-width:768px){.hero{grid-template-columns:1fr;padding:64px 24px 48px;gap:0}.hright{display:none}}
-.divider{border:none;border-top:1px solid var(--brd);margin:0 56px}
-.sec{padding:88px 56px;max-width:1100px;margin:0 auto}
-.slbl{font-size:10px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--ac);margin-bottom:20px}
-.stit{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,46px);font-weight:300;letter-spacing:-.3px;margin-bottom:56px}
-.slist{list-style:none}
-.si2{display:flex;align-items:baseline;gap:20px;padding:22px 0;border-bottom:1px solid var(--brd)}
-.si2:first-child{border-top:1px solid var(--brd)}
-.snum{font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--ac);min-width:24px;font-style:italic}
-.sname{font-size:15px;font-weight:500;flex:1;color:var(--tx)}
-.sdesc{font-size:13px;color:var(--mu);font-weight:300;text-align:right}
-@media(max-width:640px){.sec{padding:56px 24px}.sdesc{display:none}}
-.rvsec{background:var(--surf);border-top:1px solid var(--brd);border-bottom:1px solid var(--brd);padding:88px 56px}
-.rvi{max-width:720px;margin:0 auto}
-.rcar{margin:48px 0 24px;position:relative;min-height:180px}
-.rs{display:none;animation:ff .4s ease}
-.rs.active{display:block}
-@keyframes ff{from{opacity:0}to{opacity:1}}
-.ropen{font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:300;color:var(--brd);line-height:.4;margin-bottom:16px}
-.rt{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;font-style:italic;line-height:1.75;color:var(--tx);margin-bottom:20px}
-.ra{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ac)}
-.rbot{display:flex;justify-content:space-between;align-items:center;margin-top:32px;border-top:1px solid var(--brd);padding-top:20px}
-.rdots{display:flex;gap:8px}
-.rd{width:24px;height:1px;background:var(--brd);border:none;cursor:pointer;transition:background .2s;padding:0}
-.rd.active{background:var(--ac)}
-.rnav{display:flex;gap:16px}
-.rb{background:transparent;border:none;color:var(--mu);font-family:'Jost',sans-serif;font-size:13px;font-weight:400;letter-spacing:.08em;cursor:pointer;transition:color .2s;padding:0}
-.rb:hover{color:var(--ac)}
-@media(max-width:640px){.rvsec{padding:56px 24px}}
-.csec{padding:88px 56px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:5fr 6fr;gap:88px;align-items:start}
-.ctit{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.5vw,46px);font-weight:300;letter-spacing:-.3px;margin-bottom:36px}
-.cinfo{display:flex;flex-direction:column;gap:0}
-.crow{padding:16px 0;border-bottom:1px solid var(--brd)}
-.crow:first-child{border-top:1px solid var(--brd)}
-.clbl{font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ac);margin-bottom:5px}
-.cval{font-size:14px;font-weight:400;color:var(--tx)}
-.cval a{color:var(--tx);text-decoration:none;border-bottom:1px solid var(--brd);transition:border-color .2s}
-.cval a:hover{border-color:var(--ac)}
-.cform{display:flex;flex-direction:column;gap:12px}
-.cf{background:var(--bg);border:none;border-bottom:1px solid var(--brd);color:var(--tx);padding:12px 0;font-family:'Jost',sans-serif;font-size:14px;font-weight:300;border-radius:0;outline:none;transition:border-color .2s;width:100%}
-.cf:focus{border-color:var(--ac)}
-.cf::placeholder{color:var(--mu)}
-.cs{background:var(--tx);color:var(--bg);border:none;padding:15px;font-family:'Jost',sans-serif;font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border-radius:2px;margin-top:8px;transition:opacity .2s}
-.cs:hover{opacity:.85}
-@media(max-width:768px){.csec{grid-template-columns:1fr;gap:40px;padding:56px 24px}}
-footer{border-top:1px solid var(--brd);padding:28px 56px;display:flex;justify-content:space-between;align-items:center}
-.fc{font-size:12px;font-weight:300;color:var(--mu);letter-spacing:.05em}
-footer a{font-size:12px;color:var(--mu);text-decoration:none;letter-spacing:.05em;transition:color .2s}
-footer a:hover{color:var(--ac)}
-@media(max-width:640px){footer{flex-direction:column;gap:10px;padding:20px;text-align:center}}
-.dbadge{position:fixed;bottom:24px;right:24px;background:var(--bg);border:1px solid var(--brd);color:var(--mu);font-size:10px;padding:8px 16px;border-radius:2px;text-decoration:none;letter-spacing:.06em;z-index:1000;transition:color .2s}
-.dbadge:hover{color:var(--ac)}
-.dbadge strong{color:var(--tx);font-weight:500}
-.mcta{position:fixed;bottom:0;left:0;right:0;background:var(--tx);padding:15px;text-align:center;display:none;z-index:99}
-.mcta a{color:var(--bg);font-weight:500;font-size:14px;letter-spacing:.06em;text-decoration:none}
-@media(max-width:640px){.mcta{display:block};body{padding-bottom:54px}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apest Services — Professional Pest Management, Luxembourg</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --olive:       #4a7c59;
+      --olive-dark:  #3a6347;
+      --cream:       #faf8f4;
+      --forest:      #1a2e1d;
+      --sage-light:  #f0f4ee;
+      --charcoal:    #2d3a2e;
+      --mid-text:    #5a6b5b;
+      --border:      #dde5da;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Instrument Sans', sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    .serif { font-family: 'Instrument Serif', serif; }
+    h1, h2, h3 { font-family: 'Instrument Serif', serif; font-weight: 400; line-height: 1.2; }
+    h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); }
+    h2 { font-size: clamp(1.7rem, 3.5vw, 2.6rem); }
+    h3 { font-size: 1.2rem; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+      padding: 0 max(1.5rem, 5vw);
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .nav-brand {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.25rem;
+      color: var(--forest);
+      text-decoration: none;
+      white-space: nowrap;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--mid-text);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--forest); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.35rem;
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+      line-height: 1;
+    }
+
+    .btn-primary {
+      background: var(--forest);
+      color: #fff;
+      border: 1.5px solid transparent;
+    }
+
+    .btn-primary:hover { background: var(--olive); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--forest);
+      border: 1.5px solid var(--forest);
+    }
+
+    .btn-ghost:hover { background: var(--sage-light); }
+
+    .btn-olive {
+      background: var(--olive);
+      color: #fff;
+      border: 1.5px solid transparent;
+    }
+
+    .btn-olive:hover { background: var(--olive-dark); }
+
+    .btn-outline-white {
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.7);
+    }
+
+    .btn-outline-white:hover { background: rgba(255,255,255,0.1); }
+
+    .btn-nav {
+      background: var(--forest);
+      color: #fff;
+      border: 1.5px solid transparent;
+      white-space: nowrap;
+    }
+
+    .btn-nav:hover { background: var(--olive); }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: calc(100vh - 68px);
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: max(3rem, 6vw) max(2rem, 5vw) max(3rem, 6vw) max(2rem, 8vw);
+      background: var(--cream);
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--olive);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--olive);
+    }
+
+    .hero-content h1 {
+      color: var(--forest);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-content h1 em {
+      font-style: italic;
+      color: var(--olive);
+    }
+
+    .hero-lead {
+      font-size: 1.05rem;
+      color: var(--mid-text);
+      max-width: 42ch;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 3.5rem;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      gap: 1.5rem 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat-item {}
+
+    .stat-value {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.9rem;
+      color: var(--forest);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--mid-text);
+      letter-spacing: 0.02em;
+    }
+
+    .hero-photo {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-photo-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(26,46,29,0.18) 0%, transparent 60%);
+    }
+
+    /* ── SECTION WRAPPER ── */
+    .section { padding: max(4rem, 7vw) max(1.5rem, 6vw); }
+
+    .section-intro {
+      margin-bottom: 4rem;
+    }
+
+    .section-eyebrow {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--olive);
+      margin-bottom: 0.85rem;
+    }
+
+    .section-intro h2 { color: var(--forest); margin-bottom: 0.9rem; }
+    .section-intro p { color: var(--mid-text); max-width: 52ch; font-size: 1rem; }
+
+    /* ── SERVICES ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--border);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .service-card {
+      background: #fff;
+      padding: 2.25rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .service-icon {
+      width: 44px;
+      height: 44px;
+      color: var(--olive);
+    }
+
+    .service-card h3 {
+      color: var(--forest);
+      font-size: 1.1rem;
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--mid-text);
+      line-height: 1.6;
+    }
+
+    /* ── ECO SECTION ── */
+    .eco-section {
+      background: var(--forest);
+      color: #fff;
+    }
+
+    .eco-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: max(3rem, 6vw);
+      align-items: center;
+    }
+
+    .eco-eyebrow { color: rgba(255,255,255,0.5); }
+    .eco-section h2 { color: #fff; margin-bottom: 1rem; }
+    .eco-lead { color: rgba(255,255,255,0.7); margin-bottom: 2.5rem; font-size: 0.97rem; }
+
+    .eco-points {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .eco-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .eco-point-icon {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      background: rgba(74, 124, 89, 0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8ab89a;
+    }
+
+    .eco-point-icon svg { width: 18px; height: 18px; }
+
+    .eco-point-text h4 {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.2rem;
+    }
+
+    .eco-point-text p {
+      font-size: 0.83rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.5;
+    }
+
+    .eco-photo {
+      border-radius: 8px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+    }
+
+    .eco-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.85) saturate(0.9);
+    }
+
+    /* ── REVIEWS ── */
+    .reviews-section { background: var(--sage-light); }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .review-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.75rem;
+    }
+
+    .review-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 1rem;
+      color: var(--olive);
+    }
+
+    .review-stars svg { width: 16px; height: 16px; }
+
+    .review-text {
+      font-size: 0.9rem;
+      color: var(--charcoal);
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+      font-style: italic;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .review-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--sage-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Instrument Serif', serif;
+      font-size: 0.95rem;
+      color: var(--olive);
+      flex-shrink: 0;
+      border: 1px solid var(--border);
+    }
+
+    .review-name {
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: var(--forest);
+    }
+
+    .review-location {
+      font-size: 0.75rem;
+      color: var(--mid-text);
+    }
+
+    /* ── TRUST BAND ── */
+    .trust-band {
+      background: var(--cream);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 3rem max(1.5rem, 6vw);
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .trust-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      background: var(--sage-light);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--olive);
+    }
+
+    .trust-icon svg { width: 20px; height: 20px; }
+
+    .trust-item h4 {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--forest);
+      margin-bottom: 0.2rem;
+    }
+
+    .trust-item p {
+      font-size: 0.78rem;
+      color: var(--mid-text);
+      line-height: 1.5;
+    }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      background: var(--olive);
+      padding: max(4rem, 7vw) max(1.5rem, 6vw);
+      text-align: center;
+    }
+
+    .cta-section h2 { color: #fff; margin-bottom: 1rem; }
+    .cta-lead { color: rgba(255,255,255,0.8); font-size: 1rem; max-width: 50ch; margin: 0 auto 2.5rem; }
+
+    .cta-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--forest);
+      color: rgba(255,255,255,0.65);
+      padding: max(3rem, 5vw) max(1.5rem, 6vw) 2rem;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.2rem;
+      color: #fff;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-desc {
+      font-size: 0.85rem;
+      line-height: 1.65;
+      max-width: 36ch;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.83rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-contact-item svg { width: 15px; height: 15px; flex-shrink: 0; color: var(--olive); }
+    .footer-contact-item a { color: rgba(255,255,255,0.65); text-decoration: none; }
+    .footer-contact-item a:hover { color: #fff; }
+
+    .footer-col h5 {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 1rem;
+    }
+
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.5rem; }
+    .footer-col ul li a {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: #fff; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-copy { font-size: 0.78rem; }
+    .footer-badge {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .trust-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-photo { height: 280px; }
+      .eco-inner { grid-template-columns: 1fr; }
+      .eco-photo { display: none; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-stats { grid-template-columns: 1fr 1fr; }
+      .trust-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-<nav>
-  <div class="nn">Apest Services</div>
-  <div class="nlinks">
-    <a href="#services">Services</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
-    <a href="https://maps.google.com/?cid=17177873736578782366&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Find Us</a>
-  </div>
-  <a class="ncta" href="tel:+352 26 35 00 20">+352 26 35 00 20</a>
-</nav>
-<section class="hero">
-  <div class="hleft">
-    <div class="hkicker">54 Op Zaemer, 4959 Nidderkäerjeng Käerjeng</div>
-    <h1>Apest Services</h1>
-    <p class="hsub">Premier pest control services in 54 Op Zaemer. Where craftsmanship meets reliability.</p>
-    <div class="hact">
-      <a class="ba" href="tel:+352 26 35 00 20">Call +352 26 35 00 20</a>
-      <a class="bg" href="#contact">Request Estimate</a>
-      <a class="bg" href="https://maps.google.com/?cid=17177873736578782366&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Our Location</a>
+
+  <!-- SVG symbol defs -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <symbol id="icon-rat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 10c0-3.314-2.686-6-6-6S6 6.686 6 10c0 1.657.671 3.157 1.757 4.243L6 21h12l-1.757-6.757A5.978 5.978 0 0 0 18 10z"/>
+      <circle cx="9.5" cy="9.5" r="0.5" fill="currentColor"/>
+      <path d="M18 4c1 0 3 .5 3 2s-1 2-3 2"/>
+    </symbol>
+    <symbol id="icon-bug" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 2l1.5 2.5M16 2l-1.5 2.5"/>
+      <ellipse cx="12" cy="12" rx="4" ry="5.5"/>
+      <path d="M8 8.5H4M8 12H3M8 15.5H5M16 8.5h4M16 12h5M16 15.5h3"/>
+      <path d="M9.5 4.5A2.5 2.5 0 0 1 14.5 4.5"/>
+    </symbol>
+    <symbol id="icon-spray" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 9h11v11H3z" rx="1"/>
+      <path d="M14 13h2a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-2"/>
+      <path d="M18 8h1a2 2 0 0 1 2 2v1"/>
+      <path d="M14 6V4M17 5l-3 1"/>
+      <line x1="7" y1="9" x2="7" y2="20"/>
+    </symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      <polyline points="9 12 11 14 15 10"/>
+    </symbol>
+    <symbol id="icon-bird" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 7s-1-2-5-2-7 3-7 3H4a2 2 0 0 0 0 4h1l1 5h6l1-4h3l2 4h3l-1-5a4 4 0 0 0 2-5z"/>
+      <circle cx="16" cy="7" r="1" fill="currentColor"/>
+    </symbol>
+    <symbol id="icon-wood" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="6" width="20" height="12" rx="2"/>
+      <path d="M12 6v12M2 12h20M7 6v12M17 6v12"/>
+    </symbol>
+    <symbol id="icon-commercial" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="3" width="20" height="14" rx="2"/>
+      <path d="M8 21h8M12 17v4"/>
+      <path d="M7 8h.01M12 8h.01M17 8h.01M7 12h.01M12 12h.01M17 12h.01"/>
+    </symbol>
+    <!-- trust icons -->
+    <symbol id="icon-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M11 20A7 7 0 0 1 4 13c0-5 7-13 7-13s7 8 7 13a7 7 0 0 1-7 7z"/>
+      <path d="M11 13v7"/>
+    </symbol>
+    <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <polyline points="12 6 12 12 16 14"/>
+    </symbol>
+    <symbol id="icon-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+      <polyline points="22 4 12 14.01 9 11.01"/>
+    </symbol>
+    <symbol id="icon-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/>
+      <circle cx="12" cy="10" r="3"/>
+    </symbol>
+    <!-- eco icons -->
+    <symbol id="icon-recycle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="1.5 1.5 1.5 7.5 7.5 7.5"/>
+      <path d="M1.5 7.5A10.5 10.5 0 1 1 4 16"/>
+    </symbol>
+    <symbol id="icon-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+      <circle cx="12" cy="12" r="3"/>
+    </symbol>
+    <symbol id="icon-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="8" r="6"/>
+      <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+    </symbol>
+    <symbol id="icon-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+      <circle cx="9" cy="7" r="4"/>
+      <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+      <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+    </symbol>
+    <!-- star -->
+    <symbol id="icon-star" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+    </symbol>
+    <!-- phone / mail -->
+    <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.9a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+    </symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+      <polyline points="22,6 12,13 2,6"/>
+    </symbol>
+    <symbol id="icon-location" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/>
+      <circle cx="12" cy="10" r="3"/>
+    </symbol>
+  </svg>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-brand">Apest Services</a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#commitment">Our Approach</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="tel:+35226350020" class="btn btn-nav">+352 26 35 00 20</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-dot"></span>
+        Luxembourg Pest Management
+      </div>
+      <h1>Professional Pest Management <em>for Luxembourg</em></h1>
+      <p class="hero-lead">Discreet, effective, and responsible pest control for homes and businesses across Luxembourg — from rodent control to full disinfection.</p>
+      <div class="hero-actions">
+        <a href="tel:+35226350020" class="btn btn-primary">Request an Inspection</a>
+        <a href="#services" class="btn btn-ghost">View Our Services</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-value" data-count="4.7" data-suffix="★">4.7★</div>
+          <div class="stat-label">Customer Rating</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" data-count="6" data-suffix=" Services">6 Services</div>
+          <div class="stat-label">Specialist Treatments</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">Residential</div>
+          <div class="stat-label">& Commercial</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">Luxembourg</div>
+          <div class="stat-label">Nationwide Coverage</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img
+        src="https://images.unsplash.com/photo-1558449907-7c645aa4f9c3?w=1200&q=85"
+        alt="Professional pest management technician at work"
+        loading="eager"
+      />
+      <div class="hero-photo-overlay"></div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" id="services" style="background: #fff;">
+    <div class="section-intro">
+      <span class="section-eyebrow">What We Do</span>
+      <h2>Specialist Services for Every Situation</h2>
+      <p>From a single residential treatment to ongoing commercial monitoring — we tailor every intervention to your specific environment and needs.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <svg class="service-icon"><use href="#icon-rat"/></svg>
+        <h3>Rodent Control</h3>
+        <p>Comprehensive dératisation for homes and businesses. Targeted baiting, trapping, and entry-point sealing to eliminate and prevent reinfestation.</p>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-icon"><use href="#icon-bug"/></svg>
+        <h3>Insect Treatment</h3>
+        <p>Professional désinsectisation for all crawling and flying insects — ants, cockroaches, bedbugs, wasps, and more. Targeted, minimal-residue methods.</p>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-icon"><use href="#icon-spray"/></svg>
+        <h3>Disinfection &amp; Odour Treatment</h3>
+        <p>Full-spectrum disinfection and odour neutralisation for indoor and outdoor spaces. Effective against bacteria, viruses, and organic odour sources.</p>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-icon"><use href="#icon-bird"/></svg>
+        <h3>Pigeon &amp; Bird Control</h3>
+        <p>Humane deterrent systems and netting to protect buildings and infrastructure from pigeon damage — without harm to the animals.</p>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-icon"><use href="#icon-wood"/></svg>
+        <h3>Wood Treatment</h3>
+        <p>Curative and preventive treatment for wood-boring insects and dry rot. Protecting structural timber in residential and heritage properties.</p>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-icon"><use href="#icon-commercial"/></svg>
+        <h3>Commercial &amp; Preventive Monitoring</h3>
+        <p>Scheduled inspection and monitoring contracts for restaurants, warehouses, offices, and food-processing environments. Full compliance documentation.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ECO COMMITMENT -->
+  <section class="section eco-section" id="commitment">
+    <div class="eco-inner">
+      <div>
+        <span class="section-eyebrow eco-eyebrow">Our Approach</span>
+        <h2>Our Commitment to Responsible Pest Management</h2>
+        <p class="eco-lead">Pest control does not have to mean chemical aggression. Our methods prioritise targeted intervention, minimal environmental impact, and lasting prevention over repeated treatment.</p>
+        <div class="eco-points">
+
+          <div class="eco-point">
+            <div class="eco-point-icon">
+              <svg><use href="#icon-leaf"/></svg>
+            </div>
+            <div class="eco-point-text">
+              <h4>Low-Impact Treatments</h4>
+              <p>We select the least invasive effective product for each situation — reducing chemical load on your environment.</p>
+            </div>
+          </div>
+
+          <div class="eco-point">
+            <div class="eco-point-icon">
+              <svg><use href="#icon-eye"/></svg>
+            </div>
+            <div class="eco-point-text">
+              <h4>Inspect Before You Treat</h4>
+              <p>Every visit begins with a thorough inspection. We diagnose root causes, not just symptoms, to avoid unnecessary applications.</p>
+            </div>
+          </div>
+
+          <div class="eco-point">
+            <div class="eco-point-icon">
+              <svg><use href="#icon-recycle"/></svg>
+            </div>
+            <div class="eco-point-text">
+              <h4>Prevention-First Philosophy</h4>
+              <p>Structural advice, entry-point sealing, and habitat modification to prevent pests returning — reducing the need for repeated interventions.</p>
+            </div>
+          </div>
+
+          <div class="eco-point">
+            <div class="eco-point-icon">
+              <svg><use href="#icon-award"/></svg>
+            </div>
+            <div class="eco-point-text">
+              <h4>Certified Professionals</h4>
+              <p>All technicians operate in compliance with Luxembourg's hygiene and pesticide regulations, with full traceability of every intervention.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="eco-photo">
+        <img
+          src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80"
+          alt="Green environment — responsible pest management"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section reviews-section" id="reviews">
+    <div class="section-intro">
+      <span class="section-eyebrow">Client Feedback</span>
+      <h2>What Our Clients Say</h2>
+      <p>Trusted by homeowners and businesses across Luxembourg for discreet, professional, and effective pest management.</p>
+    </div>
+    <div class="reviews-grid">
+
+      <div class="review-card">
+        <div class="review-stars">
+          <svg><use href="#icon-star"/></svg>
+          <svg><use href="#icon-star"/></svg>
+          <svg><use href="#icon-star"/></svg>
+          <svg><use href="#icon-star"/></svg>
+          <svg><use href="#icon-star"/></svg>
+        </div>
+        <p class="review-text">"Very professional team. They came the next morning, inspected thoroughly, and resolved our rodent problem in one visit. Clear advice on prevention too."</p>
+        <div class="review-author">
+          <div class="review-avatar">M</div>
+          <div>
+            <div class="review-name">Marc D.</div>
+            <div class="review-location">Bascharage, Luxembourg</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">
+          <svg><use href="#icon-star"/></svg>
+          <svg><use href="#icon-star"/></svg>
+          <svg><use href="#icon-star"/></svg>
+          <svg><use href="#icon-star"/></svg>
+          <svg><use href="#icon-star"/></svg>
+        </div>
+        <p class="review-text">"We use Apest Services for our restaurant's compliance monitoring. Reliable, punctual, and they always provide proper documentation. Highly recommended for food businesses."</p>
+        <div class="review-author">
+          <div class="review-avatar">S</div>
+          <div>
+            <div class="review-name">Sophie L.</div>
+            <div class="review-location">Esch-sur-Alzette, Luxembourg</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">
+          <svg><use href="#icon-star"/></svg>
+          <svg><use href="#icon-star"/></svg>
+          <svg><use href="#icon-star"/></svg>
+          <svg><use href="#icon-star"/></svg>
+          <svg style="color: #c8d9c4"><use href="#icon-star"/></svg>
+        </div>
+        <p class="review-text">"Called about a wasp nest in the attic — they handled it the same day. Discreet, quick, and no mess left behind. Will absolutely call them again if needed."</p>
+        <div class="review-author">
+          <div class="review-avatar">T</div>
+          <div>
+            <div class="review-name">Thomas R.</div>
+            <div class="review-location">Luxembourg City</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TRUST BAND -->
+  <div class="trust-band">
+    <div class="trust-grid">
+
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg><use href="#icon-leaf"/></svg>
+        </div>
+        <div>
+          <h4>Eco-Responsible Methods</h4>
+          <p>Targeted, low-impact treatments that protect your environment as well as your property.</p>
+        </div>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg><use href="#icon-clock"/></svg>
+        </div>
+        <div>
+          <h4>Rapid Response</h4>
+          <p>Same-day and next-morning appointments for urgent situations across Luxembourg.</p>
+        </div>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg><use href="#icon-check-circle"/></svg>
+        </div>
+        <div>
+          <h4>Residential &amp; Commercial</h4>
+          <p>From private homes to food-industry compliance — one specialist for every context.</p>
+        </div>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg><use href="#icon-map-pin"/></svg>
+        </div>
+        <div>
+          <h4>Luxembourg-Based</h4>
+          <p>Locally operated team with deep knowledge of Luxembourgish building types and regulations.</p>
+        </div>
+      </div>
+
     </div>
   </div>
-  <div class="hright">
-    <div class="hmonogram">AS</div>
-  </div>
-</section>
-<hr class="divider">
-<section class="sec" id="services">
-  <div class="slbl">Services</div>
-  <h2 class="stit">Our Expertise</h2>
-  <ul class="slist">
-    <li class="si2"><span class="snum">01</span><span class="sname">Cockroach & Ant Control</span><span class="sdesc">Fully guaranteed</span></li>
-    <li class="si2"><span class="snum">02</span><span class="sname">Termite Protection</span><span class="sdesc">Fully guaranteed</span></li>
-    <li class="si2"><span class="snum">03</span><span class="sname">Rodent Elimination</span><span class="sdesc">Fully guaranteed</span></li>
-    <li class="si2"><span class="snum">04</span><span class="sname">Bed Bug Treatment</span><span class="sdesc">Fully guaranteed</span></li>
-    <li class="si2"><span class="snum">05</span><span class="sname">Mosquito Control</span><span class="sdesc">Fully guaranteed</span></li>
-    <li class="si2"><span class="snum">06</span><span class="sname">Bee & Wasp Removal</span><span class="sdesc">Fully guaranteed</span></li>
-  </ul>
-</section>
-<section class="rvsec" id="reviews">
-  <div class="rvi">
-    <div class="slbl">Testimonials</div>
-    <h2 class="stit">Client Voices</h2>
-    <div class="rcar">
-      <div class="rs active"><div class="ropen">&ldquo;</div><p class="rt">Best pest control experience I've had in 54 Op Zaemer. They were on time, professional, and actually fixed the problem permanently. Already recommended them to three friends.</p><div class="ra">&mdash;&ensp;Michael R., 54 Op Zaemer</div></div>
-      <div class="rs"><div class="ropen">&ldquo;</div><p class="rt">After a bad experience with another company, Apest Services completely restored my confidence. Thorough, honest, and genuinely great to work with.</p><div class="ra">&mdash;&ensp;Sandra K., 54 Op Zaemer</div></div>
-      <div class="rs"><div class="ropen">&ldquo;</div><p class="rt">Fast response, fair pricing, and no upselling. They explained everything clearly and the results speak for themselves. This is the pest control team 54 Op Zaemer deserves.</p><div class="ra">&mdash;&ensp;James T., 54 Op Zaemer</div></div>
-      <div class="rs"><div class="ropen">&ldquo;</div><p class="rt">Top-notch from the first call to the final walkthrough. Apest Services treats your home like their own. Couldn't ask for better service.</p><div class="ra">&mdash;&ensp;Patricia M., 54 Op Zaemer</div></div>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <h2>Ready to Resolve Your Pest Problem?</h2>
+    <p class="cta-lead">Contact our team today for a free assessment. We serve residential and commercial clients across all of Luxembourg — quickly and discreetly.</p>
+    <div class="cta-actions">
+      <a href="tel:+35226350020" class="btn btn-primary" style="background:#fff;color:var(--olive);border-color:transparent;">
+        <svg width="16" height="16"><use href="#icon-phone"/></svg>
+        +352 26 35 00 20
+      </a>
+      <a href="mailto:info@apestservices.lu" class="btn btn-outline-white">
+        <svg width="16" height="16"><use href="#icon-mail"/></svg>
+        info@apestservices.lu
+      </a>
     </div>
-    <div class="rbot">
-      <div class="rdots"><button class="rd active" data-i="0"></button><button class="rd" data-i="1"></button><button class="rd" data-i="2"></button><button class="rd" data-i="3"></button></div>
-      <div class="rnav"><button class="rb" id="rp">&#8592; Previous</button><button class="rb" id="rn">Next &#8594;</button></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Apest Services</div>
+        <p class="footer-desc">Specialists in pest management for homes and businesses across Luxembourg. Professional, discreet, and environmentally responsible.</p>
+        <div class="footer-contact-item">
+          <svg><use href="#icon-phone"/></svg>
+          <a href="tel:+35226350020">+352 26 35 00 20</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg><use href="#icon-mail"/></svg>
+          <a href="mailto:info@apestservices.lu">info@apestservices.lu</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg><use href="#icon-location"/></svg>
+          <span>54 Op Zaemer, L-4959 Bascharage, Luxembourg</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">Rodent Control</a></li>
+          <li><a href="#services">Insect Treatment</a></li>
+          <li><a href="#services">Disinfection</a></li>
+          <li><a href="#services">Pigeon Control</a></li>
+          <li><a href="#services">Wood Treatment</a></li>
+          <li><a href="#services">Commercial Monitoring</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#commitment">Our Approach</a></li>
+          <li><a href="#reviews">Client Reviews</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="tel:+35226350020">Request Inspection</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
-</section>
-<section id="contact"><div class="csec">
-  <div>
-    <div class="slbl">Contact</div>
-    <h2 class="ctit">Request an Estimate</h2>
-    <div class="cinfo">
-      <div class="crow"><div class="clbl">Telephone</div><div class="cval"><a href="tel:+352 26 35 00 20">+352 26 35 00 20</a></div></div>
-      <div class="crow"><div class="clbl">Service Area</div><div class="cval">54 Op Zaemer, 4959 Nidderkäerjeng Käerjeng &amp; Surrounding</div></div>
-      <div class="crow"><div class="clbl">Hours</div><div class="cval">Monday &ndash; Saturday, 7am &ndash; 7pm</div></div>
-      <div class="crow"><div class="clbl">Location</div><div class="cval"><a href="https://maps.google.com/?cid=17177873736578782366&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">View on Google Maps</a></div></div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2025 Apest Services Luxembourg. All rights reserved.</span>
+      <span class="footer-badge">apestservices.lu</span>
     </div>
-  </div>
-  <form class="cform" onsubmit="this.innerHTML='<p style=color:var(--ac);padding:20px 0;font-family:Cormorant Garamond,serif;font-size:20px;font-style:italic>Thank you. We will be in touch shortly.</p>';return false;">
-    <input class="cf" type="text" placeholder="Full name" required>
-    <input class="cf" type="tel" placeholder="Phone number" required>
-    <input class="cf" type="email" placeholder="Email address (optional)">
-    <textarea class="cf" placeholder="How can we help you?" rows="5" style="resize:vertical"></textarea>
-    <button class="cs">Send Enquiry</button>
-  </form>
-</div></section>
-<footer>
-  <span class="fc">&copy; 2026 Apest Services &middot; 54 Op Zaemer</span>
-  <a href="https://maps.google.com/?cid=17177873736578782366&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Google Maps</a>
-</footer>
-<div class="mcta"><a href="tel:+352 26 35 00 20">Call +352 26 35 00 20</a></div>
-<a class="dbadge" href="https://jayexe.com" target="_blank" rel="noopener">Demo by <strong>Jay @ jayexe.com</strong></a>
-<script>
-(function(){
-  let i=0;
-  const slides=document.querySelectorAll('.rs');
-  const dots=document.querySelectorAll('.rd');
-  let t;
-  function go(n){
-    slides[i].classList.remove('active');
-    dots[i].classList.remove('active');
-    i=(n+slides.length)%slides.length;
-    slides[i].classList.add('active');
-    dots[i].classList.add('active');
-  }
-  function start(){t=setInterval(()=>go(i+1),4800);}
-  function reset(){clearInterval(t);start();}
-  document.getElementById('rn')?.addEventListener('click',()=>{go(i+1);reset();});
-  document.getElementById('rp')?.addEventListener('click',()=>{go(i-1);reset();});
-  dots.forEach((d,j)=>d.addEventListener('click',()=>{go(j);reset();}));
-  start();
-})();
-</script>
-</body></html>
+  </footer>
+
+  <script type="module">
+    import { animate, inView, stagger } from 'https://esm.sh/motion@10.18.0';
+
+    // Set initial opacity to 0 via JS (not CSS) for animated elements
+    const fadeTargets = [
+      '.hero-eyebrow',
+      '.hero-content h1',
+      '.hero-lead',
+      '.hero-actions',
+      '.hero-stats',
+      '.section-intro',
+      '.service-card',
+      '.eco-point',
+      '.review-card',
+      '.trust-item',
+      '.cta-section h2',
+      '.cta-lead',
+      '.cta-actions',
+    ];
+
+    fadeTargets.forEach(selector => {
+      document.querySelectorAll(selector).forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(18px)';
+      });
+    });
+
+    // Hero sequential fade-in
+    const heroSeq = [
+      '.hero-eyebrow',
+      '.hero-content h1',
+      '.hero-lead',
+      '.hero-actions',
+      '.hero-stats',
+    ];
+
+    heroSeq.forEach((sel, i) => {
+      const el = document.querySelector(sel);
+      if (!el) return;
+      setTimeout(() => {
+        animate(el,
+          { opacity: [0, 1], y: [18, 0] },
+          { duration: 0.55, easing: [0.22, 1, 0.36, 1] }
+        );
+      }, 120 + i * 120);
+    });
+
+    // Section intro blocks
+    document.querySelectorAll('.section-intro').forEach(el => {
+      inView(el, () => {
+        animate(el, { opacity: [0, 1], y: [18, 0] }, { duration: 0.6, easing: [0.22, 1, 0.36, 1] });
+      }, { margin: '-60px' });
+    });
+
+    // Service cards staggered
+    inView('.services-grid', () => {
+      animate(
+        '.service-card',
+        { opacity: [0, 1], y: [20, 0] },
+        { duration: 0.5, delay: stagger(0.08), easing: [0.22, 1, 0.36, 1] }
+      );
+    }, { margin: '-80px' });
+
+    // Eco points staggered
+    inView('.eco-points', () => {
+      animate(
+        '.eco-point',
+        { opacity: [0, 1], y: [16, 0] },
+        { duration: 0.5, delay: stagger(0.1), easing: [0.22, 1, 0.36, 1] }
+      );
+    }, { margin: '-80px' });
+
+    // Review cards
+    inView('.reviews-grid', () => {
+      animate(
+        '.review-card',
+        { opacity: [0, 1], y: [18, 0] },
+        { duration: 0.5, delay: stagger(0.1), easing: [0.22, 1, 0.36, 1] }
+      );
+    }, { margin: '-80px' });
+
+    // Trust items
+    inView('.trust-grid', () => {
+      animate(
+        '.trust-item',
+        { opacity: [0, 1], y: [14, 0] },
+        { duration: 0.45, delay: stagger(0.09), easing: [0.22, 1, 0.36, 1] }
+      );
+    }, { margin: '-60px' });
+
+    // CTA section
+    inView('.cta-section', () => {
+      const els = ['.cta-section h2', '.cta-lead', '.cta-actions'];
+      els.forEach((sel, i) => {
+        const el = document.querySelector(sel);
+        if (!el) return;
+        animate(el,
+          { opacity: [0, 1], y: [16, 0] },
+          { duration: 0.5, delay: i * 0.1, easing: [0.22, 1, 0.36, 1] }
+        );
+      });
+    }, { margin: '-60px' });
+
+    // Eco photo
+    const ecoPhoto = document.querySelector('.eco-photo');
+    if (ecoPhoto) {
+      ecoPhoto.style.opacity = '0';
+      inView('.eco-photo', () => {
+        animate('.eco-photo', { opacity: [0, 1] }, { duration: 0.8, easing: 'ease-out' });
+      }, { margin: '-60px' });
+    }
+  </script>
+</body>
+</html>

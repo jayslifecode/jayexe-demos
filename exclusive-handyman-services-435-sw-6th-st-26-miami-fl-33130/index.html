@@ -1,191 +1,1117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Exclusive Handyman Services &mdash; 435 SW 6th St #26</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#faf8f5;--surf:#f3efe9;--brd:#e0d8cc;--tx:#1c1917;--mu:#7d7268;--ac:#92681a;--acl:rgba(146,104,26,.08)}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--tx);font-family:'Jost',sans-serif;font-size:15px;line-height:1.7;font-weight:300}
-nav{position:sticky;top:0;z-index:100;background:rgba(250,248,245,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--brd);display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:72px}
-.nn{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;color:var(--tx);letter-spacing:.02em}
-.nlinks{display:flex;gap:36px;align-items:center}
-.nlinks a{color:var(--mu);text-decoration:none;font-size:13px;font-weight:400;letter-spacing:.08em;transition:color .2s}
-.nlinks a:hover{color:var(--ac)}
-.ncta{border:1px solid var(--ac);color:var(--ac);padding:10px 24px;font-size:12px;font-weight:500;letter-spacing:.1em;text-decoration:none;border-radius:2px;transition:background .2s,color .2s}
-.ncta:hover{background:var(--ac);color:#fff}
-@media(max-width:640px){.nlinks{display:none};nav{padding:0 24px}}
-.hero{padding:100px 56px 80px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:80px;align-items:end}
-.hleft{max-width:600px}
-.hkicker{font-size:11px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--ac);margin-bottom:24px}
-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,5.5vw,72px);font-weight:300;line-height:1.05;letter-spacing:-.5px;margin-bottom:24px;color:var(--tx)}
-h1 em{font-style:italic;color:var(--ac)}
-.hsub{color:var(--mu);font-size:16px;line-height:1.8;margin-bottom:40px;font-weight:300}
-.hact{display:flex;gap:12px;flex-wrap:wrap}
-.ba{background:var(--tx);color:var(--bg);padding:14px 32px;font-size:13px;font-weight:500;letter-spacing:.08em;text-decoration:none;border-radius:2px;transition:opacity .2s}
-.ba:hover{opacity:.85}
-.bg{border:1px solid var(--brd);color:var(--mu);padding:14px 32px;font-size:13px;font-weight:400;letter-spacing:.08em;text-decoration:none;border-radius:2px;transition:border-color .2s,color .2s}
-.bg:hover{border-color:var(--ac);color:var(--ac)}
-.hright{text-align:center}
-.hmonogram{font-family:'Cormorant Garamond',serif;font-size:120px;font-weight:300;font-style:italic;color:var(--surf);line-height:1;letter-spacing:-4px;user-select:none;border:1px solid var(--brd);width:200px;height:200px;display:flex;align-items:center;justify-content:center;border-radius:2px}
-@media(max-width:768px){.hero{grid-template-columns:1fr;padding:64px 24px 48px;gap:0}.hright{display:none}}
-.divider{border:none;border-top:1px solid var(--brd);margin:0 56px}
-.sec{padding:88px 56px;max-width:1100px;margin:0 auto}
-.slbl{font-size:10px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--ac);margin-bottom:20px}
-.stit{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,46px);font-weight:300;letter-spacing:-.3px;margin-bottom:56px}
-.slist{list-style:none}
-.si2{display:flex;align-items:baseline;gap:20px;padding:22px 0;border-bottom:1px solid var(--brd)}
-.si2:first-child{border-top:1px solid var(--brd)}
-.snum{font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--ac);min-width:24px;font-style:italic}
-.sname{font-size:15px;font-weight:500;flex:1;color:var(--tx)}
-.sdesc{font-size:13px;color:var(--mu);font-weight:300;text-align:right}
-@media(max-width:640px){.sec{padding:56px 24px}.sdesc{display:none}}
-.rvsec{background:var(--surf);border-top:1px solid var(--brd);border-bottom:1px solid var(--brd);padding:88px 56px}
-.rvi{max-width:720px;margin:0 auto}
-.rcar{margin:48px 0 24px;position:relative;min-height:180px}
-.rs{display:none;animation:ff .4s ease}
-.rs.active{display:block}
-@keyframes ff{from{opacity:0}to{opacity:1}}
-.ropen{font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:300;color:var(--brd);line-height:.4;margin-bottom:16px}
-.rt{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;font-style:italic;line-height:1.75;color:var(--tx);margin-bottom:20px}
-.ra{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ac)}
-.rbot{display:flex;justify-content:space-between;align-items:center;margin-top:32px;border-top:1px solid var(--brd);padding-top:20px}
-.rdots{display:flex;gap:8px}
-.rd{width:24px;height:1px;background:var(--brd);border:none;cursor:pointer;transition:background .2s;padding:0}
-.rd.active{background:var(--ac)}
-.rnav{display:flex;gap:16px}
-.rb{background:transparent;border:none;color:var(--mu);font-family:'Jost',sans-serif;font-size:13px;font-weight:400;letter-spacing:.08em;cursor:pointer;transition:color .2s;padding:0}
-.rb:hover{color:var(--ac)}
-@media(max-width:640px){.rvsec{padding:56px 24px}}
-.csec{padding:88px 56px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:5fr 6fr;gap:88px;align-items:start}
-.ctit{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.5vw,46px);font-weight:300;letter-spacing:-.3px;margin-bottom:36px}
-.cinfo{display:flex;flex-direction:column;gap:0}
-.crow{padding:16px 0;border-bottom:1px solid var(--brd)}
-.crow:first-child{border-top:1px solid var(--brd)}
-.clbl{font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ac);margin-bottom:5px}
-.cval{font-size:14px;font-weight:400;color:var(--tx)}
-.cval a{color:var(--tx);text-decoration:none;border-bottom:1px solid var(--brd);transition:border-color .2s}
-.cval a:hover{border-color:var(--ac)}
-.cform{display:flex;flex-direction:column;gap:12px}
-.cf{background:var(--bg);border:none;border-bottom:1px solid var(--brd);color:var(--tx);padding:12px 0;font-family:'Jost',sans-serif;font-size:14px;font-weight:300;border-radius:0;outline:none;transition:border-color .2s;width:100%}
-.cf:focus{border-color:var(--ac)}
-.cf::placeholder{color:var(--mu)}
-.cs{background:var(--tx);color:var(--bg);border:none;padding:15px;font-family:'Jost',sans-serif;font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border-radius:2px;margin-top:8px;transition:opacity .2s}
-.cs:hover{opacity:.85}
-@media(max-width:768px){.csec{grid-template-columns:1fr;gap:40px;padding:56px 24px}}
-footer{border-top:1px solid var(--brd);padding:28px 56px;display:flex;justify-content:space-between;align-items:center}
-.fc{font-size:12px;font-weight:300;color:var(--mu);letter-spacing:.05em}
-footer a{font-size:12px;color:var(--mu);text-decoration:none;letter-spacing:.05em;transition:color .2s}
-footer a:hover{color:var(--ac)}
-@media(max-width:640px){footer{flex-direction:column;gap:10px;padding:20px;text-align:center}}
-.dbadge{position:fixed;bottom:24px;right:24px;background:var(--bg);border:1px solid var(--brd);color:var(--mu);font-size:10px;padding:8px 16px;border-radius:2px;text-decoration:none;letter-spacing:.06em;z-index:1000;transition:color .2s}
-.dbadge:hover{color:var(--ac)}
-.dbadge strong{color:var(--tx);font-weight:500}
-.mcta{position:fixed;bottom:0;left:0;right:0;background:var(--tx);padding:15px;text-align:center;display:none;z-index:99}
-.mcta a{color:var(--bg);font-weight:500;font-size:14px;letter-spacing:.06em;text-decoration:none}
-@media(max-width:640px){.mcta{display:block};body{padding-bottom:54px}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exclusive Handyman Services | Miami's #1 Handyman</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --night: #0d1117;
+      --night-mid: #161b22;
+      --night-light: #21262d;
+      --amber: #f4a418;
+      --amber-hover: #fbb52e;
+      --white: #ffffff;
+      --warm: #f8f5ef;
+      --text: #0d1117;
+      --text-mid: #4b5563;
+      --border: #e5e7eb;
+      --radius: 8px;
+      --font: 'Sora', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); color: var(--text); background: var(--white); overflow-x: hidden; }
+
+    svg.defs { display: none; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 24px;
+      border-radius: var(--radius);
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      line-height: 1;
+      white-space: nowrap;
+      transition: background .2s, color .2s, border-color .2s;
+    }
+    .btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+    .btn-amber {
+      background: var(--amber);
+      color: var(--night);
+      border: 1.5px solid transparent;
+    }
+    .btn-amber:hover { background: var(--amber-hover); }
+
+    .btn-ghost-w {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255,255,255,0.35);
+    }
+    .btn-ghost-w:hover { border-color: rgba(255,255,255,0.7); }
+
+    .btn-night {
+      background: var(--night);
+      color: var(--white);
+      border: 1.5px solid transparent;
+    }
+    .btn-night:hover { background: var(--night-mid); }
+
+    .btn-ghost-d {
+      background: transparent;
+      color: var(--night);
+      border: 1.5px solid var(--night);
+    }
+    .btn-ghost-d:hover { background: var(--night); color: var(--white); }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(20px, 5vw, 72px);
+      height: 64px;
+      background: rgba(13,17,23,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(244,164,24,0.12);
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-icon {
+      width: 32px; height: 32px;
+      background: var(--amber);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .nav-icon svg { width: 18px; height: 18px; fill: var(--night); }
+    .nav-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.01em;
+      line-height: 1;
+    }
+    .nav-sub {
+      font-size: 10px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.04em;
+    }
+    .nav-name-block { display: flex; flex-direction: column; gap: 2px; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: #fff; }
+
+    @media (max-width: 768px) { .nav-links { display: none; } }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+    }
+    .hero-left {
+      background: var(--night);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 120px clamp(24px, 5vw, 72px) 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-left::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(244,164,24,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-right img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-right::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(13,17,23,0.3) 0%, transparent 60%);
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(244,164,24,0.15);
+      border: 1px solid rgba(244,164,24,0.25);
+      border-radius: 4px;
+      padding: 5px 12px;
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--amber);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      width: fit-content;
+    }
+
+    .hero-h1 {
+      font-size: clamp(36px, 5.5vw, 68px);
+      font-weight: 800;
+      line-height: 1.04;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+    .hero-h1 span { color: var(--amber); }
+
+    .hero-sub {
+      font-size: clamp(14px, 1.5vw, 16px);
+      color: rgba(255,255,255,0.62);
+      line-height: 1.7;
+      max-width: 440px;
+      margin-bottom: 36px;
+      font-weight: 400;
+    }
+
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .hero-phone-card {
+      position: absolute;
+      bottom: 40px;
+      right: 40px;
+      z-index: 10;
+      background: rgba(13,17,23,0.88);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(244,164,24,0.25);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-phone-icon {
+      width: 40px; height: 40px;
+      background: var(--amber);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .hero-phone-icon svg { width: 20px; height: 20px; fill: var(--night); }
+    .hero-phone-text strong { display: block; font-size: 16px; font-weight: 700; color: #fff; }
+    .hero-phone-text span { font-size: 11px; color: rgba(255,255,255,0.55); font-weight: 400; }
+
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { height: 45vh; }
+      .hero-left { padding-top: 100px; padding-bottom: 60px; }
+      .hero-phone-card { display: none; }
+    }
+
+    /* ── STATS ── */
+    .stats { background: var(--amber); }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .stat {
+      padding: 32px 20px;
+      text-align: center;
+      border-right: 1px solid rgba(13,17,23,0.12);
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-val {
+      font-size: clamp(30px, 4vw, 44px);
+      font-weight: 800;
+      color: var(--night);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      margin-bottom: 5px;
+    }
+    .stat-lbl {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(13,17,23,0.60);
+    }
+
+    @media (max-width: 640px) {
+      .stats-grid { grid-template-columns: repeat(2,1fr); }
+      .stat:nth-child(2) { border-right: none; }
+      .stat:nth-child(3) { border-right: 1px solid rgba(13,17,23,0.12); border-top: 1px solid rgba(13,17,23,0.12); }
+      .stat:nth-child(4) { border-right: none; border-top: 1px solid rgba(13,17,23,0.12); }
+    }
+
+    /* ── SECTIONS ── */
+    .sec { padding: clamp(60px, 8vw, 100px) clamp(20px, 5vw, 80px); }
+    .sec-inner { max-width: 1200px; margin: 0 auto; }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--night);
+      background: rgba(244,164,24,0.2);
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+    .tag-light {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--amber);
+      background: rgba(244,164,24,0.15);
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+
+    .sec-h2 {
+      font-size: clamp(28px, 4vw, 46px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      margin-bottom: 12px;
+    }
+    .sec-h2 span { color: var(--amber); }
+
+    .sec-sub {
+      font-size: 15.5px;
+      color: var(--text-mid);
+      line-height: 1.65;
+      max-width: 540px;
+      font-weight: 400;
+    }
+
+    /* ── SERVICES ── */
+    .services-bg { background: var(--warm); }
+
+    .svc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+    }
+    .svc-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 24px;
+      transition: border-color .2s, box-shadow .2s;
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    .svc-card:hover {
+      border-color: rgba(244,164,24,0.4);
+      box-shadow: 0 4px 20px rgba(244,164,24,0.12);
+    }
+    .svc-num {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--amber);
+      margin-bottom: 14px;
+    }
+    .svc-icon-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .svc-icon-box {
+      width: 40px; height: 40px;
+      background: var(--night);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .svc-icon-box svg { width: 20px; height: 20px; fill: var(--amber); }
+    .svc-name {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    .svc-desc {
+      font-size: 13.5px;
+      color: var(--text-mid);
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    @media (max-width: 768px) {
+      .svc-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .svc-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── FEATURE ── */
+    .feature-bg { background: var(--white); }
+    .feature-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .feature-body {
+      opacity: 0;
+      transform: translateX(-24px);
+    }
+    .feature-img {
+      position: relative;
+      opacity: 0;
+      transform: translateX(24px);
+    }
+    .feature-img img {
+      width: 100%;
+      border-radius: 16px;
+      display: block;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+    }
+    .feature-img-badge {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background: var(--amber);
+      border-radius: 12px;
+      padding: 18px 22px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    }
+    .feature-img-badge strong {
+      display: block;
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--night);
+      letter-spacing: -0.03em;
+    }
+    .feature-img-badge span {
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(13,17,23,0.65);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .check-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 28px 0 36px;
+    }
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      font-size: 14.5px;
+      color: var(--text-mid);
+      line-height: 1.55;
+    }
+    .check-list li svg {
+      width: 18px; height: 18px;
+      background: var(--amber);
+      fill: var(--night);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 1px;
+      padding: 3px;
+    }
+    .check-list li strong { color: var(--text); }
+
+    @media (max-width: 768px) {
+      .feature-row { grid-template-columns: 1fr; gap: 40px; }
+      .feature-body, .feature-img { opacity: 1; transform: none; }
+      .feature-img-badge { left: 16px; bottom: 16px; }
+    }
+
+    /* ── REVIEWS ── */
+    .reviews-bg { background: var(--warm); }
+    .reviews-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .rev-google {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 16px;
+    }
+    .rev-google svg { width: 20px; height: 20px; }
+    .rev-google-text strong { display: block; font-size: 14px; font-weight: 700; }
+    .rev-google-text span { font-size: 11.5px; color: var(--text-mid); }
+
+    .rev-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 16px;
+    }
+    .rev-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    .rev-stars { display: flex; gap: 3px; }
+    .rev-stars svg { width: 15px; height: 15px; fill: #f4a418; }
+    .rev-quote {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.65;
+      flex: 1;
+      font-weight: 400;
+    }
+    .rev-author { display: flex; align-items: center; gap: 10px; }
+    .rev-avatar {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: var(--night);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--amber);
+      flex-shrink: 0;
+    }
+    .rev-name { font-size: 13px; font-weight: 700; color: var(--text); }
+    .rev-loc { font-size: 11px; color: var(--text-mid); }
+
+    @media (max-width: 768px) {
+      .rev-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── TRUST ── */
+    .trust { background: var(--night); padding: 36px clamp(20px, 5vw, 80px); }
+    .trust-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: nowrap;
+    }
+    .trust-item { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .trust-item svg { width: 18px; height: 18px; fill: var(--amber); flex-shrink: 0; }
+    .trust-item span { font-size: 12.5px; font-weight: 600; color: rgba(255,255,255,0.78); white-space: nowrap; }
+    .trust-div { width: 1px; height: 22px; background: rgba(255,255,255,0.10); flex-shrink: 0; }
+
+    @media (max-width: 768px) {
+      .trust-inner { flex-wrap: wrap; justify-content: center; }
+      .trust-div { display: none; }
+    }
+
+    /* ── CTA ── */
+    .cta-sec {
+      background: var(--night);
+      padding: clamp(64px, 9vw, 96px) clamp(20px, 5vw, 80px);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-sec::before {
+      content: '';
+      position: absolute;
+      bottom: -120px; right: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(244,164,24,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .cta-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      transform: translateY(22px);
+    }
+    .cta-h2 {
+      font-size: clamp(30px, 5vw, 54px);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+    .cta-h2 span { color: var(--amber); }
+    .cta-sub {
+      font-size: 15px;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 34px;
+      line-height: 1.65;
+      font-weight: 400;
+    }
+    .cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .cta-note {
+      margin-top: 18px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ── FOOTER ── */
+    .footer { background: #080c11; padding: 52px clamp(20px, 5vw, 80px) 28px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      margin-bottom: 24px;
+    }
+    .footer-brand {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .footer-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.65;
+      margin-bottom: 20px;
+      font-weight: 400;
+    }
+    .footer-links-contact a {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: rgba(255,255,255,0.60);
+      text-decoration: none; margin-bottom: 8px;
+      transition: color .2s;
+    }
+    .footer-links-contact a:hover { color: var(--amber); }
+    .footer-links-contact svg { width: 14px; height: 14px; fill: var(--amber); flex-shrink: 0; }
+    .footer-col h4 {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.35); margin-bottom: 14px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { font-size: 13px; color: rgba(255,255,255,0.55); margin-bottom: 7px; font-weight: 400; }
+    .footer-bottom {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; flex-wrap: wrap;
+    }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.30); }
+    .footer-copy a { color: var(--amber); text-decoration: none; }
+    .footer-credit { font-size: 11.5px; color: rgba(255,255,255,0.25); }
+    .footer-credit a { color: var(--amber); text-decoration: none; }
+
+    @media (max-width: 768px) {
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    }
+  </style>
 </head>
 <body>
-<nav>
-  <div class="nn">Exclusive Handyman Services</div>
-  <div class="nlinks">
-    <a href="#services">Services</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
-    <a href="https://maps.google.com/?cid=12726295637155821711&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Find Us</a>
-  </div>
-  <a class="ncta" href="tel:+1 786-543-7991">(786) 543-7991</a>
-</nav>
-<section class="hero">
-  <div class="hleft">
-    <div class="hkicker">435 SW 6th St #26, Miami</div>
-    <h1>Exclusive Handyman<br><em>Services</em></h1>
-    <p class="hsub">Premier handyman & repairs services in 435 SW 6th St #26. Where craftsmanship meets reliability.</p>
-    <div class="hact">
-      <a class="ba" href="tel:+1 786-543-7991">Call (786) 543-7991</a>
-      <a class="bg" href="#contact">Request Estimate</a>
-      <a class="bg" href="https://maps.google.com/?cid=12726295637155821711&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Our Location</a>
+
+<svg class="defs" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="ic-tool" viewBox="0 0 24 24">
+    <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
+  </symbol>
+  <symbol id="ic-phone" viewBox="0 0 24 24">
+    <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.57 1 1 0 01-.25 1.01l-2.2 2.21z"/>
+  </symbol>
+  <symbol id="ic-clock" viewBox="0 0 24 24">
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5z"/>
+  </symbol>
+  <symbol id="ic-star" viewBox="0 0 24 24">
+    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+  </symbol>
+  <symbol id="ic-shield" viewBox="0 0 24 24">
+    <path d="M12 2L3 6v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V6l-9-4zm-1 13l-3-3 1.41-1.41L11 12.17l4.59-4.58L17 9l-6 6z"/>
+  </symbol>
+  <symbol id="ic-map" viewBox="0 0 24 24">
+    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+  </symbol>
+  <symbol id="ic-check" viewBox="0 0 24 24">
+    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+  </symbol>
+  <symbol id="ic-tile" viewBox="0 0 24 24">
+    <path d="M3 3h8v8H3zm0 10h8v8H3zm10-10h8v8h-8zm0 10h8v8h-8z"/>
+  </symbol>
+  <symbol id="ic-paint" viewBox="0 0 24 24">
+    <path d="M7 14c-1.66 0-3 1.34-3 3 0 1.31-1.16 2-2 2 .92 1.22 2.49 2 4 2 2.21 0 4-1.79 4-4 0-1.66-1.34-3-3-3zm13.71-9.37l-1.34-1.34a1 1 0 00-1.41 0L9 12.25 11.75 15l8.96-8.96a1 1 0 000-1.41z"/>
+  </symbol>
+  <symbol id="ic-door" viewBox="0 0 24 24">
+    <path d="M19 19V4.5L14.5 2 10 4.5v1H5v15H3v2h18v-2h-2zm-4-2h-2v-2h2v2zm0-4h-2V9h2v4z"/>
+  </symbol>
+  <symbol id="ic-wrench" viewBox="0 0 24 24">
+    <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
+  </symbol>
+  <symbol id="ic-electric" viewBox="0 0 24 24">
+    <path d="M11 21h-1l1-7H7.5c-.58 0-.57-.32-.38-.66.19-.34.05-.08.07-.12C8.48 10.94 10.42 7.54 13 3h1l-1 7h3.5c.49 0 .56.33.47.51l-.07.15C12.96 17.55 11 21 11 21z"/>
+  </symbol>
+  <symbol id="ic-home" viewBox="0 0 24 24">
+    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+  </symbol>
+</svg>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-brand">
+    <div class="nav-icon"><svg viewBox="0 0 24 24"><use href="#ic-tool"/></svg></div>
+    <div class="nav-name-block">
+      <span class="nav-name">Exclusive Handyman</span>
+      <span class="nav-sub">Miami, FL · 24/7 Service</span>
     </div>
   </div>
-  <div class="hright">
-    <div class="hmonogram">EH</div>
-  </div>
-</section>
-<hr class="divider">
-<section class="sec" id="services">
-  <div class="slbl">Services</div>
-  <h2 class="stit">Our Expertise</h2>
-  <ul class="slist">
-    <li class="si2"><span class="snum">01</span><span class="sname">General Home Repairs</span><span class="sdesc">Fully guaranteed</span></li>
-    <li class="si2"><span class="snum">02</span><span class="sname">Furniture Assembly</span><span class="sdesc">Fully guaranteed</span></li>
-    <li class="si2"><span class="snum">03</span><span class="sname">Drywall Patching</span><span class="sdesc">Fully guaranteed</span></li>
-    <li class="si2"><span class="snum">04</span><span class="sname">Door & Window Fixes</span><span class="sdesc">Fully guaranteed</span></li>
-    <li class="si2"><span class="snum">05</span><span class="sname">Painting Touch-Ups</span><span class="sdesc">Fully guaranteed</span></li>
-    <li class="si2"><span class="snum">06</span><span class="sname">Fixture Installation</span><span class="sdesc">Fully guaranteed</span></li>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why-us">Why Us</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
-</section>
-<section class="rvsec" id="reviews">
-  <div class="rvi">
-    <div class="slbl">Testimonials</div>
-    <h2 class="stit">Client Voices</h2>
-    <div class="rcar">
-      <div class="rs active"><div class="ropen">&ldquo;</div><p class="rt">Best handyman & repairs experience I've had in 435 SW 6th St #26. They were on time, professional, and actually fixed the problem permanently. Already recommended them to three friends.</p><div class="ra">&mdash;&ensp;Michael R., 435 SW 6th St #26</div></div>
-      <div class="rs"><div class="ropen">&ldquo;</div><p class="rt">After a bad experience with another company, Exclusive Handyman Services completely restored my confidence. Thorough, honest, and genuinely great to work with.</p><div class="ra">&mdash;&ensp;Sandra K., 435 SW 6th St #26</div></div>
-      <div class="rs"><div class="ropen">&ldquo;</div><p class="rt">Fast response, fair pricing, and no upselling. They explained everything clearly and the results speak for themselves. This is the handyman & repairs team 435 SW 6th St #26 deserves.</p><div class="ra">&mdash;&ensp;James T., 435 SW 6th St #26</div></div>
-      <div class="rs"><div class="ropen">&ldquo;</div><p class="rt">Top-notch from the first call to the final walkthrough. Exclusive Handyman Services treats your home like their own. Couldn't ask for better service.</p><div class="ra">&mdash;&ensp;Patricia M., 435 SW 6th St #26</div></div>
+  <a href="tel:7865437991" class="btn btn-amber" style="white-space:nowrap;">
+    <svg viewBox="0 0 24 24" fill="currentColor"><use href="#ic-phone"/></svg>
+    (786) 543-7991
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-left" id="hero-left">
+    <div class="hero-tag">
+      <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+      4.1★ · 91 Google Reviews · Miami, FL
     </div>
-    <div class="rbot">
-      <div class="rdots"><button class="rd active" data-i="0"></button><button class="rd" data-i="1"></button><button class="rd" data-i="2"></button><button class="rd" data-i="3"></button></div>
-      <div class="rnav"><button class="rb" id="rp">&#8592; Previous</button><button class="rb" id="rn">Next &#8594;</button></div>
+    <h1 class="hero-h1">
+      Your home,<br>
+      <span>expertly</span><br>
+      repaired.
+    </h1>
+    <p class="hero-sub">
+      Professional handyman services for Miami apartments, condos, and homes. Tile work, drywall, carpentry, electrical — one call handles it all.
+    </p>
+    <div class="hero-actions">
+      <a href="tel:7865437991" class="btn btn-amber">
+        <svg viewBox="0 0 24 24" fill="currentColor"><use href="#ic-phone"/></svg>
+        Call Jose Now
+      </a>
+      <a href="#services" class="btn btn-ghost-w">Our Services</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img
+      src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=80"
+      alt="Professional handyman at work"
+    >
+    <div class="hero-phone-card">
+      <div class="hero-phone-icon"><svg viewBox="0 0 24 24"><use href="#ic-clock"/></svg></div>
+      <div class="hero-phone-text">
+        <strong>Available 24/7</strong>
+        <span>Emergency repairs welcome</span>
+      </div>
     </div>
   </div>
 </section>
-<section id="contact"><div class="csec">
-  <div>
-    <div class="slbl">Contact</div>
-    <h2 class="ctit">Request an Estimate</h2>
-    <div class="cinfo">
-      <div class="crow"><div class="clbl">Telephone</div><div class="cval"><a href="tel:+1 786-543-7991">(786) 543-7991</a></div></div>
-      <div class="crow"><div class="clbl">Service Area</div><div class="cval">435 SW 6th St #26, Miami &amp; Surrounding</div></div>
-      <div class="crow"><div class="clbl">Hours</div><div class="cval">Monday &ndash; Saturday, 7am &ndash; 7pm</div></div>
-      <div class="crow"><div class="clbl">Location</div><div class="cval"><a href="https://maps.google.com/?cid=12726295637155821711&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">View on Google Maps</a></div></div>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stats-grid">
+    <div class="stat">
+      <div class="stat-val"><span data-count="4.1" data-decimals="1">4.1</span>★</div>
+      <div class="stat-lbl">Google Rating</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val"><span data-count="91" data-decimals="0">91</span>+</div>
+      <div class="stat-lbl">5-Star Reviews</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">24/7</div>
+      <div class="stat-lbl">Always Available</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">Free</div>
+      <div class="stat-lbl">Estimates</div>
     </div>
   </div>
-  <form class="cform" onsubmit="this.innerHTML='<p style=color:var(--ac);padding:20px 0;font-family:Cormorant Garamond,serif;font-size:20px;font-style:italic>Thank you. We will be in touch shortly.</p>';return false;">
-    <input class="cf" type="text" placeholder="Full name" required>
-    <input class="cf" type="tel" placeholder="Phone number" required>
-    <input class="cf" type="email" placeholder="Email address (optional)">
-    <textarea class="cf" placeholder="How can we help you?" rows="5" style="resize:vertical"></textarea>
-    <button class="cs">Send Enquiry</button>
-  </form>
-</div></section>
-<footer>
-  <span class="fc">&copy; 2026 Exclusive Handyman Services &middot; 435 SW 6th St #26</span>
-  <a href="https://maps.google.com/?cid=12726295637155821711&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Google Maps</a>
+</section>
+
+<!-- SERVICES -->
+<section class="sec services-bg" id="services">
+  <div class="sec-inner">
+    <span class="tag">What We Fix</span>
+    <h2 class="sec-h2">Every job done <span>right</span>, the first time.</h2>
+    <p class="sec-sub" style="margin-bottom:0;">From small repairs to full renovations — we've got the skills, the tools, and the work ethic to get it done on time, every time.</p>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-icon-row">
+          <div class="svc-icon-box"><svg viewBox="0 0 24 24"><use href="#ic-tile"/></svg></div>
+          <span class="svc-name">Tile &amp; Flooring</span>
+        </div>
+        <p class="svc-desc">Kitchen backsplash, bathroom tile, floor tile installation and replacement. Clean grout lines, perfectly level finishes.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon-row">
+          <div class="svc-icon-box"><svg viewBox="0 0 24 24"><use href="#ic-paint"/></svg></div>
+          <span class="svc-name">Drywall &amp; Painting</span>
+        </div>
+        <p class="svc-desc">Drywall repair, patching, installation, and smooth painting. We handle water damage, holes, and full wall replacements.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon-row">
+          <div class="svc-icon-box"><svg viewBox="0 0 24 24"><use href="#ic-home"/></svg></div>
+          <span class="svc-name">Kitchen &amp; Cabinets</span>
+        </div>
+        <p class="svc-desc">Cabinet installation, moving, and replacement. Counter installations, under-sink repairs, and kitchen refreshes.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon-row">
+          <div class="svc-icon-box"><svg viewBox="0 0 24 24"><use href="#ic-wrench"/></svg></div>
+          <span class="svc-name">Plumbing Fixes</span>
+        </div>
+        <p class="svc-desc">Leak repairs, fixture replacement, toilet and faucet installations, and basic pipe work for homes and apartments.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon-row">
+          <div class="svc-icon-box"><svg viewBox="0 0 24 24"><use href="#ic-electric"/></svg></div>
+          <span class="svc-name">Electrical &amp; Fixtures</span>
+        </div>
+        <p class="svc-desc">Light fixture installation, outlet and switch replacement, fan installation — safe and code-compliant work every time.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon-row">
+          <div class="svc-icon-box"><svg viewBox="0 0 24 24"><use href="#ic-door"/></svg></div>
+          <span class="svc-name">Doors &amp; Carpentry</span>
+        </div>
+        <p class="svc-desc">Door installation, frame repair, trim work, shelving, and custom carpentry for any room in your home.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="sec feature-bg" id="why-us">
+  <div class="sec-inner">
+    <div class="feature-row">
+      <div class="feature-body" id="feat-body">
+        <span class="tag">Why Exclusive</span>
+        <h2 class="sec-h2">Miami's most reliable handyman is one call away.</h2>
+        <ul class="check-list">
+          <li>
+            <svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>
+            <span><strong>24/7 availability</strong> — we take emergency calls nights, weekends, and holidays</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>
+            <span><strong>Apartment specialists</strong> — experienced with condo boards, HOA requirements, and unit repairs</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>
+            <span><strong>Multi-trade expertise</strong> — one handyman handles multiple repairs in a single visit</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>
+            <span><strong>Licensed &amp; insured</strong> — you're fully covered on every job</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>
+            <span><strong>Always responsive</strong> — owner Jose personally answers every call</span>
+          </li>
+        </ul>
+        <a href="tel:7865437991" class="btn btn-night">
+          <svg viewBox="0 0 24 24" fill="currentColor"><use href="#ic-phone"/></svg>
+          Get a Free Estimate
+        </a>
+      </div>
+      <div class="feature-img" id="feat-img">
+        <img
+          src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=900&q=80"
+          alt="Professional handyman tools and equipment"
+          loading="lazy"
+        >
+        <div class="feature-img-badge">
+          <strong>4.1★</strong>
+          <span>Google Rated</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="sec reviews-bg" id="reviews">
+  <div class="sec-inner">
+    <div class="reviews-header">
+      <div>
+        <span class="tag">Client Reviews</span>
+        <h2 class="sec-h2" style="margin-bottom:0;">What Miami homeowners say.</h2>
+      </div>
+      <div class="rev-google">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg>
+        <div class="rev-google-text">
+          <strong>4.1★ on Google</strong>
+          <span>91 verified reviews</span>
+        </div>
+      </div>
+    </div>
+    <div class="rev-grid">
+      <div class="rev-card">
+        <div class="rev-stars">
+          <svg viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+          <svg viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+          <svg viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+          <svg viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+          <svg viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+        </div>
+        <p class="rev-quote">"Their team is very skilled and the prices are reasonable. I was so satisfied that I recommended them to my apartment management association for kitchen cabinet and drywall work. They delivered perfectly."</p>
+        <div class="rev-author">
+          <div class="rev-avatar">D</div>
+          <div>
+            <div class="rev-name">David W.</div>
+            <div class="rev-loc">Miami, FL · 4 months ago</div>
+          </div>
+        </div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">
+          <svg viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+          <svg viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+          <svg viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+          <svg viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+          <svg viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+        </div>
+        <p class="rev-quote">"Exclusive Handyman Services did a great job! Professional, punctual, and finished everything perfectly. Strongly recommend for anyone needing home repairs or renovations in Miami."</p>
+        <div class="rev-author">
+          <div class="rev-avatar">H</div>
+          <div>
+            <div class="rev-name">Harry G.</div>
+            <div class="rev-loc">Miami, FL · 1 year ago</div>
+          </div>
+        </div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">
+          <svg viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+          <svg viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+          <svg viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+          <svg viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+          <svg viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+        </div>
+        <p class="rev-quote">"Finding a handyman is always tricky, but I finally found the right one. Jose and the team are always available, respectful, and make sure the job is done properly. Best in South Florida!"</p>
+        <div class="rev-author">
+          <div class="rev-avatar">A</div>
+          <div>
+            <div class="rev-name">Alejandro V.</div>
+            <div class="rev-loc">Miami, FL · 2 years ago</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<div class="trust">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><use href="#ic-shield"/></svg>
+      <span>Licensed &amp; Insured</span>
+    </div>
+    <div class="trust-div"></div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><use href="#ic-clock"/></svg>
+      <span>24/7 Available</span>
+    </div>
+    <div class="trust-div"></div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+      <span>4.1★ Google Rated</span>
+    </div>
+    <div class="trust-div"></div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><use href="#ic-tool"/></svg>
+      <span>Multi-Trade Experts</span>
+    </div>
+    <div class="trust-div"></div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><use href="#ic-map"/></svg>
+      <span>Miami-Based</span>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-sec" id="contact">
+  <div class="cta-inner" id="cta-inner">
+    <span class="tag-light">Ready to Start?</span>
+    <h2 class="cta-h2">One call. Every repair. <span>Done right.</span></h2>
+    <p class="cta-sub">
+      Call Jose directly or request a free estimate. We serve all of Miami, Brickell, Coral Gables, Doral, and surrounding areas.
+    </p>
+    <div class="cta-actions">
+      <a href="tel:7865437991" class="btn btn-amber">
+        <svg viewBox="0 0 24 24" fill="currentColor"><use href="#ic-phone"/></svg>
+        (786) 543-7991
+      </a>
+      <a href="mailto:info@exclusivehandyman.com" class="btn btn-ghost-w">Send a Message</a>
+    </div>
+    <p class="cta-note">Available 24/7 · Free estimates · No hidden fees</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">Exclusive Handyman Services</div>
+        <p class="footer-desc">Miami's trusted handyman — serving apartments, condos, and homes across South Florida with expert repairs, renovations, and installations.</p>
+        <div class="footer-links-contact">
+          <a href="tel:7865437991">
+            <svg viewBox="0 0 24 24"><use href="#ic-phone"/></svg>
+            (786) 543-7991
+          </a>
+          <a href="#">
+            <svg viewBox="0 0 24 24"><use href="#ic-map"/></svg>
+            435 SW 6th St #26, Miami, FL 33130
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li>Tile &amp; Flooring</li>
+          <li>Drywall &amp; Painting</li>
+          <li>Kitchen &amp; Cabinets</li>
+          <li>Plumbing Fixes</li>
+          <li>Electrical &amp; Fixtures</li>
+          <li>Doors &amp; Carpentry</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Service Area</h4>
+        <ul>
+          <li>Miami</li>
+          <li>Brickell</li>
+          <li>Coral Gables</li>
+          <li>Doral</li>
+          <li>South Beach</li>
+          <li>Coconut Grove</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Exclusive Handyman Services · All rights reserved · <a href="#">Privacy</a></span>
+      <span class="footer-credit">Demo by <a href="https://jayexe.com">jayexe.com</a></span>
+    </div>
+  </div>
 </footer>
-<div class="mcta"><a href="tel:+1 786-543-7991">Call (786) 543-7991</a></div>
-<a class="dbadge" href="https://jayexe.com" target="_blank" rel="noopener">Demo by <strong>Jay @ jayexe.com</strong></a>
-<script>
-(function(){
-  let i=0;
-  const slides=document.querySelectorAll('.rs');
-  const dots=document.querySelectorAll('.rd');
-  let t;
-  function go(n){
-    slides[i].classList.remove('active');
-    dots[i].classList.remove('active');
-    i=(n+slides.length)%slides.length;
-    slides[i].classList.add('active');
-    dots[i].classList.add('active');
+
+<script type="module">
+import { animate, inView, stagger } from 'https://esm.sh/motion';
+
+animate('#hero-left', { opacity: [0, 1], x: [-24, 0] }, { duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.15 });
+
+inView('.stats-grid', () => {
+  animate('.stat', { opacity: [0, 1], y: [16, 0] }, { delay: stagger(0.08), duration: 0.55, ease: [0.16, 1, 0.3, 1] });
+});
+
+inView('.svc-grid', () => {
+  animate('.svc-card', { opacity: [0, 1], y: [18, 0] }, { delay: stagger(0.06), duration: 0.5, ease: [0.16, 1, 0.3, 1] });
+});
+
+inView('#feat-body', () => {
+  animate('#feat-body', { opacity: [0, 1], x: [-24, 0] }, { duration: 0.7, ease: [0.16, 1, 0.3, 1] });
+  animate('#feat-img', { opacity: [0, 1], x: [24, 0] }, { duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.1 });
+});
+
+inView('.rev-grid', () => {
+  animate('.rev-card', { opacity: [0, 1], y: [16, 0] }, { delay: stagger(0.1), duration: 0.55, ease: [0.16, 1, 0.3, 1] });
+});
+
+inView('#cta-inner', () => {
+  animate('#cta-inner', { opacity: [0, 1], y: [22, 0] }, { duration: 0.65, ease: [0.16, 1, 0.3, 1] });
+});
+
+function countUp(el) {
+  const target = parseFloat(el.dataset.count);
+  const decimals = parseInt(el.dataset.decimals || '0');
+  const dur = 1500;
+  const start = performance.now();
+  function tick(now) {
+    const p = Math.min((now - start) / dur, 1);
+    const ease = 1 - Math.pow(1 - p, 4);
+    el.textContent = (target * ease).toFixed(decimals);
+    if (p < 1) requestAnimationFrame(tick);
+    else el.textContent = target.toFixed(decimals);
   }
-  function start(){t=setInterval(()=>go(i+1),4800);}
-  function reset(){clearInterval(t);start();}
-  document.getElementById('rn')?.addEventListener('click',()=>{go(i+1);reset();});
-  document.getElementById('rp')?.addEventListener('click',()=>{go(i-1);reset();});
-  dots.forEach((d,j)=>d.addEventListener('click',()=>{go(j);reset();}));
-  start();
-})();
+  requestAnimationFrame(tick);
+}
+
+inView('.stats-grid', () => {
+  document.querySelectorAll('[data-count]').forEach(el => countUp(el));
+}, { once: true });
 </script>
-</body></html>
+</body>
+</html>

@@ -1,191 +1,1375 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>ABIOTEK - Sanitation Global Services S.A. &mdash; 16 Elwengerwee</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#faf8f5;--surf:#f3efe9;--brd:#e0d8cc;--tx:#1c1917;--mu:#7d7268;--ac:#92681a;--acl:rgba(146,104,26,.08)}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--tx);font-family:'Jost',sans-serif;font-size:15px;line-height:1.7;font-weight:300}
-nav{position:sticky;top:0;z-index:100;background:rgba(250,248,245,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--brd);display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:72px}
-.nn{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;color:var(--tx);letter-spacing:.02em}
-.nlinks{display:flex;gap:36px;align-items:center}
-.nlinks a{color:var(--mu);text-decoration:none;font-size:13px;font-weight:400;letter-spacing:.08em;transition:color .2s}
-.nlinks a:hover{color:var(--ac)}
-.ncta{border:1px solid var(--ac);color:var(--ac);padding:10px 24px;font-size:12px;font-weight:500;letter-spacing:.1em;text-decoration:none;border-radius:2px;transition:background .2s,color .2s}
-.ncta:hover{background:var(--ac);color:#fff}
-@media(max-width:640px){.nlinks{display:none};nav{padding:0 24px}}
-.hero{padding:100px 56px 80px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:80px;align-items:end}
-.hleft{max-width:600px}
-.hkicker{font-size:11px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--ac);margin-bottom:24px}
-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,5.5vw,72px);font-weight:300;line-height:1.05;letter-spacing:-.5px;margin-bottom:24px;color:var(--tx)}
-h1 em{font-style:italic;color:var(--ac)}
-.hsub{color:var(--mu);font-size:16px;line-height:1.8;margin-bottom:40px;font-weight:300}
-.hact{display:flex;gap:12px;flex-wrap:wrap}
-.ba{background:var(--tx);color:var(--bg);padding:14px 32px;font-size:13px;font-weight:500;letter-spacing:.08em;text-decoration:none;border-radius:2px;transition:opacity .2s}
-.ba:hover{opacity:.85}
-.bg{border:1px solid var(--brd);color:var(--mu);padding:14px 32px;font-size:13px;font-weight:400;letter-spacing:.08em;text-decoration:none;border-radius:2px;transition:border-color .2s,color .2s}
-.bg:hover{border-color:var(--ac);color:var(--ac)}
-.hright{text-align:center}
-.hmonogram{font-family:'Cormorant Garamond',serif;font-size:120px;font-weight:300;font-style:italic;color:var(--surf);line-height:1;letter-spacing:-4px;user-select:none;border:1px solid var(--brd);width:200px;height:200px;display:flex;align-items:center;justify-content:center;border-radius:2px}
-@media(max-width:768px){.hero{grid-template-columns:1fr;padding:64px 24px 48px;gap:0}.hright{display:none}}
-.divider{border:none;border-top:1px solid var(--brd);margin:0 56px}
-.sec{padding:88px 56px;max-width:1100px;margin:0 auto}
-.slbl{font-size:10px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--ac);margin-bottom:20px}
-.stit{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,46px);font-weight:300;letter-spacing:-.3px;margin-bottom:56px}
-.slist{list-style:none}
-.si2{display:flex;align-items:baseline;gap:20px;padding:22px 0;border-bottom:1px solid var(--brd)}
-.si2:first-child{border-top:1px solid var(--brd)}
-.snum{font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--ac);min-width:24px;font-style:italic}
-.sname{font-size:15px;font-weight:500;flex:1;color:var(--tx)}
-.sdesc{font-size:13px;color:var(--mu);font-weight:300;text-align:right}
-@media(max-width:640px){.sec{padding:56px 24px}.sdesc{display:none}}
-.rvsec{background:var(--surf);border-top:1px solid var(--brd);border-bottom:1px solid var(--brd);padding:88px 56px}
-.rvi{max-width:720px;margin:0 auto}
-.rcar{margin:48px 0 24px;position:relative;min-height:180px}
-.rs{display:none;animation:ff .4s ease}
-.rs.active{display:block}
-@keyframes ff{from{opacity:0}to{opacity:1}}
-.ropen{font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:300;color:var(--brd);line-height:.4;margin-bottom:16px}
-.rt{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;font-style:italic;line-height:1.75;color:var(--tx);margin-bottom:20px}
-.ra{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ac)}
-.rbot{display:flex;justify-content:space-between;align-items:center;margin-top:32px;border-top:1px solid var(--brd);padding-top:20px}
-.rdots{display:flex;gap:8px}
-.rd{width:24px;height:1px;background:var(--brd);border:none;cursor:pointer;transition:background .2s;padding:0}
-.rd.active{background:var(--ac)}
-.rnav{display:flex;gap:16px}
-.rb{background:transparent;border:none;color:var(--mu);font-family:'Jost',sans-serif;font-size:13px;font-weight:400;letter-spacing:.08em;cursor:pointer;transition:color .2s;padding:0}
-.rb:hover{color:var(--ac)}
-@media(max-width:640px){.rvsec{padding:56px 24px}}
-.csec{padding:88px 56px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:5fr 6fr;gap:88px;align-items:start}
-.ctit{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.5vw,46px);font-weight:300;letter-spacing:-.3px;margin-bottom:36px}
-.cinfo{display:flex;flex-direction:column;gap:0}
-.crow{padding:16px 0;border-bottom:1px solid var(--brd)}
-.crow:first-child{border-top:1px solid var(--brd)}
-.clbl{font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ac);margin-bottom:5px}
-.cval{font-size:14px;font-weight:400;color:var(--tx)}
-.cval a{color:var(--tx);text-decoration:none;border-bottom:1px solid var(--brd);transition:border-color .2s}
-.cval a:hover{border-color:var(--ac)}
-.cform{display:flex;flex-direction:column;gap:12px}
-.cf{background:var(--bg);border:none;border-bottom:1px solid var(--brd);color:var(--tx);padding:12px 0;font-family:'Jost',sans-serif;font-size:14px;font-weight:300;border-radius:0;outline:none;transition:border-color .2s;width:100%}
-.cf:focus{border-color:var(--ac)}
-.cf::placeholder{color:var(--mu)}
-.cs{background:var(--tx);color:var(--bg);border:none;padding:15px;font-family:'Jost',sans-serif;font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border-radius:2px;margin-top:8px;transition:opacity .2s}
-.cs:hover{opacity:.85}
-@media(max-width:768px){.csec{grid-template-columns:1fr;gap:40px;padding:56px 24px}}
-footer{border-top:1px solid var(--brd);padding:28px 56px;display:flex;justify-content:space-between;align-items:center}
-.fc{font-size:12px;font-weight:300;color:var(--mu);letter-spacing:.05em}
-footer a{font-size:12px;color:var(--mu);text-decoration:none;letter-spacing:.05em;transition:color .2s}
-footer a:hover{color:var(--ac)}
-@media(max-width:640px){footer{flex-direction:column;gap:10px;padding:20px;text-align:center}}
-.dbadge{position:fixed;bottom:24px;right:24px;background:var(--bg);border:1px solid var(--brd);color:var(--mu);font-size:10px;padding:8px 16px;border-radius:2px;text-decoration:none;letter-spacing:.06em;z-index:1000;transition:color .2s}
-.dbadge:hover{color:var(--ac)}
-.dbadge strong{color:var(--tx);font-weight:500}
-.mcta{position:fixed;bottom:0;left:0;right:0;background:var(--tx);padding:15px;text-align:center;display:none;z-index:99}
-.mcta a{color:var(--bg);font-weight:500;font-size:14px;letter-spacing:.06em;text-decoration:none}
-@media(max-width:640px){.mcta{display:block};body{padding-bottom:54px}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ABIOTEK — Sanitation Global Services | Luxembourg</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Mulish:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --midnight: #0d1b2a;
+      --blue: #1a6bb5;
+      --silver: #c0c8d0;
+      --white: #ffffff;
+      --light: #f8f9fa;
+      --text: #2c3e50;
+      --text-muted: #5f6b7a;
+      --border: #dde2e8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Mulish', sans-serif;
+      font-weight: 400;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    /* ── SVG ICONS ─────────────────────────────────────── */
+    .icon {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      fill: none;
+      stroke: var(--blue);
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ── NAV ─────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .nav-brand .wordmark {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 0.12em;
+      color: var(--midnight);
+      text-decoration: none;
+    }
+
+    .nav-brand .tagline {
+      font-size: 0.625rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--midnight); }
+
+    .btn-nav {
+      font-family: 'Mulish', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+      padding: 10px 22px;
+      background: var(--midnight);
+      color: var(--white);
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-nav:hover { background: var(--blue); }
+
+    /* ── HERO ─────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding-top: 72px;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1563453392212-326f5e854473?w=1600&q=80');
+      background-size: cover;
+      background-position: center 30%;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, rgba(13,27,42,0.93) 45%, rgba(13,27,42,0.65) 100%);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--silver);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.75;
+      margin-bottom: 40px;
+      max-width: 480px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 52px;
+    }
+
+    .btn-primary {
+      font-family: 'Mulish', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 32px;
+      background: var(--blue);
+      color: var(--white);
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-primary:hover { background: #155fa0; }
+
+    .btn-outline {
+      font-family: 'Mulish', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 32px;
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255,255,255,0.5);
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-outline:hover { border-color: var(--white); }
+
+    .cert-badges {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .cert-badge {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 6px 14px;
+    }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .hero-info-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 28px 32px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .hero-info-card + .hero-info-card {
+      margin-top: 2px;
+    }
+
+    .hero-info-card .icon {
+      flex-shrink: 0;
+      stroke: var(--silver);
+    }
+
+    .hero-info-card h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+      letter-spacing: 0.06em;
+    }
+
+    .hero-info-card p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* ── STATS BAND ───────────────────────────────────────── */
+    .stats-band {
+      background: var(--light);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stats-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 64px 32px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+
+    .stat {
+      padding: 40px 32px;
+      background: var(--white);
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'Cinzel', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: var(--midnight);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ── SERVICES ─────────────────────────────────────────── */
+    .services {
+      background: var(--white);
+      padding: 96px 32px;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      margin-bottom: 56px;
+    }
+
+    .section-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 14px;
+    }
+
+    .section-header h2 {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+      color: var(--midnight);
+      line-height: 1.25;
+      max-width: 560px;
+    }
+
+    .section-header p {
+      margin-top: 16px;
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      max-width: 560px;
+      line-height: 1.75;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .service-card {
+      padding: 40px 36px;
+      background: var(--light);
+      border: 1px solid var(--border);
+      transition: background 0.2s;
+    }
+
+    .service-card:hover { background: #f0f3f7; }
+
+    .service-card .icon-wrap {
+      width: 56px;
+      height: 56px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .service-card h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--midnight);
+      margin-bottom: 12px;
+      letter-spacing: 0.04em;
+    }
+
+    .service-card p {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ── CERTIFICATIONS ───────────────────────────────────── */
+    .certifications {
+      background: var(--midnight);
+      padding: 96px 32px;
+    }
+
+    .cert-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .certifications .section-eyebrow { color: var(--silver); }
+
+    .certifications h2 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+
+    .certifications .intro-text {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.75;
+      margin-bottom: 40px;
+    }
+
+    .cert-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .cert-list li {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 18px 24px;
+    }
+
+    .cert-list li .cert-icon {
+      flex-shrink: 0;
+    }
+
+    .cert-list li .cert-name {
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .cert-list li .cert-desc {
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      margin-top: 2px;
+    }
+
+    .cert-photo {
+      position: relative;
+    }
+
+    .cert-photo img {
+      width: 100%;
+      height: 460px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .cert-photo-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(13,27,42,0.9), transparent);
+      padding: 32px;
+    }
+
+    .cert-photo-overlay p {
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+      font-style: italic;
+    }
+
+    /* ── REVIEWS ──────────────────────────────────────────── */
+    .reviews {
+      background: var(--light);
+      padding: 96px 32px;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .review-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 36px;
+    }
+
+    .review-stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 20px;
+    }
+
+    .star-icon {
+      width: 16px;
+      height: 16px;
+      fill: #d4a017;
+      stroke: none;
+    }
+
+    .review-text {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.8;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .reviewer {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .reviewer-avatar {
+      width: 40px;
+      height: 40px;
+      background: var(--midnight);
+      color: var(--white);
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .reviewer-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--midnight);
+    }
+
+    .reviewer-role {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: var(--text-muted);
+    }
+
+    /* ── TRUST BAND ───────────────────────────────────────── */
+    .trust-band {
+      background: var(--blue);
+      padding: 56px 32px;
+    }
+
+    .trust-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+
+    .trust-item {
+      padding: 28px 24px;
+      background: rgba(255,255,255,0.08);
+      text-align: center;
+    }
+
+    .trust-item .icon {
+      stroke: rgba(255,255,255,0.85);
+      width: 28px;
+      height: 28px;
+      margin: 0 auto 14px;
+      display: block;
+    }
+
+    .trust-item h4 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .trust-item p {
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* ── CTA SECTION ──────────────────────────────────────── */
+    .cta-section {
+      background: var(--light);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 96px 32px;
+      text-align: center;
+    }
+
+    .cta-section .section-eyebrow { text-align: center; }
+
+    .cta-section h2 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+      font-weight: 700;
+      color: var(--midnight);
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto 40px;
+      line-height: 1.75;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary-dark {
+      font-family: 'Mulish', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 32px;
+      background: var(--midnight);
+      color: var(--white);
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-primary-dark:hover { background: var(--blue); }
+
+    .btn-outline-dark {
+      font-family: 'Mulish', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 32px;
+      background: transparent;
+      color: var(--midnight);
+      border: 1.5px solid var(--midnight);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-outline-dark:hover {
+      background: var(--midnight);
+      color: var(--white);
+    }
+
+    /* ── FOOTER ───────────────────────────────────────────── */
+    footer {
+      background: var(--midnight);
+      padding: 64px 32px 36px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand .wordmark {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.12em;
+      color: var(--white);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .footer-brand .tagline {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--silver);
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .footer-brand p {
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.7;
+    }
+
+    .footer-col h5 {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--silver);
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-col ul li a {
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul li a:hover { color: var(--white); }
+
+    .footer-contact p {
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.9;
+    }
+
+    .footer-contact a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-contact a:hover { color: var(--white); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-bottom p {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .footer-bottom .legal-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-bottom .legal-links a {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.3);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-bottom .legal-links a:hover { color: rgba(255,255,255,0.6); }
+
+    /* ── RESPONSIVE ───────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .hero-right { display: none; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .cert-inner { grid-template-columns: 1fr; gap: 48px; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .trust-inner { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 560px) {
+      .stats-inner { grid-template-columns: 1fr 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .trust-inner { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-<nav>
-  <div class="nn">ABIOTEK - Sanitation Global Services S.A.</div>
-  <div class="nlinks">
-    <a href="#services">Services</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
-    <a href="https://maps.google.com/?cid=1608005488546889644&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Find Us</a>
-  </div>
-  <a class="ncta" href="tel:+352 26 30 27 40">+352 26 30 27 40</a>
-</nav>
-<section class="hero">
-  <div class="hleft">
-    <div class="hkicker">16 Elwengerwee, 5495 Wintringen Schengen</div>
-    <h1>ABIOTEK -<br><em>Sanitation Global Services S.A.</em></h1>
-    <p class="hsub">Premier pest control services in 16 Elwengerwee. Where craftsmanship meets reliability.</p>
-    <div class="hact">
-      <a class="ba" href="tel:+352 26 30 27 40">Call +352 26 30 27 40</a>
-      <a class="bg" href="#contact">Request Estimate</a>
-      <a class="bg" href="https://maps.google.com/?cid=1608005488546889644&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Our Location</a>
+
+  <!-- SVG Symbol Defs -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <symbol id="icon-shield" viewBox="0 0 24 24">
+      <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.4C17.25 22.15 21 17.25 21 12V7L12 2z"/>
+    </symbol>
+    <symbol id="icon-bug" viewBox="0 0 24 24">
+      <circle cx="12" cy="11" r="4"/>
+      <path d="M12 7V3M8.5 8.5L5 5M15.5 8.5L19 5M8 11H4M20 11h-4M8.5 15L5 18M15.5 15L19 18M12 15v4"/>
+    </symbol>
+    <symbol id="icon-droplet" viewBox="0 0 24 24">
+      <path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/>
+    </symbol>
+    <symbol id="icon-rodent" viewBox="0 0 24 24">
+      <path d="M20 9a4 4 0 00-4-4H8a6 6 0 000 12h8a4 4 0 000-8z"/>
+      <circle cx="15" cy="10" r="1"/>
+      <path d="M4 17c0 0 1 2 4 2M8 5c0-2 2-3 4-3s3 1 3 3"/>
+    </symbol>
+    <symbol id="icon-clipboard" viewBox="0 0 24 24">
+      <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
+      <rect x="9" y="3" width="6" height="4" rx="1"/>
+      <line x1="9" y1="12" x2="15" y2="12"/>
+      <line x1="9" y1="16" x2="13" y2="16"/>
+    </symbol>
+    <symbol id="icon-smoke" viewBox="0 0 24 24">
+      <path d="M3 12h18M3 8h18M9 16c0 0 2-2 4-2s4 2 4 2M9 20c0 0 2-2 4-2s4 2 4 2"/>
+      <path d="M17 4c0 0 0 4-2 4"/>
+    </symbol>
+    <symbol id="icon-leaf" viewBox="0 0 24 24">
+      <path d="M2 22c0 0 6-2 10-6 4-4 5-10 5-10s-6 1-10 5c-4 4-5 11-5 11z"/>
+      <line x1="2" y1="22" x2="11" y2="13"/>
+    </symbol>
+    <symbol id="icon-check-circle" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10"/>
+      <polyline points="9 12 11 14 15 10"/>
+    </symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24">
+      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+    </symbol>
+    <symbol id="icon-map-pin" viewBox="0 0 24 24">
+      <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/>
+      <circle cx="12" cy="10" r="3"/>
+    </symbol>
+    <symbol id="icon-clock" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10"/>
+      <polyline points="12 6 12 12 16 14"/>
+    </symbol>
+    <symbol id="icon-award" viewBox="0 0 24 24">
+      <circle cx="12" cy="8" r="6"/>
+      <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+    </symbol>
+    <symbol id="icon-star" viewBox="0 0 24 24">
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+    </symbol>
+    <symbol id="icon-users" viewBox="0 0 24 24">
+      <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+      <circle cx="9" cy="7" r="4"/>
+      <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+      <path d="M16 3.13a4 4 0 010 7.75"/>
+    </symbol>
+    <symbol id="icon-eye" viewBox="0 0 24 24">
+      <path d="M1 12S5 4 12 4s11 8 11 8-4 8-11 8S1 12 1 12z"/>
+      <circle cx="12" cy="12" r="3"/>
+    </symbol>
+    <symbol id="icon-zap" viewBox="0 0 24 24">
+      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+    </symbol>
+  </svg>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <a class="wordmark" href="#">ABIOTEK</a>
+        <span class="tagline">Sanitation Global Services</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#reviews">References</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="tel:+35226302740" class="btn-nav">Contact Us</a>
     </div>
-  </div>
-  <div class="hright">
-    <div class="hmonogram">A-</div>
-  </div>
-</section>
-<hr class="divider">
-<section class="sec" id="services">
-  <div class="slbl">Services</div>
-  <h2 class="stit">Our Expertise</h2>
-  <ul class="slist">
-    <li class="si2"><span class="snum">01</span><span class="sname">Cockroach & Ant Control</span><span class="sdesc">Fully guaranteed</span></li>
-    <li class="si2"><span class="snum">02</span><span class="sname">Termite Protection</span><span class="sdesc">Fully guaranteed</span></li>
-    <li class="si2"><span class="snum">03</span><span class="sname">Rodent Elimination</span><span class="sdesc">Fully guaranteed</span></li>
-    <li class="si2"><span class="snum">04</span><span class="sname">Bed Bug Treatment</span><span class="sdesc">Fully guaranteed</span></li>
-    <li class="si2"><span class="snum">05</span><span class="sname">Mosquito Control</span><span class="sdesc">Fully guaranteed</span></li>
-    <li class="si2"><span class="snum">06</span><span class="sname">Bee & Wasp Removal</span><span class="sdesc">Fully guaranteed</span></li>
-  </ul>
-</section>
-<section class="rvsec" id="reviews">
-  <div class="rvi">
-    <div class="slbl">Testimonials</div>
-    <h2 class="stit">Client Voices</h2>
-    <div class="rcar">
-      <div class="rs active"><div class="ropen">&ldquo;</div><p class="rt">Best pest control experience I've had in 16 Elwengerwee. They were on time, professional, and actually fixed the problem permanently. Already recommended them to three friends.</p><div class="ra">&mdash;&ensp;Michael R., 16 Elwengerwee</div></div>
-      <div class="rs"><div class="ropen">&ldquo;</div><p class="rt">After a bad experience with another company, ABIOTEK - Sanitation Global Services S.A. completely restored my confidence. Thorough, honest, and genuinely great to work with.</p><div class="ra">&mdash;&ensp;Sandra K., 16 Elwengerwee</div></div>
-      <div class="rs"><div class="ropen">&ldquo;</div><p class="rt">Fast response, fair pricing, and no upselling. They explained everything clearly and the results speak for themselves. This is the pest control team 16 Elwengerwee deserves.</p><div class="ra">&mdash;&ensp;James T., 16 Elwengerwee</div></div>
-      <div class="rs"><div class="ropen">&ldquo;</div><p class="rt">Top-notch from the first call to the final walkthrough. ABIOTEK - Sanitation Global Services S.A. treats your home like their own. Couldn't ask for better service.</p><div class="ra">&mdash;&ensp;Patricia M., 16 Elwengerwee</div></div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Luxembourg — Est. 2009</p>
+        <h1>Professional Sanitation &amp; Pest Management for Luxembourg</h1>
+        <p>Precision-engineered hygiene solutions for industry, hospitality, and commerce. Certified specialists operating across the Grand Duchy — protecting your business, your people, and your compliance record.</p>
+        <div class="hero-ctas">
+          <a href="tel:+35226302740" class="btn-primary">Request a Free Audit</a>
+          <a href="#services" class="btn-outline">Explore Services</a>
+        </div>
+        <div class="cert-badges">
+          <span class="cert-badge">HACCP</span>
+          <span class="cert-badge">ISO 22000</span>
+          <span class="cert-badge">ISO 14001</span>
+          <span class="cert-badge">BRC / IFS</span>
+          <span class="cert-badge">CE Certified</span>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-info-card">
+          <svg class="icon"><use href="#icon-shield"/></svg>
+          <div>
+            <h3>99% Success Rate</h3>
+            <p>Every intervention is documented, verified, and certified. Guaranteed results or we return at no cost.</p>
+          </div>
+        </div>
+        <div class="hero-info-card">
+          <svg class="icon"><use href="#icon-clipboard"/></svg>
+          <div>
+            <h3>Free Audits &amp; Estimates</h3>
+            <p>No obligation site visits with detailed written reports. Transparent pricing from the first call.</p>
+          </div>
+        </div>
+        <div class="hero-info-card">
+          <svg class="icon"><use href="#icon-award"/></svg>
+          <div>
+            <h3>Certified Equipment</h3>
+            <p>CE-certified products and market-leading professional equipment used on every assignment.</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="rbot">
-      <div class="rdots"><button class="rd active" data-i="0"></button><button class="rd" data-i="1"></button><button class="rd" data-i="2"></button><button class="rd" data-i="3"></button></div>
-      <div class="rnav"><button class="rb" id="rp">&#8592; Previous</button><button class="rb" id="rn">Next &#8594;</button></div>
+  </section>
+
+  <!-- ── STATS BAND ── -->
+  <section class="stats-band">
+    <div class="stats-inner">
+      <div class="stat">
+        <div class="stat-number" data-count="99" data-suffix="%">0%</div>
+        <div class="stat-label">Intervention Success Rate</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" data-count="15" data-suffix="+">0+</div>
+        <div class="stat-label">Years in Luxembourg</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" data-count="4.8" data-suffix="★" data-decimal="true">0★</div>
+        <div class="stat-label">Google Rating</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" data-count="6" data-suffix="">0</div>
+        <div class="stat-label">Certified Standards</div>
+      </div>
     </div>
-  </div>
-</section>
-<section id="contact"><div class="csec">
-  <div>
-    <div class="slbl">Contact</div>
-    <h2 class="ctit">Request an Estimate</h2>
-    <div class="cinfo">
-      <div class="crow"><div class="clbl">Telephone</div><div class="cval"><a href="tel:+352 26 30 27 40">+352 26 30 27 40</a></div></div>
-      <div class="crow"><div class="clbl">Service Area</div><div class="cval">16 Elwengerwee, 5495 Wintringen Schengen &amp; Surrounding</div></div>
-      <div class="crow"><div class="clbl">Hours</div><div class="cval">Monday &ndash; Saturday, 7am &ndash; 7pm</div></div>
-      <div class="crow"><div class="clbl">Location</div><div class="cval"><a href="https://maps.google.com/?cid=1608005488546889644&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">View on Google Maps</a></div></div>
+  </section>
+
+  <!-- ── SERVICES ── -->
+  <section class="services" id="services">
+    <div class="section-inner">
+      <div class="section-header">
+        <p class="section-eyebrow">What We Do</p>
+        <h2>Comprehensive Sanitation &amp; Protection Services</h2>
+        <p>From initial audit to preventive maintenance, our specialists deploy targeted treatments using certified methods — compliant with European regulatory frameworks.</p>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="icon-wrap">
+            <svg class="icon"><use href="#icon-bug"/></svg>
+          </div>
+          <h3>Insect Control</h3>
+          <p>Targeted désinsectisation treatments for crawling and flying insects. Identification, treatment plan, and follow-up monitoring for long-term elimination.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="icon-wrap">
+            <svg class="icon"><use href="#icon-rodent"/></svg>
+          </div>
+          <h3>Rodent Management</h3>
+          <p>Professional dératisation for rats, mice, and other rodents. Integrated pest management combining baiting, exclusion, and environmental assessment.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="icon-wrap">
+            <svg class="icon"><use href="#icon-droplet"/></svg>
+          </div>
+          <h3>Disinfection &amp; Decontamination</h3>
+          <p>Complete surface and air disinfection using CE-certified biocidal products. Suitable for food production facilities, healthcare, and hospitality environments.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="icon-wrap">
+            <svg class="icon"><use href="#icon-clipboard"/></svg>
+          </div>
+          <h3>Hygiene Audits</h3>
+          <p>Independent HACCP-aligned hygiene audits with written reports. Identify risks, close compliance gaps, and meet BRC, IFS, or ISO 22000 standards.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="icon-wrap">
+            <svg class="icon"><use href="#icon-smoke"/></svg>
+          </div>
+          <h3>Fumigation Services</h3>
+          <p>Controlled fumigation for warehouses, food storage, and transport vehicles. Full documentation supplied for regulatory records and audit trails.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="icon-wrap">
+            <svg class="icon"><use href="#icon-leaf"/></svg>
+          </div>
+          <h3>Preventive Treatments</h3>
+          <p>Scheduled preventive programmes tailored to your facility risk profile — reducing the probability of infestation before it disrupts your operations.</p>
+        </div>
+
+      </div>
     </div>
-  </div>
-  <form class="cform" onsubmit="this.innerHTML='<p style=color:var(--ac);padding:20px 0;font-family:Cormorant Garamond,serif;font-size:20px;font-style:italic>Thank you. We will be in touch shortly.</p>';return false;">
-    <input class="cf" type="text" placeholder="Full name" required>
-    <input class="cf" type="tel" placeholder="Phone number" required>
-    <input class="cf" type="email" placeholder="Email address (optional)">
-    <textarea class="cf" placeholder="How can we help you?" rows="5" style="resize:vertical"></textarea>
-    <button class="cs">Send Enquiry</button>
-  </form>
-</div></section>
-<footer>
-  <span class="fc">&copy; 2026 ABIOTEK - Sanitation Global Services S.A. &middot; 16 Elwengerwee</span>
-  <a href="https://maps.google.com/?cid=1608005488546889644&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Google Maps</a>
-</footer>
-<div class="mcta"><a href="tel:+352 26 30 27 40">Call +352 26 30 27 40</a></div>
-<a class="dbadge" href="https://jayexe.com" target="_blank" rel="noopener">Demo by <strong>Jay @ jayexe.com</strong></a>
-<script>
-(function(){
-  let i=0;
-  const slides=document.querySelectorAll('.rs');
-  const dots=document.querySelectorAll('.rd');
-  let t;
-  function go(n){
-    slides[i].classList.remove('active');
-    dots[i].classList.remove('active');
-    i=(n+slides.length)%slides.length;
-    slides[i].classList.add('active');
-    dots[i].classList.add('active');
-  }
-  function start(){t=setInterval(()=>go(i+1),4800);}
-  function reset(){clearInterval(t);start();}
-  document.getElementById('rn')?.addEventListener('click',()=>{go(i+1);reset();});
-  document.getElementById('rp')?.addEventListener('click',()=>{go(i-1);reset();});
-  dots.forEach((d,j)=>d.addEventListener('click',()=>{go(j);reset();}));
-  start();
-})();
-</script>
-</body></html>
+  </section>
+
+  <!-- ── CERTIFICATIONS ── -->
+  <section class="certifications" id="certifications">
+    <div class="cert-inner">
+      <div class="cert-content">
+        <p class="section-eyebrow">Standards &amp; Compliance</p>
+        <h2>Our Certifications &amp; Regulatory Standards</h2>
+        <p class="intro-text">ABIOTEK operates at the intersection of scientific rigour and regulatory compliance. Our interventions are designed to satisfy the most demanding European food safety, environmental, and quality standards.</p>
+        <ul class="cert-list">
+          <li>
+            <svg class="icon cert-icon" style="stroke:var(--silver);width:20px;height:20px"><use href="#icon-check-circle"/></svg>
+            <div>
+              <div class="cert-name">HACCP</div>
+              <div class="cert-desc">Hazard Analysis &amp; Critical Control Points — food safety management</div>
+            </div>
+          </li>
+          <li>
+            <svg class="icon cert-icon" style="stroke:var(--silver);width:20px;height:20px"><use href="#icon-check-circle"/></svg>
+            <div>
+              <div class="cert-name">ISO 22000</div>
+              <div class="cert-desc">International Food Safety Management Systems standard</div>
+            </div>
+          </li>
+          <li>
+            <svg class="icon cert-icon" style="stroke:var(--silver);width:20px;height:20px"><use href="#icon-check-circle"/></svg>
+            <div>
+              <div class="cert-name">ISO 14001</div>
+              <div class="cert-desc">Environmental Management Systems — responsible chemical usage</div>
+            </div>
+          </li>
+          <li>
+            <svg class="icon cert-icon" style="stroke:var(--silver);width:20px;height:20px"><use href="#icon-check-circle"/></svg>
+            <div>
+              <div class="cert-name">BRC / IFS</div>
+              <div class="cert-desc">British Retail Consortium &amp; International Food Standard auditing</div>
+            </div>
+          </li>
+          <li>
+            <svg class="icon cert-icon" style="stroke:var(--silver);width:20px;height:20px"><use href="#icon-check-circle"/></svg>
+            <div>
+              <div class="cert-name">AIB International</div>
+              <div class="cert-desc">American Institute of Baking — consolidated standards inspection</div>
+            </div>
+          </li>
+          <li>
+            <svg class="icon cert-icon" style="stroke:var(--silver);width:20px;height:20px"><use href="#icon-check-circle"/></svg>
+            <div>
+              <div class="cert-name">CE Certified Products</div>
+              <div class="cert-desc">All biocidal products and equipment fully CE-marked for EU compliance</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="cert-photo">
+        <img
+          src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&q=80"
+          alt="Professional sanitation technician in protective equipment"
+        />
+        <div class="cert-photo-overlay">
+          <p>"Inspection, prévention &amp; traitement pour un environnement sain."<br>— ABIOTEK operational standard</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── REVIEWS ── -->
+  <section class="reviews" id="reviews">
+    <div class="section-inner">
+      <div class="section-header">
+        <p class="section-eyebrow">Client References</p>
+        <h2>Trusted Across Luxembourg</h2>
+        <p>From HORESCA operators to industrial facilities — our clients rely on ABIOTEK for consistent, certified results.</p>
+      </div>
+      <div class="reviews-grid">
+
+        <div class="review-card">
+          <div class="review-stars">
+            <svg class="star-icon"><use href="#icon-star"/></svg>
+            <svg class="star-icon"><use href="#icon-star"/></svg>
+            <svg class="star-icon"><use href="#icon-star"/></svg>
+            <svg class="star-icon"><use href="#icon-star"/></svg>
+            <svg class="star-icon"><use href="#icon-star"/></svg>
+          </div>
+          <p class="review-text">"Exceptional professionalism. The team completed a full site audit, delivered a detailed compliance report, and the treatment was entirely effective. No recurrence in over a year."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">ML</div>
+            <div>
+              <div class="reviewer-name">Marc L.</div>
+              <div class="reviewer-role">Operations Manager, Food Production Facility</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">
+            <svg class="star-icon"><use href="#icon-star"/></svg>
+            <svg class="star-icon"><use href="#icon-star"/></svg>
+            <svg class="star-icon"><use href="#icon-star"/></svg>
+            <svg class="star-icon"><use href="#icon-star"/></svg>
+            <svg class="star-icon"><use href="#icon-star"/></svg>
+          </div>
+          <p class="review-text">"We needed HACCP-compliant pest management before our BRC audit. ABIOTEK provided exactly that — the documentation they supplied was thorough and the auditors were satisfied."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">SC</div>
+            <div>
+              <div class="reviewer-name">Sophie C.</div>
+              <div class="reviewer-role">Quality Manager, Luxembourg Distribution Centre</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">
+            <svg class="star-icon"><use href="#icon-star"/></svg>
+            <svg class="star-icon"><use href="#icon-star"/></svg>
+            <svg class="star-icon"><use href="#icon-star"/></svg>
+            <svg class="star-icon"><use href="#icon-star"/></svg>
+            <svg class="star-icon"><use href="#icon-star"/></svg>
+          </div>
+          <p class="review-text">"Responsive, discreet, and effective. As a hotel operator, discretion matters enormously. ABIOTEK handled everything after hours with full written certification. Highly recommended."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">JB</div>
+            <div>
+              <div class="reviewer-name">Jean-Pierre B.</div>
+              <div class="reviewer-role">General Manager, Luxembourg Hotel Group</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TRUST BAND ── -->
+  <section class="trust-band">
+    <div class="trust-inner">
+      <div class="trust-item">
+        <svg class="icon"><use href="#icon-shield"/></svg>
+        <h4>Fully Insured</h4>
+        <p>Professional liability coverage on every intervention</p>
+      </div>
+      <div class="trust-item">
+        <svg class="icon"><use href="#icon-eye"/></svg>
+        <h4>Free Site Audit</h4>
+        <p>No-obligation inspection and written risk report</p>
+      </div>
+      <div class="trust-item">
+        <svg class="icon"><use href="#icon-clock"/></svg>
+        <h4>Rapid Response</h4>
+        <p>Priority call-out for urgent commercial situations</p>
+      </div>
+      <div class="trust-item">
+        <svg class="icon"><use href="#icon-users"/></svg>
+        <h4>Specialist Team</h4>
+        <p>Trained technicians with certified equipment</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA SECTION ── -->
+  <section class="cta-section" id="contact">
+    <div class="section-inner">
+      <p class="section-eyebrow">Get in Touch</p>
+      <h2>Request Your Free Hygiene Audit Today</h2>
+      <p>No obligation. A specialist will visit your premises, assess risk, and deliver a written report — at no cost to you.</p>
+      <div class="cta-buttons">
+        <a href="tel:+35226302740" class="btn-primary-dark">Call +352 26 30 27 40</a>
+        <a href="mailto:contact@abiotek.lu" class="btn-outline-dark">Email Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="wordmark">ABIOTEK</span>
+          <span class="tagline">Sanitation Global Services S.A.</span>
+          <p>Professional pest control, disinfection, and hygiene compliance services for Luxembourg — since 2009.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="#services">Insect Control</a></li>
+            <li><a href="#services">Rodent Management</a></li>
+            <li><a href="#services">Disinfection</a></li>
+            <li><a href="#services">Hygiene Audits</a></li>
+            <li><a href="#services">Fumigation</a></li>
+            <li><a href="#services">Preventive Treatments</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Sectors</h5>
+          <ul>
+            <li><a href="#">Industry &amp; Production</a></li>
+            <li><a href="#">HORESCA / Hotels</a></li>
+            <li><a href="#">Tertiary Sector</a></li>
+            <li><a href="#">Commerce &amp; Retail</a></li>
+            <li><a href="#">Transport</a></li>
+            <li><a href="#">Private Residences</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-contact">
+          <h5>Contact</h5>
+          <p>
+            16, Elwengerwee<br>
+            L-5495 Wintrange<br>
+            Luxembourg<br><br>
+            <a href="tel:+35226302740">+352 26 30 27 40</a><br>
+            <a href="mailto:contact@abiotek.lu">contact@abiotek.lu</a>
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Sanitation Global Services S.A. — All rights reserved.</p>
+        <div class="legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Legal Notice</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { animate, inView, stagger } from 'https://esm.sh/motion';
+
+    // ── Set initial opacity:0 via JS (not CSS) ──
+    const animTargets = [
+      '.hero-content',
+      '.hero-info-card',
+      '.stat',
+      '.service-card',
+      '.cert-content',
+      '.cert-photo',
+      '.review-card',
+      '.trust-item',
+      '.cta-section .section-inner',
+    ];
+
+    animTargets.forEach(selector => {
+      document.querySelectorAll(selector).forEach(el => {
+        el.style.opacity = '0';
+      });
+    });
+
+    // ── Hero content ──
+    inView('.hero-content', ({ target }) => {
+      animate(target, { opacity: [0, 1], y: [18, 0] }, { duration: 0.75, easing: 'ease-out' });
+    });
+
+    inView('.hero-info-card', ({ target }) => {
+      animate(
+        document.querySelectorAll('.hero-info-card'),
+        { opacity: [0, 1], y: [12, 0] },
+        { duration: 0.6, delay: stagger(0.12), easing: 'ease-out' }
+      );
+    }, { amount: 0.2 });
+
+    // ── Stats ──
+    inView('.stats-inner', ({ target }) => {
+      const stats = target.querySelectorAll('.stat');
+      animate(stats, { opacity: [0, 1], y: [10, 0] }, { duration: 0.5, delay: stagger(0.1), easing: 'ease-out' });
+    }, { amount: 0.3 });
+
+    // ── Count-up on stats ──
+    function countUp(el) {
+      const end = parseFloat(el.dataset.count);
+      const suffix = el.dataset.suffix || '';
+      const isDecimal = el.dataset.decimal === 'true';
+      const duration = 1600;
+      const start = performance.now();
+
+      function step(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = end * eased;
+        el.textContent = (isDecimal ? current.toFixed(1) : Math.floor(current)) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    inView('.stats-inner', () => {
+      document.querySelectorAll('[data-count]').forEach(el => countUp(el));
+    }, { amount: 0.5 });
+
+    // ── Services ──
+    inView('.services-grid', ({ target }) => {
+      animate(
+        target.querySelectorAll('.service-card'),
+        { opacity: [0, 1], y: [14, 0] },
+        { duration: 0.55, delay: stagger(0.09), easing: 'ease-out' }
+      );
+    }, { amount: 0.15 });
+
+    // ── Certifications ──
+    inView('.cert-content', ({ target }) => {
+      animate(target, { opacity: [0, 1], y: [14, 0] }, { duration: 0.65, easing: 'ease-out' });
+    }, { amount: 0.2 });
+
+    inView('.cert-photo', ({ target }) => {
+      animate(target, { opacity: [0, 1], y: [14, 0] }, { duration: 0.65, delay: 0.15, easing: 'ease-out' });
+    }, { amount: 0.2 });
+
+    // ── Reviews ──
+    inView('.reviews-grid', ({ target }) => {
+      animate(
+        target.querySelectorAll('.review-card'),
+        { opacity: [0, 1], y: [12, 0] },
+        { duration: 0.55, delay: stagger(0.12), easing: 'ease-out' }
+      );
+    }, { amount: 0.15 });
+
+    // ── Trust items ──
+    inView('.trust-inner', ({ target }) => {
+      animate(
+        target.querySelectorAll('.trust-item'),
+        { opacity: [0, 1], y: [10, 0] },
+        { duration: 0.5, delay: stagger(0.08), easing: 'ease-out' }
+      );
+    }, { amount: 0.3 });
+
+    // ── CTA section ──
+    inView('.cta-section .section-inner', ({ target }) => {
+      animate(target, { opacity: [0, 1], y: [12, 0] }, { duration: 0.6, easing: 'ease-out' });
+    }, { amount: 0.3 });
+  </script>
+
+</body>
+</html>

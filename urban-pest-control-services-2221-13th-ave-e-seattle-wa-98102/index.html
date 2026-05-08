@@ -1,202 +1,1552 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Urban Pest Control Services | 2221 13th Ave E</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#f0f9ff;--surf:#e0f2fe;--brd:#bae6fd;--tx:#0c4a6e;--mu:#5a8fa8;--ac:#0891b2;--acl:rgba(8,145,178,.1);--wh:#fff}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--tx);font-family:'Manrope',sans-serif;font-size:15px;line-height:1.65;font-weight:400}
-nav{position:sticky;top:0;z-index:100;background:rgba(240,249,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--brd);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px}
-.nn{font-family:'DM Serif Display',serif;font-size:17px;color:var(--tx);letter-spacing:-.2px}
-.nlinks{display:flex;gap:32px;align-items:center}
-.nlinks a{color:var(--mu);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
-.nlinks a:hover{color:var(--ac)}
-.ncta{background:var(--ac);color:#fff;padding:10px 24px;border-radius:50px;font-size:13px;font-weight:600;text-decoration:none;transition:opacity .2s}
-.ncta:hover{opacity:.85}
-@media(max-width:640px){.nlinks{display:none};nav{padding:0 20px}}
-.hero{padding:80px 48px 64px;text-align:center;max-width:960px;margin:0 auto}
-.hbadge{display:inline-flex;align-items:center;gap:8px;background:var(--wh);border:1px solid var(--brd);border-radius:50px;padding:7px 20px;margin-bottom:32px;box-shadow:0 2px 8px rgba(8,145,178,.08)}
-.hbdot{width:8px;height:8px;background:var(--ac);border-radius:50%}
-.hbtxt{font-size:12px;font-weight:600;color:var(--mu)}
-h1{font-family:'DM Serif Display',serif;font-size:clamp(36px,6vw,68px);line-height:1.08;letter-spacing:-.5px;color:var(--tx);max-width:700px;margin:0 auto 18px}
-h1 em{font-style:italic;color:var(--ac)}
-.hsub{color:var(--mu);font-size:16px;max-width:500px;margin:0 auto 40px;line-height:1.75;font-weight:400}
-.hact{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:60px}
-.ba{background:var(--ac);color:#fff;padding:14px 32px;border-radius:50px;font-size:15px;font-weight:600;text-decoration:none;box-shadow:0 4px 16px rgba(8,145,178,.25);transition:opacity .2s}
-.ba:hover{opacity:.85}
-.bg{background:var(--wh);border:1px solid var(--brd);color:var(--tx);padding:14px 32px;border-radius:50px;font-size:15px;font-weight:500;text-decoration:none;transition:border-color .2s}
-.bg:hover{border-color:var(--ac)}
-.htrust{display:flex;gap:0;justify-content:center;border:1px solid var(--brd);border-radius:16px;overflow:hidden;background:var(--wh);max-width:700px;margin:0 auto}
-.ht{flex:1;padding:20px 16px;text-align:center;border-right:1px solid var(--brd)}
-.ht:last-child{border-right:none}
-.htn{font-family:'DM Serif Display',serif;font-size:26px;color:var(--tx)}
-.htl{font-size:11px;font-weight:600;color:var(--mu);margin-top:3px}
-@media(max-width:640px){.hero{padding:52px 20px 40px}.htrust{flex-direction:column}.ht{border-right:none;border-bottom:1px solid var(--brd)}.ht:last-child{border-bottom:none}}
-.sec{padding:80px 48px;max-width:1080px;margin:0 auto}
-.slbl{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ac);margin-bottom:12px}
-.stit{font-family:'DM Serif Display',serif;font-size:clamp(28px,4vw,42px);color:var(--tx);letter-spacing:-.3px;margin-bottom:8px}
-.ssub{color:var(--mu);font-size:14px;max-width:480px;margin-bottom:44px}
-.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
-.scard{background:var(--wh);border:1px solid var(--brd);border-radius:16px;padding:28px;transition:box-shadow .2s,transform .2s,border-color .2s}
-.scard:hover{box-shadow:0 8px 28px rgba(8,145,178,.12);transform:translateY(-3px);border-color:var(--ac)}
-.scicon{width:44px;height:44px;background:var(--acl);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px}
-.scname{font-family:'DM Serif Display',serif;font-size:17px;color:var(--tx);margin-bottom:6px}
-.scdesc{font-size:13px;color:var(--mu);line-height:1.6}
-@media(max-width:640px){.sec{padding:52px 20px}}
-.rvsec{background:var(--wh);border-top:1px solid var(--brd);border-bottom:1px solid var(--brd);padding:80px 48px}
-.rvi{max-width:880px;margin:0 auto}
-.rhead{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px}
-.rcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:28px}
-.rcar{position:relative;min-height:100px}
-.rs{display:none;animation:fp .35s ease}
-.rs.active{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
-@keyframes fp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-.rcard{background:var(--bg);border:1px solid var(--brd);border-radius:16px;padding:24px}
-.rstars{color:#f59e0b;font-size:14px;margin-bottom:10px}
-.rt{font-size:14px;line-height:1.7;color:var(--tx);margin-bottom:14px}
-.ra{font-size:12px;font-weight:600;color:var(--mu)}
-.rdots{display:flex;gap:6px;justify-content:center}
-.rd{width:8px;height:8px;border-radius:50%;background:var(--brd);border:none;cursor:pointer;transition:background .2s}
-.rd.active{background:var(--ac)}
-.rnav{display:flex;gap:8px}
-.rb{background:var(--bg);border:1px solid var(--brd);color:var(--mu);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:15px;transition:border-color .2s,color .2s;display:flex;align-items:center;justify-content:center}
-.rb:hover{border-color:var(--ac);color:var(--ac)}
-@media(max-width:640px){.rvsec{padding:52px 20px}.rs.active{grid-template-columns:1fr}.rhead{flex-direction:column;align-items:flex-start;gap:16px}}
-.csec{padding:80px 48px;max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
-.ctit{font-family:'DM Serif Display',serif;font-size:clamp(26px,3.5vw,38px);color:var(--tx);margin-bottom:32px;letter-spacing:-.3px}
-.cinfo{display:flex;flex-direction:column;gap:14px}
-.crow{background:var(--wh);border:1px solid var(--brd);border-radius:12px;padding:16px 20px}
-.clbl{font-size:10px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.12em;margin-bottom:4px}
-.cval{font-size:14px;font-weight:500;color:var(--tx)}
-.cval a{color:var(--ac);text-decoration:none}
-.cform{display:flex;flex-direction:column;gap:12px}
-.cf{background:var(--wh);border:1px solid var(--brd);color:var(--tx);padding:13px 16px;font-family:'Manrope',sans-serif;font-size:14px;border-radius:12px;outline:none;transition:border-color .2s;width:100%}
-.cf:focus{border-color:var(--ac)}
-.cf::placeholder{color:var(--mu)}
-.cs{background:var(--ac);color:#fff;border:none;padding:14px;font-family:'Manrope',sans-serif;font-size:15px;font-weight:600;cursor:pointer;border-radius:50px;box-shadow:0 4px 16px rgba(8,145,178,.25);transition:opacity .2s}
-.cs:hover{opacity:.85}
-@media(max-width:768px){.csec{grid-template-columns:1fr;gap:36px;padding:52px 20px}}
-footer{border-top:1px solid var(--brd);padding:28px 48px;display:flex;justify-content:space-between;align-items:center}
-.fc{font-size:13px;color:var(--mu)}
-footer a{font-size:13px;color:var(--mu);text-decoration:none;transition:color .2s}
-footer a:hover{color:var(--ac)}
-@media(max-width:640px){footer{flex-direction:column;gap:10px;padding:20px;text-align:center}}
-.dbadge{position:fixed;bottom:20px;right:20px;background:var(--ac);color:rgba(255,255,255,.8);font-size:10px;padding:8px 16px;border-radius:50px;text-decoration:none;z-index:1000;box-shadow:0 2px 12px rgba(8,145,178,.3);transition:opacity .2s}
-.dbadge:hover{opacity:.85}
-.dbadge strong{color:#fff}
-.mcta{position:fixed;bottom:0;left:0;right:0;background:var(--ac);padding:15px;text-align:center;display:none;z-index:99;box-shadow:0 -2px 16px rgba(8,145,178,.2)}
-.mcta a{color:#fff;font-weight:700;font-size:15px;text-decoration:none}
-@media(max-width:640px){.mcta{display:block};body{padding-bottom:54px}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Urban Pest Control Services | Seattle, WA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-dark: #111827;
+      --bg-darkest: #0a0f1a;
+      --bg-mid: #1e293b;
+      --accent-blue: #2563eb;
+      --accent-blue-hover: #1d4ed8;
+      --accent-yellow: #fbbf24;
+      --bg-light: #f3f4f6;
+      --text-white: #ffffff;
+      --text-light: #e5e7eb;
+      --text-muted: #9ca3af;
+      --text-dark: #111827;
+      --text-body: #374151;
+      --border-neutral: #e5e7eb;
+      --border-dark: #374151;
+      --radius: 6px;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body: 'Lato', sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      color: var(--text-dark);
+      background: var(--bg-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(10, 15, 26, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-dark);
+      padding: 0 1.5rem;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      gap: 1rem;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .nav-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--accent-blue);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-logo-text {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      color: var(--text-white);
+      letter-spacing: 0.05em;
+      line-height: 1;
+    }
+
+    .nav-logo-text span {
+      color: var(--accent-blue);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-white);
+    }
+
+    .btn-nav {
+      display: inline-block;
+      padding: 0.6rem 1.25rem;
+      background: var(--accent-blue);
+      color: var(--text-white);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: var(--radius);
+      border: 1.5px solid transparent;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+
+    .btn-nav:hover {
+      background: var(--accent-blue-hover);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.25rem;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(10, 15, 26, 0.92) 0%,
+        rgba(17, 24, 39, 0.80) 60%,
+        rgba(37, 99, 235, 0.25) 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 8rem 1.5rem 4rem;
+      width: 100%;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(37, 99, 235, 0.2);
+      border: 1px solid rgba(37, 99, 235, 0.4);
+      border-radius: 100px;
+      padding: 0.35rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-blue);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-label-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--accent-blue);
+      border-radius: 50%;
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 9vw, 7.5rem);
+      letter-spacing: 0.05em;
+      line-height: 0.95;
+      color: var(--text-white);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-headline span {
+      color: var(--accent-blue);
+    }
+
+    .hero-subheadline {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3.5vw, 2.8rem);
+      letter-spacing: 0.08em;
+      color: var(--accent-yellow);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--text-light);
+      max-width: 540px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      background: var(--accent-blue);
+      color: var(--text-white);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: var(--radius);
+      border: 1.5px solid transparent;
+      transition: background 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-blue-hover);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      background: transparent;
+      color: var(--text-white);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: var(--radius);
+      border: 1.5px solid rgba(255,255,255,0.4);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--text-white);
+      color: var(--text-white);
+    }
+
+    .hero-stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .hero-stat {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .hero-stat-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(37,99,235,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .hero-stat-text {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+
+    .hero-stat-text strong {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-white);
+    }
+
+    /* ── STATS BAND ── */
+    .stats-band {
+      background: var(--bg-light);
+      padding: 4rem 1.5rem;
+    }
+
+    .stats-band-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 5vw, 4rem);
+      letter-spacing: 0.03em;
+      color: var(--accent-blue);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-label {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--text-body);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .stat-sublabel {
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    /* ── SERVICES ── */
+    .services {
+      background: var(--text-white);
+      padding: 5rem 1.5rem;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent-blue);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      letter-spacing: 0.04em;
+      color: var(--text-dark);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title-dark {
+      color: var(--text-white);
+    }
+
+    .section-desc {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 3rem;
+    }
+
+    .section-desc-dark {
+      color: #9ca3af;
+    }
+
+    .services-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--bg-light);
+      border-radius: var(--radius);
+      padding: 2rem 1.75rem;
+      transition: box-shadow 0.2s;
+    }
+
+    .service-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    .service-icon-wrap {
+      width: 52px;
+      height: 52px;
+      background: var(--accent-blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .service-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      letter-spacing: 0.04em;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .service-desc {
+      font-size: 0.875rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ── FEATURE SECTION ── */
+    .feature {
+      background: var(--bg-dark);
+      padding: 5rem 1.5rem;
+    }
+
+    .feature-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .feature-icon-wrap {
+      width: 40px;
+      height: 40px;
+      background: rgba(37,99,235,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .feature-item-content h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 0.2rem;
+    }
+
+    .feature-item-content p {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .feature-photo {
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .feature-photo img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .feature-photo-badge {
+      position: absolute;
+      bottom: 1.25rem;
+      left: 1.25rem;
+      background: var(--accent-blue);
+      color: var(--text-white);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      padding: 0.6rem 1.25rem;
+      border-radius: var(--radius);
+    }
+
+    /* ── REVIEWS ── */
+    .reviews {
+      background: var(--bg-light);
+      padding: 5rem 1.5rem;
+    }
+
+    .reviews-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .review-card {
+      background: var(--text-white);
+      border: 1px solid var(--border-neutral);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+    }
+
+    .review-stars {
+      display: flex;
+      gap: 0.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .review-text {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--text-body);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .review-avatar {
+      width: 40px;
+      height: 40px;
+      background: var(--accent-blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--text-white);
+      flex-shrink: 0;
+    }
+
+    .review-name {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .review-source {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: var(--text-muted);
+    }
+
+    /* ── TRUST BAND ── */
+    .trust-band {
+      background: var(--accent-blue);
+      padding: 3rem 1.5rem;
+    }
+
+    .trust-band-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem 4rem;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .trust-icon-wrap {
+      width: 44px;
+      height: 44px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .trust-label {
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-white);
+    }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      background: var(--bg-dark);
+      padding: 6rem 1.5rem;
+      text-align: center;
+    }
+
+    .cta-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .cta-section .section-label {
+      justify-content: center;
+      display: block;
+    }
+
+    .cta-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      letter-spacing: 0.05em;
+      color: var(--text-white);
+      margin-bottom: 1rem;
+    }
+
+    .cta-headline span {
+      color: var(--accent-blue);
+    }
+
+    .cta-desc {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg-darkest);
+      padding: 3rem 1.5rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border-dark);
+      margin-bottom: 2rem;
+    }
+
+    .footer-brand-text {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--text-white);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-brand-text span {
+      color: var(--accent-blue);
+    }
+
+    .footer-brand-desc {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+
+    .footer-col-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-white);
+      margin-bottom: 1rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-links a {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-white);
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      line-height: 1.5;
+    }
+
+    .footer-contact-item svg {
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--text-muted);
+    }
+
+    .footer-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent-yellow);
+      letter-spacing: 0.08em;
+    }
+
+    /* ── SVG SYMBOLS ── */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+
+      .stats-band-inner {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .feature-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-photo {
+        order: -1;
+      }
+
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-top > *:first-child {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .stats-band-inner {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-ctas {
+        flex-direction: column;
+      }
+
+      .btn-primary, .btn-ghost {
+        justify-content: center;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-top > *:first-child {
+        grid-column: 1;
+      }
+
+      .trust-band-inner {
+        gap: 1.5rem 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
-<nav>
-  <div class="nn">Urban Pest Control Services</div>
-  <div class="nlinks">
-    <a href="#services">Services</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
-    <a href="https://maps.google.com/?cid=8202231733095579265&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Maps</a>
-  </div>
-  <a class="ncta" href="tel:+1 425-970-8494">Call Now</a>
-</nav>
-<section class="hero">
-  <div class="hbadge"><div class="hbdot"></div><span class="hbtxt">Serving 2221 13th Ave E, Seattle</span></div>
-  <h1>Urban Pest Control <em>Services</em></h1>
-  <p class="hsub">Professional pest control in 2221 13th Ave E. Modern, reliable, and built around your needs.</p>
-  <div class="hact">
-    <a class="ba" href="tel:+1 425-970-8494">Call (425) 970-8494</a>
-    <a class="bg" href="#contact">Free Quote</a>
-    <a class="bg" href="https://maps.google.com/?cid=8202231733095579265&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Find Us</a>
-  </div>
-  <div class="htrust">
-    <div class="ht"><div class="htn">10+</div><div class="htl">Years Experience</div></div>
-    <div class="ht"><div class="htn">500+</div><div class="htl">Happy Clients</div></div>
-    <div class="ht"><div class="htn">100%</div><div class="htl">Guaranteed</div></div>
-  </div>
-</section>
-<section class="sec" id="services">
-  <div class="slbl">Services</div>
-  <h2 class="stit">What We Offer</h2>
-  <p class="ssub">Everything you need for your home or business, handled by local professionals in 2221 13th Ave E.</p>
-  <div class="sgrid">
-    <div class="scard"><div class="scicon">&#128295;</div><div class="scname">Cockroach & Ant Control</div><div class="scdesc">Professional service, fully guaranteed.</div></div>
-    <div class="scard"><div class="scicon">&#128737;</div><div class="scname">Termite Protection</div><div class="scdesc">Professional service, fully guaranteed.</div></div>
-    <div class="scard"><div class="scicon">&#9889;</div><div class="scname">Rodent Elimination</div><div class="scdesc">Professional service, fully guaranteed.</div></div>
-    <div class="scard"><div class="scicon">&#127968;</div><div class="scname">Bed Bug Treatment</div><div class="scdesc">Professional service, fully guaranteed.</div></div>
-    <div class="scard"><div class="scicon">&#10024;</div><div class="scname">Mosquito Control</div><div class="scdesc">Professional service, fully guaranteed.</div></div>
-    <div class="scard"><div class="scicon">&#128273;</div><div class="scname">Bee & Wasp Removal</div><div class="scdesc">Professional service, fully guaranteed.</div></div>
-  </div>
-</section>
-<section class="rvsec" id="reviews">
-  <div class="rvi">
-    <div class="rhead">
-      <div><div class="slbl">Reviews</div><h2 class="stit" style="margin-bottom:0">What Clients Say</h2></div>
-      <div class="rnav"><button class="rb" id="rp">&#8592;</button><button class="rb" id="rn">&#8594;</button></div>
+
+  <!-- SVG Symbol Definitions -->
+  <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="icon-rodent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="9" cy="9" r="4"/>
+      <path d="M13 9h4a4 4 0 0 1 0 8h-1"/>
+      <path d="M9 13v8"/>
+      <path d="M7 17h4"/>
+      <circle cx="7" cy="7" r="1" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="icon-bug" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 2l1.5 1.5"/>
+      <path d="M14.5 3.5 16 2"/>
+      <path d="M9 7.5C9 6.12 10.12 5 11.5 5h1C13.88 5 15 6.12 15 7.5v.5H9v-.5Z"/>
+      <path d="M5 11h14"/>
+      <path d="M5 15h14"/>
+      <path d="M9 19c0 1.1.9 2 2 2h2a2 2 0 0 0 2-2V8H9v11Z"/>
+      <path d="M5 9 3 7"/>
+      <path d="M19 9l2-2"/>
+      <path d="M5 13H3"/>
+      <path d="M21 13h-2"/>
+      <path d="M5 17 3 19"/>
+      <path d="M19 17l2 2"/>
+    </symbol>
+    <symbol id="icon-ant" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="5" r="2"/>
+      <circle cx="12" cy="11" r="2"/>
+      <circle cx="12" cy="18" r="3"/>
+      <path d="M12 7v2"/>
+      <path d="M12 13v2"/>
+      <path d="M8 6 5 4"/>
+      <path d="M16 6l3-2"/>
+      <path d="M7 11H4"/>
+      <path d="M17 11h3"/>
+      <path d="M9 17 6 20"/>
+      <path d="M15 17l3 3"/>
+    </symbol>
+    <symbol id="icon-bed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 4v16"/>
+      <path d="M2 8h18a2 2 0 0 1 2 2v10"/>
+      <path d="M2 17h20"/>
+      <path d="M6 8v9"/>
+      <rect x="6" y="4" width="12" height="5" rx="1"/>
+    </symbol>
+    <symbol id="icon-wasp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 2a4 4 0 0 1 4 4v1H8V6a4 4 0 0 1 4-4Z"/>
+      <path d="M8 7v6"/>
+      <path d="M16 7v6"/>
+      <path d="M9 13h6l1 6a4 4 0 0 1-8 0l1-6Z"/>
+      <path d="M5 9H2"/>
+      <path d="M22 9h-3"/>
+      <path d="M5 13H2"/>
+      <path d="M22 13h-3"/>
+    </symbol>
+    <symbol id="icon-spider" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="13" r="4"/>
+      <circle cx="12" cy="6" r="2"/>
+      <path d="M12 8v1"/>
+      <path d="M8 13 4 10"/>
+      <path d="M16 13l4-3"/>
+      <path d="M8 14 4 17"/>
+      <path d="M16 14l4 3"/>
+      <path d="M9 16 7 21"/>
+      <path d="M15 16l2 5"/>
+    </symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 6 9 17l-5-5"/>
+    </symbol>
+    <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M12 6v6l4 2"/>
+    </symbol>
+    <symbol id="icon-star" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z"/>
+    </symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/>
+    </symbol>
+    <symbol id="icon-map" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/>
+      <circle cx="12" cy="10" r="3"/>
+    </symbol>
+    <symbol id="icon-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="8" r="6"/>
+      <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+    </symbol>
+    <symbol id="icon-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+      <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+    </symbol>
+    <symbol id="icon-lightning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/>
+    </symbol>
+    <symbol id="icon-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/>
+      <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+    </symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 6h16M4 12h16M4 18h16"/>
+    </symbol>
+    <symbol id="icon-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/>
+      <path d="m9 12 2 2 4-4"/>
+    </symbol>
+  </svg>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-icon">
+          <svg width="20" height="20" fill="white">
+            <use href="#icon-logo"/>
+          </svg>
+        </div>
+        <span class="nav-logo-text">URBAN <span>PEST</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="tel:4259708494" class="btn-nav">Free Inspection</a>
+      <button class="nav-toggle" aria-label="Open menu">
+        <svg width="24" height="24" fill="none" stroke="white" stroke-width="2">
+          <use href="#icon-menu"/>
+        </svg>
+      </button>
     </div>
-    <div class="rcar">
-      <div class="rs active">
-        <div class="rcard"><div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rt">&ldquo;Best pest control experience I've had in 2221 13th Ave E. They were on time, professional, and actually fixed the problem permanently. Already recommended them to three friends.&rdquo;</p><div class="ra">&mdash; Michael R., 2221 13th Ave E</div></div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-label">
+        <span class="hero-label-dot"></span>
+        Seattle's Trusted Pest Professionals
       </div>
-      <div class="rs">
-        <div class="rcard"><div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rt">&ldquo;After a bad experience with another company, Urban Pest Control Services completely restored my confidence. Thorough, honest, and genuinely great to work with.&rdquo;</p><div class="ra">&mdash; Sandra K., 2221 13th Ave E</div></div>
+      <h1 class="hero-headline">
+        PEST-FREE.<br /><span>GUARANTEED.</span>
+      </h1>
+      <p class="hero-subheadline">URBAN PROTECTION. PROVEN RESULTS.</p>
+      <p class="hero-desc">
+        Urban Pest Control Services eliminates rodents, insects, and every pest in between — with same-day service and a 5-star track record across Seattle.
+      </p>
+      <div class="hero-ctas">
+        <a href="tel:4259708494" class="btn-primary">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-phone"/></svg>
+          Call Now: (425) 970-8494
+        </a>
+        <a href="#services" class="btn-ghost">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-shield"/></svg>
+          View Services
+        </a>
       </div>
-      <div class="rs">
-        <div class="rcard"><div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rt">&ldquo;Fast response, fair pricing, and no upselling. They explained everything clearly and the results speak for themselves. This is the pest control team 2221 13th Ave E deserves.&rdquo;</p><div class="ra">&mdash; James T., 2221 13th Ave E</div></div>
-      </div>
-      <div class="rs">
-        <div class="rcard"><div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rt">&ldquo;Top-notch from the first call to the final walkthrough. Urban Pest Control Services treats your home like their own. Couldn't ask for better service.&rdquo;</p><div class="ra">&mdash; Patricia M., 2221 13th Ave E</div></div>
+      <div class="hero-stats-row">
+        <div class="hero-stat">
+          <div class="hero-stat-icon">
+            <svg width="18" height="18" fill="var(--accent-yellow)" stroke="none"><use href="#icon-star"/></svg>
+          </div>
+          <div class="hero-stat-text">
+            <strong>5.0 Stars</strong>
+            Google Rating
+          </div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-icon">
+            <svg width="18" height="18" fill="none" stroke="var(--accent-blue)" stroke-width="2"><use href="#icon-clock"/></svg>
+          </div>
+          <div class="hero-stat-text">
+            <strong>Same-Day</strong>
+            Service Available
+          </div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-icon">
+            <svg width="18" height="18" fill="none" stroke="var(--accent-blue)" stroke-width="2"><use href="#icon-map"/></svg>
+          </div>
+          <div class="hero-stat-text">
+            <strong>Seattle Local</strong>
+            Hill District Based
+          </div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-icon">
+            <svg width="18" height="18" fill="none" stroke="var(--accent-blue)" stroke-width="2"><use href="#icon-award"/></svg>
+          </div>
+          <div class="hero-stat-text">
+            <strong>Licensed</strong>
+            &amp; Fully Insured
+          </div>
+        </div>
       </div>
     </div>
-    <div class="rdots" style="margin-top:24px"><button class="rd active" data-i="0"></button><button class="rd" data-i="1"></button><button class="rd" data-i="2"></button><button class="rd" data-i="3"></button></div>
-  </div>
-</section>
-<section id="contact"><div class="csec">
-  <div>
-    <div class="slbl">Contact</div>
-    <h2 class="ctit">Get a Free Quote</h2>
-    <div class="cinfo">
-      <div class="crow"><div class="clbl">Phone</div><div class="cval"><a href="tel:+1 425-970-8494">(425) 970-8494</a></div></div>
-      <div class="crow"><div class="clbl">Service Area</div><div class="cval">2221 13th Ave E, Seattle &amp; Surrounding</div></div>
-      <div class="crow"><div class="clbl">Hours</div><div class="cval">Mon &ndash; Sat, 7am &ndash; 7pm</div></div>
-      <div class="crow"><div class="clbl">Maps</div><div class="cval"><a href="https://maps.google.com/?cid=8202231733095579265&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">View on Google Maps</a></div></div>
+  </section>
+
+  <!-- STATS BAND -->
+  <section class="stats-band">
+    <div class="stats-band-inner">
+      <div class="stat-item">
+        <div class="stat-number" data-count="5" data-decimals="1">5.0</div>
+        <div class="stat-label">Star Rating</div>
+        <div class="stat-sublabel">Google Reviews</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-count="20">0</div>
+        <div class="stat-label">Verified Reviews</div>
+        <div class="stat-sublabel">5-Star Customers</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">Same<br style="display:none"/>-Day</div>
+        <div class="stat-label">Response</div>
+        <div class="stat-sublabel">Fast Scheduling</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Satisfaction</div>
+        <div class="stat-sublabel">Guaranteed</div>
+      </div>
     </div>
-  </div>
-  <form class="cform" onsubmit="this.innerHTML='<p style=color:var(--ac);padding:20px 0;font-family:DM Serif Display,serif;font-size:22px>Message sent! We\'ll be in touch shortly.</p>';return false;">
-    <input class="cf" type="text" placeholder="Your name" required>
-    <input class="cf" type="tel" placeholder="Phone number" required>
-    <input class="cf" type="email" placeholder="Email (optional)">
-    <textarea class="cf" placeholder="Tell us what you need..." rows="4" style="resize:vertical"></textarea>
-    <button class="cs">Send Message</button>
-  </form>
-</div></section>
-<footer>
-  <span class="fc">&copy; 2026 Urban Pest Control Services &middot; 2221 13th Ave E</span>
-  <a href="https://maps.google.com/?cid=8202231733095579265&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Google Maps</a>
-</footer>
-<div class="mcta"><a href="tel:+1 425-970-8494">&#128222; Call (425) 970-8494</a></div>
-<a class="dbadge" href="https://jayexe.com" target="_blank" rel="noopener">Demo by <strong>Jay</strong></a>
-<script>
-(function(){
-  let i=0;
-  const slides=document.querySelectorAll('.rs');
-  const dots=document.querySelectorAll('.rd');
-  let t;
-  function go(n){
-    slides[i].classList.remove('active');
-    dots[i].classList.remove('active');
-    i=(n+slides.length)%slides.length;
-    slides[i].classList.add('active');
-    dots[i].classList.add('active');
-  }
-  function start(){t=setInterval(()=>go(i+1),4800);}
-  function reset(){clearInterval(t);start();}
-  document.getElementById('rn')?.addEventListener('click',()=>{go(i+1);reset();});
-  document.getElementById('rp')?.addEventListener('click',()=>{go(i-1);reset();});
-  dots.forEach((d,j)=>d.addEventListener('click',()=>{go(j);reset();}));
-  start();
-})();
-</script>
-</body></html>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="services-inner">
+      <p class="section-label">What We Eliminate</p>
+      <h2 class="section-title">Comprehensive Pest Solutions</h2>
+      <p class="section-desc">From rodents to stinging insects, we handle every pest that threatens your home or business with targeted, effective treatments.</p>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <svg width="26" height="26" fill="none" stroke="white" stroke-width="2"><use href="#icon-rodent"/></svg>
+          </div>
+          <h3 class="service-title">Rodent Control</h3>
+          <p class="service-desc">Complete elimination of mice and rats with bait stations, trapping, and exclusion work to seal entry points and prevent re-infestation.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <svg width="26" height="26" fill="none" stroke="white" stroke-width="2"><use href="#icon-bug"/></svg>
+          </div>
+          <h3 class="service-title">Cockroach Elimination</h3>
+          <p class="service-desc">Targeted gel baiting and residual treatments that destroy cockroach colonies at the source — including German and American varieties.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <svg width="26" height="26" fill="none" stroke="white" stroke-width="2"><use href="#icon-ant"/></svg>
+          </div>
+          <h3 class="service-title">Ant Control</h3>
+          <p class="service-desc">Identification and elimination of ant species common to Seattle including carpenter ants, odorous house ants, and pavement ants.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <svg width="26" height="26" fill="none" stroke="white" stroke-width="2"><use href="#icon-bed"/></svg>
+          </div>
+          <h3 class="service-title">Bed Bug Treatment</h3>
+          <p class="service-desc">Thorough inspection and multi-stage treatment protocol to fully eliminate bed bug infestations with follow-up verification.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <svg width="26" height="26" fill="none" stroke="white" stroke-width="2"><use href="#icon-wasp"/></svg>
+          </div>
+          <h3 class="service-title">Wasp &amp; Hornet Removal</h3>
+          <p class="service-desc">Safe removal of yellow jackets, paper wasps, and bald-faced hornets — nests located, treated, and removed to prevent return.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <svg width="26" height="26" fill="none" stroke="white" stroke-width="2"><use href="#icon-spider"/></svg>
+          </div>
+          <h3 class="service-title">Spider Control</h3>
+          <p class="service-desc">Reduction of spider populations including hobo spiders and house spiders through web removal and residual barrier treatments.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE SECTION -->
+  <section class="feature" id="about">
+    <div class="feature-inner">
+      <div class="feature-copy">
+        <p class="section-label">Why Choose Us</p>
+        <h2 class="section-title section-title-dark">The Urban Difference</h2>
+        <p class="section-desc section-desc-dark">We are not a national franchise. We are a local Seattle team that answers the phone, shows up fast, and stands behind every job.</p>
+        <ul class="feature-list">
+          <li class="feature-item">
+            <div class="feature-icon-wrap">
+              <svg width="20" height="20" fill="none" stroke="var(--accent-blue)" stroke-width="2"><use href="#icon-phone"/></svg>
+            </div>
+            <div class="feature-item-content">
+              <h4>Direct Access — No Call Centers</h4>
+              <p>When you call, a real technician picks up. Appointments are booked fast — often within 18 hours of your first call.</p>
+            </div>
+          </li>
+          <li class="feature-item">
+            <div class="feature-icon-wrap">
+              <svg width="20" height="20" fill="none" stroke="var(--accent-blue)" stroke-width="2"><use href="#icon-lightning"/></svg>
+            </div>
+            <div class="feature-item-content">
+              <h4>Same-Day Service Available</h4>
+              <p>Pest problems don't wait and neither do we. Same-day scheduling is available for urgent infestations throughout Seattle.</p>
+            </div>
+          </li>
+          <li class="feature-item">
+            <div class="feature-icon-wrap">
+              <svg width="20" height="20" fill="none" stroke="var(--accent-blue)" stroke-width="2"><use href="#icon-leaf"/></svg>
+            </div>
+            <div class="feature-item-content">
+              <h4>Knowledgeable &amp; Affordable</h4>
+              <p>Customers consistently note our competitive pricing — we beat other companies on cost without cutting corners on quality.</p>
+            </div>
+          </li>
+          <li class="feature-item">
+            <div class="feature-icon-wrap">
+              <svg width="20" height="20" fill="none" stroke="var(--accent-blue)" stroke-width="2"><use href="#icon-home"/></svg>
+            </div>
+            <div class="feature-item-content">
+              <h4>Seattle-Based, Community-Focused</h4>
+              <p>Rooted in Capitol Hill, we understand local pest pressures specific to Seattle neighborhoods — and we treat every property like our own.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="feature-photo">
+        <img
+          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
+          alt="Professional pest control technician inspecting a property"
+          loading="lazy"
+        />
+        <div class="feature-photo-badge">5.0 Google Rating</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews" id="reviews">
+    <div class="reviews-inner">
+      <p class="section-label">Customer Reviews</p>
+      <h2 class="section-title">What Seattle Says</h2>
+      <p class="section-desc">Every review tells the same story — fast, professional, and priced right.</p>
+      <div class="reviews-grid">
+
+        <div class="review-card">
+          <div class="review-stars">
+            <svg width="18" height="18" fill="var(--accent-yellow)"><use href="#icon-star"/></svg>
+            <svg width="18" height="18" fill="var(--accent-yellow)"><use href="#icon-star"/></svg>
+            <svg width="18" height="18" fill="var(--accent-yellow)"><use href="#icon-star"/></svg>
+            <svg width="18" height="18" fill="var(--accent-yellow)"><use href="#icon-star"/></svg>
+            <svg width="18" height="18" fill="var(--accent-yellow)"><use href="#icon-star"/></svg>
+          </div>
+          <p class="review-text">"Jim answered on the second ring and had an appointment set up within 18 hours. He was knowledgeable, professional, and got the job done right. Highly recommend!"</p>
+          <div class="review-author">
+            <div class="review-avatar">M</div>
+            <div>
+              <div class="review-name">Michael R.</div>
+              <div class="review-source">Google Review — Seattle, WA</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">
+            <svg width="18" height="18" fill="var(--accent-yellow)"><use href="#icon-star"/></svg>
+            <svg width="18" height="18" fill="var(--accent-yellow)"><use href="#icon-star"/></svg>
+            <svg width="18" height="18" fill="var(--accent-yellow)"><use href="#icon-star"/></svg>
+            <svg width="18" height="18" fill="var(--accent-yellow)"><use href="#icon-star"/></svg>
+            <svg width="18" height="18" fill="var(--accent-yellow)"><use href="#icon-star"/></svg>
+          </div>
+          <p class="review-text">"Very thorough, knowledgeable, and reasonably priced. Beat other company quotes for the exact same job. Will absolutely use Urban Pest Control again."</p>
+          <div class="review-author">
+            <div class="review-avatar">S</div>
+            <div>
+              <div class="review-name">Sarah K.</div>
+              <div class="review-source">Google Review — Capitol Hill, Seattle</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">
+            <svg width="18" height="18" fill="var(--accent-yellow)"><use href="#icon-star"/></svg>
+            <svg width="18" height="18" fill="var(--accent-yellow)"><use href="#icon-star"/></svg>
+            <svg width="18" height="18" fill="var(--accent-yellow)"><use href="#icon-star"/></svg>
+            <svg width="18" height="18" fill="var(--accent-yellow)"><use href="#icon-star"/></svg>
+            <svg width="18" height="18" fill="var(--accent-yellow)"><use href="#icon-star"/></svg>
+          </div>
+          <p class="review-text">"Had a serious rodent issue and Urban Pest Control handled it completely. Showed up on time, explained everything clearly, and the problem was solved. 5 stars."</p>
+          <div class="review-author">
+            <div class="review-avatar">D</div>
+            <div>
+              <div class="review-name">David T.</div>
+              <div class="review-source">Google Review — Seattle, WA</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAND -->
+  <section class="trust-band">
+    <div class="trust-band-inner">
+      <div class="trust-item">
+        <div class="trust-icon-wrap">
+          <svg width="22" height="22" fill="none" stroke="white" stroke-width="2"><use href="#icon-award"/></svg>
+        </div>
+        <span class="trust-label">Licensed</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon-wrap">
+          <svg width="22" height="22" fill="none" stroke="white" stroke-width="2"><use href="#icon-shield"/></svg>
+        </div>
+        <span class="trust-label">Fully Insured</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon-wrap">
+          <svg width="22" height="22" fill="white"><use href="#icon-star"/></svg>
+        </div>
+        <span class="trust-label">5-Star Rated</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon-wrap">
+          <svg width="22" height="22" fill="none" stroke="white" stroke-width="2"><use href="#icon-map"/></svg>
+        </div>
+        <span class="trust-label">Seattle Local</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon-wrap">
+          <svg width="22" height="22" fill="none" stroke="white" stroke-width="2"><use href="#icon-clock"/></svg>
+        </div>
+        <span class="trust-label">Same-Day Service</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section" id="contact">
+    <div class="cta-inner">
+      <p class="section-label">Get Started Today</p>
+      <h2 class="cta-headline">READY TO TAKE BACK<br/><span>YOUR SPACE?</span></h2>
+      <p class="cta-desc">Call or text for a free inspection. We'll assess the situation, provide a clear quote, and schedule service — often the same day.</p>
+      <div class="cta-buttons">
+        <a href="tel:4259708494" class="btn-primary">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-phone"/></svg>
+          (425) 970-8494
+        </a>
+        <a href="#services" class="btn-ghost">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-check"/></svg>
+          View All Services
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-text">URBAN <span>PEST</span> CONTROL</div>
+          <p class="footer-brand-desc">Seattle's trusted local pest control service. Professional, affordable, and fast — backed by a 5-star Google rating.</p>
+        </div>
+        <div>
+          <p class="footer-col-title">Services</p>
+          <ul class="footer-links">
+            <li><a href="#services">Rodent Control</a></li>
+            <li><a href="#services">Cockroach Elimination</a></li>
+            <li><a href="#services">Ant Control</a></li>
+            <li><a href="#services">Bed Bug Treatment</a></li>
+            <li><a href="#services">Wasp &amp; Hornet Removal</a></li>
+            <li><a href="#services">Spider Control</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Contact</p>
+          <div class="footer-contact-item">
+            <svg width="15" height="15" fill="none" stroke="var(--text-muted)" stroke-width="2"><use href="#icon-phone"/></svg>
+            (425) 970-8494
+          </div>
+          <div class="footer-contact-item">
+            <svg width="15" height="15" fill="none" stroke="var(--text-muted)" stroke-width="2"><use href="#icon-map"/></svg>
+            2221 13th Ave E<br />Seattle, WA 98102
+          </div>
+          <div class="footer-contact-item">
+            <svg width="15" height="15" fill="none" stroke="var(--text-muted)" stroke-width="2"><use href="#icon-clock"/></svg>
+            Same-Day Service Available
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2024 Urban Pest Control Services. All rights reserved.</p>
+        <div class="footer-badge">
+          <svg width="14" height="14" fill="var(--accent-yellow)"><use href="#icon-star"/></svg>
+          5.0 Google Rating
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { animate, inView, stagger } from 'https://esm.sh/motion';
+
+    // ── COUNT-UP ANIMATION ──
+    function cubicEaseOut(t) {
+      return 1 - Math.pow(1 - t, 3);
+    }
+
+    function countUp(el, target, decimals, duration) {
+      const start = performance.now();
+      function step(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = cubicEaseOut(progress);
+        const current = eased * target;
+        el.textContent = decimals > 0
+          ? current.toFixed(decimals)
+          : Math.floor(current).toString();
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          el.textContent = decimals > 0
+            ? target.toFixed(decimals)
+            : target.toString();
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+    // Observe stats band
+    const statNumbers = document.querySelectorAll('.stat-number[data-count]');
+    let statsAnimated = false;
+
+    inView('.stats-band', () => {
+      if (statsAnimated) return;
+      statsAnimated = true;
+      statNumbers.forEach(el => {
+        const target = parseFloat(el.dataset.count);
+        const decimals = parseInt(el.dataset.decimals || '0', 10);
+        countUp(el, target, decimals, 1800);
+      });
+    });
+
+    // ── SECTION FADE-IN ANIMATIONS ──
+    const animateSections = [
+      '.hero-label',
+      '.hero-headline',
+      '.hero-subheadline',
+      '.hero-desc',
+      '.hero-ctas',
+      '.hero-stats-row',
+    ];
+
+    // Set initial states for hero elements
+    animateSections.forEach(selector => {
+      const els = document.querySelectorAll(selector);
+      els.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+      });
+    });
+
+    // Animate hero on load
+    window.addEventListener('load', () => {
+      animateSections.forEach((selector, i) => {
+        const els = document.querySelectorAll(selector);
+        els.forEach(el => {
+          animate(el, { opacity: 1, transform: 'translateY(0px)' }, {
+            delay: 0.1 + i * 0.12,
+            duration: 0.7,
+            easing: [0.25, 0.1, 0.25, 1],
+          });
+        });
+      });
+    });
+
+    // Stats band items
+    const statItems = document.querySelectorAll('.stat-item');
+    statItems.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+    });
+    inView('.stats-band', () => {
+      animate(statItems, { opacity: 1, transform: 'translateY(0px)' }, {
+        delay: stagger(0.1),
+        duration: 0.6,
+        easing: [0.25, 0.1, 0.25, 1],
+      });
+    });
+
+    // Service cards
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+    });
+    inView('.services-grid', () => {
+      animate(serviceCards, { opacity: 1, transform: 'translateY(0px)' }, {
+        delay: stagger(0.08),
+        duration: 0.55,
+        easing: [0.25, 0.1, 0.25, 1],
+      });
+    });
+
+    // Feature section
+    const featureCopy = document.querySelector('.feature-copy');
+    const featurePhoto = document.querySelector('.feature-photo');
+    if (featureCopy) {
+      featureCopy.style.opacity = '0';
+      featureCopy.style.transform = 'translateY(30px)';
+    }
+    if (featurePhoto) {
+      featurePhoto.style.opacity = '0';
+      featurePhoto.style.transform = 'translateY(30px)';
+    }
+    inView('.feature-inner', () => {
+      if (featureCopy) {
+        animate(featureCopy, { opacity: 1, transform: 'translateY(0px)' }, {
+          duration: 0.7, easing: [0.25, 0.1, 0.25, 1],
+        });
+      }
+      if (featurePhoto) {
+        animate(featurePhoto, { opacity: 1, transform: 'translateY(0px)' }, {
+          delay: 0.15, duration: 0.7, easing: [0.25, 0.1, 0.25, 1],
+        });
+      }
+    });
+
+    // Review cards
+    const reviewCards = document.querySelectorAll('.review-card');
+    reviewCards.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+    });
+    inView('.reviews-grid', () => {
+      animate(reviewCards, { opacity: 1, transform: 'translateY(0px)' }, {
+        delay: stagger(0.12),
+        duration: 0.6,
+        easing: [0.25, 0.1, 0.25, 1],
+      });
+    });
+
+    // CTA section
+    const ctaInner = document.querySelector('.cta-inner');
+    if (ctaInner) {
+      ctaInner.style.opacity = '0';
+      ctaInner.style.transform = 'translateY(30px)';
+      inView('.cta-section', () => {
+        animate(ctaInner, { opacity: 1, transform: 'translateY(0px)' }, {
+          duration: 0.7, easing: [0.25, 0.1, 0.25, 1],
+        });
+      });
+    }
+
+    // Trust items
+    const trustItems = document.querySelectorAll('.trust-item');
+    trustItems.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+    });
+    inView('.trust-band', () => {
+      animate(trustItems, { opacity: 1, transform: 'translateY(0px)' }, {
+        delay: stagger(0.08),
+        duration: 0.5,
+        easing: [0.25, 0.1, 0.25, 1],
+      });
+    });
+  </script>
+</body>
+</html>

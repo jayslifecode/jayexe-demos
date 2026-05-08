@@ -1,202 +1,1209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>The Blinds Side | 84 Fairmount Ave</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#f0f9ff;--surf:#e0f2fe;--brd:#bae6fd;--tx:#0c4a6e;--mu:#5a8fa8;--ac:#0891b2;--acl:rgba(8,145,178,.1);--wh:#fff}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--tx);font-family:'Manrope',sans-serif;font-size:15px;line-height:1.65;font-weight:400}
-nav{position:sticky;top:0;z-index:100;background:rgba(240,249,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--brd);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px}
-.nn{font-family:'DM Serif Display',serif;font-size:17px;color:var(--tx);letter-spacing:-.2px}
-.nlinks{display:flex;gap:32px;align-items:center}
-.nlinks a{color:var(--mu);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
-.nlinks a:hover{color:var(--ac)}
-.ncta{background:var(--ac);color:#fff;padding:10px 24px;border-radius:50px;font-size:13px;font-weight:600;text-decoration:none;transition:opacity .2s}
-.ncta:hover{opacity:.85}
-@media(max-width:640px){.nlinks{display:none};nav{padding:0 20px}}
-.hero{padding:80px 48px 64px;text-align:center;max-width:960px;margin:0 auto}
-.hbadge{display:inline-flex;align-items:center;gap:8px;background:var(--wh);border:1px solid var(--brd);border-radius:50px;padding:7px 20px;margin-bottom:32px;box-shadow:0 2px 8px rgba(8,145,178,.08)}
-.hbdot{width:8px;height:8px;background:var(--ac);border-radius:50%}
-.hbtxt{font-size:12px;font-weight:600;color:var(--mu)}
-h1{font-family:'DM Serif Display',serif;font-size:clamp(36px,6vw,68px);line-height:1.08;letter-spacing:-.5px;color:var(--tx);max-width:700px;margin:0 auto 18px}
-h1 em{font-style:italic;color:var(--ac)}
-.hsub{color:var(--mu);font-size:16px;max-width:500px;margin:0 auto 40px;line-height:1.75;font-weight:400}
-.hact{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:60px}
-.ba{background:var(--ac);color:#fff;padding:14px 32px;border-radius:50px;font-size:15px;font-weight:600;text-decoration:none;box-shadow:0 4px 16px rgba(8,145,178,.25);transition:opacity .2s}
-.ba:hover{opacity:.85}
-.bg{background:var(--wh);border:1px solid var(--brd);color:var(--tx);padding:14px 32px;border-radius:50px;font-size:15px;font-weight:500;text-decoration:none;transition:border-color .2s}
-.bg:hover{border-color:var(--ac)}
-.htrust{display:flex;gap:0;justify-content:center;border:1px solid var(--brd);border-radius:16px;overflow:hidden;background:var(--wh);max-width:700px;margin:0 auto}
-.ht{flex:1;padding:20px 16px;text-align:center;border-right:1px solid var(--brd)}
-.ht:last-child{border-right:none}
-.htn{font-family:'DM Serif Display',serif;font-size:26px;color:var(--tx)}
-.htl{font-size:11px;font-weight:600;color:var(--mu);margin-top:3px}
-@media(max-width:640px){.hero{padding:52px 20px 40px}.htrust{flex-direction:column}.ht{border-right:none;border-bottom:1px solid var(--brd)}.ht:last-child{border-bottom:none}}
-.sec{padding:80px 48px;max-width:1080px;margin:0 auto}
-.slbl{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ac);margin-bottom:12px}
-.stit{font-family:'DM Serif Display',serif;font-size:clamp(28px,4vw,42px);color:var(--tx);letter-spacing:-.3px;margin-bottom:8px}
-.ssub{color:var(--mu);font-size:14px;max-width:480px;margin-bottom:44px}
-.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
-.scard{background:var(--wh);border:1px solid var(--brd);border-radius:16px;padding:28px;transition:box-shadow .2s,transform .2s,border-color .2s}
-.scard:hover{box-shadow:0 8px 28px rgba(8,145,178,.12);transform:translateY(-3px);border-color:var(--ac)}
-.scicon{width:44px;height:44px;background:var(--acl);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px}
-.scname{font-family:'DM Serif Display',serif;font-size:17px;color:var(--tx);margin-bottom:6px}
-.scdesc{font-size:13px;color:var(--mu);line-height:1.6}
-@media(max-width:640px){.sec{padding:52px 20px}}
-.rvsec{background:var(--wh);border-top:1px solid var(--brd);border-bottom:1px solid var(--brd);padding:80px 48px}
-.rvi{max-width:880px;margin:0 auto}
-.rhead{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px}
-.rcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:28px}
-.rcar{position:relative;min-height:100px}
-.rs{display:none;animation:fp .35s ease}
-.rs.active{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
-@keyframes fp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-.rcard{background:var(--bg);border:1px solid var(--brd);border-radius:16px;padding:24px}
-.rstars{color:#f59e0b;font-size:14px;margin-bottom:10px}
-.rt{font-size:14px;line-height:1.7;color:var(--tx);margin-bottom:14px}
-.ra{font-size:12px;font-weight:600;color:var(--mu)}
-.rdots{display:flex;gap:6px;justify-content:center}
-.rd{width:8px;height:8px;border-radius:50%;background:var(--brd);border:none;cursor:pointer;transition:background .2s}
-.rd.active{background:var(--ac)}
-.rnav{display:flex;gap:8px}
-.rb{background:var(--bg);border:1px solid var(--brd);color:var(--mu);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:15px;transition:border-color .2s,color .2s;display:flex;align-items:center;justify-content:center}
-.rb:hover{border-color:var(--ac);color:var(--ac)}
-@media(max-width:640px){.rvsec{padding:52px 20px}.rs.active{grid-template-columns:1fr}.rhead{flex-direction:column;align-items:flex-start;gap:16px}}
-.csec{padding:80px 48px;max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
-.ctit{font-family:'DM Serif Display',serif;font-size:clamp(26px,3.5vw,38px);color:var(--tx);margin-bottom:32px;letter-spacing:-.3px}
-.cinfo{display:flex;flex-direction:column;gap:14px}
-.crow{background:var(--wh);border:1px solid var(--brd);border-radius:12px;padding:16px 20px}
-.clbl{font-size:10px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.12em;margin-bottom:4px}
-.cval{font-size:14px;font-weight:500;color:var(--tx)}
-.cval a{color:var(--ac);text-decoration:none}
-.cform{display:flex;flex-direction:column;gap:12px}
-.cf{background:var(--wh);border:1px solid var(--brd);color:var(--tx);padding:13px 16px;font-family:'Manrope',sans-serif;font-size:14px;border-radius:12px;outline:none;transition:border-color .2s;width:100%}
-.cf:focus{border-color:var(--ac)}
-.cf::placeholder{color:var(--mu)}
-.cs{background:var(--ac);color:#fff;border:none;padding:14px;font-family:'Manrope',sans-serif;font-size:15px;font-weight:600;cursor:pointer;border-radius:50px;box-shadow:0 4px 16px rgba(8,145,178,.25);transition:opacity .2s}
-.cs:hover{opacity:.85}
-@media(max-width:768px){.csec{grid-template-columns:1fr;gap:36px;padding:52px 20px}}
-footer{border-top:1px solid var(--brd);padding:28px 48px;display:flex;justify-content:space-between;align-items:center}
-.fc{font-size:13px;color:var(--mu)}
-footer a{font-size:13px;color:var(--mu);text-decoration:none;transition:color .2s}
-footer a:hover{color:var(--ac)}
-@media(max-width:640px){footer{flex-direction:column;gap:10px;padding:20px;text-align:center}}
-.dbadge{position:fixed;bottom:20px;right:20px;background:var(--ac);color:rgba(255,255,255,.8);font-size:10px;padding:8px 16px;border-radius:50px;text-decoration:none;z-index:1000;box-shadow:0 2px 12px rgba(8,145,178,.3);transition:opacity .2s}
-.dbadge:hover{opacity:.85}
-.dbadge strong{color:#fff}
-.mcta{position:fixed;bottom:0;left:0;right:0;background:var(--ac);padding:15px;text-align:center;display:none;z-index:99;box-shadow:0 -2px 16px rgba(8,145,178,.2)}
-.mcta a{color:#fff;font-weight:700;font-size:15px;text-decoration:none}
-@media(max-width:640px){.mcta{display:block};body{padding-bottom:54px}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Blinds Side | Boston Window Treatments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0f1f3d;
+      --coral:  #e8403a;
+      --white:  #fefefe;
+      --gray-bg: #f7f7f7;
+      --gray-mid: #6b7280;
+      --gray-line: #e5e7eb;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--navy);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ─── SVG ICONS ────────────────────────────────────────────────── */
+    svg { display: inline-block; vertical-align: middle; }
+
+    /* ─── NAV ──────────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--white);
+      box-shadow: 0 1px 12px rgba(15,31,61,0.10);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .nav-logo {
+      font-family: 'Righteous', sans-serif;
+      font-size: 1.25rem;
+      color: var(--navy);
+      text-decoration: none;
+      white-space: nowrap;
+      letter-spacing: 0.01em;
+    }
+    .nav-logo span { color: var(--coral); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--navy);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--coral); }
+    .nav-cta {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 10px 22px;
+      background: var(--coral);
+      color: var(--white);
+      border: 1.5px solid var(--coral);
+      border-radius: 6px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.2s, border-color 0.2s;
+      cursor: pointer;
+    }
+    .nav-cta:hover { background: #c93430; border-color: #c93430; }
+
+    /* ─── HERO ─────────────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 68px;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(15,31,61,0.88) 0%, rgba(15,31,61,0.70) 60%, rgba(15,31,61,0.55) 100%);
+    }
+    .hero-content {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 24px 64px;
+      width: 100%;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--coral);
+      background: rgba(232,64,58,0.12);
+      padding: 5px 14px;
+      border-radius: 4px;
+      margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-family: 'Righteous', sans-serif;
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      line-height: 1.08;
+      color: var(--white);
+      max-width: 720px;
+      margin-bottom: 22px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--coral);
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.82);
+      max-width: 520px;
+      line-height: 1.65;
+      margin-bottom: 40px;
+    }
+    .hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 72px;
+    }
+    .btn-filled {
+      display: inline-block;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      padding: 14px 32px;
+      background: var(--coral);
+      color: var(--white);
+      border: 1.5px solid var(--coral);
+      border-radius: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+      white-space: nowrap;
+    }
+    .btn-filled:hover { background: #c93430; border-color: #c93430; }
+    .btn-ghost {
+      display: inline-block;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      padding: 14px 32px;
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255,255,255,0.7);
+      border-radius: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      white-space: nowrap;
+    }
+    .btn-ghost:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+    }
+    .hero-stat {
+      padding: 18px 36px 18px 0;
+      margin-right: 36px;
+    }
+    .hero-stat:not(:last-child) {
+      border-right: 1px solid rgba(255,255,255,0.18);
+      padding-right: 36px;
+    }
+    .hero-stat-num {
+      font-family: 'Righteous', sans-serif;
+      font-size: 2.2rem;
+      color: var(--white);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-top: 4px;
+    }
+
+    /* ─── STATS BAND ───────────────────────────────────────────────── */
+    .stats-band {
+      background: var(--gray-bg);
+      padding: 60px 24px;
+    }
+    .stats-band-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-icon {
+      width: 44px;
+      height: 44px;
+      margin: 0 auto 12px;
+      color: var(--coral);
+    }
+    .stat-num {
+      font-family: 'Righteous', sans-serif;
+      font-size: 2.4rem;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .stat-desc {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--gray-mid);
+      margin-top: 6px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* ─── PRODUCTS ─────────────────────────────────────────────────── */
+    .products {
+      padding: 96px 24px;
+      background: var(--white);
+    }
+    .section-header {
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto 56px;
+    }
+    .section-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 12px;
+    }
+    .section-header h2 {
+      font-family: 'Righteous', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    .section-header p {
+      font-size: 0.975rem;
+      color: var(--gray-mid);
+      line-height: 1.7;
+    }
+    .products-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .product-card {
+      background: var(--white);
+      border: 1px solid var(--gray-line);
+      border-radius: 12px;
+      padding: 36px 28px 32px;
+      transition: box-shadow 0.25s;
+    }
+    .product-card:hover {
+      box-shadow: 0 8px 32px rgba(15,31,61,0.10);
+    }
+    .product-icon {
+      width: 52px;
+      height: 52px;
+      color: var(--navy);
+      margin-bottom: 18px;
+    }
+    .product-card h3 {
+      font-family: 'Righteous', sans-serif;
+      font-size: 1.2rem;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .product-card p {
+      font-size: 0.875rem;
+      color: var(--gray-mid);
+      line-height: 1.65;
+    }
+
+    /* ─── FEATURES ─────────────────────────────────────────────────── */
+    .features {
+      background: var(--navy);
+      padding: 96px 24px;
+    }
+    .features-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .features-text .section-tag { color: #ff7b77; }
+    .features-text h2 {
+      font-family: 'Righteous', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 36px;
+    }
+    .feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .feature-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .feature-icon-wrap {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      background: rgba(232,64,58,0.15);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--coral);
+    }
+    .feature-item h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .feature-item p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.60);
+      line-height: 1.6;
+    }
+    .features-photo {
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+    }
+    .features-photo img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      display: block;
+    }
+    .features-photo-badge {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: var(--coral);
+      color: var(--white);
+      font-family: 'Righteous', sans-serif;
+      font-size: 0.95rem;
+      padding: 10px 18px;
+      border-radius: 8px;
+    }
+
+    /* ─── REVIEWS ──────────────────────────────────────────────────── */
+    .reviews {
+      background: var(--white);
+      padding: 96px 24px;
+    }
+    .reviews-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .review-card {
+      background: var(--white);
+      border: 1px solid var(--gray-line);
+      border-radius: 12px;
+      padding: 32px 28px;
+      transition: box-shadow 0.25s;
+    }
+    .review-card:hover {
+      box-shadow: 0 8px 32px rgba(15,31,61,0.09);
+    }
+    .review-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 14px;
+      color: #f59e0b;
+    }
+    .review-stars svg { width: 18px; height: 18px; }
+    .review-text {
+      font-size: 0.9rem;
+      color: #374151;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .review-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Righteous', sans-serif;
+      font-size: 1rem;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+    .review-name {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .review-source {
+      font-size: 0.75rem;
+      color: var(--gray-mid);
+    }
+
+    /* ─── TRUST BAND ───────────────────────────────────────────────── */
+    .trust-band {
+      background: var(--coral);
+      padding: 52px 24px;
+    }
+    .trust-band-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 32px;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--white);
+    }
+    .trust-icon { width: 32px; height: 32px; flex-shrink: 0; }
+    .trust-item-text strong {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .trust-item-text span {
+      font-size: 0.78rem;
+      opacity: 0.85;
+    }
+
+    /* ─── CTA ──────────────────────────────────────────────────────── */
+    .cta-section {
+      background: var(--gray-bg);
+      padding: 96px 24px;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-family: 'Righteous', sans-serif;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      color: var(--navy);
+      max-width: 680px;
+      margin: 0 auto 16px;
+      line-height: 1.15;
+    }
+    .cta-section p {
+      font-size: 1rem;
+      color: var(--gray-mid);
+      max-width: 480px;
+      margin: 0 auto 36px;
+      line-height: 1.65;
+    }
+    .cta-btns {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .btn-navy {
+      display: inline-block;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      padding: 14px 32px;
+      background: var(--navy);
+      color: var(--white);
+      border: 1.5px solid var(--navy);
+      border-radius: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .btn-navy:hover { background: #1a3460; border-color: #1a3460; }
+    .btn-navy-ghost {
+      display: inline-block;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      padding: 14px 32px;
+      background: transparent;
+      color: var(--navy);
+      border: 1.5px solid var(--navy);
+      border-radius: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .btn-navy-ghost:hover { background: rgba(15,31,61,0.06); }
+
+    /* ─── FOOTER ───────────────────────────────────────────────────── */
+    footer {
+      background: var(--navy);
+      padding: 56px 24px 32px;
+      color: rgba(255,255,255,0.7);
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-brand .nav-logo {
+      display: block;
+      font-size: 1.35rem;
+      margin-bottom: 14px;
+      color: var(--white);
+    }
+    .footer-brand p {
+      font-size: 0.875rem;
+      line-height: 1.65;
+    }
+    .footer-col h4 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .footer-col ul li {
+      font-size: 0.875rem;
+    }
+    .footer-col ul li a {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: var(--white); }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.10);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .footer-demo-note {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ─── RESPONSIVE ───────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .stats-band-inner { grid-template-columns: repeat(2, 1fr); }
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .features-inner { grid-template-columns: 1fr; }
+      .features-photo { order: -1; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .products-grid { grid-template-columns: 1fr; }
+      .stats-band-inner { grid-template-columns: repeat(2, 1fr); }
+      .footer-inner { grid-template-columns: 1fr; }
+      .hero-stat { padding: 14px 20px 14px 0; margin-right: 20px; }
+      .hero-stat:not(:last-child) { padding-right: 20px; }
+    }
+  </style>
 </head>
 <body>
+
+<!-- ─── SVG SYMBOL DEFS ────────────────────────────────────────────── -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <defs>
+    <!-- roller shade -->
+    <symbol id="icon-roller" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="3" width="18" height="3" rx="1.5"/>
+      <line x1="5" y1="6" x2="5" y2="20"/>
+      <line x1="19" y1="6" x2="19" y2="20"/>
+      <line x1="5" y1="10" x2="19" y2="10"/>
+      <line x1="5" y1="14" x2="19" y2="14"/>
+      <line x1="5" y1="18" x2="19" y2="18"/>
+    </symbol>
+    <!-- venetian -->
+    <symbol id="icon-venetian" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="3" width="18" height="2" rx="1"/>
+      <rect x="3" y="9" width="18" height="2" rx="1"/>
+      <rect x="3" y="15" width="18" height="2" rx="1"/>
+      <rect x="3" y="21" width="18" height="2" rx="1"/>
+      <line x1="12" y1="3" x2="12" y2="23"/>
+    </symbol>
+    <!-- wood blind -->
+    <symbol id="icon-wood" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="3" width="20" height="3" rx="1.5"/>
+      <rect x="2" y="9" width="20" height="3" rx="1.5"/>
+      <rect x="2" y="15" width="20" height="3" rx="1.5"/>
+      <line x1="8" y1="3" x2="8" y2="18"/>
+      <line x1="16" y1="3" x2="16" y2="18"/>
+    </symbol>
+    <!-- cellular shade -->
+    <symbol id="icon-cellular" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="3" width="18" height="3" rx="1"/>
+      <path d="M3 8 L12 11 L21 8"/>
+      <path d="M3 13 L12 16 L21 13"/>
+      <path d="M3 18 L12 21 L21 18"/>
+      <line x1="3" y1="8" x2="3" y2="21"/>
+      <line x1="21" y1="8" x2="21" y2="21"/>
+    </symbol>
+    <!-- vertical blind -->
+    <symbol id="icon-vertical" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" y1="3" x2="21" y2="3"/>
+      <rect x="3" y="5" width="3" height="16" rx="1.5"/>
+      <rect x="8" y="5" width="3" height="16" rx="1.5"/>
+      <rect x="13" y="5" width="3" height="16" rx="1.5"/>
+      <rect x="18" y="5" width="3" height="16" rx="1.5"/>
+    </symbol>
+    <!-- drapery -->
+    <symbol id="icon-drapery" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="2" y1="4" x2="22" y2="4"/>
+      <path d="M2 4 C4 8 4 14 2 20"/>
+      <path d="M12 4 C14 8 14 14 12 20"/>
+      <path d="M12 4 C10 8 10 14 12 20"/>
+      <path d="M22 4 C20 8 20 14 22 20"/>
+    </symbol>
+    <!-- check -->
+    <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"/>
+    </symbol>
+    <!-- star -->
+    <symbol id="icon-star" viewBox="0 0 24 24">
+      <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="currentColor"/>
+    </symbol>
+    <!-- tape measure -->
+    <symbol id="icon-measure" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="7" width="20" height="10" rx="2"/>
+      <line x1="6" y1="7" x2="6" y2="11"/>
+      <line x1="10" y1="7" x2="10" y2="13"/>
+      <line x1="14" y1="7" x2="14" y2="11"/>
+      <line x1="18" y1="7" x2="18" y2="13"/>
+    </symbol>
+    <!-- home -->
+    <symbol id="icon-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+      <polyline points="9 22 9 12 15 12 15 22"/>
+    </symbol>
+    <!-- palette -->
+    <symbol id="icon-palette" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c.55 0 1.08-.05 1.6-.14A5 5 0 0 0 19 17v-1c0-1.1.9-2 2-2s2-.9 2-2c0-5.52-4.48-10-11-10z"/>
+      <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor" stroke="none"/>
+      <circle cx="14.5" cy="8.5" r="1.5" fill="currentColor" stroke="none"/>
+      <circle cx="8.5" cy="14.5" r="1.5" fill="currentColor" stroke="none"/>
+    </symbol>
+    <!-- shield -->
+    <symbol id="icon-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+    </symbol>
+    <!-- bolt -->
+    <symbol id="icon-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="none"/>
+    </symbol>
+    <!-- clock -->
+    <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <polyline points="12 6 12 12 16 14"/>
+    </symbol>
+    <!-- phone -->
+    <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.07 13 19.79 19.79 0 0 1 1 4.4 2 2 0 0 1 2.96 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+    </symbol>
+    <!-- map pin -->
+    <symbol id="icon-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+      <circle cx="12" cy="10" r="3"/>
+    </symbol>
+    <!-- certificate -->
+    <symbol id="icon-cert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="8" r="6"/>
+      <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+    </symbol>
+    <!-- stats star -->
+    <symbol id="icon-rating" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ─── NAV ─────────────────────────────────────────────────────────── -->
 <nav>
-  <div class="nn">The Blinds Side</div>
-  <div class="nlinks">
-    <a href="#services">Services</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
-    <a href="https://maps.google.com/?cid=6249942190206232523&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Maps</a>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">The Blinds <span>Side</span></a>
+    <ul class="nav-links">
+      <li><a href="#products">Products</a></li>
+      <li><a href="#why-us">Why Us</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="tel:6174775131" class="nav-cta">Get a Free Quote</a>
   </div>
-  <a class="ncta" href="tel:+1 617-477-5131">Call Now</a>
 </nav>
+
+<!-- ─── HERO ─────────────────────────────────────────────────────────── -->
 <section class="hero">
-  <div class="hbadge"><div class="hbdot"></div><span class="hbtxt">Serving 84 Fairmount Ave, Boston</span></div>
-  <h1>The Blinds <em>Side</em></h1>
-  <p class="hsub">Professional window treatments in 84 Fairmount Ave. Modern, reliable, and built around your needs.</p>
-  <div class="hact">
-    <a class="ba" href="tel:+1 617-477-5131">Call (617) 477-5131</a>
-    <a class="bg" href="#contact">Free Quote</a>
-    <a class="bg" href="https://maps.google.com/?cid=6249942190206232523&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Find Us</a>
-  </div>
-  <div class="htrust">
-    <div class="ht"><div class="htn">10+</div><div class="htl">Years Experience</div></div>
-    <div class="ht"><div class="htn">500+</div><div class="htl">Happy Clients</div></div>
-    <div class="ht"><div class="htn">100%</div><div class="htl">Guaranteed</div></div>
-  </div>
-</section>
-<section class="sec" id="services">
-  <div class="slbl">Services</div>
-  <h2 class="stit">What We Offer</h2>
-  <p class="ssub">Everything you need for your home or business, handled by local professionals in 84 Fairmount Ave.</p>
-  <div class="sgrid">
-    <div class="scard"><div class="scicon">&#128295;</div><div class="scname">Custom Blind Installation</div><div class="scdesc">Professional service, fully guaranteed.</div></div>
-    <div class="scard"><div class="scicon">&#128737;</div><div class="scname">Roller & Roman Shades</div><div class="scdesc">Professional service, fully guaranteed.</div></div>
-    <div class="scard"><div class="scicon">&#9889;</div><div class="scname">Plantation Shutters</div><div class="scdesc">Professional service, fully guaranteed.</div></div>
-    <div class="scard"><div class="scicon">&#127968;</div><div class="scname">Motorized Shades</div><div class="scdesc">Professional service, fully guaranteed.</div></div>
-    <div class="scard"><div class="scicon">&#10024;</div><div class="scname">Free In-Home Consultation</div><div class="scdesc">Professional service, fully guaranteed.</div></div>
-    <div class="scard"><div class="scicon">&#128273;</div><div class="scname">Repair & Restringing</div><div class="scdesc">Professional service, fully guaranteed.</div></div>
-  </div>
-</section>
-<section class="rvsec" id="reviews">
-  <div class="rvi">
-    <div class="rhead">
-      <div><div class="slbl">Reviews</div><h2 class="stit" style="margin-bottom:0">What Clients Say</h2></div>
-      <div class="rnav"><button class="rb" id="rp">&#8592;</button><button class="rb" id="rn">&#8594;</button></div>
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Boston's Window Treatment Experts</div>
+    <h1>We've Got Boston <em>Covered.</em></h1>
+    <p class="hero-sub">
+      Custom blinds, shades, shutters, and drapery — measured, crafted, and installed by Boston's own.
+      We come to you, so you never lift a finger.
+    </p>
+    <div class="hero-btns">
+      <a href="tel:6174775131" class="btn-filled">Schedule Free Measurement</a>
+      <a href="#products" class="btn-ghost">See Our Products</a>
     </div>
-    <div class="rcar">
-      <div class="rs active">
-        <div class="rcard"><div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rt">&ldquo;Best window treatments experience I've had in 84 Fairmount Ave. They were on time, professional, and actually fixed the problem permanently. Already recommended them to three friends.&rdquo;</p><div class="ra">&mdash; Michael R., 84 Fairmount Ave</div></div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num" data-count="4.8" data-suffix="★">4.8★</div>
+        <div class="hero-stat-label">Google Rating</div>
       </div>
-      <div class="rs">
-        <div class="rcard"><div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rt">&ldquo;After a bad experience with another company, The Blinds Side completely restored my confidence. Thorough, honest, and genuinely great to work with.&rdquo;</p><div class="ra">&mdash; Sandra K., 84 Fairmount Ave</div></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num" data-count="60" data-suffix="+">60+</div>
+        <div class="hero-stat-label">5-Star Reviews</div>
       </div>
-      <div class="rs">
-        <div class="rcard"><div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rt">&ldquo;Fast response, fair pricing, and no upselling. They explained everything clearly and the results speak for themselves. This is the window treatments team 84 Fairmount Ave deserves.&rdquo;</p><div class="ra">&mdash; James T., 84 Fairmount Ave</div></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num" data-count="7" data-suffix="+ Yrs">7+ Yrs</div>
+        <div class="hero-stat-label">Boston Local</div>
       </div>
-      <div class="rs">
-        <div class="rcard"><div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rt">&ldquo;Top-notch from the first call to the final walkthrough. The Blinds Side treats your home like their own. Couldn't ask for better service.&rdquo;</p><div class="ra">&mdash; Patricia M., 84 Fairmount Ave</div></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">100%</div>
+        <div class="hero-stat-label">Free In-Home Measurement</div>
       </div>
     </div>
-    <div class="rdots" style="margin-top:24px"><button class="rd active" data-i="0"></button><button class="rd" data-i="1"></button><button class="rd" data-i="2"></button><button class="rd" data-i="3"></button></div>
   </div>
 </section>
-<section id="contact"><div class="csec">
-  <div>
-    <div class="slbl">Contact</div>
-    <h2 class="ctit">Get a Free Quote</h2>
-    <div class="cinfo">
-      <div class="crow"><div class="clbl">Phone</div><div class="cval"><a href="tel:+1 617-477-5131">(617) 477-5131</a></div></div>
-      <div class="crow"><div class="clbl">Service Area</div><div class="cval">84 Fairmount Ave, Boston &amp; Surrounding</div></div>
-      <div class="crow"><div class="clbl">Hours</div><div class="cval">Mon &ndash; Sat, 7am &ndash; 7pm</div></div>
-      <div class="crow"><div class="clbl">Maps</div><div class="cval"><a href="https://maps.google.com/?cid=6249942190206232523&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">View on Google Maps</a></div></div>
+
+<!-- ─── STATS BAND ────────────────────────────────────────────────────── -->
+<section class="stats-band">
+  <div class="stats-band-inner">
+    <div class="stat-item">
+      <div class="stat-icon">
+        <svg width="44" height="44"><use href="#icon-rating"/></svg>
+      </div>
+      <div class="stat-num" data-count="4.8" data-suffix="★">4.8★</div>
+      <div class="stat-desc">Average Rating</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon">
+        <svg width="44" height="44"><use href="#icon-home"/></svg>
+      </div>
+      <div class="stat-num" data-count="500" data-suffix="+">500+</div>
+      <div class="stat-desc">Homes Transformed</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon">
+        <svg width="44" height="44"><use href="#icon-measure"/></svg>
+      </div>
+      <div class="stat-num">Free</div>
+      <div class="stat-desc">In-Home Measurement</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon">
+        <svg width="44" height="44"><use href="#icon-bolt"/></svg>
+      </div>
+      <div class="stat-num" data-count="2017" data-suffix="">2017</div>
+      <div class="stat-desc">Serving Boston Since</div>
     </div>
   </div>
-  <form class="cform" onsubmit="this.innerHTML='<p style=color:var(--ac);padding:20px 0;font-family:DM Serif Display,serif;font-size:22px>Message sent! We\'ll be in touch shortly.</p>';return false;">
-    <input class="cf" type="text" placeholder="Your name" required>
-    <input class="cf" type="tel" placeholder="Phone number" required>
-    <input class="cf" type="email" placeholder="Email (optional)">
-    <textarea class="cf" placeholder="Tell us what you need..." rows="4" style="resize:vertical"></textarea>
-    <button class="cs">Send Message</button>
-  </form>
-</div></section>
+</section>
+
+<!-- ─── PRODUCTS ──────────────────────────────────────────────────────── -->
+<section class="products" id="products">
+  <div class="section-header">
+    <div class="section-tag">Our Products</div>
+    <h2>Every Window, Every Style</h2>
+    <p>From sleek roller shades to rich wood blinds, we carry premium treatments for every room and budget — all custom-fitted to your exact windows.</p>
+  </div>
+  <div class="products-grid">
+    <div class="product-card">
+      <div class="product-icon">
+        <svg width="52" height="52"><use href="#icon-roller"/></svg>
+      </div>
+      <h3>Roller Shades</h3>
+      <p>Clean, minimal, and endlessly customizable. Solar, light-filtering, or blackout — we'll find the perfect opacity for your space.</p>
+    </div>
+    <div class="product-card">
+      <div class="product-icon">
+        <svg width="52" height="52"><use href="#icon-venetian"/></svg>
+      </div>
+      <h3>Venetian Blinds</h3>
+      <p>Timeless horizontal slats that give you total control over light and privacy. Available in aluminum, faux wood, and real wood finishes.</p>
+    </div>
+    <div class="product-card">
+      <div class="product-icon">
+        <svg width="52" height="52"><use href="#icon-wood"/></svg>
+      </div>
+      <h3>Wood Blinds</h3>
+      <p>Warm, natural, and undeniably classic. Our real wood blinds bring texture and warmth to any room with rich stain options to match your decor.</p>
+    </div>
+    <div class="product-card">
+      <div class="product-icon">
+        <svg width="52" height="52"><use href="#icon-cellular"/></svg>
+      </div>
+      <h3>Cellular Shades</h3>
+      <p>Honeycomb construction traps air for superior insulation — keeping your Boston home comfortable year-round while reducing energy bills.</p>
+    </div>
+    <div class="product-card">
+      <div class="product-icon">
+        <svg width="52" height="52"><use href="#icon-vertical"/></svg>
+      </div>
+      <h3>Vertical Blinds</h3>
+      <p>Ideal for sliding doors and large windows. Smooth operation, easy maintenance, and available in fabric, vinyl, and wood-look finishes.</p>
+    </div>
+    <div class="product-card">
+      <div class="product-icon">
+        <svg width="52" height="52"><use href="#icon-drapery"/></svg>
+      </div>
+      <h3>Custom Drapery</h3>
+      <p>Elevate any room with custom-sewn drapes tailored to your windows, style, and fabric choice. Luxury look, professional installation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FEATURES ──────────────────────────────────────────────────────── -->
+<section class="features" id="why-us">
+  <div class="features-inner">
+    <div class="features-text">
+      <div class="section-tag">Why Boston Chooses Us</div>
+      <h2>Why Boston Chooses The Blinds Side</h2>
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-icon-wrap">
+            <svg width="22" height="22"><use href="#icon-measure"/></svg>
+          </div>
+          <div>
+            <h4>Free In-Home Measurement</h4>
+            <p>Our experts come to you — no guessing, no returns. We measure every window precisely so your treatments fit perfectly the first time.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon-wrap">
+            <svg width="22" height="22"><use href="#icon-palette"/></svg>
+          </div>
+          <div>
+            <h4>Personalized Design Consultation</h4>
+            <p>We bring samples and ideas to your home. Our consultants listen to your needs and help you find the perfect product, style, and color.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon-wrap">
+            <svg width="22" height="22"><use href="#icon-shield"/></svg>
+          </div>
+          <div>
+            <h4>Licensed Professional Installation</h4>
+            <p>Every treatment is installed by our trained technicians — mounted securely, aligned perfectly, operating smoothly from day one.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon-wrap">
+            <svg width="22" height="22"><use href="#icon-clock"/></svg>
+          </div>
+          <div>
+            <h4>Residential and Commercial Service</h4>
+            <p>From a cozy Hyde Park living room to a full office buildout — we handle projects of any size with the same care and quality.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="features-photo">
+      <img
+        src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=900&q=80"
+        alt="Elegant window treatments in a bright living room"
+        loading="lazy"
+      />
+      <div class="features-photo-badge">Boston Local Since 2017</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── REVIEWS ───────────────────────────────────────────────────────── -->
+<section class="reviews" id="reviews">
+  <div class="section-header">
+    <div class="section-tag">Customer Reviews</div>
+    <h2>Boston Homeowners Love Us</h2>
+    <p>Don't take our word for it — here's what your neighbors in Hyde Park, Roslindale, and beyond are saying.</p>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">
+        <svg><use href="#icon-star"/></svg>
+        <svg><use href="#icon-star"/></svg>
+        <svg><use href="#icon-star"/></svg>
+        <svg><use href="#icon-star"/></svg>
+        <svg><use href="#icon-star"/></svg>
+      </div>
+      <p class="review-text">"David was an outstanding resource — extremely responsive and reliable. He helped us choose the perfect shades for our living room and had them installed in no time. Couldn't be happier!"</p>
+      <div class="review-author">
+        <div class="review-avatar">S</div>
+        <div>
+          <div class="review-name">Sarah M.</div>
+          <div class="review-source">Google Review · Hyde Park, Boston</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">
+        <svg><use href="#icon-star"/></svg>
+        <svg><use href="#icon-star"/></svg>
+        <svg><use href="#icon-star"/></svg>
+        <svg><use href="#icon-star"/></svg>
+        <svg><use href="#icon-star"/></svg>
+      </div>
+      <p class="review-text">"Professional from start to finish. They came to measure, brought samples, and installed everything within a week. The wood blinds in our dining room look absolutely incredible. Highly recommend!"</p>
+      <div class="review-author">
+        <div class="review-avatar">J</div>
+        <div>
+          <div class="review-name">James T.</div>
+          <div class="review-source">Yelp Review · Roslindale, Boston</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">
+        <svg><use href="#icon-star"/></svg>
+        <svg><use href="#icon-star"/></svg>
+        <svg><use href="#icon-star"/></svg>
+        <svg><use href="#icon-star"/></svg>
+        <svg><use href="#icon-star"/></svg>
+      </div>
+      <p class="review-text">"Best window treatment experience I've had. They went above and beyond to make sure we were 100% satisfied. The cellular shades are perfect — our heating bill actually dropped this winter!"</p>
+      <div class="review-author">
+        <div class="review-avatar">L</div>
+        <div>
+          <div class="review-name">Lisa K.</div>
+          <div class="review-source">HomeAdvisor Review · West Roxbury, Boston</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TRUST BAND ─────────────────────────────────────────────────────── -->
+<div class="trust-band">
+  <div class="trust-band-inner">
+    <div class="trust-item">
+      <svg class="trust-icon"><use href="#icon-measure"/></svg>
+      <div class="trust-item-text">
+        <strong>Free Measurement</strong>
+        <span>No cost, no commitment</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <svg class="trust-icon"><use href="#icon-cert"/></svg>
+      <div class="trust-item-text">
+        <strong>Licensed Installer</strong>
+        <span>Professional every time</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <svg class="trust-icon"><use href="#icon-pin"/></svg>
+      <div class="trust-item-text">
+        <strong>Boston Local</strong>
+        <span>84 Fairmount Ave, Hyde Park</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <svg class="trust-icon"><use href="#icon-shield"/></svg>
+      <div class="trust-item-text">
+        <strong>4.8-Star Rated</strong>
+        <span>60+ satisfied customers</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── CTA ───────────────────────────────────────────────────────────── -->
+<section class="cta-section" id="contact">
+  <h2>Ready to Cover Your Windows the Right Way?</h2>
+  <p>Book your free in-home measurement today. We'll come to you, bring samples, and handle everything from start to finish.</p>
+  <div class="cta-btns">
+    <a href="tel:6174775131" class="btn-navy">Call (617) 477-5131</a>
+    <a href="mailto:info@theblindsside.com" class="btn-navy-ghost">Send a Message</a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─────────────────────────────────────────────────────────── -->
 <footer>
-  <span class="fc">&copy; 2026 The Blinds Side &middot; 84 Fairmount Ave</span>
-  <a href="https://maps.google.com/?cid=6249942190206232523&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Google Maps</a>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo">The Blinds <span>Side</span></a>
+      <p>Boston's favorite window treatment company. Custom blinds, shades, shutters, and drapery — measured, fitted, and installed with care since 2017.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Products</h4>
+      <ul>
+        <li><a href="#products">Roller Shades</a></li>
+        <li><a href="#products">Venetian Blinds</a></li>
+        <li><a href="#products">Wood Blinds</a></li>
+        <li><a href="#products">Cellular Shades</a></li>
+        <li><a href="#products">Vertical Blinds</a></li>
+        <li><a href="#products">Custom Drapery</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:6174775131">(617) 477-5131</a></li>
+        <li><a href="#">84 Fairmount Ave</a></li>
+        <li><a href="#">Boston, MA 02136</a></li>
+        <li style="margin-top:8px; color: rgba(255,255,255,0.5); font-size:0.82rem;">
+          Mon–Fri: 10am–6pm<br/>
+          Sat–Sun: 10am–4pm
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2024 The Blinds Side. All rights reserved.</span>
+    <span class="footer-demo-note">Demo site concept — not the official website</span>
+  </div>
 </footer>
-<div class="mcta"><a href="tel:+1 617-477-5131">&#128222; Call (617) 477-5131</a></div>
-<a class="dbadge" href="https://jayexe.com" target="_blank" rel="noopener">Demo by <strong>Jay</strong></a>
-<script>
-(function(){
-  let i=0;
-  const slides=document.querySelectorAll('.rs');
-  const dots=document.querySelectorAll('.rd');
-  let t;
-  function go(n){
-    slides[i].classList.remove('active');
-    dots[i].classList.remove('active');
-    i=(n+slides.length)%slides.length;
-    slides[i].classList.add('active');
-    dots[i].classList.add('active');
+
+<!-- ─── MOTION ANIMATIONS ──────────────────────────────────────────────── -->
+<script type="module">
+  import { animate, inView, stagger } from 'https://esm.sh/motion@10.16.2';
+
+  // ── Helpers ──────────────────────────────────────────────────────────
+  function easeOutCubic(t) {
+    return 1 - Math.pow(1 - t, 3);
   }
-  function start(){t=setInterval(()=>go(i+1),4800);}
-  function reset(){clearInterval(t);start();}
-  document.getElementById('rn')?.addEventListener('click',()=>{go(i+1);reset();});
-  document.getElementById('rp')?.addEventListener('click',()=>{go(i-1);reset();});
-  dots.forEach((d,j)=>d.addEventListener('click',()=>{go(j);reset();}));
-  start();
-})();
+
+  function countUp(el, target, suffix, duration = 1800) {
+    const isFloat = String(target).includes('.');
+    const start = performance.now();
+    function frame(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = easeOutCubic(progress);
+      const value = isFloat
+        ? (eased * target).toFixed(1)
+        : Math.round(eased * target);
+      el.textContent = value + (suffix || '');
+      if (progress < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  // ── Set initial hidden state via JS ──────────────────────────────────
+  const fadeEls = document.querySelectorAll(
+    '.product-card, .feature-item, .review-card, .stat-item, .trust-item, .hero-eyebrow, .hero h1, .hero-sub, .hero-btns, .section-header, .cta-section h2, .cta-section p, .cta-btns'
+  );
+  fadeEls.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+  });
+
+  // ── Hero content animates immediately on load ─────────────────────
+  window.addEventListener('load', () => {
+    const heroItems = ['.hero-eyebrow', '.hero h1', '.hero-sub', '.hero-btns'];
+    heroItems.forEach((sel, i) => {
+      const el = document.querySelector(sel);
+      if (!el) return;
+      setTimeout(() => {
+        animate(el, { opacity: [0, 1], y: [30, 0] }, { duration: 0.65, easing: [0.25, 0.1, 0.25, 1] });
+      }, i * 130);
+    });
+  });
+
+  // ── Stats band count-up ───────────────────────────────────────────
+  inView('.stats-band', () => {
+    const items = document.querySelectorAll('.stat-item');
+    items.forEach((item, i) => {
+      setTimeout(() => {
+        animate(item, { opacity: [0, 1], y: [30, 0] }, { duration: 0.55 });
+        const numEl = item.querySelector('.stat-num');
+        const count = parseFloat(numEl?.dataset.count || '0');
+        const suffix = numEl?.dataset.suffix ?? '';
+        if (count && numEl) countUp(numEl, count, suffix);
+      }, i * 100);
+    });
+  }, { amount: 0.2 });
+
+  // ── Product cards ─────────────────────────────────────────────────
+  inView('.products-grid', () => {
+    animate(
+      '.product-card',
+      { opacity: [0, 1], y: [30, 0] },
+      { duration: 0.55, delay: stagger(0.08) }
+    );
+  }, { amount: 0.1 });
+
+  // ── Section headers ────────────────────────────────────────────────
+  document.querySelectorAll('.section-header').forEach(el => {
+    inView(el, () => {
+      animate(el, { opacity: [0, 1], y: [30, 0] }, { duration: 0.6 });
+    }, { amount: 0.3 });
+  });
+
+  // ── Feature items ─────────────────────────────────────────────────
+  inView('.feature-list', () => {
+    animate(
+      '.feature-item',
+      { opacity: [0, 1], y: [30, 0] },
+      { duration: 0.5, delay: stagger(0.1) }
+    );
+  }, { amount: 0.2 });
+
+  // ── Review cards ──────────────────────────────────────────────────
+  inView('.reviews-grid', () => {
+    animate(
+      '.review-card',
+      { opacity: [0, 1], y: [30, 0] },
+      { duration: 0.55, delay: stagger(0.1) }
+    );
+  }, { amount: 0.1 });
+
+  // ── Trust band ────────────────────────────────────────────────────
+  inView('.trust-band', () => {
+    animate(
+      '.trust-item',
+      { opacity: [0, 1], y: [30, 0] },
+      { duration: 0.5, delay: stagger(0.08) }
+    );
+  }, { amount: 0.2 });
+
+  // ── CTA section ───────────────────────────────────────────────────
+  inView('.cta-section', () => {
+    const els = ['.cta-section h2', '.cta-section p', '.cta-btns'];
+    els.forEach((sel, i) => {
+      const el = document.querySelector(sel);
+      if (el) setTimeout(() => {
+        animate(el, { opacity: [0, 1], y: [30, 0] }, { duration: 0.55 });
+      }, i * 120);
+    });
+  }, { amount: 0.3 });
+
+  // ── Hero stat count-up ────────────────────────────────────────────
+  document.querySelectorAll('.hero-stat-num[data-count]').forEach(el => {
+    const count = parseFloat(el.dataset.count);
+    const suffix = el.dataset.suffix ?? '';
+    if (count) countUp(el, count, suffix, 2200);
+  });
 </script>
-</body></html>
+
+</body>
+</html>

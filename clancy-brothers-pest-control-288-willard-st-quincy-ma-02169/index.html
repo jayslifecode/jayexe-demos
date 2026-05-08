@@ -1,192 +1,638 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Clancy Brothers Pest Control &mdash; 288 Willard St</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Clancy Brothers Pest Control — Quincy & Boston, MA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/motion@latest/dist/motion.js"></script>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#fdf8f0;--surf:#f5efe5;--brd:#e5d9c8;--tx:#1a2e1a;--mu:#7a6e5f;--ac:#c17d11;--gr:#264e36}
+
+:root{
+  --forest:      #1A3C20;
+  --brick:       #C94E1A;
+  --stone:       #F2EDE5;
+  --ink:         #181816;
+
+  --forest-surf: #142E19;
+  --forest-mid:  #2C5C34;
+  --forest-mu:   #6B9470;
+  --brick-light: rgba(201,78,26,.10);
+  --brick-brd:   rgba(201,78,26,.25);
+  --stone-surf:  #E9E3D9;
+  --stone-brd:   #D5CECA;
+  --tx-on-forest:#EDE8DC;
+  --tx-on-stone: #181816;
+  --tx-mute:     #6B6560;
+}
+
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--tx);font-family:'Nunito',sans-serif;font-size:15px;line-height:1.7}
-nav{position:sticky;top:0;z-index:100;background:rgba(253,248,240,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--brd);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:66px}
-.nn{font-family:'Lora',serif;font-size:16px;color:var(--gr)}
-.nlinks{display:flex;gap:28px;align-items:center}
-.nlinks a{color:var(--mu);text-decoration:none;font-size:14px;font-weight:600;transition:color .2s}
-.nlinks a:hover{color:var(--ac)}
-.ncta{background:var(--gr);color:#fff;padding:10px 22px;border-radius:24px;font-size:13px;font-weight:700;text-decoration:none;transition:opacity .2s}
-.ncta:hover{opacity:.85}
-@media(max-width:640px){.nlinks{display:none};nav{padding:0 20px}}
-.hero{padding:80px 40px 64px;display:flex;align-items:center;gap:60px;max-width:1080px;margin:0 auto}
-.hleft{flex:1}
-.hpill{display:inline-block;background:var(--surf);border:1px solid var(--brd);color:var(--ac);font-size:12px;font-weight:700;padding:5px 16px;border-radius:100px;margin-bottom:24px}
-h1{font-family:'Lora',serif;font-size:clamp(32px,5vw,58px);line-height:1.1;letter-spacing:-.5px;color:var(--gr);margin-bottom:18px}
-.hsub{color:var(--mu);font-size:15px;max-width:420px;margin-bottom:36px;line-height:1.8}
-.hact{display:flex;gap:10px;flex-wrap:wrap}
-.ba{background:var(--gr);color:#fff;padding:13px 28px;border-radius:28px;font-size:14px;font-weight:700;text-decoration:none;transition:opacity .2s}
-.ba:hover{opacity:.85}
-.bg{background:var(--surf);border:1px solid var(--brd);color:var(--tx);padding:13px 28px;border-radius:28px;font-size:14px;font-weight:700;text-decoration:none;transition:background .2s}
-.bg:hover{background:var(--brd)}
-.hright{flex:0 0 300px;background:var(--surf);border:1px solid var(--brd);border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:16px}
-.htile{display:flex;align-items:center;gap:12px}
-.htile-ic{width:40px;height:40px;background:var(--bg);border:1px solid var(--brd);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.htile-txt{font-size:13px;font-weight:600;color:var(--tx)}
-.htile-sub{font-size:11px;color:var(--mu)}
-@media(max-width:768px){.hero{flex-direction:column;padding:52px 20px 40px;gap:32px}.hright{width:100%}}
-.sec{padding:80px 40px;max-width:1080px;margin:0 auto}
-.slbl{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ac);margin-bottom:12px}
-.stit{font-family:'Lora',serif;font-size:clamp(26px,4vw,38px);color:var(--gr);letter-spacing:-.3px;margin-bottom:8px}
-.ssub{color:var(--mu);font-size:14px;max-width:460px;margin-bottom:44px}
-.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
-.scard{background:var(--bg);border:1px solid var(--brd);border-radius:16px;padding:24px;transition:box-shadow .2s,transform .2s}
-.scard:hover{box-shadow:0 6px 24px rgba(38,78,54,.08);transform:translateY(-2px)}
-.scname{font-family:'Lora',serif;font-size:16px;color:var(--gr);margin-bottom:6px}
-.scdesc{font-size:13px;color:var(--mu)}
-@media(max-width:640px){.sec{padding:52px 20px}}
-.rvsec{background:var(--surf);padding:80px 40px}
-.rvi{max-width:720px;margin:0 auto;text-align:center}
-.rcar{margin:40px 0 24px}
-.rs{display:none;background:var(--bg);border:1px solid var(--brd);border-radius:20px;padding:36px;animation:fw .35s ease}
-.rs.active{display:block}
-@keyframes fw{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:scale(1)}}
-.rstars{color:#f59e0b;font-size:18px;margin-bottom:14px}
-.rst{font-family:'Lora',serif;font-style:italic;font-size:17px;line-height:1.75;color:var(--tx);margin-bottom:16px}
-.rsa{font-size:12px;font-weight:700;color:var(--mu)}
-.rdots{display:flex;gap:8px;justify-content:center;margin-bottom:16px}
-.rd{width:8px;height:8px;border-radius:50%;background:var(--brd);border:none;cursor:pointer;transition:background .2s}
-.rd.active{background:var(--ac)}
-.rnav{display:flex;gap:8px;justify-content:center}
-.rb{background:var(--bg);border:1px solid var(--brd);color:var(--mu);padding:10px 20px;border-radius:24px;cursor:pointer;font-family:'Nunito',sans-serif;font-size:16px;transition:background .2s,color .2s}
-.rb:hover{background:var(--gr);border-color:var(--gr);color:#fff}
-@media(max-width:640px){.rvsec{padding:52px 20px}.rs{padding:24px}}
-.csec{padding:80px 40px;max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
-.ctit{font-family:'Lora',serif;font-size:clamp(24px,3.5vw,36px);color:var(--gr);margin-bottom:28px}
-.cinfo{display:flex;flex-direction:column;gap:14px}
-.crow{display:flex;align-items:center;gap:14px;padding:14px;background:var(--surf);border-radius:12px}
-.ctic{width:40px;height:40px;background:var(--bg);border:1px solid var(--brd);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.ctxt{display:flex;flex-direction:column;gap:2px}
-.clbl{font-size:11px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.08em}
-.cval{font-size:14px;font-weight:600;color:var(--tx)}
-.cval a{color:var(--ac);text-decoration:none}
-.cform{display:flex;flex-direction:column;gap:12px}
-.cf{background:var(--surf);border:1px solid var(--brd);color:var(--tx);padding:13px 16px;font-family:'Nunito',sans-serif;font-size:14px;border-radius:12px;outline:none;transition:border-color .2s;width:100%}
-.cf:focus{border-color:var(--ac)}
-.cf::placeholder{color:var(--mu)}
-.cs{background:var(--gr);color:#fff;border:none;padding:14px;font-family:'Nunito',sans-serif;font-size:15px;font-weight:700;cursor:pointer;border-radius:28px;transition:opacity .2s}
-.cs:hover{opacity:.85}
-@media(max-width:768px){.csec{grid-template-columns:1fr;gap:36px;padding:52px 20px}}
-footer{border-top:1px solid var(--brd);padding:24px 40px;display:flex;justify-content:space-between;align-items:center}
-.fc{font-size:13px;color:var(--mu)}
-footer a{font-size:13px;color:var(--mu);text-decoration:none;transition:color .2s}
-footer a:hover{color:var(--ac)}
+body{background:var(--stone);color:var(--tx-on-stone);font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.7;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:200;background:var(--forest);border-bottom:1px solid rgba(255,255,255,.09);height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 48px}
+.logo{display:flex;align-items:center;gap:11px}
+.logo-mark{width:36px;height:36px;background:var(--brick);border-radius:7px;display:flex;align-items:center;justify-content:center}
+.logo-mark svg{width:18px;height:18px;fill:#fff}
+.logo-text{}
+.logo-name{font-family:'Fraunces',serif;font-size:16px;font-weight:700;color:var(--tx-on-forest);letter-spacing:.01em;display:block;line-height:1.2}
+.logo-est{font-size:10px;color:var(--forest-mu);letter-spacing:.1em;font-weight:500;display:block}
+.nav-links{display:flex;gap:30px}
+.nav-links a{color:rgba(237,232,220,.55);text-decoration:none;font-size:13px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--tx-on-forest)}
+.nav-cta{background:var(--brick);color:#fff;padding:9px 22px;border-radius:5px;font-size:13px;font-weight:600;text-decoration:none;transition:filter .2s}
+.nav-cta:hover{filter:brightness(1.1)}
+@media(max-width:640px){.nav-links{display:none};nav{padding:0 20px}}
+
+/* ── HERO (photo + stone wash) ── */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero-photo{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1558036117-15d82a90b9b1?w=1600&q=80');background-size:cover;background-position:center 40%}
+.hero-wash{position:absolute;inset:0;background:linear-gradient(105deg, rgba(242,237,229,.96) 0%, rgba(242,237,229,.90) 50%, rgba(242,237,229,.55) 100%)}
+.hero-grain{position:absolute;inset:0;pointer-events:none;opacity:.25;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.06'/%3E%3C/svg%3E")}
+.hero-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:130px 48px 90px;width:100%;display:grid;grid-template-columns:1fr 420px;gap:72px;align-items:center}
+
+.hero-eyebrow{display:inline-flex;align-items:center;gap:9px;background:var(--brick-light);border:1px solid var(--brick-brd);border-radius:4px;padding:6px 14px;margin-bottom:28px;opacity:0}
+.ey-year{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--brick)}
+.ey-sep{width:1px;height:12px;background:var(--brick-brd)}
+.ey-text{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--tx-mute)}
+
+h1{font-family:'Fraunces',serif;font-size:clamp(54px,6.5vw,96px);line-height:.9;letter-spacing:-3px;font-weight:900;color:var(--ink);margin-bottom:22px;opacity:0}
+h1 em{display:block;color:var(--brick);font-style:italic;font-weight:700}
+
+.hero-sub{font-size:16px;color:var(--tx-mute);max-width:430px;line-height:1.85;margin-bottom:36px;font-weight:300;opacity:0}
+
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;opacity:0}
+.btn-brick{display:inline-flex;align-items:center;gap:8px;background:var(--brick);color:#fff;padding:14px 28px;border-radius:6px;font-size:14px;font-weight:600;text-decoration:none;transition:filter .2s}
+.btn-brick:hover{filter:brightness(1.1)}
+.btn-brick svg{width:15px;height:15px;fill:#fff}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--stone-brd);color:var(--tx-mute);padding:14px 28px;border-radius:6px;font-size:14px;font-weight:500;text-decoration:none;transition:border-color .2s,color .2s}
+.btn-ghost:hover{border-color:var(--brick);color:var(--brick)}
+.btn-ghost svg{width:15px;height:15px;fill:currentColor}
+
+/* right column */
+.hero-right{display:flex;flex-direction:column;gap:14px;opacity:0}
+.hero-img-wrap{position:relative;border-radius:12px;overflow:hidden;border:3px solid var(--forest)}
+.hero-img-wrap img{width:100%;height:300px;object-fit:cover;display:block}
+.img-cap{position:absolute;bottom:0;left:0;right:0;padding:14px 18px;background:linear-gradient(0deg,rgba(26,60,32,.88) 0%,transparent 100%)}
+.img-cap-text{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--tx-on-forest)}
+
+.hero-score-card{background:var(--forest);border-radius:10px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.hsc-left{}
+.hsc-num{font-family:'Fraunces',serif;font-size:46px;font-weight:900;color:#fff;line-height:1;letter-spacing:-1.5px}
+.hsc-stars{display:flex;gap:3px;margin:4px 0 3px}
+.hsc-stars svg{width:13px;height:13px;fill:var(--brick)}
+.hsc-lbl{font-size:11px;color:var(--forest-mu);font-weight:500}
+.hsc-div{width:1px;height:50px;background:rgba(255,255,255,.12)}
+.hsc-right{text-align:right}
+.hsc-reviews{font-family:'Fraunces',serif;font-size:32px;font-weight:900;color:var(--brick);line-height:1;letter-spacing:-1px}
+.hsc-rlbl{font-size:11px;color:var(--forest-mu);margin-top:3px;font-weight:500}
+
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr}.hero-right{display:none}}
+@media(max-width:640px){.hero-inner{padding:90px 20px 60px}}
+
+/* ── STRIP ── */
+.strip{background:var(--ink);padding:18px 48px;display:flex;align-items:center;justify-content:center;gap:44px;flex-wrap:wrap}
+.strip-item{display:flex;align-items:center;gap:9px}
+.strip-item svg{width:14px;height:14px;fill:var(--brick);flex-shrink:0}
+.strip-text{font-size:11px;font-weight:600;letter-spacing:.07em;color:rgba(255,255,255,.6);text-transform:uppercase}
+.strip-sep{width:1px;height:16px;background:rgba(255,255,255,.14)}
+@media(max-width:640px){.strip{padding:14px 20px;gap:20px}.strip-sep{display:none}}
+
+/* ── STATS ── */
+.stats-band{background:var(--forest)}
+.stats-inner{max-width:1080px;margin:0 auto;padding:0 48px;display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:44px 0;text-align:center;border-right:1px solid rgba(255,255,255,.09)}
+.stat:last-child{border-right:none}
+.stat-num{font-family:'Fraunces',serif;font-size:54px;font-weight:900;color:var(--brick);line-height:1;letter-spacing:-2px;opacity:0}
+.stat-lbl{font-size:11px;color:var(--forest-mu);text-transform:uppercase;letter-spacing:.12em;font-weight:600;margin-top:7px}
+@media(max-width:768px){.stats-inner{grid-template-columns:repeat(2,1fr);padding:0}.stat:nth-child(2){border-right:none}.stat:nth-child(3){border-top:1px solid rgba(255,255,255,.09)}.stat:nth-child(4){border-right:none;border-top:1px solid rgba(255,255,255,.09)}}
+
+/* ── SERVICES ── */
+.svc-section{padding:96px 48px;max-width:1080px;margin:0 auto}
+.sec-ey{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--brick);margin-bottom:14px}
+.sec-h{font-family:'Fraunces',serif;font-size:clamp(34px,4.5vw,58px);font-weight:900;letter-spacing:-1.5px;line-height:.95;margin-bottom:16px;color:var(--ink)}
+.sec-p{color:var(--tx-mute);font-size:15px;max-width:480px;line-height:1.85;margin-bottom:56px;font-weight:300}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2px;background:var(--stone-brd);border:1px solid var(--stone-brd);border-radius:12px;overflow:hidden}
+.svc{background:#fff;padding:32px 28px;transition:background .2s;opacity:0}
+.svc:hover{background:var(--stone)}
+.svc-icon{width:42px;height:42px;background:var(--brick-light);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;border:1px solid var(--brick-brd)}
+.svc-icon svg{width:20px;height:20px;fill:var(--brick)}
+.svc-name{font-family:'Fraunces',serif;font-size:19px;font-weight:700;color:var(--ink);margin-bottom:7px;letter-spacing:-.3px}
+.svc-desc{font-size:13px;color:var(--tx-mute);line-height:1.75}
+@media(max-width:640px){.svc-section{padding:60px 20px}}
+
+/* ── WHY (dark ink) ── */
+.why-band{background:var(--ink)}
+.why-inner{max-width:1080px;margin:0 auto;padding:96px 48px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.why-ey{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--brick);margin-bottom:14px}
+.why-h{font-family:'Fraunces',serif;font-size:clamp(32px,4vw,52px);font-weight:900;color:#fff;letter-spacing:-1.5px;line-height:.95;margin-bottom:24px}
+.why-p{color:rgba(255,255,255,.4);font-size:15px;line-height:1.85;margin-bottom:36px;font-weight:300}
+.why-list{display:flex;flex-direction:column;gap:18px}
+.why-item{display:flex;align-items:flex-start;gap:14px;opacity:0}
+.wi-ico{width:32px;height:32px;background:rgba(201,78,26,.14);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;border:1px solid rgba(201,78,26,.22)}
+.wi-ico svg{width:14px;height:14px;fill:var(--brick)}
+.why-text{font-size:14px;color:rgba(255,255,255,.55);line-height:1.7}
+.why-text strong{color:#fff}
+
+.heritage-panel{background:var(--forest);border-radius:12px;padding:36px 32px;opacity:0}
+.hp-year{font-family:'Fraunces',serif;font-size:88px;font-weight:900;color:var(--brick);line-height:1;letter-spacing:-4px}
+.hp-lbl{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--forest-mu);margin-top:4px;margin-bottom:22px}
+.hp-div{height:1px;background:rgba(255,255,255,.1);margin-bottom:22px}
+.hp-facts{display:flex;flex-direction:column;gap:13px}
+.hp-fact{display:flex;align-items:center;gap:10px}
+.hp-fact svg{width:13px;height:13px;fill:var(--brick);flex-shrink:0}
+.hp-fact span{font-size:13px;color:var(--tx-on-forest)}
+@media(max-width:768px){.why-inner{grid-template-columns:1fr;gap:48px;padding:60px 20px}}
+
+/* ── REVIEWS ── */
+.rev-band{background:var(--stone-surf);border-top:1px solid var(--stone-brd);border-bottom:1px solid var(--stone-brd);padding:96px 48px}
+.rev-inner{max-width:900px;margin:0 auto}
+.rev-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;opacity:0}
+.rev-meta{font-size:13px;color:var(--tx-mute);margin-top:6px;font-weight:500}
+.rev-nav{display:flex;gap:8px}
+.rev-btn{width:44px;height:44px;background:#fff;border:1.5px solid var(--stone-brd);color:var(--tx-mute);border-radius:8px;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:border-color .2s,color .2s}
+.rev-btn:hover{border-color:var(--brick);color:var(--brick)}
+.rev-carousel{position:relative}
+.rev-slide{display:none;animation:rFade .3s ease}
+.rev-slide.active{display:block}
+@keyframes rFade{from{opacity:0;transform:translateX(12px)}to{opacity:1;transform:translateX(0)}}
+.rev-card{background:#fff;border:1.5px solid var(--stone-brd);border-radius:12px;padding:40px 44px;opacity:0}
+.rev-stars{display:flex;gap:3px;margin-bottom:14px}
+.rev-stars svg{width:14px;height:14px;fill:var(--brick)}
+.rev-quote{font-family:'Fraunces',serif;font-size:21px;font-style:italic;color:var(--ink);line-height:1.65;margin-bottom:20px;font-weight:400;letter-spacing:-.3px}
+.rev-author{font-size:12px;font-weight:700;color:var(--brick);letter-spacing:.1em;text-transform:uppercase}
+.rev-dots{display:flex;gap:6px;margin-top:22px}
+.rev-dot{width:7px;height:7px;border-radius:50%;background:var(--stone-brd);border:none;cursor:pointer;transition:background .2s}
+.rev-dot.active{background:var(--brick)}
+@media(max-width:640px){.rev-band{padding:60px 20px}.rev-card{padding:28px 24px}.rev-head{flex-direction:column;align-items:flex-start;gap:20px}}
+
+/* ── PLANS ── */
+.plans-band{background:var(--forest);padding:96px 48px}
+.plans-inner{max-width:1080px;margin:0 auto}
+.plans-head{max-width:540px;margin-bottom:52px;opacity:0}
+.plan-card{background:var(--forest-surf);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:36px;display:flex;align-items:center;justify-content:space-between;gap:32px;margin-bottom:12px;opacity:0;transition:border-color .25s}
+.plan-card:hover{border-color:rgba(201,78,26,.4)}
+.plan-name{font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:#fff;margin-bottom:7px;letter-spacing:-.3px}
+.plan-desc{font-size:13px;color:var(--forest-mu);line-height:1.65}
+.plan-right{text-align:right;flex-shrink:0}
+.plan-price{font-family:'Fraunces',serif;font-size:38px;font-weight:900;color:var(--brick);letter-spacing:-1px;line-height:1}
+.plan-freq{font-size:11px;color:var(--forest-mu);margin-top:2px;font-weight:500}
+.plan-link{display:inline-flex;background:var(--brick);color:#fff;padding:10px 22px;border-radius:5px;font-size:13px;font-weight:600;text-decoration:none;margin-top:12px;transition:filter .2s}
+.plan-link:hover{filter:brightness(1.1)}
+@media(max-width:640px){.plans-band{padding:60px 20px}.plan-card{flex-direction:column;align-items:flex-start}.plan-right{text-align:left}}
+
+/* ── CONTACT ── */
+.contact-band{background:var(--stone)}
+.contact-inner{max-width:1080px;margin:0 auto;padding:96px 48px;display:grid;grid-template-columns:1fr 1fr;gap:80px;opacity:0}
+.contact-ey{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--brick);margin-bottom:14px}
+.contact-h{font-family:'Fraunces',serif;font-size:clamp(30px,4vw,48px);font-weight:900;color:var(--ink);letter-spacing:-1.5px;line-height:.95;margin-bottom:36px}
+.cinfo{display:flex;flex-direction:column;gap:18px}
+.crow{display:flex;align-items:flex-start;gap:12px}
+.crow svg{width:16px;height:16px;fill:var(--brick);margin-top:2px;flex-shrink:0}
+.crow-lbl{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tx-mute);margin-bottom:3px}
+.crow-val{font-size:14px;color:var(--ink)}
+.crow-val a{color:var(--brick);text-decoration:none}
+.crow-val a:hover{text-decoration:underline}
+.form{display:flex;flex-direction:column;gap:12px}
+.fi{background:#fff;border:1.5px solid var(--stone-brd);color:var(--ink);padding:13px 16px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;border-radius:8px;outline:none;transition:border-color .2s;width:100%}
+.fi::placeholder{color:var(--tx-mute)}
+.fi:focus{border-color:var(--brick)}
+.fi-ta{resize:vertical;min-height:100px}
+.fb{background:var(--brick);color:#fff;border:none;padding:14px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;border-radius:8px;transition:filter .2s}
+.fb:hover{filter:brightness(1.1)}
+@media(max-width:768px){.contact-inner{grid-template-columns:1fr;gap:48px;padding:60px 20px}}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:28px 48px;display:flex;justify-content:space-between;align-items:center}
+.fc{font-size:12px;color:rgba(255,255,255,.3)}
+.fl{font-size:12px;color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s}
+.fl:hover{color:var(--brick)}
 @media(max-width:640px){footer{flex-direction:column;gap:10px;padding:20px;text-align:center}}
-.dbadge{position:fixed;bottom:20px;right:20px;background:var(--gr);color:rgba(255,255,255,.7);font-size:10px;padding:7px 16px;border-radius:100px;text-decoration:none;z-index:1000;transition:opacity .2s}
-.dbadge:hover{opacity:.85}
-.dbadge strong{color:#fff}
-.mcta{position:fixed;bottom:0;left:0;right:0;background:var(--gr);padding:15px;text-align:center;display:none;z-index:99}
-.mcta a{color:#fff;font-weight:700;font-size:15px;text-decoration:none}
-@media(max-width:640px){.mcta{display:block};body{padding-bottom:54px}}
+
+/* ── MOBILE CTA ── */
+.mob-cta{position:fixed;bottom:0;left:0;right:0;background:var(--brick);padding:16px;text-align:center;display:none;z-index:100}
+.mob-cta a{color:#fff;font-weight:700;font-size:15px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:8px}
+.mob-cta svg{width:16px;height:16px;fill:#fff}
+@media(max-width:640px){.mob-cta{display:block};body{padding-bottom:56px}}
+
+/* ── DEMO BADGE ── */
+.demo-badge{position:fixed;bottom:72px;right:20px;background:var(--forest);border:1px solid rgba(255,255,255,.14);color:var(--forest-mu);font-size:11px;padding:7px 14px;border-radius:100px;text-decoration:none;z-index:100;transition:color .2s}
+.demo-badge:hover{color:var(--brick)}
+.demo-badge strong{color:var(--tx-on-forest)}
+@media(min-width:641px){.demo-badge{bottom:20px}}
 </style>
 </head>
 <body>
+
 <nav>
-  <div class="nn">Clancy Brothers Pest Control</div>
-  <div class="nlinks">
-    <a href="#services">Services</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
-    <a href="https://maps.google.com/?cid=2182021350819317702&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Maps</a>
+  <div class="logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+    </div>
+    <div class="logo-text">
+      <span class="logo-name">Clancy Brothers Pest Control</span>
+      <span class="logo-est">Est. 1962 &middot; Quincy, MA</span>
+    </div>
   </div>
-  <a class="ncta" href="tel:+1 617-464-1305">Call Now</a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#plans">Plans</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a class="nav-cta" href="tel:+16174049919">Call Now</a>
 </nav>
-<section class="hero">
-  <div class="hleft">
-    <div class="hpill">288 Willard St, Quincy</div>
-    <h1>Clancy Brothers Pest Control</h1>
-    <p class="hsub">Local pest control you can actually trust. Serving 288 Willard St and the surrounding community with honest, reliable work.</p>
-    <div class="hact">
-      <a class="ba" href="tel:+1 617-464-1305">Call (617) 464-1305</a>
-      <a class="bg" href="#contact">Free Estimate</a>
-      <a class="bg" href="https://maps.google.com/?cid=2182021350819317702&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Find Us</a>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-photo"></div>
+  <div class="hero-wash"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">
+        <span class="ey-year">Since 1962</span>
+        <div class="ey-sep"></div>
+        <span class="ey-text">Family-Owned &middot; Quincy &amp; Boston</span>
+      </div>
+      <h1>Boston's<em>Pest Control.</em></h1>
+      <p class="hero-sub">64 years protecting Greater Boston homes. 5.0 stars across 2,128 verified reviews. Licensed, guaranteed, and here on Saturday.</p>
+      <div class="hero-btns">
+        <a class="btn-brick" href="tel:+16174049919">
+          <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.3 1L6.6 10.8z"/></svg>
+          617-404-9919
+        </a>
+        <a class="btn-ghost" href="#contact">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          Free Estimate
+        </a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-img-wrap">
+        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=900&q=80" alt="Boston home">
+        <div class="img-cap"><span class="img-cap-text">Serving Quincy, Boston &amp; South Shore</span></div>
+      </div>
+      <div class="hero-score-card">
+        <div class="hsc-left">
+          <div class="hsc-num" data-count="5" data-decimals="1">5.0</div>
+          <div class="hsc-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="hsc-lbl">Google Rating</div>
+        </div>
+        <div class="hsc-div"></div>
+        <div class="hsc-right">
+          <div class="hsc-reviews" data-count="2128">2,128</div>
+          <div class="hsc-rlbl">Verified Reviews</div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="hright">
-    <div class="htile"><div class="htile-ic">&#9989;</div><div><div class="htile-txt">Licensed &amp; Insured</div><div class="htile-sub">Fully covered, every job</div></div></div>
-    <div class="htile"><div class="htile-ic">&#11088;</div><div><div class="htile-txt">5-Star Rated</div><div class="htile-sub">Trusted by 288 Willard St locals</div></div></div>
-    <div class="htile"><div class="htile-ic">&#9200;</div><div><div class="htile-txt">Fast Response</div><div class="htile-sub">Same or next-day service</div></div></div>
-    <div class="htile"><div class="htile-ic">&#128200;</div><div><div class="htile-txt">Fair Pricing</div><div class="htile-sub">Free estimates, no surprises</div></div></div>
-  </div>
 </section>
-<section class="sec" id="services">
-  <div class="slbl">Services</div>
-  <h2 class="stit">What We Do</h2>
-  <p class="ssub">Everything you need, done right the first time — by people who take pride in their craft.</p>
-  <div class="sgrid">
-    <div class="scard"><div class="scname">Cockroach & Ant Control</div><div class="scdesc">Handled professionally by our experienced local team.</div></div>
-    <div class="scard"><div class="scname">Termite Protection</div><div class="scdesc">Handled professionally by our experienced local team.</div></div>
-    <div class="scard"><div class="scname">Rodent Elimination</div><div class="scdesc">Handled professionally by our experienced local team.</div></div>
-    <div class="scard"><div class="scname">Bed Bug Treatment</div><div class="scdesc">Handled professionally by our experienced local team.</div></div>
-    <div class="scard"><div class="scname">Mosquito Control</div><div class="scdesc">Handled professionally by our experienced local team.</div></div>
-    <div class="scard"><div class="scname">Bee & Wasp Removal</div><div class="scdesc">Handled professionally by our experienced local team.</div></div>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-item"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg><span class="strip-text">Family-Owned Since 1962</span></div>
+  <div class="strip-sep"></div>
+  <div class="strip-item"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span class="strip-text">100% Satisfaction Guaranteed</span></div>
+  <div class="strip-sep"></div>
+  <div class="strip-item"><svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg><span class="strip-text">Saturday Service Available</span></div>
+  <div class="strip-sep"></div>
+  <div class="strip-item"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span class="strip-text">Quincy &middot; Boston &middot; South Shore</span></div>
+</div>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-num" data-count="5" data-decimals="1">5.0</div><div class="stat-lbl">Google Stars</div></div>
+    <div class="stat"><div class="stat-num" data-count="2128">2,128</div><div class="stat-lbl">Reviews</div></div>
+    <div class="stat"><div class="stat-num" data-count="64">64</div><div class="stat-lbl">Years in Business</div></div>
+    <div class="stat"><div class="stat-num" data-count="49" data-prefix="$">$49</div><div class="stat-lbl">Plans From /mo</div></div>
   </div>
-</section>
-<section class="rvsec" id="reviews">
-  <div class="rvi">
-    <div class="slbl">Reviews</div>
-    <h2 class="stit" style="margin-bottom:4px">Neighbors Trust Us</h2>
-    <p style="color:var(--mu);font-size:14px;margin-bottom:0">Real feedback from real customers in 288 Willard St.</p>
-    <div class="rcar">
-      <div class="rs active"><div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rst">&ldquo;Best pest control experience I've had in 288 Willard St. They were on time, professional, and actually fixed the problem permanently. Already recommended them to three friends.&rdquo;</p><div class="rsa">&mdash; Michael R., 288 Willard St</div></div>
-      <div class="rs"><div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rst">&ldquo;After a bad experience with another company, Clancy Brothers Pest Control completely restored my confidence. Thorough, honest, and genuinely great to work with.&rdquo;</p><div class="rsa">&mdash; Sandra K., 288 Willard St</div></div>
-      <div class="rs"><div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rst">&ldquo;Fast response, fair pricing, and no upselling. They explained everything clearly and the results speak for themselves. This is the pest control team 288 Willard St deserves.&rdquo;</p><div class="rsa">&mdash; James T., 288 Willard St</div></div>
-      <div class="rs"><div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rst">&ldquo;Top-notch from the first call to the final walkthrough. Clancy Brothers Pest Control treats your home like their own. Couldn't ask for better service.&rdquo;</p><div class="rsa">&mdash; Patricia M., 288 Willard St</div></div>
+</div>
+
+<!-- SERVICES -->
+<div id="services">
+  <div class="svc-section">
+    <div class="sec-ey">What we eliminate</div>
+    <h2 class="sec-h">Every Pest.<br>Guaranteed.</h2>
+    <p class="sec-p">From rodents in your walls to termites under your floor — Clancy Brothers finds the source and removes it permanently.</p>
+    <div class="svc-grid">
+      <div class="svc">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M20 9V7c0-1.1-.9-2-2-2h-3c0-1.66-1.34-3-3-3S9 3.34 9 5H6c-1.1 0-2 .9-2 2v2c-1.66 0-3 1.34-3 3s1.34 3 3 3v4c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-4c1.66 0 3-1.34 3-3s-1.34-3-3-3z"/></svg></div>
+        <div class="svc-name">Rodents &amp; Mice</div>
+        <div class="svc-desc">Exclusion, trapping, and sanitation — we stop rats and mice at the entry point, not just at the trap.</div>
+      </div>
+      <div class="svc">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H7l5-8v4h4l-5 8z"/></svg></div>
+        <div class="svc-name">Cockroach Elimination</div>
+        <div class="svc-desc">Targeted gel and barrier treatments that kill at-source. No repeat spraying, no return calls.</div>
+      </div>
+      <div class="svc">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M7 14c0 1.66 1.34 3 3 3h4c1.66 0 3-1.34 3-3V8H7v6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg></div>
+        <div class="svc-name">Bed Bug Treatment</div>
+        <div class="svc-desc">Heat and chemical combination that fully eradicates infestations — backed by our satisfaction guarantee.</div>
+      </div>
+      <div class="svc">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+        <div class="svc-name">Ant Control</div>
+        <div class="svc-desc">Colony-targeted baiting that eliminates the queen — not just the trail you can see on the counter.</div>
+      </div>
+      <div class="svc">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 1 0 0 10A5 5 0 0 0 12 2zm-1 13H9c-2.67 0-8 1.34-8 4v1h8.57c-.42-.79-.57-1.64-.57-2.5 0-.96.27-1.88.73-2.67C9.28 15.3 9.14 15 9 15zm2 0c-1.93 0-4 1.17-4 3.5V20h8v-1.5c0-2.33-2.07-3.5-4-3.5z"/></svg></div>
+        <div class="svc-name">Bee &amp; Wasp Removal</div>
+        <div class="svc-desc">Safe hive and nest removal with full exclusion — including Carpenter bees and Yellow Jackets.</div>
+      </div>
+      <div class="svc">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg></div>
+        <div class="svc-name">Prevention Plans</div>
+        <div class="svc-desc">Monthly and quarterly plans from $49/month — year-round protection with Saturday availability.</div>
+      </div>
     </div>
-    <div class="rdots"><button class="rd active" data-i="0"></button><button class="rd" data-i="1"></button><button class="rd" data-i="2"></button><button class="rd" data-i="3"></button></div>
-    <div class="rnav"><button class="rb" id="rp">&#8592;</button><button class="rb" id="rn">&#8594;</button></div>
   </div>
-</section>
-<section id="contact"><div class="csec">
-  <div>
-    <div class="slbl">Contact</div>
-    <h2 class="ctit">Let&rsquo;s Talk</h2>
-    <div class="cinfo">
-      <div class="crow"><div class="ctic">&#128222;</div><div class="ctxt"><div class="clbl">Call or Text</div><div class="cval"><a href="tel:+1 617-464-1305">(617) 464-1305</a></div></div></div>
-      <div class="crow"><div class="ctic">&#128205;</div><div class="ctxt"><div class="clbl">Service Area</div><div class="cval">288 Willard St, Quincy &amp; Surrounding</div></div></div>
-      <div class="crow"><div class="ctic">&#128336;</div><div class="ctxt"><div class="clbl">Hours</div><div class="cval">Mon &ndash; Sat, 7am &ndash; 7pm</div></div></div>
+</div>
+
+<!-- WHY -->
+<div class="why-band">
+  <div class="why-inner">
+    <div>
+      <div class="why-ey">Why Clancy Brothers</div>
+      <h2 class="why-h">64 Years.<br>Zero Shortcuts.</h2>
+      <p class="why-p">Since the Clancy family started this business in 1962, one thing hasn't changed: we don't leave until the problem is solved. No corporate call center, no upsell playbook — just a family that built a reputation across three generations on actual results.</p>
+      <div class="why-list">
+        <div class="why-item">
+          <div class="wi-ico"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+          <div class="why-text"><strong>Three generations, same ownership</strong> — Not a franchise, not a chain. Still family-run from Quincy.</div>
+        </div>
+        <div class="why-item">
+          <div class="wi-ico"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+          <div class="why-text"><strong>Saturday service</strong> — We work weekends so you don't have to take time off work.</div>
+        </div>
+        <div class="why-item">
+          <div class="wi-ico"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+          <div class="why-text"><strong>Free re-service guarantee</strong> — Pests return between visits? We come back at no charge.</div>
+        </div>
+        <div class="why-item">
+          <div class="wi-ico"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+          <div class="why-text"><strong>MA licensed &amp; fully insured</strong> — Every technician trained and certified in Massachusetts.</div>
+        </div>
+      </div>
+    </div>
+    <div class="heritage-panel">
+      <div class="hp-year" data-count="1962">1962</div>
+      <div class="hp-lbl">Year Founded</div>
+      <div class="hp-div"></div>
+      <div class="hp-facts">
+        <div class="hp-fact"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>Family-owned, three generations</span></div>
+        <div class="hp-fact"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>2,128 five-star Google reviews</span></div>
+        <div class="hp-fact"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>Quincy, Boston &amp; South Shore</span></div>
+        <div class="hp-fact"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>MA licensed &amp; EPA certified</span></div>
+        <div class="hp-fact"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>Saturday service available</span></div>
+      </div>
     </div>
   </div>
-  <form class="cform" onsubmit="this.innerHTML='<p style=color:var(--ac);padding:20px 0;font-family:Lora,serif;font-size:18px>Thank you! We\'ll be in touch soon.</p>';return false;">
-    <input class="cf" type="text" placeholder="Your name" required>
-    <input class="cf" type="tel" placeholder="Phone number" required>
-    <input class="cf" type="email" placeholder="Email (optional)">
-    <textarea class="cf" placeholder="What do you need help with?" rows="4" style="resize:vertical"></textarea>
-    <button class="cs">Send Message</button>
-  </form>
-</div></section>
+</div>
+
+<!-- REVIEWS -->
+<div class="rev-band" id="reviews">
+  <div class="rev-inner">
+    <div class="rev-head">
+      <div>
+        <div class="sec-ey">Google Reviews</div>
+        <h2 class="sec-h" style="color:var(--ink);margin-bottom:0">What Boston Says</h2>
+        <div class="rev-meta">5.0 &middot; 2,128 verified reviews</div>
+      </div>
+      <div class="rev-nav">
+        <button class="rev-btn" id="rev-prev">&#8592;</button>
+        <button class="rev-btn" id="rev-next">&#8594;</button>
+      </div>
+    </div>
+    <div class="rev-carousel">
+      <div class="rev-slide active">
+        <div class="rev-card">
+          <div class="rev-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <p class="rev-quote">"I've been using Clancy Brothers for over 15 years. They found a mouse entry point under my dishwasher that two other companies missed. Problem solved in one visit. These guys are the real deal — no upselling, just results."</p>
+          <div class="rev-author">&mdash; Patrick D., Quincy</div>
+        </div>
+      </div>
+      <div class="rev-slide">
+        <div class="rev-card">
+          <div class="rev-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <p class="rev-quote">"Called on Friday about a wasp nest in the attic. They came Saturday morning and had it handled by noon. No other company would come out on a weekend. That alone is worth five stars — but they're also just incredibly professional."</p>
+          <div class="rev-author">&mdash; Siobhan M., South Boston</div>
+        </div>
+      </div>
+      <div class="rev-slide">
+        <div class="rev-card">
+          <div class="rev-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <p class="rev-quote">"Third-generation family business and it shows. The technician knew the quirks of old Boston triple-deckers better than most contractors I've hired. Fixed a cockroach problem that had been in the walls for months — in one treatment."</p>
+          <div class="rev-author">&mdash; Brian K., Dorchester</div>
+        </div>
+      </div>
+      <div class="rev-slide">
+        <div class="rev-card">
+          <div class="rev-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <p class="rev-quote">"My mother used Clancy Brothers since the '80s. When I bought my own place in Quincy I didn't even call anyone else. The legacy speaks for itself — and the team today is just as sharp. Five stars, always."</p>
+          <div class="rev-author">&mdash; Kathleen R., Quincy</div>
+        </div>
+      </div>
+    </div>
+    <div class="rev-dots">
+      <button class="rev-dot active"></button>
+      <button class="rev-dot"></button>
+      <button class="rev-dot"></button>
+      <button class="rev-dot"></button>
+    </div>
+  </div>
+</div>
+
+<!-- PLANS -->
+<div class="plans-band" id="plans">
+  <div class="plans-inner">
+    <div class="plans-head">
+      <div class="sec-ey" style="color:var(--brick)">Pest prevention plans</div>
+      <h2 class="sec-h" style="color:#fff;margin-bottom:10px">Plans Starting at $49</h2>
+      <p style="color:var(--forest-mu);font-size:15px;font-weight:300;line-height:1.8">Year-round protection on a schedule that works for you. Every plan includes Saturday availability and our free re-service guarantee.</p>
+    </div>
+    <div class="plan-card">
+      <div>
+        <div class="plan-name">Quarterly Protection</div>
+        <div class="plan-desc">Four scheduled visits per year — ants, roaches, spiders, mice, and more. Perfect for established homes.</div>
+      </div>
+      <div class="plan-right">
+        <div class="plan-price">$49<span style="font-size:18px;font-weight:400">/mo</span></div>
+        <div class="plan-freq">billed quarterly</div>
+        <a class="plan-link" href="#contact">Get Started</a>
+      </div>
+    </div>
+    <div class="plan-card">
+      <div>
+        <div class="plan-name">Monthly Shield</div>
+        <div class="plan-desc">Monthly visits for maximum coverage — ideal for older homes, multi-family units, and known entry issues.</div>
+      </div>
+      <div class="plan-right">
+        <div class="plan-price">$79<span style="font-size:18px;font-weight:400">/mo</span></div>
+        <div class="plan-freq">billed monthly</div>
+        <a class="plan-link" href="#contact">Get Started</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-band">
+    <div class="contact-inner">
+      <div>
+        <div class="contact-ey">Get in touch</div>
+        <h2 class="contact-h">Request Your<br>Free Estimate</h2>
+        <div class="cinfo">
+          <div class="crow">
+            <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.3 1L6.6 10.8z"/></svg>
+            <div><div class="crow-lbl">Phone</div><div class="crow-val"><a href="tel:+16174049919">617-404-9919</a></div></div>
+          </div>
+          <div class="crow">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <div><div class="crow-lbl">Address</div><div class="crow-val">288 Willard St, Quincy, MA 02169</div></div>
+          </div>
+          <div class="crow">
+            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+            <div><div class="crow-lbl">Hours</div><div class="crow-val">Mon&ndash;Fri 7am&ndash;6pm &middot; Sat 8am&ndash;2pm</div></div>
+          </div>
+        </div>
+      </div>
+      <form class="form" id="contact-form">
+        <input class="fi" type="text" placeholder="Your name" required>
+        <input class="fi" type="tel" placeholder="Phone number" required>
+        <input class="fi" type="email" placeholder="Email (optional)">
+        <textarea class="fi fi-ta" placeholder="Describe the issue — type of pest, how long, where in the home…"></textarea>
+        <button class="fb">Send Request &mdash; Free Estimate</button>
+      </form>
+    </div>
+  </div>
+</section>
+
 <footer>
-  <span class="fc">&copy; 2026 Clancy Brothers Pest Control &middot; 288 Willard St</span>
-  <a href="https://maps.google.com/?cid=2182021350819317702&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Google Maps</a>
+  <span class="fc">&copy; 2025 Clancy Brothers Pest Control &middot; Quincy, MA</span>
+  <a class="fl" href="https://clancybrospestcontrol.com" target="_blank" rel="noopener">clancybrospestcontrol.com</a>
 </footer>
-<div class="mcta"><a href="tel:+1 617-464-1305">Call (617) 464-1305</a></div>
-<a class="dbadge" href="https://jayexe.com" target="_blank" rel="noopener">Demo by <strong>Jay @ jayexe.com</strong></a>
+
+<div class="mob-cta">
+  <a href="tel:+16174049919">
+    <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.3 1L6.6 10.8z"/></svg>
+    Call 617-404-9919
+  </a>
+</div>
+
+<a class="demo-badge" href="https://jayexe.com" target="_blank" rel="noopener">Demo by <strong>Jay @ jayexe.com</strong></a>
+
 <script>
-(function(){
-  let i=0;
-  const slides=document.querySelectorAll('.rs');
-  const dots=document.querySelectorAll('.rd');
-  let t;
-  function go(n){
-    slides[i].classList.remove('active');
-    dots[i].classList.remove('active');
-    i=(n+slides.length)%slides.length;
-    slides[i].classList.add('active');
-    dots[i].classList.add('active');
+const { animate, inView, stagger } = Motion;
+
+function countUp(el, duration) {
+  duration = duration || 1.4;
+  const target   = parseFloat(el.dataset.count);
+  const prefix   = el.dataset.prefix  || '';
+  const suffix   = el.dataset.suffix  || '';
+  const decimals = parseInt(el.dataset.decimals || '0');
+  const start    = performance.now();
+  function tick(now) {
+    const t = Math.min((now - start) / (duration * 1000), 1);
+    const eased = 1 - Math.pow(1 - t, 3);
+    const val = target * eased;
+    el.textContent = prefix + (decimals > 0 ? val.toFixed(decimals) : Math.round(val).toLocaleString()) + suffix;
+    if (t < 1) requestAnimationFrame(tick);
   }
-  function start(){t=setInterval(()=>go(i+1),4800);}
-  function reset(){clearInterval(t);start();}
-  document.getElementById('rn')?.addEventListener('click',()=>{go(i+1);reset();});
-  document.getElementById('rp')?.addEventListener('click',()=>{go(i-1);reset();});
-  dots.forEach((d,j)=>d.addEventListener('click',()=>{go(j);reset();}));
+  requestAnimationFrame(tick);
+}
+
+/* Hero entrance */
+animate('.hero-eyebrow', { opacity:[0,1], y:[14,0]  }, { duration:.45, delay:.15 });
+animate('h1',            { opacity:[0,1], y:[30,0]  }, { duration:.65, delay:.25, easing:[.22,1,.36,1] });
+animate('.hero-sub',     { opacity:[0,1], y:[18,0]  }, { duration:.55, delay:.38 });
+animate('.hero-btns',    { opacity:[0,1], y:[14,0]  }, { duration:.5,  delay:.5  });
+animate('.hero-right',   { opacity:[0,1], x:[30,0]  }, { duration:.65, delay:.3,  easing:[.22,1,.36,1] });
+setTimeout(() => {
+  document.querySelectorAll('.hsc-num, .hsc-reviews').forEach(el => {
+    if (el.dataset.count) countUp(el, 1.3);
+  });
+}, 600);
+
+/* Stats */
+inView('.stats-band', () => {
+  animate('.stat-num', { opacity:[0,1], y:[20,0] }, { duration:.55, delay:stagger(.1) });
+  document.querySelectorAll('.stat-num').forEach((el, i) => {
+    setTimeout(() => countUp(el, 1.2), i * 100);
+  });
+});
+
+/* Services */
+inView('.svc-grid', () => {
+  animate('.svc', { opacity:[0,1], y:[18,0] }, { duration:.45, delay:stagger(.06), easing:[.22,1,.36,1] });
+});
+
+/* Why */
+inView('.why-inner', () => {
+  animate('.why-item',       { opacity:[0,1], x:[-16,0] }, { duration:.45, delay:stagger(.09) });
+  animate('.heritage-panel', { opacity:[0,1], y:[22,0]  }, { duration:.55, delay:.2 });
+  setTimeout(() => {
+    const hp = document.querySelector('.hp-year');
+    if (hp && hp.dataset.count) countUp(hp, 1.6);
+  }, 300);
+});
+
+/* Reviews */
+inView('.rev-band', () => {
+  animate('.rev-head', { opacity:[0,1], y:[14,0] }, { duration:.5 });
+  animate('.rev-card', { opacity:[0,1], y:[18,0] }, { duration:.5, delay:.15 });
+});
+
+/* Plans */
+inView('.plans-band', () => {
+  animate('.plans-head', { opacity:[0,1], y:[16,0] }, { duration:.5 });
+  animate('.plan-card',  { opacity:[0,1], y:[20,0] }, { duration:.5, delay:stagger(.12) });
+});
+
+/* Contact */
+inView('.contact-band', () => {
+  animate('.contact-inner', { opacity:[0,1], y:[20,0] }, { duration:.6, easing:[.22,1,.36,1] });
+});
+
+/* Carousel */
+(function(){
+  let idx = 0;
+  const slides = document.querySelectorAll('.rev-slide');
+  const dots   = document.querySelectorAll('.rev-dot');
+  let timer;
+  function go(n) {
+    animate(slides[idx], { opacity:[1,0], x:[0,-14] }, { duration:.22 }).finished.then(() => {
+      slides[idx].classList.remove('active');
+      dots[idx].classList.remove('active');
+      idx = (n + slides.length) % slides.length;
+      slides[idx].classList.add('active');
+      dots[idx].classList.add('active');
+      animate(slides[idx], { opacity:[0,1], x:[14,0] }, { duration:.3, easing:[.22,1,.36,1] });
+    });
+  }
+  function start(){ timer = setInterval(() => go(idx+1), 5500); }
+  function reset(){ clearInterval(timer); start(); }
+  document.getElementById('rev-next').addEventListener('click', () => { go(idx+1); reset(); });
+  document.getElementById('rev-prev').addEventListener('click', () => { go(idx-1); reset(); });
+  dots.forEach((d,i) => d.addEventListener('click', () => { go(i); reset(); }));
   start();
 })();
+
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  this.innerHTML = '<p style="color:var(--brick);font-family:Fraunces,serif;font-size:24px;padding:24px 0;font-style:italic">Thank you — we\'ll be in touch within the hour.</p>';
+});
 </script>
-</body></html>
+</body>
+</html>

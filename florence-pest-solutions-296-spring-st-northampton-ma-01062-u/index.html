@@ -1,216 +1,1176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>FLORENCE PEST SOLUTIONS | 296 Spring St</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#ffffff;--surf:#f8f9fb;--brd:#e8eaed;--tx:#0f172a;--mu:#64748b;--ac:#dc2626;--nb:#1e3a5f}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--tx);font-family:'Outfit',sans-serif;font-size:15px;line-height:1.65}
-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--brd);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px}
-.nn{font-family:'Instrument Serif',serif;font-size:17px;color:var(--nb);letter-spacing:-.2px}
-.nlinks{display:flex;gap:32px;align-items:center}
-.nlinks a{color:var(--mu);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
-.nlinks a:hover{color:var(--ac)}
-.ncta{background:var(--ac);color:#fff;padding:10px 24px;border-radius:6px;font-size:13px;font-weight:600;text-decoration:none;transition:background .2s}
-.ncta:hover{background:#b91c1c}
-@media(max-width:640px){.nlinks{display:none};nav{padding:0 20px}}
-.hero{padding:96px 48px 80px;max-width:1100px;margin:0 auto;text-align:center}
-.htop{display:inline-flex;align-items:center;gap:8px;background:var(--surf);border:1px solid var(--brd);border-radius:100px;padding:6px 16px;margin-bottom:32px}
-.hdot{width:8px;height:8px;border-radius:50%;background:var(--ac)}
-.htag{font-size:12px;font-weight:500;color:var(--mu)}
-h1{font-family:'Instrument Serif',serif;font-size:clamp(36px,6vw,72px);color:var(--nb);line-height:1.05;letter-spacing:-1.5px;max-width:800px;margin:0 auto 20px}
-.hsub{color:var(--mu);font-size:16px;max-width:520px;margin:0 auto 40px;line-height:1.7}
-.hact{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.ba{background:var(--ac);color:#fff;padding:14px 32px;border-radius:8px;font-size:15px;font-weight:600;text-decoration:none;transition:background .2s}
-.ba:hover{background:#b91c1c}
-.bg{background:var(--surf);border:1px solid var(--brd);color:var(--tx);padding:14px 32px;border-radius:8px;font-size:15px;font-weight:500;text-decoration:none;transition:border-color .2s}
-.bg:hover{border-color:var(--nb);color:var(--nb)}
-.hstats{display:flex;justify-content:center;gap:0;margin-top:64px;border:1px solid var(--brd);border-radius:12px;overflow:hidden}
-.hst{flex:1;padding:24px;border-right:1px solid var(--brd);text-align:center}
-.hst:last-child{border-right:none}
-.hsn{font-family:'Instrument Serif',serif;font-size:32px;color:var(--nb)}
-.hsl{font-size:12px;font-weight:500;color:var(--mu);margin-top:4px}
-@media(max-width:640px){.hero{padding:60px 20px 48px}.hstats{flex-direction:column}.hst{border-right:none;border-bottom:1px solid var(--brd)}.hst:last-child{border-bottom:none}}
-.sec{padding:88px 48px;max-width:1100px;margin:0 auto}
-.slbl{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ac);margin-bottom:12px}
-.stit{font-family:'Instrument Serif',serif;font-size:clamp(26px,4vw,42px);color:var(--nb);letter-spacing:-.5px;margin-bottom:8px}
-.ssub{color:var(--mu);font-size:15px;max-width:480px;margin-bottom:52px}
-.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
-.scard{background:var(--bg);border:1px solid var(--brd);border-left:3px solid var(--ac);border-radius:8px;padding:28px;transition:box-shadow .2s}
-.scard:hover{box-shadow:0 4px 20px rgba(0,0,0,.07)}
-.scname{font-weight:600;font-size:15px;color:var(--nb);margin-bottom:6px}
-.scdesc{font-size:13px;color:var(--mu);line-height:1.6}
-@media(max-width:640px){.sec{padding:60px 20px}}
-.rvsec{background:var(--surf);padding:88px 48px}
-.rvi{max-width:900px;margin:0 auto}
-.rcar{position:relative;overflow:hidden;border-radius:12px;background:var(--bg);border:1px solid var(--brd)}
-.rs{display:none;padding:40px 48px;animation:fi .35s ease}
-.rs.active{display:block}
-@keyframes fi{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:translateX(0)}}
-.rst{font-family:'Instrument Serif',serif;font-size:18px;font-style:italic;line-height:1.75;color:var(--tx);margin-bottom:20px}
-.rsa{font-size:13px;font-weight:600;color:var(--mu)}
-.rstars{color:#f59e0b;font-size:14px;margin-bottom:16px}
-.rbot{display:flex;align-items:center;justify-content:space-between;margin-top:28px}
-.rdots{display:flex;gap:6px}
-.rd{width:8px;height:8px;border-radius:50%;background:var(--brd);border:none;cursor:pointer;transition:background .2s}
-.rd.active{background:var(--ac)}
-.rnav{display:flex;gap:8px}
-.rb{background:var(--bg);border:1px solid var(--brd);color:var(--mu);width:40px;height:40px;border-radius:6px;cursor:pointer;font-size:16px;transition:border-color .2s,color .2s;display:flex;align-items:center;justify-content:center}
-.rb:hover{border-color:var(--ac);color:var(--ac)}
-@media(max-width:640px){.rvsec{padding:60px 20px}.rs{padding:28px 24px}.rbot{flex-direction:column;gap:16px;align-items:flex-start}}
-.csec{padding:88px 48px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
-.ctit{font-family:'Instrument Serif',serif;font-size:clamp(24px,3.5vw,38px);color:var(--nb);letter-spacing:-.5px;margin-bottom:32px}
-.cinfo{display:flex;flex-direction:column;gap:18px}
-.crow{padding:16px;background:var(--surf);border-radius:8px}
-.clbl{font-size:11px;font-weight:600;color:var(--mu);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
-.cval{font-size:15px;font-weight:500;color:var(--tx)}
-.cval a{color:var(--ac);text-decoration:none}
-.cform{display:flex;flex-direction:column;gap:12px}
-.cf{background:var(--surf);border:1px solid var(--brd);color:var(--tx);padding:13px 16px;font-family:'Outfit',sans-serif;font-size:14px;border-radius:8px;outline:none;transition:border-color .2s;width:100%}
-.cf:focus{border-color:var(--ac)}
-.cf::placeholder{color:var(--mu)}
-.cs{background:var(--ac);color:#fff;border:none;padding:14px;font-family:'Outfit',sans-serif;font-size:15px;font-weight:600;cursor:pointer;border-radius:8px;transition:background .2s}
-.cs:hover{background:#b91c1c}
-@media(max-width:768px){.csec{grid-template-columns:1fr;gap:40px;padding:60px 20px}}
-footer{border-top:1px solid var(--brd);padding:28px 48px;display:flex;justify-content:space-between;align-items:center}
-.fc{font-size:13px;color:var(--mu)}
-footer a{font-size:13px;color:var(--mu);text-decoration:none;transition:color .2s}
-footer a:hover{color:var(--ac)}
-@media(max-width:640px){footer{flex-direction:column;gap:10px;padding:20px;text-align:center}}
-.dbadge{position:fixed;bottom:20px;right:20px;background:var(--nb);color:rgba(255,255,255,.6);font-size:11px;padding:7px 16px;border-radius:100px;text-decoration:none;letter-spacing:.03em;z-index:1000;transition:background .2s}
-.dbadge:hover{background:var(--ac)}
-.dbadge strong{color:#fff}
-.mcta{position:fixed;bottom:0;left:0;right:0;background:var(--ac);padding:15px;text-align:center;display:none;z-index:99}
-.mcta a{color:#fff;font-weight:600;font-size:15px;text-decoration:none}
-@media(max-width:640px){.mcta{display:block};body{padding-bottom:54px}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Florence Pest Solutions — Northampton, MA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── CSS Variables ── */
+    :root {
+      --green:   #2d5016;
+      --cream:   #f8f4ee;
+      --sienna:  #c0392b;
+      --offwhite:#fffef9;
+      --brown:   #2c1810;
+      --green-dark: #1e3710;
+      --green-mid:  #3a6a1e;
+      --sienna-dark:#a93226;
+      --border:  #ddd8cf;
+      --text-muted: #6b5f52;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--offwhite);
+      color: var(--brown);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── SVG Icon System ── */
+    .icon {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      fill: currentColor;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--offwhite);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      gap: 1rem;
+    }
+
+    .nav-brand {
+      font-family: 'Yeseva One', serif;
+      font-size: 1.2rem;
+      color: var(--green);
+      text-decoration: none;
+      white-space: nowrap;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--brown);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--green); }
+
+    .btn-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--green);
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0.55rem 1.25rem;
+      border-radius: 6px;
+      text-decoration: none;
+      border: 1.5px solid transparent;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+
+    .btn-nav:hover { background: var(--green-dark); }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: calc(100vh - 68px);
+    }
+
+    .hero-left {
+      background: var(--cream);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 3.5rem 4rem 4rem;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      display: inline-block;
+    }
+
+    .hero-headline {
+      font-family: 'Yeseva One', serif;
+      font-size: clamp(2.4rem, 3.5vw, 3.6rem);
+      line-height: 1.1;
+      color: var(--brown);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-headline em {
+      font-style: normal;
+      color: var(--green);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 440px;
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--sienna);
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.85rem 1.85rem;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 1.5px solid transparent;
+      transition: background 0.2s;
+    }
+
+    .btn-primary:hover { background: var(--sienna-dark); }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--green);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.85rem 1.85rem;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 1.5px solid var(--green);
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-ghost:hover { background: var(--green); color: #fff; }
+
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-num {
+      font-family: 'Yeseva One', serif;
+      font-size: 1.85rem;
+      color: var(--green);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      margin-top: 0.25rem;
+    }
+
+    .hero-divider {
+      width: 1px;
+      background: var(--border);
+      height: 40px;
+      align-self: center;
+    }
+
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .hero-right-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(45, 80, 22, 0.08), transparent);
+      pointer-events: none;
+    }
+
+    /* ── SERVICES ── */
+    .services {
+      background: var(--offwhite);
+      padding: 5rem 2rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-tag {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: 'Yeseva One', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      color: var(--brown);
+      line-height: 1.15;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem 1.75rem;
+      transition: box-shadow 0.2s;
+    }
+
+    .service-card:hover {
+      box-shadow: 0 8px 32px rgba(44, 24, 16, 0.09);
+    }
+
+    .service-icon-wrap {
+      width: 52px;
+      height: 52px;
+      background: #eef4e6;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.1rem;
+    }
+
+    .service-icon-wrap svg {
+      width: 28px;
+      height: 28px;
+      fill: var(--green);
+    }
+
+    .service-name {
+      font-family: 'Yeseva One', serif;
+      font-size: 1.05rem;
+      color: var(--brown);
+      margin-bottom: 0.5rem;
+    }
+
+    .service-desc {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+
+    /* ── FEATURE ── */
+    .feature {
+      background: var(--green);
+      padding: 5rem 2rem;
+      color: #fff;
+    }
+
+    .feature-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .feature-tag {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 0.75rem;
+    }
+
+    .feature-title {
+      font-family: 'Yeseva One', serif;
+      font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+
+    .feature-lead {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 2rem;
+    }
+
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .check-icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      margin-top: 1px;
+    }
+
+    .feature-photo {
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+
+    .feature-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── REVIEWS ── */
+    .reviews {
+      background: var(--cream);
+      padding: 5rem 2rem;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .review-card {
+      background: var(--offwhite);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+    }
+
+    .review-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 1rem;
+    }
+
+    .review-stars svg {
+      width: 18px;
+      height: 18px;
+      fill: #e8a020;
+    }
+
+    .review-text {
+      font-size: 0.93rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .review-author {
+      font-family: 'Yeseva One', serif;
+      font-size: 0.95rem;
+      color: var(--brown);
+    }
+
+    .review-meta {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    /* ── TRUST BAND ── */
+    .trust {
+      background: var(--offwhite);
+      padding: 3.5rem 2rem;
+    }
+
+    .trust-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .trust-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.75rem;
+    }
+
+    .trust-icon {
+      width: 48px;
+      height: 48px;
+      background: #eef4e6;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .trust-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: var(--green);
+    }
+
+    .trust-label {
+      font-family: 'Yeseva One', serif;
+      font-size: 0.95rem;
+      color: var(--brown);
+    }
+
+    .trust-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: -0.25rem;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: var(--sienna);
+      padding: 5rem 2rem;
+      text-align: center;
+      color: #fff;
+    }
+
+    .cta-section h2 {
+      font-family: 'Yeseva One', serif;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.85);
+      max-width: 520px;
+      margin: 0 auto 2.25rem;
+      line-height: 1.65;
+    }
+
+    .cta-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-cta-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #fff;
+      color: var(--sienna);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.85rem 1.85rem;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 1.5px solid transparent;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-cta-white:hover { background: var(--cream); }
+
+    .btn-cta-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.85rem 1.85rem;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 1.5px solid rgba(255,255,255,0.7);
+      transition: background 0.2s;
+    }
+
+    .btn-cta-outline:hover { background: rgba(255,255,255,0.12); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--brown);
+      color: rgba(255,255,255,0.7);
+      padding: 3rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2.5rem;
+      padding-bottom: 2rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer-brand {
+      font-family: 'Yeseva One', serif;
+      font-size: 1.15rem;
+      color: #fff;
+      margin-bottom: 0.6rem;
+    }
+
+    .footer-tagline {
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+
+    .footer-heading {
+      font-family: 'Yeseva One', serif;
+      font-size: 0.95rem;
+      color: #fff;
+      margin-bottom: 0.85rem;
+    }
+
+    .footer-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .footer-list li {
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .footer-list svg {
+      width: 14px;
+      height: 14px;
+      fill: rgba(255,255,255,0.5);
+      flex-shrink: 0;
+    }
+
+    .footer-copy {
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 0.8rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-right { height: 320px; }
+      .hero-left { padding: 3rem 1.75rem; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .feature-inner { grid-template-columns: 1fr; }
+      .feature-photo { order: -1; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .trust-inner { grid-template-columns: repeat(2, 1fr); }
+      .footer-inner { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 560px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .trust-inner { grid-template-columns: 1fr 1fr; }
+      .hero-stats { gap: 1.25rem; }
+    }
+  </style>
+
+  <!-- SVG symbol defs (hidden) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <symbol id="ico-ant" viewBox="0 0 24 24">
+      <path d="M12 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-4.5 5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm9 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM12 8c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2s2-.9 2-2v-4c0-1.1-.9-2-2-2zm-5 2.5L4 9.5v2l3 1.5v-0.5l-2-1 2-1zM17 10.5l3 1.5-3 1.5v.5l3-1.5v-2l-3 1.5zm-7 4.5-.5 3H8v1h2.5l.5-3zm2 0 .5 3H14v1h-2.5l-.5-3z"/>
+    </symbol>
+    <symbol id="ico-wasp" viewBox="0 0 24 24">
+      <path d="M12 3c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 5c-2.2 0-4 1.8-4 4v2c0 2.2 1.8 4 4 4s4-1.8 4-4v-2c0-2.2-1.8-4-4-4zm-6 1.5L2 8v2l4 1.5zm12 0 4 .5v2l-4-1.5zM12 9.5c.8 0 1.5.7 1.5 1.5h-3c0-.8.7-1.5 1.5-1.5zm0 3.5c.8 0 1.5-.3 2-.8V14c0 1.1-.9 2-2 2s-2-.9-2-2v-1.8c.5.5 1.2.8 2 .8z"/>
+    </symbol>
+    <symbol id="ico-rodent" viewBox="0 0 24 24">
+      <path d="M19 5a2 2 0 0 0-2 2c0 .74.4 1.38 1 1.73V10c0 4.42-3.58 8-8 8H6c-1.1 0-2 .9-2 2h12c3.31 0 6-2.69 6-6V8.73c.6-.35 1-.99 1-1.73A2 2 0 0 0 19 5zm-7 2H8C5.79 7 4 8.79 4 11s1.79 4 4 4h4c2.21 0 4-1.79 4-4s-1.79-4-4-4zm-3 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+    </symbol>
+    <symbol id="ico-roach" viewBox="0 0 24 24">
+      <path d="M12 4c-1.1 0-2 .45-2 1s.9 1 2 1 2-.45 2-1-.9-1-2-1zM8 7c-1.1 0-2 .9-2 2v5c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2H8zm-4.5 0L1 5.5v2l2.5 2zm13 0 2.5-1.5v2l-2.5 2zM5 12l-3 2v2l3-2zm14 0 3 2v2l-3-2zM8 17.5l-1.5 3h2l1-2zm8 0 1.5 3h-2l-1-2zm-4 0v3h2v-3z"/>
+    </symbol>
+    <symbol id="ico-bedbug" viewBox="0 0 24 24">
+      <path d="M12 5a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm0 8c-2.67 0-8 1.34-8 4v1h16v-1c0-2.66-5.33-4-8-4zM5 9H2v2h3zm14 0h3v2h-3zM5 13H2v2h3zm14 0h3v2h-3z"/>
+    </symbol>
+    <symbol id="ico-termite" viewBox="0 0 24 24">
+      <path d="M12 2a2 2 0 0 0-2 2c0 .74.4 1.38 1 1.73V7H9c-1.1 0-2 .9-2 2v5c0 1.66.97 3.1 2.38 3.79L9 20H7v2h10v-2h-2l-.38-2.21C15.03 17.1 16 15.66 16 14V9c0-1.1-.9-2-2-2h-2V5.73c.6-.35 1-.99 1-1.73a2 2 0 0 0-2-2zm-1 9a1 1 0 1 1 2 0 1 1 0 0 1-2 0zm2 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+    </symbol>
+    <symbol id="ico-check" viewBox="0 0 24 24">
+      <path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+    </symbol>
+    <symbol id="ico-phone" viewBox="0 0 24 24">
+      <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+    </symbol>
+    <symbol id="ico-location" viewBox="0 0 24 24">
+      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+    </symbol>
+    <symbol id="ico-clock" viewBox="0 0 24 24">
+      <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
+    </symbol>
+    <symbol id="ico-shield" viewBox="0 0 24 24">
+      <path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+    </symbol>
+    <symbol id="ico-star" viewBox="0 0 24 24">
+      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+    </symbol>
+    <symbol id="ico-leaf" viewBox="0 0 24 24">
+      <path d="M17 8C8 10 5.9 16.17 3.82 21L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20c12 0 14-8 14-8-1 2-3.5 3.5-5 4z"/>
+    </symbol>
+    <symbol id="ico-badge" viewBox="0 0 24 24">
+      <path d="M12 1 9 4H5v4l-3 3 3 3v4h4l3 3 3-3h4v-4l3-3-3-3V4h-4l-3-3zm-1 14-3-3 1.41-1.41L11 12.17l4.59-4.58L17 9l-6 6z"/>
+    </symbol>
+    <symbol id="ico-calendar" viewBox="0 0 24 24">
+      <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+    </symbol>
+    <symbol id="ico-arrow" viewBox="0 0 24 24">
+      <path d="M8 5v14l11-7z"/>
+    </symbol>
+  </svg>
 </head>
 <body>
-<nav>
-  <div class="nn">FLORENCE PEST SOLUTIONS</div>
-  <div class="nlinks">
-    <a href="#services">Services</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
-    <a href="https://maps.google.com/?cid=12052982221872167525&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Maps</a>
-  </div>
-  <a class="ncta" href="tel:+1 413-687-3131">Call Now</a>
-</nav>
 
-<section class="hero">
-  <div class="htop"><div class="hdot"></div><span class="htag">296 Spring St, Northampton</span></div>
-  <h1>FLORENCE PEST SOLUTIONS</h1>
-  <p class="hsub">Trusted pest control professionals serving 296 Spring St and surrounding areas. Licensed, insured, satisfaction guaranteed.</p>
-  <div class="hact">
-    <a class="ba" href="tel:+1 413-687-3131">Call (413) 687-3131</a>
-    <a class="bg" href="#contact">Get Free Quote</a>
-    <a class="bg" href="https://maps.google.com/?cid=12052982221872167525&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Find Us</a>
-  </div>
-  <div class="hstats">
-    <div class="hst"><div class="hsn">10+</div><div class="hsl">Years in Business</div></div>
-    <div class="hst"><div class="hsn">500+</div><div class="hsl">Happy Customers</div></div>
-    <div class="hst"><div class="hsn">100%</div><div class="hsl">Satisfaction Guarantee</div></div>
-  </div>
-</section>
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-brand">Florence Pest Solutions</a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+    </ul>
+    <a href="tel:4136873131" class="btn-nav">
+      <svg class="icon" style="width:14px;height:14px;"><use href="#ico-phone"/></svg>
+      Free Inspection
+    </a>
+  </nav>
 
-<section class="sec" id="services">
-  <div class="slbl">Services</div>
-  <h2 class="stit">What We Offer</h2>
-  <p class="ssub">Professional pest control solutions for residential and commercial clients in 296 Spring St.</p>
-  <div class="sgrid">
-    <div class="scard"><div class="scname">Cockroach & Ant Control</div><div class="scdesc">Professional service backed by our satisfaction guarantee.</div></div>
-    <div class="scard"><div class="scname">Termite Protection</div><div class="scdesc">Professional service backed by our satisfaction guarantee.</div></div>
-    <div class="scard"><div class="scname">Rodent Elimination</div><div class="scdesc">Professional service backed by our satisfaction guarantee.</div></div>
-    <div class="scard"><div class="scname">Bed Bug Treatment</div><div class="scdesc">Professional service backed by our satisfaction guarantee.</div></div>
-    <div class="scard"><div class="scname">Mosquito Control</div><div class="scdesc">Professional service backed by our satisfaction guarantee.</div></div>
-    <div class="scard"><div class="scname">Bee & Wasp Removal</div><div class="scdesc">Professional service backed by our satisfaction guarantee.</div></div>
-  </div>
-</section>
-
-<section class="rvsec" id="reviews">
-  <div class="rvi">
-    <div class="slbl" style="margin-bottom:12px">Customer Reviews</div>
-    <h2 class="stit" style="color:var(--nb);margin-bottom:40px">What Our Clients Say</h2>
-    <div class="rcar">
-      <div class="rs active">
-        <div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="rst">&ldquo;Best pest control experience I've had in 296 Spring St. They were on time, professional, and actually fixed the problem permanently. Already recommended them to three friends.&rdquo;</p>
-        <div class="rbot"><div class="rsa">Michael R., 296 Spring St</div>
-        <div style="display:flex;gap:16px;align-items:center"><div class="rdots"><button class="rd active" data-i="0"></button><button class="rd" data-i="1"></button><button class="rd" data-i="2"></button><button class="rd" data-i="3"></button></div>
-        <div class="rnav"><button class="rb" id="rp">&#8592;</button><button class="rb" id="rn">&#8594;</button></div></div>
-        </div></div>
-      <div class="rs">
-        <div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="rst">&ldquo;After a bad experience with another company, FLORENCE PEST SOLUTIONS completely restored my confidence. Thorough, honest, and genuinely great to work with.&rdquo;</p>
-        <div class="rbot"><div class="rsa">Sandra K., 296 Spring St</div>
-        <div style="display:flex;gap:16px;align-items:center"><div class="rdots"><button class="rd active" data-i="0"></button><button class="rd" data-i="1"></button><button class="rd" data-i="2"></button><button class="rd" data-i="3"></button></div>
-        <div class="rnav"><button class="rb" id="rp">&#8592;</button><button class="rb" id="rn">&#8594;</button></div></div>
-        </div></div>
-      <div class="rs">
-        <div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="rst">&ldquo;Fast response, fair pricing, and no upselling. They explained everything clearly and the results speak for themselves. This is the pest control team 296 Spring St deserves.&rdquo;</p>
-        <div class="rbot"><div class="rsa">James T., 296 Spring St</div>
-        <div style="display:flex;gap:16px;align-items:center"><div class="rdots"><button class="rd active" data-i="0"></button><button class="rd" data-i="1"></button><button class="rd" data-i="2"></button><button class="rd" data-i="3"></button></div>
-        <div class="rnav"><button class="rb" id="rp">&#8592;</button><button class="rb" id="rn">&#8594;</button></div></div>
-        </div></div>
-      <div class="rs">
-        <div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="rst">&ldquo;Top-notch from the first call to the final walkthrough. FLORENCE PEST SOLUTIONS treats your home like their own. Couldn't ask for better service.&rdquo;</p>
-        <div class="rbot"><div class="rsa">Patricia M., 296 Spring St</div>
-        <div style="display:flex;gap:16px;align-items:center"><div class="rdots"><button class="rd active" data-i="0"></button><button class="rd" data-i="1"></button><button class="rd" data-i="2"></button><button class="rd" data-i="3"></button></div>
-        <div class="rnav"><button class="rb" id="rp">&#8592;</button><button class="rb" id="rn">&#8594;</button></div></div>
-        </div></div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <span class="hero-eyebrow">
+        <span class="hero-eyebrow-dot"></span>
+        Western Massachusetts' Trusted Pest Experts
+      </span>
+      <h1 class="hero-headline">
+        Your Home,<br><em>Pest-Free</em><br>at Last
+      </h1>
+      <p class="hero-sub">
+        Owner-operated and deeply rooted in the Pioneer Valley. Florence Pest Solutions brings 25+ years of hands-on experience, same-day availability, and a genuine commitment to keeping your family safe.
+      </p>
+      <div class="hero-ctas">
+        <a href="tel:4136873131" class="btn-primary">
+          <svg class="icon" style="width:16px;height:16px;"><use href="#ico-phone"/></svg>
+          Call (413) 687-3131
+        </a>
+        <a href="#services" class="btn-ghost">
+          <svg class="icon" style="width:16px;height:16px;"><use href="#ico-arrow"/></svg>
+          Our Services
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="stat-num" id="stat-rating">5.0</span>
+          <span class="stat-label">Star Rating</span>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat">
+          <span class="stat-num" id="stat-reviews">34</span>
+          <span class="stat-label">Happy Customers</span>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat">
+          <span class="stat-num">25+</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
-
-<section id="contact"><div class="csec">
-  <div>
-    <div class="slbl">Contact</div>
-    <h2 class="ctit">Request a Free Estimate</h2>
-    <div class="cinfo">
-      <div class="crow"><div class="clbl">Phone</div><div class="cval"><a href="tel:+1 413-687-3131">(413) 687-3131</a></div></div>
-      <div class="crow"><div class="clbl">Service Area</div><div class="cval">296 Spring St, Northampton &amp; Nearby</div></div>
-      <div class="crow"><div class="clbl">Hours</div><div class="cval">Mon &ndash; Sat, 7am &ndash; 7pm</div></div>
-      <div class="crow"><div class="clbl">Location</div><div class="cval"><a href="https://maps.google.com/?cid=12052982221872167525&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">View on Google Maps</a></div></div>
+    <div class="hero-right">
+      <img
+        src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80"
+        alt="Professional pest control technician in uniform"
+        loading="eager"
+      />
+      <div class="hero-right-overlay"></div>
     </div>
-  </div>
-  <form class="cform" onsubmit="this.innerHTML='<p style=color:var(--ac);padding:20px 0;font-weight:600>Message sent! We\'ll be in touch shortly.</p>';return false;">
-    <input class="cf" type="text" placeholder="Full name" required>
-    <input class="cf" type="tel" placeholder="Phone number" required>
-    <input class="cf" type="email" placeholder="Email address (optional)">
-    <textarea class="cf" placeholder="Tell us what you need..." rows="4" style="resize:vertical"></textarea>
-    <button class="cs">Send My Request</button>
-  </form>
-</div></section>
+  </section>
 
-<footer>
-  <span class="fc">&copy; 2026 FLORENCE PEST SOLUTIONS &middot; 296 Spring St</span>
-  <a href="https://maps.google.com/?cid=12052982221872167525&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Google Maps</a>
-</footer>
-<div class="mcta"><a href="tel:+1 413-687-3131">&#128222; Call (413) 687-3131</a></div>
-<a class="dbadge" href="https://jayexe.com" target="_blank" rel="noopener">Demo by <strong>Jay</strong></a>
-<script>
-(function(){
-  let i=0;
-  const slides=document.querySelectorAll('.rs');
-  const dots=document.querySelectorAll('.rd');
-  let t;
-  function go(n){
-    slides[i].classList.remove('active');
-    dots[i].classList.remove('active');
-    i=(n+slides.length)%slides.length;
-    slides[i].classList.add('active');
-    dots[i].classList.add('active');
-  }
-  function start(){t=setInterval(()=>go(i+1),4800);}
-  function reset(){clearInterval(t);start();}
-  document.getElementById('rn')?.addEventListener('click',()=>{go(i+1);reset();});
-  document.getElementById('rp')?.addEventListener('click',()=>{go(i-1);reset();});
-  dots.forEach((d,j)=>d.addEventListener('click',()=>{go(j);reset();}));
-  start();
-})();
-</script>
-</body></html>
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="section-header">
+      <p class="section-tag">What We Treat</p>
+      <h2 class="section-title">Common Pests We Eliminate</h2>
+      <p class="section-sub">From a single wasp nest to a full rodent infestation, we handle it all with care and precision.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon-wrap">
+          <svg viewBox="0 0 24 24"><use href="#ico-ant"/></svg>
+        </div>
+        <h3 class="service-name">Ants &amp; Carpenter Ants</h3>
+        <p class="service-desc">Carpenter ants can silently damage your home's structure. We locate nests, eliminate colonies, and seal entry points for lasting protection.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon-wrap">
+          <svg viewBox="0 0 24 24"><use href="#ico-wasp"/></svg>
+        </div>
+        <h3 class="service-name">Wasps &amp; Yellow Jackets</h3>
+        <p class="service-desc">Stinging insects are dangerous, especially near children and pets. We safely remove nests from eaves, walls, and underground burrows.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon-wrap">
+          <svg viewBox="0 0 24 24"><use href="#ico-rodent"/></svg>
+        </div>
+        <h3 class="service-name">Rodents — Mice &amp; Rats</h3>
+        <p class="service-desc">Rodents spread disease and chew wiring. Our comprehensive rodent program combines trapping, exclusion, and sanitation guidance.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon-wrap">
+          <svg viewBox="0 0 24 24"><use href="#ico-roach"/></svg>
+        </div>
+        <h3 class="service-name">Cockroaches</h3>
+        <p class="service-desc">Cockroaches multiply rapidly and contaminate food. We use targeted gel baits and residual treatments to break the breeding cycle.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon-wrap">
+          <svg viewBox="0 0 24 24"><use href="#ico-bedbug"/></svg>
+        </div>
+        <h3 class="service-name">Bed Bugs</h3>
+        <p class="service-desc">Bed bugs are notoriously difficult to eliminate without professional help. We offer thorough inspections and proven treatment protocols.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon-wrap">
+          <svg viewBox="0 0 24 24"><use href="#ico-termite"/></svg>
+        </div>
+        <h3 class="service-name">Termites</h3>
+        <p class="service-desc">Termites cause billions in damage each year. Early detection and treatment are critical — we identify and treat infestations before they spread.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FEATURE -->
+  <section class="feature" id="about">
+    <div class="feature-inner">
+      <div class="feature-content">
+        <p class="feature-tag">About Us</p>
+        <h2 class="feature-title">Serving Western Massachusetts Since Day One</h2>
+        <p class="feature-lead">
+          Florence Pest Solutions was built on a simple promise: show up on time, do the job right, and treat every home like it's our own. We're owner-operated, locally rooted, and genuinely proud to serve the Pioneer Valley.
+        </p>
+        <ul class="feature-list">
+          <li>
+            <svg class="check-icon" viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><use href="#ico-check"/></svg>
+            Fully licensed and insured in the Commonwealth of Massachusetts
+          </li>
+          <li>
+            <svg class="check-icon" viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><use href="#ico-check"/></svg>
+            25+ years of hands-on pest management experience
+          </li>
+          <li>
+            <svg class="check-icon" viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><use href="#ico-check"/></svg>
+            Same-day appointments available for urgent infestations
+          </li>
+          <li>
+            <svg class="check-icon" viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><use href="#ico-check"/></svg>
+            Free quotes — by phone, text, or email — no pressure
+          </li>
+          <li>
+            <svg class="check-icon" viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><use href="#ico-check"/></svg>
+            Residential and commercial pest control services
+          </li>
+        </ul>
+      </div>
+      <div class="feature-photo">
+        <img
+          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80"
+          alt="Professional pest control treatment in a home"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews" id="reviews">
+    <div class="section-header">
+      <p class="section-tag">Customer Reviews</p>
+      <h2 class="section-title">What Our Neighbors Say</h2>
+      <p class="section-sub">Trusted by homeowners and businesses across Northampton and the Pioneer Valley.</p>
+    </div>
+    <div class="reviews-grid">
+
+      <div class="review-card">
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24"><use href="#ico-star"/></svg>
+          <svg viewBox="0 0 24 24"><use href="#ico-star"/></svg>
+          <svg viewBox="0 0 24 24"><use href="#ico-star"/></svg>
+          <svg viewBox="0 0 24 24"><use href="#ico-star"/></svg>
+          <svg viewBox="0 0 24 24"><use href="#ico-star"/></svg>
+        </div>
+        <p class="review-text">"Steve is absolutely reliable, prompt, and professional. He called within two hours of my inquiry and showed up the very next morning. Our carpenter ant problem is completely gone. Couldn't recommend him more highly."</p>
+        <p class="review-author">Margaret T.</p>
+        <p class="review-meta">Northampton, MA — Carpenter Ants</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24"><use href="#ico-star"/></svg>
+          <svg viewBox="0 0 24 24"><use href="#ico-star"/></svg>
+          <svg viewBox="0 0 24 24"><use href="#ico-star"/></svg>
+          <svg viewBox="0 0 24 24"><use href="#ico-star"/></svg>
+          <svg viewBox="0 0 24 24"><use href="#ico-star"/></svg>
+        </div>
+        <p class="review-text">"We had a nasty yellow jacket nest in our wall. Steve came out same day, dealt with it safely and efficiently, and explained exactly what he was doing the whole time. Extremely pleasant to work with. 10/10."</p>
+        <p class="review-author">Daniel R.</p>
+        <p class="review-meta">Florence, MA — Yellow Jackets</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24"><use href="#ico-star"/></svg>
+          <svg viewBox="0 0 24 24"><use href="#ico-star"/></svg>
+          <svg viewBox="0 0 24 24"><use href="#ico-star"/></svg>
+          <svg viewBox="0 0 24 24"><use href="#ico-star"/></svg>
+          <svg viewBox="0 0 24 24"><use href="#ico-star"/></svg>
+        </div>
+        <p class="review-text">"I was worried about using chemicals around my kids, but Steve put me completely at ease. He used targeted treatments, gave great advice on prevention, and followed up to make sure everything was resolved. True professional."</p>
+        <p class="review-author">Priya L.</p>
+        <p class="review-meta">Northampton, MA — Rodents</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TRUST BAND -->
+  <section class="trust">
+    <div class="trust-inner">
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24"><use href="#ico-shield"/></svg>
+        </div>
+        <span class="trust-label">Licensed &amp; Insured</span>
+        <span class="trust-note">MA Certified Pesticide Applicator</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24"><use href="#ico-calendar"/></svg>
+        </div>
+        <span class="trust-label">Same-Day Available</span>
+        <span class="trust-note">Urgent appointments on request</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24"><use href="#ico-leaf"/></svg>
+        </div>
+        <span class="trust-label">Northampton Local</span>
+        <span class="trust-note">Serving the Pioneer Valley</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24"><use href="#ico-badge"/></svg>
+        </div>
+        <span class="trust-label">Owner-Operated</span>
+        <span class="trust-note">25+ years of experience</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Ready for a Pest-Free Home?</h2>
+    <p>Call or text us today for a free quote. Same-day appointments available. No pressure, no hassle — just honest, effective pest control from a name you can trust.</p>
+    <div class="cta-btns">
+      <a href="tel:4136873131" class="btn-cta-white">
+        <svg class="icon" style="width:16px;height:16px;"><use href="#ico-phone"/></svg>
+        Call (413) 687-3131
+      </a>
+      <a href="#services" class="btn-cta-outline">
+        <svg class="icon" style="width:16px;height:16px;"><use href="#ico-arrow"/></svg>
+        View Our Services
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <p class="footer-brand">Florence Pest Solutions</p>
+        <p class="footer-tagline">Owner-operated pest control serving Northampton, Florence, and the Pioneer Valley for over 25 years.</p>
+      </div>
+      <div>
+        <p class="footer-heading">Contact</p>
+        <ul class="footer-list">
+          <li>
+            <svg viewBox="0 0 24 24"><use href="#ico-phone"/></svg>
+            (413) 687-3131
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><use href="#ico-location"/></svg>
+            296 Spring St, Northampton, MA 01062
+          </li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Hours</p>
+        <ul class="footer-list">
+          <li>
+            <svg viewBox="0 0 24 24"><use href="#ico-clock"/></svg>
+            Mon–Fri: 8:00 AM – 5:00 PM
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><use href="#ico-clock"/></svg>
+            Saturday: 9:00 AM – 2:00 PM
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><use href="#ico-clock"/></svg>
+            Sunday: Closed
+          </li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-copy">&copy; 2026 Florence Pest Solutions. All rights reserved.</p>
+  </footer>
+
+  <script type="module">
+    import { animate, inView, stagger } from 'https://esm.sh/motion';
+
+    /* ── Count-up animation ── */
+    function countUp(el, target, decimals, duration) {
+      const start = performance.now();
+      const isDecimal = decimals > 0;
+
+      function tick(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        // Cubic ease-out
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = eased * target;
+        el.textContent = isDecimal
+          ? current.toFixed(decimals)
+          : Math.round(current).toString();
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+
+    /* ── Trigger count-up when hero stats enter viewport ── */
+    const ratingEl = document.getElementById('stat-rating');
+    const reviewsEl = document.getElementById('stat-reviews');
+
+    let counted = false;
+    inView('.hero-stats', () => {
+      if (counted) return;
+      counted = true;
+      countUp(ratingEl, 5.0, 1, 1400);
+      countUp(reviewsEl, 34, 0, 1600);
+    });
+
+    /* ── Fade-in + slide-up for sections ── */
+    const animTargets = [
+      '.hero-left',
+      '.section-header',
+      '.service-card',
+      '.feature-content',
+      '.feature-photo',
+      '.review-card',
+      '.trust-item',
+      '.cta-section h2',
+      '.cta-section p',
+    ];
+
+    animTargets.forEach(selector => {
+      const elements = document.querySelectorAll(selector);
+      elements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+      });
+    });
+
+    // Hero left — immediate on load
+    const heroLeft = document.querySelector('.hero-left');
+    if (heroLeft) {
+      animate(heroLeft,
+        { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0)'] },
+        { duration: 0.7, easing: 'ease-out', delay: 0.1 }
+      );
+    }
+
+    // Section headers
+    document.querySelectorAll('.section-header').forEach(el => {
+      inView(el, () => {
+        animate(el,
+          { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0)'] },
+          { duration: 0.6, easing: 'ease-out' }
+        );
+      });
+    });
+
+    // Service cards — staggered
+    inView('.services-grid', () => {
+      animate('.service-card',
+        { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0)'] },
+        { duration: 0.55, easing: 'ease-out', delay: stagger(0.1) }
+      );
+    });
+
+    // Feature section
+    const featureContent = document.querySelector('.feature-content');
+    const featurePhoto = document.querySelector('.feature-photo');
+    if (featureContent) {
+      inView(featureContent, () => {
+        animate(featureContent,
+          { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0)'] },
+          { duration: 0.65, easing: 'ease-out' }
+        );
+      });
+    }
+    if (featurePhoto) {
+      inView(featurePhoto, () => {
+        animate(featurePhoto,
+          { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0)'] },
+          { duration: 0.65, easing: 'ease-out', delay: 0.15 }
+        );
+      });
+    }
+
+    // Review cards — staggered
+    inView('.reviews-grid', () => {
+      animate('.review-card',
+        { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0)'] },
+        { duration: 0.55, easing: 'ease-out', delay: stagger(0.12) }
+      );
+    });
+
+    // Trust items — staggered
+    inView('.trust-inner', () => {
+      animate('.trust-item',
+        { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0)'] },
+        { duration: 0.55, easing: 'ease-out', delay: stagger(0.1) }
+      );
+    });
+
+    // CTA section
+    const ctaH2 = document.querySelector('.cta-section h2');
+    const ctaP = document.querySelector('.cta-section p');
+    const ctaBtns = document.querySelector('.cta-btns');
+    if (ctaH2) {
+      inView(ctaH2, () => {
+        animate(ctaH2,
+          { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0)'] },
+          { duration: 0.55, easing: 'ease-out' }
+        );
+        if (ctaP) animate(ctaP,
+          { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0)'] },
+          { duration: 0.55, easing: 'ease-out', delay: 0.1 }
+        );
+        if (ctaBtns) animate(ctaBtns,
+          { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0)'] },
+          { duration: 0.55, easing: 'ease-out', delay: 0.2 }
+        );
+      });
+    }
+  </script>
+</body>
+</html>

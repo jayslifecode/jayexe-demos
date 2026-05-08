@@ -1,192 +1,556 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Miami Bee Removal Corp. &mdash; 235 NW 72nd Ave #26</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Miami Bee Removal Corp. — South Florida's Bee Removal Experts</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/motion@latest/dist/motion.js"></script>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#fdf8f0;--surf:#f5efe5;--brd:#e5d9c8;--tx:#1a2e1a;--mu:#7a6e5f;--ac:#c17d11;--gr:#264e36}
+:root{
+  --night:  #0E0B03;
+  --wax:    #191308;
+  --wax2:   #23190A;
+  --amber:  #C9800A;
+  --honey:  #F2A81A;
+  --cream:  #FBF5E8;
+  --cream2: #EDE8D8;
+  --cbrd:   #D8D1BC;
+  --ambl:   rgba(201,128,10,.13);
+  --ambb:   rgba(201,128,10,.28);
+  --ton:    #F5EDCC;
+  --tmu:    rgba(245,237,204,.42);
+  --tcr:    #1A1407;
+  --tcrm:   #65582F;
+}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--tx);font-family:'Nunito',sans-serif;font-size:15px;line-height:1.7}
-nav{position:sticky;top:0;z-index:100;background:rgba(253,248,240,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--brd);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:66px}
-.nn{font-family:'Lora',serif;font-size:16px;color:var(--gr)}
-.nlinks{display:flex;gap:28px;align-items:center}
-.nlinks a{color:var(--mu);text-decoration:none;font-size:14px;font-weight:600;transition:color .2s}
-.nlinks a:hover{color:var(--ac)}
-.ncta{background:var(--gr);color:#fff;padding:10px 22px;border-radius:24px;font-size:13px;font-weight:700;text-decoration:none;transition:opacity .2s}
-.ncta:hover{opacity:.85}
-@media(max-width:640px){.nlinks{display:none};nav{padding:0 20px}}
-.hero{padding:80px 40px 64px;display:flex;align-items:center;gap:60px;max-width:1080px;margin:0 auto}
-.hleft{flex:1}
-.hpill{display:inline-block;background:var(--surf);border:1px solid var(--brd);color:var(--ac);font-size:12px;font-weight:700;padding:5px 16px;border-radius:100px;margin-bottom:24px}
-h1{font-family:'Lora',serif;font-size:clamp(32px,5vw,58px);line-height:1.1;letter-spacing:-.5px;color:var(--gr);margin-bottom:18px}
-.hsub{color:var(--mu);font-size:15px;max-width:420px;margin-bottom:36px;line-height:1.8}
-.hact{display:flex;gap:10px;flex-wrap:wrap}
-.ba{background:var(--gr);color:#fff;padding:13px 28px;border-radius:28px;font-size:14px;font-weight:700;text-decoration:none;transition:opacity .2s}
-.ba:hover{opacity:.85}
-.bg{background:var(--surf);border:1px solid var(--brd);color:var(--tx);padding:13px 28px;border-radius:28px;font-size:14px;font-weight:700;text-decoration:none;transition:background .2s}
-.bg:hover{background:var(--brd)}
-.hright{flex:0 0 300px;background:var(--surf);border:1px solid var(--brd);border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:16px}
-.htile{display:flex;align-items:center;gap:12px}
-.htile-ic{width:40px;height:40px;background:var(--bg);border:1px solid var(--brd);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.htile-txt{font-size:13px;font-weight:600;color:var(--tx)}
-.htile-sub{font-size:11px;color:var(--mu)}
-@media(max-width:768px){.hero{flex-direction:column;padding:52px 20px 40px;gap:32px}.hright{width:100%}}
-.sec{padding:80px 40px;max-width:1080px;margin:0 auto}
-.slbl{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ac);margin-bottom:12px}
-.stit{font-family:'Lora',serif;font-size:clamp(26px,4vw,38px);color:var(--gr);letter-spacing:-.3px;margin-bottom:8px}
-.ssub{color:var(--mu);font-size:14px;max-width:460px;margin-bottom:44px}
-.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
-.scard{background:var(--bg);border:1px solid var(--brd);border-radius:16px;padding:24px;transition:box-shadow .2s,transform .2s}
-.scard:hover{box-shadow:0 6px 24px rgba(38,78,54,.08);transform:translateY(-2px)}
-.scname{font-family:'Lora',serif;font-size:16px;color:var(--gr);margin-bottom:6px}
-.scdesc{font-size:13px;color:var(--mu)}
-@media(max-width:640px){.sec{padding:52px 20px}}
-.rvsec{background:var(--surf);padding:80px 40px}
-.rvi{max-width:720px;margin:0 auto;text-align:center}
-.rcar{margin:40px 0 24px}
-.rs{display:none;background:var(--bg);border:1px solid var(--brd);border-radius:20px;padding:36px;animation:fw .35s ease}
-.rs.active{display:block}
-@keyframes fw{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:scale(1)}}
-.rstars{color:#f59e0b;font-size:18px;margin-bottom:14px}
-.rst{font-family:'Lora',serif;font-style:italic;font-size:17px;line-height:1.75;color:var(--tx);margin-bottom:16px}
-.rsa{font-size:12px;font-weight:700;color:var(--mu)}
-.rdots{display:flex;gap:8px;justify-content:center;margin-bottom:16px}
-.rd{width:8px;height:8px;border-radius:50%;background:var(--brd);border:none;cursor:pointer;transition:background .2s}
-.rd.active{background:var(--ac)}
-.rnav{display:flex;gap:8px;justify-content:center}
-.rb{background:var(--bg);border:1px solid var(--brd);color:var(--mu);padding:10px 20px;border-radius:24px;cursor:pointer;font-family:'Nunito',sans-serif;font-size:16px;transition:background .2s,color .2s}
-.rb:hover{background:var(--gr);border-color:var(--gr);color:#fff}
-@media(max-width:640px){.rvsec{padding:52px 20px}.rs{padding:24px}}
-.csec{padding:80px 40px;max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
-.ctit{font-family:'Lora',serif;font-size:clamp(24px,3.5vw,36px);color:var(--gr);margin-bottom:28px}
-.cinfo{display:flex;flex-direction:column;gap:14px}
-.crow{display:flex;align-items:center;gap:14px;padding:14px;background:var(--surf);border-radius:12px}
-.ctic{width:40px;height:40px;background:var(--bg);border:1px solid var(--brd);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.ctxt{display:flex;flex-direction:column;gap:2px}
-.clbl{font-size:11px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.08em}
-.cval{font-size:14px;font-weight:600;color:var(--tx)}
-.cval a{color:var(--ac);text-decoration:none}
-.cform{display:flex;flex-direction:column;gap:12px}
-.cf{background:var(--surf);border:1px solid var(--brd);color:var(--tx);padding:13px 16px;font-family:'Nunito',sans-serif;font-size:14px;border-radius:12px;outline:none;transition:border-color .2s;width:100%}
-.cf:focus{border-color:var(--ac)}
-.cf::placeholder{color:var(--mu)}
-.cs{background:var(--gr);color:#fff;border:none;padding:14px;font-family:'Nunito',sans-serif;font-size:15px;font-weight:700;cursor:pointer;border-radius:28px;transition:opacity .2s}
-.cs:hover{opacity:.85}
-@media(max-width:768px){.csec{grid-template-columns:1fr;gap:36px;padding:52px 20px}}
-footer{border-top:1px solid var(--brd);padding:24px 40px;display:flex;justify-content:space-between;align-items:center}
-.fc{font-size:13px;color:var(--mu)}
-footer a{font-size:13px;color:var(--mu);text-decoration:none;transition:color .2s}
-footer a:hover{color:var(--ac)}
-@media(max-width:640px){footer{flex-direction:column;gap:10px;padding:20px;text-align:center}}
-.dbadge{position:fixed;bottom:20px;right:20px;background:var(--gr);color:rgba(255,255,255,.7);font-size:10px;padding:7px 16px;border-radius:100px;text-decoration:none;z-index:1000;transition:opacity .2s}
-.dbadge:hover{opacity:.85}
-.dbadge strong{color:#fff}
-.mcta{position:fixed;bottom:0;left:0;right:0;background:var(--gr);padding:15px;text-align:center;display:none;z-index:99}
-.mcta a{color:#fff;font-weight:700;font-size:15px;text-decoration:none}
-@media(max-width:640px){.mcta{display:block};body{padding-bottom:54px}}
+body{background:var(--night);color:var(--ton);font-family:'Nunito Sans',sans-serif;font-size:15px;line-height:1.7;overflow-x:hidden}
+
+/* ── BEE SVG (reusable icon) ── */
+.bee-icon{display:inline-block;width:18px;height:18px;flex-shrink:0}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:200;background:rgba(14,11,3,.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,128,10,.15);height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 48px}
+.logo-wrap{display:flex;align-items:center;gap:10px}
+.logo-icon{width:32px;height:32px}
+.logo-text{font-family:'Abril Fatface',serif;font-size:15px;color:var(--ton);line-height:1.1}
+.logo-sub{font-size:9px;color:var(--amber);letter-spacing:.14em;font-weight:700;text-transform:uppercase;display:block}
+.nav-links{display:flex;gap:28px}
+.nav-links a{color:var(--tmu);text-decoration:none;font-size:13px;font-weight:600;transition:color .2s}
+.nav-links a:hover{color:var(--ton)}
+.nav-cta{display:inline-flex;align-items:center;gap:7px;background:var(--amber);color:var(--night);padding:8px 18px;border-radius:5px;font-size:13px;font-weight:700;text-decoration:none;transition:filter .2s;white-space:nowrap}
+.nav-cta:hover{filter:brightness(1.12)}
+@media(max-width:640px){.nav-links{display:none};nav{padding:0 20px}}
+
+/* ── HERO — centered poster ── */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:120px 24px 80px}
+.hero-photo{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80');background-size:cover;background-position:center}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,11,3,.88) 0%,rgba(14,11,3,.82) 60%,rgba(14,11,3,.95) 100%)}
+.hero-hex-pattern{position:absolute;inset:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='46'%3E%3Cpath fill='none' stroke='rgba(201%2C128%2C10%2C.07)' stroke-width='1' d='M20 3L38 13v20L20 43 2 33V13z'/%3E%3C/svg%3E")}
+
+.hero-content{position:relative;z-index:1;max-width:860px;opacity:0}
+.hero-kicker{display:inline-flex;align-items:center;gap:8px;background:var(--ambl);border:1px solid var(--ambb);border-radius:100px;padding:5px 16px;margin-bottom:28px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--honey)}
+.kicker-dot{width:6px;height:6px;border-radius:50%;background:var(--honey);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+h1{font-family:'Abril Fatface',serif;font-size:clamp(60px,9vw,130px);line-height:.86;letter-spacing:-2px;color:var(--ton);margin-bottom:10px}
+h1 em{color:var(--honey);font-style:normal;display:block}
+.hero-tagline{font-size:17px;color:var(--tmu);max-width:520px;margin:20px auto 36px;line-height:1.75;font-weight:300}
+
+.hero-ctas{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:52px}
+.btn-bee{display:inline-flex;align-items:center;gap:9px;background:var(--amber);color:var(--night);padding:14px 28px;border-radius:6px;font-size:14px;font-weight:700;text-decoration:none;transition:filter .2s;border:1.5px solid transparent}
+.btn-bee:hover{filter:brightness(1.1)}
+.btn-bee svg.bee{width:18px;height:18px;fill:var(--night)}
+.btn-ghost{display:inline-flex;align-items:center;gap:9px;border:1.5px solid rgba(201,128,10,.35);color:var(--tmu);padding:14px 28px;border-radius:6px;font-size:14px;font-weight:600;text-decoration:none;transition:all .2s}
+.btn-ghost:hover{border-color:var(--amber);color:var(--honey)}
+.btn-ghost svg.bee{width:18px;height:18px;fill:currentColor}
+
+/* Hero stat strip */
+.hero-stats{display:flex;align-items:center;justify-content:center;gap:0;border:1px solid rgba(201,128,10,.2);border-radius:12px;overflow:hidden;background:rgba(25,19,8,.7);backdrop-filter:blur(8px)}
+.hstat{padding:20px 32px;text-align:center;border-right:1px solid rgba(201,128,10,.15)}
+.hstat:last-child{border-right:none}
+.hstat-num{font-family:'Abril Fatface',serif;font-size:36px;color:var(--honey);line-height:1;letter-spacing:-1px}
+.hstat-lbl{font-size:10px;color:var(--tmu);text-transform:uppercase;letter-spacing:.12em;font-weight:700;margin-top:4px}
+@media(max-width:640px){.hero-stats{flex-direction:column;width:100%}.hstat{border-right:none;border-bottom:1px solid rgba(201,128,10,.15)}.hstat:last-child{border-bottom:none}}
+
+/* ── TICKER ── */
+.ticker{background:var(--honey);overflow:hidden;padding:12px 0;white-space:nowrap}
+.ticker-track{display:inline-flex;animation:tick 22s linear infinite}
+.ticker-item{display:inline-flex;align-items:center;gap:10px;padding:0 28px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--night)}
+.ticker-bee{display:inline-flex;align-items:center}
+.ticker-bee svg{width:16px;height:16px;fill:var(--night);opacity:.6}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── FEATURES (alt rows) ── */
+.features{background:var(--cream)}
+.feature-row{max-width:1080px;margin:0 auto;padding:88px 48px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;opacity:0}
+.feature-row.flip{direction:rtl}
+.feature-row.flip > *{direction:ltr}
+.feat-img{border-radius:14px;overflow:hidden;position:relative}
+.feat-img img{width:100%;height:340px;object-fit:cover;display:block}
+.feat-img-label{position:absolute;bottom:16px;left:16px;background:rgba(14,11,3,.82);border:1px solid var(--ambb);border-radius:6px;padding:6px 14px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--honey)}
+.feat-num{font-family:'Abril Fatface',serif;font-size:80px;color:var(--amber);opacity:.18;line-height:1;letter-spacing:-3px;margin-bottom:-16px}
+.feat-label{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:12px}
+.feat-title{font-family:'Abril Fatface',serif;font-size:clamp(28px,3.5vw,44px);color:var(--tcr);letter-spacing:-.5px;line-height:1;margin-bottom:16px}
+.feat-body{font-size:15px;color:var(--tcrm);line-height:1.85;margin-bottom:24px;font-weight:300}
+.feat-list{display:flex;flex-direction:column;gap:10px}
+.feat-li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--tcrm)}
+.feat-li svg{width:14px;height:14px;fill:var(--amber);flex-shrink:0;margin-top:3px}
+@media(max-width:768px){.feature-row{grid-template-columns:1fr;gap:36px;padding:60px 20px}.feature-row.flip{direction:ltr}}
+
+.feat-sep{height:1px;background:var(--cbrd);max-width:1080px;margin:0 auto}
+
+/* ── GALLERY STRIP ── */
+.gallery-band{background:var(--wax);padding:72px 0 0}
+.gallery-head{max-width:1080px;margin:0 auto;padding:0 48px 48px;display:flex;align-items:flex-end;justify-content:space-between}
+.gallery-strip{display:flex;gap:3px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:24px;scrollbar-width:none}
+.gallery-strip::-webkit-scrollbar{display:none}
+.g-photo{flex-shrink:0;width:280px;height:220px;scroll-snap-align:start;overflow:hidden;position:relative;opacity:0}
+.g-photo img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.g-photo:hover img{transform:scale(1.04)}
+.g-photo-cap{position:absolute;bottom:0;left:0;right:0;padding:10px 14px;background:linear-gradient(0deg,rgba(14,11,3,.85) 0%,transparent 100%);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--honey)}
+@media(max-width:640px){.gallery-head{padding:0 20px 32px}}
+
+/* ── TRUST BAND ── */
+.trust-band{background:var(--honey);padding:48px}
+.trust-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:nowrap}
+.trust-item{display:flex;align-items:center;gap:12px}
+.trust-icon{width:44px;height:44px;background:rgba(14,11,3,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.trust-icon svg{width:20px;height:20px;fill:var(--night)}
+.trust-text{font-size:13px;font-weight:700;color:var(--night);line-height:1.3}
+.trust-sub{font-size:11px;font-weight:400;opacity:.65}
+.trust-sep{width:1px;height:40px;background:rgba(14,11,3,.2)}
+@media(max-width:768px){.trust-band{padding:36px 20px}.trust-sep{display:none}.trust-inner{gap:20px;flex-wrap:wrap}}
+
+/* ── REVIEWS ── */
+.rev-section{background:var(--cream2);padding:88px 48px}
+.rev-inner{max-width:1080px;margin:0 auto}
+.rev-intro{margin-bottom:48px;opacity:0}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.rev-card{background:#fff;border:1.5px solid var(--cbrd);border-radius:12px;padding:28px 24px;opacity:0}
+.rev-stars{display:flex;gap:3px;margin-bottom:12px}
+.rev-stars svg{width:13px;height:13px;fill:var(--amber)}
+.rev-quote{font-size:14px;color:var(--tcr);line-height:1.75;margin-bottom:16px;font-style:italic}
+.rev-author{font-size:11px;font-weight:700;color:var(--amber);letter-spacing:.08em;text-transform:uppercase}
+.rev-rating-badge{display:inline-flex;align-items:center;gap:6px;background:var(--ambl);border:1px solid var(--ambb);border-radius:6px;padding:4px 12px;font-size:12px;font-weight:700;color:var(--amber);margin-top:12px}
+.rev-rating-badge svg{width:13px;height:13px;fill:var(--amber)}
+@media(max-width:768px){.rev-section{padding:60px 20px}.rev-grid{grid-template-columns:1fr}}
+
+/* ── CTA BAND ── */
+.cta-band{background:var(--wax);border-top:1px solid rgba(201,128,10,.15);border-bottom:1px solid rgba(201,128,10,.15);padding:80px 48px;text-align:center;opacity:0}
+.cta-band-title{font-family:'Abril Fatface',serif;font-size:clamp(36px,5vw,68px);color:var(--ton);line-height:.95;letter-spacing:-1.5px;margin-bottom:14px}
+.cta-band-title em{color:var(--honey);font-style:normal}
+.cta-band-sub{font-size:16px;color:var(--tmu);margin-bottom:36px;font-weight:300}
+@media(max-width:640px){.cta-band{padding:60px 20px}}
+
+/* ── CONTACT ── */
+.contact-section{background:var(--night);padding:88px 48px}
+.contact-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;opacity:0}
+.clabel{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:14px}
+.ctitle{font-family:'Abril Fatface',serif;font-size:clamp(28px,3.5vw,46px);color:var(--ton);letter-spacing:-.5px;line-height:.95;margin-bottom:32px}
+.cinfo{display:flex;flex-direction:column;gap:16px}
+.crow{display:flex;align-items:flex-start;gap:12px}
+.crow svg{width:15px;height:15px;fill:var(--amber);margin-top:2px;flex-shrink:0}
+.crow-lbl{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tmu);margin-bottom:2px}
+.crow-val{font-size:14px;color:var(--ton)}
+.crow-val a{color:var(--honey);text-decoration:none}
+.crow-val a:hover{text-decoration:underline}
+.form{display:flex;flex-direction:column;gap:11px}
+.fi{background:var(--wax);border:1px solid rgba(201,128,10,.2);color:var(--ton);padding:12px 16px;font-family:'Nunito Sans',sans-serif;font-size:14px;border-radius:8px;outline:none;transition:border-color .2s;width:100%}
+.fi::placeholder{color:var(--tmu)}
+.fi:focus{border-color:var(--amber)}
+.fi-ta{resize:vertical;min-height:90px}
+.fb{display:flex;align-items:center;justify-content:center;gap:9px;background:var(--amber);color:var(--night);border:none;padding:14px;font-family:'Nunito Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;border-radius:8px;transition:filter .2s;width:100%}
+.fb:hover{filter:brightness(1.1)}
+.fb svg.bee{width:18px;height:18px;fill:var(--night)}
+@media(max-width:768px){.contact-section{padding:60px 20px}.contact-inner{grid-template-columns:1fr;gap:48px}}
+
+/* ── FOOTER ── */
+footer{background:var(--wax);border-top:1px solid rgba(201,128,10,.12);padding:24px 48px;display:flex;justify-content:space-between;align-items:center}
+.fc{font-size:12px;color:var(--tmu)}
+.fl{font-size:12px;color:var(--tmu);text-decoration:none;transition:color .2s}
+.fl:hover{color:var(--honey)}
+@media(max-width:640px){footer{flex-direction:column;gap:8px;padding:18px;text-align:center}}
+
+/* ── MOBILE CTA ── */
+.mob-cta{position:fixed;bottom:0;left:0;right:0;background:var(--amber);padding:14px;text-align:center;display:none;z-index:100}
+.mob-cta a{color:var(--night);font-weight:700;font-size:15px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:8px}
+.mob-cta svg{width:16px;height:16px;fill:var(--night)}
+@media(max-width:640px){.mob-cta{display:block};body{padding-bottom:56px}}
+
+/* ── DEMO BADGE ── */
+.demo-badge{position:fixed;bottom:72px;right:20px;background:var(--wax);border:1px solid rgba(201,128,10,.2);color:var(--tmu);font-size:11px;padding:7px 14px;border-radius:100px;text-decoration:none;z-index:100;transition:color .2s}
+.demo-badge:hover{color:var(--honey)}
+.demo-badge strong{color:var(--ton)}
+@media(min-width:641px){.demo-badge{bottom:20px}}
+
+/* stat nums hidden for countup */
+.hstat-num{opacity:0}
 </style>
 </head>
 <body>
+
+<!-- BEE SVG TEMPLATE (reused via JS) -->
+<svg style="display:none">
+  <symbol id="bee" viewBox="0 0 20 20">
+    <ellipse cx="7.5" cy="8.5" rx="4" ry="2.2" opacity=".65" transform="rotate(-25 7.5 8.5)"/>
+    <ellipse cx="12.5" cy="8.5" rx="4" ry="2.2" opacity=".65" transform="rotate(25 12.5 8.5)"/>
+    <ellipse cx="10" cy="13.5" rx="3.2" ry="4.8"/>
+    <circle cx="10" cy="7.5" r="2.8"/>
+    <line x1="9.3" y1="4.8" x2="7.5" y2="2.5" stroke="currentColor" stroke-width=".8" stroke-linecap="round"/>
+    <line x1="10.7" y1="4.8" x2="12.5" y2="2.5" stroke="currentColor" stroke-width=".8" stroke-linecap="round"/>
+    <line x1="6.9" y1="12.2" x2="13.1" y2="12.2" stroke="currentColor" stroke-width=".9" fill="none" opacity=".5"/>
+    <line x1="7" y1="14" x2="13" y2="14" stroke="currentColor" stroke-width=".9" fill="none" opacity=".5"/>
+  </symbol>
+</svg>
+
 <nav>
-  <div class="nn">Miami Bee Removal Corp.</div>
-  <div class="nlinks">
-    <a href="#services">Services</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
-    <a href="https://maps.google.com/?cid=17553482047671791772&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Maps</a>
+  <div class="logo-wrap">
+    <svg class="logo-icon" viewBox="0 0 32 32" fill="none">
+      <path d="M16 2L30 10v12L16 30 2 22V10z" fill="rgba(201,128,10,.15)" stroke="#C9800A" stroke-width="1.5"/>
+      <use href="#bee" x="6" y="6" width="20" height="20" fill="#F2A81A"/>
+    </svg>
+    <div>
+      <span class="logo-text">Miami Bee Removal</span>
+      <span class="logo-sub">Corp. &middot; South Florida</span>
+    </div>
   </div>
-  <a class="ncta" href="tel:+1 786-554-0245">Call Now</a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a class="nav-cta" href="tel:+17865540245">
+    <svg class="bee" viewBox="0 0 20 20" fill="currentColor"><use href="#bee"/></svg>
+    Call Now
+  </a>
 </nav>
-<section class="hero">
-  <div class="hleft">
-    <div class="hpill">235 NW 72nd Ave #26, Miami</div>
-    <h1>Miami Bee Removal Corp.</h1>
-    <p class="hsub">Local bee removal you can actually trust. Serving 235 NW 72nd Ave #26 and the surrounding community with honest, reliable work.</p>
-    <div class="hact">
-      <a class="ba" href="tel:+1 786-554-0245">Call (786) 554-0245</a>
-      <a class="bg" href="#contact">Free Estimate</a>
-      <a class="bg" href="https://maps.google.com/?cid=17553482047671791772&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Find Us</a>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-photo"></div>
+  <div class="hero-ov"></div>
+  <div class="hero-hex-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-kicker">
+      <span class="kicker-dot"></span>
+      24/7 Emergency Service &nbsp;&middot;&nbsp; South Florida
+    </div>
+    <h1>Miami Bee<em>Removal.</em></h1>
+    <p class="hero-tagline">Family-owned, 15+ years in South Florida. 5.0 stars across 197 verified reviews. Live hive removal, bee proofing, structural repair — backed by a 100-day guarantee.</p>
+    <div class="hero-ctas">
+      <a class="btn-bee" href="tel:+17865540245">
+        <svg class="bee" viewBox="0 0 20 20" fill="currentColor"><use href="#bee"/></svg>
+        786-554-0245
+      </a>
+      <a class="btn-ghost" href="#contact">
+        <svg class="bee" viewBox="0 0 20 20" fill="currentColor"><use href="#bee"/></svg>
+        Free Estimate
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-num" data-count="5" data-decimals="1">5.0</div><div class="hstat-lbl">Google Stars</div></div>
+      <div class="hstat"><div class="hstat-num" data-count="197">197</div><div class="hstat-lbl">Reviews</div></div>
+      <div class="hstat"><div class="hstat-num" data-count="15" data-suffix="+">15+</div><div class="hstat-lbl">Yrs Experience</div></div>
+      <div class="hstat"><div class="hstat-num" style="font-size:22px;letter-spacing:0;font-family:'Nunito Sans',sans-serif;font-weight:700;opacity:1">24/7</div><div class="hstat-lbl">Always Available</div></div>
     </div>
   </div>
-  <div class="hright">
-    <div class="htile"><div class="htile-ic">&#9989;</div><div><div class="htile-txt">Licensed &amp; Insured</div><div class="htile-sub">Fully covered, every job</div></div></div>
-    <div class="htile"><div class="htile-ic">&#11088;</div><div><div class="htile-txt">5-Star Rated</div><div class="htile-sub">Trusted by 235 NW 72nd Ave #26 locals</div></div></div>
-    <div class="htile"><div class="htile-ic">&#9200;</div><div><div class="htile-txt">Fast Response</div><div class="htile-sub">Same or next-day service</div></div></div>
-    <div class="htile"><div class="htile-ic">&#128200;</div><div><div class="htile-txt">Fair Pricing</div><div class="htile-sub">Free estimates, no surprises</div></div></div>
-  </div>
 </section>
-<section class="sec" id="services">
-  <div class="slbl">Services</div>
-  <h2 class="stit">What We Do</h2>
-  <p class="ssub">Everything you need, done right the first time — by people who take pride in their craft.</p>
-  <div class="sgrid">
-    <div class="scard"><div class="scname">Live Bee Removal</div><div class="scdesc">Handled professionally by our experienced local team.</div></div>
-    <div class="scard"><div class="scname">Hive Relocation</div><div class="scdesc">Handled professionally by our experienced local team.</div></div>
-    <div class="scard"><div class="scname">Swarm Extraction</div><div class="scdesc">Handled professionally by our experienced local team.</div></div>
-    <div class="scard"><div class="scname">Honey Bee Rescue</div><div class="scdesc">Handled professionally by our experienced local team.</div></div>
-    <div class="scard"><div class="scname">Nesting Prevention</div><div class="scdesc">Handled professionally by our experienced local team.</div></div>
-    <div class="scard"><div class="scname">Emergency Response</div><div class="scdesc">Handled professionally by our experienced local team.</div></div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item"><svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><use href="#bee"/></svg> Live Hive Removal</span>
+    <span class="ticker-item"><svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><use href="#bee"/></svg> Bee Proofing</span>
+    <span class="ticker-item"><svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><use href="#bee"/></svg> Structural Repair</span>
+    <span class="ticker-item"><svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><use href="#bee"/></svg> 100-Day Guarantee</span>
+    <span class="ticker-item"><svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><use href="#bee"/></svg> Swarm Removal</span>
+    <span class="ticker-item"><svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><use href="#bee"/></svg> BBB Accredited</span>
+    <span class="ticker-item"><svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><use href="#bee"/></svg> Free Estimates</span>
+    <span class="ticker-item"><svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><use href="#bee"/></svg> Licensed &amp; Insured</span>
+    <!-- duplicate for seamless loop -->
+    <span class="ticker-item"><svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><use href="#bee"/></svg> Live Hive Removal</span>
+    <span class="ticker-item"><svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><use href="#bee"/></svg> Bee Proofing</span>
+    <span class="ticker-item"><svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><use href="#bee"/></svg> Structural Repair</span>
+    <span class="ticker-item"><svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><use href="#bee"/></svg> 100-Day Guarantee</span>
+    <span class="ticker-item"><svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><use href="#bee"/></svg> Swarm Removal</span>
+    <span class="ticker-item"><svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><use href="#bee"/></svg> BBB Accredited</span>
+    <span class="ticker-item"><svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><use href="#bee"/></svg> Free Estimates</span>
+    <span class="ticker-item"><svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><use href="#bee"/></svg> Licensed &amp; Insured</span>
   </div>
-</section>
-<section class="rvsec" id="reviews">
-  <div class="rvi">
-    <div class="slbl">Reviews</div>
-    <h2 class="stit" style="margin-bottom:4px">Neighbors Trust Us</h2>
-    <p style="color:var(--mu);font-size:14px;margin-bottom:0">Real feedback from real customers in 235 NW 72nd Ave #26.</p>
-    <div class="rcar">
-      <div class="rs active"><div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rst">&ldquo;Best bee removal experience I've had in 235 NW 72nd Ave #26. They were on time, professional, and actually fixed the problem permanently. Already recommended them to three friends.&rdquo;</p><div class="rsa">&mdash; Michael R., 235 NW 72nd Ave #26</div></div>
-      <div class="rs"><div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rst">&ldquo;After a bad experience with another company, Miami Bee Removal Corp. completely restored my confidence. Thorough, honest, and genuinely great to work with.&rdquo;</p><div class="rsa">&mdash; Sandra K., 235 NW 72nd Ave #26</div></div>
-      <div class="rs"><div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rst">&ldquo;Fast response, fair pricing, and no upselling. They explained everything clearly and the results speak for themselves. This is the bee removal team 235 NW 72nd Ave #26 deserves.&rdquo;</p><div class="rsa">&mdash; James T., 235 NW 72nd Ave #26</div></div>
-      <div class="rs"><div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rst">&ldquo;Top-notch from the first call to the final walkthrough. Miami Bee Removal Corp. treats your home like their own. Couldn't ask for better service.&rdquo;</p><div class="rsa">&mdash; Patricia M., 235 NW 72nd Ave #26</div></div>
+</div>
+
+<!-- SERVICES — alternating rows -->
+<div class="features" id="services">
+
+  <div class="feature-row">
+    <div class="feat-img">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Live bee hive removal">
+      <div class="feat-img-label">Live Removal</div>
     </div>
-    <div class="rdots"><button class="rd active" data-i="0"></button><button class="rd" data-i="1"></button><button class="rd" data-i="2"></button><button class="rd" data-i="3"></button></div>
-    <div class="rnav"><button class="rb" id="rp">&#8592;</button><button class="rb" id="rn">&#8594;</button></div>
-  </div>
-</section>
-<section id="contact"><div class="csec">
-  <div>
-    <div class="slbl">Contact</div>
-    <h2 class="ctit">Let&rsquo;s Talk</h2>
-    <div class="cinfo">
-      <div class="crow"><div class="ctic">&#128222;</div><div class="ctxt"><div class="clbl">Call or Text</div><div class="cval"><a href="tel:+1 786-554-0245">(786) 554-0245</a></div></div></div>
-      <div class="crow"><div class="ctic">&#128205;</div><div class="ctxt"><div class="clbl">Service Area</div><div class="cval">235 NW 72nd Ave #26, Miami &amp; Surrounding</div></div></div>
-      <div class="crow"><div class="ctic">&#128336;</div><div class="ctxt"><div class="clbl">Hours</div><div class="cval">Mon &ndash; Sat, 7am &ndash; 7pm</div></div></div>
+    <div>
+      <div class="feat-num">01</div>
+      <div class="feat-label">Most Requested</div>
+      <h3 class="feat-title">Live Bee Hive Removal</h3>
+      <p class="feat-body">We extract the entire live colony — bees, honeycomb, and larvae — safely and humanely without extermination. The bees are relocated to local apiaries. We use the latest technology to locate hives inside walls, soffits, and ceilings that other companies miss.</p>
+      <div class="feat-list">
+        <div class="feat-li"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Full hive &amp; honeycomb extracted — not just the bees</div>
+        <div class="feat-li"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Thermal imaging to locate hidden hives</div>
+        <div class="feat-li"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Free estimate before any work begins</div>
+      </div>
     </div>
   </div>
-  <form class="cform" onsubmit="this.innerHTML='<p style=color:var(--ac);padding:20px 0;font-family:Lora,serif;font-size:18px>Thank you! We\'ll be in touch soon.</p>';return false;">
-    <input class="cf" type="text" placeholder="Your name" required>
-    <input class="cf" type="tel" placeholder="Phone number" required>
-    <input class="cf" type="email" placeholder="Email (optional)">
-    <textarea class="cf" placeholder="What do you need help with?" rows="4" style="resize:vertical"></textarea>
-    <button class="cs">Send Message</button>
-  </form>
-</div></section>
+
+  <div class="feat-sep"></div>
+
+  <div class="feature-row flip">
+    <div class="feat-img">
+      <img src="https://images.unsplash.com/photo-1473973266408-ed4e27abdd47?w=800&q=80" alt="Bee proofing">
+      <div class="feat-img-label">Bee Proofing</div>
+    </div>
+    <div>
+      <div class="feat-num">02</div>
+      <div class="feat-label">Stop Recurring Problems</div>
+      <h3 class="feat-title">Bee Proofing &amp; Exclusion</h3>
+      <p class="feat-body">After removing the hive, we seal every entry point using materials and techniques specialized for preventing reinfestation in South Florida structures. Closing a beehive without proofing means a new colony will move in within weeks. We make sure that doesn't happen — with a written warranty on every proofing job.</p>
+      <div class="feat-list">
+        <div class="feat-li"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Every entry point sealed &amp; warranted</div>
+        <div class="feat-li"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Materials rated for Florida heat &amp; humidity</div>
+        <div class="feat-li"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Best applied before a hive forms</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="feat-sep"></div>
+
+  <div class="feature-row">
+    <div class="feat-img">
+      <img src="https://images.unsplash.com/photo-1568526381923-caf3fd520382?w=800&q=80" alt="Structural repair">
+      <div class="feat-img-label">Structural Repair</div>
+    </div>
+    <div>
+      <div class="feat-num">03</div>
+      <div class="feat-label">Clean Finish</div>
+      <h3 class="feat-title">Hive Removal &amp; Structural Repair</h3>
+      <p class="feat-body">Removing a hive from inside a wall or soffit means opening the structure. We make only the cuts necessary to access the hive — never more — and repair the structure completely when we're done. No large holes left behind, no mess, no subcontractors. One company handles the full job.</p>
+      <div class="feat-list">
+        <div class="feat-li"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Minimal, surgical access cuts only</div>
+        <div class="feat-li"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Full repair &amp; finish — one company, one bill</div>
+        <div class="feat-li"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> 100-day guarantee on completed work</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- GALLERY -->
+<div class="gallery-band" id="gallery">
+  <div class="gallery-head">
+    <div>
+      <div style="font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:8px">Real Jobs</div>
+      <h2 style="font-family:'Abril Fatface',serif;font-size:clamp(28px,4vw,42px);color:var(--ton);letter-spacing:-.5px;line-height:1">Recent Removals</h2>
+    </div>
+    <a class="btn-bee" href="#contact" style="flex-shrink:0">
+      <svg class="bee" viewBox="0 0 20 20" fill="currentColor"><use href="#bee"/></svg>
+      Get a Free Quote
+    </a>
+  </div>
+  <div class="gallery-strip">
+    <div class="g-photo"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Hive in wall"><div class="g-photo-cap">Soffit Removal · Doral</div></div>
+    <div class="g-photo"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&crop=entropy&fit=crop&h=440&w=600" alt="Bee swarm"><div class="g-photo-cap">Live Swarm · Hialeah</div></div>
+    <div class="g-photo"><img src="https://images.unsplash.com/photo-1473973266408-ed4e27abdd47?w=600&q=80" alt="Honeycomb"><div class="g-photo-cap">Wall Hive · Coral Gables</div></div>
+    <div class="g-photo"><img src="https://images.unsplash.com/photo-1568526381923-caf3fd520382?w=600&q=80" alt="Bees on comb"><div class="g-photo-cap">Ceiling Hive · Miami Beach</div></div>
+    <div class="g-photo"><img src="https://images.unsplash.com/photo-1568526381923-caf3fd520382?w=600&q=80" alt="Bee removal"><div class="g-photo-cap">AC Unit · Kendall</div></div>
+  </div>
+</div>
+
+<!-- TRUST BAND -->
+<div class="trust-band">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+      <div class="trust-text">Licensed &amp; Insured<div class="trust-sub">State of Florida</div></div>
+    </div>
+    <div class="trust-sep"></div>
+    <div class="trust-item">
+      <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+      <div class="trust-text">BBB Accredited<div class="trust-sub">A+ Rating</div></div>
+    </div>
+    <div class="trust-sep"></div>
+    <div class="trust-item">
+      <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 1 0 0 10A5 5 0 0 0 12 2zm-1 13H9c-2.67 0-8 1.34-8 4v1h8.57c-.42-.79-.57-1.64-.57-2.5 0-.96.27-1.88.73-2.67C9.28 15.3 9.14 15 9 15zm2 0c-1.93 0-4 1.17-4 3.5V20h8v-1.5c0-2.33-2.07-3.5-4-3.5z"/></svg></div>
+      <div class="trust-text">Beekeeping Federation<div class="trust-sub">Certified Member</div></div>
+    </div>
+    <div class="trust-sep"></div>
+    <div class="trust-item">
+      <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg></div>
+      <div class="trust-text">24/7 Emergency Response<div class="trust-sub">Always available</div></div>
+    </div>
+    <div class="trust-sep"></div>
+    <div class="trust-item">
+      <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg></div>
+      <div class="trust-text">100-Day Guarantee<div class="trust-sub">Bees return? We do too</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<div class="rev-section" id="reviews">
+  <div class="rev-inner">
+    <div class="rev-intro">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:12px">Google Reviews</div>
+      <h2 style="font-family:'Abril Fatface',serif;font-size:clamp(32px,4vw,52px);color:var(--tcr);letter-spacing:-.5px;line-height:1;margin-bottom:10px">What Miami Says</h2>
+      <div style="display:flex;align-items:center;gap:8px;margin-top:10px">
+        <div style="display:flex;gap:3px">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#C9800A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#C9800A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#C9800A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#C9800A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#C9800A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <span style="font-weight:700;font-size:14px;color:var(--tcr)">5.0</span>
+        <span style="font-size:13px;color:var(--tcrm)">&middot; 197 verified Google reviews</span>
+      </div>
+    </div>
+    <div class="rev-grid">
+      <div class="rev-card">
+        <div class="rev-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="rev-quote">"Miami Bee Removal provides great service — professional, fast and worth the price! Called about a wall hive on Tuesday and they were there same day. Absolutely recommend."</p>
+        <div class="rev-author">&mdash; Blue S Management, Miami</div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="rev-quote">"Showed up the same day I called. The tech was knowledgeable and to the point — wore full protective gear and got the job done quickly. Found the hive inside my AC unit I never would have found myself."</p>
+        <div class="rev-author">&mdash; Joyce Rau, Miami</div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="rev-quote">"Called at 8pm on a Saturday with a swarm on my porch. They picked up immediately and were at my house within the hour. This is the only number you need for bees in South Florida."</p>
+        <div class="rev-author">&mdash; Maria T., Coral Gables</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <h2 class="cta-band-title">Got bees? <em>We answer 24/7.</em></h2>
+  <p class="cta-band-sub">Free estimate, no obligation. Most jobs completed same day.</p>
+  <div style="display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap">
+    <a class="btn-bee" href="tel:+17865540245">
+      <svg class="bee" viewBox="0 0 20 20" fill="currentColor"><use href="#bee"/></svg>
+      Call 786-554-0245
+    </a>
+    <a class="btn-ghost" href="mailto:will@miamibeeremoval.com">
+      <svg class="bee" viewBox="0 0 20 20" fill="currentColor"><use href="#bee"/></svg>
+      will@miamibeeremoval.com
+    </a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="clabel">Free estimate</div>
+      <h2 class="ctitle">Describe Your<br>Bee Problem</h2>
+      <div class="cinfo">
+        <div class="crow"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.3 1L6.6 10.8z"/></svg><div><div class="crow-lbl">Phone</div><div class="crow-val"><a href="tel:+17865540245">786-554-0245</a></div></div></div>
+        <div class="crow"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg><div><div class="crow-lbl">Email</div><div class="crow-val"><a href="mailto:will@miamibeeremoval.com">will@miamibeeremoval.com</a></div></div></div>
+        <div class="crow"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><div><div class="crow-lbl">Address</div><div class="crow-val">235 NW 72nd Ave #26, Miami FL 33126</div></div></div>
+        <div class="crow"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg><div><div class="crow-lbl">Hours</div><div class="crow-val">24/7 — Always Available</div></div></div>
+      </div>
+    </div>
+    <form class="form" id="contact-form">
+      <input class="fi" type="text" placeholder="Your name" required>
+      <input class="fi" type="tel" placeholder="Phone number" required>
+      <input class="fi" type="email" placeholder="Email (optional)">
+      <textarea class="fi fi-ta" placeholder="Where are the bees? On your roof, in the wall, a swarm outside? Any details help us prepare…"></textarea>
+      <button class="fb" type="submit">
+        <svg class="bee" viewBox="0 0 20 20" fill="currentColor"><use href="#bee"/></svg>
+        Send — Free Estimate, No Obligation
+      </button>
+    </form>
+  </div>
+</div>
+
 <footer>
-  <span class="fc">&copy; 2026 Miami Bee Removal Corp. &middot; 235 NW 72nd Ave #26</span>
-  <a href="https://maps.google.com/?cid=17553482047671791772&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Google Maps</a>
+  <span class="fc">&copy; 2025 Miami Bee Removal Corp. &middot; Miami, FL</span>
+  <a class="fl" href="https://miamibeeremoval.com" target="_blank" rel="noopener">miamibeeremoval.com</a>
 </footer>
-<div class="mcta"><a href="tel:+1 786-554-0245">Call (786) 554-0245</a></div>
-<a class="dbadge" href="https://jayexe.com" target="_blank" rel="noopener">Demo by <strong>Jay @ jayexe.com</strong></a>
+
+<div class="mob-cta">
+  <a href="tel:+17865540245">
+    <svg viewBox="0 0 20 20" fill="currentColor" width="18" height="18"><use href="#bee"/></svg>
+    Call 786-554-0245
+  </a>
+</div>
+
+<a class="demo-badge" href="https://jayexe.com" target="_blank" rel="noopener">Demo by <strong>Jay @ jayexe.com</strong></a>
+
 <script>
-(function(){
-  let i=0;
-  const slides=document.querySelectorAll('.rs');
-  const dots=document.querySelectorAll('.rd');
-  let t;
-  function go(n){
-    slides[i].classList.remove('active');
-    dots[i].classList.remove('active');
-    i=(n+slides.length)%slides.length;
-    slides[i].classList.add('active');
-    dots[i].classList.add('active');
+const { animate, inView, stagger } = Motion;
+
+function countUp(el, dur) {
+  dur = dur || 1.3;
+  const target   = parseFloat(el.dataset.count);
+  const prefix   = el.dataset.prefix || '';
+  const suffix   = el.dataset.suffix || '';
+  const decimals = parseInt(el.dataset.decimals || '0');
+  const start    = performance.now();
+  function tick(now) {
+    const t = Math.min((now - start) / (dur * 1000), 1);
+    const e = 1 - Math.pow(1 - t, 3);
+    const v = target * e;
+    el.textContent = prefix + (decimals > 0 ? v.toFixed(decimals) : Math.round(v).toLocaleString()) + suffix;
+    if (t < 1) requestAnimationFrame(tick);
   }
-  function start(){t=setInterval(()=>go(i+1),4800);}
-  function reset(){clearInterval(t);start();}
-  document.getElementById('rn')?.addEventListener('click',()=>{go(i+1);reset();});
-  document.getElementById('rp')?.addEventListener('click',()=>{go(i-1);reset();});
-  dots.forEach((d,j)=>d.addEventListener('click',()=>{go(j);reset();}));
-  start();
-})();
+  requestAnimationFrame(tick);
+}
+
+/* Hero */
+animate('.hero-content', { opacity:[0,1], y:[28,0] }, { duration:.7, delay:.2, easing:[.22,1,.36,1] });
+setTimeout(() => {
+  document.querySelectorAll('.hstat-num[data-count]').forEach((el,i) => {
+    setTimeout(() => { el.style.opacity='1'; countUp(el, 1.2); }, i * 120 + 400);
+  });
+}, 300);
+
+/* Feature rows */
+inView('.feature-row', el => {
+  animate(el, { opacity:[0,1], y:[24,0] }, { duration:.6, easing:[.22,1,.36,1] });
+}, { margin:'-80px' });
+
+/* Gallery */
+inView('.gallery-strip', () => {
+  animate('.g-photo', { opacity:[0,1], y:[16,0] }, { duration:.5, delay:stagger(.07) });
+});
+
+/* Reviews */
+inView('.rev-section', () => {
+  animate('.rev-intro', { opacity:[0,1], y:[14,0] }, { duration:.5 });
+  animate('.rev-card',  { opacity:[0,1], y:[20,0] }, { duration:.5, delay:stagger(.1), easing:[.22,1,.36,1] });
+});
+
+/* CTA band */
+inView('.cta-band', el => {
+  animate(el, { opacity:[0,1], y:[20,0] }, { duration:.55 });
+});
+
+/* Contact */
+inView('.contact-section', () => {
+  animate('.contact-inner', { opacity:[0,1], y:[20,0] }, { duration:.6, easing:[.22,1,.36,1] });
+});
+
+/* Form */
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  this.innerHTML = '<p style="color:var(--honey);font-family:Abril Fatface,serif;font-size:22px;padding:28px 0;text-align:center">Thank you — we\'ll be in touch within the hour.</p>';
+});
 </script>
-</body></html>
+</body>
+</html>
