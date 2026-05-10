@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Appeal Shading — Bristol's Luxury Blind Specialists</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0D1F1A;
+      --bg-mid:    #0F241E;
+      --bg-card:   #112219;
+      --text:      #F0EBE0;
+      --text-muted:#A89F8C;
+      --accent:    #C4B896;
+      --accent-dim:#8A7F65;
+      --border:    rgba(196,184,150,0.18);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Raleway', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ─────────────────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(1.25rem, 4vw, 3rem);
+      height: 68px;
+      background: rgba(13, 31, 26, 0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(1.2rem, 2.5vw, 2rem);
+      list-style: none;
+      white-space: nowrap;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-cta {
+      white-space: nowrap;
+      padding: 0.55rem 1.3rem;
+      border: 1px solid var(--accent);
+      border-radius: 2px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      flex-shrink: 0;
+    }
+
+    .nav-cta:hover { background: var(--accent); color: var(--bg); }
+
+    /* ── HERO ────────────────────────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        115deg,
+        rgba(13,31,26,0.92) 0%,
+        rgba(13,31,26,0.72) 55%,
+        rgba(13,31,26,0.38) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+      padding: clamp(6rem, 12vw, 10rem) clamp(1.25rem, 6vw, 5rem) clamp(4rem, 8vw, 7rem);
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.4rem;
+      opacity: 0;
+    }
+
+    .hero-h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 6vw, 5.2rem);
+      font-weight: 300;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 1.6rem;
+      opacity: 0;
+    }
+
+    .hero-h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(240,235,224,0.82);
+      margin-bottom: 2.6rem;
+      max-width: 520px;
+      opacity: 0;
+    }
+
+    .hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      opacity: 0;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 52px;
+      padding: 0 2rem;
+      background: var(--accent);
+      color: var(--bg);
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--accent);
+      border-radius: 2px;
+      transition: background 0.22s, color 0.22s;
+      white-space: nowrap;
+    }
+
+    .btn-primary:hover { background: transparent; color: var(--accent); }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 52px;
+      padding: 0 2rem;
+      background: transparent;
+      color: var(--text);
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid rgba(240,235,224,0.38);
+      border-radius: 2px;
+      transition: border-color 0.22s, color 0.22s;
+      white-space: nowrap;
+    }
+
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── STAT BAND ───────────────────────────────────────────────────────── */
+    #stats {
+      background: #0B1A15;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 2.2rem 1rem;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+
+    .stat-item:last-child { border-right: none; }
+
+    .stat-icon { color: var(--accent); }
+
+    .stat-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .stat-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    /* ── SECTION SHARED ──────────────────────────────────────────────────── */
+    section { padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 5vw, 3rem); }
+
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    .section-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+      line-height: 1.18;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .section-lead {
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.9;
+      color: var(--text-muted);
+      max-width: 580px;
+      margin-bottom: 3rem;
+    }
+
+    /* ── SERVICES ────────────────────────────────────────────────────────── */
+    #services { background: var(--bg-mid); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      padding: 2.4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: background 0.22s;
+    }
+
+    .service-card:hover { background: #162E24; }
+
+    .service-icon { color: var(--accent); }
+
+    .service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .service-desc {
+      font-size: 0.85rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--text-muted);
+    }
+
+    .service-link {
+      margin-top: auto;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ── CONFIGURATOR ────────────────────────────────────────────────────── */
+    #configurator { background: var(--bg); }
+
+    .config-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .config-canvas-wrap {
+      background: #EDE8E0;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #wc-canvas {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4/3;
+    }
+
+    .config-panel {
+      background: #142A22;
+      border-radius: 4px;
+      padding: 2rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    .config-panel-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .config-group { display: flex; flex-direction: column; gap: 0.7rem; }
+
+    .config-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .config-slider-row {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .config-slider-row input[type="range"] {
+      flex: 1;
+      appearance: none;
+      height: 3px;
+      background: rgba(196,184,150,0.25);
+      border-radius: 2px;
+      outline: none;
+    }
+
+    .config-slider-row input[type="range"]::-webkit-slider-thumb {
+      appearance: none;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+    }
+
+    .config-val {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text);
+      min-width: 42px;
+      text-align: right;
+    }
+
+    /* Color swatches */
+    .swatch-row { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+
+    .swatch {
+      width: 32px; height: 32px;
+      border-radius: 2px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border-color 0.18s;
+      position: relative;
+    }
+
+    .swatch.wc-active {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(196,184,150,0.35);
+    }
+
+    /* Install / Toggle btn group */
+    .btn-group { display: flex; gap: 0; }
+
+    .group-btn {
+      flex: 1;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: rgba(196,184,150,0.08);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s;
+      white-space: nowrap;
+    }
+
+    .group-btn + .group-btn { margin-left: -1px; }
+    .group-btn:first-child { border-radius: 2px 0 0 2px; }
+    .group-btn:last-child  { border-radius: 0 2px 2px 0; }
+
+    .group-btn.wc-active {
+      background: var(--accent);
+      color: var(--bg);
+      border-color: var(--accent);
+      z-index: 1;
+    }
+
+    .config-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 48px;
+      background: var(--accent);
+      color: var(--bg);
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s, color 0.2s;
+      border: 1px solid var(--accent);
+    }
+
+    .config-cta:hover { background: transparent; color: var(--accent); }
+
+    /* ── BENEFITS ────────────────────────────────────────────────────────── */
+    #benefits { background: var(--bg-mid); }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .benefit-card {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .benefit-icon-wrap {
+      width: 48px; height: 48px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+    }
+
+    .benefit-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .benefit-desc {
+      font-size: 0.85rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--text-muted);
+    }
+
+    /* ── GALLERY ─────────────────────────────────────────────────────────── */
+    #gallery { background: var(--bg); }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 280px);
+      gap: 1.5px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      position: relative;
+      background: var(--bg-card);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.3s;
+    }
+
+    .gallery-item:hover img { opacity: 0.9; }
+
+    /* ── TESTIMONIALS ────────────────────────────────────────────────────── */
+    #testimonials { background: var(--bg-mid); }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .testimonial-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 0.25rem;
+      color: var(--accent);
+    }
+
+    .testimonial-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.08rem;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    .testimonial-author {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .testimonial-name {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: 0.06em;
+    }
+
+    .testimonial-location {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .feefo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.9rem;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 3rem;
+    }
+
+    /* ── FINAL CTA ───────────────────────────────────────────────────────── */
+    #cta {
+      background: linear-gradient(160deg, #0B1A15 0%, #0D1F1A 100%);
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: clamp(4.5rem, 9vw, 8rem) clamp(1.25rem, 5vw, 3rem);
+    }
+
+    .cta-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 1.2rem;
+    }
+
+    .cta-title em { font-style: italic; color: var(--accent); }
+
+    .cta-sub {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      margin-bottom: 2.8rem;
+    }
+
+    .cta-btns {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────────────────────────── */
+    footer {
+      background: #060F0C;
+      border-top: 1px solid var(--border);
+      padding: 3rem clamp(1.25rem, 5vw, 3rem) 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-brand span { color: var(--accent); }
+
+    .footer-tagline {
+      font-size: 0.82rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--text-muted);
+    }
+
+    .footer-col-title {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+
+    .footer-links a {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.18s;
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    .footer-address {
+      font-size: 0.85rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--text-muted);
+    }
+
+    .footer-address a { color: var(--accent); text-decoration: none; }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* ── DIVIDER LINE ────────────────────────────────────────────────────── */
+    .accent-line {
+      width: 48px;
+      height: 1px;
+      background: var(--accent);
+      margin-bottom: 1.6rem;
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .config-layout { grid-template-columns: 1fr; }
+      .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-item:nth-child(2) { border-right: none; }
+      .stat-item:nth-child(3) { border-top: 1px solid var(--border); }
+      .stat-item:nth-child(4) { border-top: 1px solid var(--border); border-right: none; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .gallery-item { height: 240px; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 0.8rem; text-align: center; }
+      .benefits-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ───────────────────────────────────────────────────────────── -->
+  <nav>
+    <a href="#" class="nav-logo">Appeal <span>Shading</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Blinds</a></li>
+      <li><a href="#services">Conservatory</a></li>
+      <li><a href="#services">Screens</a></li>
+      <li><a href="#services">Awnings</a></li>
+      <li><a href="#cta">Contact</a></li>
+    </ul>
+    <a href="tel:+448009755757" class="nav-cta">Free Brochure</a>
+  </nav>
+
+  <!-- ── HERO ──────────────────────────────────────────────────────────── -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Bristol — Est. 30+ Years</p>
+      <h1 class="hero-h1">Britain's Leading<br/><em>Shading Specialist</em></h1>
+      <p class="hero-sub">Manufactured in Bristol — Serving England, Wales &amp; Scotland for over three decades. Bespoke blinds, awnings, and conservatory shading crafted to the highest British standard.</p>
+      <div class="hero-btns">
+        <a href="tel:+448009755757" class="btn-primary">Call Free: 0800 975 5757</a>
+        <a href="#configurator" class="btn-outline">Visualise Your Blind</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STAT BAND ──────────────────────────────────────────────────────── -->
+  <section id="stats" style="padding: 0;">
+    <div class="stat-grid">
+      <div class="stat-item">
+        <div class="stat-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <div class="stat-value">UK Manufacturer</div>
+        <div class="stat-label">Made in Bristol</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <div class="stat-value">30+ Years</div>
+        <div class="stat-label">Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.85a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </div>
+        <div class="stat-value">Lines Open 24/7</div>
+        <div class="stat-label">Always Available</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+        <div class="stat-value">4.5 Stars</div>
+        <div class="stat-label">Feefo Verified</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ───────────────────────────────────────────────────────── -->
+  <section id="services">
+    <div class="container">
+      <p class="section-eyebrow">Our Products</p>
+      <div class="accent-line"></div>
+      <h2 class="section-title">Precision-Made Shading<br/>for Every Application</h2>
+      <p class="section-lead">From classic roller blinds to motorised conservatory systems, every product is manufactured in our Bristol facility to exacting standards.</p>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="1"/>
+              <line x1="3" y1="9" x2="21" y2="9"/>
+              <line x1="3" y1="15" x2="21" y2="15"/>
+            </svg>
+          </div>
+          <div class="service-name">Window Blinds</div>
+          <p class="service-desc">Roman, roller, Venetian, and vertical blinds crafted from premium British fabrics. Including our popular Appeal Smart Blinds with wireless motorisation.</p>
+          <a href="tel:+448009755757" class="service-link">
+            Learn More
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </div>
+          <div class="service-name">Conservatory Blinds</div>
+          <p class="service-desc">Specially engineered roof and side blinds designed for conservatory environments — heat-resistant, UV-blocking, and beautifully finished throughout.</p>
+          <a href="tel:+448009755757" class="service-link">
+            Learn More
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+          <div class="service-name">Insect Screens</div>
+          <p class="service-desc">Fly screens and pollen guards for doors and windows. Retractable, fixed-frame, and pleated options engineered for a perfect fit with no compromise to airflow.</p>
+          <a href="tel:+448009755757" class="service-link">
+            Learn More
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 12 Q12 4 22 12"/>
+              <line x1="5" y1="12" x2="5" y2="20"/>
+              <line x1="19" y1="12" x2="19" y2="20"/>
+              <line x1="5" y1="20" x2="19" y2="20"/>
+            </svg>
+          </div>
+          <div class="service-name">Awnings &amp; Pergolas</div>
+          <p class="service-desc">Freestanding and wall-mounted awnings, louvre pergolas, and retractable canopies that extend your outdoor living season throughout the British year.</p>
+          <a href="tel:+448009755757" class="service-link">
+            Learn More
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+              <path d="M8 12h8M12 8v8"/>
+            </svg>
+          </div>
+          <div class="service-name">Appeal Smart Blinds</div>
+          <p class="service-desc">Our flagship motorised range — controllable via remote, app, or smart home integration. Whisper-quiet motors, programmable timers, and solar-powered options available.</p>
+          <a href="tel:+448009755757" class="service-link">
+            Learn More
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+            </svg>
+          </div>
+          <div class="service-name">Made-to-Measure</div>
+          <p class="service-desc">Every blind is cut and sewn to your exact window dimensions in Bristol. No standard sizes — your home, your specification, backed by our comprehensive warranty.</p>
+          <a href="tel:+448009755757" class="service-link">
+            Learn More
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONFIGURATOR ───────────────────────────────────────────────────── -->
+  <section id="configurator">
+    <div class="container">
+      <p class="section-eyebrow">Interactive Tool</p>
+      <div class="accent-line"></div>
+      <h2 class="section-title">Visualise Your Shading</h2>
+      <p class="section-lead">Adjust width, height, fabric colour, and installation type to preview your blind in a real room setting before you order.</p>
+
+      <div class="config-layout">
+
+        <!-- Canvas -->
+        <div class="config-canvas-wrap">
+          <canvas id="wc-canvas"></canvas>
+        </div>
+
+        <!-- Controls -->
+        <div class="config-panel">
+          <div class="config-panel-title">Blind Configurator</div>
+
+          <!-- Width -->
+          <div class="config-group">
+            <div class="config-label">Width</div>
+            <div class="config-slider-row">
+              <input type="range" id="wc-width" min="40" max="300" value="120" />
+              <span class="config-val"><span id="wc-width-val">120</span> cm</span>
+            </div>
+          </div>
+
+          <!-- Height -->
+          <div class="config-group">
+            <div class="config-label">Height</div>
+            <div class="config-slider-row">
+              <input type="range" id="wc-height" min="40" max="300" value="150" />
+              <span class="config-val"><span id="wc-height-val">150</span> cm</span>
+            </div>
+          </div>
+
+          <!-- Colour -->
+          <div class="config-group">
+            <div class="config-label">Fabric Colour</div>
+            <div class="swatch-row">
+              <button class="swatch wc-active" data-wc-color="#1E1E1E" style="background:#1E1E1E;" title="Charcoal"></button>
+              <button class="swatch" data-wc-color="#DDD5C4" style="background:#DDD5C4;" title="Linen"></button>
+              <button class="swatch" data-wc-color="#5B6472" style="background:#5B6472;" title="Slate"></button>
+              <button class="swatch" data-wc-color="#C0AA88" style="background:#C0AA88;" title="Sand"></button>
+              <button class="swatch" data-wc-color="#7A5C38" style="background:#7A5C38;" title="Walnut"></button>
+              <button class="swatch" data-wc-color="#6A8E6A" style="background:#6A8E6A;" title="Sage"></button>
+            </div>
+          </div>
+
+          <!-- Installation -->
+          <div class="config-group">
+            <div class="config-label">Installation</div>
+            <div class="btn-group">
+              <button class="group-btn" data-wc-install="recessed">Recessed</button>
+              <button class="group-btn wc-active" data-wc-install="surface">Surface</button>
+              <button class="group-btn" data-wc-install="fullWall">Full Wall</button>
+            </div>
+          </div>
+
+          <!-- Blind State -->
+          <div class="config-group">
+            <div class="config-label">Blind State</div>
+            <div class="btn-group">
+              <button class="group-btn wc-active" id="wc-toggle-closed">Closed</button>
+              <button class="group-btn" id="wc-toggle-open">Open</button>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <a href="tel:+448009755757" class="config-cta">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:0.5rem">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.85a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            Call 0800 975 5757 — Free Quote
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BENEFITS ───────────────────────────────────────────────────────── -->
+  <section id="benefits">
+    <div class="container">
+      <p class="section-eyebrow">Why Appeal Shading</p>
+      <div class="accent-line"></div>
+      <h2 class="section-title">British Quality,<br/>Nationwide Reach</h2>
+      <div class="benefits-grid">
+
+        <div class="benefit-card">
+          <div class="benefit-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            </svg>
+          </div>
+          <div class="benefit-title">British Manufacturer</div>
+          <p class="benefit-desc">Every product is designed and manufactured at our Bristol facility. No overseas imports — just genuine British craftsmanship and quality control from start to finish.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+            </svg>
+          </div>
+          <div class="benefit-title">Tailor-Made</div>
+          <p class="benefit-desc">We don't cut from stock — every blind is made to your exact measurements. Unlimited fabric choices, heading styles, and control options for a truly bespoke result.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div class="benefit-title">30 Years Expertise</div>
+          <p class="benefit-desc">Three decades supplying households across England, Wales, and Scotland. Our installers bring specialist knowledge that only comes with genuine, long-term experience.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12"/>
+              <path d="M1.61 3.41a2 2 0 0 1 2-.19h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.85a16 16 0 0 0 6 6"/>
+            </svg>
+          </div>
+          <div class="benefit-title">Nationwide Installation</div>
+          <p class="benefit-desc">Professional fitting teams across the UK with 24/7 lines open. From initial survey to final fitting, we handle every step — with no compromise to our service standard.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GALLERY ────────────────────────────────────────────────────────── -->
+  <section id="gallery" style="padding-bottom: 0;">
+    <div class="container" style="padding-bottom: clamp(4rem, 8vw, 7rem);">
+      <p class="section-eyebrow">Our Work</p>
+      <div class="accent-line"></div>
+      <h2 class="section-title">Installed Across Britain</h2>
+      <p class="section-lead">A selection of recent installations — from coastal cottages to city townhouses, every project finished to the same exacting standard.</p>
+    </div>
+    <div class="gallery-grid" style="max-width:1200px; margin: 0 auto;">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80" alt="Venetian blinds in a modern living room" loading="lazy" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=800&q=80" alt="Elegant roller blinds in a dining space" loading="lazy" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?auto=format&fit=crop&w=800&q=80" alt="Conservatory with fitted shading" loading="lazy" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="Modern kitchen with fitted blinds" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ───────────────────────────────────────────────────── -->
+  <section id="testimonials">
+    <div class="container">
+      <p class="section-eyebrow">Customer Reviews</p>
+      <div class="accent-line"></div>
+      <h2 class="section-title">Trusted by Thousands<br/>Across the UK</h2>
+      <div class="feefo-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Feefo 4.5 Stars — Verified Reviews
+      </div>
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonial-quote">"Absolutely superb from start to finish. The surveyor arrived on time, the blinds were delivered well within the promised window, and the installer was meticulous. The quality is exceptional — you can tell immediately these are British-made."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-name">Margaret T.</div>
+            <div class="testimonial-location">Bath, Somerset</div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonial-quote">"We had our entire conservatory fitted with Appeal Shading roof blinds. The difference in temperature is remarkable — the room is now usable even in the height of summer. The team were professional and tidy throughout."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-name">David &amp; Claire H.</div>
+            <div class="testimonial-location">Cardiff, Wales</div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="opacity:0.35"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonial-quote">"The Appeal Smart Blinds are genuinely impressive. Controlled from my phone, integrated with Alexa, and whisper-quiet. Installation took one morning and the finish is flawless. Worth every penny for the convenience alone."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-name">James F.</div>
+            <div class="testimonial-location">Edinburgh, Scotland</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ───────────────────────────────────────────────────────────── -->
+  <section id="cta">
+    <div class="container" style="max-width:720px;">
+      <p class="section-eyebrow" style="text-align:center;">Get Started</p>
+      <div class="accent-line" style="margin-left:auto;margin-right:auto;"></div>
+      <h2 class="cta-title">Ready for <em>Perfect Shading?</em></h2>
+      <p class="cta-sub">Request your free brochure or speak with a Bristol-based specialist today. Lines are open 24 hours a day, 7 days a week.</p>
+      <div class="cta-btns">
+        <a href="tel:+448009755757" class="btn-primary">Call 0800 975 5757</a>
+        <a href="#configurator" class="btn-outline">Use the Configurator</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Appeal <span>Shading</span></div>
+        <p class="footer-tagline">Britain's leading made-to-measure shading specialist. Manufactured in Bristol since 1993, serving England, Wales &amp; Scotland.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Products</div>
+        <ul class="footer-links">
+          <li><a href="#">Window Blinds</a></li>
+          <li><a href="#">Conservatory Blinds</a></li>
+          <li><a href="#">Insect Screens</a></li>
+          <li><a href="#">Awnings &amp; Pergolas</a></li>
+          <li><a href="#">Appeal Smart Blinds</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-address">
+          6 Vale Lane<br/>
+          Bristol, BS3 5SD<br/>
+          United Kingdom<br/><br/>
+          <a href="tel:+448009755757">0800 975 5757</a><br/>
+          Lines open 24/7
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Appeal Shading. All rights reserved.</span>
+      <span>Made-to-Measure Window Blinds — Bristol, UK</span>
+    </div>
+  </footer>
+
+  <!-- ── CANVAS SCRIPT ─────────────────────────────────────────────────── -->
+  <script>
+// Window Configurator — Vanilla JS port from LuxuryBlind project
+// drawCanvas, setupConfigurator — embed inline in each demo HTML
+
+function wcLighten(hex, amt) {
+  const n = parseInt(hex.replace('#', ''), 16);
+  const r = Math.min(255, (n >> 16) + amt);
+  const g = Math.min(255, ((n >> 8) & 0xff) + amt);
+  const b = Math.min(255, (n & 0xff) + amt);
+  return '#' + r.toString(16).padStart(2,'0') + g.toString(16).padStart(2,'0') + b.toString(16).padStart(2,'0');
+}
+function wcDarken(hex, amt) { return wcLighten(hex, -amt); }
+
+function drawWindowCanvas(ctx, W, H, params, progress) {
+  const { widthCm, heightCm, installation, mounting, blindColor } = params;
+  ctx.clearRect(0, 0, W, H);
+
+  // ROOM SCENE
+  ctx.fillStyle = '#F0EEE9';
+  ctx.fillRect(0, 0, W, H * 0.10);
+
+  const wallG = ctx.createLinearGradient(0, H*0.10, W, H*0.85);
+  wallG.addColorStop(0, '#ECEAE5');
+  wallG.addColorStop(0.45, '#F4F1EC');
+  wallG.addColorStop(1, '#ECEAE5');
+  ctx.fillStyle = wallG;
+  ctx.fillRect(0, H*0.10, W, H*0.75);
+
+  const wallEdge = ctx.createLinearGradient(0, 0, W, 0);
+  wallEdge.addColorStop(0, 'rgba(0,0,0,.05)');
+  wallEdge.addColorStop(0.18, 'rgba(0,0,0,0)');
+  wallEdge.addColorStop(0.82, 'rgba(0,0,0,0)');
+  wallEdge.addColorStop(1, 'rgba(0,0,0,.05)');
+  ctx.fillStyle = wallEdge;
+  ctx.fillRect(0, H*0.10, W, H*0.75);
+
+  ctx.fillStyle = '#E4E0D9';
+  ctx.fillRect(0, H*0.095, W, H*0.012);
+  ctx.fillStyle = 'rgba(0,0,0,.07)';
+  ctx.fillRect(0, H*0.095 + H*0.012, W, 2);
+
+  // Floor
+  const floorY = H*0.85, floorH = H*0.15;
+  const floorBase = ctx.createLinearGradient(0, floorY, 0, floorY+floorH);
+  floorBase.addColorStop(0, '#B89860');
+  floorBase.addColorStop(1, '#9A7D48');
+  ctx.fillStyle = floorBase;
+  ctx.fillRect(0, floorY, W, floorH);
+
+  const plankW = W/7;
+  for (let i=0; i<7; i++) {
+    ctx.fillStyle = i%2===0 ? 'rgba(255,255,255,.04)' : 'rgba(0,0,0,.035)';
+    ctx.fillRect(i*plankW, floorY, plankW, floorH);
+    ctx.strokeStyle = 'rgba(0,0,0,.09)'; ctx.lineWidth = 0.5;
+    ctx.beginPath(); ctx.moveTo(i*plankW, floorY); ctx.lineTo(i*plankW, floorY+floorH); ctx.stroke();
+  }
+  ctx.strokeStyle = 'rgba(80,50,15,.10)'; ctx.lineWidth = 0.4;
+  for (let i=1; i<5; i++) {
+    ctx.beginPath(); ctx.moveTo(0, floorY+(floorH/5)*i); ctx.lineTo(W, floorY+(floorH/5)*i); ctx.stroke();
+  }
+  const floorHL = ctx.createLinearGradient(0, floorY, 0, floorY+floorH*0.28);
+  floorHL.addColorStop(0, 'rgba(255,255,255,.12)');
+  floorHL.addColorStop(1, 'rgba(255,255,255,0)');
+  ctx.fillStyle = floorHL; ctx.fillRect(0, floorY, W, floorH*0.28);
+
+  ctx.fillStyle = '#E0DAD0'; ctx.fillRect(0, H*0.838, W, H*0.016);
+  ctx.fillStyle = 'rgba(0,0,0,.08)'; ctx.fillRect(0, H*0.838+H*0.016, W, 2);
+
+  // WINDOW GEOMETRY
+  const aspect = widthCm / heightCm;
+  let fX, fY, fW, fH;
+  if (installation === 'fullWall') {
+    fW = Math.min(W*0.86, H*0.70*aspect);
+    fH = fW/aspect;
+    if (fH>H*0.70) { fH=H*0.70; fW=fH*aspect; }
+    fX=(W-fW)/2; fY=H*0.12;
+  } else {
+    const maxW=W*0.62, maxH=H*0.60;
+    fW=Math.min(maxW, maxH*aspect);
+    fH=fW/aspect;
+    if (fH>maxH) { fH=maxH; fW=fH*aspect; }
+    fX=(W-fW)/2; fY=H*0.165;
+  }
+
+  let bX, bY, bW, bH;
+  if (installation==='recessed') { bX=fX+4; bY=fY; bW=fW-8; bH=fH; }
+  else if (installation==='fullWall') { bX=fX; bY=fY; bW=fW; bH=fH; }
+  else { bX=fX-8; bY=fY-14; bW=fW+16; bH=fH+19; }
+
+  // RECESSED REVEAL
+  if (installation==='recessed') {
+    const d=12;
+    ctx.fillStyle='#D8D0C4';
+    ctx.beginPath(); ctx.moveTo(fX,fY); ctx.lineTo(fX-d,fY-d); ctx.lineTo(fX+fW+d,fY-d); ctx.lineTo(fX+fW,fY); ctx.closePath(); ctx.fill();
+    const topRS=ctx.createLinearGradient(0,fY-d,0,fY);
+    topRS.addColorStop(0,'rgba(0,0,0,.10)'); topRS.addColorStop(1,'rgba(0,0,0,.02)');
+    ctx.fillStyle=topRS;
+    ctx.beginPath(); ctx.moveTo(fX,fY); ctx.lineTo(fX-d,fY-d); ctx.lineTo(fX+fW+d,fY-d); ctx.lineTo(fX+fW,fY); ctx.closePath(); ctx.fill();
+    ctx.fillStyle='#BDB5A8';
+    ctx.beginPath(); ctx.moveTo(fX,fY); ctx.lineTo(fX-d,fY-d); ctx.lineTo(fX-d,fY+fH+d); ctx.lineTo(fX,fY+fH); ctx.closePath(); ctx.fill();
+    ctx.fillStyle='#E2D9CC';
+    ctx.beginPath(); ctx.moveTo(fX+fW,fY); ctx.lineTo(fX+fW+d,fY-d); ctx.lineTo(fX+fW+d,fY+fH+d); ctx.lineTo(fX+fW,fY+fH); ctx.closePath(); ctx.fill();
+    ctx.fillStyle='#CEC6B8';
+    ctx.beginPath(); ctx.moveTo(fX,fY+fH); ctx.lineTo(fX-d,fY+fH+d); ctx.lineTo(fX+fW+d,fY+fH+d); ctx.lineTo(fX+fW,fY+fH); ctx.closePath(); ctx.fill();
+  }
+
+  // GLASS / OUTDOOR SCENE
+  ctx.save(); ctx.beginPath(); ctx.rect(fX,fY,fW,fH); ctx.clip();
+  const skyG=ctx.createLinearGradient(fX,fY,fX,fY+fH*0.55);
+  skyG.addColorStop(0,'#4898C8'); skyG.addColorStop(0.55,'#88C8E8'); skyG.addColorStop(1,'#B8E2F6');
+  ctx.fillStyle=skyG; ctx.fillRect(fX,fY,fW,fH*0.55);
+  const hazeG=ctx.createLinearGradient(fX,fY+fH*0.45,fX,fY+fH*0.58);
+  hazeG.addColorStop(0,'rgba(255,252,235,0)'); hazeG.addColorStop(1,'rgba(255,252,235,.38)');
+  ctx.fillStyle=hazeG; ctx.fillRect(fX,fY+fH*0.45,fW,fH*0.14);
+  const groundG=ctx.createLinearGradient(fX,fY+fH*0.55,fX,fY+fH);
+  groundG.addColorStop(0,'#78BC52'); groundG.addColorStop(0.55,'#5A9C38'); groundG.addColorStop(1,'#3C7820');
+  ctx.fillStyle=groundG; ctx.fillRect(fX,fY+fH*0.55,fW,fH*0.45);
+  const treePos=[0.12,0.42,0.72];
+  for (const tx of treePos) {
+    const tBaseX=fX+fW*tx, tBaseY=fY+fH*0.55, tHt=fH*0.22;
+    ctx.fillStyle='rgba(60,40,20,.40)'; ctx.fillRect(tBaseX-fW*0.008,tBaseY-tHt*0.28,fW*0.016,tHt*0.28);
+    ctx.fillStyle='rgba(35,80,28,.50)';
+    ctx.beginPath(); ctx.moveTo(tBaseX-fW*0.065,tBaseY-tHt*0.28); ctx.lineTo(tBaseX+fW*0.065,tBaseY-tHt*0.28); ctx.lineTo(tBaseX,tBaseY-tHt*0.62); ctx.closePath(); ctx.fill();
+    ctx.fillStyle='rgba(30,75,22,.55)';
+    ctx.beginPath(); ctx.moveTo(tBaseX-fW*0.05,tBaseY-tHt*0.52); ctx.lineTo(tBaseX+fW*0.05,tBaseY-tHt*0.52); ctx.lineTo(tBaseX,tBaseY-tHt*0.86); ctx.closePath(); ctx.fill();
+    ctx.fillStyle='rgba(25,70,18,.55)';
+    ctx.beginPath(); ctx.moveTo(tBaseX-fW*0.034,tBaseY-tHt*0.74); ctx.lineTo(tBaseX+fW*0.034,tBaseY-tHt*0.74); ctx.lineTo(tBaseX,tBaseY-tHt); ctx.closePath(); ctx.fill();
+  }
+  const sx=fX+fW*0.78, sy=fY+fH*0.13;
+  const sunG=ctx.createRadialGradient(sx,sy,0,sx,sy,fW*0.11);
+  sunG.addColorStop(0,'rgba(255,242,100,.95)'); sunG.addColorStop(0.45,'rgba(255,218,50,.50)'); sunG.addColorStop(1,'rgba(255,200,30,0)');
+  ctx.fillStyle=sunG; ctx.beginPath(); ctx.arc(sx,sy,fW*0.11,0,Math.PI*2); ctx.fill();
+  const cs=fW/180;
+  ctx.fillStyle='rgba(255,255,255,.88)';
+  const cx2=fX+fW*0.16, cy2=fY+fH*0.22;
+  ctx.beginPath(); ctx.arc(cx2,cy2,9*cs,0,Math.PI*2); ctx.arc(cx2+12*cs,cy2-4*cs,7*cs,0,Math.PI*2); ctx.arc(cx2+23*cs,cy2,9*cs,0,Math.PI*2); ctx.fill();
+  const glareG=ctx.createLinearGradient(fX,fY,fX+fW*0.28,fY+fH*0.32);
+  glareG.addColorStop(0,'rgba(255,255,255,.10)'); glareG.addColorStop(0.5,'rgba(255,255,255,.04)'); glareG.addColorStop(1,'rgba(255,255,255,0)');
+  ctx.fillStyle=glareG; ctx.fillRect(fX,fY,fW,fH);
+  ctx.restore();
+
+  // WINDOW FRAME
+  if (installation!=='fullWall') {
+    ctx.fillStyle='rgba(0,0,0,.14)'; ctx.fillRect(fX+2,fY+2,fW,fH);
+    ctx.lineWidth=4.5; ctx.strokeStyle='#8A806E'; ctx.strokeRect(fX,fY,fW,fH);
+    ctx.lineWidth=1; ctx.strokeStyle='#AEA696'; ctx.strokeRect(fX+2.5,fY+2.5,fW-5,fH-5);
+    ctx.lineWidth=3; ctx.strokeStyle='#8A806E';
+    ctx.beginPath(); ctx.moveTo(fX+fW/2,fY); ctx.lineTo(fX+fW/2,fY+fH); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(fX,fY+fH*0.5); ctx.lineTo(fX+fW,fY+fH*0.5); ctx.stroke();
+    if (installation==='surface') {
+      const sillG=ctx.createLinearGradient(0,fY+fH,0,fY+fH+13);
+      sillG.addColorStop(0,'#D0C8BC'); sillG.addColorStop(1,'#BCAEA0');
+      ctx.fillStyle=sillG; ctx.fillRect(fX-7,fY+fH,fW+14,13);
+    }
+  }
+
+  // MOUNTING HARDWARE
+  if (mounting==='ceiling' && installation!=='recessed') {
+    const bkG=ctx.createLinearGradient(bX,bY-13,bX,bY);
+    bkG.addColorStop(0,'#5A5048'); bkG.addColorStop(1,'#3C3630');
+    ctx.fillStyle=bkG; ctx.fillRect(bX,bY-13,bW,13);
+    const bc=Math.max(2,Math.floor(bW/80));
+    for (let i=0; i<=bc; i++) {
+      ctx.fillStyle='#C9A96E'; ctx.fillRect(bX+(bW/bc)*i-3,bY-18,6,7);
+    }
+  }
+
+  // BLIND
+  const headerH=10, bundleH=bH*0.12;
+  const blindTopY=bY+headerH, closedBottom=bY+bH, openBottom=bY+headerH+bundleH;
+  const blindBottomY=closedBottom-(closedBottom-openBottom)*progress;
+  const currentBlindH=blindBottomY-blindTopY;
+
+  if (currentBlindH>1) {
+    const totalSlats=Math.max(6,Math.round(heightCm/5));
+    const sH=(bH-headerH)/totalSlats;
+    const visibleSlats=Math.ceil(currentBlindH/sH);
+    ctx.save(); ctx.beginPath(); ctx.rect(bX,blindTopY,bW,currentBlindH); ctx.clip();
+    for (let i=0; i<visibleSlats; i++) {
+      const sy2=blindTopY+i*sH, even=i%2===0;
+      const sg=ctx.createLinearGradient(0,sy2,0,sy2+sH);
+      if (even) { sg.addColorStop(0,wcLighten(blindColor,18)); sg.addColorStop(0.4,blindColor); sg.addColorStop(1,wcDarken(blindColor,22)); }
+      else { sg.addColorStop(0,wcDarken(blindColor,4)); sg.addColorStop(1,wcDarken(blindColor,26)); }
+      ctx.fillStyle=sg; ctx.fillRect(bX+1,sy2+0.5,bW-2,sH-1);
+      ctx.fillStyle=`rgba(201,169,110,${even?0.22:0.06})`; ctx.fillRect(bX+1,sy2+0.5,bW-2,1.5);
+      ctx.fillStyle='rgba(0,0,0,.20)'; ctx.fillRect(bX+1,sy2+sH-2,bW-2,2);
+    }
+    const sheen=ctx.createLinearGradient(bX,0,bX+bW,0);
+    sheen.addColorStop(0,'rgba(255,255,255,.02)'); sheen.addColorStop(0.22,'rgba(255,255,255,.09)');
+    sheen.addColorStop(0.78,'rgba(255,255,255,.02)'); sheen.addColorStop(1,'rgba(0,0,0,.07)');
+    ctx.fillStyle=sheen; ctx.fillRect(bX,blindTopY,bW,currentBlindH);
+    ctx.restore();
+    ctx.fillStyle=wcDarken(blindColor,8); ctx.fillRect(bX+1,blindBottomY-4,bW-2,4);
+    ctx.fillStyle='rgba(0,0,0,.18)'; ctx.fillRect(bX+1,blindBottomY-1,bW-2,1);
+  }
+
+  // HEADER RAIL
+  const railG=ctx.createLinearGradient(bX,bY,bX,bY+headerH);
+  railG.addColorStop(0,'#252525'); railG.addColorStop(1,'#181818');
+  ctx.fillStyle=railG; ctx.fillRect(bX,bY,bW,headerH);
+  ctx.fillStyle='#C9A96E'; ctx.fillRect(bX+2,bY+2.5,bW-4,1.5);
+  ctx.fillStyle='rgba(255,255,255,.06)'; ctx.fillRect(bX,bY,bW,2);
+
+  // CORD
+  const cordX=bX+bW*0.86;
+  const tassleY=Math.max(blindBottomY-4,bY+headerH+8);
+  ctx.strokeStyle='rgba(201,169,110,.55)'; ctx.lineWidth=1.5; ctx.setLineDash([]);
+  ctx.beginPath(); ctx.moveTo(cordX,bY+headerH); ctx.lineTo(cordX,tassleY); ctx.stroke();
+  ctx.fillStyle='#C9A96E'; ctx.beginPath(); ctx.arc(cordX,tassleY,3.5,0,Math.PI*2); ctx.fill();
+
+  // SIDE CHANNELS (recessed)
+  if (installation==='recessed') {
+    ctx.fillStyle='#181818';
+    ctx.fillRect(bX-4,bY,4,bH); ctx.fillRect(bX+bW,bY,4,bH);
+  }
+
+  // DIMENSION ANNOTATIONS
+  const ann=4;
+  const wAnnY=bY+bH+20;
+  ctx.setLineDash([3,3]); ctx.strokeStyle='rgba(201,169,110,.32)'; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.moveTo(bX,bY+bH+2); ctx.lineTo(bX,wAnnY-2); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(bX+bW,bY+bH+2); ctx.lineTo(bX+bW,wAnnY-2); ctx.stroke();
+  ctx.setLineDash([]); ctx.strokeStyle='rgba(201,169,110,.60)';
+  ctx.beginPath(); ctx.moveTo(bX,wAnnY); ctx.lineTo(bX+bW,wAnnY); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(bX,wAnnY); ctx.lineTo(bX+ann,wAnnY-3); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(bX,wAnnY); ctx.lineTo(bX+ann,wAnnY+3); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(bX+bW,wAnnY); ctx.lineTo(bX+bW-ann,wAnnY-3); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(bX+bW,wAnnY); ctx.lineTo(bX+bW-ann,wAnnY+3); ctx.stroke();
+  ctx.font="bold 11px 'DM Sans',sans-serif"; ctx.fillStyle='#C9A96E'; ctx.textAlign='center';
+  ctx.fillText(widthCm+' cm', bX+bW/2, wAnnY+13);
+  const hAnnX=bX-22;
+  ctx.setLineDash([3,3]); ctx.strokeStyle='rgba(201,169,110,.32)';
+  ctx.beginPath(); ctx.moveTo(bX-2,bY); ctx.lineTo(hAnnX-2,bY); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(bX-2,bY+bH); ctx.lineTo(hAnnX-2,bY+bH); ctx.stroke();
+  ctx.setLineDash([]); ctx.strokeStyle='rgba(201,169,110,.60)';
+  ctx.beginPath(); ctx.moveTo(hAnnX,bY); ctx.lineTo(hAnnX,bY+bH); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(hAnnX,bY); ctx.lineTo(hAnnX-3,bY+ann); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(hAnnX,bY); ctx.lineTo(hAnnX+3,bY+ann); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(hAnnX,bY+bH); ctx.lineTo(hAnnX-3,bY+bH-ann); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(hAnnX,bY+bH); ctx.lineTo(hAnnX+3,bY+bH-ann); ctx.stroke();
+  ctx.save(); ctx.translate(hAnnX-9,bY+bH/2); ctx.rotate(-Math.PI/2);
+  ctx.textAlign='center'; ctx.fillStyle='#C9A96E';
+  ctx.fillText(heightCm+' cm', 0, 0); ctx.restore();
+}
+
+// ── CONFIGURATOR SETUP ──────────────────────────────────────────────────────
+function setupWindowConfigurator(canvasId, accentColor) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  let state = { widthCm:120, heightCm:150, installation:'surface', mounting:'frame', blindColor:'#2A2A2A', isOpen:false };
+  let progressRef = 0;
+  let rafId = 0;
+
+  function render(prog) {
+    const dpr = window.devicePixelRatio || 1;
+    const W = canvas.width / dpr, H = canvas.height / dpr;
+    ctx.save(); ctx.scale(dpr, dpr);
+    drawWindowCanvas(ctx, W, H, state, prog);
+    ctx.restore();
+  }
+
+  function animateTo(target) {
+    cancelAnimationFrame(rafId);
+    const start = progressRef, t0 = performance.now(), dur = 500;
+    function ease(t) { return t<0.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2; }
+    function tick(now) {
+      const t = Math.min(1,(now-t0)/dur);
+      progressRef = start + (target-start)*ease(t);
+      render(progressRef);
+      if (t<1) rafId = requestAnimationFrame(tick);
+      else progressRef = target;
+    }
+    rafId = requestAnimationFrame(tick);
+  }
+
+  function setupCanvas() {
+    const dpr = window.devicePixelRatio || 1;
+    const rect = canvas.getBoundingClientRect();
+    if (!rect.width) return;
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
+    render(progressRef);
+  }
+
+  const ro = new ResizeObserver(setupCanvas);
+  ro.observe(canvas);
+  setupCanvas();
+
+  // Width slider
+  const widthSlider = document.getElementById('wc-width');
+  const widthVal = document.getElementById('wc-width-val');
+  if (widthSlider) {
+    widthSlider.addEventListener('input', () => {
+      state.widthCm = parseInt(widthSlider.value);
+      if (widthVal) widthVal.textContent = widthSlider.value;
+      render(progressRef);
+    });
+  }
+
+  // Height slider
+  const heightSlider = document.getElementById('wc-height');
+  const heightVal = document.getElementById('wc-height-val');
+  if (heightSlider) {
+    heightSlider.addEventListener('input', () => {
+      state.heightCm = parseInt(heightSlider.value);
+      if (heightVal) heightVal.textContent = heightSlider.value;
+      render(progressRef);
+    });
+  }
+
+  // Color swatches
+  document.querySelectorAll('[data-wc-color]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.blindColor = btn.dataset.wcColor;
+      document.querySelectorAll('[data-wc-color]').forEach(b => b.classList.remove('wc-active'));
+      btn.classList.add('wc-active');
+      render(progressRef);
+    });
+  });
+
+  // Installation type
+  document.querySelectorAll('[data-wc-install]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.installation = btn.dataset.wcInstall;
+      if (state.installation==='recessed') state.mounting='frame';
+      if (state.installation==='fullWall') state.mounting='ceiling';
+      document.querySelectorAll('[data-wc-install]').forEach(b => b.classList.remove('wc-active'));
+      btn.classList.add('wc-active');
+      render(progressRef);
+    });
+  });
+
+  // Mounting
+  document.querySelectorAll('[data-wc-mount]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.mounting = btn.dataset.wcMount;
+      document.querySelectorAll('[data-wc-mount]').forEach(b => b.classList.remove('wc-active'));
+      btn.classList.add('wc-active');
+      render(progressRef);
+    });
+  });
+
+  // Open/Closed toggle
+  const btnClosed = document.getElementById('wc-toggle-closed');
+  const btnOpen = document.getElementById('wc-toggle-open');
+  if (btnClosed) btnClosed.addEventListener('click', () => { state.isOpen=false; animateTo(0); btnClosed.classList.add('wc-active'); if(btnOpen) btnOpen.classList.remove('wc-active'); });
+  if (btnOpen) btnOpen.addEventListener('click', () => { state.isOpen=true; animateTo(1); btnOpen.classList.add('wc-active'); if(btnClosed) btnClosed.classList.remove('wc-active'); });
+}
+  </script>
+
+  <!-- ── ANIMATIONS ─────────────────────────────────────────────────────── -->
+  <script type="module">
+    import { animate, inView } from 'https://esm.sh/motion';
+
+    // Hero entrance
+    animate('.hero-eyebrow', { opacity: [0, 1], y: [18, 0] }, { duration: 0.65, delay: 0.15, easing: 'ease-out' });
+    animate('.hero-h1',      { opacity: [0, 1], y: [24, 0] }, { duration: 0.7,  delay: 0.35, easing: 'ease-out' });
+    animate('.hero-sub',     { opacity: [0, 1], y: [18, 0] }, { duration: 0.65, delay: 0.55, easing: 'ease-out' });
+    animate('.hero-btns',    { opacity: [0, 1], y: [14, 0] }, { duration: 0.6,  delay: 0.75, easing: 'ease-out' });
+
+    // Stat items
+    inView('#stats', () => {
+      animate('.stat-item', { opacity: [0, 1], y: [20, 0] }, { delay: (_, i) => i * 0.1, duration: 0.55, easing: 'ease-out' });
+    });
+
+    // Service cards
+    inView('#services .services-grid', () => {
+      animate('.service-card', { opacity: [0, 1], y: [28, 0] }, { delay: (_, i) => i * 0.08, duration: 0.55, easing: 'ease-out' });
+    });
+
+    // Benefits
+    inView('#benefits .benefits-grid', () => {
+      animate('.benefit-card', { opacity: [0, 1], y: [24, 0] }, { delay: (_, i) => i * 0.1, duration: 0.55, easing: 'ease-out' });
+    });
+
+    // Gallery
+    inView('#gallery .gallery-grid', () => {
+      animate('.gallery-item', { opacity: [0, 1] }, { delay: (_, i) => i * 0.12, duration: 0.6, easing: 'ease-out' });
+    });
+
+    // Testimonials
+    inView('#testimonials .testimonials-grid', () => {
+      animate('.testimonial-card', { opacity: [0, 1], y: [20, 0] }, { delay: (_, i) => i * 0.12, duration: 0.55, easing: 'ease-out' });
+    });
+
+    // CTA title
+    inView('#cta', () => {
+      animate('.cta-title', { opacity: [0, 1], y: [20, 0] }, { duration: 0.65, easing: 'ease-out' });
+      animate('.cta-sub',   { opacity: [0, 1], y: [14, 0] }, { duration: 0.55, delay: 0.15, easing: 'ease-out' });
+      animate('.cta-btns',  { opacity: [0, 1], y: [12, 0] }, { duration: 0.5,  delay: 0.28, easing: 'ease-out' });
+    });
+
+    // Init configurator
+    setupWindowConfigurator('wc-canvas', '#C4B896');
+  </script>
+
+</body>
+</html>

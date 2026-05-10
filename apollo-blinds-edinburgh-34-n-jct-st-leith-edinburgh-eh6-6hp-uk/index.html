@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apollo Blinds Edinburgh — Superior Window Blinds Since 1972</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #150A0F;
+      --text: #F2EAE0;
+      --accent: #C4956A;
+      --accent-dim: rgba(196,149,106,0.18);
+      --accent-line: rgba(196,149,106,0.35);
+      --dark-panel: #200F15;
+      --muted: rgba(242,234,224,0.55);
+      --border: rgba(242,234,224,0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Lato', sans-serif;
+      font-weight: 400;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 68px;
+      background: rgba(21,10,15,0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+    }
+
+    .nav-logo-text {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text);
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-badge {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 2px 7px;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: #150A0F !important;
+      padding: 0.52rem 1.3rem;
+      border-radius: 3px;
+      font-weight: 700 !important;
+      font-size: 0.82rem !important;
+      letter-spacing: 0.08em !important;
+      white-space: nowrap !important;
+      transition: opacity 0.2s !important;
+    }
+
+    .nav-cta:hover { opacity: 0.88; color: #150A0F !important; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 5rem;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.22) saturate(0.6);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(21,10,15,0.35) 0%,
+        rgba(21,10,15,0.10) 40%,
+        rgba(21,10,15,0.65) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 820px;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.4rem;
+      opacity: 0;
+    }
+
+    .hero-title {
+      font-family: 'Bodoni Moda', serif;
+      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 1.4rem;
+      opacity: 0;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 580px;
+      margin: 0 auto 2.4rem;
+      font-weight: 300;
+      letter-spacing: 0.02em;
+      opacity: 0;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 52px;
+      padding: 0 2rem;
+      background: var(--accent);
+      color: #150A0F;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 3px;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-primary:hover { opacity: 0.85; }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 52px;
+      padding: 0 2rem;
+      background: transparent;
+      color: var(--text);
+      font-family: 'Lato', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 3px;
+      border: 1px solid rgba(242,234,224,0.4);
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-outline:hover { border-color: var(--text); }
+
+    /* ── STAT BAND ── */
+    .stat-band {
+      background: var(--dark-panel);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 2.2rem 2rem;
+    }
+
+    .stat-band-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      text-align: center;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      padding: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .stat-value {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 1.25rem;
+      color: var(--text);
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 5.5rem 2rem; }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.85rem;
+    }
+
+    .section-title {
+      font-family: 'Bodoni Moda', serif;
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.18;
+      color: var(--text);
+      margin-bottom: 1.1rem;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 520px;
+    }
+
+    .center { text-align: center; }
+    .center .section-sub { margin: 0 auto; }
+
+    /* ── SERVICES ── */
+    .services { background: var(--dark-panel); }
+
+    .services-grid {
+      max-width: 1100px;
+      margin: 3rem auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .service-card {
+      background: var(--bg);
+      padding: 2.4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      transition: background 0.2s;
+    }
+
+    .service-card:hover { background: rgba(196,149,106,0.05); }
+
+    .service-icon {
+      width: 44px;
+      height: 44px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .service-name {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .service-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── CONFIGURATOR ── */
+    .configurator { background: var(--bg); }
+
+    .configurator-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 2.5rem;
+      align-items: start;
+      margin-top: 3rem;
+    }
+
+    .canvas-wrap {
+      background: #EDE8E0;
+      border-radius: 4px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      position: relative;
+    }
+
+    #wc-canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .controls-panel {
+      background: var(--dark-panel);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+
+    .ctrl-group { display: flex; flex-direction: column; gap: 0.7rem; }
+
+    .ctrl-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .ctrl-slider-row {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .ctrl-slider {
+      flex: 1;
+      appearance: none;
+      height: 3px;
+      background: rgba(196,149,106,0.25);
+      border-radius: 2px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .ctrl-slider::-webkit-slider-thumb {
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+      border: 2px solid var(--dark-panel);
+    }
+
+    .ctrl-slider::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+      border: 2px solid var(--dark-panel);
+    }
+
+    .ctrl-val {
+      font-size: 0.85rem;
+      color: var(--text);
+      min-width: 52px;
+      text-align: right;
+      font-weight: 700;
+    }
+
+    .ctrl-swatches {
+      display: flex;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+    }
+
+    .ctrl-swatch {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2.5px solid transparent;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      outline: none;
+    }
+
+    .ctrl-swatch.wc-active,
+    .ctrl-swatch:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(196,149,106,0.35);
+    }
+
+    .ctrl-btn-group {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .ctrl-btn {
+      flex: 1;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      color: var(--muted);
+      font-family: 'Lato', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+
+    .ctrl-btn.wc-active,
+    .ctrl-btn:hover {
+      background: var(--accent-dim);
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .ctrl-divider {
+      height: 1px;
+      background: var(--border);
+    }
+
+    .ctrl-cta {
+      width: 100%;
+      height: 48px;
+      background: var(--accent);
+      color: #150A0F;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: opacity 0.2s;
+    }
+
+    .ctrl-cta:hover { opacity: 0.85; }
+
+    /* ── BENEFITS ── */
+    .benefits { background: var(--dark-panel); }
+
+    .benefits-grid {
+      max-width: 1000px;
+      margin: 3rem auto 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .benefit-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .benefit-icon {
+      width: 48px;
+      height: 48px;
+      color: var(--accent);
+    }
+
+    .benefit-title {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .benefit-desc {
+      font-size: 0.87rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── GALLERY ── */
+    .gallery { background: var(--bg); }
+
+    .gallery-grid {
+      max-width: 1160px;
+      margin: 3rem auto 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      border-radius: 3px;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.3s;
+    }
+
+    .gallery-item img:hover { opacity: 0.88; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials { background: var(--dark-panel); }
+
+    .testimonials-grid {
+      max-width: 1100px;
+      margin: 3rem auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .testimonial-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 3px;
+    }
+
+    .star-icon {
+      width: 16px;
+      height: 16px;
+      color: var(--accent);
+    }
+
+    .testimonial-quote {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.7;
+      font-style: italic;
+      flex: 1;
+    }
+
+    .testimonial-author {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .testimonial-name {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .testimonial-loc {
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      background: var(--bg);
+      text-align: center;
+      padding: 6rem 2rem;
+    }
+
+    .final-cta .section-sub { margin: 1rem auto 2.5rem; }
+
+    .final-cta-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark-panel);
+      border-top: 1px solid var(--border);
+      padding: 3rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .footer-logo {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .footer-tagline {
+      font-size: 0.87rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .footer-col h4 {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .footer-col a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover { color: var(--text); }
+
+    .footer-bottom {
+      max-width: 1160px;
+      margin: 2.5rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: rgba(242,234,224,0.35);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .configurator-inner { grid-template-columns: 1fr; }
+      .canvas-wrap { aspect-ratio: 16/9; }
+      .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { display: none; }
+      .stat-band-inner { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .stat-band-inner { grid-template-columns: 1fr 1fr; }
+      .benefits-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-brand">
+      <span class="nav-logo-text">Apollo Blinds Edinburgh</span>
+      <span class="nav-badge">Est. 1972</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Products</a></li>
+      <li><a href="#configurator">Visualise</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="tel:+441316390153" class="nav-cta">Book Appointment</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Leith, Edinburgh &mdash; Premium Window Treatments</p>
+      <h1 class="hero-title">
+        Superior Window Blinds,<br />
+        <em>Expertly Delivered</em><br />
+        Since 1972
+      </h1>
+      <p class="hero-sub">
+        Leith, Edinburgh &mdash; Inspiring Ideas, Premium Quality, Full Guarantee.
+        Free no-obligation design visit at your home.
+      </p>
+      <div class="hero-ctas">
+        <a href="tel:+441316390153" class="btn-primary">Book Free Design Visit</a>
+        <a href="#configurator" class="btn-outline">Visualise Your Blinds</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAT BAND -->
+  <div class="stat-band">
+    <div class="stat-band-inner">
+      <div class="stat-item">
+        <span class="stat-label">Established</span>
+        <span class="stat-value">Since 1972</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Fitting</span>
+        <span class="stat-value">Made-to-Measure</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Consultation</span>
+        <span class="stat-value">Free Design Visit</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Technology</span>
+        <span class="stat-value">Motorised Options</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div style="max-width:1100px;margin:0 auto;" class="center">
+      <p class="section-label">Our Products</p>
+      <h2 class="section-title">Inspiring Ideas, Expertly Delivered</h2>
+      <p class="section-sub">From traditional roller blinds to cutting-edge motorised shutters — every product made to your exact measurements.</p>
+    </div>
+    <div class="services-grid">
+
+      <!-- Roller Blinds -->
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="6" y="8" width="32" height="4" rx="1"/>
+          <line x1="22" y1="12" x2="22" y2="36"/>
+          <rect x="8" y="12" width="28" height="20" rx="1" stroke-opacity="0.5"/>
+          <line x1="8" y1="18" x2="36" y2="18" stroke-opacity="0.4"/>
+          <line x1="8" y1="24" x2="36" y2="24" stroke-opacity="0.4"/>
+          <circle cx="22" cy="36" r="2.5" fill="currentColor" stroke="none"/>
+        </svg>
+        <h3 class="service-name">Roller Blinds</h3>
+        <p class="service-desc">Clean lines and effortless operation. Available in a vast range of fabrics from sheer to blackout, perfectly fitted to your window.</p>
+      </div>
+
+      <!-- Roman Blinds -->
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="6" y="8" width="32" height="3" rx="1"/>
+          <path d="M8 11 Q8 18 8 19 Q22 23 36 19 Q36 18 36 11"/>
+          <path d="M8 19 Q8 26 8 27 Q22 31 36 27 Q36 26 36 19"/>
+          <path d="M8 27 Q8 34 8 35 Q22 37 36 35 Q36 34 36 27"/>
+        </svg>
+        <h3 class="service-name">Roman Blinds</h3>
+        <p class="service-desc">Timeless elegance with soft horizontal folds. A sophisticated choice for living rooms and bedrooms — made from premium fabrics.</p>
+      </div>
+
+      <!-- Venetian Blinds -->
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="6" y="7" width="32" height="3" rx="1"/>
+          <line x1="8" y1="15" x2="36" y2="15"/>
+          <line x1="8" y1="20" x2="36" y2="20"/>
+          <line x1="8" y1="25" x2="36" y2="25"/>
+          <line x1="8" y1="30" x2="36" y2="30"/>
+          <line x1="8" y1="35" x2="36" y2="35"/>
+          <line x1="18" y1="10" x2="18" y2="38" stroke-opacity="0.4"/>
+          <line x1="26" y1="10" x2="26" y2="38" stroke-opacity="0.4"/>
+        </svg>
+        <h3 class="service-name">Venetian Blinds</h3>
+        <p class="service-desc">Precise light control through adjustable slats. Available in aluminium, wood, and faux wood — ideal for any room.</p>
+      </div>
+
+      <!-- Vertical Blinds -->
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="6" y="7" width="32" height="3" rx="1"/>
+          <line x1="11" y1="10" x2="11" y2="37"/>
+          <line x1="17" y1="10" x2="17" y2="37"/>
+          <line x1="23" y1="10" x2="23" y2="37"/>
+          <line x1="29" y1="10" x2="29" y2="37"/>
+          <line x1="35" y1="10" x2="35" y2="37"/>
+          <line x1="9" y1="37" x2="37" y2="37" stroke-opacity="0.5"/>
+        </svg>
+        <h3 class="service-name">Vertical Blinds</h3>
+        <p class="service-desc">The perfect solution for large windows, patio doors, and conservatories. Easy to maintain and available in numerous fabrics.</p>
+      </div>
+
+      <!-- Shutters -->
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="6" y="7" width="32" height="30" rx="2"/>
+          <line x1="22" y1="7" x2="22" y2="37"/>
+          <line x1="8" y1="14" x2="20" y2="14"/>
+          <line x1="8" y1="20" x2="20" y2="20"/>
+          <line x1="8" y1="26" x2="20" y2="26"/>
+          <line x1="8" y1="32" x2="20" y2="32"/>
+          <line x1="24" y1="14" x2="36" y2="14"/>
+          <line x1="24" y1="20" x2="36" y2="20"/>
+          <line x1="24" y1="26" x2="36" y2="26"/>
+          <line x1="24" y1="32" x2="36" y2="32"/>
+          <circle cx="21" cy="22" r="1.2" fill="currentColor" stroke="none"/>
+          <circle cx="23" cy="22" r="1.2" fill="currentColor" stroke="none"/>
+        </svg>
+        <h3 class="service-name">Shutters</h3>
+        <p class="service-desc">Solid wood and MDF plantation shutters that add lasting value and beauty. Full-height, tier-on-tier, café style, and bay window options.</p>
+      </div>
+
+      <!-- Motorised -->
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="6" y="8" width="32" height="4" rx="1"/>
+          <rect x="8" y="12" width="28" height="20" rx="1" stroke-opacity="0.5"/>
+          <line x1="8" y1="17" x2="36" y2="17" stroke-opacity="0.4"/>
+          <line x1="8" y1="22" x2="36" y2="22" stroke-opacity="0.4"/>
+          <path d="M18 32 L22 36 L26 32" stroke-width="1.4"/>
+          <circle cx="32" cy="10" r="3" stroke-width="1.4"/>
+          <path d="M32 7 L32 5M35 8 L37 7M36 11 L38 11" stroke-width="1.2"/>
+        </svg>
+        <h3 class="service-name">Motorised Options</h3>
+        <p class="service-desc">Smart home ready — app and remote-controlled blinds for convenience and privacy at the touch of a button. Compatible with Alexa and Google Home.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONFIGURATOR -->
+  <section class="configurator" id="configurator">
+    <div style="max-width:1160px;margin:0 auto;" class="center">
+      <p class="section-label">Interactive Tool</p>
+      <h2 class="section-title">Visualise Your Blinds</h2>
+      <p class="section-sub">Adjust dimensions, colour, and installation type to see how your new blinds will look — then call us for your free design visit.</p>
+    </div>
+    <div class="configurator-inner">
+      <!-- Canvas -->
+      <div class="canvas-wrap">
+        <canvas id="wc-canvas"></canvas>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls-panel">
+
+        <div class="ctrl-group">
+          <span class="ctrl-label">Width</span>
+          <div class="ctrl-slider-row">
+            <input type="range" id="wc-width" class="ctrl-slider" min="60" max="300" value="120" />
+            <span class="ctrl-val"><span id="wc-width-val">120</span> cm</span>
+          </div>
+        </div>
+
+        <div class="ctrl-group">
+          <span class="ctrl-label">Height</span>
+          <div class="ctrl-slider-row">
+            <input type="range" id="wc-height" class="ctrl-slider" min="60" max="300" value="150" />
+            <span class="ctrl-val"><span id="wc-height-val">150</span> cm</span>
+          </div>
+        </div>
+
+        <div class="ctrl-divider"></div>
+
+        <div class="ctrl-group">
+          <span class="ctrl-label">Blind Colour</span>
+          <div class="ctrl-swatches">
+            <button class="ctrl-swatch wc-active" data-wc-color="#1E1E1E" style="background:#1E1E1E;" aria-label="Midnight Black" title="Midnight Black"></button>
+            <button class="ctrl-swatch" data-wc-color="#DDD5C4" style="background:#DDD5C4;" aria-label="Linen" title="Linen"></button>
+            <button class="ctrl-swatch" data-wc-color="#5B6472" style="background:#5B6472;" aria-label="Slate" title="Slate"></button>
+            <button class="ctrl-swatch" data-wc-color="#C0AA88" style="background:#C0AA88;" aria-label="Sand" title="Sand"></button>
+            <button class="ctrl-swatch" data-wc-color="#7A5C38" style="background:#7A5C38;" aria-label="Walnut" title="Walnut"></button>
+            <button class="ctrl-swatch" data-wc-color="#6A8E6A" style="background:#6A8E6A;" aria-label="Sage" title="Sage"></button>
+          </div>
+        </div>
+
+        <div class="ctrl-divider"></div>
+
+        <div class="ctrl-group">
+          <span class="ctrl-label">Installation</span>
+          <div class="ctrl-btn-group">
+            <button class="ctrl-btn" data-wc-install="recessed">Recessed</button>
+            <button class="ctrl-btn wc-active" data-wc-install="surface">Surface</button>
+            <button class="ctrl-btn" data-wc-install="fullWall">Full Wall</button>
+          </div>
+        </div>
+
+        <div class="ctrl-group">
+          <span class="ctrl-label">Position</span>
+          <div class="ctrl-btn-group">
+            <button class="ctrl-btn wc-active" id="wc-toggle-closed">Closed</button>
+            <button class="ctrl-btn" id="wc-toggle-open">Open</button>
+          </div>
+        </div>
+
+        <div class="ctrl-divider"></div>
+
+        <a href="tel:+441316390153" class="ctrl-cta">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.1 1.22 2 2 0 012.08 0h3a2 2 0 012 1.72c.12.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0122 14.92z"/>
+          </svg>
+          Call +44 131 639 0153
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="benefits" id="benefits">
+    <div style="max-width:1000px;margin:0 auto;" class="center">
+      <p class="section-label">Why Apollo Blinds</p>
+      <h2 class="section-title">Premium Quality, Full Guarantee</h2>
+    </div>
+    <div class="benefits-grid">
+
+      <div class="benefit-item">
+        <svg class="benefit-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="24" cy="24" r="20"/>
+          <path d="M24 12 L24 24 L32 30"/>
+        </svg>
+        <h3 class="benefit-title">50+ Years of Expertise</h3>
+        <p class="benefit-desc">Trusted by Edinburgh homes and businesses since 1972 — a heritage of craftsmanship and reliability.</p>
+      </div>
+
+      <div class="benefit-item">
+        <svg class="benefit-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 24 Q6 12 24 8 Q42 12 42 24 Q42 38 24 42 Q6 38 6 24Z"/>
+          <path d="M16 24 L21 29 L32 18"/>
+        </svg>
+        <h3 class="benefit-title">Inspiring Ideas</h3>
+        <p class="benefit-desc">Our design experts visit your home to help you choose the perfect solution — no pressure, no obligation.</p>
+      </div>
+
+      <div class="benefit-item">
+        <svg class="benefit-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="24,4 30,18 46,18 33,28 38,44 24,34 10,44 15,28 2,18 18,18"/>
+        </svg>
+        <h3 class="benefit-title">Premium Quality</h3>
+        <p class="benefit-desc">Every blind is made to your exact measurements using carefully selected, high-quality materials that stand the test of time.</p>
+      </div>
+
+      <div class="benefit-item">
+        <svg class="benefit-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M24 6 L28 16 H38 L30 22 L33 33 L24 27 L15 33 L18 22 L10 16 H20 Z"/>
+          <path d="M20 36 L24 40 L28 36"/>
+          <line x1="24" y1="40" x2="24" y2="44"/>
+        </svg>
+        <h3 class="benefit-title">Full Guarantee</h3>
+        <p class="benefit-desc">Complete peace of mind with our comprehensive guarantee — professional fitting and aftercare included on every order.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery" id="gallery">
+    <div style="max-width:1160px;margin:0 auto;" class="center">
+      <p class="section-label">Our Work</p>
+      <h2 class="section-title">Fitted Across Edinburgh</h2>
+      <p class="section-sub">A selection of recent installations across Edinburgh homes and commercial properties.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80" alt="Interior blinds installation" loading="lazy" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=800&q=80" alt="Modern window treatment" loading="lazy" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?auto=format&fit=crop&w=800&q=80" alt="Luxury roller blind" loading="lazy" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=800&q=80" alt="Contemporary interior with blinds" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonials">
+    <div style="max-width:1100px;margin:0 auto;" class="center">
+      <p class="section-label">Customer Reviews</p>
+      <h2 class="section-title">Trusted by Edinburgh Homeowners</h2>
+    </div>
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg class="star-icon" viewBox="0 0 16 16" fill="currentColor"><polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,12 3.5,15 5,9.5 1,6 6,6"/></svg>
+          <svg class="star-icon" viewBox="0 0 16 16" fill="currentColor"><polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,12 3.5,15 5,9.5 1,6 6,6"/></svg>
+          <svg class="star-icon" viewBox="0 0 16 16" fill="currentColor"><polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,12 3.5,15 5,9.5 1,6 6,6"/></svg>
+          <svg class="star-icon" viewBox="0 0 16 16" fill="currentColor"><polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,12 3.5,15 5,9.5 1,6 6,6"/></svg>
+          <svg class="star-icon" viewBox="0 0 16 16" fill="currentColor"><polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,12 3.5,15 5,9.5 1,6 6,6"/></svg>
+        </div>
+        <p class="testimonial-quote">"Absolutely first class service from start to finish. The consultant was knowledgeable, helpful, and the shutters fitted to our Leith flat look stunning. Worth every penny."</p>
+        <div class="testimonial-author">
+          <span class="testimonial-name">Margaret T.</span>
+          <span class="testimonial-loc">Leith, Edinburgh</span>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg class="star-icon" viewBox="0 0 16 16" fill="currentColor"><polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,12 3.5,15 5,9.5 1,6 6,6"/></svg>
+          <svg class="star-icon" viewBox="0 0 16 16" fill="currentColor"><polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,12 3.5,15 5,9.5 1,6 6,6"/></svg>
+          <svg class="star-icon" viewBox="0 0 16 16" fill="currentColor"><polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,12 3.5,15 5,9.5 1,6 6,6"/></svg>
+          <svg class="star-icon" viewBox="0 0 16 16" fill="currentColor"><polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,12 3.5,15 5,9.5 1,6 6,6"/></svg>
+          <svg class="star-icon" viewBox="0 0 16 16" fill="currentColor"><polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,12 3.5,15 5,9.5 1,6 6,6"/></svg>
+        </div>
+        <p class="testimonial-quote">"We've used Apollo Blinds twice now — once for our lounge and again for the bedroom. The motorised blinds are a revelation. Fitter was punctual, tidy and professional."</p>
+        <div class="testimonial-author">
+          <span class="testimonial-name">David &amp; Helen R.</span>
+          <span class="testimonial-loc">Newington, Edinburgh</span>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg class="star-icon" viewBox="0 0 16 16" fill="currentColor"><polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,12 3.5,15 5,9.5 1,6 6,6"/></svg>
+          <svg class="star-icon" viewBox="0 0 16 16" fill="currentColor"><polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,12 3.5,15 5,9.5 1,6 6,6"/></svg>
+          <svg class="star-icon" viewBox="0 0 16 16" fill="currentColor"><polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,12 3.5,15 5,9.5 1,6 6,6"/></svg>
+          <svg class="star-icon" viewBox="0 0 16 16" fill="currentColor"><polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,12 3.5,15 5,9.5 1,6 6,6"/></svg>
+          <svg class="star-icon" viewBox="0 0 16 16" fill="currentColor"><polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,12 3.5,15 5,9.5 1,6 6,6"/></svg>
+        </div>
+        <p class="testimonial-quote">"The whole process was effortless. From the home consultation to the fitting, everyone was friendly and knowledgeable. The Roman blinds look incredibly elegant — exactly what I wanted."</p>
+        <div class="testimonial-author">
+          <span class="testimonial-name">Fiona M.</span>
+          <span class="testimonial-loc">Morningside, Edinburgh</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta" id="contact">
+    <p class="section-label">Get Started</p>
+    <h2 class="section-title">Ready to Transform Your Windows?</h2>
+    <p class="section-sub">Book a free, no-obligation design visit and let our experts bring inspiring ideas directly to your home.</p>
+    <div class="final-cta-btns">
+      <a href="tel:+441316390153" class="btn-primary">Call +44 131 639 0153</a>
+      <a href="mailto:edinburgh@apollo-blinds.co.uk" class="btn-outline">Email Us</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">Apollo Blinds Edinburgh</span>
+        <p class="footer-tagline">Superior window blinds and shutters, made-to-measure for your home. Inspiring ideas, expertly delivered since 1972.</p>
+        <p style="font-size:0.85rem;color:var(--muted);">34 N Jct St, Leith<br />Edinburgh EH6 6HP, UK</p>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="#services">Roller Blinds</a></li>
+          <li><a href="#services">Roman Blinds</a></li>
+          <li><a href="#services">Venetian Blinds</a></li>
+          <li><a href="#services">Vertical Blinds</a></li>
+          <li><a href="#services">Shutters</a></li>
+          <li><a href="#services">Motorised Options</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+441316390153">+44 131 639 0153</a></li>
+          <li><a href="mailto:edinburgh@apollo-blinds.co.uk">edinburgh@apollo-blinds.co.uk</a></li>
+          <li><a href="#configurator">Visualise Your Blinds</a></li>
+          <li><a href="tel:+441316390153">Book Free Design Visit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 Apollo Blinds Edinburgh. All rights reserved.</span>
+      <span class="footer-copy">34 N Jct St, Leith, Edinburgh EH6 6HP</span>
+    </div>
+  </footer>
+
+  <!-- WINDOW CANVAS SCRIPT (inlined from _shared/window-canvas.js) -->
+  <script>
+// Window Configurator — Vanilla JS port from LuxuryBlind project
+// drawCanvas, setupConfigurator — embed inline in each demo HTML
+
+function wcLighten(hex, amt) {
+  const n = parseInt(hex.replace('#', ''), 16);
+  const r = Math.min(255, (n >> 16) + amt);
+  const g = Math.min(255, ((n >> 8) & 0xff) + amt);
+  const b = Math.min(255, (n & 0xff) + amt);
+  return '#' + r.toString(16).padStart(2,'0') + g.toString(16).padStart(2,'0') + b.toString(16).padStart(2,'0');
+}
+function wcDarken(hex, amt) { return wcLighten(hex, -amt); }
+
+function drawWindowCanvas(ctx, W, H, params, progress) {
+  const { widthCm, heightCm, installation, mounting, blindColor } = params;
+  ctx.clearRect(0, 0, W, H);
+
+  // ROOM SCENE
+  ctx.fillStyle = '#F0EEE9';
+  ctx.fillRect(0, 0, W, H * 0.10);
+
+  const wallG = ctx.createLinearGradient(0, H*0.10, W, H*0.85);
+  wallG.addColorStop(0, '#ECEAE5');
+  wallG.addColorStop(0.45, '#F4F1EC');
+  wallG.addColorStop(1, '#ECEAE5');
+  ctx.fillStyle = wallG;
+  ctx.fillRect(0, H*0.10, W, H*0.75);
+
+  const wallEdge = ctx.createLinearGradient(0, 0, W, 0);
+  wallEdge.addColorStop(0, 'rgba(0,0,0,.05)');
+  wallEdge.addColorStop(0.18, 'rgba(0,0,0,0)');
+  wallEdge.addColorStop(0.82, 'rgba(0,0,0,0)');
+  wallEdge.addColorStop(1, 'rgba(0,0,0,.05)');
+  ctx.fillStyle = wallEdge;
+  ctx.fillRect(0, H*0.10, W, H*0.75);
+
+  ctx.fillStyle = '#E4E0D9';
+  ctx.fillRect(0, H*0.095, W, H*0.012);
+  ctx.fillStyle = 'rgba(0,0,0,.07)';
+  ctx.fillRect(0, H*0.095 + H*0.012, W, 2);
+
+  // Floor
+  const floorY = H*0.85, floorH = H*0.15;
+  const floorBase = ctx.createLinearGradient(0, floorY, 0, floorY+floorH);
+  floorBase.addColorStop(0, '#B89860');
+  floorBase.addColorStop(1, '#9A7D48');
+  ctx.fillStyle = floorBase;
+  ctx.fillRect(0, floorY, W, floorH);
+
+  const plankW = W/7;
+  for (let i=0; i<7; i++) {
+    ctx.fillStyle = i%2===0 ? 'rgba(255,255,255,.04)' : 'rgba(0,0,0,.035)';
+    ctx.fillRect(i*plankW, floorY, plankW, floorH);
+    ctx.strokeStyle = 'rgba(0,0,0,.09)'; ctx.lineWidth = 0.5;
+    ctx.beginPath(); ctx.moveTo(i*plankW, floorY); ctx.lineTo(i*plankW, floorY+floorH); ctx.stroke();
+  }
+  ctx.strokeStyle = 'rgba(80,50,15,.10)'; ctx.lineWidth = 0.4;
+  for (let i=1; i<5; i++) {
+    ctx.beginPath(); ctx.moveTo(0, floorY+(floorH/5)*i); ctx.lineTo(W, floorY+(floorH/5)*i); ctx.stroke();
+  }
+  const floorHL = ctx.createLinearGradient(0, floorY, 0, floorY+floorH*0.28);
+  floorHL.addColorStop(0, 'rgba(255,255,255,.12)');
+  floorHL.addColorStop(1, 'rgba(255,255,255,0)');
+  ctx.fillStyle = floorHL; ctx.fillRect(0, floorY, W, floorH*0.28);
+
+  ctx.fillStyle = '#E0DAD0'; ctx.fillRect(0, H*0.838, W, H*0.016);
+  ctx.fillStyle = 'rgba(0,0,0,.08)'; ctx.fillRect(0, H*0.838+H*0.016, W, 2);
+
+  // WINDOW GEOMETRY
+  const aspect = widthCm / heightCm;
+  let fX, fY, fW, fH;
+  if (installation === 'fullWall') {
+    fW = Math.min(W*0.86, H*0.70*aspect);
+    fH = fW/aspect;
+    if (fH>H*0.70) { fH=H*0.70; fW=fH*aspect; }
+    fX=(W-fW)/2; fY=H*0.12;
+  } else {
+    const maxW=W*0.62, maxH=H*0.60;
+    fW=Math.min(maxW, maxH*aspect);
+    fH=fW/aspect;
+    if (fH>maxH) { fH=maxH; fW=fH*aspect; }
+    fX=(W-fW)/2; fY=H*0.165;
+  }
+
+  let bX, bY, bW, bH;
+  if (installation==='recessed') { bX=fX+4; bY=fY; bW=fW-8; bH=fH; }
+  else if (installation==='fullWall') { bX=fX; bY=fY; bW=fW; bH=fH; }
+  else { bX=fX-8; bY=fY-14; bW=fW+16; bH=fH+19; }
+
+  // RECESSED REVEAL
+  if (installation==='recessed') {
+    const d=12;
+    ctx.fillStyle='#D8D0C4';
+    ctx.beginPath(); ctx.moveTo(fX,fY); ctx.lineTo(fX-d,fY-d); ctx.lineTo(fX+fW+d,fY-d); ctx.lineTo(fX+fW,fY); ctx.closePath(); ctx.fill();
+    const topRS=ctx.createLinearGradient(0,fY-d,0,fY);
+    topRS.addColorStop(0,'rgba(0,0,0,.10)'); topRS.addColorStop(1,'rgba(0,0,0,.02)');
+    ctx.fillStyle=topRS;
+    ctx.beginPath(); ctx.moveTo(fX,fY); ctx.lineTo(fX-d,fY-d); ctx.lineTo(fX+fW+d,fY-d); ctx.lineTo(fX+fW,fY); ctx.closePath(); ctx.fill();
+    ctx.fillStyle='#BDB5A8';
+    ctx.beginPath(); ctx.moveTo(fX,fY); ctx.lineTo(fX-d,fY-d); ctx.lineTo(fX-d,fY+fH+d); ctx.lineTo(fX,fY+fH); ctx.closePath(); ctx.fill();
+    ctx.fillStyle='#E2D9CC';
+    ctx.beginPath(); ctx.moveTo(fX+fW,fY); ctx.lineTo(fX+fW+d,fY-d); ctx.lineTo(fX+fW+d,fY+fH+d); ctx.lineTo(fX+fW,fY+fH); ctx.closePath(); ctx.fill();
+    ctx.fillStyle='#CEC6B8';
+    ctx.beginPath(); ctx.moveTo(fX,fY+fH); ctx.lineTo(fX-d,fY+fH+d); ctx.lineTo(fX+fW+d,fY+fH+d); ctx.lineTo(fX+fW,fY+fH); ctx.closePath(); ctx.fill();
+  }
+
+  // GLASS / OUTDOOR SCENE
+  ctx.save(); ctx.beginPath(); ctx.rect(fX,fY,fW,fH); ctx.clip();
+  const skyG=ctx.createLinearGradient(fX,fY,fX,fY+fH*0.55);
+  skyG.addColorStop(0,'#4898C8'); skyG.addColorStop(0.55,'#88C8E8'); skyG.addColorStop(1,'#B8E2F6');
+  ctx.fillStyle=skyG; ctx.fillRect(fX,fY,fW,fH*0.55);
+  const hazeG=ctx.createLinearGradient(fX,fY+fH*0.45,fX,fY+fH*0.58);
+  hazeG.addColorStop(0,'rgba(255,252,235,0)'); hazeG.addColorStop(1,'rgba(255,252,235,.38)');
+  ctx.fillStyle=hazeG; ctx.fillRect(fX,fY+fH*0.45,fW,fH*0.14);
+  const groundG=ctx.createLinearGradient(fX,fY+fH*0.55,fX,fY+fH);
+  groundG.addColorStop(0,'#78BC52'); groundG.addColorStop(0.55,'#5A9C38'); groundG.addColorStop(1,'#3C7820');
+  ctx.fillStyle=groundG; ctx.fillRect(fX,fY+fH*0.55,fW,fH*0.45);
+  const treePos=[0.12,0.42,0.72];
+  for (const tx of treePos) {
+    const tBaseX=fX+fW*tx, tBaseY=fY+fH*0.55, tHt=fH*0.22;
+    ctx.fillStyle='rgba(60,40,20,.40)'; ctx.fillRect(tBaseX-fW*0.008,tBaseY-tHt*0.28,fW*0.016,tHt*0.28);
+    ctx.fillStyle='rgba(35,80,28,.50)';
+    ctx.beginPath(); ctx.moveTo(tBaseX-fW*0.065,tBaseY-tHt*0.28); ctx.lineTo(tBaseX+fW*0.065,tBaseY-tHt*0.28); ctx.lineTo(tBaseX,tBaseY-tHt*0.62); ctx.closePath(); ctx.fill();
+    ctx.fillStyle='rgba(30,75,22,.55)';
+    ctx.beginPath(); ctx.moveTo(tBaseX-fW*0.05,tBaseY-tHt*0.52); ctx.lineTo(tBaseX+fW*0.05,tBaseY-tHt*0.52); ctx.lineTo(tBaseX,tBaseY-tHt*0.86); ctx.closePath(); ctx.fill();
+    ctx.fillStyle='rgba(25,70,18,.55)';
+    ctx.beginPath(); ctx.moveTo(tBaseX-fW*0.034,tBaseY-tHt*0.74); ctx.lineTo(tBaseX+fW*0.034,tBaseY-tHt*0.74); ctx.lineTo(tBaseX,tBaseY-tHt); ctx.closePath(); ctx.fill();
+  }
+  const sx=fX+fW*0.78, sy=fY+fH*0.13;
+  const sunG=ctx.createRadialGradient(sx,sy,0,sx,sy,fW*0.11);
+  sunG.addColorStop(0,'rgba(255,242,100,.95)'); sunG.addColorStop(0.45,'rgba(255,218,50,.50)'); sunG.addColorStop(1,'rgba(255,200,30,0)');
+  ctx.fillStyle=sunG; ctx.beginPath(); ctx.arc(sx,sy,fW*0.11,0,Math.PI*2); ctx.fill();
+  const cs=fW/180;
+  ctx.fillStyle='rgba(255,255,255,.88)';
+  const cx2=fX+fW*0.16, cy2=fY+fH*0.22;
+  ctx.beginPath(); ctx.arc(cx2,cy2,9*cs,0,Math.PI*2); ctx.arc(cx2+12*cs,cy2-4*cs,7*cs,0,Math.PI*2); ctx.arc(cx2+23*cs,cy2,9*cs,0,Math.PI*2); ctx.fill();
+  const glareG=ctx.createLinearGradient(fX,fY,fX+fW*0.28,fY+fH*0.32);
+  glareG.addColorStop(0,'rgba(255,255,255,.10)'); glareG.addColorStop(0.5,'rgba(255,255,255,.04)'); glareG.addColorStop(1,'rgba(255,255,255,0)');
+  ctx.fillStyle=glareG; ctx.fillRect(fX,fY,fW,fH);
+  ctx.restore();
+
+  // WINDOW FRAME
+  if (installation!=='fullWall') {
+    ctx.fillStyle='rgba(0,0,0,.14)'; ctx.fillRect(fX+2,fY+2,fW,fH);
+    ctx.lineWidth=4.5; ctx.strokeStyle='#8A806E'; ctx.strokeRect(fX,fY,fW,fH);
+    ctx.lineWidth=1; ctx.strokeStyle='#AEA696'; ctx.strokeRect(fX+2.5,fY+2.5,fW-5,fH-5);
+    ctx.lineWidth=3; ctx.strokeStyle='#8A806E';
+    ctx.beginPath(); ctx.moveTo(fX+fW/2,fY); ctx.lineTo(fX+fW/2,fY+fH); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(fX,fY+fH*0.5); ctx.lineTo(fX+fW,fY+fH*0.5); ctx.stroke();
+    if (installation==='surface') {
+      const sillG=ctx.createLinearGradient(0,fY+fH,0,fY+fH+13);
+      sillG.addColorStop(0,'#D0C8BC'); sillG.addColorStop(1,'#BCAEA0');
+      ctx.fillStyle=sillG; ctx.fillRect(fX-7,fY+fH,fW+14,13);
+    }
+  }
+
+  // MOUNTING HARDWARE
+  if (mounting==='ceiling' && installation!=='recessed') {
+    const bkG=ctx.createLinearGradient(bX,bY-13,bX,bY);
+    bkG.addColorStop(0,'#5A5048'); bkG.addColorStop(1,'#3C3630');
+    ctx.fillStyle=bkG; ctx.fillRect(bX,bY-13,bW,13);
+    const bc=Math.max(2,Math.floor(bW/80));
+    for (let i=0; i<=bc; i++) {
+      ctx.fillStyle='#C9A96E'; ctx.fillRect(bX+(bW/bc)*i-3,bY-18,6,7);
+    }
+  }
+
+  // BLIND
+  const headerH=10, bundleH=bH*0.12;
+  const blindTopY=bY+headerH, closedBottom=bY+bH, openBottom=bY+headerH+bundleH;
+  const blindBottomY=closedBottom-(closedBottom-openBottom)*progress;
+  const currentBlindH=blindBottomY-blindTopY;
+
+  if (currentBlindH>1) {
+    const totalSlats=Math.max(6,Math.round(heightCm/5));
+    const sH=(bH-headerH)/totalSlats;
+    const visibleSlats=Math.ceil(currentBlindH/sH);
+    ctx.save(); ctx.beginPath(); ctx.rect(bX,blindTopY,bW,currentBlindH); ctx.clip();
+    for (let i=0; i<visibleSlats; i++) {
+      const sy2=blindTopY+i*sH, even=i%2===0;
+      const sg=ctx.createLinearGradient(0,sy2,0,sy2+sH);
+      if (even) { sg.addColorStop(0,wcLighten(blindColor,18)); sg.addColorStop(0.4,blindColor); sg.addColorStop(1,wcDarken(blindColor,22)); }
+      else { sg.addColorStop(0,wcDarken(blindColor,4)); sg.addColorStop(1,wcDarken(blindColor,26)); }
+      ctx.fillStyle=sg; ctx.fillRect(bX+1,sy2+0.5,bW-2,sH-1);
+      ctx.fillStyle=`rgba(201,169,110,${even?0.22:0.06})`; ctx.fillRect(bX+1,sy2+0.5,bW-2,1.5);
+      ctx.fillStyle='rgba(0,0,0,.20)'; ctx.fillRect(bX+1,sy2+sH-2,bW-2,2);
+    }
+    const sheen=ctx.createLinearGradient(bX,0,bX+bW,0);
+    sheen.addColorStop(0,'rgba(255,255,255,.02)'); sheen.addColorStop(0.22,'rgba(255,255,255,.09)');
+    sheen.addColorStop(0.78,'rgba(255,255,255,.02)'); sheen.addColorStop(1,'rgba(0,0,0,.07)');
+    ctx.fillStyle=sheen; ctx.fillRect(bX,blindTopY,bW,currentBlindH);
+    ctx.restore();
+    ctx.fillStyle=wcDarken(blindColor,8); ctx.fillRect(bX+1,blindBottomY-4,bW-2,4);
+    ctx.fillStyle='rgba(0,0,0,.18)'; ctx.fillRect(bX+1,blindBottomY-1,bW-2,1);
+  }
+
+  // HEADER RAIL
+  const railG=ctx.createLinearGradient(bX,bY,bX,bY+headerH);
+  railG.addColorStop(0,'#252525'); railG.addColorStop(1,'#181818');
+  ctx.fillStyle=railG; ctx.fillRect(bX,bY,bW,headerH);
+  ctx.fillStyle='#C9A96E'; ctx.fillRect(bX+2,bY+2.5,bW-4,1.5);
+  ctx.fillStyle='rgba(255,255,255,.06)'; ctx.fillRect(bX,bY,bW,2);
+
+  // CORD
+  const cordX=bX+bW*0.86;
+  const tassleY=Math.max(blindBottomY-4,bY+headerH+8);
+  ctx.strokeStyle='rgba(201,169,110,.55)'; ctx.lineWidth=1.5; ctx.setLineDash([]);
+  ctx.beginPath(); ctx.moveTo(cordX,bY+headerH); ctx.lineTo(cordX,tassleY); ctx.stroke();
+  ctx.fillStyle='#C9A96E'; ctx.beginPath(); ctx.arc(cordX,tassleY,3.5,0,Math.PI*2); ctx.fill();
+
+  // SIDE CHANNELS (recessed)
+  if (installation==='recessed') {
+    ctx.fillStyle='#181818';
+    ctx.fillRect(bX-4,bY,4,bH); ctx.fillRect(bX+bW,bY,4,bH);
+  }
+
+  // DIMENSION ANNOTATIONS
+  const ann=4;
+  const wAnnY=bY+bH+20;
+  ctx.setLineDash([3,3]); ctx.strokeStyle='rgba(201,169,110,.32)'; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.moveTo(bX,bY+bH+2); ctx.lineTo(bX,wAnnY-2); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(bX+bW,bY+bH+2); ctx.lineTo(bX+bW,wAnnY-2); ctx.stroke();
+  ctx.setLineDash([]); ctx.strokeStyle='rgba(201,169,110,.60)';
+  ctx.beginPath(); ctx.moveTo(bX,wAnnY); ctx.lineTo(bX+bW,wAnnY); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(bX,wAnnY); ctx.lineTo(bX+ann,wAnnY-3); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(bX,wAnnY); ctx.lineTo(bX+ann,wAnnY+3); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(bX+bW,wAnnY); ctx.lineTo(bX+bW-ann,wAnnY-3); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(bX+bW,wAnnY); ctx.lineTo(bX+bW-ann,wAnnY+3); ctx.stroke();
+  ctx.font="bold 11px 'DM Sans',sans-serif"; ctx.fillStyle='#C9A96E'; ctx.textAlign='center';
+  ctx.fillText(widthCm+' cm', bX+bW/2, wAnnY+13);
+  const hAnnX=bX-22;
+  ctx.setLineDash([3,3]); ctx.strokeStyle='rgba(201,169,110,.32)';
+  ctx.beginPath(); ctx.moveTo(bX-2,bY); ctx.lineTo(hAnnX-2,bY); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(bX-2,bY+bH); ctx.lineTo(hAnnX-2,bY+bH); ctx.stroke();
+  ctx.setLineDash([]); ctx.strokeStyle='rgba(201,169,110,.60)';
+  ctx.beginPath(); ctx.moveTo(hAnnX,bY); ctx.lineTo(hAnnX,bY+bH); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(hAnnX,bY); ctx.lineTo(hAnnX-3,bY+ann); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(hAnnX,bY); ctx.lineTo(hAnnX+3,bY+ann); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(hAnnX,bY+bH); ctx.lineTo(hAnnX-3,bY+bH-ann); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(hAnnX,bY+bH); ctx.lineTo(hAnnX+3,bY+bH-ann); ctx.stroke();
+  ctx.save(); ctx.translate(hAnnX-9,bY+bH/2); ctx.rotate(-Math.PI/2);
+  ctx.textAlign='center'; ctx.fillStyle='#C9A96E';
+  ctx.fillText(heightCm+' cm', 0, 0); ctx.restore();
+}
+
+function setupWindowConfigurator(canvasId, accentColor) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  let state = { widthCm:120, heightCm:150, installation:'surface', mounting:'frame', blindColor:'#1E1E1E', isOpen:false };
+  let progressRef = 0;
+  let rafId = 0;
+
+  function render(prog) {
+    const dpr = window.devicePixelRatio || 1;
+    const W = canvas.width / dpr, H = canvas.height / dpr;
+    ctx.save(); ctx.scale(dpr, dpr);
+    drawWindowCanvas(ctx, W, H, state, prog);
+    ctx.restore();
+  }
+
+  function animateTo(target) {
+    cancelAnimationFrame(rafId);
+    const start = progressRef, t0 = performance.now(), dur = 500;
+    function ease(t) { return t<0.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2; }
+    function tick(now) {
+      const t = Math.min(1,(now-t0)/dur);
+      progressRef = start + (target-start)*ease(t);
+      render(progressRef);
+      if (t<1) rafId = requestAnimationFrame(tick);
+      else progressRef = target;
+    }
+    rafId = requestAnimationFrame(tick);
+  }
+
+  function setupCanvas() {
+    const dpr = window.devicePixelRatio || 1;
+    const rect = canvas.getBoundingClientRect();
+    if (!rect.width) return;
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
+    render(progressRef);
+  }
+
+  const ro = new ResizeObserver(setupCanvas);
+  ro.observe(canvas);
+  setupCanvas();
+
+  const widthSlider = document.getElementById('wc-width');
+  const widthVal = document.getElementById('wc-width-val');
+  if (widthSlider) {
+    widthSlider.addEventListener('input', () => {
+      state.widthCm = parseInt(widthSlider.value);
+      if (widthVal) widthVal.textContent = widthSlider.value;
+      render(progressRef);
+    });
+  }
+
+  const heightSlider = document.getElementById('wc-height');
+  const heightVal = document.getElementById('wc-height-val');
+  if (heightSlider) {
+    heightSlider.addEventListener('input', () => {
+      state.heightCm = parseInt(heightSlider.value);
+      if (heightVal) heightVal.textContent = heightSlider.value;
+      render(progressRef);
+    });
+  }
+
+  document.querySelectorAll('[data-wc-color]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.blindColor = btn.dataset.wcColor;
+      document.querySelectorAll('[data-wc-color]').forEach(b => b.classList.remove('wc-active'));
+      btn.classList.add('wc-active');
+      render(progressRef);
+    });
+  });
+
+  document.querySelectorAll('[data-wc-install]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.installation = btn.dataset.wcInstall;
+      if (state.installation==='recessed') state.mounting='frame';
+      if (state.installation==='fullWall') state.mounting='ceiling';
+      document.querySelectorAll('[data-wc-install]').forEach(b => b.classList.remove('wc-active'));
+      btn.classList.add('wc-active');
+      render(progressRef);
+    });
+  });
+
+  document.querySelectorAll('[data-wc-mount]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.mounting = btn.dataset.wcMount;
+      document.querySelectorAll('[data-wc-mount]').forEach(b => b.classList.remove('wc-active'));
+      btn.classList.add('wc-active');
+      render(progressRef);
+    });
+  });
+
+  const btnClosed = document.getElementById('wc-toggle-closed');
+  const btnOpen = document.getElementById('wc-toggle-open');
+  if (btnClosed) btnClosed.addEventListener('click', () => { state.isOpen=false; animateTo(0); btnClosed.classList.add('wc-active'); if(btnOpen) btnOpen.classList.remove('wc-active'); });
+  if (btnOpen) btnOpen.addEventListener('click', () => { state.isOpen=true; animateTo(1); btnOpen.classList.add('wc-active'); if(btnClosed) btnClosed.classList.remove('wc-active'); });
+}
+  </script>
+
+  <!-- MOTION ONE ANIMATIONS + INIT -->
+  <script type="module">
+    import { animate, inView } from 'https://esm.sh/motion';
+
+    // Hero entrance
+    animate('.hero-eyebrow', { opacity: [0, 1], y: [20, 0] }, { duration: 0.7, delay: 0.2, easing: [0.22, 1, 0.36, 1] });
+    animate('.hero-title',   { opacity: [0, 1], y: [30, 0] }, { duration: 0.8, delay: 0.4, easing: [0.22, 1, 0.36, 1] });
+    animate('.hero-sub',     { opacity: [0, 1], y: [20, 0] }, { duration: 0.7, delay: 0.6, easing: [0.22, 1, 0.36, 1] });
+    animate('.hero-ctas',    { opacity: [0, 1], y: [16, 0] }, { duration: 0.7, delay: 0.8, easing: [0.22, 1, 0.36, 1] });
+
+    // Scroll-triggered fade-ups
+    inView('.service-card', ({ target }) => {
+      animate(target, { opacity: [0, 1], y: [24, 0] }, { duration: 0.55, easing: [0.22, 1, 0.36, 1] });
+    }, { margin: '-60px' });
+
+    inView('.benefit-item', ({ target }) => {
+      animate(target, { opacity: [0, 1], y: [20, 0] }, { duration: 0.5, easing: [0.22, 1, 0.36, 1] });
+    }, { margin: '-60px' });
+
+    inView('.gallery-item', ({ target }) => {
+      animate(target, { opacity: [0, 1], y: [18, 0] }, { duration: 0.55, easing: [0.22, 1, 0.36, 1] });
+    }, { margin: '-60px' });
+
+    inView('.testimonial-card', ({ target }) => {
+      animate(target, { opacity: [0, 1], y: [20, 0] }, { duration: 0.55, easing: [0.22, 1, 0.36, 1] });
+    }, { margin: '-60px' });
+
+    inView('.stat-item', ({ target }) => {
+      animate(target, { opacity: [0, 1], y: [12, 0] }, { duration: 0.45, easing: [0.22, 1, 0.36, 1] });
+    }, { margin: '-40px' });
+
+    // Init configurator
+    setupWindowConfigurator('wc-canvas', '#C4956A');
+  </script>
+
+</body>
+</html>

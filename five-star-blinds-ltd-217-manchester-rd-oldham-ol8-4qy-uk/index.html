@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Five Star Blinds Ltd — Made-to-Measure Shutters & Blinds in Oldham</title>
+  <meta name="description" content="Five Star Blinds Ltd offers premium made-to-measure shutters and blinds in Oldham and Greater Manchester. Free no-obligation quote. Expert installation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,500&family=Nunito+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #090E1A;
+      --bg-card: #111827;
+      --bg-card-alt: #0D1525;
+      --text: #F4EFE8;
+      --text-muted: #A9A3B8;
+      --gold: #C9A96E;
+      --gold-light: #E2C898;
+      --gold-dark: #A8864A;
+      --border: #1E2D47;
+      --font-display: 'Bodoni Moda', Georgia, serif;
+      --font-body: 'Nunito Sans', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(9, 14, 26, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201, 169, 110, 0.12);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-shrink: 0;
+    }
+
+    .nav-logo-stars {
+      display: flex;
+      gap: 2px;
+    }
+
+    .nav-logo-stars svg {
+      width: 12px;
+      height: 12px;
+      fill: var(--gold);
+    }
+
+    .nav-links {
+      display: none;
+      list-style: none;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    @media (min-width: 768px) {
+      .nav-links { display: flex; }
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--bg);
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.6rem 1.4rem;
+      border-radius: 2px;
+      white-space: nowrap;
+      border: 2px solid var(--gold);
+      transition: background 0.2s, color 0.2s;
+      flex-shrink: 0;
+    }
+
+    .nav-cta:hover {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1586105251261-72a756497a11?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      will-change: transform;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(9, 14, 26, 0.88) 0%,
+        rgba(9, 14, 26, 0.65) 50%,
+        rgba(9, 14, 26, 0.78) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 860px;
+      padding: 8rem 2rem 4rem;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid rgba(201, 169, 110, 0.35);
+      color: var(--gold);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border-radius: 2px;
+      margin-bottom: 1.75rem;
+      opacity: 0;
+    }
+
+    .hero-badge svg { width: 14px; height: 14px; fill: var(--gold); }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 1rem;
+      opacity: 0;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: rgba(244, 239, 232, 0.72);
+      margin-bottom: 0.5rem;
+      font-weight: 400;
+      opacity: 0;
+    }
+
+    .hero-location {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--gold);
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+    }
+
+    .hero-location svg { width: 14px; height: 14px; fill: var(--gold); }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: var(--gold);
+      color: var(--bg);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 2px;
+      border: 2px solid var(--gold);
+      transition: background 0.22s, color 0.22s;
+      line-height: 1;
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 2px;
+      border: 2px solid rgba(244, 239, 232, 0.35);
+      transition: border-color 0.22s, color 0.22s;
+      line-height: 1;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* ── STAT BAND ── */
+    .stat-band {
+      background: var(--gold);
+      padding: 1rem 2rem;
+      overflow: hidden;
+    }
+
+    .stat-band-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--bg);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .stat-item svg { width: 16px; height: 16px; fill: var(--bg); flex-shrink: 0; }
+
+    /* ── SECTION UTILS ── */
+    section { padding: 5rem 2rem; }
+
+    .section-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .section-body {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      line-height: 1.75;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-header .section-body {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ── SERVICES ── */
+    .services { background: var(--bg-card-alt); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      padding: 2.25rem 2rem;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      transition: border-color 0.25s;
+    }
+
+    .service-card:hover {
+      border-color: rgba(201, 169, 110, 0.3);
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 1.25rem;
+    }
+
+    .service-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .service-name {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.65rem;
+    }
+
+    .service-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ── BENEFITS ── */
+    .benefits-layout {
+      display: grid;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (min-width: 900px) {
+      .benefits-layout { grid-template-columns: 1fr 1fr; }
+    }
+
+    .benefits-image {
+      border-radius: 4px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+
+    .benefits-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .benefits-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .benefit-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .benefit-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(201, 169, 110, 0.1);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .benefit-icon svg { width: 22px; height: 22px; fill: var(--gold); }
+
+    .benefit-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .benefit-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ── GALLERY ── */
+    .gallery { background: var(--bg-card-alt); }
+
+    .gallery-strip {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .gallery-strip { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .gallery-item {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.35s;
+    }
+
+    .gallery-item:hover img { opacity: 0.85; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 768px) {
+      .testimonials-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .testimonial-card {
+      background: var(--bg-card);
+      padding: 2rem;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-stars svg { width: 16px; height: 16px; fill: var(--gold); }
+
+    .testimonial-text {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 1.25rem;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.03em;
+    }
+
+    .testimonial-location {
+      font-size: 0.78rem;
+      color: var(--gold);
+      margin-top: 0.15rem;
+    }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      background: var(--bg-card-alt);
+      text-align: center;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cta-section .section-title { margin-bottom: 0.75rem; }
+    .cta-section .section-body { margin: 0 auto 2rem; }
+
+    .cta-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin: 1.25rem auto;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #060A12;
+      padding: 4rem 2rem 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      gap: 2.5rem;
+      grid-template-columns: 1fr;
+      margin-bottom: 3rem;
+    }
+
+    @media (min-width: 640px) {
+      .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
+    }
+
+    .footer-brand .nav-logo {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-tagline {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 260px;
+    }
+
+    .footer-heading {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.1rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .footer-links a {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--gold); }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 0.65rem;
+    }
+
+    .footer-contact-item svg { width: 15px; height: 15px; fill: var(--gold); flex-shrink: 0; margin-top: 2px; }
+
+    .footer-contact-item a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-contact-item a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.75rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* ── GOLD RULE DIVIDER ── */
+    .gold-rule {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .gold-rule-line { height: 1px; background: var(--gold); width: 40px; }
+
+    /* ── VISIBILITY HELPER (for Motion One) ── */
+    .anim-hidden { opacity: 0; transform: translateY(24px); }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <span class="nav-logo-stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </span>
+      Five Star Blinds
+    </a>
+    <ul class="nav-links">
+      <li><a href="#shutters">Shutters</a></li>
+      <li><a href="#blinds">Blinds</a></li>
+      <li><a href="#gallery">Inspiration</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="tel:+441618849623" class="nav-cta">Free Quote</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg" id="hero-parallax"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge" id="hero-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        Five Star Quality Since Oldham's Finest
+      </div>
+      <h1 class="hero-headline" id="hero-headline">
+        Five Star Window Treatments,<br /><em>Made to Measure</em>
+      </h1>
+      <p class="hero-sub" id="hero-sub">Transform your home with bespoke shutters and blinds, crafted to perfection for every room.</p>
+      <p class="hero-location" id="hero-location">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        Serving Oldham &amp; Greater Manchester
+      </p>
+      <div class="hero-actions" id="hero-actions">
+        <a href="tel:+441618849623" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          Book Free Quote
+        </a>
+        <a href="mailto:info@5starblinds.co.uk" class="btn-ghost">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          Email Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAT BAND -->
+  <div class="stat-band">
+    <div class="stat-band-inner">
+      <div class="stat-item">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+        Made-to-Measure
+      </div>
+      <div class="stat-item">
+        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>
+        Free No-Obligation Quote
+      </div>
+      <div class="stat-item">
+        <svg viewBox="0 0 24 24"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>
+        Expert Installation
+      </div>
+      <div class="stat-item">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        Oldham &amp; Manchester
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="services" id="shutters" style="padding: 5rem 2rem;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Our Products</span>
+        <h2 class="section-title">Premium Shutters &amp; Blinds</h2>
+        <p class="section-body">Every product is made-to-measure to fit your windows perfectly — crafted for beauty, privacy, and light control.</p>
+      </div>
+      <div class="services-grid" id="blinds">
+
+        <!-- Plantation Shutters -->
+        <div class="service-card anim-hidden">
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="8" y="4" width="32" height="40" rx="2" stroke="#C9A96E" stroke-width="2.5"/>
+              <line x1="8" y1="16" x2="40" y2="16" stroke="#C9A96E" stroke-width="2.5"/>
+              <line x1="8" y1="24" x2="40" y2="24" stroke="#C9A96E" stroke-width="2.5"/>
+              <line x1="8" y1="32" x2="40" y2="32" stroke="#C9A96E" stroke-width="2.5"/>
+              <line x1="24" y1="4" x2="24" y2="44" stroke="#C9A96E" stroke-width="2" stroke-dasharray="2 2" opacity="0.5"/>
+              <rect x="12" y="11" width="9" height="3" rx="1" fill="#C9A96E" opacity="0.5"/>
+              <rect x="12" y="19" width="9" height="3" rx="1" fill="#C9A96E" opacity="0.5"/>
+              <rect x="27" y="11" width="9" height="3" rx="1" fill="#C9A96E" opacity="0.5"/>
+              <rect x="27" y="19" width="9" height="3" rx="1" fill="#C9A96E" opacity="0.5"/>
+            </svg>
+          </div>
+          <h3 class="service-name">Plantation Shutters</h3>
+          <p class="service-desc">Timeless full-height or café-style plantation shutters in hardwood, MDF, or ABS. Precision louvres give you complete control over light and privacy — and instantly elevate any interior.</p>
+        </div>
+
+        <!-- Roller Blinds -->
+        <div class="service-card anim-hidden">
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="6" width="36" height="4" rx="2" fill="#C9A96E"/>
+              <rect x="14" y="10" width="20" height="28" rx="1" stroke="#C9A96E" stroke-width="2.5"/>
+              <line x1="14" y1="38" x2="34" y2="38" stroke="#C9A96E" stroke-width="2" stroke-linecap="round"/>
+              <line x1="24" y1="38" x2="24" y2="44" stroke="#C9A96E" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="24" cy="8" r="2" fill="#090E1A"/>
+            </svg>
+          </div>
+          <h3 class="service-name">Roller Blinds</h3>
+          <p class="service-desc">Clean, contemporary roller blinds in blackout, day-night, or sheer fabrics. Available in hundreds of colours and textures to complement any room — from minimal to maximalist.</p>
+        </div>
+
+        <!-- Venetian Blinds -->
+        <div class="service-card anim-hidden">
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="6" width="36" height="4" rx="2" fill="#C9A96E"/>
+              <rect x="8" y="14" width="32" height="3" rx="1" fill="#C9A96E" opacity="0.9"/>
+              <rect x="8" y="21" width="32" height="3" rx="1" fill="#C9A96E" opacity="0.75"/>
+              <rect x="8" y="28" width="32" height="3" rx="1" fill="#C9A96E" opacity="0.6"/>
+              <rect x="8" y="35" width="32" height="3" rx="1" fill="#C9A96E" opacity="0.45"/>
+              <line x1="16" y1="10" x2="16" y2="38" stroke="#C9A96E" stroke-width="1.5" opacity="0.5"/>
+              <line x1="32" y1="10" x2="32" y2="38" stroke="#C9A96E" stroke-width="1.5" opacity="0.5"/>
+            </svg>
+          </div>
+          <h3 class="service-name">Venetian Blinds</h3>
+          <p class="service-desc">Classic aluminium or real-wood Venetian blinds offering infinite light-angle adjustability. Sleek, durable, and ideal for kitchens, offices, and contemporary living spaces.</p>
+        </div>
+
+        <!-- Roman Blinds -->
+        <div class="service-card anim-hidden">
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="6" width="36" height="4" rx="2" fill="#C9A96E"/>
+              <path d="M10 10 L10 18 Q10 20 12 20 L36 20 Q38 20 38 18 L38 10" stroke="#C9A96E" stroke-width="2" fill="rgba(201,169,110,0.15)"/>
+              <path d="M10 20 L10 28 Q10 30 12 30 L36 30 Q38 30 38 28 L38 20" stroke="#C9A96E" stroke-width="2" fill="rgba(201,169,110,0.1)"/>
+              <path d="M10 30 L10 38 Q10 40 12 40 L36 40 Q38 40 38 38 L38 30" stroke="#C9A96E" stroke-width="2" fill="rgba(201,169,110,0.07)"/>
+            </svg>
+          </div>
+          <h3 class="service-name">Roman Blinds</h3>
+          <p class="service-desc">Soft, luxurious Roman blinds that fold elegantly when raised. Choose from our extensive fabric library — linen, velvet, cotton — to create a bespoke look that frames your windows beautifully.</p>
+        </div>
+
+        <!-- Perfect Fit Blinds -->
+        <div class="service-card anim-hidden">
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="4" width="36" height="40" rx="2" stroke="#C9A96E" stroke-width="2.5"/>
+              <rect x="10" y="8" width="28" height="32" rx="1" stroke="#C9A96E" stroke-width="1.5" opacity="0.5"/>
+              <rect x="13" y="11" width="22" height="26" rx="1" fill="rgba(201,169,110,0.1)"/>
+              <path d="M18 24 L22 28 L30 20" stroke="#C9A96E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="service-name">Perfect Fit Blinds</h3>
+          <p class="service-desc">No-drill Perfect Fit blinds clip directly into your window frame — ideal for UPVC and tilt-turn windows. Clean finish, no fuss, no damage. Available as roller, pleated, or Venetian.</p>
+        </div>
+
+        <!-- Replacement Slats -->
+        <div class="service-card anim-hidden">
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="10" width="36" height="5" rx="2" fill="#C9A96E"/>
+              <rect x="6" y="20" width="36" height="5" rx="2" fill="#C9A96E" opacity="0.7"/>
+              <rect x="6" y="30" width="22" height="5" rx="2" fill="#C9A96E" opacity="0.4"/>
+              <path d="M32 30 L44 36 M44 30 L32 36" stroke="#C9A96E" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M36 28 L40 24" stroke="#C9A96E" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="service-name">Replacement Slats</h3>
+          <p class="service-desc">Broken or bent slats? Save money and reduce waste with our replacement slat service. We supply individual Venetian blind slats cut to size — matching your existing colour and width exactly.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section id="why-us" style="padding: 5rem 2rem;">
+    <div class="container">
+      <div class="benefits-layout">
+        <div class="benefits-image anim-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80"
+            alt="Beautiful window shutters in a modern home"
+            loading="lazy"
+          />
+        </div>
+        <div>
+          <span class="section-tag">Why Five Star</span>
+          <h2 class="section-title" style="margin-bottom: 1.5rem;">A Truly Five-Star Experience</h2>
+          <div class="benefits-list">
+
+            <div class="benefit-item anim-hidden">
+              <div class="benefit-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4l6 2.67V11c0 3.74-2.62 7.18-6 8.29C8.62 18.18 6 14.74 6 11V7.67L12 5zm-1 5v2h2V10h-2zm0 4v2h2v-2h-2z"/></svg>
+              </div>
+              <div>
+                <div class="benefit-title">Quality Craftsmanship Guaranteed</div>
+                <p class="benefit-desc">Every blind and shutter is manufactured to precise specifications. We use premium materials and rigorous quality control — so your window treatments look immaculate and last for years.</p>
+              </div>
+            </div>
+
+            <div class="benefit-item anim-hidden">
+              <div class="benefit-icon">
+                <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 9h-2V5h2v6zm0 4h-2v-2h2v2z"/></svg>
+              </div>
+              <div>
+                <div class="benefit-title">Free In-Home Consultation</div>
+                <p class="benefit-desc">Our expert advisors visit you at home, measure every window precisely, and guide you through our full range of styles, fabrics, and finishes. No obligation, no pressure, no charge.</p>
+              </div>
+            </div>
+
+            <div class="benefit-item anim-hidden">
+              <div class="benefit-icon">
+                <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+              </div>
+              <div>
+                <div class="benefit-title">Wide Range, Every Style</div>
+                <p class="benefit-desc">From classic plantation shutters to cutting-edge motorised blinds — we carry an extensive range to suit every taste, budget, and architectural style across Oldham and Greater Manchester.</p>
+              </div>
+            </div>
+
+            <div class="benefit-item anim-hidden">
+              <div class="benefit-icon">
+                <svg viewBox="0 0 24 24"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>
+              </div>
+              <div>
+                <div class="benefit-title">Professional Expert Team</div>
+                <p class="benefit-desc">Our fitters are trained, experienced, and fully insured. They treat your home with care and leave everything clean and tidy — so you can enjoy your new blinds from day one.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery" id="gallery" style="padding: 5rem 2rem;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Inspiration</span>
+        <h2 class="section-title">Beautiful in Every Home</h2>
+        <p class="section-body">See how our shutters and blinds transform real homes across Oldham and Greater Manchester.</p>
+      </div>
+      <div class="gallery-strip">
+        <div class="gallery-item anim-hidden">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80" alt="Modern plantation shutters" loading="lazy" />
+        </div>
+        <div class="gallery-item anim-hidden">
+          <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=800&q=80" alt="Elegant roller blinds in living room" loading="lazy" />
+        </div>
+        <div class="gallery-item anim-hidden">
+          <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="Contemporary window dressings" loading="lazy" />
+        </div>
+        <div class="gallery-item anim-hidden">
+          <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=800&q=80" alt="Luxury interior with venetian blinds" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" style="padding: 5rem 2rem;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Customer Reviews</span>
+        <h2 class="section-title">Trusted Across Greater Manchester</h2>
+        <p class="section-body">Don't just take our word for it — here's what our customers have to say about their Five Star experience.</p>
+      </div>
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card anim-hidden">
+          <div class="testimonial-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-text">"The plantation shutters look absolutely stunning. The team was incredibly professional from first visit to final fitting. Couldn't be more pleased — they've completely transformed our lounge."</p>
+          <div class="testimonial-author">Sarah M.</div>
+          <div class="testimonial-location">Oldham, Greater Manchester</div>
+        </div>
+
+        <div class="testimonial-card anim-hidden">
+          <div class="testimonial-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-text">"Brilliant service from start to finish. Got quotes from three companies — Five Star Blinds were competitively priced and the quality of the Roman blinds is far superior. Highly recommend."</p>
+          <div class="testimonial-author">James &amp; Claire R.</div>
+          <div class="testimonial-location">Royton, Oldham</div>
+        </div>
+
+        <div class="testimonial-card anim-hidden">
+          <div class="testimonial-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-text">"Perfect Fit blinds fitted throughout our house — no drilling, no mess, flawless finish on all UPVC windows. The fitter was polite, efficient, and did a brilliant job. Already recommended to neighbours."</p>
+          <div class="testimonial-author">Priya K.</div>
+          <div class="testimonial-location">Chadderton, Oldham</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section" id="contact" style="padding: 5rem 2rem;">
+    <div class="container" style="max-width: 680px;">
+      <span class="section-tag">Get Started Today</span>
+      <div class="cta-divider"></div>
+      <h2 class="section-title">Ready to Transform Your Windows?</h2>
+      <p class="section-body">Book your free, no-obligation in-home consultation. Our experts will measure, advise, and find the perfect solution for every room — at a price you'll love.</p>
+      <div style="height: 2.25rem;"></div>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+        <a href="tel:+441618849623" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          Call +44 161 884 9623
+        </a>
+        <a href="mailto:info@5starblinds.co.uk" class="btn-ghost">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          Email Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a href="#" class="nav-logo" style="margin-bottom: 1rem; display: inline-flex;">
+            <span class="nav-logo-stars">
+              <svg viewBox="0 0 24 24" width="11" height="11" style="fill: var(--gold);"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" width="11" height="11" style="fill: var(--gold);"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" width="11" height="11" style="fill: var(--gold);"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" width="11" height="11" style="fill: var(--gold);"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" width="11" height="11" style="fill: var(--gold);"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </span>
+            Five Star Blinds
+          </a>
+          <p class="footer-tagline">Made-to-measure shutters and blinds for homes across Oldham and Greater Manchester. Premium quality, expert fitting, outstanding service.</p>
+        </div>
+
+        <div>
+          <div class="footer-heading">Services</div>
+          <ul class="footer-links">
+            <li><a href="#shutters">Plantation Shutters</a></li>
+            <li><a href="#blinds">Roller Blinds</a></li>
+            <li><a href="#blinds">Venetian Blinds</a></li>
+            <li><a href="#blinds">Roman Blinds</a></li>
+            <li><a href="#blinds">Perfect Fit Blinds</a></li>
+            <li><a href="#blinds">Replacement Slats</a></li>
+          </ul>
+        </div>
+
+        <div id="contact-details">
+          <div class="footer-heading">Contact</div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <span>217 Manchester Rd,<br />Oldham OL8 4QY, UK</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            <a href="tel:+441618849623">+44 161 884 9623</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <a href="mailto:info@5starblinds.co.uk">info@5starblinds.co.uk</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+            <span>Mon–Fri: 9am–5:30pm<br />Sat: 9am–4pm</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2025 Five Star Blinds Ltd. All rights reserved.</span>
+        <span>217 Manchester Rd, Oldham OL8 4QY</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOTION ONE ANIMATIONS -->
+  <script type="module">
+    import { animate, inView, stagger } from 'https://esm.sh/motion';
+
+    // Hero entrance sequence
+    animate('#hero-badge', { opacity: [0, 1], y: [20, 0] }, { duration: 0.7, delay: 0.2 });
+    animate('#hero-headline', { opacity: [0, 1], y: [30, 0] }, { duration: 0.85, delay: 0.45 });
+    animate('#hero-sub', { opacity: [0, 1], y: [20, 0] }, { duration: 0.7, delay: 0.7 });
+    animate('#hero-location', { opacity: [0, 1], y: [16, 0] }, { duration: 0.6, delay: 0.9 });
+    animate('#hero-actions', { opacity: [0, 1], y: [20, 0] }, { duration: 0.7, delay: 1.05 });
+
+    // Parallax on hero bg
+    const heroBg = document.getElementById('hero-parallax');
+    if (heroBg && window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+      window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        heroBg.style.transform = `translateY(${y * 0.28}px)`;
+      }, { passive: true });
+    }
+
+    // Generic scroll-in for .anim-hidden elements
+    const hiddenEls = document.querySelectorAll('.anim-hidden');
+
+    hiddenEls.forEach((el) => {
+      inView(el, ({ target }) => {
+        animate(
+          target,
+          { opacity: [0, 1], y: [28, 0] },
+          { duration: 0.65, easing: [0.22, 1, 0.36, 1] }
+        );
+      }, { margin: '-60px' });
+    });
+
+    // Staggered services cards
+    const servicesGrid = document.querySelector('.services-grid');
+    if (servicesGrid) {
+      inView(servicesGrid, () => {
+        const cards = servicesGrid.querySelectorAll('.service-card');
+        animate(
+          cards,
+          { opacity: [0, 1], y: [32, 0] },
+          { delay: stagger(0.1), duration: 0.6, easing: [0.22, 1, 0.36, 1] }
+        );
+      }, { margin: '-80px' });
+    }
+
+    // Staggered gallery
+    const galleryStrip = document.querySelector('.gallery-strip');
+    if (galleryStrip) {
+      inView(galleryStrip, () => {
+        const items = galleryStrip.querySelectorAll('.gallery-item');
+        animate(
+          items,
+          { opacity: [0, 1], y: [24, 0] },
+          { delay: stagger(0.12), duration: 0.6, easing: [0.22, 1, 0.36, 1] }
+        );
+      }, { margin: '-60px' });
+    }
+
+    // Staggered testimonials
+    const testimonialsGrid = document.querySelector('.testimonials-grid');
+    if (testimonialsGrid) {
+      inView(testimonialsGrid, () => {
+        const cards = testimonialsGrid.querySelectorAll('.testimonial-card');
+        animate(
+          cards,
+          { opacity: [0, 1], y: [28, 0] },
+          { delay: stagger(0.15), duration: 0.65, easing: [0.22, 1, 0.36, 1] }
+        );
+      }, { margin: '-60px' });
+    }
+  </script>
+
+</body>
+</html>

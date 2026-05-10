@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shutters 4 Leeds — Bespoke Window Shutters | Leeds & West Yorkshire</title>
+  <meta name="description" content="Leeds' No.1 bespoke interior window shutter specialist. Lifetime guarantee, 0% finance available. Serving Leeds & West Yorkshire. Free home survey." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #141A22;
+      --bg-card:    #1E2733;
+      --bg-mid:     #192028;
+      --ivory:      #EEE8DD;
+      --ivory-dim:  #B8B4AC;
+      --gold:       #C8B89A;
+      --gold-light: #DDD0BB;
+      --gold-dark:  #A89876;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ivory);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── Typography ── */
+    h1, h2, h3, h4 {
+      font-family: 'EB Garamond', serif;
+      line-height: 1.2;
+      color: var(--ivory);
+    }
+    h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 500; }
+    h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 500; }
+    h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
+
+    p { font-size: 0.95rem; color: var(--ivory-dim); }
+
+    .gold { color: var(--gold); }
+    .serif { font-family: 'EB Garamond', serif; }
+
+    /* ── Layout ── */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section { padding: 5rem 0; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(20, 26, 34, 0.97);
+      border-bottom: 1px solid rgba(200, 184, 154, 0.12);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .nav-logo {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.4rem;
+      color: var(--ivory);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ivory-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .btn-nav {
+      display: inline-block;
+      padding: 0.6rem 1.4rem;
+      background: var(--gold);
+      color: var(--bg);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+      border: 2px solid transparent;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-nav:hover {
+      background: var(--gold-light);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.4rem;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      padding: 7rem 0 4rem;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        105deg,
+        rgba(20, 26, 34, 0.93) 0%,
+        rgba(20, 26, 34, 0.75) 60%,
+        rgba(20, 26, 34, 0.45) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+      opacity: 0;
+    }
+
+    .hero h1 {
+      margin-bottom: 1.2rem;
+      opacity: 0;
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--ivory-dim);
+      margin-bottom: 2.4rem;
+      opacity: 0;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      opacity: 0;
+    }
+
+    /* ── BUTTONS ── */
+    .btn-primary,
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 2rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.22s, color 0.22s, border-color 0.22s;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--bg);
+      border: 2px solid transparent;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--ivory);
+      border: 2px solid var(--gold);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(200, 184, 154, 0.1);
+      color: var(--gold);
+    }
+
+    /* ── STAT BAND ── */
+    .stat-band {
+      background: var(--gold);
+      padding: 1.1rem 0;
+    }
+
+    .stat-band-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0 0;
+    }
+
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.4rem 2rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--bg);
+      white-space: nowrap;
+    }
+
+    .stat-item + .stat-item {
+      border-left: 1px solid rgba(20, 26, 34, 0.25);
+    }
+
+    .stat-item svg {
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+    }
+
+    /* ── SECTION HEADERS ── */
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+
+    .section-header h2 { margin-bottom: 0.8rem; }
+    .section-header p { max-width: 560px; margin: 0 auto; }
+
+    /* ── SERVICES ── */
+    .services { background: var(--bg-mid); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      padding: 2.2rem 2rem;
+      border: 1px solid rgba(200, 184, 154, 0.08);
+      transition: border-color 0.25s;
+      opacity: 0;
+    }
+
+    .service-card:hover {
+      border-color: rgba(200, 184, 154, 0.22);
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 1.2rem;
+      color: var(--gold);
+    }
+
+    .service-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .service-card p { font-size: 0.88rem; }
+
+    /* ── BENEFITS ── */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2.5rem 3rem;
+    }
+
+    .benefit-item { opacity: 0; }
+
+    .benefit-icon {
+      width: 40px;
+      height: 40px;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .benefit-item h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+    .benefit-item p { font-size: 0.88rem; }
+
+    /* ── GALLERY ── */
+    .gallery { background: var(--bg-mid); }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      opacity: 0;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.3s;
+    }
+
+    .gallery-item:hover img { opacity: 0.85; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .testimonial-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(238, 232, 221, 0.08);
+      padding: 2rem;
+      opacity: 0;
+    }
+
+    .stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 1rem;
+      color: var(--gold);
+    }
+
+    .stars svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .testimonial-card blockquote {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--ivory);
+      margin-bottom: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .testimonial-author {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .testimonial-location {
+      font-size: 0.78rem;
+      color: var(--ivory-dim);
+      margin-top: 0.15rem;
+    }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      background: var(--bg-card);
+      text-align: center;
+      border-top: 1px solid rgba(200, 184, 154, 0.1);
+      border-bottom: 1px solid rgba(200, 184, 154, 0.1);
+    }
+
+    .cta-section h2 { margin-bottom: 0.8rem; }
+    .cta-section p { margin-bottom: 2rem; max-width: 520px; margin-left: auto; margin-right: auto; }
+
+    .cta-section p + .hero-ctas,
+    .cta-inner .hero-ctas {
+      justify-content: center;
+    }
+
+    .cta-inner { max-width: 640px; margin: 0 auto; }
+    .cta-inner p { margin-bottom: 2rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0E1319;
+      padding: 3.5rem 0 2rem;
+      border-top: 1px solid rgba(200, 184, 154, 0.08);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand .nav-logo {
+      font-size: 1.3rem;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.85rem;
+      line-height: 1.7;
+    }
+
+    .footer-col h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.5rem; }
+    .footer-col ul li a {
+      font-size: 0.85rem;
+      color: var(--ivory-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: var(--gold); }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      margin-bottom: 0.8rem;
+      font-size: 0.85rem;
+      color: var(--ivory-dim);
+    }
+
+    .footer-contact-item svg {
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+      color: var(--gold);
+      margin-top: 3px;
+    }
+
+    .footer-contact-item a {
+      color: var(--ivory-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-contact-item a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(238, 232, 221, 0.06);
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      color: var(--ivory-dim);
+    }
+
+    .footer-coverage {
+      font-size: 0.75rem;
+      color: var(--ivory-dim);
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(238,232,221,0.06);
+    }
+
+    /* ── DIVIDER ── */
+    .gold-line {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin: 1.2rem auto;
+    }
+
+    .gold-line-left {
+      margin: 1rem 0;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 68px; left: 0; right: 0;
+        background: rgba(20, 26, 34, 0.98);
+        padding: 1.5rem;
+        gap: 1.2rem;
+        border-bottom: 1px solid rgba(200,184,154,0.1);
+      }
+      .nav-toggle { display: block; }
+
+      .hero-content { max-width: 100%; }
+
+      .gallery-grid { grid-template-columns: 1fr; }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .stat-item + .stat-item { border-left: none; }
+      .stat-band-inner { flex-direction: column; gap: 0.5rem; }
+
+      section { padding: 3.5rem 0; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-ctas { flex-direction: column; }
+      .btn-primary, .btn-ghost { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAV ═══ -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">Shutters <span>4</span> Leeds</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#shutters">Shutters</a></li>
+        <li><a href="#finance">Finance</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#quote" class="btn-nav">Get a Quote</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EEE8DD" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" id="about">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <div class="hero-content">
+        <p class="hero-tag" id="heroTag">Leeds &amp; West Yorkshire</p>
+        <h1 id="heroHeading">Bespoke Window<br />Shutters for<br /><em class="gold">Leeds &amp; West Yorkshire</em></h1>
+        <p class="hero-sub" id="heroSub">Leeds' No.1 Specialist &mdash; Lifetime Guarantee &nbsp;|&nbsp; 0% Finance Available &nbsp;|&nbsp; Free Home Survey</p>
+        <div class="hero-ctas" id="heroCtas">
+          <a href="#quote" class="btn-primary">Request Free Quote</a>
+          <a href="#shutters" class="btn-ghost">View Our Shutters</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STAT BAND ═══ -->
+  <div class="stat-band">
+    <div class="stat-band-inner">
+      <div class="stat-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/>
+        </svg>
+        Leeds' No.1 Specialist
+      </div>
+      <div class="stat-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="5" width="20" height="14" rx="2"/>
+          <line x1="2" y1="10" x2="22" y2="10"/>
+        </svg>
+        0% Finance Available
+      </div>
+      <div class="stat-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        Lifetime Guarantee
+      </div>
+      <div class="stat-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        Free Home Survey
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SERVICES ═══ -->
+  <section class="services" id="shutters">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Our Shutters</span>
+        <h2>Crafted for Every Window</h2>
+        <div class="gold-line"></div>
+        <p>From classic full-height panels to bespoke special shapes — we design, supply and fit interior shutters tailored precisely to your home.</p>
+      </div>
+      <div class="services-grid">
+
+        <!-- Full Height -->
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="4" width="36" height="40" rx="2"/>
+            <line x1="24" y1="4" x2="24" y2="44"/>
+            <line x1="10" y1="14" x2="20" y2="14"/>
+            <line x1="10" y1="20" x2="20" y2="20"/>
+            <line x1="10" y1="26" x2="20" y2="26"/>
+            <line x1="10" y1="32" x2="20" y2="32"/>
+            <line x1="28" y1="14" x2="38" y2="14"/>
+            <line x1="28" y1="20" x2="38" y2="20"/>
+            <line x1="28" y1="26" x2="38" y2="26"/>
+            <line x1="28" y1="32" x2="38" y2="32"/>
+          </svg>
+          <h3>Full Height Shutters</h3>
+          <p>Our most popular style — floor-to-ceiling panels that provide maximum light control and a timeless look for any room.</p>
+        </div>
+
+        <!-- Tier-on-Tier -->
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="4" width="36" height="19" rx="2"/>
+            <rect x="6" y="25" width="36" height="19" rx="2"/>
+            <line x1="24" y1="4" x2="24" y2="23"/>
+            <line x1="24" y1="25" x2="24" y2="44"/>
+            <line x1="10" y1="11" x2="20" y2="11"/>
+            <line x1="10" y1="16" x2="20" y2="16"/>
+            <line x1="28" y1="11" x2="38" y2="11"/>
+            <line x1="28" y1="16" x2="38" y2="16"/>
+            <line x1="10" y1="32" x2="20" y2="32"/>
+            <line x1="10" y1="37" x2="20" y2="37"/>
+            <line x1="28" y1="32" x2="38" y2="32"/>
+            <line x1="28" y1="37" x2="38" y2="37"/>
+          </svg>
+          <h3>Tier-on-Tier Shutters</h3>
+          <p>Independent upper and lower panels give you the flexibility to open the top for light whilst keeping the bottom closed for privacy.</p>
+        </div>
+
+        <!-- Café Style -->
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="24" width="36" height="20" rx="2"/>
+            <line x1="24" y1="24" x2="24" y2="44"/>
+            <line x1="10" y1="31" x2="20" y2="31"/>
+            <line x1="10" y1="37" x2="20" y2="37"/>
+            <line x1="28" y1="31" x2="38" y2="31"/>
+            <line x1="28" y1="37" x2="38" y2="37"/>
+            <line x1="6" y1="4" x2="42" y2="4"/>
+            <line x1="6" y1="10" x2="42" y2="10"/>
+            <line x1="6" y1="16" x2="42" y2="16"/>
+          </svg>
+          <h3>Café Style Shutters</h3>
+          <p>Covering the lower half of your window only — perfect for street-facing rooms where you want natural light whilst retaining privacy.</p>
+        </div>
+
+        <!-- Bay Window -->
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="8" width="12" height="32" rx="1"/>
+            <rect x="18" y="4" width="12" height="36" rx="1"/>
+            <rect x="34" y="8" width="12" height="32" rx="1"/>
+            <line x1="4" y1="16" x2="12" y2="16"/>
+            <line x1="4" y1="22" x2="12" y2="22"/>
+            <line x1="4" y1="28" x2="12" y2="28"/>
+            <line x1="20" y1="14" x2="28" y2="14"/>
+            <line x1="20" y1="20" x2="28" y2="20"/>
+            <line x1="20" y1="26" x2="28" y2="26"/>
+            <line x1="20" y1="32" x2="28" y2="32"/>
+            <line x1="36" y1="16" x2="44" y2="16"/>
+            <line x1="36" y1="22" x2="44" y2="22"/>
+            <line x1="36" y1="28" x2="44" y2="28"/>
+          </svg>
+          <h3>Bay Window Shutters</h3>
+          <p>Precisely engineered to follow the angles of bay windows, creating a seamless, bespoke finish that off-the-shelf products simply cannot match.</p>
+        </div>
+
+        <!-- Tracked -->
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="8" x2="44" y2="8"/>
+            <line x1="4" y1="40" x2="44" y2="40"/>
+            <rect x="6" y="8" width="16" height="32"/>
+            <rect x="26" y="8" width="16" height="32"/>
+            <line x1="10" y1="16" x2="18" y2="16"/>
+            <line x1="10" y1="22" x2="18" y2="22"/>
+            <line x1="10" y1="28" x2="18" y2="28"/>
+            <line x1="30" y1="16" x2="38" y2="16"/>
+            <line x1="30" y1="22" x2="38" y2="22"/>
+            <line x1="30" y1="28" x2="38" y2="28"/>
+            <circle cx="14" cy="8" r="2" fill="currentColor" stroke="none"/>
+            <circle cx="34" cy="8" r="2" fill="currentColor" stroke="none"/>
+          </svg>
+          <h3>Tracked Shutters</h3>
+          <p>Sliding on a track system — ideal for wide openings, bi-fold doors and patio doors where traditional hinged panels won't suit.</p>
+        </div>
+
+        <!-- Special Shape -->
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 40 Q8 10 24 6 Q40 10 40 40 Z"/>
+            <line x1="12" y1="32" x2="36" y2="32"/>
+            <line x1="10" y1="26" x2="38" y2="26"/>
+            <line x1="12" y1="20" x2="36" y2="20"/>
+            <line x1="16" y1="14" x2="32" y2="14"/>
+          </svg>
+          <h3>Special Shape Shutters</h3>
+          <p>Arched, circular, triangular or any non-standard shape — our craftsmen create shutters that fit perfectly, however unusual the window.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BENEFITS ═══ -->
+  <section id="finance">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Why Choose Us</span>
+        <h2>The Shutters 4 Leeds Difference</h2>
+        <div class="gold-line"></div>
+        <p>Every shutter we install is a bespoke commission — measured, crafted and fitted by our expert team to the highest standard.</p>
+      </div>
+      <div class="benefits-grid">
+
+        <div class="benefit-item">
+          <svg class="benefit-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 4l2.8 8.6H32l-7.4 5.4 2.8 8.6L20 21.1l-7.4 5.5 2.8-8.6L8 12.6h9.2z"/>
+            <circle cx="20" cy="34" r="3"/>
+          </svg>
+          <h3>Bespoke Design</h3>
+          <div class="gold-line gold-line-left" style="width:32px;height:1px;background:var(--gold);margin:0.6rem 0 0.8rem;"></div>
+          <p>Each shutter is custom-built to your exact window measurements and interior style — no compromise, no off-the-shelf limitations.</p>
+        </div>
+
+        <div class="benefit-item">
+          <svg class="benefit-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="20" cy="20" r="16"/>
+            <path d="M12 20l6 6 10-12"/>
+          </svg>
+          <h3>Lifetime Guarantee</h3>
+          <div class="gold-line gold-line-left" style="width:32px;height:1px;background:var(--gold);margin:0.6rem 0 0.8rem;"></div>
+          <p>We stand behind every installation with a comprehensive lifetime guarantee — because we build shutters to last a lifetime.</p>
+        </div>
+
+        <div class="benefit-item">
+          <svg class="benefit-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="8" width="32" height="22" rx="2"/>
+            <line x1="4" y1="16" x2="36" y2="16"/>
+            <line x1="16" y1="30" x2="16" y2="36"/>
+            <line x1="24" y1="30" x2="24" y2="36"/>
+            <line x1="10" y1="36" x2="30" y2="36"/>
+          </svg>
+          <h3>0% Finance Available</h3>
+          <div class="gold-line gold-line-left" style="width:32px;height:1px;background:var(--gold);margin:0.6rem 0 0.8rem;"></div>
+          <p>Spread the cost of your shutters with our 0% interest finance options — beautiful shutters needn't be out of reach.</p>
+        </div>
+
+        <div class="benefit-item">
+          <svg class="benefit-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 4s-14 6-14 18v6l14 8 14-8v-6C34 10 20 4 20 4z"/>
+            <path d="M14 20l4 4 8-8"/>
+          </svg>
+          <h3>Expert Installation</h3>
+          <div class="gold-line gold-line-left" style="width:32px;height:1px;background:var(--gold);margin:0.6rem 0 0.8rem;"></div>
+          <p>Our accredited fitters have decades of combined experience — every installation is completed to immaculate standards.</p>
+        </div>
+
+        <div class="benefit-item">
+          <svg class="benefit-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 4l2 6h6l-5 3.6 1.9 5.8L20 16l-4.9 3.4 1.9-5.8L12 10h6z"/>
+            <path d="M8 28c0-6.6 5.4-12 12-12s12 5.4 12 12"/>
+            <line x1="8" y1="34" x2="32" y2="34"/>
+          </svg>
+          <h3>Free Home Survey</h3>
+          <div class="gold-line gold-line-left" style="width:32px;height:1px;background:var(--gold);margin:0.6rem 0 0.8rem;"></div>
+          <p>We visit your home, take precise measurements and provide a full no-obligation quote — completely free of charge.</p>
+        </div>
+
+        <div class="benefit-item">
+          <svg class="benefit-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 20a14 14 0 1028 0A14 14 0 006 20z"/>
+            <path d="M14 20s2 4 6 4 6-4 6-4"/>
+            <line x1="14" y1="15" x2="14" y2="15.5"/>
+            <line x1="26" y1="15" x2="26" y2="15.5"/>
+          </svg>
+          <h3>Yorkshire Proud</h3>
+          <div class="gold-line gold-line-left" style="width:32px;height:1px;background:var(--gold);margin:0.6rem 0 0.8rem;"></div>
+          <p>Proudly serving Leeds and West Yorkshire — local knowledge, local pride, and service that reflects the values of our community.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ GALLERY ═══ -->
+  <section class="gallery">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Our Work</span>
+        <h2>Installed Across Leeds &amp; West Yorkshire</h2>
+        <div class="gold-line"></div>
+        <p>A selection of recent installations — each one bespoke, each one beautiful.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80" alt="White plantation shutters in a bright modern living room" loading="lazy" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?auto=format&fit=crop&w=800&q=80" alt="Interior window shutters in a stylish contemporary home" loading="lazy" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="Elegant shutters on large bay windows" loading="lazy" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=800&q=80" alt="Classic plantation shutters in a Yorkshire home" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIALS ═══ -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Customer Reviews</span>
+        <h2>What Leeds Homeowners Say</h2>
+        <div class="gold-line"></div>
+      </div>
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card">
+          <div class="stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+          </div>
+          <blockquote>"Absolutely transformed our Victorian terrace. The bay window shutters are flawless — measured and fitted without a single gap. The whole experience from survey to installation was stress-free."</blockquote>
+          <div class="testimonial-author">Sarah &amp; James T.</div>
+          <div class="testimonial-location">Headingley, Leeds</div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+          </div>
+          <blockquote>"We used the 0% finance option and couldn't be happier. The tier-on-tier shutters in our dining room give us complete privacy from the street whilst flooding the room with light."</blockquote>
+          <div class="testimonial-author">Michael R.</div>
+          <div class="testimonial-location">Roundhay, Leeds</div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+          </div>
+          <blockquote>"Our arched windows had defeated every other company we approached. Shutters 4 Leeds took one look and delivered a stunning result. The craftsmanship is exceptional and the lifetime guarantee gives us total peace of mind."</blockquote>
+          <div class="testimonial-author">Caroline W.</div>
+          <div class="testimonial-location">Harrogate, West Yorkshire</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="cta-section" id="quote">
+    <div class="container">
+      <div class="cta-inner">
+        <span class="section-label">Free Quote</span>
+        <h2>Request Your Free<br /><em class="gold">Home Survey Today</em></h2>
+        <div class="gold-line"></div>
+        <p>Let our expert team visit your home, take precise measurements and provide a no-obligation quote — completely free. 0% finance available on all orders.</p>
+        <div class="hero-ctas" style="justify-content:center;">
+          <a href="tel:+441133225272" class="btn-primary">Call +44 113 322 5272</a>
+          <a href="mailto:info@shutters4leeds.co.uk" class="btn-ghost">Email Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a href="#" class="nav-logo">Shutters <span>4</span> Leeds</a>
+          <p>Leeds' No.1 bespoke interior window shutter specialist. Proudly serving Leeds and West Yorkshire with premium shutters, expert installation and a lifetime guarantee.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Shutters</h4>
+          <ul>
+            <li><a href="#shutters">Full Height Shutters</a></li>
+            <li><a href="#shutters">Tier-on-Tier Shutters</a></li>
+            <li><a href="#shutters">Café Style Shutters</a></li>
+            <li><a href="#shutters">Bay Window Shutters</a></li>
+            <li><a href="#shutters">Tracked Shutters</a></li>
+            <li><a href="#shutters">Special Shape Shutters</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            <span>15 Queen Square, Leeds LS2 8AJ</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14h0v2.92z"/>
+            </svg>
+            <a href="tel:+441133225272">+44 113 322 5272</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            <a href="mailto:info@shutters4leeds.co.uk">info@shutters4leeds.co.uk</a>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="footer-coverage">Covering: Leeds &bull; Bradford &bull; Harrogate &bull; Wakefield &bull; Huddersfield &bull; Halifax &bull; Otley &bull; Ilkley &bull; Wetherby &bull; All West Yorkshire</p>
+
+      <div class="footer-bottom">
+        <span>&copy; 2025 Shutters 4 Leeds. All rights reserved.</span>
+        <span>15 Queen Square, Leeds LS2 8AJ, UK</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══ SCRIPTS ═══ -->
+  <script>
+    // Mobile nav toggle
+    const toggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+    // Close on link click
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+  </script>
+
+  <script type="module">
+    import { animate, inView, stagger } from 'https://esm.sh/motion';
+
+    // Hero entrance
+    animate('#heroTag',    { opacity: [0, 1], y: [20, 0] }, { duration: 0.6, delay: 0.2, easing: 'ease-out' });
+    animate('#heroHeading',{ opacity: [0, 1], y: [30, 0] }, { duration: 0.7, delay: 0.4, easing: 'ease-out' });
+    animate('#heroSub',    { opacity: [0, 1], y: [20, 0] }, { duration: 0.6, delay: 0.65, easing: 'ease-out' });
+    animate('#heroCtas',   { opacity: [0, 1], y: [20, 0] }, { duration: 0.6, delay: 0.85, easing: 'ease-out' });
+
+    // Service cards
+    inView('.services-grid', () => {
+      animate(
+        '.service-card',
+        { opacity: [0, 1], y: [40, 0] },
+        { delay: stagger(0.1), duration: 0.55, easing: 'ease-out' }
+      );
+    }, { margin: '-80px' });
+
+    // Benefit items
+    inView('.benefits-grid', () => {
+      animate(
+        '.benefit-item',
+        { opacity: [0, 1], y: [30, 0] },
+        { delay: stagger(0.1), duration: 0.55, easing: 'ease-out' }
+      );
+    }, { margin: '-80px' });
+
+    // Gallery items
+    inView('.gallery-grid', () => {
+      animate(
+        '.gallery-item',
+        { opacity: [0, 1], y: [30, 0] },
+        { delay: stagger(0.12), duration: 0.6, easing: 'ease-out' }
+      );
+    }, { margin: '-60px' });
+
+    // Testimonial cards
+    inView('.testimonials-grid', () => {
+      animate(
+        '.testimonial-card',
+        { opacity: [0, 1], y: [30, 0] },
+        { delay: stagger(0.12), duration: 0.55, easing: 'ease-out' }
+      );
+    }, { margin: '-60px' });
+  </script>
+
+</body>
+</html>

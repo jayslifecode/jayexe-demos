@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Budget Blinds of Clayton &amp; University City | St. Louis Window Treatments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --navy: #0B1220;
+      --navy-mid: #111b2e;
+      --navy-card: #162033;
+      --navy-border: #2A3545;
+      --ivory: #F2EDE4;
+      --ivory-muted: #c8bfb2;
+      --teal: #5B9B9E;
+      --teal-dark: #4a8285;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--navy);
+      color: var(--ivory);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── NAV ─────────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(11, 18, 32, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--navy-border);
+    }
+
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ivory);
+      letter-spacing: 0.01em;
+      flex-shrink: 0;
+    }
+
+    .nav-logo span {
+      color: var(--teal);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--ivory-muted);
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--ivory); }
+
+    .nav-cta {
+      flex-shrink: 0;
+      white-space: nowrap;
+      background: var(--teal);
+      color: var(--navy);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 0.6rem 1.4rem;
+      border: 2px solid transparent;
+      border-radius: 4px;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--teal-dark);
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--ivory);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+    }
+
+    /* ─── HERO ─────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(11,18,32,0.55) 0%,
+        rgba(11,18,32,0.72) 60%,
+        rgba(11,18,32,0.92) 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 820px;
+      padding: 2rem;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1.25rem;
+      opacity: 0;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--ivory);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-weight: 300;
+      color: var(--ivory-muted);
+      max-width: 580px;
+      margin: 0 auto 2.5rem;
+      opacity: 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--teal);
+      color: var(--navy);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 0.85rem 2rem;
+      border: 2px solid transparent;
+      border-radius: 4px;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-primary:hover { background: var(--teal-dark); }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      color: var(--ivory);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 0.85rem 2rem;
+      border: 2px solid var(--ivory);
+      border-radius: 4px;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: border-color 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--teal);
+      color: var(--teal);
+    }
+
+    /* ─── STAT BAND ────────────────────────────────────── */
+    .stat-band {
+      background: var(--navy-mid);
+      border-top: 1px solid var(--navy-border);
+      border-bottom: 1px solid var(--navy-border);
+      padding: 2rem;
+    }
+
+    .stat-band-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      opacity: 0;
+    }
+
+    .stat-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      color: var(--teal);
+    }
+
+    .stat-text strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ivory);
+      line-height: 1.2;
+    }
+
+    .stat-text span {
+      font-size: 0.8rem;
+      color: var(--ivory-muted);
+    }
+
+    @media (max-width: 768px) {
+      .stat-band-inner {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stat-band-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ─── SECTION SHARED ───────────────────────────────── */
+    section { padding: 6rem 2rem; }
+
+    .section-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--ivory);
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--ivory-muted);
+      max-width: 540px;
+      margin-bottom: 3.5rem;
+    }
+
+    /* ─── SERVICES ─────────────────────────────────────── */
+    .services { background: var(--navy); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      border-radius: 8px;
+      padding: 2rem;
+      opacity: 0;
+      transition: background 0.25s;
+    }
+
+    .service-card:hover {
+      background: #1a2640;
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      color: var(--teal);
+      margin-bottom: 1.25rem;
+    }
+
+    .service-name {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--ivory);
+      margin-bottom: 0.6rem;
+    }
+
+    .service-desc {
+      font-size: 0.9rem;
+      color: var(--ivory-muted);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 540px) {
+      .services-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── BENEFITS ─────────────────────────────────────── */
+    .benefits { background: var(--navy-mid); }
+
+    .benefits-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .benefits-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .benefit-item {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      opacity: 0;
+    }
+
+    .benefit-icon-wrap {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      background: rgba(91,155,158,0.12);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--teal);
+    }
+
+    .benefit-icon-wrap svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .benefit-text strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ivory);
+      margin-bottom: 0.3rem;
+    }
+
+    .benefit-text p {
+      font-size: 0.9rem;
+      color: var(--ivory-muted);
+      line-height: 1.6;
+    }
+
+    .benefits-visual {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+    }
+
+    .benefits-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .benefits-badge {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      background: rgba(11,18,32,0.9);
+      border: 1px solid var(--navy-border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+    }
+
+    .benefits-badge strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--teal);
+      line-height: 1;
+    }
+
+    .benefits-badge span {
+      font-size: 0.8rem;
+      color: var(--ivory-muted);
+    }
+
+    @media (max-width: 900px) {
+      .benefits-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .benefits-visual { aspect-ratio: 16/9; }
+    }
+
+    /* ─── GALLERY ──────────────────────────────────────── */
+    .gallery { background: var(--navy); padding: 0; overflow: hidden; }
+
+    .gallery-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      opacity: 0;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.04);
+    }
+
+    .gallery-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(11,18,32,0.5) 0%, transparent 50%);
+    }
+
+    @media (max-width: 768px) {
+      .gallery-strip { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ─── TESTIMONIALS ─────────────────────────────────── */
+    .testimonials { background: var(--navy-mid); }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .testimonial-card {
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      border-radius: 8px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      opacity: 0;
+    }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 3px;
+      color: var(--teal);
+    }
+
+    .testimonial-stars svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .testimonial-text {
+      font-size: 0.95rem;
+      color: var(--ivory-muted);
+      line-height: 1.7;
+      font-style: italic;
+      flex: 1;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .testimonial-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(91,155,158,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--teal);
+      flex-shrink: 0;
+    }
+
+    .testimonial-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--ivory);
+    }
+
+    .testimonial-location {
+      font-size: 0.78rem;
+      color: var(--ivory-muted);
+    }
+
+    @media (max-width: 900px) {
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── CTA ──────────────────────────────────────────── */
+    .cta-section {
+      background: var(--navy);
+      text-align: center;
+      padding: 7rem 2rem;
+    }
+
+    .cta-section .section-inner {
+      max-width: 680px;
+    }
+
+    .cta-section .section-title {
+      margin-bottom: 1rem;
+    }
+
+    .cta-section .section-sub {
+      max-width: 100%;
+      margin-bottom: 2.5rem;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ─── FOOTER ───────────────────────────────────────── */
+    .footer {
+      background: #070d18;
+      border-top: 1px solid var(--navy-border);
+      padding: 3.5rem 2rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand .nav-logo {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .footer-desc {
+      font-size: 0.875rem;
+      color: var(--ivory-muted);
+      line-height: 1.7;
+    }
+
+    .footer-heading {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--ivory);
+      margin-bottom: 1rem;
+    }
+
+    .footer-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .footer-list li {
+      font-size: 0.875rem;
+      color: var(--ivory-muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .footer-list svg {
+      flex-shrink: 0;
+      width: 15px;
+      height: 15px;
+      margin-top: 2px;
+      color: var(--teal);
+    }
+
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid var(--navy-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: var(--ivory-muted);
+    }
+
+    .footer-bottom a {
+      color: var(--teal);
+      transition: color 0.2s;
+    }
+    .footer-bottom a:hover { color: var(--ivory); }
+
+    @media (max-width: 768px) {
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAV ─────────────────────────────────────────── -->
+  <header class="nav" role="banner">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#">Budget Blinds <span>of Clayton</span></a>
+      <nav role="navigation" aria-label="Main">
+        <ul class="nav-links">
+          <li><a href="#services">Blinds</a></li>
+          <li><a href="#services">Shades</a></li>
+          <li><a href="#services">Shutters</a></li>
+          <li><a href="#services">Drapes</a></li>
+          <li><a href="#services">Motorization</a></li>
+          <li><a href="#services">Outdoor</a></li>
+        </ul>
+      </nav>
+      <a href="tel:+16365290632" class="nav-cta">Free Consultation</a>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ─── HERO ─────────────────────────────────────────── -->
+  <section class="hero" aria-label="Hero">
+    <div class="hero-bg" role="img" aria-label="Elegant living room with window blinds"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-eyebrow">St. Louis Window Treatment Specialists</span>
+      <h1 class="hero-title">Window Treatments,<br/>Expertly Fitted</h1>
+      <p class="hero-sub">Premium blinds, shades, shutters, and drapes — custom measured, professionally installed across Clayton, University City, and the greater St. Louis area.</p>
+      <div class="hero-actions">
+        <a href="tel:+16365290632" class="btn-primary">Schedule Free Consultation</a>
+        <a href="#services" class="btn-ghost">Explore Our Products</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── STAT BAND ────────────────────────────────────── -->
+  <div class="stat-band" role="region" aria-label="Key features">
+    <div class="stat-band-inner">
+      <div class="stat-item">
+        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        <div class="stat-text">
+          <strong>Free In-Home</strong>
+          <span>Consultation</span>
+        </div>
+      </div>
+      <div class="stat-item">
+        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        </svg>
+        <div class="stat-text">
+          <strong>Same-Day Quotes</strong>
+          <span>Fast &amp; Accurate</span>
+        </div>
+      </div>
+      <div class="stat-item">
+        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <div class="stat-text">
+          <strong>Satisfaction Guaranteed</strong>
+          <span>We stand behind our work</span>
+        </div>
+      </div>
+      <div class="stat-item">
+        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="9" y="11" width="13" height="11" rx="2" ry="2"/><path d="M5 11V7a7 7 0 0114 0v4"/>
+        </svg>
+        <div class="stat-text">
+          <strong>Licensed &amp; Insured</strong>
+          <span>Trusted local franchise</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── SERVICES ─────────────────────────────────────── -->
+  <section class="services" id="services">
+    <div class="section-inner">
+      <span class="section-label">What We Offer</span>
+      <h2 class="section-title">Every Window,<br/>Every Style</h2>
+      <p class="section-sub">From sleek roller shades to classic plantation shutters, we carry hundreds of styles and fabrics to match any home or budget.</p>
+      <div class="services-grid">
+
+        <!-- Blinds -->
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="6" y="6" width="36" height="36" rx="2"/>
+            <line x1="6" y1="14" x2="42" y2="14"/>
+            <line x1="6" y1="21" x2="42" y2="21"/>
+            <line x1="6" y1="28" x2="42" y2="28"/>
+            <line x1="6" y1="35" x2="42" y2="35"/>
+            <line x1="24" y1="6" x2="24" y2="42"/>
+          </svg>
+          <div class="service-name">Blinds</div>
+          <p class="service-desc">Venetian, horizontal, and vertical blinds in wood, faux-wood, and aluminum — timeless light control for every room.</p>
+        </div>
+
+        <!-- Shades -->
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="6" y="6" width="36" height="4" rx="1"/>
+            <path d="M10 10 C10 28 14 34 24 36 C34 34 38 28 38 10"/>
+            <line x1="24" y1="36" x2="24" y2="44"/>
+            <circle cx="24" cy="44" r="2" fill="currentColor" stroke="none"/>
+          </svg>
+          <div class="service-name">Shades</div>
+          <p class="service-desc">Roller, cellular, Roman, and solar shades offering superior insulation, UV protection, and elegant simplicity.</p>
+        </div>
+
+        <!-- Shutters -->
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="6" y="6" width="16" height="36" rx="2"/>
+            <rect x="26" y="6" width="16" height="36" rx="2"/>
+            <line x1="6" y1="16" x2="22" y2="16"/>
+            <line x1="6" y1="24" x2="22" y2="24"/>
+            <line x1="6" y1="32" x2="22" y2="32"/>
+            <line x1="26" y1="16" x2="42" y2="16"/>
+            <line x1="26" y1="24" x2="42" y2="24"/>
+            <line x1="26" y1="32" x2="42" y2="32"/>
+          </svg>
+          <div class="service-name">Shutters</div>
+          <p class="service-desc">Plantation shutters crafted from premium hardwood and poly-resin — classic beauty that adds lasting resale value.</p>
+        </div>
+
+        <!-- Drapes -->
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="4" y1="8" x2="44" y2="8"/>
+            <path d="M10 8 C8 18 6 26 8 42"/>
+            <path d="M38 8 C40 18 42 26 40 42"/>
+            <path d="M10 8 Q14 12 18 8 Q22 4 26 8 Q30 12 34 8 Q38 4 38 8"/>
+          </svg>
+          <div class="service-name">Drapes &amp; Curtains</div>
+          <p class="service-desc">Custom-crafted drapes and curtains in hundreds of fabrics — the perfect finishing touch for a polished, luxurious interior.</p>
+        </div>
+
+        <!-- Motorization -->
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="14" y="6" width="20" height="32" rx="4"/>
+            <circle cx="24" cy="28" r="3"/>
+            <line x1="24" y1="6" x2="24" y2="12"/>
+            <path d="M18 38 Q24 44 30 38"/>
+            <line x1="8" y1="22" x2="14" y2="22"/>
+            <line x1="34" y1="22" x2="40" y2="22"/>
+          </svg>
+          <div class="service-name">Motorized Solutions</div>
+          <p class="service-desc">Smart motorization with app, voice, and schedule control — convenient, quiet operation for any window in your home.</p>
+        </div>
+
+        <!-- Outdoor -->
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 34 Q8 20 24 18 Q40 20 44 34"/>
+            <line x1="24" y1="18" x2="24" y2="6"/>
+            <circle cx="24" cy="6" r="3"/>
+            <line x1="4" y1="34" x2="4" y2="44"/>
+            <line x1="44" y1="34" x2="44" y2="44"/>
+            <line x1="4" y1="44" x2="44" y2="44"/>
+          </svg>
+          <div class="service-name">Outdoor Shading</div>
+          <p class="service-desc">Exterior solar screens, patio shades, and awnings — extend your living space and shield it from sun, wind, and prying eyes.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── BENEFITS ─────────────────────────────────────── -->
+  <section class="benefits" id="benefits">
+    <div class="section-inner">
+      <div class="benefits-layout">
+        <div>
+          <span class="section-label">Why Choose Us</span>
+          <h2 class="section-title">Local Expertise,<br/>Premium Results</h2>
+          <p class="section-sub">We've been serving the St. Louis community for years — bringing big-brand selection with hometown service.</p>
+          <div class="benefits-list">
+            <div class="benefit-item">
+              <div class="benefit-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div class="benefit-text">
+                <strong>St. Louis Local Experts</strong>
+                <p>We know the neighborhoods — from Clayton to Chesterfield — and tailor recommendations to our community's style and climate.</p>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                </svg>
+              </div>
+              <div class="benefit-text">
+                <strong>Free Professional Measuring</strong>
+                <p>Our specialists measure every window precisely — so your treatments fit perfectly with no gaps, no guessing, no surprises.</p>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+              </div>
+              <div class="benefit-text">
+                <strong>Thousands of Styles &amp; Fabrics</strong>
+                <p>Access the largest selection of window treatments — from sheer elegance to blackout performance — all at your fingertips.</p>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <div class="benefit-text">
+                <strong>White-Glove Installation</strong>
+                <p>Sit back while our certified installers handle everything — from mounting to final adjustments — quickly and cleanly.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="benefits-visual">
+          <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="Beautiful interior with premium window shutters" loading="lazy" />
+          <div class="benefits-badge">
+            <strong>25+</strong>
+            <span>Years in Business</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── GALLERY ──────────────────────────────────────── -->
+  <section class="gallery" aria-label="Project gallery">
+    <div class="gallery-strip">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80" alt="Elegant dining room with Roman shades" loading="lazy" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=800&q=80" alt="Modern living room with roller shades" loading="lazy" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="Luxurious bedroom with plantation shutters" loading="lazy" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1586105251261-72a756497a11?auto=format&fit=crop&w=800&q=80" alt="Contemporary home office with solar shades" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TESTIMONIALS ─────────────────────────────────── -->
+  <section class="testimonials" id="testimonials">
+    <div class="section-inner">
+      <span class="section-label">Client Reviews</span>
+      <h2 class="section-title">St. Louis Homeowners<br/>Love the Results</h2>
+      <p class="section-sub">Don't take our word for it — here's what our neighbors are saying.</p>
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonial-text">"The team was professional from start to finish. They measured everything perfectly and the plantation shutters look absolutely stunning in our Clayton home. Installation was quick and clean."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MR</div>
+            <div>
+              <div class="testimonial-name">Margaret R.</div>
+              <div class="testimonial-location">Clayton, MO</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonial-text">"We had motorized shades installed throughout our living room and master bedroom. The same-day quote was accurate, and they had everything installed within a week. We love controlling them from our phones!"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">DK</div>
+            <div>
+              <div class="testimonial-name">David K.</div>
+              <div class="testimonial-location">University City, MO</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonial-text">"Absolutely worth every penny. The consultant listened to what we wanted and never pushed us toward anything outside our budget. Our custom Roman shades are the best investment we've made in this home."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SL</div>
+            <div>
+              <div class="testimonial-name">Sandra L.</div>
+              <div class="testimonial-location">West St. Louis, MO</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA ──────────────────────────────────────────── -->
+  <section class="cta-section" id="contact">
+    <div class="section-inner">
+      <span class="section-label">Get Started Today</span>
+      <h2 class="section-title">Ready to Transform<br/>Your Windows?</h2>
+      <p class="section-sub">Schedule a free, no-obligation in-home consultation. We'll measure every window, walk you through hundreds of options, and provide an accurate same-day quote.</p>
+      <div class="cta-actions">
+        <a href="tel:+16365290632" class="btn-primary">Call (636) 529-0632</a>
+        <a href="tel:+16365290632" class="btn-ghost">Book Online Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ───────────────────────────────────────── -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="nav-logo">Budget Blinds <span>of Clayton</span></span>
+        <p class="footer-desc">Serving Clayton, University City, West St. Louis, South St. Louis, and the greater St. Louis metro area with premium window treatments and professional installation.</p>
+      </div>
+      <div>
+        <div class="footer-heading">Contact &amp; Location</div>
+        <ul class="footer-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            254 Old Sulphur Spring Rd,<br/>Manchester, MO 63021
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.77a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+            <a href="tel:+16365290632">(636) 529-0632</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Business Hours</div>
+        <ul class="footer-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Mon – Fri: 9:00 AM – 5:00 PM
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Saturday: 9:00 AM – 2:00 PM
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Sunday: Closed
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2024 Budget Blinds of Clayton &amp; University City. All rights reserved.</span>
+      <span>Demo site built by <a href="https://jayexe.com" target="_blank" rel="noopener">jayexe.com</a></span>
+    </div>
+  </footer>
+
+  <!-- ─── MOTION ONE ANIMATIONS ──────────────────────── -->
+  <script type="module">
+    import { animate, inView, stagger } from 'https://esm.sh/motion';
+
+    // Hero sequence
+    animate('.hero-eyebrow', { opacity: [0, 1], y: [20, 0] }, { duration: 0.7, delay: 0.2 });
+    animate('.hero-title', { opacity: [0, 1], y: [50, 0] }, { duration: 0.9, delay: 0.45 });
+    animate('.hero-sub', { opacity: [0, 1], y: [30, 0] }, { duration: 0.7, delay: 0.8 });
+    animate('.hero-actions', { opacity: [0, 1], y: [20, 0] }, { duration: 0.6, delay: 1.1 });
+
+    // Stat band items
+    inView('.stat-band', () => {
+      animate('.stat-item', { opacity: [0, 1], y: [30, 0] }, {
+        duration: 0.5,
+        delay: stagger(0.1)
+      });
+    }, { amount: 0.3 });
+
+    // Service cards
+    inView('.services-grid', () => {
+      animate('.service-card', { opacity: [0, 1], y: [40, 0] }, {
+        duration: 0.55,
+        delay: stagger(0.1)
+      });
+    }, { amount: 0.1 });
+
+    // Benefit items
+    inView('.benefits-list', () => {
+      animate('.benefit-item', { opacity: [0, 1], x: [-30, 0] }, {
+        duration: 0.55,
+        delay: stagger(0.12)
+      });
+    }, { amount: 0.2 });
+
+    // Gallery items
+    inView('.gallery-strip', () => {
+      animate('.gallery-item', { opacity: [0, 1] }, {
+        duration: 0.6,
+        delay: stagger(0.12)
+      });
+    }, { amount: 0.1 });
+
+    // Testimonial cards
+    inView('.testimonials-grid', () => {
+      animate('.testimonial-card', { opacity: [0, 1], y: [40, 0] }, {
+        duration: 0.55,
+        delay: stagger(0.13)
+      });
+    }, { amount: 0.1 });
+  </script>
+</body>
+</html>

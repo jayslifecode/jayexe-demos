@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bumble Bee Blinds of Birmingham | Custom Window Treatments – Pelham, AL</title>
+  <meta name="description" content="Bumble Bee Blinds of Birmingham crafts custom blinds, shades, shutters, and motorized window treatments for homes in Pelham and the Greater Birmingham Area, Alabama." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --forest: #0D150D;
+      --forest-mid: #122012;
+      --forest-card: #1C2E1C;
+      --forest-card-hover: #233323;
+      --ivory: #F5F0E5;
+      --ivory-muted: #C8C2B0;
+      --gold: #D4A017;
+      --gold-light: #E8B82A;
+      --gold-dim: rgba(212, 160, 23, 0.15);
+      --border: rgba(212, 160, 23, 0.18);
+      --separator: rgba(245, 240, 229, 0.08);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--forest);
+      color: var(--ivory);
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 400;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      line-height: 1.15;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(13, 21, 13, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--separator);
+    }
+
+    .nav__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      gap: 1.5rem;
+    }
+
+    .nav__logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .nav__logo-icon {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+    }
+
+    .nav__logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--ivory);
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+    }
+
+    .nav__logo-text span {
+      color: var(--gold);
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      list-style: none;
+    }
+
+    .nav__links a {
+      color: var(--ivory-muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      padding: 0.4rem 0.75rem;
+      border-radius: 4px;
+      transition: color 0.2s;
+    }
+
+    .nav__links a:hover {
+      color: var(--ivory);
+    }
+
+    .nav__cta {
+      background: var(--gold);
+      color: var(--forest) !important;
+      font-weight: 600 !important;
+      padding: 0.5rem 1.1rem !important;
+      border-radius: 4px !important;
+      white-space: nowrap;
+      transition: background 0.2s !important;
+    }
+
+    .nav__cta:hover {
+      background: var(--gold-light) !important;
+      color: var(--forest) !important;
+    }
+
+    .nav__mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.4rem;
+      color: var(--ivory);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 640px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.05);
+      transition: transform 8s ease-out;
+    }
+
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(13, 21, 13, 0.82) 0%,
+        rgba(13, 21, 13, 0.55) 60%,
+        rgba(13, 21, 13, 0.70) 100%
+      );
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      padding-top: 68px;
+    }
+
+    .hero__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+      opacity: 0;
+    }
+
+    .hero__eyebrow-line {
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero__headline {
+      font-size: clamp(2.6rem, 5.5vw, 5rem);
+      font-weight: 300;
+      color: var(--ivory);
+      max-width: 720px;
+      margin-bottom: 1.25rem;
+      opacity: 0;
+    }
+
+    .hero__headline em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero__subline {
+      font-size: 1.05rem;
+      color: var(--ivory-muted);
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+    }
+
+    .hero__ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.875rem 2rem;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      line-height: 1;
+    }
+
+    .btn--primary {
+      background: var(--gold);
+      color: var(--forest);
+      border: 2px solid transparent;
+    }
+
+    .btn--primary:hover {
+      background: var(--gold-light);
+    }
+
+    .btn--ghost {
+      background: transparent;
+      color: var(--ivory);
+      border: 2px solid var(--gold);
+    }
+
+    .btn--ghost:hover {
+      background: var(--gold-dim);
+    }
+
+    /* ── STAT BAND ── */
+    .stats {
+      background: var(--forest-mid);
+      border-top: 1px solid var(--separator);
+      border-bottom: 1px solid var(--separator);
+      padding: 1.5rem 1.5rem;
+    }
+
+    .stats__grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+    }
+
+    .stats__item {
+      text-align: center;
+      padding: 1.25rem 1rem;
+      position: relative;
+    }
+
+    .stats__item + .stats__item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 20%;
+      height: 60%;
+      width: 1px;
+      background: var(--separator);
+    }
+
+    .stats__value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .stats__label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ivory-muted);
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 6rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .section-label-line {
+      width: 24px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300;
+      color: var(--ivory);
+      margin-bottom: 1rem;
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--ivory-muted);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    .section-header {
+      margin-bottom: 3.5rem;
+    }
+
+    /* ── SERVICES ── */
+    .services {
+      background: var(--forest);
+    }
+
+    .services__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--separator);
+    }
+
+    .service-card {
+      background: var(--forest-card);
+      padding: 2.5rem 2rem;
+      transition: background 0.25s;
+    }
+
+    .service-card:hover {
+      background: var(--forest-card-hover);
+    }
+
+    .service-card__icon {
+      width: 48px;
+      height: 48px;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .service-card__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--ivory);
+      margin-bottom: 0.75rem;
+    }
+
+    .service-card__desc {
+      font-size: 0.9rem;
+      color: var(--ivory-muted);
+      line-height: 1.7;
+    }
+
+    /* ── BENEFITS ── */
+    .benefits {
+      background: var(--forest-mid);
+    }
+
+    .benefits__layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .benefits__list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .benefit-item {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+
+    .benefit-item__icon-wrap {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--gold-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+    }
+
+    .benefit-item__icon-wrap svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .benefit-item__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--ivory);
+      margin-bottom: 0.3rem;
+    }
+
+    .benefit-item__desc {
+      font-size: 0.9rem;
+      color: var(--ivory-muted);
+      line-height: 1.65;
+    }
+
+    .benefits__visual {
+      position: relative;
+    }
+
+    .benefits__img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      display: block;
+    }
+
+    .benefits__img-accent {
+      position: absolute;
+      bottom: -1.5rem;
+      left: -1.5rem;
+      width: 60%;
+      aspect-ratio: 1;
+      border: 1px solid var(--border);
+      z-index: -1;
+    }
+
+    /* ── GALLERY ── */
+    .gallery {
+      background: var(--forest);
+    }
+
+    .gallery__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5px;
+      background: var(--separator);
+    }
+
+    .gallery__item {
+      overflow: hidden;
+      aspect-ratio: 3/4;
+    }
+
+    .gallery__item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.4s;
+    }
+
+    .gallery__item:hover img {
+      opacity: 0.85;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials {
+      background: var(--forest-mid);
+    }
+
+    .testimonials__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .testimonial-card {
+      background: var(--forest-card);
+      border: 1px solid #2A3D2A;
+      border-radius: 2px;
+      padding: 2rem 1.75rem;
+    }
+
+    .testimonial-card__stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 1rem;
+      color: var(--gold);
+    }
+
+    .testimonial-card__stars svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .testimonial-card__quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--ivory);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+
+    .testimonial-card__author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .testimonial-card__avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--gold-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .testimonial-card__name {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ivory);
+    }
+
+    .testimonial-card__location {
+      font-size: 0.8rem;
+      color: var(--ivory-muted);
+    }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      background: var(--forest-card);
+      text-align: center;
+      padding: 7rem 1.5rem;
+    }
+
+    .cta-section__title {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 300;
+      color: var(--ivory);
+      margin-bottom: 1rem;
+    }
+
+    .cta-section__title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .cta-section__desc {
+      font-size: 1.05rem;
+      color: var(--ivory-muted);
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .cta-section__btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--forest);
+      border-top: 1px solid var(--separator);
+      padding: 3.5rem 1.5rem 2rem;
+    }
+
+    .footer__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer__top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer__brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--ivory);
+      margin-bottom: 0.75rem;
+    }
+
+    .footer__brand-name span {
+      color: var(--gold);
+    }
+
+    .footer__brand-desc {
+      font-size: 0.875rem;
+      color: var(--ivory-muted);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+
+    .footer__heading {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer__links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer__links a {
+      color: var(--ivory-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer__links a:hover {
+      color: var(--ivory);
+    }
+
+    .footer__contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer__contact-item svg {
+      width: 16px;
+      height: 16px;
+      color: var(--gold);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .footer__contact-item span,
+    .footer__contact-item a {
+      font-size: 0.9rem;
+      color: var(--ivory-muted);
+      text-decoration: none;
+      line-height: 1.5;
+    }
+
+    .footer__contact-item a:hover {
+      color: var(--ivory);
+    }
+
+    .footer__bottom {
+      border-top: 1px solid var(--separator);
+      padding-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer__copy {
+      font-size: 0.8rem;
+      color: var(--ivory-muted);
+    }
+
+    .footer__copy a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      .nav__links {
+        display: none;
+      }
+
+      .nav__links.is-open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: rgba(13, 21, 13, 0.98);
+        padding: 1rem 1.5rem 1.5rem;
+        gap: 0.25rem;
+        border-bottom: 1px solid var(--separator);
+      }
+
+      .nav__links.is-open a {
+        padding: 0.6rem 0.5rem;
+      }
+
+      .nav__mobile-toggle {
+        display: block;
+      }
+
+      .stats__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stats__item:nth-child(2)::before {
+        display: none;
+      }
+
+      .stats__item:nth-child(3)::before {
+        display: none;
+      }
+
+      .services__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .benefits__layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .benefits__visual {
+        order: -1;
+      }
+
+      .benefits__img-accent {
+        display: none;
+      }
+
+      .gallery__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .testimonials__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer__top {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .footer__bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 600px) {
+      section {
+        padding: 4rem 1.25rem;
+      }
+
+      .hero__ctas {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .cta-section__btns {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .gallery__grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .services__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ── ANIMATION INIT ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-24px);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(24px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo" aria-label="Bumble Bee Blinds of Birmingham">
+        <svg class="nav__logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="4" y="6" width="24" height="2" rx="1" fill="#D4A017"/>
+          <rect x="4" y="11" width="24" height="2" rx="1" fill="#D4A017" opacity="0.8"/>
+          <rect x="4" y="16" width="24" height="2" rx="1" fill="#D4A017" opacity="0.6"/>
+          <rect x="4" y="21" width="24" height="2" rx="1" fill="#D4A017" opacity="0.4"/>
+          <rect x="4" y="26" width="24" height="2" rx="1" fill="#D4A017" opacity="0.2"/>
+          <rect x="13" y="4" width="6" height="24" rx="1" fill="#F5F0E5" opacity="0.12"/>
+        </svg>
+        <span class="nav__logo-text">Bumble Bee <span>Blinds</span></span>
+      </a>
+
+      <button class="nav__mobile-toggle" aria-label="Toggle menu" aria-expanded="false" id="navToggle">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+          <rect x="2" y="5" width="18" height="1.5" rx="0.75" fill="currentColor"/>
+          <rect x="2" y="10.25" width="18" height="1.5" rx="0.75" fill="currentColor"/>
+          <rect x="2" y="15.5" width="18" height="1.5" rx="0.75" fill="currentColor"/>
+        </svg>
+      </button>
+
+      <ul class="nav__links" id="navLinks" role="list">
+        <li><a href="#services">Blinds</a></li>
+        <li><a href="#services">Shades</a></li>
+        <li><a href="#services">Shutters</a></li>
+        <li><a href="#services">Motorized</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="tel:+12055462272" class="nav__cta">Free Consultation</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Hero">
+    <div class="hero__bg" id="heroBg" aria-hidden="true"></div>
+    <div class="hero__overlay" aria-hidden="true"></div>
+    <div class="hero__content">
+      <p class="hero__eyebrow" id="heroEyebrow">
+        <span class="hero__eyebrow-line" aria-hidden="true"></span>
+        Pelham &amp; Greater Birmingham, Alabama
+      </p>
+      <h1 class="hero__headline" id="heroHeadline">
+        Crafted for Your Home.<br /><em>Delivered with Care.</em>
+      </h1>
+      <p class="hero__subline" id="heroSubline">
+        Custom blinds, shades, shutters, and motorized window treatments — designed and installed by local experts serving the Birmingham area.
+      </p>
+      <div class="hero__ctas" id="heroCtas">
+        <a href="tel:+12055462272" class="btn btn--primary">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 2C2.45 2 2 2.45 2 3v1c0 5.52 4.48 10 10 10h1c.55 0 1-.45 1-1v-2.5c0-.28-.22-.5-.5-.5l-3-.69a.5.5 0 00-.5.14l-1.2 1.2A9.1 9.1 0 014.5 8.2l1.2-1.2a.5.5 0 00.14-.5L5.14 3.5a.5.5 0 00-.5-.5H3z" fill="currentColor"/>
+          </svg>
+          Free Consultation
+        </a>
+        <a href="#services" class="btn btn--ghost">Explore Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAT BAND -->
+  <div class="stats" aria-label="Quick facts">
+    <div class="stats__grid">
+      <div class="stats__item reveal">
+        <span class="stats__value">Custom-Made</span>
+        <span class="stats__label">Every Treatment</span>
+      </div>
+      <div class="stats__item reveal">
+        <span class="stats__value">Free Estimate</span>
+        <span class="stats__label">In-Home Visit</span>
+      </div>
+      <div class="stats__item reveal">
+        <span class="stats__value">Same-Day</span>
+        <span class="stats__label">Quotes Available</span>
+      </div>
+      <div class="stats__item reveal">
+        <span class="stats__value">Licensed &amp; Insured</span>
+        <span class="stats__label">Professional Install</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="services" id="services" aria-labelledby="services-title">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label reveal"><span class="section-label-line" aria-hidden="true"></span>What We Offer</p>
+        <h2 class="section-title reveal" id="services-title">Premium Window Treatments<br />for Every Room</h2>
+        <p class="section-desc reveal">From clean-lined custom blinds to motorized shades that move with a touch — every product is measured, fitted, and installed for a flawless result.</p>
+      </div>
+      <div class="services__grid">
+
+        <!-- Custom Blinds -->
+        <article class="service-card reveal">
+          <svg class="service-card__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="8" y="8" width="32" height="4" rx="1" fill="currentColor"/>
+            <rect x="8" y="16" width="32" height="4" rx="1" fill="currentColor" opacity="0.85"/>
+            <rect x="8" y="24" width="32" height="4" rx="1" fill="currentColor" opacity="0.7"/>
+            <rect x="8" y="32" width="32" height="4" rx="1" fill="currentColor" opacity="0.55"/>
+            <rect x="8" y="40" width="32" height="4" rx="1" fill="currentColor" opacity="0.4"/>
+            <line x1="24" y1="8" x2="24" y2="44" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+          </svg>
+          <h3 class="service-card__title">Custom Blinds</h3>
+          <p class="service-card__desc">Wood, faux-wood, aluminum, and vinyl blinds in hundreds of colors and finishes. Measured and cut to your exact window dimensions.</p>
+        </article>
+
+        <!-- Window Shades -->
+        <article class="service-card reveal">
+          <svg class="service-card__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="8" y="6" width="32" height="3" rx="1" fill="currentColor"/>
+            <path d="M10 9 Q24 15 38 9 L38 38 Q24 44 10 38 Z" fill="currentColor" opacity="0.3"/>
+            <path d="M10 9 Q24 15 38 9 L38 22 Q24 28 10 22 Z" fill="currentColor" opacity="0.6"/>
+            <circle cx="24" cy="9" r="2" fill="currentColor"/>
+          </svg>
+          <h3 class="service-card__title">Window Shades</h3>
+          <p class="service-card__desc">Roller, roman, solar, and sheer shades for precise light control and privacy — available in light-filtering and blackout fabrics.</p>
+        </article>
+
+        <!-- Plantation Shutters -->
+        <article class="service-card reveal">
+          <svg class="service-card__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="6" y="6" width="16" height="36" rx="1" fill="currentColor" opacity="0.25"/>
+            <rect x="26" y="6" width="16" height="36" rx="1" fill="currentColor" opacity="0.25"/>
+            <rect x="8" y="12" width="12" height="2" rx="1" fill="currentColor"/>
+            <rect x="8" y="18" width="12" height="2" rx="1" fill="currentColor"/>
+            <rect x="8" y="24" width="12" height="2" rx="1" fill="currentColor"/>
+            <rect x="8" y="30" width="12" height="2" rx="1" fill="currentColor"/>
+            <rect x="28" y="12" width="12" height="2" rx="1" fill="currentColor"/>
+            <rect x="28" y="18" width="12" height="2" rx="1" fill="currentColor"/>
+            <rect x="28" y="24" width="12" height="2" rx="1" fill="currentColor"/>
+            <rect x="28" y="30" width="12" height="2" rx="1" fill="currentColor"/>
+            <line x1="22" y1="6" x2="22" y2="42" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+            <line x1="26" y1="6" x2="26" y2="42" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+          </svg>
+          <h3 class="service-card__title">Plantation Shutters</h3>
+          <p class="service-card__desc">Timeless hardwood and composite shutters with adjustable louvers. An enduring upgrade that adds elegance and resale value.</p>
+        </article>
+
+        <!-- Motorized Treatments -->
+        <article class="service-card reveal">
+          <svg class="service-card__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="8" y="6" width="32" height="3" rx="1" fill="currentColor"/>
+            <rect x="10" y="9" width="28" height="28" rx="1" fill="currentColor" opacity="0.2"/>
+            <circle cx="24" cy="36" r="5" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M22 36 L26 36 M24 34 L24 38" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M34 20 C36 22 36 26 34 28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+            <path d="M37 17 C41 21 41 27 37 31" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+          </svg>
+          <h3 class="service-card__title">Motorized Treatments</h3>
+          <p class="service-card__desc">App-controlled and smart-home-compatible motorized blinds and shades. Schedule, automate, and adjust from anywhere.</p>
+        </article>
+
+        <!-- Cellular Shades -->
+        <article class="service-card reveal">
+          <svg class="service-card__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="8" y="6" width="32" height="3" rx="1" fill="currentColor"/>
+            <path d="M10 9 L14 16 L10 23 L14 30 L10 37 L38 37 L34 30 L38 23 L34 16 L38 9 Z" fill="currentColor" opacity="0.15"/>
+            <path d="M10 9 L14 16 L10 23 L38 23 L34 16 L38 9 Z" fill="currentColor" opacity="0.4"/>
+            <path d="M10 23 L14 30 L10 37 L38 37 L34 30 L38 23 Z" fill="currentColor" opacity="0.25"/>
+            <line x1="10" y1="16" x2="38" y2="16" stroke="currentColor" stroke-width="0.75" opacity="0.5"/>
+            <line x1="10" y1="23" x2="38" y2="23" stroke="currentColor" stroke-width="0.75" opacity="0.5"/>
+            <line x1="10" y1="30" x2="38" y2="30" stroke="currentColor" stroke-width="0.75" opacity="0.5"/>
+          </svg>
+          <h3 class="service-card__title">Cellular Shades</h3>
+          <p class="service-card__desc">Honeycomb-cell construction creates air pockets for superior insulation — keeping your Alabama home cooler in summer, warmer in winter.</p>
+        </article>
+
+        <!-- Free In-Home Consultation -->
+        <article class="service-card reveal">
+          <svg class="service-card__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="8" y="10" width="32" height="24" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <path d="M16 34 L16 38 L32 38 L32 34" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M20 38 L28 38" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M22 22 L24 24 L28 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="24" cy="22" r="6" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+          </svg>
+          <h3 class="service-card__title">Free In-Home Consultation</h3>
+          <p class="service-card__desc">Our expert visits your home, measures every window, discusses your style and budget, and provides a same-day quote — no pressure.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="benefits" aria-labelledby="benefits-title">
+    <div class="container">
+      <div class="benefits__layout">
+        <div>
+          <p class="section-label reveal-left"><span class="section-label-line" aria-hidden="true"></span>Why Choose Us</p>
+          <h2 class="section-title reveal-left" id="benefits-title">The Bumble Bee Difference</h2>
+          <p class="section-desc reveal-left" style="margin-bottom:2.5rem">We combine the expertise of a national brand with the personal attention of a locally owned business — every home we serve in Pelham and Birmingham gets our full focus.</p>
+          <div class="benefits__list">
+            <div class="benefit-item reveal-left">
+              <div class="benefit-item__icon-wrap">
+                <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M11 2 L13.5 8.5 L20.5 9.3 L15.5 14 L17 21 L11 17.5 L5 21 L6.5 14 L1.5 9.3 L8.5 8.5 Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="benefit-item__title">Personalized Service</h3>
+                <p class="benefit-item__desc">No call centers or guesswork. You work directly with your local Bumble Bee expert from first visit to final install.</p>
+              </div>
+            </div>
+            <div class="benefit-item reveal-left">
+              <div class="benefit-item__icon-wrap">
+                <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M3 11 L7 15 L13 9 L19 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <rect x="2" y="17" width="18" height="2" rx="1" fill="currentColor" opacity="0.4"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="benefit-item__title">Expert Measurement</h3>
+                <p class="benefit-item__desc">Precision-measured in your home so every blind and shade fits perfectly — the first time, every time.</p>
+              </div>
+            </div>
+            <div class="benefit-item reveal-left">
+              <div class="benefit-item__icon-wrap">
+                <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M11 2 C6 2 2 6 2 11 C2 16 6 20 11 20 C16 20 20 16 20 11 C20 6 16 2 11 2 Z" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M7 11 L10 14 L15 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="benefit-item__title">Premium Materials</h3>
+                <p class="benefit-item__desc">We source from industry-leading manufacturers — materials built to withstand Alabama's climate and last for years.</p>
+              </div>
+            </div>
+            <div class="benefit-item reveal-left">
+              <div class="benefit-item__icon-wrap">
+                <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M11 2 L13 7 L18 7 L14 10.5 L15.5 15.5 L11 12.5 L6.5 15.5 L8 10.5 L4 7 L9 7 Z" fill="currentColor" opacity="0.3"/>
+                  <path d="M11 2 L13 7 L18 7 L14 10.5 L15.5 15.5 L11 12.5 L6.5 15.5 L8 10.5 L4 7 L9 7 Z" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/>
+                  <path d="M8 19 L14 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="benefit-item__title">Satisfaction Guarantee</h3>
+                <p class="benefit-item__desc">Your happiness is the measure of our work. We stand behind every installation with a comprehensive satisfaction guarantee.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="benefits__visual reveal-right">
+          <img
+            class="benefits__img"
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80"
+            alt="Elegant window treatment in an Alabama home interior"
+            loading="lazy"
+          />
+          <div class="benefits__img-accent" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery" aria-labelledby="gallery-title">
+    <div class="container">
+      <div class="section-header" style="text-align:center; max-width:600px; margin-left:auto; margin-right:auto;">
+        <p class="section-label reveal" style="justify-content:center"><span class="section-label-line" aria-hidden="true"></span>Our Work</p>
+        <h2 class="section-title reveal" id="gallery-title">Installations Across<br />the Birmingham Area</h2>
+      </div>
+    </div>
+    <div class="gallery__grid">
+      <div class="gallery__item reveal">
+        <img
+          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80"
+          alt="Custom window shades in a modern living room"
+          loading="lazy"
+        />
+      </div>
+      <div class="gallery__item reveal">
+        <img
+          src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=800&q=80"
+          alt="Plantation shutters in a bright bedroom"
+          loading="lazy"
+        />
+      </div>
+      <div class="gallery__item reveal">
+        <img
+          src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80"
+          alt="Motorized roller blinds in a home office"
+          loading="lazy"
+        />
+      </div>
+      <div class="gallery__item reveal">
+        <img
+          src="https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?auto=format&fit=crop&w=800&q=80"
+          alt="Cellular shades in a dining room"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" aria-labelledby="testimonials-title">
+    <div class="container">
+      <div class="section-header" style="text-align:center; max-width:600px; margin-left:auto; margin-right:auto;">
+        <p class="section-label reveal" style="justify-content:center"><span class="section-label-line" aria-hidden="true"></span>Client Stories</p>
+        <h2 class="section-title reveal" id="testimonials-title">Trusted by Homeowners<br />Across Alabama</h2>
+      </div>
+      <div class="testimonials__grid">
+
+        <article class="testimonial-card reveal">
+          <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l1.9 3.9L14 5.6l-3 2.9.7 4.1L8 10.5l-3.7 2.1L5 8.5 2 5.6l4.1-.7z"/></svg>
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l1.9 3.9L14 5.6l-3 2.9.7 4.1L8 10.5l-3.7 2.1L5 8.5 2 5.6l4.1-.7z"/></svg>
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l1.9 3.9L14 5.6l-3 2.9.7 4.1L8 10.5l-3.7 2.1L5 8.5 2 5.6l4.1-.7z"/></svg>
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l1.9 3.9L14 5.6l-3 2.9.7 4.1L8 10.5l-3.7 2.1L5 8.5 2 5.6l4.1-.7z"/></svg>
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l1.9 3.9L14 5.6l-3 2.9.7 4.1L8 10.5l-3.7 2.1L5 8.5 2 5.6l4.1-.7z"/></svg>
+          </div>
+          <blockquote class="testimonial-card__quote">
+            "The team measured and installed plantation shutters across our entire first floor in one afternoon. The quality is outstanding — our home looks completely transformed."
+          </blockquote>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar" aria-hidden="true">ML</div>
+            <div>
+              <p class="testimonial-card__name">Margaret L.</p>
+              <p class="testimonial-card__location">Pelham, Alabama</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card reveal">
+          <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l1.9 3.9L14 5.6l-3 2.9.7 4.1L8 10.5l-3.7 2.1L5 8.5 2 5.6l4.1-.7z"/></svg>
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l1.9 3.9L14 5.6l-3 2.9.7 4.1L8 10.5l-3.7 2.1L5 8.5 2 5.6l4.1-.7z"/></svg>
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l1.9 3.9L14 5.6l-3 2.9.7 4.1L8 10.5l-3.7 2.1L5 8.5 2 5.6l4.1-.7z"/></svg>
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l1.9 3.9L14 5.6l-3 2.9.7 4.1L8 10.5l-3.7 2.1L5 8.5 2 5.6l4.1-.7z"/></svg>
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l1.9 3.9L14 5.6l-3 2.9.7 4.1L8 10.5l-3.7 2.1L5 8.5 2 5.6l4.1-.7z"/></svg>
+          </div>
+          <blockquote class="testimonial-card__quote">
+            "I had motorized shades installed in my home office and bedroom. The same-day quote was a pleasant surprise — honest, fair pricing with zero pressure to upsell."
+          </blockquote>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar" aria-hidden="true">DT</div>
+            <div>
+              <p class="testimonial-card__name">David T.</p>
+              <p class="testimonial-card__location">Hoover, Alabama</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card reveal">
+          <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l1.9 3.9L14 5.6l-3 2.9.7 4.1L8 10.5l-3.7 2.1L5 8.5 2 5.6l4.1-.7z"/></svg>
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l1.9 3.9L14 5.6l-3 2.9.7 4.1L8 10.5l-3.7 2.1L5 8.5 2 5.6l4.1-.7z"/></svg>
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l1.9 3.9L14 5.6l-3 2.9.7 4.1L8 10.5l-3.7 2.1L5 8.5 2 5.6l4.1-.7z"/></svg>
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l1.9 3.9L14 5.6l-3 2.9.7 4.1L8 10.5l-3.7 2.1L5 8.5 2 5.6l4.1-.7z"/></svg>
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1l1.9 3.9L14 5.6l-3 2.9.7 4.1L8 10.5l-3.7 2.1L5 8.5 2 5.6l4.1-.7z"/></svg>
+          </div>
+          <blockquote class="testimonial-card__quote">
+            "Cellular shades throughout a new construction — 22 windows handled in two days. Every single shade fits perfectly. I cannot recommend Bumble Bee Blinds enough."
+          </blockquote>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar" aria-hidden="true">SR</div>
+            <div>
+              <p class="testimonial-card__name">Susan R.</p>
+              <p class="testimonial-card__location">Birmingham, Alabama</p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section" aria-labelledby="cta-title">
+    <div class="container">
+      <p class="section-label reveal" style="justify-content:center"><span class="section-label-line" aria-hidden="true"></span>Get Started</p>
+      <h2 class="cta-section__title reveal" id="cta-title">
+        Ready to Transform<br /><em>Your Windows?</em>
+      </h2>
+      <p class="cta-section__desc reveal">
+        Schedule your free in-home consultation today. No commitment, no pressure — just expert guidance for your home in the Birmingham area.
+      </p>
+      <div class="cta-section__btns reveal">
+        <a href="tel:+12055462272" class="btn btn--primary">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 2C2.45 2 2 2.45 2 3v1c0 5.52 4.48 10 10 10h1c.55 0 1-.45 1-1v-2.5c0-.28-.22-.5-.5-.5l-3-.69a.5.5 0 00-.5.14l-1.2 1.2A9.1 9.1 0 014.5 8.2l1.2-1.2a.5.5 0 00.14-.5L5.14 3.5a.5.5 0 00-.5-.5H3z" fill="currentColor"/>
+          </svg>
+          Call (205) 546-2272
+        </a>
+        <a href="mailto:info@bumblebeeblindsbirmingham.com" class="btn btn--ghost">Send a Message</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contact" aria-label="Footer">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <div>
+          <p class="footer__brand-name">Bumble Bee <span>Blinds</span> of Birmingham</p>
+          <p class="footer__brand-desc">Custom window treatments crafted for homes in Pelham and the Greater Birmingham Area, Alabama. Licensed, insured, and locally operated.</p>
+        </div>
+        <div>
+          <p class="footer__heading">Services</p>
+          <ul class="footer__links" role="list">
+            <li><a href="#services">Custom Blinds</a></li>
+            <li><a href="#services">Window Shades</a></li>
+            <li><a href="#services">Plantation Shutters</a></li>
+            <li><a href="#services">Motorized Treatments</a></li>
+            <li><a href="#services">Cellular Shades</a></li>
+            <li><a href="#services">Free Consultation</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__heading">Contact</p>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M8 1.5C5.51 1.5 3.5 3.51 3.5 6c0 3.5 4.5 8.5 4.5 8.5S12.5 9.5 12.5 6c0-2.49-2.01-4.5-4.5-4.5zm0 6a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" fill="currentColor"/>
+            </svg>
+            <span>1038 Commerce Blvd<br />Pelham, AL 35124, USA</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M3 2C2.45 2 2 2.45 2 3v1c0 5.52 4.48 10 10 10h1c.55 0 1-.45 1-1v-2.5c0-.28-.22-.5-.5-.5l-3-.69a.5.5 0 00-.5.14l-1.2 1.2A9.1 9.1 0 014.5 8.2l1.2-1.2a.5.5 0 00.14-.5L5.14 3.5a.5.5 0 00-.5-.5H3z" fill="currentColor"/>
+            </svg>
+            <a href="tel:+12055462272">(205) 546-2272</a>
+          </div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="1.5" y="3" width="13" height="10" rx="1" stroke="currentColor" stroke-width="1.25"/>
+              <path d="M1.5 5 L8 9 L14.5 5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+            </svg>
+            <a href="mailto:info@bumblebeeblindsbirmingham.com">info@bumblebeeblindsbirmingham.com</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">
+          &copy; 2026 Bumble Bee Blinds of Birmingham. All rights reserved. &nbsp;|&nbsp; Pelham, Alabama, USA
+        </p>
+        <p class="footer__copy">
+          Demo site by <a href="https://jayexe.com" target="_blank" rel="noopener">jayexe.com</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // Close nav on link click (mobile)
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Slight parallax on hero bg when JS loads
+    const heroBg = document.getElementById('heroBg');
+    if (heroBg) {
+      heroBg.style.transform = 'scale(1)';
+    }
+  </script>
+
+  <script type="module">
+    import { animate, inView, stagger } from 'https://esm.sh/motion';
+
+    // Hero sequence
+    animate('#heroEyebrow', { opacity: [0, 1], y: [16, 0] }, { duration: 0.7, delay: 0.2, easing: 'ease-out' });
+    animate('#heroHeadline', { opacity: [0, 1], y: [24, 0] }, { duration: 0.8, delay: 0.45, easing: 'ease-out' });
+    animate('#heroSubline', { opacity: [0, 1], y: [16, 0] }, { duration: 0.7, delay: 0.65, easing: 'ease-out' });
+    animate('#heroCtas', { opacity: [0, 1], y: [16, 0] }, { duration: 0.7, delay: 0.85, easing: 'ease-out' });
+
+    // Scroll-triggered reveals
+    inView('.reveal', ({ target }) => {
+      animate(target, { opacity: [0, 1], y: [24, 0] }, { duration: 0.65, easing: 'ease-out' });
+    }, { margin: '-60px' });
+
+    inView('.reveal-left', ({ target }) => {
+      animate(target, { opacity: [0, 1], x: [-24, 0] }, { duration: 0.65, easing: 'ease-out' });
+    }, { margin: '-60px' });
+
+    inView('.reveal-right', ({ target }) => {
+      animate(target, { opacity: [0, 1], x: [24, 0] }, { duration: 0.65, easing: 'ease-out' });
+    }, { margin: '-60px' });
+
+    // Stagger service cards
+    inView('.services__grid', ({ target }) => {
+      animate(
+        target.querySelectorAll('.service-card'),
+        { opacity: [0, 1], y: [28, 0] },
+        { duration: 0.55, delay: stagger(0.1), easing: 'ease-out' }
+      );
+    }, { margin: '-40px' });
+
+    // Stagger testimonials
+    inView('.testimonials__grid', ({ target }) => {
+      animate(
+        target.querySelectorAll('.testimonial-card'),
+        { opacity: [0, 1], y: [24, 0] },
+        { duration: 0.55, delay: stagger(0.12), easing: 'ease-out' }
+      );
+    }, { margin: '-40px' });
+
+    // Stagger gallery
+    inView('.gallery__grid', ({ target }) => {
+      animate(
+        target.querySelectorAll('.gallery__item'),
+        { opacity: [0, 1], y: [20, 0] },
+        { duration: 0.5, delay: stagger(0.08), easing: 'ease-out' }
+      );
+    }, { margin: '-40px' });
+
+    // Stagger stats
+    inView('.stats__grid', ({ target }) => {
+      animate(
+        target.querySelectorAll('.stats__item'),
+        { opacity: [0, 1], y: [16, 0] },
+        { duration: 0.5, delay: stagger(0.1), easing: 'ease-out' }
+      );
+    }, { margin: '-40px' });
+  </script>
+
+</body>
+</html>
