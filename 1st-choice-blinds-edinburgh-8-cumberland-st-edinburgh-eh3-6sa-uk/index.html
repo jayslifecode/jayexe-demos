@@ -44,16 +44,17 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 200;
-      background: rgba(255,255,255,0.82);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(0,0,0,0.07);
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(24px) saturate(1.8);
+      -webkit-backdrop-filter: blur(24px) saturate(1.8);
+      border-bottom: 1px solid rgba(0,0,0,0.12);
+      box-shadow: 0 1px 0 rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06);
       transition: background 0.3s, box-shadow 0.3s;
     }
 
     nav.scrolled {
-      background: rgba(255,255,255,0.95);
-      box-shadow: 0 1px 24px rgba(0,0,0,0.07);
+      background: rgba(255,255,255,0.92);
+      box-shadow: 0 1px 0 rgba(0,0,0,0.08), 0 8px 32px rgba(0,0,0,0.10);
     }
 
     .nav-inner {
@@ -280,7 +281,8 @@
 
     /* ── TRUST BAR ──────────────────────────────────────────────── */
     .trust-bar {
-      background: var(--white);
+      background: var(--off-white);
+      border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
     .trust-bar-inner {
@@ -359,7 +361,7 @@
     .on-dark .section-sub { color: rgba(255,255,255,0.6); }
 
     /* ── PRODUCTS (white bg) ────────────────────────────────────── */
-    .products-section { background: var(--white); }
+    .products-section { background: var(--white); border-top: 1px solid var(--border); }
 
     .products-grid {
       display: grid;
@@ -1159,10 +1161,14 @@
 
     /* ── REVEAL ─────────────────────────────────────────────────── */
     .reveal {
+      opacity: 1;
+      transform: none;
+    }
+    .js-ready .reveal {
       opacity: 0;
       transform: translateY(28px);
     }
-    .reveal.is-visible {
+    .js-ready .reveal.is-visible {
       opacity: 1;
       transform: none;
       transition: opacity 0.6s ease, transform 0.6s ease;
@@ -1761,6 +1767,9 @@ function selectTime(el) {
   <!-- PAGE SCRIPTS -->
   <script type="module">
     import { animate, inView } from 'https://esm.sh/motion';
+
+    // Enable JS-gated reveal animations
+    document.documentElement.classList.add('js-ready');
 
     // Nav scroll state
     const nav = document.getElementById('main-nav');
