@@ -6,361 +6,434 @@
   <title>ABIOTEK — Sanitation Global Services | Luxembourg</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Mulish:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --midnight: #0d1b2a;
-      --blue: #1a6bb5;
-      --silver: #c0c8d0;
-      --white: #ffffff;
-      --light: #f8f9fa;
-      --text: #2c3e50;
-      --text-muted: #5f6b7a;
-      --border: #dde2e8;
+      --navy:   #0b1929;
+      --navy2:  #0f2235;
+      --green:  #1a5c3a;
+      --green2: #236b45;
+      --blue:   #1e6fbf;
+      --gold:   #c8a84b;
+      --cream:  #faf8f3;
+      --white:  #ffffff;
+      --border: #e4e8ec;
+      --text:   #1a2535;
+      --muted:  #6b7a8d;
+      --light:  #f3f5f8;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Mulish', sans-serif;
+      font-family: 'Jost', sans-serif;
       font-weight: 400;
       color: var(--text);
       background: var(--white);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    /* ── SVG ICONS ─────────────────────────────────────── */
-    .icon {
-      display: inline-block;
-      width: 32px;
-      height: 32px;
-      fill: none;
-      stroke: var(--blue);
-      stroke-width: 1.75;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    /* ── NAV ─────────────────────────────────────────────── */
+    /* ── NAV ── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
-      z-index: 100;
+      z-index: 200;
       background: var(--white);
       border-bottom: 1px solid var(--border);
     }
 
     .nav-inner {
-      max-width: 1200px;
+      max-width: 1240px;
       margin: 0 auto;
-      padding: 0 32px;
-      height: 72px;
+      padding: 0 40px;
+      height: 70px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 32px;
     }
 
     .nav-brand {
       display: flex;
       flex-direction: column;
       line-height: 1.1;
+      flex-shrink: 0;
     }
 
     .nav-brand .wordmark {
-      font-family: 'Cinzel', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-weight: 700;
-      font-size: 1.2rem;
-      letter-spacing: 0.12em;
-      color: var(--midnight);
+      font-size: 1.4rem;
+      letter-spacing: 0.1em;
+      color: var(--navy);
       text-decoration: none;
     }
 
     .nav-brand .tagline {
-      font-size: 0.625rem;
+      font-size: 0.58rem;
       font-weight: 500;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: var(--muted);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 36px;
       list-style: none;
+      white-space: nowrap;
     }
 
     .nav-links a {
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       font-weight: 500;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: var(--muted);
       text-decoration: none;
       transition: color 0.2s;
     }
 
-    .nav-links a:hover { color: var(--midnight); }
+    .nav-links a:hover { color: var(--navy); }
 
     .btn-nav {
-      font-family: 'Mulish', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 700;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.74rem;
+      font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       text-decoration: none;
       white-space: nowrap;
-      padding: 10px 22px;
-      background: var(--midnight);
+      padding: 11px 24px;
+      background: var(--green);
       color: var(--white);
-      border: 1.5px solid transparent;
+      border: none;
       cursor: pointer;
-      transition: background 0.2s, color 0.2s;
+      transition: background 0.2s;
+      flex-shrink: 0;
     }
 
-    .btn-nav:hover { background: var(--blue); }
+    .btn-nav:hover { background: var(--green2); }
 
-    /* ── HERO ─────────────────────────────────────────────── */
+    /* ── HERO SLIDER ── */
     .hero {
-      min-height: 100vh;
       position: relative;
-      display: flex;
-      align-items: center;
-      padding-top: 72px;
+      height: 100vh;
+      min-height: 640px;
       overflow: hidden;
+      padding-top: 70px;
     }
 
-    .hero-bg {
+    .slider-track {
       position: absolute;
       inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1563453392212-326f5e854473?w=1600&q=80');
+      display: flex;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.9s ease;
+      pointer-events: none;
+    }
+
+    .slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .slide-bg {
+      position: absolute;
+      inset: 0;
       background-size: cover;
-      background-position: center 30%;
+      background-position: center;
+      transform: scale(1.04);
+      transition: transform 8s ease;
     }
 
-    .hero-overlay {
+    .slide.active .slide-bg {
+      transform: scale(1);
+    }
+
+    .slide-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(105deg, rgba(13,27,42,0.93) 45%, rgba(13,27,42,0.65) 100%);
+      background: linear-gradient(110deg, rgba(11,25,41,0.92) 40%, rgba(11,25,41,0.55) 100%);
     }
 
-    .hero-inner {
+    .slide-content {
       position: relative;
       z-index: 2;
-      max-width: 1200px;
+      height: 100%;
+      max-width: 1240px;
       margin: 0 auto;
-      padding: 80px 32px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: center;
-    }
-
-    .hero-eyebrow {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--silver);
-      margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      font-family: 'Cinzel', serif;
-      font-weight: 700;
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      color: var(--white);
-      line-height: 1.2;
-      margin-bottom: 24px;
-    }
-
-    .hero p {
-      font-size: 1.05rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.78);
-      line-height: 1.75;
-      margin-bottom: 40px;
-      max-width: 480px;
-    }
-
-    .hero-ctas {
+      padding: 0 40px;
       display: flex;
-      gap: 16px;
+      flex-direction: column;
+      justify-content: center;
+      padding-bottom: 80px;
+    }
+
+    .slide-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.7s 0.1s ease, transform 0.7s 0.1s ease;
+    }
+
+    .slide.active .slide-eyebrow {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide-content h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: clamp(2.4rem, 4.5vw, 4rem);
+      color: var(--white);
+      line-height: 1.15;
+      max-width: 700px;
+      margin-bottom: 24px;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.7s 0.25s ease, transform 0.7s 0.25s ease;
+    }
+
+    .slide.active .slide-content h1 {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide-content p {
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.75);
+      max-width: 520px;
+      line-height: 1.8;
+      margin-bottom: 40px;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.7s 0.4s ease, transform 0.7s 0.4s ease;
+    }
+
+    .slide.active .slide-content p {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide-ctas {
+      display: flex;
+      gap: 14px;
       flex-wrap: wrap;
-      margin-bottom: 52px;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.7s 0.55s ease, transform 0.7s 0.55s ease;
+    }
+
+    .slide.active .slide-ctas {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .btn-primary {
-      font-family: 'Mulish', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 700;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       text-decoration: none;
       padding: 14px 32px;
-      background: var(--blue);
+      background: var(--green);
       color: var(--white);
-      border: 1.5px solid transparent;
+      border: none;
       cursor: pointer;
       transition: background 0.2s;
+      display: inline-block;
     }
 
-    .btn-primary:hover { background: #155fa0; }
+    .btn-primary:hover { background: var(--green2); }
 
-    .btn-outline {
-      font-family: 'Mulish', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 700;
+    .btn-ghost {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       text-decoration: none;
       padding: 14px 32px;
       background: transparent;
       color: var(--white);
-      border: 1.5px solid rgba(255,255,255,0.5);
+      border: 1.5px solid rgba(255,255,255,0.45);
       cursor: pointer;
-      transition: border-color 0.2s, color 0.2s;
+      transition: border-color 0.2s, background 0.2s;
+      display: inline-block;
     }
 
-    .btn-outline:hover { border-color: var(--white); }
-
-    .cert-badges {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .cert-badge {
-      font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.6);
-      border: 1px solid rgba(255,255,255,0.2);
-      padding: 6px 14px;
-    }
-
-    .hero-right {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .hero-info-card {
+    .btn-ghost:hover {
+      border-color: rgba(255,255,255,0.85);
       background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      padding: 28px 32px;
+    }
+
+    /* Slider Controls */
+    .slider-dots {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
       display: flex;
-      align-items: flex-start;
-      gap: 20px;
+      gap: 10px;
     }
 
-    .hero-info-card + .hero-info-card {
-      margin-top: 2px;
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.35);
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      padding: 0;
     }
 
-    .hero-info-card .icon {
-      flex-shrink: 0;
-      stroke: var(--silver);
+    .dot.active {
+      background: var(--gold);
+      transform: scale(1.25);
     }
 
-    .hero-info-card h3 {
-      font-family: 'Cinzel', serif;
-      font-size: 0.85rem;
-      font-weight: 700;
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
       color: var(--white);
-      margin-bottom: 6px;
-      letter-spacing: 0.06em;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s;
     }
 
-    .hero-info-card p {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.6);
-      margin: 0;
-      line-height: 1.5;
+    .slider-arrow:hover { background: rgba(255,255,255,0.18); }
+    .slider-arrow.prev { left: 40px; }
+    .slider-arrow.next { right: 40px; }
+
+    .slider-arrow svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
-    /* ── STATS BAND ───────────────────────────────────────── */
+    /* Slide progress bar */
+    .slide-progress {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      background: var(--gold);
+      width: 0%;
+      z-index: 10;
+      transition: width linear;
+    }
+
+    /* ── STATS BAND ── */
     .stats-band {
-      background: var(--light);
-      border-top: 1px solid var(--border);
+      background: var(--white);
       border-bottom: 1px solid var(--border);
     }
 
     .stats-inner {
-      max-width: 1200px;
+      max-width: 1240px;
       margin: 0 auto;
-      padding: 64px 32px;
+      padding: 0 40px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 2px;
+      gap: 0;
     }
 
     .stat {
-      padding: 40px 32px;
-      background: var(--white);
+      padding: 52px 32px;
       text-align: center;
+      border-right: 1px solid var(--border);
     }
 
+    .stat:last-child { border-right: none; }
+
     .stat-number {
-      font-family: 'Cinzel', serif;
-      font-size: 2.6rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
       font-weight: 700;
-      color: var(--midnight);
+      color: var(--navy);
       line-height: 1;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .stat-label {
-      font-size: 0.72rem;
-      font-weight: 700;
+      font-size: 0.7rem;
+      font-weight: 500;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: var(--muted);
     }
 
-    /* ── SERVICES ─────────────────────────────────────────── */
+    /* ── SERVICES ── */
     .services {
-      background: var(--white);
-      padding: 96px 32px;
+      background: var(--cream);
+      padding: 104px 40px;
     }
 
     .section-inner {
-      max-width: 1200px;
+      max-width: 1240px;
       margin: 0 auto;
     }
 
     .section-header {
-      margin-bottom: 56px;
+      margin-bottom: 64px;
     }
 
     .section-eyebrow {
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.22em;
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.26em;
       text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 14px;
+      color: var(--green);
+      margin-bottom: 16px;
     }
 
     .section-header h2 {
-      font-family: 'Cinzel', serif;
-      font-weight: 700;
-      font-size: clamp(1.6rem, 2.5vw, 2.1rem);
-      color: var(--midnight);
-      line-height: 1.25;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: clamp(1.9rem, 2.8vw, 2.6rem);
+      color: var(--navy);
+      line-height: 1.2;
       max-width: 560px;
     }
 
     .section-header p {
       margin-top: 16px;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 300;
-      color: var(--text-muted);
+      color: var(--muted);
       max-width: 560px;
-      line-height: 1.75;
+      line-height: 1.8;
     }
 
     .services-grid {
@@ -370,49 +443,52 @@
     }
 
     .service-card {
-      padding: 40px 36px;
-      background: var(--light);
-      border: 1px solid var(--border);
-      transition: background 0.2s;
+      padding: 44px 38px;
+      background: var(--white);
+      position: relative;
     }
 
-    .service-card:hover { background: #f0f3f7; }
-
-    .service-card .icon-wrap {
-      width: 56px;
-      height: 56px;
-      background: var(--white);
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .service-icon {
+      width: 48px;
+      height: 48px;
       margin-bottom: 24px;
+      color: var(--green);
+    }
+
+    .service-icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .service-card h3 {
-      font-family: 'Cinzel', serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--midnight);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--navy);
       margin-bottom: 12px;
-      letter-spacing: 0.04em;
+      line-height: 1.25;
     }
 
     .service-card p {
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       font-weight: 300;
-      color: var(--text-muted);
-      line-height: 1.7;
+      color: var(--muted);
+      line-height: 1.75;
     }
 
-    /* ── CERTIFICATIONS ───────────────────────────────────── */
+    /* ── CERTIFICATIONS ── */
     .certifications {
-      background: var(--midnight);
-      padding: 96px 32px;
+      background: var(--navy);
+      padding: 104px 40px;
     }
 
-    .cert-inner {
-      max-width: 1200px;
+    .cert-layout {
+      max-width: 1240px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -420,89 +496,150 @@
       align-items: center;
     }
 
-    .certifications .section-eyebrow { color: var(--silver); }
+    .cert-content .section-eyebrow { color: var(--gold); }
 
-    .certifications h2 {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(1.6rem, 2.5vw, 2.1rem);
-      font-weight: 700;
+    .cert-content h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.9rem, 2.8vw, 2.6rem);
+      font-weight: 600;
       color: var(--white);
-      line-height: 1.25;
+      line-height: 1.2;
       margin-bottom: 20px;
     }
 
-    .certifications .intro-text {
-      font-size: 0.95rem;
+    .cert-content .intro {
+      font-size: 0.92rem;
       font-weight: 300;
-      color: rgba(255,255,255,0.65);
-      line-height: 1.75;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.8;
       margin-bottom: 40px;
     }
 
     .cert-list {
       list-style: none;
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 2px;
     }
 
-    .cert-list li {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      padding: 18px 24px;
+    .cert-item {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      padding: 20px 22px;
     }
 
-    .cert-list li .cert-icon {
-      flex-shrink: 0;
-    }
-
-    .cert-list li .cert-name {
-      font-size: 0.82rem;
-      font-weight: 700;
+    .cert-item-name {
+      font-size: 0.8rem;
+      font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--white);
+      margin-bottom: 4px;
     }
 
-    .cert-list li .cert-desc {
-      font-size: 0.78rem;
+    .cert-item-desc {
+      font-size: 0.74rem;
       font-weight: 300;
-      color: rgba(255,255,255,0.5);
-      margin-top: 2px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.5;
     }
 
-    .cert-photo {
+    .cert-visual {
       position: relative;
     }
 
-    .cert-photo img {
+    .cert-img {
       width: 100%;
-      height: 460px;
+      height: 480px;
       object-fit: cover;
       display: block;
     }
 
-    .cert-photo-overlay {
+    .cert-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(11,25,41,0.85) 0%, transparent 50%);
+    }
+
+    .cert-badge-strip {
       position: absolute;
       bottom: 0; left: 0; right: 0;
-      background: linear-gradient(to top, rgba(13,27,42,0.9), transparent);
-      padding: 32px;
+      padding: 28px 32px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
-    .cert-photo-overlay p {
-      font-size: 0.8rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.7);
-      font-style: italic;
+    .cbadge {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.8);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 6px 12px;
+      background: rgba(11,25,41,0.5);
     }
 
-    /* ── REVIEWS ──────────────────────────────────────────── */
+    /* ── REVIEWS ── */
     .reviews {
+      background: var(--white);
+      padding: 104px 40px;
+    }
+
+    .reviews-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 56px;
+      gap: 24px;
+    }
+
+    .google-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       background: var(--light);
-      padding: 96px 32px;
+      border: 1px solid var(--border);
+      padding: 14px 20px;
+      flex-shrink: 0;
+    }
+
+    .google-g {
+      font-size: 1.1rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #4285f4 0%, #ea4335 40%, #fbbc05 70%, #34a853 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-family: 'Jost', sans-serif;
+      line-height: 1;
+    }
+
+    .google-rating-val {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--navy);
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1;
+    }
+
+    .google-rating-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+
+    .google-stars-row {
+      display: flex;
+      gap: 2px;
+    }
+
+    .gstar {
+      width: 13px;
+      height: 13px;
+      fill: #fbbc05;
     }
 
     .reviews-grid {
@@ -512,46 +649,26 @@
     }
 
     .review-card {
-      background: var(--white);
+      background: var(--light);
       border: 1px solid var(--border);
       padding: 36px;
     }
 
-    .review-stars {
-      display: flex;
-      gap: 4px;
-      margin-bottom: 20px;
-    }
-
-    .star-icon {
-      width: 16px;
-      height: 16px;
-      fill: #d4a017;
-      stroke: none;
-    }
-
-    .review-text {
-      font-size: 0.9rem;
-      font-weight: 300;
-      color: var(--text);
-      line-height: 1.8;
-      margin-bottom: 24px;
-      font-style: italic;
-    }
-
-    .reviewer {
+    .review-top {
       display: flex;
       align-items: center;
       gap: 14px;
+      margin-bottom: 20px;
     }
 
     .reviewer-avatar {
-      width: 40px;
-      height: 40px;
-      background: var(--midnight);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--navy);
       color: var(--white);
-      font-family: 'Cinzel', serif;
-      font-size: 0.85rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
       font-weight: 700;
       display: flex;
       align-items: center;
@@ -559,420 +676,500 @@
       flex-shrink: 0;
     }
 
-    .reviewer-name {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--midnight);
+    .reviewer-info .reviewer-name {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--navy);
     }
 
-    .reviewer-role {
-      font-size: 0.75rem;
+    .reviewer-info .reviewer-meta {
+      font-size: 0.72rem;
       font-weight: 300;
-      color: var(--text-muted);
+      color: var(--muted);
     }
 
-    /* ── TRUST BAND ───────────────────────────────────────── */
-    .trust-band {
-      background: var(--blue);
-      padding: 56px 32px;
+    .review-stars-row {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 16px;
     }
 
-    .trust-inner {
-      max-width: 1200px;
+    .rstar {
+      width: 14px;
+      height: 14px;
+      fill: #fbbc05;
+    }
+
+    .review-text {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.8;
+      font-style: italic;
+    }
+
+    /* ── WHY US BAND ── */
+    .why-band {
+      background: var(--green);
+      padding: 72px 40px;
+    }
+
+    .why-inner {
+      max-width: 1240px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 2px;
     }
 
-    .trust-item {
-      padding: 28px 24px;
-      background: rgba(255,255,255,0.08);
+    .why-item {
+      padding: 36px 28px;
+      background: rgba(255,255,255,0.06);
       text-align: center;
     }
 
-    .trust-item .icon {
-      stroke: rgba(255,255,255,0.85);
-      width: 28px;
-      height: 28px;
-      margin: 0 auto 14px;
-      display: block;
+    .why-icon {
+      width: 36px;
+      height: 36px;
+      margin: 0 auto 18px;
+      color: rgba(255,255,255,0.9);
     }
 
-    .trust-item h4 {
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+    .why-icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .why-item h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
       color: var(--white);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
-    .trust-item p {
+    .why-item p {
       font-size: 0.78rem;
       font-weight: 300;
-      color: rgba(255,255,255,0.7);
+      color: rgba(255,255,255,0.68);
+      line-height: 1.7;
     }
 
-    /* ── CTA SECTION ──────────────────────────────────────── */
+    /* ── SECTORS ── */
+    .sectors {
+      background: var(--cream);
+      padding: 104px 40px;
+    }
+
+    .sectors-layout {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .sectors h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.9rem, 2.8vw, 2.6rem);
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .sectors .intro {
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 36px;
+    }
+
+    .btn-solid {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 32px;
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: inline-block;
+    }
+
+    .btn-solid:hover { background: var(--navy2); }
+
+    .sectors-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .sector-item {
+      background: var(--white);
+      padding: 28px 28px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .sector-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      flex-shrink: 0;
+    }
+
+    .sector-name {
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    /* ── CTA ── */
     .cta-section {
-      background: var(--light);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 96px 32px;
+      background: var(--navy);
+      padding: 104px 40px;
       text-align: center;
     }
 
-    .cta-section .section-eyebrow { text-align: center; }
+    .cta-section .section-eyebrow { color: var(--gold); text-align: center; }
 
     .cta-section h2 {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(1.6rem, 2.5vw, 2.1rem);
-      font-weight: 700;
-      color: var(--midnight);
-      line-height: 1.25;
-      margin-bottom: 16px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 18px;
     }
 
     .cta-section p {
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 300;
-      color: var(--text-muted);
-      max-width: 520px;
-      margin: 0 auto 40px;
-      line-height: 1.75;
+      color: rgba(255,255,255,0.6);
+      max-width: 500px;
+      margin: 0 auto 44px;
+      line-height: 1.8;
     }
 
-    .cta-buttons {
+    .cta-btns {
       display: flex;
-      gap: 16px;
+      gap: 14px;
       justify-content: center;
       flex-wrap: wrap;
     }
 
-    .btn-primary-dark {
-      font-family: 'Mulish', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 700;
+    .btn-cta-primary {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       text-decoration: none;
-      padding: 14px 32px;
-      background: var(--midnight);
+      padding: 14px 36px;
+      background: var(--green);
       color: var(--white);
-      border: 1.5px solid transparent;
+      border: none;
       cursor: pointer;
       transition: background 0.2s;
+      display: inline-block;
     }
 
-    .btn-primary-dark:hover { background: var(--blue); }
+    .btn-cta-primary:hover { background: var(--green2); }
 
-    .btn-outline-dark {
-      font-family: 'Mulish', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 700;
+    .btn-cta-ghost {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       text-decoration: none;
-      padding: 14px 32px;
+      padding: 14px 36px;
       background: transparent;
-      color: var(--midnight);
-      border: 1.5px solid var(--midnight);
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s;
-    }
-
-    .btn-outline-dark:hover {
-      background: var(--midnight);
       color: var(--white);
+      border: 1.5px solid rgba(255,255,255,0.35);
+      cursor: pointer;
+      transition: border-color 0.2s;
+      display: inline-block;
     }
 
-    /* ── FOOTER ───────────────────────────────────────────── */
+    .btn-cta-ghost:hover { border-color: rgba(255,255,255,0.7); }
+
+    /* ── FOOTER ── */
     footer {
-      background: var(--midnight);
-      padding: 64px 32px 36px;
+      background: #06101c;
+      padding: 72px 40px 40px;
     }
 
     .footer-inner {
-      max-width: 1200px;
+      max-width: 1240px;
       margin: 0 auto;
     }
 
     .footer-top {
       display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
       gap: 48px;
-      margin-bottom: 48px;
+      padding-bottom: 52px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
     }
 
     .footer-brand .wordmark {
-      font-family: 'Cinzel', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-weight: 700;
-      font-size: 1.1rem;
-      letter-spacing: 0.12em;
+      font-size: 1.3rem;
+      letter-spacing: 0.1em;
       color: var(--white);
       display: block;
       margin-bottom: 4px;
     }
 
-    .footer-brand .tagline {
-      font-size: 0.62rem;
+    .footer-brand .sub {
+      font-size: 0.58rem;
       font-weight: 500;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--silver);
+      color: rgba(255,255,255,0.35);
       display: block;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .footer-brand p {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 300;
-      color: rgba(255,255,255,0.5);
-      line-height: 1.7;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.75;
     }
 
     .footer-col h5 {
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--silver);
-      margin-bottom: 16px;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 18px;
     }
 
     .footer-col ul {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
     }
 
     .footer-col ul li a {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 300;
-      color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.4);
       text-decoration: none;
       transition: color 0.2s;
     }
 
-    .footer-col ul li a:hover { color: var(--white); }
+    .footer-col ul li a:hover { color: rgba(255,255,255,0.8); }
 
     .footer-contact p {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 300;
-      color: rgba(255,255,255,0.5);
-      line-height: 1.9;
+      color: rgba(255,255,255,0.4);
+      line-height: 2;
     }
 
     .footer-contact a {
-      color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.4);
       text-decoration: none;
       transition: color 0.2s;
     }
 
-    .footer-contact a:hover { color: var(--white); }
+    .footer-contact a:hover { color: rgba(255,255,255,0.8); }
 
     .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.08);
       padding-top: 28px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 24px;
     }
 
     .footer-bottom p {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 300;
-      color: rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.22);
     }
 
-    .footer-bottom .legal-links {
+    .footer-legal {
       display: flex;
       gap: 24px;
     }
 
-    .footer-bottom .legal-links a {
-      font-size: 0.75rem;
+    .footer-legal a {
+      font-size: 0.72rem;
       font-weight: 300;
-      color: rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.22);
       text-decoration: none;
       transition: color 0.2s;
     }
 
-    .footer-bottom .legal-links a:hover { color: rgba(255,255,255,0.6); }
+    .footer-legal a:hover { color: rgba(255,255,255,0.5); }
 
-    /* ── RESPONSIVE ───────────────────────────────────────── */
-    @media (max-width: 900px) {
-      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
-      .hero-right { display: none; }
-      .stats-inner { grid-template-columns: repeat(2, 1fr); }
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
-      .cert-inner { grid-template-columns: 1fr; gap: 48px; }
-      .reviews-grid { grid-template-columns: 1fr; }
-      .trust-inner { grid-template-columns: repeat(2, 1fr); }
-      .footer-top { grid-template-columns: 1fr 1fr; }
-      .nav-links { display: none; }
+    /* ── ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
     }
 
-    @media (max-width: 560px) {
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .cert-layout { grid-template-columns: 1fr; gap: 48px; }
+      .sectors-layout { grid-template-columns: 1fr; gap: 48px; }
+      .cert-img { height: 340px; }
+    }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .why-inner { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
+      .slider-arrow { display: none; }
+    }
+
+    @media (max-width: 600px) {
       .stats-inner { grid-template-columns: 1fr 1fr; }
       .services-grid { grid-template-columns: 1fr; }
-      .trust-inner { grid-template-columns: 1fr 1fr; }
+      .why-inner { grid-template-columns: 1fr 1fr; }
+      .sectors-grid { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr; }
+      .reviews-header { flex-direction: column; align-items: flex-start; }
+      .cert-list { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-
-  <!-- SVG Symbol Defs -->
-  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
-    <symbol id="icon-shield" viewBox="0 0 24 24">
-      <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.4C17.25 22.15 21 17.25 21 12V7L12 2z"/>
-    </symbol>
-    <symbol id="icon-bug" viewBox="0 0 24 24">
-      <circle cx="12" cy="11" r="4"/>
-      <path d="M12 7V3M8.5 8.5L5 5M15.5 8.5L19 5M8 11H4M20 11h-4M8.5 15L5 18M15.5 15L19 18M12 15v4"/>
-    </symbol>
-    <symbol id="icon-droplet" viewBox="0 0 24 24">
-      <path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/>
-    </symbol>
-    <symbol id="icon-rodent" viewBox="0 0 24 24">
-      <path d="M20 9a4 4 0 00-4-4H8a6 6 0 000 12h8a4 4 0 000-8z"/>
-      <circle cx="15" cy="10" r="1"/>
-      <path d="M4 17c0 0 1 2 4 2M8 5c0-2 2-3 4-3s3 1 3 3"/>
-    </symbol>
-    <symbol id="icon-clipboard" viewBox="0 0 24 24">
-      <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
-      <rect x="9" y="3" width="6" height="4" rx="1"/>
-      <line x1="9" y1="12" x2="15" y2="12"/>
-      <line x1="9" y1="16" x2="13" y2="16"/>
-    </symbol>
-    <symbol id="icon-smoke" viewBox="0 0 24 24">
-      <path d="M3 12h18M3 8h18M9 16c0 0 2-2 4-2s4 2 4 2M9 20c0 0 2-2 4-2s4 2 4 2"/>
-      <path d="M17 4c0 0 0 4-2 4"/>
-    </symbol>
-    <symbol id="icon-leaf" viewBox="0 0 24 24">
-      <path d="M2 22c0 0 6-2 10-6 4-4 5-10 5-10s-6 1-10 5c-4 4-5 11-5 11z"/>
-      <line x1="2" y1="22" x2="11" y2="13"/>
-    </symbol>
-    <symbol id="icon-check-circle" viewBox="0 0 24 24">
-      <circle cx="12" cy="12" r="10"/>
-      <polyline points="9 12 11 14 15 10"/>
-    </symbol>
-    <symbol id="icon-phone" viewBox="0 0 24 24">
-      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
-    </symbol>
-    <symbol id="icon-map-pin" viewBox="0 0 24 24">
-      <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/>
-      <circle cx="12" cy="10" r="3"/>
-    </symbol>
-    <symbol id="icon-clock" viewBox="0 0 24 24">
-      <circle cx="12" cy="12" r="10"/>
-      <polyline points="12 6 12 12 16 14"/>
-    </symbol>
-    <symbol id="icon-award" viewBox="0 0 24 24">
-      <circle cx="12" cy="8" r="6"/>
-      <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
-    </symbol>
-    <symbol id="icon-star" viewBox="0 0 24 24">
-      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-    </symbol>
-    <symbol id="icon-users" viewBox="0 0 24 24">
-      <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-      <circle cx="9" cy="7" r="4"/>
-      <path d="M23 21v-2a4 4 0 00-3-3.87"/>
-      <path d="M16 3.13a4 4 0 010 7.75"/>
-    </symbol>
-    <symbol id="icon-eye" viewBox="0 0 24 24">
-      <path d="M1 12S5 4 12 4s11 8 11 8-4 8-11 8S1 12 1 12z"/>
-      <circle cx="12" cy="12" r="3"/>
-    </symbol>
-    <symbol id="icon-zap" viewBox="0 0 24 24">
-      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-    </symbol>
-  </svg>
 
   <!-- ── NAV ── -->
   <nav>
     <div class="nav-inner">
       <div class="nav-brand">
         <a class="wordmark" href="#">ABIOTEK</a>
-        <span class="tagline">Sanitation Global Services</span>
+        <span class="tagline">Sanitation Global Services S.A.</span>
       </div>
       <ul class="nav-links">
         <li><a href="#services">Services</a></li>
         <li><a href="#certifications">Certifications</a></li>
-        <li><a href="#reviews">References</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#sectors">Sectors</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <a href="tel:+35226302740" class="btn-nav">Contact Us</a>
+      <a href="tel:+35226302740" class="btn-nav">Free Audit</a>
     </div>
   </nav>
 
-  <!-- ── HERO ── -->
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-inner">
-      <div class="hero-content">
-        <p class="hero-eyebrow">Luxembourg — Est. 2009</p>
-        <h1>Professional Sanitation &amp; Pest Management for Luxembourg</h1>
-        <p>Precision-engineered hygiene solutions for industry, hospitality, and commerce. Certified specialists operating across the Grand Duchy — protecting your business, your people, and your compliance record.</p>
-        <div class="hero-ctas">
-          <a href="tel:+35226302740" class="btn-primary">Request a Free Audit</a>
-          <a href="#services" class="btn-outline">Explore Services</a>
-        </div>
-        <div class="cert-badges">
-          <span class="cert-badge">HACCP</span>
-          <span class="cert-badge">ISO 22000</span>
-          <span class="cert-badge">ISO 14001</span>
-          <span class="cert-badge">BRC / IFS</span>
-          <span class="cert-badge">CE Certified</span>
-        </div>
-      </div>
-      <div class="hero-right">
-        <div class="hero-info-card">
-          <svg class="icon"><use href="#icon-shield"/></svg>
-          <div>
-            <h3>99% Success Rate</h3>
-            <p>Every intervention is documented, verified, and certified. Guaranteed results or we return at no cost.</p>
-          </div>
-        </div>
-        <div class="hero-info-card">
-          <svg class="icon"><use href="#icon-clipboard"/></svg>
-          <div>
-            <h3>Free Audits &amp; Estimates</h3>
-            <p>No obligation site visits with detailed written reports. Transparent pricing from the first call.</p>
-          </div>
-        </div>
-        <div class="hero-info-card">
-          <svg class="icon"><use href="#icon-award"/></svg>
-          <div>
-            <h3>Certified Equipment</h3>
-            <p>CE-certified products and market-leading professional equipment used on every assignment.</p>
+  <!-- ── HERO SLIDER ── -->
+  <section class="hero" id="hero">
+    <div class="slider-track">
+
+      <div class="slide active" data-index="0">
+        <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1563453392212-326f5e854473?w=1600&q=80')"></div>
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <p class="slide-eyebrow">Luxembourg — Certified Since 2009</p>
+          <h1>Professional Pest Control &amp; Sanitation for Luxembourg</h1>
+          <p>Certified specialists protecting food facilities, hotels, and industry across the Grand Duchy. Guaranteed results, documented interventions, full regulatory compliance.</p>
+          <div class="slide-ctas">
+            <a href="tel:+35226302740" class="btn-primary">Request a Free Audit</a>
+            <a href="#services" class="btn-ghost">Our Services</a>
           </div>
         </div>
       </div>
+
+      <div class="slide" data-index="1">
+        <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=1600&q=80')"></div>
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <p class="slide-eyebrow">HACCP · ISO 22000 · ISO 14001 · BRC / IFS</p>
+          <h1>Compliance-Ready Solutions for Food &amp; HORESCA Sectors</h1>
+          <p>We deliver audit-ready documentation and certified treatments to satisfy BRC, IFS, and HACCP requirements. Your compliance is our mission.</p>
+          <div class="slide-ctas">
+            <a href="#certifications" class="btn-primary">View Certifications</a>
+            <a href="tel:+35226302740" class="btn-ghost">Call Us Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide" data-index="2">
+        <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=1600&q=80')"></div>
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <p class="slide-eyebrow">Rapid Response · Discreet · Fully Insured</p>
+          <h1>Urgent Interventions Handled with Precision &amp; Discretion</h1>
+          <p>Priority call-out across Luxembourg. We operate after hours, on weekends, and provide full written certification on every visit — no disruption to your business.</p>
+          <div class="slide-ctas">
+            <a href="tel:+35226302740" class="btn-primary">Call +352 26 30 27 40</a>
+            <a href="#reviews" class="btn-ghost">Client References</a>
+          </div>
+        </div>
+      </div>
+
     </div>
+
+    <button class="slider-arrow prev" aria-label="Previous slide">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="slider-arrow next" aria-label="Next slide">
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+
+    <div class="slider-dots">
+      <button class="dot active" data-dot="0" aria-label="Slide 1"></button>
+      <button class="dot" data-dot="1" aria-label="Slide 2"></button>
+      <button class="dot" data-dot="2" aria-label="Slide 3"></button>
+    </div>
+
+    <div class="slide-progress" id="slideProgress"></div>
   </section>
 
-  <!-- ── STATS BAND ── -->
+  <!-- ── STATS ── -->
   <section class="stats-band">
     <div class="stats-inner">
-      <div class="stat">
+      <div class="stat reveal">
         <div class="stat-number" data-count="99" data-suffix="%">0%</div>
         <div class="stat-label">Intervention Success Rate</div>
       </div>
-      <div class="stat">
+      <div class="stat reveal reveal-delay-1">
         <div class="stat-number" data-count="15" data-suffix="+">0+</div>
         <div class="stat-label">Years in Luxembourg</div>
       </div>
-      <div class="stat">
-        <div class="stat-number" data-count="4.8" data-suffix="★" data-decimal="true">0★</div>
+      <div class="stat reveal reveal-delay-2">
+        <div class="stat-number" data-count="4.8" data-suffix="" data-decimal="true">0</div>
         <div class="stat-label">Google Rating</div>
       </div>
-      <div class="stat">
+      <div class="stat reveal reveal-delay-3">
         <div class="stat-number" data-count="6" data-suffix="">0</div>
         <div class="stat-label">Certified Standards</div>
       </div>
@@ -982,59 +1179,79 @@
   <!-- ── SERVICES ── -->
   <section class="services" id="services">
     <div class="section-inner">
-      <div class="section-header">
+      <div class="section-header reveal">
         <p class="section-eyebrow">What We Do</p>
-        <h2>Comprehensive Sanitation &amp; Protection Services</h2>
-        <p>From initial audit to preventive maintenance, our specialists deploy targeted treatments using certified methods — compliant with European regulatory frameworks.</p>
+        <h2>Comprehensive Sanitation &amp; Pest Management</h2>
+        <p>From initial audit to preventive maintenance — targeted treatments using certified methods, fully compliant with European regulatory frameworks.</p>
       </div>
       <div class="services-grid">
 
-        <div class="service-card">
-          <div class="icon-wrap">
-            <svg class="icon"><use href="#icon-bug"/></svg>
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="11" r="4"/>
+              <path d="M12 7V3M8.5 8.5L5 5M15.5 8.5L19 5M8 11H4M20 11h-4M8.5 15L5 18M15.5 15L19 18M12 15v4"/>
+            </svg>
           </div>
           <h3>Insect Control</h3>
-          <p>Targeted désinsectisation treatments for crawling and flying insects. Identification, treatment plan, and follow-up monitoring for long-term elimination.</p>
+          <p>Targeted treatments for crawling and flying insects. Full identification, treatment plan, and follow-up monitoring for long-term elimination.</p>
         </div>
 
-        <div class="service-card">
-          <div class="icon-wrap">
-            <svg class="icon"><use href="#icon-rodent"/></svg>
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M20 9a4 4 0 00-4-4H8a6 6 0 000 12h8a4 4 0 000-8z"/>
+              <circle cx="15" cy="10" r="1"/>
+              <path d="M4 17c0 0 1 2 4 2M8 5c0-2 2-3 4-3s3 1 3 3"/>
+            </svg>
           </div>
           <h3>Rodent Management</h3>
-          <p>Professional dératisation for rats, mice, and other rodents. Integrated pest management combining baiting, exclusion, and environmental assessment.</p>
+          <p>Professional treatment for rats, mice, and other rodents. Integrated pest management combining baiting, exclusion, and environmental assessment.</p>
         </div>
 
-        <div class="service-card">
-          <div class="icon-wrap">
-            <svg class="icon"><use href="#icon-droplet"/></svg>
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/>
+            </svg>
           </div>
           <h3>Disinfection &amp; Decontamination</h3>
-          <p>Complete surface and air disinfection using CE-certified biocidal products. Suitable for food production facilities, healthcare, and hospitality environments.</p>
+          <p>Complete surface and air disinfection using CE-certified biocidal products — suitable for food production, healthcare, and hospitality environments.</p>
         </div>
 
-        <div class="service-card">
-          <div class="icon-wrap">
-            <svg class="icon"><use href="#icon-clipboard"/></svg>
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
+              <rect x="9" y="3" width="6" height="4" rx="1"/>
+              <line x1="9" y1="12" x2="15" y2="12"/>
+              <line x1="9" y1="16" x2="13" y2="16"/>
+            </svg>
           </div>
           <h3>Hygiene Audits</h3>
-          <p>Independent HACCP-aligned hygiene audits with written reports. Identify risks, close compliance gaps, and meet BRC, IFS, or ISO 22000 standards.</p>
+          <p>Independent HACCP-aligned audits with written reports. Identify risks, close compliance gaps, and meet BRC, IFS, or ISO 22000 standards.</p>
         </div>
 
-        <div class="service-card">
-          <div class="icon-wrap">
-            <svg class="icon"><use href="#icon-smoke"/></svg>
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M3 12h18M3 8h18M9 16c0 0 2-2 4-2s4 2 4 2M9 20c0 0 2-2 4-2s4 2 4 2"/>
+              <path d="M17 4c0 0 0 4-2 4"/>
+            </svg>
           </div>
           <h3>Fumigation Services</h3>
           <p>Controlled fumigation for warehouses, food storage, and transport vehicles. Full documentation supplied for regulatory records and audit trails.</p>
         </div>
 
-        <div class="service-card">
-          <div class="icon-wrap">
-            <svg class="icon"><use href="#icon-leaf"/></svg>
+        <div class="service-card reveal reveal-delay-3">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M2 22c0 0 6-2 10-6 4-4 5-10 5-10s-6 1-10 5c-4 4-5 11-5 11z"/>
+              <line x1="2" y1="22" x2="11" y2="13"/>
+            </svg>
           </div>
-          <h3>Preventive Treatments</h3>
-          <p>Scheduled preventive programmes tailored to your facility risk profile — reducing the probability of infestation before it disrupts your operations.</p>
+          <h3>Preventive Programmes</h3>
+          <p>Scheduled preventive treatments tailored to your facility risk profile — reducing the probability of infestation before it disrupts operations.</p>
         </div>
 
       </div>
@@ -1043,171 +1260,228 @@
 
   <!-- ── CERTIFICATIONS ── -->
   <section class="certifications" id="certifications">
-    <div class="cert-inner">
-      <div class="cert-content">
+    <div class="cert-layout">
+      <div class="cert-content reveal">
         <p class="section-eyebrow">Standards &amp; Compliance</p>
         <h2>Our Certifications &amp; Regulatory Standards</h2>
-        <p class="intro-text">ABIOTEK operates at the intersection of scientific rigour and regulatory compliance. Our interventions are designed to satisfy the most demanding European food safety, environmental, and quality standards.</p>
+        <p class="intro">ABIOTEK operates at the intersection of scientific rigour and regulatory compliance. Our interventions satisfy the most demanding European food safety, environmental, and quality standards.</p>
         <ul class="cert-list">
-          <li>
-            <svg class="icon cert-icon" style="stroke:var(--silver);width:20px;height:20px"><use href="#icon-check-circle"/></svg>
-            <div>
-              <div class="cert-name">HACCP</div>
-              <div class="cert-desc">Hazard Analysis &amp; Critical Control Points — food safety management</div>
-            </div>
+          <li class="cert-item">
+            <div class="cert-item-name">HACCP</div>
+            <div class="cert-item-desc">Hazard Analysis &amp; Critical Control Points — food safety management</div>
           </li>
-          <li>
-            <svg class="icon cert-icon" style="stroke:var(--silver);width:20px;height:20px"><use href="#icon-check-circle"/></svg>
-            <div>
-              <div class="cert-name">ISO 22000</div>
-              <div class="cert-desc">International Food Safety Management Systems standard</div>
-            </div>
+          <li class="cert-item">
+            <div class="cert-item-name">ISO 22000</div>
+            <div class="cert-item-desc">International Food Safety Management Systems standard</div>
           </li>
-          <li>
-            <svg class="icon cert-icon" style="stroke:var(--silver);width:20px;height:20px"><use href="#icon-check-circle"/></svg>
-            <div>
-              <div class="cert-name">ISO 14001</div>
-              <div class="cert-desc">Environmental Management Systems — responsible chemical usage</div>
-            </div>
+          <li class="cert-item">
+            <div class="cert-item-name">ISO 14001</div>
+            <div class="cert-item-desc">Environmental Management — responsible chemical usage</div>
           </li>
-          <li>
-            <svg class="icon cert-icon" style="stroke:var(--silver);width:20px;height:20px"><use href="#icon-check-circle"/></svg>
-            <div>
-              <div class="cert-name">BRC / IFS</div>
-              <div class="cert-desc">British Retail Consortium &amp; International Food Standard auditing</div>
-            </div>
+          <li class="cert-item">
+            <div class="cert-item-name">BRC / IFS</div>
+            <div class="cert-item-desc">British Retail Consortium &amp; International Food Standard</div>
           </li>
-          <li>
-            <svg class="icon cert-icon" style="stroke:var(--silver);width:20px;height:20px"><use href="#icon-check-circle"/></svg>
-            <div>
-              <div class="cert-name">AIB International</div>
-              <div class="cert-desc">American Institute of Baking — consolidated standards inspection</div>
-            </div>
+          <li class="cert-item">
+            <div class="cert-item-name">AIB International</div>
+            <div class="cert-item-desc">Consolidated standards inspection for food facilities</div>
           </li>
-          <li>
-            <svg class="icon cert-icon" style="stroke:var(--silver);width:20px;height:20px"><use href="#icon-check-circle"/></svg>
-            <div>
-              <div class="cert-name">CE Certified Products</div>
-              <div class="cert-desc">All biocidal products and equipment fully CE-marked for EU compliance</div>
-            </div>
+          <li class="cert-item">
+            <div class="cert-item-name">CE Certified</div>
+            <div class="cert-item-desc">All biocidal products fully CE-marked for EU compliance</div>
           </li>
         </ul>
       </div>
-      <div class="cert-photo">
+      <div class="cert-visual reveal reveal-delay-2">
         <img
+          class="cert-img"
           src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&q=80"
           alt="Professional sanitation technician in protective equipment"
         />
-        <div class="cert-photo-overlay">
-          <p>"Inspection, prévention &amp; traitement pour un environnement sain."<br>— ABIOTEK operational standard</p>
+        <div class="cert-img-overlay"></div>
+        <div class="cert-badge-strip">
+          <span class="cbadge">HACCP</span>
+          <span class="cbadge">ISO 22000</span>
+          <span class="cbadge">ISO 14001</span>
+          <span class="cbadge">BRC / IFS</span>
+          <span class="cbadge">CE Certified</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── REVIEWS ── -->
+  <!-- ── GOOGLE REVIEWS ── -->
   <section class="reviews" id="reviews">
     <div class="section-inner">
-      <div class="section-header">
-        <p class="section-eyebrow">Client References</p>
-        <h2>Trusted Across Luxembourg</h2>
-        <p>From HORESCA operators to industrial facilities — our clients rely on ABIOTEK for consistent, certified results.</p>
+      <div class="reviews-header reveal">
+        <div>
+          <p class="section-eyebrow">Client References</p>
+          <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,2.8vw,2.6rem);font-weight:600;color:var(--navy);line-height:1.2;">Trusted Across Luxembourg</h2>
+        </div>
+        <div class="google-badge">
+          <div class="google-g">G</div>
+          <div>
+            <div class="google-rating-val">4.8</div>
+            <div class="google-stars-row" style="margin:3px 0;">
+              <svg class="gstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="gstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="gstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="gstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="gstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div class="google-rating-label">Google Reviews</div>
+          </div>
+        </div>
       </div>
       <div class="reviews-grid">
 
-        <div class="review-card">
-          <div class="review-stars">
-            <svg class="star-icon"><use href="#icon-star"/></svg>
-            <svg class="star-icon"><use href="#icon-star"/></svg>
-            <svg class="star-icon"><use href="#icon-star"/></svg>
-            <svg class="star-icon"><use href="#icon-star"/></svg>
-            <svg class="star-icon"><use href="#icon-star"/></svg>
+        <div class="review-card reveal">
+          <div class="review-top">
+            <div class="reviewer-avatar">ML</div>
+            <div class="reviewer-info">
+              <div class="reviewer-name">Marc L.</div>
+              <div class="reviewer-meta">Operations Manager — Food Production</div>
+            </div>
+          </div>
+          <div class="review-stars-row">
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           </div>
           <p class="review-text">"Exceptional professionalism. The team completed a full site audit, delivered a detailed compliance report, and the treatment was entirely effective. No recurrence in over a year."</p>
-          <div class="reviewer">
-            <div class="reviewer-avatar">ML</div>
-            <div>
-              <div class="reviewer-name">Marc L.</div>
-              <div class="reviewer-role">Operations Manager, Food Production Facility</div>
-            </div>
-          </div>
         </div>
 
-        <div class="review-card">
-          <div class="review-stars">
-            <svg class="star-icon"><use href="#icon-star"/></svg>
-            <svg class="star-icon"><use href="#icon-star"/></svg>
-            <svg class="star-icon"><use href="#icon-star"/></svg>
-            <svg class="star-icon"><use href="#icon-star"/></svg>
-            <svg class="star-icon"><use href="#icon-star"/></svg>
-          </div>
-          <p class="review-text">"We needed HACCP-compliant pest management before our BRC audit. ABIOTEK provided exactly that — the documentation they supplied was thorough and the auditors were satisfied."</p>
-          <div class="reviewer">
+        <div class="review-card reveal reveal-delay-1">
+          <div class="review-top">
             <div class="reviewer-avatar">SC</div>
-            <div>
+            <div class="reviewer-info">
               <div class="reviewer-name">Sophie C.</div>
-              <div class="reviewer-role">Quality Manager, Luxembourg Distribution Centre</div>
+              <div class="reviewer-meta">Quality Manager — Distribution Centre</div>
             </div>
           </div>
+          <div class="review-stars-row">
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="review-text">"We needed HACCP-compliant pest management before our BRC audit. ABIOTEK provided exactly that — the documentation they supplied was thorough and the auditors were completely satisfied."</p>
         </div>
 
-        <div class="review-card">
-          <div class="review-stars">
-            <svg class="star-icon"><use href="#icon-star"/></svg>
-            <svg class="star-icon"><use href="#icon-star"/></svg>
-            <svg class="star-icon"><use href="#icon-star"/></svg>
-            <svg class="star-icon"><use href="#icon-star"/></svg>
-            <svg class="star-icon"><use href="#icon-star"/></svg>
+        <div class="review-card reveal reveal-delay-2">
+          <div class="review-top">
+            <div class="reviewer-avatar">JB</div>
+            <div class="reviewer-info">
+              <div class="reviewer-name">Jean-Pierre B.</div>
+              <div class="reviewer-meta">General Manager — Hotel Group Luxembourg</div>
+            </div>
+          </div>
+          <div class="review-stars-row">
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           </div>
           <p class="review-text">"Responsive, discreet, and effective. As a hotel operator, discretion matters enormously. ABIOTEK handled everything after hours with full written certification. Highly recommended."</p>
-          <div class="reviewer">
-            <div class="reviewer-avatar">JB</div>
-            <div>
-              <div class="reviewer-name">Jean-Pierre B.</div>
-              <div class="reviewer-role">General Manager, Luxembourg Hotel Group</div>
-            </div>
-          </div>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- ── TRUST BAND ── -->
-  <section class="trust-band">
-    <div class="trust-inner">
-      <div class="trust-item">
-        <svg class="icon"><use href="#icon-shield"/></svg>
+  <!-- ── WHY US BAND (forest green) ── -->
+  <section class="why-band">
+    <div class="why-inner">
+      <div class="why-item reveal">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.4C17.25 22.15 21 17.25 21 12V7L12 2z"/></svg>
+        </div>
         <h4>Fully Insured</h4>
-        <p>Professional liability coverage on every intervention</p>
+        <p>Professional liability coverage on every intervention, every time.</p>
       </div>
-      <div class="trust-item">
-        <svg class="icon"><use href="#icon-eye"/></svg>
+      <div class="why-item reveal reveal-delay-1">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M1 12S5 4 12 4s11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
         <h4>Free Site Audit</h4>
-        <p>No-obligation inspection and written risk report</p>
+        <p>No-obligation inspection with a full written risk assessment report.</p>
       </div>
-      <div class="trust-item">
-        <svg class="icon"><use href="#icon-clock"/></svg>
+      <div class="why-item reveal reveal-delay-2">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
         <h4>Rapid Response</h4>
-        <p>Priority call-out for urgent commercial situations</p>
+        <p>Priority call-out for urgent commercial situations across Luxembourg.</p>
       </div>
-      <div class="trust-item">
-        <svg class="icon"><use href="#icon-users"/></svg>
-        <h4>Specialist Team</h4>
-        <p>Trained technicians with certified equipment</p>
+      <div class="why-item reveal reveal-delay-3">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+        </div>
+        <h4>99% Success Rate</h4>
+        <p>Every intervention is documented, certified, and guaranteed.</p>
       </div>
     </div>
   </section>
 
-  <!-- ── CTA SECTION ── -->
+  <!-- ── SECTORS ── -->
+  <section class="sectors" id="sectors">
+    <div class="sectors-layout">
+      <div class="reveal">
+        <p class="section-eyebrow">Who We Serve</p>
+        <h2>Industries &amp; Sectors We Protect</h2>
+        <p class="intro">From luxury hotels to industrial warehouses — ABIOTEK serves every sector that demands certified, compliant sanitation across the Grand Duchy of Luxembourg.</p>
+        <a href="tel:+35226302740" class="btn-solid">Get in Touch</a>
+      </div>
+      <div class="sectors-grid reveal reveal-delay-2">
+        <div class="sector-item">
+          <div class="sector-dot"></div>
+          <div class="sector-name">Food Production &amp; Manufacturing</div>
+        </div>
+        <div class="sector-item">
+          <div class="sector-dot"></div>
+          <div class="sector-name">Hotels &amp; HORESCA</div>
+        </div>
+        <div class="sector-item">
+          <div class="sector-dot"></div>
+          <div class="sector-name">Logistics &amp; Warehousing</div>
+        </div>
+        <div class="sector-item">
+          <div class="sector-dot"></div>
+          <div class="sector-name">Retail &amp; Commerce</div>
+        </div>
+        <div class="sector-item">
+          <div class="sector-dot"></div>
+          <div class="sector-name">Healthcare &amp; Pharma</div>
+        </div>
+        <div class="sector-item">
+          <div class="sector-dot"></div>
+          <div class="sector-name">Transport &amp; Freight</div>
+        </div>
+        <div class="sector-item">
+          <div class="sector-dot"></div>
+          <div class="sector-name">Office &amp; Tertiary Sector</div>
+        </div>
+        <div class="sector-item">
+          <div class="sector-dot"></div>
+          <div class="sector-name">Private Residences</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
   <section class="cta-section" id="contact">
     <div class="section-inner">
       <p class="section-eyebrow">Get in Touch</p>
       <h2>Request Your Free Hygiene Audit Today</h2>
       <p>No obligation. A specialist will visit your premises, assess risk, and deliver a written report — at no cost to you.</p>
-      <div class="cta-buttons">
-        <a href="tel:+35226302740" class="btn-primary-dark">Call +352 26 30 27 40</a>
-        <a href="mailto:contact@abiotek.lu" class="btn-outline-dark">Email Us</a>
+      <div class="cta-btns">
+        <a href="tel:+35226302740" class="btn-cta-primary">Call +352 26 30 27 40</a>
+        <a href="mailto:contact@abiotek.lu" class="btn-cta-ghost">Email Us</a>
       </div>
     </div>
   </section>
@@ -1218,8 +1492,8 @@
       <div class="footer-top">
         <div class="footer-brand">
           <span class="wordmark">ABIOTEK</span>
-          <span class="tagline">Sanitation Global Services S.A.</span>
-          <p>Professional pest control, disinfection, and hygiene compliance services for Luxembourg — since 2009.</p>
+          <span class="sub">Sanitation Global Services S.A.</span>
+          <p>Professional pest control, disinfection, and hygiene compliance services for Luxembourg and beyond — since 2009.</p>
         </div>
         <div class="footer-col">
           <h5>Services</h5>
@@ -1229,18 +1503,18 @@
             <li><a href="#services">Disinfection</a></li>
             <li><a href="#services">Hygiene Audits</a></li>
             <li><a href="#services">Fumigation</a></li>
-            <li><a href="#services">Preventive Treatments</a></li>
+            <li><a href="#services">Preventive Programmes</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h5>Sectors</h5>
           <ul>
-            <li><a href="#">Industry &amp; Production</a></li>
-            <li><a href="#">HORESCA / Hotels</a></li>
-            <li><a href="#">Tertiary Sector</a></li>
-            <li><a href="#">Commerce &amp; Retail</a></li>
-            <li><a href="#">Transport</a></li>
-            <li><a href="#">Private Residences</a></li>
+            <li><a href="#sectors">Food &amp; Industry</a></li>
+            <li><a href="#sectors">Hotels &amp; HORESCA</a></li>
+            <li><a href="#sectors">Logistics</a></li>
+            <li><a href="#sectors">Healthcare</a></li>
+            <li><a href="#sectors">Retail</a></li>
+            <li><a href="#sectors">Private</a></li>
           </ul>
         </div>
         <div class="footer-col footer-contact">
@@ -1255,8 +1529,8 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 Sanitation Global Services S.A. — All rights reserved.</p>
-        <div class="legal-links">
+        <p>&copy; 2025 Sanitation Global Services S.A. All rights reserved.</p>
+        <div class="footer-legal">
           <a href="#">Privacy Policy</a>
           <a href="#">Legal Notice</a>
         </div>
@@ -1264,111 +1538,82 @@
     </div>
   </footer>
 
-  <script type="module">
-    import { animate, inView, stagger } from 'https://esm.sh/motion';
+  <script>
+    // ── HERO SLIDER ──
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const progress = document.getElementById('slideProgress');
+    let current = 0;
+    let timer = null;
+    const INTERVAL = 6000;
 
-    // ── Set initial opacity:0 via JS (not CSS) ──
-    const animTargets = [
-      '.hero-content',
-      '.hero-info-card',
-      '.stat',
-      '.service-card',
-      '.cert-content',
-      '.cert-photo',
-      '.review-card',
-      '.trust-item',
-      '.cta-section .section-inner',
-    ];
+    function goTo(index) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = (index + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+      restartProgress();
+    }
 
-    animTargets.forEach(selector => {
-      document.querySelectorAll(selector).forEach(el => {
-        el.style.opacity = '0';
+    function restartProgress() {
+      clearInterval(timer);
+      progress.style.transition = 'none';
+      progress.style.width = '0%';
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          progress.style.transition = `width ${INTERVAL}ms linear`;
+          progress.style.width = '100%';
+        });
       });
-    });
+      timer = setInterval(() => goTo(current + 1), INTERVAL);
+    }
 
-    // ── Hero content ──
-    inView('.hero-content', ({ target }) => {
-      animate(target, { opacity: [0, 1], y: [18, 0] }, { duration: 0.75, easing: 'ease-out' });
-    });
+    document.querySelector('.slider-arrow.prev').addEventListener('click', () => goTo(current - 1));
+    document.querySelector('.slider-arrow.next').addEventListener('click', () => goTo(current + 1));
+    dots.forEach(dot => dot.addEventListener('click', () => goTo(parseInt(dot.dataset.dot))));
 
-    inView('.hero-info-card', ({ target }) => {
-      animate(
-        document.querySelectorAll('.hero-info-card'),
-        { opacity: [0, 1], y: [12, 0] },
-        { duration: 0.6, delay: stagger(0.12), easing: 'ease-out' }
-      );
-    }, { amount: 0.2 });
+    restartProgress();
 
-    // ── Stats ──
-    inView('.stats-inner', ({ target }) => {
-      const stats = target.querySelectorAll('.stat');
-      animate(stats, { opacity: [0, 1], y: [10, 0] }, { duration: 0.5, delay: stagger(0.1), easing: 'ease-out' });
-    }, { amount: 0.3 });
+    // ── SCROLL REVEAL ──
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => observer.observe(el));
 
-    // ── Count-up on stats ──
+    // ── COUNT-UP ──
     function countUp(el) {
       const end = parseFloat(el.dataset.count);
       const suffix = el.dataset.suffix || '';
       const isDecimal = el.dataset.decimal === 'true';
       const duration = 1600;
       const start = performance.now();
-
       function step(now) {
-        const elapsed = now - start;
-        const progress = Math.min(elapsed / duration, 1);
+        const progress = Math.min((now - start) / duration, 1);
         const eased = 1 - Math.pow(1 - progress, 3);
-        const current = end * eased;
-        el.textContent = (isDecimal ? current.toFixed(1) : Math.floor(current)) + suffix;
+        const val = end * eased;
+        el.textContent = (isDecimal ? val.toFixed(1) : Math.floor(val)) + suffix;
         if (progress < 1) requestAnimationFrame(step);
       }
-
       requestAnimationFrame(step);
     }
 
-    inView('.stats-inner', () => {
-      document.querySelectorAll('[data-count]').forEach(el => countUp(el));
-    }, { amount: 0.5 });
-
-    // ── Services ──
-    inView('.services-grid', ({ target }) => {
-      animate(
-        target.querySelectorAll('.service-card'),
-        { opacity: [0, 1], y: [14, 0] },
-        { duration: 0.55, delay: stagger(0.09), easing: 'ease-out' }
-      );
-    }, { amount: 0.15 });
-
-    // ── Certifications ──
-    inView('.cert-content', ({ target }) => {
-      animate(target, { opacity: [0, 1], y: [14, 0] }, { duration: 0.65, easing: 'ease-out' });
-    }, { amount: 0.2 });
-
-    inView('.cert-photo', ({ target }) => {
-      animate(target, { opacity: [0, 1], y: [14, 0] }, { duration: 0.65, delay: 0.15, easing: 'ease-out' });
-    }, { amount: 0.2 });
-
-    // ── Reviews ──
-    inView('.reviews-grid', ({ target }) => {
-      animate(
-        target.querySelectorAll('.review-card'),
-        { opacity: [0, 1], y: [12, 0] },
-        { duration: 0.55, delay: stagger(0.12), easing: 'ease-out' }
-      );
-    }, { amount: 0.15 });
-
-    // ── Trust items ──
-    inView('.trust-inner', ({ target }) => {
-      animate(
-        target.querySelectorAll('.trust-item'),
-        { opacity: [0, 1], y: [10, 0] },
-        { duration: 0.5, delay: stagger(0.08), easing: 'ease-out' }
-      );
-    }, { amount: 0.3 });
-
-    // ── CTA section ──
-    inView('.cta-section .section-inner', ({ target }) => {
-      animate(target, { opacity: [0, 1], y: [12, 0] }, { duration: 0.6, easing: 'ease-out' });
-    }, { amount: 0.3 });
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('[data-count]').forEach(el => countUp(el));
+          statsObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    const statsBand = document.querySelector('.stats-band');
+    if (statsBand) statsObserver.observe(statsBand);
   </script>
 
 </body>
