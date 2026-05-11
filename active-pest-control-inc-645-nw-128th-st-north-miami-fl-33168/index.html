@@ -3,1363 +3,390 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Active Pest Control — North Miami, FL | Free Inspection</title>
+  <title>Active Pest Control, Inc. | North Miami, FL</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700;800&family=Rubik:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --teal-dark:   #0c4a6e;
-      --teal-mid:    #0e5a85;
-      --sky:         #0ea5e9;
-      --sky-light:   #38bdf8;
-      --white:       #ffffff;
-      --bg-light:    #f0f9ff;
-      --text-dark:   #0f172a;
-      --text-muted:  #475569;
-      --border:      #e2e8f0;
+      --bg: #0b0b0b; --bg2: #111111; --bg3: #161616;
+      --green: #1e5c3a; --green2: #276848; --gold: #c8a84b;
+      --white: #f5f5f0; --muted: rgba(245,245,240,0.45); --border: rgba(245,245,240,0.08);
     }
-
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Rubik', sans-serif;
-      color: var(--text-dark);
-      background: var(--white);
-      overflow-x: hidden;
-    }
-
-    /* ── SVG ICONS ─────────────────────────────────────────────── */
-    .icon {
-      display: inline-block;
-      width: 32px;
-      height: 32px;
-      flex-shrink: 0;
-    }
-    .icon-lg { width: 44px; height: 44px; }
-
-    /* ── NAV ────────────────────────────────────────────────────── */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      padding: 0 5%;
-    }
-    .nav-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 68px;
-      gap: 24px;
-    }
-    .nav-brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-    }
-    .nav-logo-mark {
-      width: 38px;
-      height: 38px;
-      background: var(--teal-dark);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .nav-brand-text {
-      font-family: 'Kanit', sans-serif;
-      font-weight: 700;
-      font-size: 1.15rem;
-      color: var(--teal-dark);
-      line-height: 1.15;
-    }
-    .nav-brand-text span {
-      display: block;
-      font-size: 0.7rem;
-      font-weight: 400;
-      color: var(--text-muted);
-      font-family: 'Rubik', sans-serif;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--teal-dark); }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-family: 'Rubik', sans-serif;
-      font-weight: 600;
-      font-size: 0.9rem;
-      border-radius: 8px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      white-space: nowrap;
-    }
-    .btn-primary {
-      background: var(--teal-dark);
-      color: var(--white);
-      padding: 11px 22px;
-      border: 1.5px solid transparent;
-    }
-    .btn-primary:hover { background: var(--teal-mid); }
-    .btn-sky {
-      background: var(--sky);
-      color: var(--white);
-      padding: 14px 30px;
-      border: 1.5px solid transparent;
-      font-size: 1rem;
-    }
-    .btn-sky:hover { background: var(--sky-light); }
-    .btn-ghost-white {
-      background: transparent;
-      color: var(--white);
-      padding: 14px 30px;
-      border: 1.5px solid rgba(255,255,255,0.7);
-      font-size: 1rem;
-    }
-    .btn-ghost-white:hover {
-      background: rgba(255,255,255,0.12);
-      border-color: var(--white);
-    }
-    .btn-outline-teal {
-      background: transparent;
-      color: var(--teal-dark);
-      padding: 14px 30px;
-      border: 1.5px solid var(--teal-dark);
-      font-size: 1rem;
-    }
-    .btn-outline-teal:hover { background: var(--bg-light); }
-
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-    }
-
-    /* ── HERO ───────────────────────────────────────────────────── */
-    .hero {
-      position: relative;
-      min-height: 92vh;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-    }
-    .hero-photo {
-      position: absolute;
-      inset: 0;
-      background: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1600&q=80')
-        center / cover no-repeat;
-    }
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        105deg,
-        rgba(12, 74, 110, 0.93) 0%,
-        rgba(12, 74, 110, 0.78) 55%,
-        rgba(14, 165, 233, 0.35) 100%
-      );
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 80px 5%;
-      width: 100%;
-    }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(14,165,233,0.2);
-      border: 1px solid rgba(14,165,233,0.45);
-      color: #7dd3fc;
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 6px 14px;
-      border-radius: 100px;
-      margin-bottom: 24px;
-    }
-    .hero-badge-dot {
-      width: 7px;
-      height: 7px;
-      background: var(--sky-light);
-      border-radius: 50%;
-      animation: pulse 2s ease-in-out infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.8); }
-    }
-    .hero h1 {
-      font-family: 'Kanit', sans-serif;
-      font-weight: 800;
-      font-size: clamp(2.6rem, 5.5vw, 4.2rem);
-      color: var(--white);
-      line-height: 1.1;
-      max-width: 720px;
-      margin-bottom: 22px;
-    }
-    .hero h1 .highlight { color: var(--sky-light); }
-    .hero-sub {
-      font-size: 1.1rem;
-      color: rgba(255,255,255,0.82);
-      max-width: 540px;
-      line-height: 1.65;
-      margin-bottom: 38px;
-    }
-    .hero-ctas {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 60px;
-    }
-    .hero-stats {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 28px;
-    }
-    .hero-stat {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .hero-stat-icon {
-      width: 40px;
-      height: 40px;
-      background: rgba(255,255,255,0.12);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .hero-stat-val {
-      font-family: 'Kanit', sans-serif;
-      font-weight: 700;
-      font-size: 1.15rem;
-      color: var(--white);
-      line-height: 1.2;
-    }
-    .hero-stat-label {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.65);
-      line-height: 1.2;
-    }
-
-    /* ── STATS BAND ─────────────────────────────────────────────── */
-    .stats-band {
-      background: var(--bg-light);
-      padding: 70px 5%;
-    }
-    .stats-band-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 32px;
-    }
-    .stat-tile {
-      text-align: center;
-      padding: 36px 24px;
-      background: var(--white);
-      border-radius: 16px;
-      border: 1px solid var(--border);
-    }
-    .stat-tile-num {
-      font-family: 'Kanit', sans-serif;
-      font-weight: 800;
-      font-size: 2.8rem;
-      color: var(--teal-dark);
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-    .stat-tile-label {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-    .stat-tile-sub {
-      font-size: 0.8rem;
-      color: var(--sky);
-      font-weight: 600;
-      margin-top: 4px;
-    }
-
-    /* ── SECTION HEADER ─────────────────────────────────────────── */
-    .section-header {
-      text-align: center;
-      max-width: 640px;
-      margin: 0 auto 56px;
-    }
-    .section-kicker {
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--sky);
-      margin-bottom: 12px;
-      display: block;
-    }
-    .section-header h2 {
-      font-family: 'Kanit', sans-serif;
-      font-weight: 800;
-      font-size: clamp(1.9rem, 3.5vw, 2.6rem);
-      color: var(--text-dark);
-      line-height: 1.15;
-      margin-bottom: 14px;
-    }
-    .section-header p {
-      font-size: 1rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-    }
-
-    /* ── SERVICES ───────────────────────────────────────────────── */
-    .services {
-      padding: 90px 5%;
-      background: var(--white);
-    }
-    .services-inner { max-width: 1200px; margin: 0 auto; }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-      gap: 24px;
-    }
-    .service-card {
-      padding: 32px 28px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: var(--white);
-      transition: box-shadow 0.25s ease;
-    }
-    .service-card:hover {
-      box-shadow: 0 8px 32px rgba(12,74,110,0.10);
-    }
-    .service-icon-wrap {
-      width: 56px;
-      height: 56px;
-      background: var(--bg-light);
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-    .service-card h3 {
-      font-family: 'Kanit', sans-serif;
-      font-weight: 700;
-      font-size: 1.15rem;
-      color: var(--text-dark);
-      margin-bottom: 10px;
-    }
-    .service-card p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-    }
-
-    /* ── FEATURE SECTION ────────────────────────────────────────── */
-    .feature-section {
-      background: var(--teal-dark);
-      padding: 90px 5%;
-      overflow: hidden;
-    }
-    .feature-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 70px;
-      align-items: center;
-    }
-    .feature-content .section-kicker { color: var(--sky-light); }
-    .feature-content h2 {
-      font-family: 'Kanit', sans-serif;
-      font-weight: 800;
-      font-size: clamp(1.9rem, 3vw, 2.5rem);
-      color: var(--white);
-      line-height: 1.15;
-      margin-bottom: 20px;
-    }
-    .feature-content > p {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.75);
-      line-height: 1.7;
-      margin-bottom: 36px;
-    }
-    .feature-points {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-    .feature-point {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-    }
-    .feature-point-icon {
-      width: 36px;
-      height: 36px;
-      background: rgba(14,165,233,0.2);
-      border-radius: 9px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-    .feature-point-text h4 {
-      font-weight: 600;
-      color: var(--white);
-      font-size: 0.95rem;
-      margin-bottom: 3px;
-    }
-    .feature-point-text p {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.65);
-      line-height: 1.5;
-    }
-    .feature-photo-wrap {
-      position: relative;
-    }
-    .feature-photo {
-      width: 100%;
-      aspect-ratio: 4/5;
-      object-fit: cover;
-      border-radius: 20px;
-      display: block;
-    }
-    .feature-photo-badge {
-      position: absolute;
-      bottom: -18px;
-      left: -18px;
-      background: var(--sky);
-      color: var(--white);
-      border-radius: 14px;
-      padding: 18px 22px;
-      box-shadow: 0 10px 30px rgba(14,165,233,0.4);
-    }
-    .feature-photo-badge-num {
-      font-family: 'Kanit', sans-serif;
-      font-weight: 800;
-      font-size: 1.8rem;
-      line-height: 1;
-    }
-    .feature-photo-badge-label {
-      font-size: 0.78rem;
-      opacity: 0.9;
-    }
-
-    @media (max-width: 900px) {
-      .feature-inner { grid-template-columns: 1fr; gap: 48px; }
-      .feature-photo-wrap { order: -1; }
-    }
-
-    /* ── REVIEWS ────────────────────────────────────────────────── */
-    .reviews {
-      padding: 90px 5%;
-      background: var(--bg-light);
-    }
-    .reviews-inner { max-width: 1200px; margin: 0 auto; }
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-    }
-    .review-card {
-      background: var(--white);
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      padding: 30px 28px;
-    }
-    .review-stars {
-      display: flex;
-      gap: 3px;
-      margin-bottom: 14px;
-    }
-    .review-text {
-      font-size: 0.95rem;
-      color: var(--text-dark);
-      line-height: 1.7;
-      margin-bottom: 22px;
-      font-style: italic;
-    }
-    .review-author {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .review-avatar {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: var(--bg-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Kanit', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--teal-dark);
-      flex-shrink: 0;
-    }
-    .review-author-name {
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: var(--text-dark);
-    }
-    .review-author-loc {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-    .review-source {
-      margin-left: auto;
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    /* ── TRUST BAND ─────────────────────────────────────────────── */
-    .trust-band {
-      background: var(--sky);
-      padding: 52px 5%;
-    }
-    .trust-band-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 32px;
-    }
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .trust-icon {
-      width: 48px;
-      height: 48px;
-      background: rgba(255,255,255,0.2);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .trust-item-text h4 {
-      font-family: 'Kanit', sans-serif;
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: var(--white);
-    }
-    .trust-item-text p {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.8);
-    }
-
-    /* ── CTA SECTION ────────────────────────────────────────────── */
-    .cta-section {
-      padding: 100px 5%;
-      background: var(--white);
-      text-align: center;
-    }
-    .cta-inner {
-      max-width: 720px;
-      margin: 0 auto;
-    }
-    .cta-inner h2 {
-      font-family: 'Kanit', sans-serif;
-      font-weight: 800;
-      font-size: clamp(2rem, 4vw, 3rem);
-      color: var(--text-dark);
-      line-height: 1.15;
-      margin-bottom: 18px;
-    }
-    .cta-inner h2 span { color: var(--sky); }
-    .cta-inner p {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-      margin-bottom: 38px;
-    }
-    .cta-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      justify-content: center;
-    }
-    .cta-disclaimer {
-      margin-top: 20px;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-    }
-
-    /* ── FOOTER ─────────────────────────────────────────────────── */
-    footer {
-      background: var(--teal-dark);
-      padding: 56px 5% 32px;
-    }
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 48px;
-      margin-bottom: 48px;
-    }
-    .footer-brand-text {
-      font-family: 'Kanit', sans-serif;
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: var(--white);
-      margin-bottom: 6px;
-    }
-    .footer-tagline {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 20px;
-      line-height: 1.55;
-    }
-    .footer-contact-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.88rem;
-      color: rgba(255,255,255,0.75);
-      margin-bottom: 10px;
-    }
-    .footer-contact-item a {
-      color: rgba(255,255,255,0.75);
-      text-decoration: none;
-    }
-    .footer-contact-item a:hover { color: var(--white); }
-    .footer-col h4 {
-      font-family: 'Kanit', sans-serif;
-      font-weight: 700;
-      color: var(--white);
-      font-size: 0.95rem;
-      margin-bottom: 16px;
-    }
-    .footer-links {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .footer-links a {
-      font-size: 0.88rem;
-      color: rgba(255,255,255,0.65);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--white); }
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.12);
-      padding-top: 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .footer-bottom p {
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.45);
-    }
-    .footer-license {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.35);
-    }
-
-    @media (max-width: 768px) {
-      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-      .hero-stats { gap: 16px; }
-    }
+    body { font-family: 'Jost', sans-serif; font-weight: 400; color: var(--white); background: var(--bg); line-height: 1.6; overflow-x: hidden; }
+    .grain { position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: 0.035; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); background-repeat: repeat; background-size: 128px 128px; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; padding: 0 48px; height: 68px; display: flex; align-items: center; justify-content: space-between; background: linear-gradient(to bottom, rgba(11,11,11,0.95) 0%, transparent 100%); transition: background 0.4s; }
+    nav.scrolled { background: rgba(11,11,11,0.97); border-bottom: 1px solid var(--border); }
+    .nav-brand { display: flex; flex-direction: column; line-height: 1; }
+    .nav-brand .wordmark { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.14em; color: var(--white); text-decoration: none; }
+    .nav-brand .tagline { font-size: 0.54rem; font-weight: 500; letter-spacing: 0.26em; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; white-space: nowrap; }
+    .nav-links a { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .btn-nav { font-family: 'Jost', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; white-space: nowrap; padding: 10px 22px; background: var(--green); color: var(--white); border: none; cursor: pointer; transition: background 0.2s; }
+    .btn-nav:hover { background: var(--green2); }
+    .hero { position: relative; height: 100vh; min-height: 640px; overflow: hidden; display: flex; align-items: center; }
+    .hero-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80'); background-size: cover; background-position: center; transform: scale(1.08); will-change: transform; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(120deg, rgba(11,11,11,0.92) 0%, rgba(11,11,11,0.55) 100%); }
+    .hero-vignette { position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.65) 100%); }
+    .hero-inner { position: relative; z-index: 2; width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+    .hero-eyebrow { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; opacity: 0; }
+    .hero-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 9vw, 9rem); line-height: 0.92; letter-spacing: 0.04em; color: var(--white); margin-bottom: 32px; }
+    .hero-title-line { display: block; overflow: hidden; }
+    .hero-title-line span { display: block; transform: translateY(110%); }
+    .hero-sub { font-size: 1rem; font-weight: 300; color: rgba(245,245,240,0.65); max-width: 480px; line-height: 1.85; margin-bottom: 44px; opacity: 0; }
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; opacity: 0; }
+    .btn-primary { font-family: 'Jost', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; padding: 13px 30px; background: var(--green); color: var(--white); border: none; cursor: pointer; transition: background 0.2s; display: inline-block; }
+    .btn-primary:hover { background: var(--green2); }
+    .btn-ghost { font-family: 'Jost', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; padding: 13px 30px; background: transparent; color: var(--white); border: 1px solid rgba(245,245,240,0.3); cursor: pointer; transition: border-color 0.2s; display: inline-block; }
+    .btn-ghost:hover { border-color: rgba(245,245,240,0.7); }
+    .hero-badges { position: absolute; bottom: 48px; right: 48px; display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; opacity: 0; }
+    .hero-badge { font-size: 0.58rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(245,245,240,0.5); border: 1px solid rgba(245,245,240,0.15); padding: 5px 12px; }
+    .hero-scroll { position: absolute; bottom: 48px; left: 48px; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; gap: 10px; opacity: 0; }
+    .hero-scroll span { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.26em; text-transform: uppercase; color: var(--muted); }
+    .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+    @keyframes scrollPulse { 0%, 100% { opacity: 0.4; transform: scaleY(1); } 50% { opacity: 1; transform: scaleY(1.2); } }
+    .statement { background: var(--bg); padding: 140px 48px; text-align: center; position: relative; overflow: hidden; }
+    .statement::before, .statement::after { content: ''; position: absolute; top: 20%; width: 1px; height: 120px; background: linear-gradient(to bottom, transparent, rgba(245,245,240,0.12), transparent); }
+    .statement::before { left: 64px; } .statement::after { right: 64px; }
+    .statement-eyebrow { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; }
+    .statement-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 7vw, 6.5rem); line-height: 0.95; letter-spacing: 0.06em; color: var(--white); margin-bottom: 28px; }
+    .statement-line { width: 60px; height: 1px; background: var(--gold); margin: 0 auto 28px; transform-origin: center; transform: scaleX(0); }
+    .statement-sub { font-size: 0.95rem; font-weight: 300; color: var(--muted); max-width: 600px; margin: 0 auto; line-height: 1.85; }
+    .stats-band { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .stats-inner { max-width: 1280px; margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: repeat(4, 1fr); }
+    .stat { padding: 56px 32px; text-align: center; border-right: 1px solid var(--border); }
+    .stat:last-child { border-right: none; }
+    .stat-number { font-family: 'Bebas Neue', sans-serif; font-size: 3.8rem; letter-spacing: 0.04em; color: var(--white); line-height: 1; margin-bottom: 10px; }
+    .stat-label { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+    .services { background: var(--bg); padding: 120px 48px; }
+    .section-inner { max-width: 1280px; margin: 0 auto; }
+    .section-header { margin-bottom: 72px; }
+    .section-eyebrow { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .section-header h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.8rem, 5vw, 5rem); letter-spacing: 0.04em; color: var(--white); line-height: 0.95; max-width: 640px; }
+    .section-header p { margin-top: 20px; font-size: 0.9rem; font-weight: 300; color: var(--muted); max-width: 520px; line-height: 1.85; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
+    .service-card { background: var(--bg2); padding: 44px 40px; position: relative; overflow: hidden; transition: background 0.3s; }
+    .service-card::before { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--green); transition: width 0.4s ease; }
+    .service-card:hover { background: var(--bg3); } .service-card:hover::before { width: 100%; }
+    .service-num { font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; letter-spacing: 0.14em; color: var(--green); margin-bottom: 20px; }
+    .service-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.04em; color: var(--white); margin-bottom: 14px; line-height: 1.1; }
+    .service-card p { font-size: 0.84rem; font-weight: 300; color: var(--muted); line-height: 1.8; }
+    .certifications { background: var(--bg2); padding: 120px 48px; }
+    .cert-layout { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .cert-content .section-eyebrow { color: var(--gold); }
+    .cert-content h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.8rem, 5vw, 5rem); letter-spacing: 0.04em; color: var(--white); line-height: 0.95; margin-bottom: 20px; }
+    .cert-content .intro { font-size: 0.88rem; font-weight: 300; color: var(--muted); line-height: 1.85; margin-bottom: 44px; }
+    .cert-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+    .cert-item { background: var(--bg3); padding: 22px 24px; }
+    .cert-item-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.05rem; letter-spacing: 0.08em; color: var(--white); margin-bottom: 4px; }
+    .cert-item-desc { font-size: 0.72rem; font-weight: 300; color: var(--muted); line-height: 1.55; }
+    .cert-visual { position: relative; }
+    .cert-img-wrap { position: relative; overflow: hidden; clip-path: inset(100% 0 0 0); }
+    .cert-img-wrap.revealed { clip-path: inset(0% 0 0 0); transition: clip-path 1.1s cubic-bezier(0.77, 0, 0.175, 1); }
+    .cert-img { width: 100%; height: 520px; object-fit: cover; display: block; transform: scale(1.08); transition: transform 1.1s cubic-bezier(0.77, 0, 0.175, 1); }
+    .cert-img-wrap.revealed .cert-img { transform: scale(1); }
+    .cert-img-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(11,11,11,0.8) 0%, transparent 50%); }
+    .corner-tl, .corner-tr, .corner-bl, .corner-br { position: absolute; width: 24px; height: 24px; }
+    .corner-tl { top: 12px; left: 12px; border-top: 1px solid rgba(245,245,240,0.3); border-left: 1px solid rgba(245,245,240,0.3); }
+    .corner-tr { top: 12px; right: 12px; border-top: 1px solid rgba(245,245,240,0.3); border-right: 1px solid rgba(245,245,240,0.3); }
+    .corner-bl { bottom: 12px; left: 12px; border-bottom: 1px solid rgba(245,245,240,0.3); border-left: 1px solid rgba(245,245,240,0.3); }
+    .corner-br { bottom: 12px; right: 12px; border-bottom: 1px solid rgba(245,245,240,0.3); border-right: 1px solid rgba(245,245,240,0.3); }
+    .cert-badge-strip { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px 28px; display: flex; gap: 8px; flex-wrap: wrap; }
+    .cbadge { font-size: 0.56rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(245,245,240,0.6); border: 1px solid rgba(245,245,240,0.18); padding: 5px 10px; background: rgba(11,11,11,0.6); }
+    .reviews { background: var(--bg); padding: 120px 48px; }
+    .reviews-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 64px; gap: 24px; }
+    .google-badge { display: flex; align-items: center; gap: 12px; background: var(--bg2); border: 1px solid var(--border); padding: 14px 20px; flex-shrink: 0; }
+    .google-g { font-size: 1.2rem; font-weight: 700; background: linear-gradient(135deg, #4285f4 0%, #ea4335 40%, #fbbc05 70%, #34a853 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-family: 'Jost', sans-serif; line-height: 1; }
+    .google-rating-val { font-family: 'Bebas Neue', sans-serif; font-size: 1.7rem; letter-spacing: 0.04em; color: var(--white); line-height: 1; }
+    .google-stars-row { display: flex; gap: 2px; margin: 3px 0; }
+    .gstar { width: 12px; height: 12px; fill: #fbbc05; }
+    .google-rating-label { font-size: 0.62rem; font-weight: 500; color: var(--muted); letter-spacing: 0.1em; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
+    .review-card { background: var(--bg2); padding: 40px; }
+    .review-top { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+    .reviewer-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--green); color: var(--white); font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .reviewer-name { font-size: 0.88rem; font-weight: 600; color: var(--white); }
+    .reviewer-meta { font-size: 0.7rem; font-weight: 300; color: var(--muted); margin-top: 2px; }
+    .review-stars-row { display: flex; gap: 3px; margin-bottom: 18px; }
+    .rstar { width: 13px; height: 13px; fill: #fbbc05; }
+    .review-text { font-size: 0.86rem; font-weight: 300; color: rgba(245,245,240,0.7); line-height: 1.85; font-style: italic; }
+    .why-band { background: var(--green); padding: 0; }
+    .why-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); }
+    .why-item { padding: 52px 36px; border-right: 1px solid rgba(245,245,240,0.1); text-align: center; }
+    .why-item:last-child { border-right: none; }
+    .why-item h4 { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.06em; color: var(--white); margin-bottom: 10px; }
+    .why-item p { font-size: 0.78rem; font-weight: 300; color: rgba(245,245,240,0.65); line-height: 1.75; }
+    .sectors { background: var(--bg2); padding: 120px 48px; }
+    .sectors-layout { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: center; }
+    .sectors-left h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.8rem, 5vw, 5rem); letter-spacing: 0.04em; color: var(--white); line-height: 0.95; margin-bottom: 20px; }
+    .sectors-left .intro { font-size: 0.88rem; font-weight: 300; color: var(--muted); line-height: 1.85; margin-bottom: 36px; }
+    .btn-solid { font-family: 'Jost', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; padding: 13px 30px; background: var(--white); color: var(--bg); border: none; cursor: pointer; transition: background 0.2s, color 0.2s; display: inline-block; }
+    .btn-solid:hover { background: rgba(245,245,240,0.85); }
+    .sectors-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+    .sector-item { background: var(--bg3); padding: 22px 24px; display: flex; align-items: center; gap: 14px; transition: background 0.2s; }
+    .sector-item:hover { background: rgba(30,92,58,0.15); }
+    .sector-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+    .sector-name { font-size: 0.82rem; font-weight: 400; color: rgba(245,245,240,0.75); }
+    .cta-section { background: var(--bg); padding: 140px 48px; text-align: center; position: relative; overflow: hidden; }
+    .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(30,92,58,0.12) 0%, transparent 70%); pointer-events: none; }
+    .cta-section .section-eyebrow { color: var(--gold); text-align: center; }
+    .cta-section h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 6vw, 6rem); letter-spacing: 0.04em; color: var(--white); line-height: 0.95; margin-bottom: 20px; }
+    .cta-section p { font-size: 0.92rem; font-weight: 300; color: var(--muted); max-width: 480px; margin: 0 auto 48px; line-height: 1.85; }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-cta-primary { font-family: 'Jost', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; padding: 13px 36px; background: var(--green); color: var(--white); border: none; cursor: pointer; transition: background 0.2s; display: inline-block; }
+    .btn-cta-primary:hover { background: var(--green2); }
+    .btn-cta-ghost { font-family: 'Jost', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; padding: 13px 36px; background: transparent; color: var(--white); border: 1px solid rgba(245,245,240,0.25); cursor: pointer; transition: border-color 0.2s; display: inline-block; }
+    .btn-cta-ghost:hover { border-color: rgba(245,245,240,0.6); }
+    footer { background: #060606; padding: 72px 48px 40px; border-top: 1px solid var(--border); }
+    .footer-inner { max-width: 1280px; margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 52px; border-bottom: 1px solid var(--border); }
+    .footer-wordmark { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.14em; color: var(--white); display: block; margin-bottom: 4px; }
+    .footer-sub { font-size: 0.54rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(245,245,240,0.25); display: block; margin-bottom: 20px; }
+    .footer-brand p { font-size: 0.78rem; font-weight: 300; color: rgba(245,245,240,0.3); line-height: 1.75; }
+    .footer-col h5 { font-size: 0.58rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(245,245,240,0.3); margin-bottom: 18px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a { font-size: 0.78rem; font-weight: 300; color: rgba(245,245,240,0.35); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--white); }
+    .footer-contact p { font-size: 0.78rem; font-weight: 300; color: rgba(245,245,240,0.35); line-height: 2; }
+    .footer-contact a { color: rgba(245,245,240,0.35); text-decoration: none; transition: color 0.2s; }
+    .footer-contact a:hover { color: var(--white); }
+    .footer-bottom { padding-top: 28px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .footer-bottom p { font-size: 0.7rem; font-weight: 300; color: rgba(245,245,240,0.18); }
+    .footer-legal { display: flex; gap: 24px; }
+    .footer-legal a { font-size: 0.7rem; font-weight: 300; color: rgba(245,245,240,0.18); text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: rgba(245,245,240,0.5); }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; } .reveal-delay-2 { transition-delay: 0.2s; } .reveal-delay-3 { transition-delay: 0.3s; }
+    @media (max-width: 1024px) { .cert-layout { grid-template-columns: 1fr; gap: 48px; } .sectors-layout { grid-template-columns: 1fr; gap: 48px; } }
+    @media (max-width: 900px) { nav { padding: 0 24px; } .nav-links { display: none; } .hero-inner { padding: 0 24px; } .hero-badges { right: 24px; bottom: 80px; } .hero-scroll { left: 24px; } .stats-inner { grid-template-columns: repeat(2, 1fr); padding: 0 24px; } .services { padding: 80px 24px; } .services-grid { grid-template-columns: 1fr 1fr; } .certifications { padding: 80px 24px; } .reviews { padding: 80px 24px; } .reviews-grid { grid-template-columns: 1fr; } .why-inner { grid-template-columns: repeat(2, 1fr); } .sectors { padding: 80px 24px; } .cta-section { padding: 100px 24px; } footer { padding: 60px 24px 32px; } .footer-top { grid-template-columns: 1fr 1fr; } .statement { padding: 100px 24px; } }
+    @media (max-width: 600px) { .services-grid { grid-template-columns: 1fr; } .why-inner { grid-template-columns: 1fr 1fr; } .sectors-grid { grid-template-columns: 1fr; } .footer-top { grid-template-columns: 1fr; } .reviews-header { flex-direction: column; align-items: flex-start; } .cert-list { grid-template-columns: 1fr; } .hero-badges { display: none; } }
   </style>
 </head>
 <body>
-
-<!-- ── SVG SYMBOL DEFS ──────────────────────────────────────── -->
-<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
-  <defs>
-    <!-- Shield / General Pest -->
-    <symbol id="icon-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-    </symbol>
-    <!-- Termite / Bug -->
-    <symbol id="icon-bug" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="11" r="4"/>
-      <path d="M12 7V4"/>
-      <path d="M8 9l-3-2m14 2-3-2"/>
-      <path d="M8 13l-3 2m14-2 3 2"/>
-      <path d="M10 15l-2 4m4-4 2 4"/>
-    </symbol>
-    <!-- Cockroach / Home -->
-    <symbol id="icon-roach" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <ellipse cx="12" cy="13" rx="4" ry="5"/>
-      <path d="M12 8V5"/>
-      <path d="M8 10l-4-2m16 2-4-2"/>
-      <path d="M8 14l-4 1m16-1-4 1"/>
-      <path d="M9 18l-2 2m10-2 2 2"/>
-    </symbol>
-    <!-- Rodent / Mouse -->
-    <symbol id="icon-rodent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M4 14c0-4 3-7 8-7s8 3 8 7a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/>
-      <circle cx="9" cy="13" r="1" fill="currentColor"/>
-      <path d="M12 18v3"/>
-      <path d="M20 7c0-2-2-4-4-4"/>
-      <path d="M8 10c-1-1-3-1-4 0"/>
-    </symbol>
-    <!-- Ant -->
-    <symbol id="icon-ant" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="6" r="2"/>
-      <circle cx="12" cy="12" r="2.5"/>
-      <ellipse cx="12" cy="18" rx="2" ry="3"/>
-      <path d="M8 7l-3-2m14 2-3-2"/>
-      <path d="M7 12H4m16 0h-3"/>
-      <path d="M8 17l-2 2m12-2 2 2"/>
-    </symbol>
-    <!-- Mosquito -->
-    <symbol id="icon-mosquito" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="12" r="2"/>
-      <path d="M12 10V6"/>
-      <path d="M9 11l-4-3m14 3-4-3"/>
-      <path d="M10 13l-3 4m10-4-3 4"/>
-      <path d="M12 14v4"/>
-      <path d="M7 5l2 2M17 5l-2 2"/>
-    </symbol>
-    <!-- Checkmark -->
-    <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="20 6 9 17 4 12"/>
-    </symbol>
-    <!-- Clock -->
-    <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="12" r="10"/>
-      <polyline points="12 6 12 12 16 14"/>
-    </symbol>
-    <!-- Map pin -->
-    <symbol id="icon-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/>
-      <circle cx="12" cy="10" r="3"/>
-    </symbol>
-    <!-- Star -->
-    <symbol id="icon-star" viewBox="0 0 24 24" fill="currentColor" stroke="none">
-      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-    </symbol>
-    <!-- License -->
-    <symbol id="icon-license" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="3" y="3" width="18" height="18" rx="3"/>
-      <path d="M9 12l2 2 4-4"/>
-    </symbol>
-    <!-- Phone -->
-    <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.36 2 2 0 0 1 3.58 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-    </symbol>
-    <!-- Calendar -->
-    <symbol id="icon-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="3" y="4" width="18" height="18" rx="2"/>
-      <line x1="16" y1="2" x2="16" y2="6"/>
-      <line x1="8" y1="2" x2="8" y2="6"/>
-      <line x1="3" y1="10" x2="21" y2="10"/>
-    </symbol>
-    <!-- Award -->
-    <symbol id="icon-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="8" r="7"/>
-      <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
-    </symbol>
-    <!-- Eco / Leaf -->
-    <symbol id="icon-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/>
-      <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
-    </symbol>
-    <!-- Person -->
-    <symbol id="icon-person" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-      <circle cx="12" cy="7" r="4"/>
-    </symbol>
-  </defs>
-</svg>
-
-<!-- ── NAV ───────────────────────────────────────────────────── -->
-<nav>
-  <div class="nav-inner">
-    <a href="#" class="nav-brand">
-      <div class="nav-logo-mark">
-        <svg class="icon" style="width:22px;height:22px;color:#fff"><use href="#icon-shield"/></svg>
-      </div>
-      <div class="nav-brand-text">
-        Active Pest Control
-        <span>North Miami, FL</span>
-      </div>
-    </a>
+  <div class="grain"></div>
+  <nav id="nav">
+    <div class="nav-brand">
+      <a class="wordmark" href="#">ACTIVE PEST</a>
+      <span class="tagline">Control, Inc. &mdash; North Miami, FL</span>
+    </div>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
-      <li><a href="#about">Why Us</a></li>
+      <li><a href="#certifications">Certifications</a></li>
       <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#sectors">Sectors</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <a href="tel:3056818822" class="btn btn-primary">
-      <svg class="icon" style="width:15px;height:15px"><use href="#icon-phone"/></svg>
-      Free Inspection
-    </a>
-  </div>
-</nav>
-
-<!-- ── HERO ──────────────────────────────────────────────────── -->
-<section class="hero">
-  <div class="hero-photo"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-badge">
-      <span class="hero-badge-dot"></span>
-      Serving Miami-Dade &amp; Broward Since 1957
-    </div>
-    <h1>
-      Stay <span class="highlight">Active</span><br/>
-      Against Every Pest.
-    </h1>
-    <p class="hero-sub">
-      North Miami's most trusted pest control company. Family-owned, fully licensed,
-      and ready to defend your home — fast, thorough, guaranteed.
-    </p>
-    <div class="hero-ctas">
-      <a href="tel:3056818822" class="btn btn-sky">
-        <svg class="icon" style="width:17px;height:17px"><use href="#icon-phone"/></svg>
-        Call (305) 681-8822
-      </a>
-      <a href="#services" class="btn btn-ghost-white">
-        <svg class="icon" style="width:17px;height:17px"><use href="#icon-calendar"/></svg>
-        View Services
-      </a>
-    </div>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="hero-stat-icon">
-          <svg class="icon" style="width:18px;height:18px;color:#7dd3fc"><use href="#icon-star"/></svg>
-        </div>
-        <div>
-          <div class="hero-stat-val">4.9 Stars</div>
-          <div class="hero-stat-label">Verified Reviews</div>
-        </div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-icon">
-          <svg class="icon" style="width:18px;height:18px;color:#7dd3fc"><use href="#icon-clock"/></svg>
-        </div>
-        <div>
-          <div class="hero-stat-val">Since 1957</div>
-          <div class="hero-stat-label">60+ Years Experience</div>
-        </div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-icon">
-          <svg class="icon" style="width:18px;height:18px;color:#7dd3fc"><use href="#icon-pin"/></svg>
-        </div>
-        <div>
-          <div class="hero-stat-val">North Miami</div>
-          <div class="hero-stat-label">Locally Owned</div>
-        </div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-icon">
-          <svg class="icon" style="width:18px;height:18px;color:#7dd3fc"><use href="#icon-license"/></svg>
-        </div>
-        <div>
-          <div class="hero-stat-val">Licensed</div>
-          <div class="hero-stat-label">&amp; Insured</div>
-        </div>
+    <a href="tel:+13056818822" class="btn-nav">Free Inspection</a>
+  </nav>
+  <section class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-vignette"></div>
+    <div class="hero-inner">
+      <p class="hero-eyebrow" id="heroEyebrow">North Miami, FL &mdash; Licensed &amp; Insured</p>
+      <h1 class="hero-title">
+        <span class="hero-title-line"><span>NORTH MIAMI'S</span></span>
+        <span class="hero-title-line"><span>TRUSTED PEST</span></span>
+        <span class="hero-title-line"><span>CONTROL EXPERTS</span></span>
+      </h1>
+      <p class="hero-sub" id="heroSub">Certified pest control specialists protecting homes and businesses across Miami-Dade County. Guaranteed results, same-day service, and full regulatory compliance.</p>
+      <div class="hero-ctas" id="heroCtas">
+        <a href="tel:+13056818822" class="btn-primary">Get Your Free Inspection</a>
+        <a href="#services" class="btn-ghost">Our Services</a>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ── STATS BAND ─────────────────────────────────────────────── -->
-<section class="stats-band">
-  <div class="stats-band-inner">
-    <div class="stat-tile">
-      <div class="stat-tile-num" data-count="65" data-suffix="+">0+</div>
-      <div class="stat-tile-label">Years in Business</div>
-      <div class="stat-tile-sub">Founded 1957</div>
+    <div class="hero-badges" id="heroBadges">
+      <span class="hero-badge">Florida Licensed</span>
+      <span class="hero-badge">EPA Registered</span>
+      <span class="hero-badge">NPMA Member</span>
+      <span class="hero-badge">QualityPro</span>
     </div>
-    <div class="stat-tile">
-      <div class="stat-tile-num" data-count="4.9" data-suffix="" data-decimal="1">0</div>
-      <div class="stat-tile-label">Average Star Rating</div>
-      <div class="stat-tile-sub">Across all platforms</div>
+    <div class="hero-scroll" id="heroScroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
     </div>
-    <div class="stat-tile">
-      <div class="stat-tile-num" data-count="2" data-suffix=" Counties">0</div>
-      <div class="stat-tile-label">Service Coverage</div>
-      <div class="stat-tile-sub">Miami-Dade &amp; Broward</div>
+  </section>
+  <section class="statement">
+    <p class="statement-eyebrow reveal">Our Mission</p>
+    <h2 class="statement-title reveal">WHERE PRECISION MEETS<br>PEST PROTECTION</h2>
+    <div class="statement-line reveal" id="statementLine"></div>
+    <p class="statement-sub reveal">Since our founding, Active Pest Control has protected Miami-Dade homes and businesses with licensed, eco-conscious treatments &mdash; every visit documented, every result guaranteed.</p>
+  </section>
+  <section class="stats-band">
+    <div class="stats-inner">
+      <div class="stat reveal"><div class="stat-number" data-count="98" data-suffix="%">0%</div><div class="stat-label">Success Rate</div></div>
+      <div class="stat reveal reveal-delay-1"><div class="stat-number" data-count="20" data-suffix="+">0+</div><div class="stat-label">Years Experience</div></div>
+      <div class="stat reveal reveal-delay-2"><div class="stat-number" data-count="4.9" data-suffix="" data-decimal="true">0</div><div class="stat-label">Google Rating</div></div>
+      <div class="stat reveal reveal-delay-3"><div class="stat-number" data-count="100" data-suffix="%">0%</div><div class="stat-label">Licensed &amp; Insured</div></div>
     </div>
-    <div class="stat-tile">
-      <div class="stat-tile-num" data-count="10" data-suffix=" Pros">0</div>
-      <div class="stat-tile-label">Dedicated Team</div>
-      <div class="stat-tile-sub">Licensed technicians</div>
-    </div>
-  </div>
-</section>
-
-<!-- ── SERVICES ───────────────────────────────────────────────── -->
-<section class="services" id="services">
-  <div class="services-inner">
-    <div class="section-header">
-      <span class="section-kicker">What We Treat</span>
-      <h2>Complete Pest Defense — Inside &amp; Out</h2>
-      <p>From termites to mosquitoes, we cover every pest that threatens your home or business in South Florida.</p>
-    </div>
-    <div class="services-grid">
-
-      <div class="service-card">
-        <div class="service-icon-wrap">
-          <svg class="icon icon-lg" style="color:var(--sky)"><use href="#icon-bug"/></svg>
-        </div>
-        <h3>General Pest Control</h3>
-        <p>Comprehensive protection against the full range of common South Florida pests. Scheduled treatments keep your home pest-free year-round.</p>
+  </section>
+  <section class="services" id="services">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">What We Do</p>
+        <h2>COMPLETE PEST CONTROL SERVICES</h2>
+        <p>From inspection to prevention &mdash; targeted treatments with licensed methods, compliant with Florida and EPA regulations.</p>
       </div>
-
-      <div class="service-card">
-        <div class="service-icon-wrap">
-          <svg class="icon icon-lg" style="color:var(--teal-dark)"><use href="#icon-shield"/></svg>
-        </div>
-        <h3>Termite Inspection &amp; Treatment</h3>
-        <p>Effective and long-lasting termite control that stops structural damage before it starts. Inspections, baiting, and liquid treatments available.</p>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon-wrap">
-          <svg class="icon icon-lg" style="color:var(--sky)"><use href="#icon-roach"/></svg>
-        </div>
-        <h3>Cockroach Extermination</h3>
-        <p>Fast, reliable cockroach elimination for kitchens, restaurants, and residences. We target breeding sites, not just the ones you see.</p>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon-wrap">
-          <svg class="icon icon-lg" style="color:var(--teal-dark)"><use href="#icon-rodent"/></svg>
-        </div>
-        <h3>Rodent Control</h3>
-        <p>Protect your property from rats and mice with entry-point sealing, trapping, and ongoing monitoring programs tailored to South Florida.</p>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon-wrap">
-          <svg class="icon icon-lg" style="color:var(--sky)"><use href="#icon-ant"/></svg>
-        </div>
-        <h3>Ant Control</h3>
-        <p>From fire ants to ghost ants, we identify the species and apply targeted treatments that eliminate entire colonies — not just workers.</p>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon-wrap">
-          <svg class="icon icon-lg" style="color:var(--teal-dark)"><use href="#icon-mosquito"/></svg>
-        </div>
-        <h3>Mosquito &amp; Fly Control</h3>
-        <p>Reduce outdoor mosquito and fly populations so you can enjoy your yard again. Regular treatments for residential properties and events.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ── FEATURE SECTION ───────────────────────────────────────── -->
-<section class="feature-section" id="about">
-  <div class="feature-inner">
-    <div class="feature-content">
-      <span class="section-kicker">Why Active Pest Control</span>
-      <h2>Stay Active Against Pests — Always.</h2>
-      <p>
-        Since 1957, we've protected South Florida homes and businesses with science-backed
-        treatments and the personal care that only a family-owned company delivers.
-      </p>
-      <div class="feature-points">
-        <div class="feature-point">
-          <div class="feature-point-icon">
-            <svg class="icon" style="width:18px;height:18px;color:var(--sky-light)"><use href="#icon-check"/></svg>
-          </div>
-          <div class="feature-point-text">
-            <h4>Licensed Master Technicians</h4>
-            <p>Pest Control Master License #JB330514 &amp; GreenTECH certified — held to the highest industry standards.</p>
-          </div>
-        </div>
-        <div class="feature-point">
-          <div class="feature-point-icon">
-            <svg class="icon" style="width:18px;height:18px;color:var(--sky-light)"><use href="#icon-clock"/></svg>
-          </div>
-          <div class="feature-point-text">
-            <h4>Quick Response Times</h4>
-            <p>Personalized service from a local team means faster scheduling — no corporate call centers, no runaround.</p>
-          </div>
-        </div>
-        <div class="feature-point">
-          <div class="feature-point-icon">
-            <svg class="icon" style="width:18px;height:18px;color:var(--sky-light)"><use href="#icon-leaf"/></svg>
-          </div>
-          <div class="feature-point-text">
-            <h4>Eco-Conscious Treatments</h4>
-            <p>GreenTECH and heat treatment options provide effective pest elimination that's safer for your family and pets.</p>
-          </div>
-        </div>
-        <div class="feature-point">
-          <div class="feature-point-icon">
-            <svg class="icon" style="width:18px;height:18px;color:var(--sky-light)"><use href="#icon-award"/></svg>
-          </div>
-          <div class="feature-point-text">
-            <h4>HomeAdvisor Elite &amp; Angi Approved</h4>
-            <p>Screened, background-checked, and consistently rated among North Miami's top pest control companies.</p>
-          </div>
-        </div>
+      <div class="services-grid">
+        <div class="service-card reveal"><div class="service-num">01</div><h3>Pest Inspection</h3><p>Thorough inspection of your property to identify pest activity, entry points, and risk areas. Written report included.</p></div>
+        <div class="service-card reveal reveal-delay-1"><div class="service-num">02</div><h3>Cockroach Control</h3><p>Targeted treatments for German and American cockroaches. Safe for families and pets when dry.</p></div>
+        <div class="service-card reveal reveal-delay-2"><div class="service-num">03</div><h3>Rodent Control</h3><p>Exclusion, trapping, and removal. We seal entry points to prevent re-infestation.</p></div>
+        <div class="service-card reveal reveal-delay-1"><div class="service-num">04</div><h3>Termite Treatment</h3><p>Pre-treatment and active termite elimination using liquid barriers and bait systems.</p></div>
+        <div class="service-card reveal reveal-delay-2"><div class="service-num">05</div><h3>Ant &amp; Bed Bug Control</h3><p>Targeted treatments for fire ants, carpenter ants, and bed bugs with follow-up visits.</p></div>
+        <div class="service-card reveal reveal-delay-3"><div class="service-num">06</div><h3>Preventive Maintenance</h3><p>Quarterly and annual protection plans to keep your property pest-free year-round.</p></div>
       </div>
     </div>
-    <div class="feature-photo-wrap">
-      <img
-        class="feature-photo"
-        src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
-        alt="Pest control technician inspecting a home"
-        loading="lazy"
-      />
-      <div class="feature-photo-badge">
-        <div class="feature-photo-badge-num">A+</div>
-        <div class="feature-photo-badge-label">BBB Rating</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── REVIEWS ────────────────────────────────────────────────── -->
-<section class="reviews" id="reviews">
-  <div class="reviews-inner">
-    <div class="section-header">
-      <span class="section-kicker">Customer Reviews</span>
-      <h2>What North Miami Neighbors Say</h2>
-      <p>Hundreds of satisfied homeowners and businesses across Miami-Dade and Broward trust Active Pest Control.</p>
-    </div>
-    <div class="reviews-grid">
-
-      <div class="review-card">
-        <div class="review-stars">
-          <svg style="width:18px;height:18px;color:#f59e0b"><use href="#icon-star"/></svg>
-          <svg style="width:18px;height:18px;color:#f59e0b"><use href="#icon-star"/></svg>
-          <svg style="width:18px;height:18px;color:#f59e0b"><use href="#icon-star"/></svg>
-          <svg style="width:18px;height:18px;color:#f59e0b"><use href="#icon-star"/></svg>
-          <svg style="width:18px;height:18px;color:#f59e0b"><use href="#icon-star"/></svg>
-        </div>
-        <p class="review-text">"Absolutely the best pest control company in North Miami. They came out same week, treated our cockroach problem thoroughly, and followed up a month later. Haven't seen a single roach since."</p>
-        <div class="review-author">
-          <div class="review-avatar">M</div>
-          <div>
-            <div class="review-author-name">Maria G.</div>
-            <div class="review-author-loc">North Miami, FL</div>
-          </div>
-          <div class="review-source">Google</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">
-          <svg style="width:18px;height:18px;color:#f59e0b"><use href="#icon-star"/></svg>
-          <svg style="width:18px;height:18px;color:#f59e0b"><use href="#icon-star"/></svg>
-          <svg style="width:18px;height:18px;color:#f59e0b"><use href="#icon-star"/></svg>
-          <svg style="width:18px;height:18px;color:#f59e0b"><use href="#icon-star"/></svg>
-          <svg style="width:18px;height:18px;color:#f59e0b"><use href="#icon-star"/></svg>
-        </div>
-        <p class="review-text">"We had a serious termite issue and Active Pest Control responded fast, explained every step of the process, and gave us a fair price. Family-owned and it really shows — they actually care."</p>
-        <div class="review-author">
-          <div class="review-avatar">D</div>
-          <div>
-            <div class="review-author-name">David R.</div>
-            <div class="review-author-loc">Miami Gardens, FL</div>
-          </div>
-          <div class="review-source">HomeAdvisor</div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">
-          <svg style="width:18px;height:18px;color:#f59e0b"><use href="#icon-star"/></svg>
-          <svg style="width:18px;height:18px;color:#f59e0b"><use href="#icon-star"/></svg>
-          <svg style="width:18px;height:18px;color:#f59e0b"><use href="#icon-star"/></svg>
-          <svg style="width:18px;height:18px;color:#f59e0b"><use href="#icon-star"/></svg>
-          <svg style="width:18px;height:18px;color:#f59e0b"><use href="#icon-star"/></svg>
-        </div>
-        <p class="review-text">"I've used several pest control companies over the years. Active Pest Control is on a completely different level. Licensed, professional, and they actually get rid of the problem permanently."</p>
-        <div class="review-author">
-          <div class="review-avatar">S</div>
-          <div>
-            <div class="review-author-name">Sandra T.</div>
-            <div class="review-author-loc">Hialeah, FL</div>
-          </div>
-          <div class="review-source">Angi</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ── TRUST BAND ─────────────────────────────────────────────── -->
-<section class="trust-band">
-  <div class="trust-band-inner">
-    <div class="trust-item">
-      <div class="trust-icon">
-        <svg class="icon" style="width:22px;height:22px;color:#fff"><use href="#icon-award"/></svg>
-      </div>
-      <div class="trust-item-text">
-        <h4>A+ BBB Rating</h4>
-        <p>Accredited, trusted, accountable</p>
-      </div>
-    </div>
-    <div class="trust-item">
-      <div class="trust-icon">
-        <svg class="icon" style="width:22px;height:22px;color:#fff"><use href="#icon-license"/></svg>
-      </div>
-      <div class="trust-item-text">
-        <h4>Fully Licensed &amp; Insured</h4>
-        <p>Master License #JB330514</p>
-      </div>
-    </div>
-    <div class="trust-item">
-      <div class="trust-icon">
-        <svg class="icon" style="width:22px;height:22px;color:#fff"><use href="#icon-leaf"/></svg>
-      </div>
-      <div class="trust-item-text">
-        <h4>GreenTECH Certified</h4>
-        <p>Eco-conscious options available</p>
-      </div>
-    </div>
-    <div class="trust-item">
-      <div class="trust-icon">
-        <svg class="icon" style="width:22px;height:22px;color:#fff"><use href="#icon-person"/></svg>
-      </div>
-      <div class="trust-item-text">
-        <h4>Family Owned Since 1957</h4>
-        <p>Local, personal, guaranteed</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── CTA SECTION ────────────────────────────────────────────── -->
-<section class="cta-section" id="contact">
-  <div class="cta-inner">
-    <h2>Get <span>Active</span> Protection Today</h2>
-    <p>
-      Don't wait for a pest problem to get worse. Call now for a free inspection and
-      estimate — we serve all of Miami-Dade and Broward counties.
-    </p>
-    <div class="cta-buttons">
-      <a href="tel:3056818822" class="btn btn-sky">
-        <svg class="icon" style="width:17px;height:17px"><use href="#icon-phone"/></svg>
-        Call (305) 681-8822
-      </a>
-      <a href="#services" class="btn btn-outline-teal">
-        <svg class="icon" style="width:17px;height:17px"><use href="#icon-shield"/></svg>
-        View All Services
-      </a>
-    </div>
-    <p class="cta-disclaimer">Free estimates · Service guarantee · Same-week availability</p>
-  </div>
-</section>
-
-<!-- ── FOOTER ─────────────────────────────────────────────────── -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand-text">Active Pest Control, Inc.</div>
-        <p class="footer-tagline">
-          Enjoy your home totally pest-free. North Miami's trusted pest management partner since 1957 — family-owned, fully licensed, and always active.
-        </p>
-        <div class="footer-contact-item">
-          <svg class="icon" style="width:15px;height:15px;color:rgba(255,255,255,0.5)"><use href="#icon-phone"/></svg>
-          <a href="tel:3056818822">(305) 681-8822</a>
-        </div>
-        <div class="footer-contact-item">
-          <svg class="icon" style="width:15px;height:15px;color:rgba(255,255,255,0.5)"><use href="#icon-pin"/></svg>
-          645 NW 128th St, North Miami, FL 33168
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul class="footer-links">
-          <li><a href="#services">General Pest Control</a></li>
-          <li><a href="#services">Termite Treatment</a></li>
-          <li><a href="#services">Cockroach Control</a></li>
-          <li><a href="#services">Rodent Control</a></li>
-          <li><a href="#services">Mosquito Control</a></li>
-          <li><a href="#services">Ant Control</a></li>
+  </section>
+  <section class="certifications" id="certifications">
+    <div class="cert-layout">
+      <div class="cert-content reveal">
+        <p class="section-eyebrow">Licensing &amp; Compliance</p>
+        <h2>LICENSED, CERTIFIED &amp; COMMITTED</h2>
+        <p class="intro">Active Pest Control holds all required Florida state licenses and operates under strict EPA guidelines. Our technicians are certified, background-checked, and committed to delivering safe, effective results on every visit.</p>
+        <ul class="cert-list">
+          <li class="cert-item"><div class="cert-item-name">Florida Licensed</div><div class="cert-item-desc">Florida Dept. of Agriculture Licensed</div></li>
+          <li class="cert-item"><div class="cert-item-name">EPA Registered</div><div class="cert-item-desc">EPA Registered Products only</div></li>
+          <li class="cert-item"><div class="cert-item-name">NPMA Member</div><div class="cert-item-desc">National Pest Management Association</div></li>
+          <li class="cert-item"><div class="cert-item-name">QualityPro</div><div class="cert-item-desc">QualityPro Certified Technicians</div></li>
+          <li class="cert-item"><div class="cert-item-name">Pet &amp; Family Safe</div><div class="cert-item-desc">Safe treatments for families and pets</div></li>
+          <li class="cert-item"><div class="cert-item-name">Written Guarantee</div><div class="cert-item-desc">Written guarantee on every visit</div></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h4>Service Areas</h4>
-        <ul class="footer-links">
-          <li><a href="#">North Miami</a></li>
-          <li><a href="#">Miami Gardens</a></li>
-          <li><a href="#">Hialeah</a></li>
-          <li><a href="#">Fort Lauderdale</a></li>
-          <li><a href="#">Hollywood, FL</a></li>
-          <li><a href="#">Coral Gables</a></li>
-        </ul>
+      <div class="cert-visual reveal reveal-delay-2">
+        <div class="cert-img-wrap" id="certImgWrap">
+          <img class="cert-img" src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=800&q=80" alt="Certified pest control technician" />
+          <div class="cert-img-overlay"></div>
+          <div class="cert-badge-strip"><span class="cbadge">FL Licensed</span><span class="cbadge">EPA</span><span class="cbadge">NPMA</span><span class="cbadge">QualityPro</span></div>
+        </div>
+        <div class="corner-tl"></div><div class="corner-tr"></div><div class="corner-bl"></div><div class="corner-br"></div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Active Pest Control, Inc. All rights reserved.</p>
-      <p class="footer-license">License #JB330514 · Pesticide Applicator #JF350027 · GreenTECH Certified</p>
+  </section>
+  <section class="reviews" id="reviews">
+    <div class="section-inner">
+      <div class="reviews-header reveal">
+        <div>
+          <p class="section-eyebrow">Client Reviews</p>
+          <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,5vw,5rem);letter-spacing:0.04em;color:var(--white);line-height:0.95;">TRUSTED ACROSS MIAMI-DADE</h2>
+        </div>
+        <div class="google-badge">
+          <div class="google-g">G</div>
+          <div>
+            <div class="google-rating-val">4.9</div>
+            <div class="google-stars-row"><svg class="gstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="gstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="gstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="gstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="gstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <div class="google-rating-label">Google Reviews</div>
+          </div>
+        </div>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card reveal">
+          <div class="review-top"><div class="reviewer-avatar">TR</div><div><div class="reviewer-name">Tom R.</div><div class="reviewer-meta">Homeowner, Miami</div></div></div>
+          <div class="review-stars-row"><svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <p class="review-text">"Called Active Pest after seeing roaches in my kitchen. They came the same day, treated thoroughly, and I haven't seen a single one since. Highly professional."</p>
+        </div>
+        <div class="review-card reveal reveal-delay-1">
+          <div class="review-top"><div class="reviewer-avatar">LM</div><div><div class="reviewer-name">Lisa M.</div><div class="reviewer-meta">Restaurant Owner</div></div></div>
+          <div class="review-stars-row"><svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <p class="review-text">"We needed pest management that met health inspection standards. Active Pest handled it perfectly &mdash; great documentation and no issues at our last inspection."</p>
+        </div>
+        <div class="review-card reveal reveal-delay-2">
+          <div class="review-top"><div class="reviewer-avatar">DK</div><div><div class="reviewer-name">David K.</div><div class="reviewer-meta">Property Manager</div></div></div>
+          <div class="review-stars-row"><svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <p class="review-text">"Managing 12 units, pest control is critical. Active Pest handles everything on schedule. Their quarterly plans are worth every penny."</p>
+        </div>
+      </div>
     </div>
-  </div>
-</footer>
-
-<!-- ── MOTION ANIMATIONS ──────────────────────────────────────── -->
-<script type="module">
-  import { animate, inView, stagger } from 'https://esm.sh/motion@10.18.0';
-
-  // ── Count-up helper ─────────────────────────────────────────
-  function cubicEaseOut(t) {
-    return 1 - Math.pow(1 - t, 3);
-  }
-
-  function countUp(el, target, duration, suffix, decimals) {
-    const start = performance.now();
-    const isDecimal = decimals > 0;
-
-    function tick(now) {
-      const elapsed = Math.min((now - start) / duration, 1);
-      const eased = cubicEaseOut(elapsed);
-      const current = isDecimal
-        ? (eased * target).toFixed(decimals)
-        : Math.round(eased * target);
-      el.textContent = current + suffix;
-      if (elapsed < 1) requestAnimationFrame(tick);
+  </section>
+  <section class="why-band">
+    <div class="why-inner">
+      <div class="why-item reveal"><h4>Licensed &amp; Insured</h4><p>All Florida licenses and EPA compliance on every job.</p></div>
+      <div class="why-item reveal reveal-delay-1"><h4>Same-Day Service</h4><p>Emergency and same-day appointments available.</p></div>
+      <div class="why-item reveal reveal-delay-2"><h4>Free Inspection</h4><p>No-obligation property inspection and quote.</p></div>
+      <div class="why-item reveal reveal-delay-3"><h4>Eco-Friendly</h4><p>Family and pet-safe products used on every visit.</p></div>
+    </div>
+  </section>
+  <section class="sectors" id="sectors">
+    <div class="sectors-layout">
+      <div class="sectors-left reveal">
+        <p class="section-eyebrow">Who We Serve</p>
+        <h2>SECTORS WE PROTECT</h2>
+        <p class="intro">From single-family homes to large commercial facilities &mdash; Active Pest Control protects every property type across Miami-Dade County.</p>
+        <a href="tel:+13056818822" class="btn-solid">Contact Us</a>
+      </div>
+      <div class="sectors-grid reveal reveal-delay-2">
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Residential Homes</div></div>
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Restaurants &amp; Food Service</div></div>
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Hotels &amp; Hospitality</div></div>
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Office Buildings</div></div>
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Warehouses &amp; Storage</div></div>
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Schools &amp; Daycares</div></div>
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Retail Stores</div></div>
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Healthcare Facilities</div></div>
+      </div>
+    </div>
+  </section>
+  <section class="cta-section" id="contact">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal">Get In Touch</p>
+      <h2 class="reveal">GET YOUR FREE PEST<br>INSPECTION TODAY</h2>
+      <p class="reveal reveal-delay-1">No obligation. A licensed technician will inspect your property and deliver a written report &mdash; at no cost.</p>
+      <div class="cta-btns reveal reveal-delay-2">
+        <a href="tel:+13056818822" class="btn-cta-primary">Call +1 305-681-8822</a>
+        <a href="#contact" class="btn-cta-ghost">Request Online</a>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-wordmark">ACTIVE PEST</span>
+          <span class="footer-sub">Control, Inc. &mdash; North Miami, FL</span>
+          <p>Licensed pest control specialists protecting homes and businesses across Miami-Dade County. Guaranteed results on every visit.</p>
+        </div>
+        <div class="footer-col"><h5>Services</h5><ul><li><a href="#services">Pest Inspection</a></li><li><a href="#services">Cockroach Control</a></li><li><a href="#services">Rodent Control</a></li><li><a href="#services">Termite Treatment</a></li><li><a href="#services">Bed Bug Control</a></li><li><a href="#services">Preventive Plans</a></li></ul></div>
+        <div class="footer-col"><h5>Sectors</h5><ul><li><a href="#sectors">Residential</a></li><li><a href="#sectors">Restaurants</a></li><li><a href="#sectors">Hotels</a></li><li><a href="#sectors">Healthcare</a></li><li><a href="#sectors">Warehouses</a></li><li><a href="#sectors">Schools</a></li></ul></div>
+        <div class="footer-col footer-contact"><h5>Contact</h5><p>645 NW 128th St<br>North Miami, FL 33168<br><br><a href="tel:+13056818822">+1 305-681-8822</a><br><a href="https://www.activepests.com/" target="_blank">activepests.com</a></p></div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Active Pest Control, Inc. All rights reserved.</p>
+        <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+    const heroBg = document.getElementById('heroBg');
+    window.addEventListener('scroll', () => { heroBg.style.transform = `scale(1.08) translateY(${window.scrollY * 0.25}px)`; }, { passive: true });
+    (function heroIn() {
+      const lines = document.querySelectorAll('.hero-title-line span');
+      lines.forEach((line, i) => { setTimeout(() => { line.style.transition = 'transform 1s cubic-bezier(0.16, 1, 0.3, 1)'; line.style.transform = 'translateY(0)'; }, 200 + i * 140); });
+      setTimeout(() => { const e = document.getElementById('heroEyebrow'); e.style.transition = 'opacity 0.8s ease'; e.style.opacity = '1'; }, 100);
+      setTimeout(() => { const e = document.getElementById('heroSub'); e.style.transition = 'opacity 0.8s ease'; e.style.opacity = '1'; }, 700);
+      setTimeout(() => { const e = document.getElementById('heroCtas'); e.style.transition = 'opacity 0.8s ease'; e.style.opacity = '1'; }, 900);
+      setTimeout(() => { const e = document.getElementById('heroBadges'); e.style.transition = 'opacity 0.8s ease'; e.style.opacity = '1'; }, 1100);
+      setTimeout(() => { const e = document.getElementById('heroScroll'); e.style.transition = 'opacity 0.8s ease'; e.style.opacity = '1'; }, 1300);
+    })();
+    const revealObs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } }); }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+    const stLine = document.getElementById('statementLine');
+    const stLineObs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { stLine.style.transition = 'transform 0.9s cubic-bezier(0.16,1,0.3,1)'; stLine.style.transform = 'scaleX(1)'; stLineObs.unobserve(e.target); } }); }, { threshold: 0.5 });
+    stLineObs.observe(stLine);
+    const certWrap = document.getElementById('certImgWrap');
+    const certObs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { certWrap.classList.add('revealed'); certObs.unobserve(e.target); } }); }, { threshold: 0.2 });
+    certObs.observe(certWrap);
+    function countUp(el) {
+      const end = parseFloat(el.dataset.count); const suffix = el.dataset.suffix || ''; const isDecimal = el.dataset.decimal === 'true'; const duration = 1600; const start = performance.now();
+      function step(now) { const progress = Math.min((now - start) / duration, 1); const eased = 1 - Math.pow(1 - progress, 3); el.textContent = (isDecimal ? (end * eased).toFixed(1) : Math.floor(end * eased)) + suffix; if (progress < 1) requestAnimationFrame(step); }
+      requestAnimationFrame(step);
     }
-    requestAnimationFrame(tick);
-  }
-
-  // ── Stat tiles count-up on view ─────────────────────────────
-  document.querySelectorAll('.stat-tile-num').forEach(el => {
-    const target = parseFloat(el.dataset.count);
-    const suffix = el.dataset.suffix || '';
-    const decimals = parseInt(el.dataset.decimal || '0', 10);
-    let triggered = false;
-
-    inView(el, () => {
-      if (!triggered) {
-        triggered = true;
-        countUp(el, target, 1600, suffix, decimals);
-      }
-    });
-  });
-
-  // ── Set initial hidden state for animated elements ──────────
-  const fadeTargets = document.querySelectorAll(
-    '.service-card, .review-card, .feature-point, .stat-tile, .trust-item, .hero-stat'
-  );
-  fadeTargets.forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-  });
-
-  // ── Section header fade-in ───────────────────────────────────
-  document.querySelectorAll('.section-header').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    inView(el, () => {
-      animate(el, { opacity: 1, transform: 'translateY(0px)' }, { duration: 0.55, easing: 'ease-out' });
-    });
-  });
-
-  // ── Service cards staggered ──────────────────────────────────
-  const serviceCards = document.querySelectorAll('.service-card');
-  inView('.services-grid', () => {
-    animate(
-      serviceCards,
-      { opacity: 1, transform: 'translateY(0px)' },
-      { duration: 0.5, delay: stagger(0.08), easing: 'ease-out' }
-    );
-  });
-
-  // ── Review cards staggered ───────────────────────────────────
-  const reviewCards = document.querySelectorAll('.review-card');
-  inView('.reviews-grid', () => {
-    animate(
-      reviewCards,
-      { opacity: 1, transform: 'translateY(0px)' },
-      { duration: 0.5, delay: stagger(0.1), easing: 'ease-out' }
-    );
-  });
-
-  // ── Feature points staggered ─────────────────────────────────
-  const featurePoints = document.querySelectorAll('.feature-point');
-  inView('.feature-points', () => {
-    animate(
-      featurePoints,
-      { opacity: 1, transform: 'translateY(0px)' },
-      { duration: 0.45, delay: stagger(0.1), easing: 'ease-out' }
-    );
-  });
-
-  // ── Stat tiles staggered ─────────────────────────────────────
-  const statTiles = document.querySelectorAll('.stat-tile');
-  inView('.stats-band-inner', () => {
-    animate(
-      statTiles,
-      { opacity: 1, transform: 'translateY(0px)' },
-      { duration: 0.5, delay: stagger(0.1), easing: 'ease-out' }
-    );
-  });
-
-  // ── Trust items staggered ────────────────────────────────────
-  const trustItems = document.querySelectorAll('.trust-item');
-  inView('.trust-band-inner', () => {
-    animate(
-      trustItems,
-      { opacity: 1, transform: 'translateY(0px)' },
-      { duration: 0.4, delay: stagger(0.08), easing: 'ease-out' }
-    );
-  });
-
-  // ── Hero stats slide in ──────────────────────────────────────
-  const heroStats = document.querySelectorAll('.hero-stat');
-  animate(
-    heroStats,
-    { opacity: 1, transform: 'translateY(0px)' },
-    { duration: 0.5, delay: stagger(0.1, { start: 0.6 }), easing: 'ease-out' }
-  );
-
-  // ── CTA section ─────────────────────────────────────────────
-  const ctaInner = document.querySelector('.cta-inner');
-  if (ctaInner) {
-    ctaInner.style.opacity = '0';
-    ctaInner.style.transform = 'translateY(24px)';
-    inView(ctaInner, () => {
-      animate(ctaInner, { opacity: 1, transform: 'translateY(0px)' }, { duration: 0.6, easing: 'ease-out' });
-    });
-  }
-</script>
-
+    const statsObs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.querySelectorAll('[data-count]').forEach(el => countUp(el)); statsObs.unobserve(e.target); } }); }, { threshold: 0.4 });
+    const statsBand = document.querySelector('.stats-band'); if (statsBand) statsObs.observe(statsBand);
+  </script>
 </body>
 </html>

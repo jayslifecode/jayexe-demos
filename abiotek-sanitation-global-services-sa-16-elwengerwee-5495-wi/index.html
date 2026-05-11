@@ -1,1591 +1,453 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ABIOTEK — Sanitation Global Services | Luxembourg</title>
+  <title>ABIOTEK — Sanitation & Pest Control | Luxembourg</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --bg:     #0b0b0b;
-      --bg2:    #111111;
-      --bg3:    #161616;
-      --green:  #1e5c3a;
-      --green2: #276848;
-      --gold:   #c8a84b;
-      --white:  #f5f5f0;
-      --muted:  rgba(245,245,240,0.45);
-      --border: rgba(245,245,240,0.08);
+      --navy: #0D1528; --navy2: #131E35;
+      --gold: #A09060; --gold-light: #C4B07A; --gold-pale: #F0EAD8;
+      --white: #FFFFFF; --off-white: #F5F5F7; --warm-white: #F8F6F1;
+      --text-dark: #111827; --text-mid: #4B5563; --text-muted: #9CA3AF;
+      --border: rgba(0,0,0,0.07);
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'DM Sans', system-ui, sans-serif;
     }
-
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Jost', sans-serif;
-      font-weight: 400;
-      color: var(--white);
-      background: var(--bg);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* ── GRAIN OVERLAY ── */
-    .grain {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 9999;
-      opacity: 0.035;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-      background-repeat: repeat;
-      background-size: 128px 128px;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 500;
-      padding: 0 48px;
-      height: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: linear-gradient(to bottom, rgba(11,11,11,0.95) 0%, transparent 100%);
-      transition: background 0.4s;
-    }
-
-    nav.scrolled {
-      background: rgba(11,11,11,0.97);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-brand {
-      display: flex;
-      flex-direction: column;
-      line-height: 1;
-    }
-
-    .nav-brand .wordmark {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.6rem;
-      letter-spacing: 0.14em;
-      color: var(--white);
-      text-decoration: none;
-    }
-
-    .nav-brand .tagline {
-      font-size: 0.54rem;
-      font-weight: 500;
-      letter-spacing: 0.26em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-top: 2px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 36px;
-      list-style: none;
-      white-space: nowrap;
-    }
-
-    .nav-links a {
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--white); }
-
-    .btn-nav {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      text-decoration: none;
-      white-space: nowrap;
-      padding: 10px 22px;
-      background: var(--green);
-      color: var(--white);
-      border: none;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .btn-nav:hover { background: var(--green2); }
-
-    /* ── HERO ── */
-    .hero {
-      position: relative;
-      height: 100vh;
-      min-height: 640px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1563453392212-326f5e854473?w=1600&q=80');
-      background-size: cover;
-      background-position: center;
-      transform: scale(1.08);
-      will-change: transform;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(120deg, rgba(11,11,11,0.92) 0%, rgba(11,11,11,0.55) 100%);
-    }
-
-    .hero-vignette {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.65) 100%);
-    }
-
-    .hero-inner {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 48px;
-    }
-
-    .hero-eyebrow {
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 24px;
-      opacity: 0;
-    }
-
-    .hero-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(4rem, 9vw, 9rem);
-      line-height: 0.92;
-      letter-spacing: 0.04em;
-      color: var(--white);
-      margin-bottom: 32px;
-      overflow: hidden;
-    }
-
-    .hero-title-line {
-      display: block;
-      overflow: hidden;
-    }
-
-    .hero-title-line span {
-      display: block;
-      transform: translateY(110%);
-    }
-
-    .hero-sub {
-      font-size: 1rem;
-      font-weight: 300;
-      color: rgba(245,245,240,0.65);
-      max-width: 480px;
-      line-height: 1.85;
-      margin-bottom: 44px;
-      opacity: 0;
-    }
-
-    .hero-ctas {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      opacity: 0;
-    }
-
-    .btn-primary {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 13px 30px;
-      background: var(--green);
-      color: var(--white);
-      border: none;
-      cursor: pointer;
-      transition: background 0.2s;
-      display: inline-block;
-    }
-
-    .btn-primary:hover { background: var(--green2); }
-
-    .btn-ghost {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 13px 30px;
-      background: transparent;
-      color: var(--white);
-      border: 1px solid rgba(245,245,240,0.3);
-      cursor: pointer;
-      transition: border-color 0.2s;
-      display: inline-block;
-    }
-
-    .btn-ghost:hover { border-color: rgba(245,245,240,0.7); }
-
-    .hero-badges {
-      position: absolute;
-      bottom: 48px;
-      right: 48px;
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      opacity: 0;
-    }
-
-    .hero-badge {
-      font-size: 0.58rem;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: rgba(245,245,240,0.5);
-      border: 1px solid rgba(245,245,240,0.15);
-      padding: 5px 12px;
-    }
-
-    .hero-scroll {
-      position: absolute;
-      bottom: 48px;
-      left: 48px;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-      opacity: 0;
-    }
-
-    .hero-scroll span {
-      font-size: 0.6rem;
-      font-weight: 500;
-      letter-spacing: 0.26em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .scroll-line {
-      width: 1px;
-      height: 40px;
-      background: linear-gradient(to bottom, var(--gold), transparent);
-      animation: scrollPulse 2s ease-in-out infinite;
-    }
-
-    @keyframes scrollPulse {
-      0%, 100% { opacity: 0.4; transform: scaleY(1); }
-      50% { opacity: 1; transform: scaleY(1.2); }
-    }
-
-    /* ── STATEMENT SECTION ── */
-    .statement {
-      background: var(--bg);
-      padding: 140px 48px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .statement::before,
-    .statement::after {
-      content: '';
-      position: absolute;
-      top: 20%;
-      width: 1px;
-      height: 120px;
-      background: linear-gradient(to bottom, transparent, rgba(245,245,240,0.12), transparent);
-    }
-
-    .statement::before { left: 64px; }
-    .statement::after { right: 64px; }
-
-    .statement-eyebrow {
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 28px;
-    }
-
-    .statement-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(3rem, 7vw, 6.5rem);
-      line-height: 0.95;
-      letter-spacing: 0.06em;
-      color: var(--white);
-      margin-bottom: 28px;
-    }
-
-    .statement-line {
-      width: 60px;
-      height: 1px;
-      background: var(--gold);
-      margin: 0 auto 28px;
-      transform-origin: center;
-      transform: scaleX(0);
-    }
-
-    .statement-sub {
-      font-size: 0.95rem;
-      font-weight: 300;
-      color: var(--muted);
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.85;
-    }
-
-    /* ── STATS ── */
-    .stats-band {
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .stats-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 48px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    .stat {
-      padding: 56px 32px;
-      text-align: center;
-      border-right: 1px solid var(--border);
-    }
-
-    .stat:last-child { border-right: none; }
-
-    .stat-number {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 3.8rem;
-      letter-spacing: 0.04em;
-      color: var(--white);
-      line-height: 1;
-      margin-bottom: 10px;
-    }
-
-    .stat-label {
-      font-size: 0.65rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    /* ── SERVICES ── */
-    .services {
-      background: var(--bg);
-      padding: 120px 48px;
-    }
-
-    .section-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-    }
-
-    .section-header {
-      margin-bottom: 72px;
-    }
-
-    .section-eyebrow {
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 16px;
-    }
-
-    .section-header h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2.8rem, 5vw, 5rem);
-      letter-spacing: 0.04em;
-      color: var(--white);
-      line-height: 0.95;
-      max-width: 640px;
-    }
-
-    .section-header p {
-      margin-top: 20px;
-      font-size: 0.9rem;
-      font-weight: 300;
-      color: var(--muted);
-      max-width: 520px;
-      line-height: 1.85;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-    }
-
-    .service-card {
-      background: var(--bg2);
-      padding: 44px 40px;
-      position: relative;
-      overflow: hidden;
-      transition: background 0.3s;
-    }
-
-    .service-card::before {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0;
-      width: 0; height: 1px;
-      background: var(--green);
-      transition: width 0.4s ease;
-    }
-
-    .service-card:hover { background: var(--bg3); }
-    .service-card:hover::before { width: 100%; }
-
-    .service-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 0.9rem;
-      letter-spacing: 0.14em;
-      color: var(--green);
-      margin-bottom: 20px;
-    }
-
-    .service-card h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.6rem;
-      letter-spacing: 0.04em;
-      color: var(--white);
-      margin-bottom: 14px;
-      line-height: 1.1;
-    }
-
-    .service-card p {
-      font-size: 0.84rem;
-      font-weight: 300;
-      color: var(--muted);
-      line-height: 1.8;
-    }
-
-    /* ── CERTIFICATIONS ── */
-    .certifications {
-      background: var(--bg2);
-      padding: 120px 48px;
-    }
-
-    .cert-layout {
-      max-width: 1280px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-
-    .cert-content .section-eyebrow { color: var(--gold); }
-
-    .cert-content h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2.8rem, 5vw, 5rem);
-      letter-spacing: 0.04em;
-      color: var(--white);
-      line-height: 0.95;
-      margin-bottom: 20px;
-    }
-
-    .cert-content .intro {
-      font-size: 0.88rem;
-      font-weight: 300;
-      color: var(--muted);
-      line-height: 1.85;
-      margin-bottom: 44px;
-    }
-
-    .cert-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-    }
-
-    .cert-item {
-      background: var(--bg3);
-      padding: 22px 24px;
-    }
-
-    .cert-item-name {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.05rem;
-      letter-spacing: 0.08em;
-      color: var(--white);
-      margin-bottom: 4px;
-    }
-
-    .cert-item-desc {
-      font-size: 0.72rem;
-      font-weight: 300;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    /* Cinematic image frame */
-    .cert-visual {
-      position: relative;
-    }
-
-    .cert-img-wrap {
-      position: relative;
-      overflow: hidden;
-      clip-path: inset(100% 0 0 0);
-    }
-
-    .cert-img-wrap.revealed {
-      clip-path: inset(0% 0 0 0);
-      transition: clip-path 1.1s cubic-bezier(0.77, 0, 0.175, 1);
-    }
-
-    .cert-img {
-      width: 100%;
-      height: 520px;
-      object-fit: cover;
-      display: block;
-      transform: scale(1.08);
-      transition: transform 1.1s cubic-bezier(0.77, 0, 0.175, 1);
-    }
-
-    .cert-img-wrap.revealed .cert-img {
-      transform: scale(1);
-    }
-
-    .cert-img-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(11,11,11,0.8) 0%, transparent 50%);
-    }
-
-    /* Corner frames */
-    .corner-tl, .corner-tr, .corner-bl, .corner-br {
-      position: absolute;
-      width: 24px; height: 24px;
-    }
-
-    .corner-tl { top: 12px; left: 12px; border-top: 1px solid rgba(245,245,240,0.3); border-left: 1px solid rgba(245,245,240,0.3); }
-    .corner-tr { top: 12px; right: 12px; border-top: 1px solid rgba(245,245,240,0.3); border-right: 1px solid rgba(245,245,240,0.3); }
-    .corner-bl { bottom: 12px; left: 12px; border-bottom: 1px solid rgba(245,245,240,0.3); border-left: 1px solid rgba(245,245,240,0.3); }
-    .corner-br { bottom: 12px; right: 12px; border-bottom: 1px solid rgba(245,245,240,0.3); border-right: 1px solid rgba(245,245,240,0.3); }
-
-    .cert-badge-strip {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      padding: 24px 28px;
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .cbadge {
-      font-size: 0.56rem;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: rgba(245,245,240,0.6);
-      border: 1px solid rgba(245,245,240,0.18);
-      padding: 5px 10px;
-      background: rgba(11,11,11,0.6);
-    }
-
-    /* ── REVIEWS ── */
-    .reviews {
-      background: var(--bg);
-      padding: 120px 48px;
-    }
-
-    .reviews-header {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      margin-bottom: 64px;
-      gap: 24px;
-    }
-
-    .google-badge {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      padding: 14px 20px;
-      flex-shrink: 0;
-    }
-
-    .google-g {
-      font-size: 1.2rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #4285f4 0%, #ea4335 40%, #fbbc05 70%, #34a853 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      font-family: 'Jost', sans-serif;
-      line-height: 1;
-    }
-
-    .google-rating-val {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.7rem;
-      letter-spacing: 0.04em;
-      color: var(--white);
-      line-height: 1;
-    }
-
-    .google-stars-row {
-      display: flex;
-      gap: 2px;
-      margin: 3px 0;
-    }
-
-    .gstar { width: 12px; height: 12px; fill: #fbbc05; }
-
-    .google-rating-label {
-      font-size: 0.62rem;
-      font-weight: 500;
-      color: var(--muted);
-      letter-spacing: 0.1em;
-    }
-
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-    }
-
-    .review-card {
-      background: var(--bg2);
-      padding: 40px;
-    }
-
-    .review-top {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 24px;
-    }
-
-    .reviewer-avatar {
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      background: var(--green);
-      color: var(--white);
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1rem;
-      letter-spacing: 0.06em;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .reviewer-name {
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--white);
-    }
-
-    .reviewer-meta {
-      font-size: 0.7rem;
-      font-weight: 300;
-      color: var(--muted);
-      margin-top: 2px;
-    }
-
-    .review-stars-row {
-      display: flex;
-      gap: 3px;
-      margin-bottom: 18px;
-    }
-
-    .rstar { width: 13px; height: 13px; fill: #fbbc05; }
-
-    .review-text {
-      font-size: 0.86rem;
-      font-weight: 300;
-      color: rgba(245,245,240,0.7);
-      line-height: 1.85;
-      font-style: italic;
-    }
-
-    /* ── WHY US BAND ── */
-    .why-band {
-      background: var(--green);
-      padding: 0;
-    }
-
-    .why-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-    }
-
-    .why-item {
-      padding: 52px 36px;
-      border-right: 1px solid rgba(245,245,240,0.1);
-      text-align: center;
-    }
-
-    .why-item:last-child { border-right: none; }
-
-    .why-item h4 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.3rem;
-      letter-spacing: 0.06em;
-      color: var(--white);
-      margin-bottom: 10px;
-    }
-
-    .why-item p {
-      font-size: 0.78rem;
-      font-weight: 300;
-      color: rgba(245,245,240,0.65);
-      line-height: 1.75;
-    }
-
-    /* ── SECTORS ── */
-    .sectors {
-      background: var(--bg2);
-      padding: 120px 48px;
-    }
-
-    .sectors-layout {
-      max-width: 1280px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 80px;
-      align-items: center;
-    }
-
-    .sectors-left h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2.8rem, 5vw, 5rem);
-      letter-spacing: 0.04em;
-      color: var(--white);
-      line-height: 0.95;
-      margin-bottom: 20px;
-    }
-
-    .sectors-left .intro {
-      font-size: 0.88rem;
-      font-weight: 300;
-      color: var(--muted);
-      line-height: 1.85;
-      margin-bottom: 36px;
-    }
-
-    .btn-solid {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 13px 30px;
-      background: var(--white);
-      color: var(--bg);
-      border: none;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s;
-      display: inline-block;
-    }
-
-    .btn-solid:hover { background: rgba(245,245,240,0.85); }
-
-    .sectors-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-    }
-
-    .sector-item {
-      background: var(--bg3);
-      padding: 22px 24px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      transition: background 0.2s;
-    }
-
-    .sector-item:hover { background: rgba(30,92,58,0.15); }
-
-    .sector-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--green);
-      flex-shrink: 0;
-    }
-
-    .sector-name {
-      font-size: 0.82rem;
-      font-weight: 400;
-      color: rgba(245,245,240,0.75);
-    }
-
-    /* ── CTA ── */
-    .cta-section {
-      background: var(--bg);
-      padding: 140px 48px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at center, rgba(30,92,58,0.12) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .cta-section .section-eyebrow { color: var(--gold); text-align: center; }
-
-    .cta-section h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(3rem, 6vw, 6rem);
-      letter-spacing: 0.04em;
-      color: var(--white);
-      line-height: 0.95;
-      margin-bottom: 20px;
-    }
-
-    .cta-section p {
-      font-size: 0.92rem;
-      font-weight: 300;
-      color: var(--muted);
-      max-width: 480px;
-      margin: 0 auto 48px;
-      line-height: 1.85;
-    }
-
-    .cta-btns {
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn-cta-primary {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 13px 36px;
-      background: var(--green);
-      color: var(--white);
-      border: none;
-      cursor: pointer;
-      transition: background 0.2s;
-      display: inline-block;
-    }
-
-    .btn-cta-primary:hover { background: var(--green2); }
-
-    .btn-cta-ghost {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 13px 36px;
-      background: transparent;
-      color: var(--white);
-      border: 1px solid rgba(245,245,240,0.25);
-      cursor: pointer;
-      transition: border-color 0.2s;
-      display: inline-block;
-    }
-
-    .btn-cta-ghost:hover { border-color: rgba(245,245,240,0.6); }
-
-    /* ── FOOTER ── */
-    footer {
-      background: #060606;
-      padding: 72px 48px 40px;
-      border-top: 1px solid var(--border);
-    }
-
-    .footer-inner { max-width: 1280px; margin: 0 auto; }
-
-    .footer-top {
-      display: grid;
-      grid-template-columns: 1.6fr 1fr 1fr 1fr;
-      gap: 48px;
-      padding-bottom: 52px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .footer-wordmark {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.5rem;
-      letter-spacing: 0.14em;
-      color: var(--white);
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .footer-sub {
-      font-size: 0.54rem;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: rgba(245,245,240,0.25);
-      display: block;
-      margin-bottom: 20px;
-    }
-
-    .footer-brand p {
-      font-size: 0.78rem;
-      font-weight: 300;
-      color: rgba(245,245,240,0.3);
-      line-height: 1.75;
-    }
-
-    .footer-col h5 {
-      font-size: 0.58rem;
-      font-weight: 600;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: rgba(245,245,240,0.3);
-      margin-bottom: 18px;
-    }
-
-    .footer-col ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .footer-col ul li a {
-      font-size: 0.78rem;
-      font-weight: 300;
-      color: rgba(245,245,240,0.35);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-col ul li a:hover { color: var(--white); }
-
-    .footer-contact p {
-      font-size: 0.78rem;
-      font-weight: 300;
-      color: rgba(245,245,240,0.35);
-      line-height: 2;
-    }
-
-    .footer-contact a {
-      color: rgba(245,245,240,0.35);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-contact a:hover { color: var(--white); }
-
-    .footer-bottom {
-      padding-top: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .footer-bottom p {
-      font-size: 0.7rem;
-      font-weight: 300;
-      color: rgba(245,245,240,0.18);
-    }
-
-    .footer-legal { display: flex; gap: 24px; }
-
-    .footer-legal a {
-      font-size: 0.7rem;
-      font-weight: 300;
-      color: rgba(245,245,240,0.18);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-legal a:hover { color: rgba(245,245,240,0.5); }
-
-    /* ── SCROLL REVEAL ── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 1024px) {
-      .cert-layout { grid-template-columns: 1fr; gap: 48px; }
-      .sectors-layout { grid-template-columns: 1fr; gap: 48px; }
-    }
-
-    @media (max-width: 900px) {
-      nav { padding: 0 24px; }
-      .nav-links { display: none; }
-      .hero-inner { padding: 0 24px; }
-      .hero-badges { right: 24px; bottom: 80px; }
-      .hero-scroll { left: 24px; }
-      .stats-inner { grid-template-columns: repeat(2, 1fr); padding: 0 24px; }
-      .services { padding: 80px 24px; }
-      .services-grid { grid-template-columns: 1fr 1fr; }
-      .certifications { padding: 80px 24px; }
-      .reviews { padding: 80px 24px; }
-      .reviews-grid { grid-template-columns: 1fr; }
-      .why-inner { grid-template-columns: repeat(2, 1fr); }
-      .sectors { padding: 80px 24px; }
-      .cta-section { padding: 100px 24px; }
-      footer { padding: 60px 24px 32px; }
-      .footer-top { grid-template-columns: 1fr 1fr; }
-      .statement { padding: 100px 24px; }
-    }
-
-    @media (max-width: 600px) {
-      .services-grid { grid-template-columns: 1fr; }
-      .why-inner { grid-template-columns: 1fr 1fr; }
-      .sectors-grid { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr; }
-      .reviews-header { flex-direction: column; align-items: flex-start; }
-      .cert-list { grid-template-columns: 1fr; }
-      .hero-badges { display: none; }
-    }
+    body { background: var(--white); color: var(--text-dark); font-family: var(--font-sans); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(255,255,255,0.72); backdrop-filter: blur(24px) saturate(1.8); -webkit-backdrop-filter: blur(24px) saturate(1.8); border-bottom: 1px solid rgba(0,0,0,0.10); box-shadow: 0 1px 0 rgba(0,0,0,0.04), 0 4px 20px rgba(0,0,0,0.07); transition: background 0.3s, box-shadow 0.3s; }
+    nav.scrolled { background: rgba(255,255,255,0.92); box-shadow: 0 1px 0 rgba(0,0,0,0.10), 0 8px 32px rgba(0,0,0,0.10); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; height: 66px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .nav-logo { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 700; color: var(--navy); text-decoration: none; white-space: nowrap; letter-spacing: 0.04em; flex-shrink: 0; }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { color: var(--text-mid); text-decoration: none; font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--navy); }
+    .btn-nav { background: var(--navy); color: #fff; border: none; border-radius: 4px; padding: 10px 22px; font-family: var(--font-sans); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background 0.2s; flex-shrink: 0; }
+    .btn-nav:hover { background: var(--gold); }
+    @media (max-width: 860px) { .nav-links { display: none; } .nav-inner { padding: 0 20px; } }
+
+    .hero { min-height: 100vh; position: relative; display: flex; align-items: center; overflow: hidden; background: var(--navy); }
+    .hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #080e1e 0%, #16233a 60%, #0d1628 100%); }
+    .hero-vignette { position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.72) 100%); }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(120deg, rgba(13,21,40,0.96) 0%, rgba(13,21,40,0.75) 55%, rgba(13,21,40,0.45) 100%); }
+    .hero::after { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); background-size: 200px 200px; opacity: 0.035; pointer-events: none; }
+    .hero-wrap { position: relative; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    .hero-content { padding: 150px 0 110px; max-width: 680px; }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; }
+    .hero-eyebrow::before { content: ''; display: block; width: 36px; height: 1px; background: var(--gold); flex-shrink: 0; }
+    .hero h1 { font-family: var(--font-serif); font-size: clamp(2.8rem, 5.8vw, 4.6rem); font-weight: 700; line-height: 1.08; color: #fff; margin-bottom: 24px; letter-spacing: -0.01em; }
+    .hero h1 em { font-style: italic; color: var(--gold-light); }
+    .hero-sub { font-size: 1rem; color: rgba(255,255,255,0.58); font-weight: 300; margin-bottom: 28px; max-width: 480px; line-height: 1.8; }
+    .badge-24 { display: inline-flex; align-items: center; gap: 8px; background: rgba(160,144,96,0.15); border: 1px solid rgba(160,144,96,0.32); border-radius: 100px; padding: 6px 16px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 28px; }
+    .hero-phone { display: block; font-size: 1.9rem; font-weight: 700; color: var(--gold-light); text-decoration: none; margin-bottom: 36px; letter-spacing: 0.02em; }
+    .hero-phone:hover { color: #fff; }
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary { display: inline-flex; align-items: center; justify-content: center; height: 52px; padding: 0 32px; background: var(--gold); color: var(--navy); border: none; border-radius: 4px; font-family: var(--font-sans); font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: background 0.2s, transform 0.15s; white-space: nowrap; }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-ghost { display: inline-flex; align-items: center; justify-content: center; height: 52px; padding: 0 32px; background: transparent; color: rgba(255,255,255,0.75); border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-family: var(--font-sans); font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: border-color 0.2s, color 0.2s; white-space: nowrap; }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold-light); }
+
+    .trust-band { background: var(--off-white); border-bottom: 1px solid var(--border); }
+    .trust-band-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: repeat(4,1fr); }
+    .trust-item { padding: 28px 20px; display: flex; align-items: center; gap: 14px; border-right: 1px solid var(--border); }
+    .trust-item:last-child { border-right: none; }
+    .trust-icon { flex-shrink: 0; width: 34px; height: 34px; color: var(--gold); }
+    .trust-text strong { display: block; font-size: 0.875rem; font-weight: 600; color: var(--text-dark); }
+    .trust-text span { font-size: 0.75rem; color: var(--text-muted); }
+    @media (max-width: 860px) { .trust-band-inner { grid-template-columns: repeat(2,1fr); } .trust-item:nth-child(2) { border-right: none; } }
+    @media (max-width: 480px) { .trust-band-inner { grid-template-columns: 1fr; } .trust-item { border-right: none; border-bottom: 1px solid var(--border); } }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 96px 32px; }
+    .section-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
+    .section-label::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); flex-shrink: 0; }
+    .section-title { font-family: var(--font-serif); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700; line-height: 1.12; color: var(--text-dark); margin-bottom: 16px; }
+    .section-sub { font-size: 1rem; color: var(--text-mid); max-width: 520px; line-height: 1.8; }
+    .section-header { margin-bottom: 64px; }
+    .ghost-text { position: absolute; font-family: var(--font-serif); font-size: clamp(5rem, 15vw, 12rem); font-weight: 700; font-style: italic; color: transparent; -webkit-text-stroke: 1px rgba(0,0,0,0.045); white-space: nowrap; pointer-events: none; user-select: none; line-height: 1; letter-spacing: -0.02em; }
+
+    .services-section { background: var(--white); position: relative; overflow: hidden; border-top: 1px solid var(--border); }
+    .services-section .ghost-text { top: -2rem; right: -2rem; }
+    .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    @media (max-width: 860px) { .services-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 480px) { .services-grid { grid-template-columns: 1fr; } }
+    .service-card { background: var(--off-white); border: 1px solid var(--border); border-radius: 6px; padding: 32px 28px; transition: box-shadow 0.25s, transform 0.25s; }
+    .service-card:hover { box-shadow: 0 16px 48px rgba(0,0,0,0.09); transform: translateY(-4px); }
+    .service-icon { width: 48px; height: 48px; background: var(--navy); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+    .service-icon svg { width: 24px; height: 24px; color: var(--gold); }
+    .service-card h3 { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; }
+    .service-card p { font-size: 0.875rem; color: var(--text-mid); line-height: 1.7; }
+
+    .pests-section { background: var(--warm-white); border-top: 1px solid var(--border); }
+    .pests-grid { display: grid; grid-template-columns: repeat(6,1fr); gap: 16px; }
+    @media (max-width: 860px) { .pests-grid { grid-template-columns: repeat(3,1fr); } }
+    @media (max-width: 480px) { .pests-grid { grid-template-columns: repeat(2,1fr); } }
+    .pest-item { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 24px 16px; text-align: center; transition: box-shadow 0.2s; }
+    .pest-item:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.07); }
+    .pest-emoji { font-size: 2rem; margin-bottom: 10px; display: block; line-height: 1; }
+    .pest-label { font-size: 0.8rem; font-weight: 500; color: var(--text-mid); display: block; }
+
+    .process-section { background: var(--navy); position: relative; overflow: hidden; }
+    .process-section .ghost-text { -webkit-text-stroke: 1px rgba(255,255,255,0.04); bottom: -2rem; right: -2rem; }
+    .process-section .section-label { color: var(--gold); }
+    .process-section .section-label::before { background: var(--gold); }
+    .process-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; background: rgba(255,255,255,0.07); border-radius: 6px; overflow: hidden; }
+    @media (max-width: 860px) { .process-steps { grid-template-columns: repeat(2,1fr); } }
+    .process-step { background: rgba(13,21,40,0.85); padding: 40px 32px; }
+    .process-num { font-family: var(--font-serif); font-size: 3.5rem; font-weight: 700; color: rgba(160,144,96,0.18); line-height: 1; margin-bottom: 16px; }
+    .process-step h3 { font-family: var(--font-serif); font-size: 1.15rem; font-weight: 700; color: var(--gold-light); margin-bottom: 10px; }
+    .process-step p { font-size: 0.875rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
+
+    .reviews-section { background: var(--white); border-top: 1px solid var(--border); }
+    .google-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--off-white); border: 1px solid var(--border); border-radius: 100px; padding: 6px 14px; font-size: 0.75rem; font-weight: 600; color: var(--text-mid); margin-bottom: 40px; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    @media (max-width: 860px) { .reviews-grid { grid-template-columns: 1fr; } }
+    .review-card { background: var(--off-white); border: 1px solid var(--border); border-radius: 6px; padding: 32px 28px; }
+    .review-stars { color: #FBBF24; font-size: 0.9rem; margin-bottom: 14px; letter-spacing: 2px; }
+    .review-text { font-size: 0.9rem; color: var(--text-mid); line-height: 1.75; margin-bottom: 20px; font-style: italic; }
+    .review-author { display: flex; align-items: center; gap: 12px; }
+    .review-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--navy); display: flex; align-items: center; justify-content: center; font-family: var(--font-serif); font-size: 0.9rem; font-weight: 700; color: var(--gold); flex-shrink: 0; }
+    .review-name { font-size: 0.85rem; font-weight: 600; color: var(--text-dark); }
+    .review-source { font-size: 0.75rem; color: var(--text-muted); }
+
+    .contact-section { background: var(--off-white); border-top: 1px solid var(--border); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; gap: 40px; } }
+    .contact-form label { display: block; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-mid); margin-bottom: 6px; margin-top: 18px; }
+    .contact-form label:first-child { margin-top: 0; }
+    .contact-form input, .contact-form textarea, .contact-form select { width: 100%; padding: 12px 16px; border: 1px solid rgba(0,0,0,0.12); border-radius: 4px; background: var(--white); font-family: var(--font-sans); font-size: 0.9rem; color: var(--text-dark); outline: none; transition: border-color 0.2s; }
+    .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus { border-color: var(--gold); }
+    .contact-form textarea { min-height: 120px; resize: vertical; }
+    .contact-form button { margin-top: 24px; width: 100%; height: 52px; background: var(--navy); color: #fff; border: none; border-radius: 4px; font-family: var(--font-sans); font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; }
+    .contact-form button:hover { background: var(--gold); }
+    .contact-info h3 { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 700; color: var(--text-dark); margin-bottom: 16px; }
+    .contact-info p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.8; margin-bottom: 32px; }
+    .contact-detail { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px; }
+    .contact-detail-icon { width: 36px; height: 36px; flex-shrink: 0; background: var(--navy); border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+    .contact-detail-icon svg { width: 16px; height: 16px; color: var(--gold); }
+    .contact-detail-text strong { display: block; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 2px; }
+    .contact-detail-text a, .contact-detail-text span { font-size: 0.95rem; color: var(--text-dark); text-decoration: none; }
+    .contact-detail-text a:hover { color: var(--gold); }
+
+    .emergency-section { background: var(--navy2); padding: 80px 32px; text-align: center; }
+    .emergency-section .section-label { justify-content: center; }
+    .emergency-title { font-family: var(--font-serif); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; color: #fff; margin-bottom: 16px; }
+    .emergency-desc { font-size: 0.9rem; color: rgba(255,255,255,0.5); margin-bottom: 28px; }
+    .emergency-phone { display: inline-flex; align-items: center; gap: 12px; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; color: var(--gold-light); text-decoration: none; margin-bottom: 32px; letter-spacing: 0.02em; }
+    .emergency-phone:hover { color: #fff; }
+
+    footer { background: var(--navy); padding: 64px 32px 32px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    @media (max-width: 860px) { .footer-inner { grid-template-columns: 1fr 1fr; } }
+    .footer-brand { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 16px; }
+    .footer-brand span { color: var(--gold); }
+    .footer-desc { font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.8; margin-bottom: 24px; }
+    .footer-col h5 { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 18px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a { font-size: 0.85rem; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: #fff; }
+    .footer-bottom { max-width: 1200px; margin: 28px auto 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.28); }
+    .footer-demo-badge { font-size: 0.72rem; color: rgba(160,144,96,0.7); background: rgba(160,144,96,0.1); border: 1px solid rgba(160,144,96,0.2); border-radius: 100px; padding: 4px 12px; letter-spacing: 0.06em; }
   </style>
 </head>
 <body>
 
-  <!-- Grain -->
-  <div class="grain"></div>
-
-  <!-- ── NAV ── -->
-  <nav id="nav">
-    <div class="nav-brand">
-      <a class="wordmark" href="#">ABIOTEK</a>
-      <span class="tagline">Sanitation Global Services S.A.</span>
-    </div>
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">ABIO<span>TEK</span></a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
-      <li><a href="#certifications">Certifications</a></li>
-      <li><a href="#reviews">Avis</a></li>
-      <li><a href="#sectors">Secteurs</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#pests">Pest Types</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#reviews">Reviews</a></li>
     </ul>
-    <a href="tel:+35226302740" class="btn-nav">Audit Gratuit</a>
-  </nav>
+    <a href="tel:+35226302740" class="btn-nav">+352 26 30 27 40</a>
+  </div>
+</nav>
 
-  <!-- ── HERO ── -->
-  <section class="hero">
-    <div class="hero-bg" id="heroBg"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-vignette"></div>
-    <div class="hero-inner">
-      <p class="hero-eyebrow" id="heroEyebrow">Luxembourg — Certifié depuis 2009</p>
-      <h1 class="hero-title">
-        <span class="hero-title-line"><span>ASSAINISSEMENT</span></span>
-        <span class="hero-title-line"><span>&amp; LUTTE</span></span>
-        <span class="hero-title-line"><span>ANTIPARASITAIRE</span></span>
-      </h1>
-      <p class="hero-sub" id="heroSub">Spécialistes certifiés protégeant les établissements alimentaires, hôtels et industries dans tout le Grand-Duché. Résultats garantis, interventions documentées, conformité totale.</p>
-      <div class="hero-ctas" id="heroCtas">
-        <a href="tel:+35226302740" class="btn-primary">Demander un audit gratuit</a>
-        <a href="#services" class="btn-ghost">Nos services</a>
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-vignette"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-wrap">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Luxembourg's Trusted Specialists</div>
+      <h1>Pest Control &amp;<br><em>Sanitation</em><br>Experts</h1>
+      <p class="hero-sub">Certified professionals eliminating pests and restoring hygiene for homes and businesses across Luxembourg — fast, discreet, guaranteed.</p>
+      <div class="badge-24">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        24/7 Emergency Response Available
+      </div>
+      <a href="tel:+35226302740" class="hero-phone">+352 26 30 27 40</a>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn-primary">Request Free Audit</a>
+        <a href="#services" class="btn-ghost">Our Services</a>
       </div>
     </div>
-    <div class="hero-badges" id="heroBadges">
-      <span class="hero-badge">HACCP</span>
-      <span class="hero-badge">ISO 22000</span>
-      <span class="hero-badge">ISO 14001</span>
-      <span class="hero-badge">BRC / IFS</span>
-      <span class="hero-badge">CE Certifié</span>
+  </div>
+</section>
+
+<div class="trust-band">
+  <div class="trust-band-inner">
+    <div class="trust-item">
+      <svg class="trust-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+      <div class="trust-text"><strong>Licensed &amp; Certified</strong><span>EU-compliant standards</span></div>
     </div>
-    <div class="hero-scroll" id="heroScroll">
-      <span>Défiler</span>
-      <div class="scroll-line"></div>
+    <div class="trust-item">
+      <svg class="trust-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <div class="trust-text"><strong>Same-Day Response</strong><span>24/7 availability</span></div>
     </div>
-  </section>
-
-  <!-- ── STATEMENT ── -->
-  <section class="statement">
-    <p class="section-eyebrow reveal">Notre mission</p>
-    <h2 class="statement-title reveal" id="statementTitle">
-      LÀ OÙ LA PRÉCISION<br>RENCONTRE LA PROTECTION
-    </h2>
-    <div class="statement-line reveal" id="statementLine"></div>
-    <p class="statement-sub reveal">Depuis 2009, ABIOTEK déploie des solutions d'assainissement certifiées pour protéger les entreprises luxembourgeoises — de l'audit initial à la maintenance préventive, chaque intervention est documentée et garantie.</p>
-  </section>
-
-  <!-- ── STATS ── -->
-  <section class="stats-band">
-    <div class="stats-inner">
-      <div class="stat reveal">
-        <div class="stat-number" data-count="99" data-suffix="%">0%</div>
-        <div class="stat-label">Taux de réussite</div>
-      </div>
-      <div class="stat reveal reveal-delay-1">
-        <div class="stat-number" data-count="15" data-suffix="+">0+</div>
-        <div class="stat-label">Ans au Luxembourg</div>
-      </div>
-      <div class="stat reveal reveal-delay-2">
-        <div class="stat-number" data-count="4.8" data-suffix="" data-decimal="true">0</div>
-        <div class="stat-label">Note Google</div>
-      </div>
-      <div class="stat reveal reveal-delay-3">
-        <div class="stat-number" data-count="6" data-suffix="">0</div>
-        <div class="stat-label">Normes certifiées</div>
-      </div>
+    <div class="trust-item">
+      <svg class="trust-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+      <div class="trust-text"><strong>Results Guaranteed</strong><span>Free re-treatment if needed</span></div>
     </div>
-  </section>
+    <div class="trust-item">
+      <svg class="trust-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 00-1-1h-2a1 1 0 00-1 1v5m4 0H9"/></svg>
+      <div class="trust-text"><strong>Residential &amp; Commercial</strong><span>All property types</span></div>
+    </div>
+  </div>
+</div>
 
-  <!-- ── SERVICES ── -->
-  <section class="services" id="services">
-    <div class="section-inner">
-      <div class="section-header reveal">
-        <p class="section-eyebrow">Ce que nous faisons</p>
-        <h2>SERVICES COMPLETS D'ASSAINISSEMENT</h2>
-        <p>De l'audit initial à la maintenance préventive — des traitements ciblés avec des méthodes certifiées, conformes aux réglementations européennes.</p>
+<section class="services-section" id="services">
+  <span class="ghost-text">Services</span>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">Complete Pest &amp; Sanitation <em>Solutions</em></h2>
+      <p class="section-sub">From targeted pest elimination to full sanitation programmes — protecting your property with precision and care.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div>
+        <h3>Residential Treatment</h3>
+        <p>Complete home pest elimination using safe, family-friendly products. Ants, cockroaches, rodents and more — handled with care.</p>
       </div>
-      <div class="services-grid">
-
-        <div class="service-card reveal">
-          <div class="service-num">01</div>
-          <h3>Désinsectisation</h3>
-          <p>Traitements ciblés contre les insectes rampants et volants. Identification complète, plan de traitement et suivi pour une élimination durable.</p>
-        </div>
-
-        <div class="service-card reveal reveal-delay-1">
-          <div class="service-num">02</div>
-          <h3>Dératisation</h3>
-          <p>Traitement professionnel contre les rats, souris et autres rongeurs. Gestion intégrée combinant appâtage, exclusion et évaluation environnementale.</p>
-        </div>
-
-        <div class="service-card reveal reveal-delay-2">
-          <div class="service-num">03</div>
-          <h3>Désinfection &amp; Décontamination</h3>
-          <p>Désinfection complète des surfaces et de l'air avec des produits biocides certifiés CE — adaptée aux établissements alimentaires, sanitaires et hôteliers.</p>
-        </div>
-
-        <div class="service-card reveal reveal-delay-1">
-          <div class="service-num">04</div>
-          <h3>Audits d'Hygiène</h3>
-          <p>Audits HACCP indépendants avec rapports écrits. Identification des risques, correction des non-conformités, conformité BRC, IFS ou ISO 22000.</p>
-        </div>
-
-        <div class="service-card reveal reveal-delay-2">
-          <div class="service-num">05</div>
-          <h3>Services de Fumigation</h3>
-          <p>Fumigation contrôlée pour entrepôts, stockages alimentaires et véhicules. Documentation complète fournie pour les dossiers réglementaires.</p>
-        </div>
-
-        <div class="service-card reveal reveal-delay-3">
-          <div class="service-num">06</div>
-          <h3>Programmes Préventifs</h3>
-          <p>Traitements préventifs planifiés selon le profil de risque de votre établissement — réduire la probabilité d'infestation avant toute perturbation.</p>
-        </div>
-
+      <div class="service-card">
+        <div class="service-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16M3 21h18M9 21v-6h6v6"/></svg></div>
+        <h3>Commercial Services</h3>
+        <p>Discreet, HACCP-compliant pest management for restaurants, warehouses, offices and industrial facilities across Luxembourg.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+        <h3>Termite Inspection</h3>
+        <p>Thorough structural inspections and advanced treatment plans to protect your building's integrity from termite damage.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/></svg></div>
+        <h3>Rodent Control</h3>
+        <p>Proven rodent programmes combining baiting, trapping and full exclusion work to prevent re-entry permanently.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"/></svg></div>
+        <h3>Disinfection &amp; Sanitation</h3>
+        <p>Full-site disinfection for post-infestation cleanup, mould remediation and deep sanitation of food-handling areas.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+        <h3>Emergency Response</h3>
+        <p>Urgent infestations can't wait. Our rapid-response team is available 24 hours a day, every day across Luxembourg.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ── CERTIFICATIONS ── -->
-  <section class="certifications" id="certifications">
-    <div class="cert-layout">
-      <div class="cert-content reveal">
-        <p class="section-eyebrow">Normes &amp; Conformité</p>
-        <h2>NOS CERTIFICATIONS ET NORMES</h2>
-        <p class="intro">ABIOTEK opère à l'intersection de la rigueur scientifique et de la conformité réglementaire. Nos interventions satisfont les normes européennes les plus exigeantes en matière de sécurité alimentaire, d'environnement et de qualité.</p>
-        <ul class="cert-list">
-          <li class="cert-item">
-            <div class="cert-item-name">HACCP</div>
-            <div class="cert-item-desc">Analyse des dangers &amp; maîtrise des points critiques</div>
-          </li>
-          <li class="cert-item">
-            <div class="cert-item-name">ISO 22000</div>
-            <div class="cert-item-desc">Systèmes de management de la sécurité alimentaire</div>
-          </li>
-          <li class="cert-item">
-            <div class="cert-item-name">ISO 14001</div>
-            <div class="cert-item-desc">Management environnemental — usage responsable des produits</div>
-          </li>
-          <li class="cert-item">
-            <div class="cert-item-name">BRC / IFS</div>
-            <div class="cert-item-desc">British Retail Consortium &amp; International Food Standard</div>
-          </li>
-          <li class="cert-item">
-            <div class="cert-item-name">AIB International</div>
-            <div class="cert-item-desc">Inspection des normes consolidées pour établissements alimentaires</div>
-          </li>
-          <li class="cert-item">
-            <div class="cert-item-name">CE Certifié</div>
-            <div class="cert-item-desc">Tous les produits biocides marqués CE pour la conformité UE</div>
-          </li>
-        </ul>
+<section class="pests-section" id="pests">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Pest Types</div>
+      <h2 class="section-title">Every Pest <em>Handled</em></h2>
+      <p class="section-sub">We have certified protocols for every common infestation found in Luxembourg homes and businesses.</p>
+    </div>
+    <div class="pests-grid">
+      <div class="pest-item"><span class="pest-emoji">🐀</span><span class="pest-label">Rats &amp; Mice</span></div>
+      <div class="pest-item"><span class="pest-emoji">🪲</span><span class="pest-label">Cockroaches</span></div>
+      <div class="pest-item"><span class="pest-emoji">🐜</span><span class="pest-label">Ants</span></div>
+      <div class="pest-item"><span class="pest-emoji">🐝</span><span class="pest-label">Wasps &amp; Bees</span></div>
+      <div class="pest-item"><span class="pest-emoji">🦟</span><span class="pest-label">Mosquitoes</span></div>
+      <div class="pest-item"><span class="pest-emoji">🕷️</span><span class="pest-label">Spiders</span></div>
+      <div class="pest-item"><span class="pest-emoji">🪰</span><span class="pest-label">Flies</span></div>
+      <div class="pest-item"><span class="pest-emoji">🦗</span><span class="pest-label">Bedbugs</span></div>
+      <div class="pest-item"><span class="pest-emoji">🪳</span><span class="pest-label">Termites</span></div>
+      <div class="pest-item"><span class="pest-emoji">🐛</span><span class="pest-label">Moths</span></div>
+      <div class="pest-item"><span class="pest-emoji">🐦</span><span class="pest-label">Birds/Pigeons</span></div>
+      <div class="pest-item"><span class="pest-emoji">🦎</span><span class="pest-label">Silverfish</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="process-section" id="process">
+  <span class="ghost-text" style="bottom:-2rem;right:-2rem;">Method</span>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Our Method</div>
+      <h2 class="section-title" style="color:#fff;">How We <em style="color:var(--gold-light);">Eliminate</em> Pests</h2>
+      <p class="section-sub">A structured four-step approach ensuring thorough treatment and lasting results every time.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-num">01</div>
+        <h3>Inspect</h3>
+        <p>Thorough site assessment to identify pest species, entry points and scale of infestation.</p>
       </div>
-      <div class="cert-visual reveal reveal-delay-2" id="certVisual">
-        <div class="cert-img-wrap" id="certImgWrap">
-          <img
-            class="cert-img"
-            src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&q=80"
-            alt="Technicien en équipement de protection individuelle"
-          />
-          <div class="cert-img-overlay"></div>
-          <div class="cert-badge-strip">
-            <span class="cbadge">HACCP</span>
-            <span class="cbadge">ISO 22000</span>
-            <span class="cbadge">ISO 14001</span>
-            <span class="cbadge">BRC / IFS</span>
-            <span class="cbadge">CE</span>
-          </div>
-        </div>
-        <div class="corner-tl"></div>
-        <div class="corner-tr"></div>
-        <div class="corner-bl"></div>
-        <div class="corner-br"></div>
+      <div class="process-step">
+        <div class="process-num">02</div>
+        <h3>Plan</h3>
+        <p>Custom treatment plan tailored to your property type, pest species and household or business needs.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">03</div>
+        <h3>Treat</h3>
+        <p>Professional-grade treatments applied safely and efficiently with minimal disruption to your routine.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">04</div>
+        <h3>Follow-Up</h3>
+        <p>Post-treatment monitoring and a guaranteed return visit if pests reappear within the warranty period.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ── REVIEWS ── -->
-  <section class="reviews" id="reviews">
-    <div class="section-inner">
-      <div class="reviews-header reveal">
-        <div>
-          <p class="section-eyebrow">Références clients</p>
-          <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,5vw,5rem);letter-spacing:0.04em;color:var(--white);line-height:0.95;">RECONNUS AU LUXEMBOURG</h2>
-        </div>
-        <div class="google-badge">
-          <div class="google-g">G</div>
-          <div>
-            <div class="google-rating-val">4.8</div>
-            <div class="google-stars-row">
-              <svg class="gstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg class="gstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg class="gstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg class="gstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg class="gstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            </div>
-            <div class="google-rating-label">Avis Google</div>
-          </div>
-        </div>
-      </div>
-      <div class="reviews-grid">
-
-        <div class="review-card reveal">
-          <div class="review-top">
-            <div class="reviewer-avatar">ML</div>
-            <div>
-              <div class="reviewer-name">Marc L.</div>
-              <div class="reviewer-meta">Responsable opérations — Production alimentaire</div>
-            </div>
-          </div>
-          <div class="review-stars-row">
-            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <p class="review-text">« Professionnalisme exceptionnel. L'équipe a effectué un audit complet du site, remis un rapport de conformité détaillé, et le traitement a été entièrement efficace. Aucune récidive en plus d'un an. »</p>
-        </div>
-
-        <div class="review-card reveal reveal-delay-1">
-          <div class="review-top">
-            <div class="reviewer-avatar">SC</div>
-            <div>
-              <div class="reviewer-name">Sophie C.</div>
-              <div class="reviewer-meta">Responsable qualité — Centre de distribution</div>
-            </div>
-          </div>
-          <div class="review-stars-row">
-            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <p class="review-text">« Nous avions besoin d'une gestion antiparasitaire conforme HACCP avant notre audit BRC. ABIOTEK a fourni exactement cela — la documentation était complète et les auditeurs ont été pleinement satisfaits. »</p>
-        </div>
-
-        <div class="review-card reveal reveal-delay-2">
-          <div class="review-top">
-            <div class="reviewer-avatar">JB</div>
-            <div>
-              <div class="reviewer-name">Jean-Pierre B.</div>
-              <div class="reviewer-meta">Directeur général — Groupe hôtelier Luxembourg</div>
-            </div>
-          </div>
-          <div class="review-stars-row">
-            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <p class="review-text">« Réactifs, discrets et efficaces. En tant qu'hôtelier, la discrétion est primordiale. ABIOTEK a tout géré en dehors des heures d'ouverture avec certification écrite complète. Très recommandé. »</p>
-        </div>
-
+<section class="reviews-section" id="reviews">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Client Feedback</div>
+      <h2 class="section-title">What Our Clients <em>Say</em></h2>
+      <div class="google-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        Google Reviews — 4.8&#9733; Average
       </div>
     </div>
-  </section>
-
-  <!-- ── WHY US ── -->
-  <section class="why-band">
-    <div class="why-inner">
-      <div class="why-item reveal">
-        <h4>Entièrement Assuré</h4>
-        <p>Couverture responsabilité civile professionnelle sur chaque intervention.</p>
-      </div>
-      <div class="why-item reveal reveal-delay-1">
-        <h4>Audit Gratuit</h4>
-        <p>Inspection sans engagement avec rapport complet d'évaluation des risques.</p>
-      </div>
-      <div class="why-item reveal reveal-delay-2">
-        <h4>Intervention Rapide</h4>
-        <p>Priorité d'intervention pour les situations commerciales urgentes au Luxembourg.</p>
-      </div>
-      <div class="why-item reveal reveal-delay-3">
-        <h4>99% de Réussite</h4>
-        <p>Chaque intervention est documentée, certifiée et garantie.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── SECTORS ── -->
-  <section class="sectors" id="sectors">
-    <div class="sectors-layout">
-      <div class="sectors-left reveal">
-        <p class="section-eyebrow">Qui nous servons</p>
-        <h2>SECTEURS QUE NOUS PROTÉGEONS</h2>
-        <p class="intro">Des hôtels de luxe aux entrepôts industriels — ABIOTEK intervient dans tous les secteurs exigeant un assainissement certifié dans le Grand-Duché de Luxembourg.</p>
-        <a href="tel:+35226302740" class="btn-solid">Prendre contact</a>
-      </div>
-      <div class="sectors-grid reveal reveal-delay-2">
-        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Production &amp; industrie alimentaire</div></div>
-        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Hôtels &amp; HORESCA</div></div>
-        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Logistique &amp; entreposage</div></div>
-        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Commerce &amp; distribution</div></div>
-        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Santé &amp; pharmacie</div></div>
-        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Transport &amp; fret</div></div>
-        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Bureaux &amp; secteur tertiaire</div></div>
-        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Résidences privées</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── CTA ── -->
-  <section class="cta-section" id="contact">
-    <div class="section-inner">
-      <p class="section-eyebrow reveal">Nous contacter</p>
-      <h2 class="reveal">DEMANDEZ VOTRE AUDIT<br>HYGIÈNE GRATUIT</h2>
-      <p class="reveal reveal-delay-1">Sans engagement. Un spécialiste visite vos locaux, évalue les risques et remet un rapport écrit — sans frais.</p>
-      <div class="cta-btns reveal reveal-delay-2">
-        <a href="tel:+35226302740" class="btn-cta-primary">Appeler +352 26 30 27 40</a>
-        <a href="mailto:contact@abiotek.lu" class="btn-cta-ghost">Envoyer un e-mail</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── FOOTER ── -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <span class="footer-wordmark">ABIOTEK</span>
-          <span class="footer-sub">Sanitation Global Services S.A.</span>
-          <p>Services professionnels de lutte antiparasitaire, de désinfection et de conformité hygiénique pour le Luxembourg — depuis 2009.</p>
-        </div>
-        <div class="footer-col">
-          <h5>Services</h5>
-          <ul>
-            <li><a href="#services">Désinsectisation</a></li>
-            <li><a href="#services">Dératisation</a></li>
-            <li><a href="#services">Désinfection</a></li>
-            <li><a href="#services">Audits d'hygiène</a></li>
-            <li><a href="#services">Fumigation</a></li>
-            <li><a href="#services">Programmes préventifs</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>Secteurs</h5>
-          <ul>
-            <li><a href="#sectors">Industrie alimentaire</a></li>
-            <li><a href="#sectors">Hôtels &amp; HORESCA</a></li>
-            <li><a href="#sectors">Logistique</a></li>
-            <li><a href="#sectors">Santé</a></li>
-            <li><a href="#sectors">Commerce</a></li>
-            <li><a href="#sectors">Résidentiel</a></li>
-          </ul>
-        </div>
-        <div class="footer-col footer-contact">
-          <h5>Contact</h5>
-          <p>
-            16, Elwengerwee<br>
-            L-5495 Wintrange<br>
-            Luxembourg<br><br>
-            <a href="tel:+35226302740">+352 26 30 27 40</a><br>
-            <a href="mailto:contact@abiotek.lu">contact@abiotek.lu</a>
-          </p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"ABIOTEK responded within two hours of my call. The technician was professional, explained everything clearly, and the cockroach problem was completely gone after one treatment. Excellent."</p>
+        <div class="review-author">
+          <div class="review-avatar">MK</div>
+          <div><div class="review-name">Marc Kieffer</div><div class="review-source">Google &middot; Luxembourg City</div></div>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 Sanitation Global Services S.A. Tous droits réservés.</p>
-        <div class="footer-legal">
-          <a href="#">Politique de confidentialité</a>
-          <a href="#">Mentions légales</a>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"We use ABIOTEK for our restaurant's quarterly maintenance contract. Fully HACCP compliant, discreet visits, and the team understands food service requirements perfectly."</p>
+        <div class="review-author">
+          <div class="review-avatar">SF</div>
+          <div><div class="review-name">Sophie Fontaine</div><div class="review-source">Google &middot; Esch-sur-Alzette</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Had a wasp nest in the roof space. ABIOTEK came the same day, removed it safely and sealed the entry points. Very fair pricing and a thorough follow-up. Highly recommended."</p>
+        <div class="review-author">
+          <div class="review-avatar">PW</div>
+          <div><div class="review-name">Peter Weiss</div><div class="review-source">Google &middot; Differdange</div></div>
         </div>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    // ── NAV scroll class ──
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 60);
-    });
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Request a Free <em>Site Audit</em></h2>
+    </div>
+    <div class="contact-grid">
+      <form class="contact-form" onsubmit="return false;">
+        <label>Full Name</label>
+        <input type="text" placeholder="Your name" />
+        <label>Phone Number</label>
+        <input type="tel" placeholder="+352 ..." />
+        <label>Email Address</label>
+        <input type="email" placeholder="you@example.com" />
+        <label>Type of Problem</label>
+        <select>
+          <option>Select pest type...</option>
+          <option>Rodents (rats / mice)</option>
+          <option>Cockroaches</option>
+          <option>Wasps / Bees</option>
+          <option>Ants</option>
+          <option>Bedbugs</option>
+          <option>Termites</option>
+          <option>Other / General sanitation</option>
+        </select>
+        <label>Message</label>
+        <textarea placeholder="Describe the problem and your property type..."></textarea>
+        <button type="submit">Send Request — Free Audit</button>
+      </form>
+      <div class="contact-info">
+        <h3>Reach Us Directly</h3>
+        <p>Available 24/7 for emergencies. For non-urgent enquiries we respond within 2 business hours.</p>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.88 3.2 2 2 0 012.86 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div class="contact-detail-text"><strong>Phone</strong><a href="tel:+35226302740">+352 26 30 27 40</a></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div class="contact-detail-text"><strong>Email</strong><a href="mailto:contact@abiotek.lu">contact@abiotek.lu</a></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="contact-detail-text"><strong>Address</strong><span>16, Elwengerwee<br>5495 Wintrange, Luxembourg</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    // ── HERO parallax ──
-    const heroBg = document.getElementById('heroBg');
-    window.addEventListener('scroll', () => {
-      const y = window.scrollY;
-      heroBg.style.transform = `scale(1.08) translateY(${y * 0.25}px)`;
-    }, { passive: true });
+<section class="emergency-section">
+  <div class="section-label">Emergency Line</div>
+  <h2 class="emergency-title">Pest Problem That Can't Wait?</h2>
+  <p class="emergency-desc">Our team is on call around the clock, every day of the year. Call now for immediate assistance.</p>
+  <a href="tel:+35226302740" class="emergency-phone">+352 26 30 27 40</a>
+  <br><br>
+  <a href="#contact" class="btn-primary">Request Free Site Audit</a>
+</section>
 
-    // ── HERO entrance animations ──
-    (function heroIn() {
-      const lines = document.querySelectorAll('.hero-title-line span');
-      const eyebrow = document.getElementById('heroEyebrow');
-      const sub = document.getElementById('heroSub');
-      const ctas = document.getElementById('heroCtas');
-      const badges = document.getElementById('heroBadges');
-      const scroll = document.getElementById('heroScroll');
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">ABIO<span>TEK</span></div>
+      <p class="footer-desc">Luxembourg's professional sanitation and pest control specialists. Licensed, insured and HACCP-compliant. Serving residential and commercial clients across the Grand Duchy.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#services">Residential</a></li>
+        <li><a href="#services">Commercial</a></li>
+        <li><a href="#services">Termite Control</a></li>
+        <li><a href="#services">Rodent Control</a></li>
+        <li><a href="#services">Disinfection</a></li>
+        <li><a href="#services">Emergency</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="tel:+35226302740">+352 26 30 27 40</a></li>
+        <li><a href="mailto:contact@abiotek.lu">contact@abiotek.lu</a></li>
+        <li><a href="#contact">Free Audit</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2025 ABIOTEK Sanitation Global Services S.A. &mdash; 16, Elwengerwee, 5495 Wintrange, Luxembourg</span>
+    <span class="footer-demo-badge">Demo by jayexe.com</span>
+  </div>
+</footer>
 
-      let delay = 0;
-
-      lines.forEach((line, i) => {
-        setTimeout(() => {
-          line.style.transition = 'transform 1s cubic-bezier(0.16, 1, 0.3, 1)';
-          line.style.transform = 'translateY(0)';
-        }, 200 + i * 140);
-      });
-
-      setTimeout(() => { eyebrow.style.transition = 'opacity 0.8s ease'; eyebrow.style.opacity = '1'; }, 100);
-      setTimeout(() => { sub.style.transition = 'opacity 0.8s ease'; sub.style.opacity = '1'; }, 700);
-      setTimeout(() => { ctas.style.transition = 'opacity 0.8s ease'; ctas.style.opacity = '1'; }, 900);
-      setTimeout(() => { badges.style.transition = 'opacity 0.8s ease'; badges.style.opacity = '1'; }, 1100);
-      setTimeout(() => { scroll.style.transition = 'opacity 0.8s ease'; scroll.style.opacity = '1'; }, 1300);
-    })();
-
-    // ── SCROLL REVEAL ──
-    const revealEls = document.querySelectorAll('.reveal');
-    const revealObs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          revealObs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    revealEls.forEach(el => revealObs.observe(el));
-
-    // ── STATEMENT LINE ──
-    const stLine = document.getElementById('statementLine');
-    const stLineObs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          stLine.style.transition = 'transform 0.9s cubic-bezier(0.16,1,0.3,1)';
-          stLine.style.transform = 'scaleX(1)';
-          stLineObs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.5 });
-    stLineObs.observe(stLine);
-
-    // ── CERT IMAGE clip-path reveal ──
-    const certWrap = document.getElementById('certImgWrap');
-    const certObs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          certWrap.classList.add('revealed');
-          certObs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.2 });
-    certObs.observe(certWrap);
-
-    // ── COUNT-UP ──
-    function countUp(el) {
-      const end = parseFloat(el.dataset.count);
-      const suffix = el.dataset.suffix || '';
-      const isDecimal = el.dataset.decimal === 'true';
-      const duration = 1600;
-      const start = performance.now();
-      function step(now) {
-        const progress = Math.min((now - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        el.textContent = (isDecimal ? (end * eased).toFixed(1) : Math.floor(end * eased)) + suffix;
-        if (progress < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
-    }
-
-    const statsObs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.querySelectorAll('[data-count]').forEach(el => countUp(el));
-          statsObs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.4 });
-    const statsBand = document.querySelector('.stats-band');
-    if (statsBand) statsObs.observe(statsBand);
-  </script>
-
+<script>
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+</script>
 </body>
 </html>

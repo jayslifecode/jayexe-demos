@@ -1,1485 +1,1413 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Delta Blinds Edinburgh — Premium Blinds & Window Treatments</title>
+  <title>Delta Blinds Edinburgh | Roller, Venetian &amp; Roman Blinds</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:       #1A050A;
-      --text:     #F2EBE0;
-      --accent:   #C9A96E;
-      --accent-dk:#A8874A;
-      --panel:    #260A10;
-      --muted:    #9E8E7A;
-      --border:   rgba(201,169,110,0.18);
+      --bg:     #0b0b0b;
+      --bg2:    #111111;
+      --bg3:    #161616;
+      --accent:  #1a3a6b;
+      --accent2: #224d8f;
+      --gold:   #c8a84b;
+      --white:  #f5f5f0;
+      --muted:  rgba(245,245,240,0.45);
+      --border: rgba(245,245,240,0.08);
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Jost', sans-serif;
       font-weight: 400;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
+      color: var(--white);
+      background: var(--bg);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    /* ── NAV ── */
-    .nav {
+    .grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 128px 128px;
+    }
+
+    nav {
       position: fixed;
       top: 0; left: 0; right: 0;
-      z-index: 100;
+      z-index: 500;
+      padding: 0 48px;
+      height: 68px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 40px;
-      height: 68px;
-      background: rgba(26, 5, 10, 0.85);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(11,11,11,0.95) 0%, transparent 100%);
+      transition: background 0.4s;
+    }
+
+    nav.scrolled {
+      background: rgba(11,11,11,0.97);
       border-bottom: 1px solid var(--border);
     }
-    .nav-logo {
-      font-family: 'EB Garamond', serif;
-      font-size: 1.25rem;
-      font-weight: 500;
-      color: var(--text);
+
+    .nav-brand { display: flex; flex-direction: column; line-height: 1; }
+
+    .nav-brand .wordmark {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.14em;
+      color: var(--white);
       text-decoration: none;
-      letter-spacing: 0.02em;
-      white-space: nowrap;
     }
-    .nav-logo span { color: var(--accent); }
+
+    .nav-brand .tagline {
+      font-size: 0.54rem;
+      font-weight: 500;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 36px;
       list-style: none;
+      white-space: nowrap;
     }
+
     .nav-links a {
-      font-size: 0.78rem;
+      font-size: 0.72rem;
       font-weight: 500;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--muted);
       text-decoration: none;
       transition: color 0.2s;
-      white-space: nowrap;
     }
-    .nav-links a:hover { color: var(--text); }
-    .nav-cta {
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
-      color: var(--bg);
-      background: var(--accent);
-      border: none;
-      padding: 10px 22px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.2s;
-      white-space: nowrap;
-    }
-    .nav-cta:hover { background: var(--accent-dk); }
 
-    /* ── HERO ── */
+    .nav-links a:hover { color: var(--white); }
+
+    .btn-nav {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+      padding: 10px 22px;
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-nav:hover { background: var(--accent2); }
+
     .hero {
       position: relative;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 120px 24px 80px;
+      height: 100vh;
+      min-height: 640px;
       overflow: hidden;
+      display: flex;
+      align-items: center;
     }
+
     .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1920&q=80');
+      background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1600&q=80');
       background-size: cover;
       background-position: center;
-      filter: brightness(0.22) saturate(0.7);
+      transform: scale(1.08);
+      will-change: transform;
     }
+
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(26,5,10,0.55) 0%, rgba(26,5,10,0.70) 60%, rgba(26,5,10,0.95) 100%);
+      background: linear-gradient(120deg, rgba(11,11,11,0.92) 0%, rgba(11,11,11,0.55) 100%);
     }
-    .hero-content {
+
+    .hero-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.65) 100%);
+    }
+
+    .hero-inner {
       position: relative;
-      max-width: 780px;
+      z-index: 2;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 48px;
     }
+
     .hero-eyebrow {
-      display: inline-block;
-      font-size: 0.72rem;
+      font-size: 0.65rem;
       font-weight: 600;
-      letter-spacing: 0.20em;
+      letter-spacing: 0.32em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 20px;
+      color: var(--gold);
+      margin-bottom: 24px;
+      opacity: 0;
     }
-    .hero h1 {
-      font-family: 'EB Garamond', serif;
-      font-size: clamp(2.6rem, 6vw, 4.2rem);
-      font-weight: 500;
-      line-height: 1.12;
-      letter-spacing: -0.01em;
-      color: var(--text);
-      margin-bottom: 22px;
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 9vw, 9rem);
+      line-height: 0.92;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      margin-bottom: 32px;
     }
+
+    .hero-title-line { display: block; overflow: hidden; }
+    .hero-title-line span { display: block; transform: translateY(110%); }
+
     .hero-sub {
       font-size: 1rem;
       font-weight: 300;
-      color: var(--muted);
-      max-width: 520px;
-      margin: 0 auto 42px;
-      line-height: 1.8;
+      color: rgba(245,245,240,0.65);
+      max-width: 480px;
+      line-height: 1.85;
+      margin-bottom: 44px;
+      opacity: 0;
     }
-    .hero-btns {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; opacity: 0; }
+
     .btn-primary {
-      display: inline-block;
-      padding: 15px 34px;
-      background: var(--accent);
-      color: var(--bg);
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.78rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
       font-weight: 600;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       text-decoration: none;
+      padding: 13px 30px;
+      background: var(--accent);
+      color: var(--white);
       border: none;
       cursor: pointer;
       transition: background 0.2s;
-      height: 52px;
-      line-height: 1;
-      display: flex;
-      align-items: center;
+      display: inline-block;
     }
-    .btn-primary:hover { background: var(--accent-dk); }
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      padding: 15px 34px;
-      background: transparent;
-      color: var(--text);
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.78rem;
+
+    .btn-primary:hover { background: var(--accent2); }
+
+    .btn-ghost {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
       font-weight: 600;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       text-decoration: none;
-      border: 1px solid rgba(242,235,224,0.35);
+      padding: 13px 30px;
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(245,245,240,0.3);
       cursor: pointer;
-      transition: border-color 0.2s, color 0.2s;
-      height: 52px;
-      line-height: 1;
+      transition: border-color 0.2s;
+      display: inline-block;
     }
-    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* ── STAT BAND ── */
-    .stat-band {
-      background: var(--panel);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 36px 40px;
-    }
-    .stat-band-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      text-align: center;
-    }
-    .stat-item {}
-    .stat-icon {
+    .btn-ghost:hover { border-color: rgba(245,245,240,0.7); }
+
+    .hero-badges {
+      position: absolute;
+      bottom: 48px;
+      right: 48px;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 10px;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      opacity: 0;
     }
-    .stat-icon svg {
-      width: 32px;
-      height: 32px;
-      color: var(--accent);
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 1.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+
+    .hero-badge {
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(245,245,240,0.5);
+      border: 1px solid rgba(245,245,240,0.15);
+      padding: 5px 12px;
     }
-    .stat-label {
-      font-size: 0.82rem;
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 48px;
+      left: 48px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      opacity: 0;
+    }
+
+    .hero-scroll span {
+      font-size: 0.6rem;
       font-weight: 500;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.26em;
       text-transform: uppercase;
       color: var(--muted);
     }
 
-    /* ── SECTION COMMON ── */
-    section { padding: 90px 24px; }
-    .section-inner { max-width: 1100px; margin: 0 auto; }
-    .section-eyebrow {
-      font-size: 0.72rem;
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.2); }
+    }
+
+    .statement {
+      background: var(--bg);
+      padding: 140px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .statement::before, .statement::after {
+      content: '';
+      position: absolute;
+      top: 20%;
+      width: 1px;
+      height: 120px;
+      background: linear-gradient(to bottom, transparent, rgba(245,245,240,0.12), transparent);
+    }
+
+    .statement::before { left: 64px; }
+    .statement::after { right: 64px; }
+
+    .statement-eyebrow {
+      font-size: 0.62rem;
       font-weight: 600;
-      letter-spacing: 0.20em;
+      letter-spacing: 0.32em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 14px;
+      color: var(--gold);
+      margin-bottom: 28px;
     }
-    .section-title {
-      font-family: 'EB Garamond', serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 500;
-      line-height: 1.15;
-      color: var(--text);
-      margin-bottom: 16px;
+
+    .statement-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 7vw, 6.5rem);
+      line-height: 0.95;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      margin-bottom: 28px;
     }
-    .section-sub {
+
+    .statement-line {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin: 0 auto 28px;
+      transform-origin: center;
+      transform: scaleX(0);
+    }
+
+    .statement-sub {
       font-size: 0.95rem;
       font-weight: 300;
       color: var(--muted);
-      max-width: 560px;
-      line-height: 1.9;
-    }
-    .divider {
-      width: 56px;
-      height: 1px;
-      background: var(--accent);
-      margin: 24px 0 48px;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.85;
     }
 
-    /* ── SERVICES ── */
+    .stats-band {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stats-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 48px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .stat {
+      padding: 56px 32px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+
+    .stat:last-child { border-right: none; }
+
+    .stat-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.8rem;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .services { background: var(--bg); padding: 120px 48px; }
+
+    .section-inner { max-width: 1280px; margin: 0 auto; }
+
+    .section-header { margin-bottom: 72px; }
+
+    .section-eyebrow {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .section-header h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      letter-spacing: 0.04em;
+      color: var(--white);
+      line-height: 0.95;
+      max-width: 640px;
+    }
+
+    .section-header p {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.85;
+    }
+
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1px;
       background: var(--border);
-      border: 1px solid var(--border);
     }
+
     .service-card {
-      background: var(--bg);
-      padding: 40px 32px;
-      transition: background 0.25s;
+      background: var(--bg2);
+      padding: 44px 40px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
     }
-    .service-card:hover { background: #220910; }
-    .service-icon {
-      width: 44px;
-      height: 44px;
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 1px;
+      background: var(--accent);
+      transition: width 0.4s ease;
+    }
+
+    .service-card:hover { background: var(--bg3); }
+    .service-card:hover::before { width: 100%; }
+
+    .service-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.14em;
+      color: var(--accent2);
       margin-bottom: 20px;
-      color: var(--accent);
     }
-    .service-icon svg {
-      width: 44px;
-      height: 44px;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 1.4;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+
+    .service-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      margin-bottom: 14px;
+      line-height: 1.1;
     }
-    .service-title {
-      font-family: 'EB Garamond', serif;
-      font-size: 1.25rem;
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: 10px;
-    }
-    .service-desc {
-      font-size: 0.85rem;
+
+    .service-card p {
+      font-size: 0.84rem;
       font-weight: 300;
       color: var(--muted);
       line-height: 1.8;
     }
 
-    /* ── CONFIGURATOR ── */
-    .configurator {
-      background: var(--panel);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 90px 24px;
-    }
-    .configurator-inner {
-      max-width: 1100px;
+    .about { background: var(--bg2); padding: 120px 48px; }
+
+    .about-layout {
+      max-width: 1280px;
       margin: 0 auto;
-    }
-    .configurator-layout {
       display: grid;
-      grid-template-columns: 1fr 360px;
-      gap: 48px;
-      align-items: start;
-      margin-top: 48px;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
     }
-    .canvas-wrap {
-      background: #EDE8E0;
-      aspect-ratio: 4/3;
+
+    .about-content h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      letter-spacing: 0.04em;
+      color: var(--white);
+      line-height: 0.95;
+      margin-bottom: 20px;
+    }
+
+    .about-content .intro {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 44px;
+    }
+
+    .about-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .about-item { background: var(--bg3); padding: 22px 24px; }
+
+    .about-item-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .about-item-desc {
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .about-visual { position: relative; }
+
+    .about-img-wrap {
       position: relative;
       overflow: hidden;
+      clip-path: inset(100% 0 0 0);
     }
-    #wc-canvas {
+
+    .about-img-wrap.revealed {
+      clip-path: inset(0% 0 0 0);
+      transition: clip-path 1.1s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .about-img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
       display: block;
-      width: 100%;
-      height: 100%;
+      transform: scale(1.08);
+      transition: transform 1.1s cubic-bezier(0.77, 0, 0.175, 1);
     }
-    .controls-panel {
-      background: #260A10;
-      border: 1px solid var(--border);
-      padding: 32px 28px;
+
+    .about-img-wrap.revealed .about-img { transform: scale(1); }
+
+    .about-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(11,11,11,0.8) 0%, transparent 50%);
+    }
+
+    .corner-tl, .corner-tr, .corner-bl, .corner-br {
+      position: absolute;
+      width: 24px; height: 24px;
+    }
+
+    .corner-tl { top: 12px; left: 12px; border-top: 1px solid rgba(245,245,240,0.3); border-left: 1px solid rgba(245,245,240,0.3); }
+    .corner-tr { top: 12px; right: 12px; border-top: 1px solid rgba(245,245,240,0.3); border-right: 1px solid rgba(245,245,240,0.3); }
+    .corner-bl { bottom: 12px; left: 12px; border-bottom: 1px solid rgba(245,245,240,0.3); border-left: 1px solid rgba(245,245,240,0.3); }
+    .corner-br { bottom: 12px; right: 12px; border-bottom: 1px solid rgba(245,245,240,0.3); border-right: 1px solid rgba(245,245,240,0.3); }
+
+    .about-badge-strip {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 24px 28px;
       display: flex;
-      flex-direction: column;
-      gap: 28px;
-    }
-    .ctrl-group-label {
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 12px;
-    }
-    .slider-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 8px;
-    }
-    .slider-name {
-      font-size: 0.80rem;
-      font-weight: 500;
-      color: var(--text);
-    }
-    .slider-val {
-      font-size: 0.80rem;
-      font-weight: 600;
-      color: var(--accent);
-      min-width: 48px;
-      text-align: right;
-    }
-    input[type="range"] {
-      -webkit-appearance: none;
-      width: 100%;
-      height: 3px;
-      background: rgba(201,169,110,0.20);
-      outline: none;
-      border-radius: 0;
-    }
-    input[type="range"]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      width: 16px;
-      height: 16px;
-      background: var(--accent);
-      border-radius: 50%;
-      cursor: pointer;
-    }
-    input[type="range"]::-moz-range-thumb {
-      width: 16px;
-      height: 16px;
-      background: var(--accent);
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-    }
-    .swatches {
-      display: flex;
-      gap: 10px;
+      gap: 8px;
       flex-wrap: wrap;
     }
-    .swatch {
-      width: 32px;
-      height: 32px;
+
+    .cbadge {
+      font-size: 0.56rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(245,245,240,0.6);
+      border: 1px solid rgba(245,245,240,0.18);
+      padding: 5px 10px;
+      background: rgba(11,11,11,0.6);
+    }
+
+    .reviews { background: var(--bg); padding: 120px 48px; }
+
+    .reviews-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 64px;
+      gap: 24px;
+    }
+
+    .google-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      padding: 14px 20px;
+      flex-shrink: 0;
+    }
+
+    .google-g {
+      font-size: 1.2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #4285f4 0%, #ea4335 40%, #fbbc05 70%, #34a853 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-family: 'Jost', sans-serif;
+      line-height: 1;
+    }
+
+    .google-rating-val {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.7rem;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .google-stars-row { display: flex; gap: 2px; margin: 3px 0; }
+    .gstar { width: 12px; height: 12px; fill: #fbbc05; }
+
+    .google-rating-label {
+      font-size: 0.62rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .review-card { background: var(--bg2); padding: 40px; }
+
+    .review-top { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+
+    .reviewer-avatar {
+      width: 44px; height: 44px;
       border-radius: 50%;
-      cursor: pointer;
-      border: 2px solid transparent;
-      transition: border-color 0.2s;
-      position: relative;
-    }
-    .swatch.wc-active,
-    .swatch:hover { border-color: var(--accent); }
-    .btn-group {
-      display: flex;
-      gap: 0;
-    }
-    .btn-seg {
-      flex: 1;
-      padding: 9px 6px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.70rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      background: transparent;
-      color: var(--muted);
-      border: 1px solid rgba(201,169,110,0.22);
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s;
-    }
-    .btn-seg + .btn-seg { border-left: none; }
-    .btn-seg.wc-active,
-    .btn-seg:hover {
       background: var(--accent);
-      color: var(--bg);
-      border-color: var(--accent);
-    }
-    .toggle-pair {
-      display: flex;
-      gap: 0;
-    }
-    .toggle-btn {
-      flex: 1;
-      padding: 10px 8px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
-      background: transparent;
-      color: var(--muted);
-      border: 1px solid rgba(201,169,110,0.22);
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s;
-    }
-    .toggle-btn + .toggle-btn { border-left: none; }
-    .toggle-btn.wc-active {
-      background: rgba(201,169,110,0.15);
-      color: var(--accent);
-      border-color: var(--accent);
-    }
-    .ctrl-cta {
+      color: var(--white);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.06em;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 14px;
-      background: var(--accent);
-      color: var(--bg);
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: background 0.2s;
-      height: 52px;
+      flex-shrink: 0;
     }
-    .ctrl-cta:hover { background: var(--accent-dk); }
 
-    /* ── BENEFITS ── */
-    .benefits-grid {
+    .reviewer-name { font-size: 0.88rem; font-weight: 600; color: var(--white); }
+    .reviewer-meta { font-size: 0.7rem; font-weight: 300; color: var(--muted); margin-top: 2px; }
+
+    .review-stars-row { display: flex; gap: 3px; margin-bottom: 18px; }
+    .rstar { width: 13px; height: 13px; fill: #fbbc05; }
+
+    .review-text {
+      font-size: 0.86rem;
+      font-weight: 300;
+      color: rgba(245,245,240,0.7);
+      line-height: 1.85;
+      font-style: italic;
+    }
+
+    .why-band { background: var(--accent); padding: 0; }
+
+    .why-inner {
+      max-width: 1280px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 40px;
-      margin-top: 56px;
     }
-    .benefit-item { text-align: center; }
-    .benefit-icon {
-      width: 52px;
-      height: 52px;
-      margin: 0 auto 18px;
-      color: var(--accent);
+
+    .why-item {
+      padding: 52px 36px;
+      border-right: 1px solid rgba(245,245,240,0.1);
+      text-align: center;
     }
-    .benefit-icon svg {
-      width: 52px;
-      height: 52px;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 1.4;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+
+    .why-item:last-child { border-right: none; }
+
+    .why-item h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      margin-bottom: 10px;
     }
-    .benefit-title {
-      font-family: 'EB Garamond', serif;
-      font-size: 1.15rem;
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: 8px;
+
+    .why-item p {
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: rgba(245,245,240,0.65);
+      line-height: 1.75;
     }
-    .benefit-desc {
-      font-size: 0.83rem;
+
+    .sectors { background: var(--bg2); padding: 120px 48px; }
+
+    .sectors-layout {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .sectors-left h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      letter-spacing: 0.04em;
+      color: var(--white);
+      line-height: 0.95;
+      margin-bottom: 20px;
+    }
+
+    .sectors-left .intro {
+      font-size: 0.88rem;
       font-weight: 300;
       color: var(--muted);
-      line-height: 1.8;
+      line-height: 1.85;
+      margin-bottom: 36px;
     }
 
-    /* ── GALLERY ── */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: 280px 280px;
-      gap: 3px;
-      margin-top: 48px;
-    }
-    .gallery-item {
-      overflow: hidden;
-      position: relative;
-    }
-    .gallery-item:first-child {
-      grid-row: span 2;
-    }
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: opacity 0.4s;
-    }
-    .gallery-item:hover img { opacity: 0.85; }
-
-    /* ── TESTIMONIALS ── */
-    .testimonials {
-      background: #120308;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-      margin-top: 56px;
-    }
-    .testimonial-card {
-      padding: 36px 30px;
-      border: 1px solid rgba(242,235,224,0.10);
-      background: rgba(255,255,255,0.015);
-    }
-    .testimonial-stars {
-      display: flex;
-      gap: 3px;
-      margin-bottom: 18px;
-    }
-    .testimonial-stars svg {
-      width: 14px;
-      height: 14px;
-      fill: var(--accent);
-      stroke: none;
-    }
-    .testimonial-text {
-      font-family: 'EB Garamond', serif;
-      font-size: 1.05rem;
-      font-style: italic;
-      font-weight: 400;
-      color: var(--text);
-      line-height: 1.75;
-      margin-bottom: 22px;
-    }
-    .testimonial-author {
-      font-size: 0.78rem;
+    .btn-solid {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
       font-weight: 600;
-      letter-spacing: 0.10em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--muted);
+      text-decoration: none;
+      padding: 13px 30px;
+      background: var(--white);
+      color: var(--bg);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: inline-block;
     }
 
-    /* ── CTA BAND ── */
-    .cta-band {
+    .btn-solid:hover { background: rgba(245,245,240,0.85); }
+
+    .sectors-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .sector-item {
+      background: var(--bg3);
+      padding: 22px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: background 0.2s;
+    }
+
+    .sector-item:hover { background: rgba(26,58,107,0.18); }
+
+    .sector-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent2);
+      flex-shrink: 0;
+    }
+
+    .sector-name {
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: rgba(245,245,240,0.75);
+    }
+
+    .cta-section {
+      background: var(--bg);
+      padding: 140px 48px;
       text-align: center;
-      padding: 100px 24px;
+      position: relative;
+      overflow: hidden;
     }
-    .cta-band h2 {
-      font-family: 'EB Garamond', serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: 16px;
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(26,58,107,0.14) 0%, transparent 70%);
+      pointer-events: none;
     }
-    .cta-band p {
-      font-size: 0.95rem;
+
+    .cta-section .section-eyebrow { color: var(--gold); text-align: center; }
+
+    .cta-section h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 6vw, 6rem);
+      letter-spacing: 0.04em;
+      color: var(--white);
+      line-height: 0.95;
+      margin-bottom: 20px;
+    }
+
+    .cta-section p {
+      font-size: 0.92rem;
       font-weight: 300;
       color: var(--muted);
       max-width: 480px;
-      margin: 0 auto 40px;
-      line-height: 1.9;
-    }
-    .cta-band-btns {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
+      margin: 0 auto 48px;
+      line-height: 1.85;
     }
 
-    /* ── FOOTER ── */
-    .footer {
-      background: #0D0205;
-      border-top: 1px solid var(--border);
-      padding: 56px 40px 36px;
-    }
-    .footer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 48px;
-      margin-bottom: 48px;
-    }
-    .footer-brand {}
-    .footer-logo {
-      font-family: 'EB Garamond', serif;
-      font-size: 1.2rem;
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: 14px;
-    }
-    .footer-logo span { color: var(--accent); }
-    .footer-tagline {
-      font-size: 0.83rem;
-      font-weight: 300;
-      color: var(--muted);
-      line-height: 1.8;
-      max-width: 260px;
-    }
-    .footer-col-title {
-      font-size: 0.68rem;
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    .btn-cta-primary {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
       font-weight: 600;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--accent);
+      text-decoration: none;
+      padding: 13px 36px;
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: inline-block;
+    }
+
+    .btn-cta-primary:hover { background: var(--accent2); }
+
+    .btn-cta-ghost {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 13px 36px;
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(245,245,240,0.25);
+      cursor: pointer;
+      transition: border-color 0.2s;
+      display: inline-block;
+    }
+
+    .btn-cta-ghost:hover { border-color: rgba(245,245,240,0.6); }
+
+    footer {
+      background: #060606;
+      padding: 72px 48px 40px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner { max-width: 1280px; margin: 0 auto; }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 52px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .footer-wordmark {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.14em;
+      color: var(--white);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .footer-sub {
+      font-size: 0.54rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(245,245,240,0.25);
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .footer-brand p { font-size: 0.78rem; font-weight: 300; color: rgba(245,245,240,0.3); line-height: 1.75; }
+
+    .footer-col h5 {
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(245,245,240,0.3);
       margin-bottom: 18px;
     }
-    .footer-links { list-style: none; }
-    .footer-links li { margin-bottom: 10px; }
-    .footer-links a {
-      font-size: 0.85rem;
+
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+    .footer-col ul li a {
+      font-size: 0.78rem;
       font-weight: 300;
-      color: var(--muted);
+      color: rgba(245,245,240,0.35);
       text-decoration: none;
       transition: color 0.2s;
     }
-    .footer-links a:hover { color: var(--text); }
-    .footer-contact-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      margin-bottom: 12px;
-    }
-    .footer-contact-item svg {
-      width: 15px;
-      height: 15px;
-      flex-shrink: 0;
-      color: var(--accent);
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 1.6;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      margin-top: 3px;
-    }
-    .footer-contact-item span {
-      font-size: 0.85rem;
-      font-weight: 300;
-      color: var(--muted);
-      line-height: 1.6;
-    }
+
+    .footer-col ul li a:hover { color: var(--white); }
+
+    .footer-contact p { font-size: 0.78rem; font-weight: 300; color: rgba(245,245,240,0.35); line-height: 2; }
+    .footer-contact a { color: rgba(245,245,240,0.35); text-decoration: none; transition: color 0.2s; }
+    .footer-contact a:hover { color: var(--white); }
+
     .footer-bottom {
+      padding-top: 28px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding-top: 28px;
-      border-top: 1px solid var(--border);
+      gap: 24px;
     }
-    .footer-copy {
-      font-size: 0.78rem;
+
+    .footer-bottom p { font-size: 0.7rem; font-weight: 300; color: rgba(245,245,240,0.18); }
+
+    .footer-legal { display: flex; gap: 24px; }
+
+    .footer-legal a {
+      font-size: 0.7rem;
       font-weight: 300;
-      color: rgba(158,142,122,0.55);
-    }
-    .footer-note {
-      font-size: 0.72rem;
-      font-weight: 400;
-      color: rgba(201,169,110,0.45);
-      font-style: italic;
+      color: rgba(245,245,240,0.18);
+      text-decoration: none;
+      transition: color 0.2s;
     }
 
-    /* ── ANIMATION INITIAL STATES ── */
-    .anim-fade { opacity: 0; transform: translateY(28px); }
+    .footer-legal a:hover { color: rgba(245,245,240,0.5); }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 960px) {
-      .nav { padding: 0 24px; }
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    @media (max-width: 1024px) {
+      .about-layout { grid-template-columns: 1fr; gap: 48px; }
+      .sectors-layout { grid-template-columns: 1fr; gap: 48px; }
+    }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
       .nav-links { display: none; }
-      .stat-band-inner { grid-template-columns: repeat(2, 1fr); }
-      .configurator-layout { grid-template-columns: 1fr; }
-      .controls-panel { order: -1; }
-      .benefits-grid { grid-template-columns: repeat(2, 1fr); }
-      .testimonials-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+      .hero-inner { padding: 0 24px; }
+      .hero-badges { right: 24px; bottom: 80px; }
+      .hero-scroll { left: 24px; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); padding: 0 24px; }
+      .services { padding: 80px 24px; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .about { padding: 80px 24px; }
+      .reviews { padding: 80px 24px; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .why-inner { grid-template-columns: repeat(2, 1fr); }
+      .sectors { padding: 80px 24px; }
+      .cta-section { padding: 100px 24px; }
+      footer { padding: 60px 24px 32px; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .statement { padding: 100px 24px; }
     }
-    @media (max-width: 640px) {
-      section { padding: 64px 20px; }
+
+    @media (max-width: 600px) {
       .services-grid { grid-template-columns: 1fr; }
-      .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
-      .gallery-item:first-child { grid-row: span 1; height: 260px; }
-      .gallery-item { height: 220px; }
-      .benefits-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .stat-band-inner { grid-template-columns: repeat(2, 1fr); }
-      .hero h1 { font-size: 2.2rem; }
+      .why-inner { grid-template-columns: 1fr 1fr; }
+      .sectors-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .reviews-header { flex-direction: column; align-items: flex-start; }
+      .about-list { grid-template-columns: 1fr; }
+      .hero-badges { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav class="nav">
-    <a href="#" class="nav-logo">Delta<span>&nbsp;Blinds</span> Edinburgh</a>
+  <div class="grain"></div>
+
+  <nav id="nav">
+    <div class="nav-brand">
+      <a class="wordmark" href="#">DELTA BLINDS</a>
+      <span class="tagline">Edinburgh's Trusted Blinds Specialist</span>
+    </div>
     <ul class="nav-links">
-      <li><a href="#services">Our Blinds</a></li>
-      <li><a href="#services">By Room</a></li>
-      <li><a href="#services">Office</a></li>
+      <li><a href="#services">Blinds</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#sectors">We Serve</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <a href="tel:+441315531999" class="nav-cta">Get Free Quote</a>
+    <a href="#contact" class="btn-nav">Free Measuring</a>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-bg"></div>
+  <section class="hero">
+    <div class="hero-bg" id="heroBg"></div>
     <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <span class="hero-eyebrow anim-fade">Edinburgh's Premium Blinds Specialists</span>
-      <h1 class="anim-fade">Edinburgh's Trusted<br>Blinds Specialists</h1>
-      <p class="hero-sub anim-fade">Serving Edinburgh &amp; the Lothians — Free Measuring &amp; Fitting included with every order.</p>
-      <div class="hero-btns anim-fade">
-        <a href="tel:+441315531999" class="btn-primary">Get Free Quote</a>
-        <a href="#configurator" class="btn-outline">Design Your Blinds</a>
+    <div class="hero-vignette"></div>
+    <div class="hero-inner">
+      <p class="hero-eyebrow" id="heroEyebrow">Edinburgh — Expert Fitting &amp; Free Measuring Service</p>
+      <h1 class="hero-title">
+        <span class="hero-title-line"><span>EDINBURGH'S</span></span>
+        <span class="hero-title-line"><span>TRUSTED BLINDS</span></span>
+        <span class="hero-title-line"><span>SPECIALIST</span></span>
+      </h1>
+      <p class="hero-sub" id="heroSub">From roller blinds to bespoke Roman designs — locally made, expertly fitted, and backed by a free measuring service across Edinburgh and the Lothians.</p>
+      <div class="hero-ctas" id="heroCtas">
+        <a href="#contact" class="btn-primary">Get Your Free Measuring &amp; Quote</a>
+        <a href="#services" class="btn-ghost">Our Blinds Range</a>
+      </div>
+    </div>
+    <div class="hero-badges" id="heroBadges">
+      <span class="hero-badge">Free Measuring</span>
+      <span class="hero-badge">Same-Week Fitting</span>
+      <span class="hero-badge">Local Edinburgh</span>
+      <span class="hero-badge">Expert Fitting</span>
+    </div>
+    <div class="hero-scroll" id="heroScroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <section class="statement">
+    <p class="statement-eyebrow reveal">Our promise</p>
+    <h2 class="statement-title reveal">EDINBURGH'S TRUSTED<br>BLINDS SPECIALIST</h2>
+    <div class="statement-line reveal" id="statementLine"></div>
+    <p class="statement-sub reveal">Delta Blinds Edinburgh combines an expert eye for design with precise, professional fitting — bringing the perfect window treatment to every room in your home or business.</p>
+  </section>
+
+  <section class="stats-band">
+    <div class="stats-inner">
+      <div class="stat reveal">
+        <div class="stat-number" data-count="0" data-suffix="">Edinburgh</div>
+        <div class="stat-label">Local Specialist</div>
+      </div>
+      <div class="stat reveal reveal-delay-1">
+        <div class="stat-number" data-count="4.7" data-suffix="" data-decimal="true">0</div>
+        <div class="stat-label">Google Rating</div>
+      </div>
+      <div class="stat reveal reveal-delay-2">
+        <div class="stat-number" data-count="0" data-suffix="">Free</div>
+        <div class="stat-label">Measuring Service</div>
+      </div>
+      <div class="stat reveal reveal-delay-3">
+        <div class="stat-number" data-count="0" data-suffix="">Same Week</div>
+        <div class="stat-label">Fitting Available</div>
       </div>
     </div>
   </section>
 
-  <!-- STAT BAND -->
-  <div class="stat-band">
-    <div class="stat-band-inner">
-      <div class="stat-item anim-fade">
-        <div class="stat-icon">
-          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M21 12c0 4.97-4.03 9-9 9S3 16.97 3 12 7.03 3 12 3s9 4.03 9 9z"/></svg>
-        </div>
-        <div class="stat-label">Free Measuring</div>
-      </div>
-      <div class="stat-item anim-fade">
-        <div class="stat-icon">
-          <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-        </div>
-        <div class="stat-label">Expert Fitting</div>
-      </div>
-      <div class="stat-item anim-fade">
-        <div class="stat-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-        </div>
-        <div class="stat-label">Edinburgh &amp; Lothians</div>
-      </div>
-      <div class="stat-item anim-fade">
-        <div class="stat-icon">
-          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        </div>
-        <div class="stat-label">Open 6 Days</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SERVICES -->
-  <section id="services">
+  <section class="services" id="services">
     <div class="section-inner">
-      <p class="section-eyebrow anim-fade">What We Offer</p>
-      <h2 class="section-title anim-fade">Blinds for Every Room</h2>
-      <p class="section-sub anim-fade">From elegant Roman blinds to sleek Venetian and practical Roller styles — we supply and fit the perfect window treatment for every space in your home or office.</p>
-      <div class="divider anim-fade"></div>
+      <div class="section-header reveal">
+        <p class="section-eyebrow">What we offer</p>
+        <h2>OUR COMPLETE BLINDS RANGE</h2>
+        <p>A huge range of styles and fabrics for every window, room, and budget — all measured, made, and fitted by our Edinburgh team.</p>
+      </div>
       <div class="services-grid">
-
-        <div class="service-card anim-fade">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24"><path d="M2 3h20M2 3v18M2 3l4 4M22 3v18M22 3l-4 4M6 7h12M6 7v14M18 7v14M6 11h12M6 15h12"/></svg>
-          </div>
-          <div class="service-title">Venetian Blinds</div>
-          <div class="service-desc">Timeless aluminium or wood slats offering precise light control. Ideal for living rooms and offices where versatility matters.</div>
+        <div class="service-card reveal">
+          <div class="service-num">01</div>
+          <h3>Roller Blinds</h3>
+          <p>Clean, minimal, and endlessly practical. Available in hundreds of fabrics including blackout, sunscreen, and moisture-resistant options for every room.</p>
         </div>
-
-        <div class="service-card anim-fade">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24"><path d="M4 3h16a1 1 0 011 1v1H3V4a1 1 0 011-1zM3 8h18M3 13h18M3 18h18M3 5v16M21 5v16"/></svg>
-          </div>
-          <div class="service-title">Roller Blinds</div>
-          <div class="service-desc">Clean, modern, and easy to operate. Available in blackout, light-filtering, and sheer fabrics to suit any room.</div>
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-num">02</div>
+          <h3>Venetian Blinds</h3>
+          <p>Timeless aluminium or real wood slats with precise light control. Perfect for offices, kitchens, and living spaces requiring elegant versatility.</p>
         </div>
-
-        <div class="service-card anim-fade">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24"><path d="M4 4h16v2H4zM6 6v14M18 6v14M6 10l12-2M6 14l12-2M6 18h12"/></svg>
-          </div>
-          <div class="service-title">Roman Blinds</div>
-          <div class="service-desc">Soft fabric panels that fold elegantly when raised. A classic choice for bedrooms and living spaces seeking a refined look.</div>
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-num">03</div>
+          <h3>Vertical Blinds</h3>
+          <p>Ideal for large windows, patio doors, and conservatories. Smooth operation, easy maintenance, and available in a wide range of fabrics and finishes.</p>
         </div>
-
-        <div class="service-card anim-fade">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24"><path d="M4 3h16v2H4zM4 5v16M20 5v16M7 5v16M10 5v16M13 5v16M16 5v16"/></svg>
-          </div>
-          <div class="service-title">Vertical Blinds</div>
-          <div class="service-desc">Perfect for large windows and patio doors. Vertical louvres provide excellent light direction and privacy control.</div>
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-num">04</div>
+          <h3>Roman Blinds</h3>
+          <p>Soft, structured fabric folds that bring warmth and luxury to any room. Custom-made in your choice of fabric, lining, and heading style.</p>
         </div>
-
-        <div class="service-card anim-fade">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9zM9 22V12h6v10"/></svg>
-          </div>
-          <div class="service-title">Blinds by Room</div>
-          <div class="service-desc">Bathroom, kitchen, bedroom, or living room — we help you choose the right material, opacity, and style for each space.</div>
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-num">05</div>
+          <h3>Blackout &amp; Dim-Out Blinds</h3>
+          <p>Total darkness or gentle light filtering — ideal for bedrooms, nurseries, and media rooms. Available across all blind styles.</p>
         </div>
-
-        <div class="service-card anim-fade">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-          </div>
-          <div class="service-title">Office Blinds</div>
-          <div class="service-desc">Reduce glare on screens while maintaining a professional environment. We work with Edinburgh offices of all sizes.</div>
+        <div class="service-card reveal reveal-delay-3">
+          <div class="service-num">06</div>
+          <h3>Commercial Contract Blinds</h3>
+          <p>Bulk supply and professional installation for offices, hotels, schools, and commercial properties across Edinburgh and the Lothians.</p>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- CONFIGURATOR -->
-  <div class="configurator" id="configurator">
-    <div class="configurator-inner">
-      <p class="section-eyebrow anim-fade">Visualise Your Order</p>
-      <h2 class="section-title anim-fade">Design Your Blinds</h2>
-      <p class="section-sub anim-fade">Choose your dimensions, colour, and installation style — see exactly how they'll look before we visit.</p>
-      <div class="configurator-layout">
-        <!-- Canvas -->
-        <div class="canvas-wrap">
-          <canvas id="wc-canvas"></canvas>
+  <section class="about" id="about">
+    <div class="about-layout">
+      <div class="about-content reveal">
+        <p class="section-eyebrow">Local expertise</p>
+        <h2>EDINBURGH'S BLIND FITTING SPECIALISTS</h2>
+        <p class="intro">Based at 6 Swanfield in Edinburgh, our team brings local knowledge, expert craftsmanship, and a personal service that national chains simply cannot match. We measure, we advise, we fit — and we get it right first time.</p>
+        <ul class="about-list">
+          <li class="about-item">
+            <div class="about-item-name">Free Measuring</div>
+            <div class="about-item-desc">Professional measuring at your home or business, no charge</div>
+          </li>
+          <li class="about-item">
+            <div class="about-item-name">Expert Fitting</div>
+            <div class="about-item-desc">All blinds professionally installed by our Edinburgh team</div>
+          </li>
+          <li class="about-item">
+            <div class="about-item-name">Huge Range</div>
+            <div class="about-item-desc">Hundreds of fabrics, styles, and finishes to choose from</div>
+          </li>
+          <li class="about-item">
+            <div class="about-item-name">Same-Week Fitting</div>
+            <div class="about-item-desc">Fast turnaround on standard orders across Edinburgh</div>
+          </li>
+        </ul>
+      </div>
+      <div class="about-visual reveal reveal-delay-2">
+        <div class="about-img-wrap" id="aboutImgWrap">
+          <img class="about-img" src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Expert blind fitting in Edinburgh home" />
+          <div class="about-img-overlay"></div>
+          <div class="about-badge-strip">
+            <span class="cbadge">Edinburgh</span>
+            <span class="cbadge">Expert Fitting</span>
+            <span class="cbadge">Free Quote</span>
+          </div>
         </div>
-        <!-- Controls -->
-        <div class="controls-panel">
-
-          <!-- Width -->
-          <div>
-            <div class="ctrl-group-label">Width</div>
-            <div class="slider-row">
-              <span class="slider-name">Width</span>
-              <span class="slider-val"><span id="wc-width-val">120</span> cm</span>
-            </div>
-            <input type="range" id="wc-width" min="40" max="240" value="120" />
-          </div>
-
-          <!-- Height -->
-          <div>
-            <div class="ctrl-group-label">Height</div>
-            <div class="slider-row">
-              <span class="slider-name">Height</span>
-              <span class="slider-val"><span id="wc-height-val">150</span> cm</span>
-            </div>
-            <input type="range" id="wc-height" min="40" max="280" value="150" />
-          </div>
-
-          <!-- Colour -->
-          <div>
-            <div class="ctrl-group-label">Colour</div>
-            <div class="swatches">
-              <button class="swatch wc-active" data-wc-color="#1E1E1E" style="background:#1E1E1E;" title="Midnight"></button>
-              <button class="swatch" data-wc-color="#DDD5C4" style="background:#DDD5C4;" title="Linen"></button>
-              <button class="swatch" data-wc-color="#5B6472" style="background:#5B6472;" title="Slate"></button>
-              <button class="swatch" data-wc-color="#C0AA88" style="background:#C0AA88;" title="Sand"></button>
-              <button class="swatch" data-wc-color="#7A5C38" style="background:#7A5C38;" title="Walnut"></button>
-              <button class="swatch" data-wc-color="#6A8E6A" style="background:#6A8E6A;" title="Sage"></button>
-            </div>
-          </div>
-
-          <!-- Installation -->
-          <div>
-            <div class="ctrl-group-label">Installation</div>
-            <div class="btn-group">
-              <button class="btn-seg" data-wc-install="recessed">Recessed</button>
-              <button class="btn-seg wc-active" data-wc-install="surface">Surface</button>
-              <button class="btn-seg" data-wc-install="fullWall">Full Wall</button>
-            </div>
-          </div>
-
-          <!-- Open / Closed -->
-          <div>
-            <div class="ctrl-group-label">Blind Position</div>
-            <div class="toggle-pair">
-              <button class="toggle-btn wc-active" id="wc-toggle-closed">Closed</button>
-              <button class="toggle-btn" id="wc-toggle-open">Open</button>
-            </div>
-          </div>
-
-          <!-- CTA -->
-          <a href="tel:+441315531999" class="ctrl-cta">Call to Order &mdash; +44 131 553 1999</a>
-
-        </div>
+        <div class="corner-tl"></div>
+        <div class="corner-tr"></div>
+        <div class="corner-bl"></div>
+        <div class="corner-br"></div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- BENEFITS -->
-  <section id="why-us">
+  <section class="reviews" id="reviews">
     <div class="section-inner">
-      <p class="section-eyebrow anim-fade">Why Delta Blinds</p>
-      <h2 class="section-title anim-fade">The Edinburgh Difference</h2>
-      <div class="divider anim-fade"></div>
-      <div class="benefits-grid">
-        <div class="benefit-item anim-fade">
-          <div class="benefit-icon">
-            <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M21 12c0 4.97-4.03 9-9 9S3 16.97 3 12 7.03 3 12 3s9 4.03 9 9z"/></svg>
-          </div>
-          <div class="benefit-title">Free Measuring</div>
-          <div class="benefit-desc">We visit your home or office and measure every window precisely — at no cost to you.</div>
+      <div class="reviews-header reveal">
+        <div>
+          <p class="section-eyebrow">Customer reviews</p>
+          <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,5vw,5rem);letter-spacing:0.04em;color:var(--white);line-height:0.95;">LOVED BY EDINBURGH HOMES</h2>
         </div>
-        <div class="benefit-item anim-fade">
-          <div class="benefit-icon">
-            <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+        <div class="google-badge">
+          <div class="google-g">G</div>
+          <div>
+            <div class="google-rating-val">4.7</div>
+            <div class="google-stars-row">
+              <svg class="gstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="gstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="gstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="gstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="gstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div class="google-rating-label">Google Reviews</div>
           </div>
-          <div class="benefit-title">Expert Fitting</div>
-          <div class="benefit-desc">Our experienced fitters handle every installation cleanly and efficiently, leaving your home tidy.</div>
         </div>
-        <div class="benefit-item anim-fade">
-          <div class="benefit-icon">
-            <svg viewBox="0 0 24 24"><path d="M4 6h16M4 10h16M4 14h10"/><rect x="2" y="3" width="20" height="18" rx="2"/></svg>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card reveal">
+          <div class="review-top">
+            <div class="reviewer-avatar">AM</div>
+            <div>
+              <div class="reviewer-name">Aileen M.</div>
+              <div class="reviewer-meta">Edinburgh — Roller blinds, living room</div>
+            </div>
           </div>
-          <div class="benefit-title">Wide Range</div>
-          <div class="benefit-desc">Hundreds of fabrics, colours, and styles across Venetian, Roller, Roman, and Vertical blinds.</div>
+          <div class="review-stars-row">
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="review-text">"Absolutely delighted with my new roller blinds. The measuring service was quick and the fitter was brilliant — everything lined up perfectly. Will definitely be using Delta Blinds again."</p>
         </div>
-        <div class="benefit-item anim-fade">
-          <div class="benefit-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <div class="review-card reveal reveal-delay-1">
+          <div class="review-top">
+            <div class="reviewer-avatar">GT</div>
+            <div>
+              <div class="reviewer-name">Gordon T.</div>
+              <div class="reviewer-meta">Leith — Venetian blinds, office</div>
+            </div>
           </div>
-          <div class="benefit-title">Local Edinburgh Service</div>
-          <div class="benefit-desc">Based at 6 Swanfield, we serve Edinburgh and the Lothians with a personal, local touch.</div>
+          <div class="review-stars-row">
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="review-text">"Had venetian blinds fitted throughout our Leith office. Great advice from the team on spec, and the installation was tidy and professional. Exactly what I needed — highly recommend."</p>
+        </div>
+        <div class="review-card reveal reveal-delay-2">
+          <div class="review-top">
+            <div class="reviewer-avatar">CH</div>
+            <div>
+              <div class="reviewer-name">Catriona H.</div>
+              <div class="reviewer-meta">Edinburgh — Full house Roman blinds</div>
+            </div>
+          </div>
+          <div class="review-stars-row">
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="review-text">"Roman blinds throughout the whole house and every single one fits perfectly. The fabric samples came to our home so we could see them in our light. Fantastic service from start to finish."</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- GALLERY -->
-  <section id="gallery" style="padding-top:0;">
+  <section class="why-band">
+    <div class="why-inner">
+      <div class="why-item reveal">
+        <h4>Free Measuring</h4>
+        <p>Professional measuring at your property — completely free, no obligation.</p>
+      </div>
+      <div class="why-item reveal reveal-delay-1">
+        <h4>Local Edinburgh</h4>
+        <p>Based in Edinburgh, serving the city and Lothians with a personal touch.</p>
+      </div>
+      <div class="why-item reveal reveal-delay-2">
+        <h4>Expert Fitting</h4>
+        <p>All blinds professionally installed by our experienced fitting team.</p>
+      </div>
+      <div class="why-item reveal reveal-delay-3">
+        <h4>Huge Range</h4>
+        <p>Hundreds of fabrics, styles, and finishes — something for every room.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sectors" id="sectors">
+    <div class="sectors-layout">
+      <div class="sectors-left reveal">
+        <p class="section-eyebrow">Where we fit</p>
+        <h2>ROOMS &amp; SPACES WE COVER</h2>
+        <p class="intro">From cosy Edinburgh flats to large commercial premises — Delta Blinds fits the right window treatment for every space and every style.</p>
+        <a href="#contact" class="btn-solid">Book Free Measuring</a>
+      </div>
+      <div class="sectors-grid reveal reveal-delay-2">
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Living Rooms</div></div>
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Bedrooms</div></div>
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Kitchens</div></div>
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Bathrooms</div></div>
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Home Offices</div></div>
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Conservatories</div></div>
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Offices</div></div>
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Hospitality</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" id="contact">
     <div class="section-inner">
-      <p class="section-eyebrow anim-fade">Our Work</p>
-      <h2 class="section-title anim-fade">Installed &amp; Loved</h2>
-      <div class="gallery-grid">
-        <div class="gallery-item anim-fade">
-          <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=800&q=80" alt="Living room blinds installation" loading="lazy" />
-        </div>
-        <div class="gallery-item anim-fade">
-          <img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?auto=format&fit=crop&w=800&q=80" alt="Bedroom roller blinds" loading="lazy" />
-        </div>
-        <div class="gallery-item anim-fade">
-          <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="Kitchen venetian blinds" loading="lazy" />
-        </div>
-        <div class="gallery-item anim-fade" style="grid-column: 2; grid-row: auto;">
-          <img src="https://images.unsplash.com/photo-1586105251261-72a756497a11?auto=format&fit=crop&w=800&q=80" alt="Office vertical blinds" loading="lazy" />
-        </div>
+      <p class="section-eyebrow reveal">Get started today</p>
+      <h2 class="reveal">GET YOUR FREE<br>MEASURING &amp; QUOTE</h2>
+      <p class="reveal reveal-delay-1">No obligation. Our Edinburgh team visits your property, measures every window, and provides a full written quote — completely free of charge.</p>
+      <div class="cta-btns reveal reveal-delay-2">
+        <a href="tel:+441315540000" class="btn-cta-primary">Call Delta Blinds Edinburgh</a>
+        <a href="#services" class="btn-cta-ghost">View Blinds Range</a>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="testimonials" id="reviews">
-    <div class="section-inner">
-      <p class="section-eyebrow anim-fade">Client Reviews</p>
-      <h2 class="section-title anim-fade">What Edinburgh Says</h2>
-      <div class="testimonials-grid">
-
-        <div class="testimonial-card anim-fade">
-          <div class="testimonial-stars">
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <p class="testimonial-text">"Delta Blinds measured and fitted our entire flat in one visit. The quality of the blinds is exceptional and the team were polite, tidy, and efficient throughout."</p>
-          <div class="testimonial-author">Sarah M. &mdash; Leith, Edinburgh</div>
-        </div>
-
-        <div class="testimonial-card anim-fade">
-          <div class="testimonial-stars">
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <p class="testimonial-text">"We needed blackout blinds for the bedroom and office blinds for our studio. Delta Blinds guided us through the options — great value and a faultless installation."</p>
-          <div class="testimonial-author">James R. &mdash; Morningside, Edinburgh</div>
-        </div>
-
-        <div class="testimonial-card anim-fade">
-          <div class="testimonial-stars">
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <p class="testimonial-text">"Highly recommend Delta Blinds. I've used them for three properties now and the standard never drops. Prompt, professional, and very fairly priced for Edinburgh."</p>
-          <div class="testimonial-author">Fiona T. &mdash; Stockbridge, Edinburgh</div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA BAND -->
-  <div class="cta-band" id="contact">
-    <div class="section-inner" style="text-align:center;">
-      <p class="section-eyebrow anim-fade">Get Started Today</p>
-      <h2 class="anim-fade" style="font-family:'EB Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:500;color:var(--text);margin-bottom:16px;">Ready for Perfect Blinds?</h2>
-      <p class="anim-fade" style="font-size:0.95rem;font-weight:300;color:var(--muted);max-width:480px;margin:0 auto 40px;line-height:1.9;">Call us or email to arrange a free no-obligation measuring visit anywhere in Edinburgh and the Lothians.</p>
-      <div class="cta-band-btns">
-        <a href="tel:+441315531999" class="btn-primary anim-fade">Call +44 131 553 1999</a>
-        <a href="mailto:info@delta-blinds.co.uk" class="btn-outline anim-fade">Email Us</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer class="footer">
+  <footer>
     <div class="footer-inner">
-      <div class="footer-grid">
+      <div class="footer-top">
         <div class="footer-brand">
-          <div class="footer-logo">Delta<span>&nbsp;Blinds</span> Edinburgh</div>
-          <p class="footer-tagline">Premium blinds supply and fitting across Edinburgh and the Lothians. Free measuring, expert installation, and a wide selection of styles.</p>
+          <span class="footer-wordmark">DELTA BLINDS</span>
+          <span class="footer-sub">Edinburgh's Trusted Blinds Specialist</span>
+          <p>Edinburgh's local blinds specialist — supplying and fitting roller, venetian, roman, vertical, and commercial blinds across the city and Lothians.</p>
         </div>
-        <div>
-          <div class="footer-col-title">Services</div>
-          <ul class="footer-links">
-            <li><a href="#services">Venetian Blinds</a></li>
+        <div class="footer-col">
+          <h5>Blinds</h5>
+          <ul>
             <li><a href="#services">Roller Blinds</a></li>
-            <li><a href="#services">Roman Blinds</a></li>
+            <li><a href="#services">Venetian Blinds</a></li>
             <li><a href="#services">Vertical Blinds</a></li>
-            <li><a href="#services">Office Blinds</a></li>
+            <li><a href="#services">Roman Blinds</a></li>
+            <li><a href="#services">Blackout Blinds</a></li>
+            <li><a href="#services">Commercial Blinds</a></li>
           </ul>
         </div>
-        <div>
-          <div class="footer-col-title">By Room</div>
-          <ul class="footer-links">
-            <li><a href="#services">Living Room</a></li>
-            <li><a href="#services">Bedroom</a></li>
-            <li><a href="#services">Kitchen</a></li>
-            <li><a href="#services">Bathroom</a></li>
-            <li><a href="#services">Office</a></li>
+        <div class="footer-col">
+          <h5>Areas We Cover</h5>
+          <ul>
+            <li><a href="#sectors">Edinburgh City Centre</a></li>
+            <li><a href="#sectors">Leith</a></li>
+            <li><a href="#sectors">Morningside</a></li>
+            <li><a href="#sectors">Stockbridge</a></li>
+            <li><a href="#sectors">Portobello</a></li>
+            <li><a href="#sectors">East Lothian</a></li>
           </ul>
         </div>
-        <div id="contact-details">
-          <div class="footer-col-title">Contact</div>
-          <div class="footer-contact-item">
-            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-            <span>6 Swanfield, Edinburgh EH6 5RX</span>
-          </div>
-          <div class="footer-contact-item">
-            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.7A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.12 6.12l1.27-.35a2 2 0 012.11.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-            <span><a href="tel:+441315531999" style="color:inherit;text-decoration:none;">+44 131 553 1999</a></span>
-          </div>
-          <div class="footer-contact-item">
-            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <span><a href="mailto:info@delta-blinds.co.uk" style="color:inherit;text-decoration:none;">info@delta-blinds.co.uk</a></span>
-          </div>
-          <div class="footer-contact-item">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <span>Mon–Fri 8am–4:30pm<br>Sat 10am–1:30pm</span>
-          </div>
+        <div class="footer-col footer-contact">
+          <h5>Contact</h5>
+          <p>
+            6 Swanfield<br>
+            Edinburgh EH6 5RX<br>
+            Scotland, UK<br><br>
+            <a href="#contact">Request a Quote</a><br>
+            <a href="#contact">Book Free Measuring</a>
+          </p>
         </div>
       </div>
       <div class="footer-bottom">
-        <span class="footer-copy">&copy; 2026 Delta Blinds Edinburgh. All rights reserved.</span>
-        <span class="footer-note">Design concept by jayexe.com</span>
+        <p>&copy; 2025 Delta Blinds Edinburgh. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <!-- WINDOW CANVAS SCRIPT (inlined) -->
   <script>
-// Window Configurator — Vanilla JS port from LuxuryBlind project
-// drawCanvas, setupConfigurator — embed inline in each demo HTML
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
 
-function wcLighten(hex, amt) {
-  const n = parseInt(hex.replace('#', ''), 16);
-  const r = Math.min(255, (n >> 16) + amt);
-  const g = Math.min(255, ((n >> 8) & 0xff) + amt);
-  const b = Math.min(255, (n & 0xff) + amt);
-  return '#' + r.toString(16).padStart(2,'0') + g.toString(16).padStart(2,'0') + b.toString(16).padStart(2,'0');
-}
-function wcDarken(hex, amt) { return wcLighten(hex, -amt); }
+    const heroBg = document.getElementById('heroBg');
+    window.addEventListener('scroll', () => {
+      heroBg.style.transform = `scale(1.08) translateY(${window.scrollY * 0.25}px)`;
+    }, { passive: true });
 
-function drawWindowCanvas(ctx, W, H, params, progress) {
-  const { widthCm, heightCm, installation, mounting, blindColor } = params;
-  ctx.clearRect(0, 0, W, H);
+    (function heroIn() {
+      const lines = document.querySelectorAll('.hero-title-line span');
+      const eyebrow = document.getElementById('heroEyebrow');
+      const sub = document.getElementById('heroSub');
+      const ctas = document.getElementById('heroCtas');
+      const badges = document.getElementById('heroBadges');
+      const scroll = document.getElementById('heroScroll');
 
-  // ROOM SCENE
-  ctx.fillStyle = '#F0EEE9';
-  ctx.fillRect(0, 0, W, H * 0.10);
+      lines.forEach((line, i) => {
+        setTimeout(() => {
+          line.style.transition = 'transform 1s cubic-bezier(0.16, 1, 0.3, 1)';
+          line.style.transform = 'translateY(0)';
+        }, 200 + i * 140);
+      });
 
-  const wallG = ctx.createLinearGradient(0, H*0.10, W, H*0.85);
-  wallG.addColorStop(0, '#ECEAE5');
-  wallG.addColorStop(0.45, '#F4F1EC');
-  wallG.addColorStop(1, '#ECEAE5');
-  ctx.fillStyle = wallG;
-  ctx.fillRect(0, H*0.10, W, H*0.75);
+      setTimeout(() => { eyebrow.style.transition = 'opacity 0.8s ease'; eyebrow.style.opacity = '1'; }, 100);
+      setTimeout(() => { sub.style.transition = 'opacity 0.8s ease'; sub.style.opacity = '1'; }, 700);
+      setTimeout(() => { ctas.style.transition = 'opacity 0.8s ease'; ctas.style.opacity = '1'; }, 900);
+      setTimeout(() => { badges.style.transition = 'opacity 0.8s ease'; badges.style.opacity = '1'; }, 1100);
+      setTimeout(() => { scroll.style.transition = 'opacity 0.8s ease'; scroll.style.opacity = '1'; }, 1300);
+    })();
 
-  const wallEdge = ctx.createLinearGradient(0, 0, W, 0);
-  wallEdge.addColorStop(0, 'rgba(0,0,0,.05)');
-  wallEdge.addColorStop(0.18, 'rgba(0,0,0,0)');
-  wallEdge.addColorStop(0.82, 'rgba(0,0,0,0)');
-  wallEdge.addColorStop(1, 'rgba(0,0,0,.05)');
-  ctx.fillStyle = wallEdge;
-  ctx.fillRect(0, H*0.10, W, H*0.75);
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => revealObs.observe(el));
 
-  ctx.fillStyle = '#E4E0D9';
-  ctx.fillRect(0, H*0.095, W, H*0.012);
-  ctx.fillStyle = 'rgba(0,0,0,.07)';
-  ctx.fillRect(0, H*0.095 + H*0.012, W, 2);
+    const stLine = document.getElementById('statementLine');
+    const stLineObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          stLine.style.transition = 'transform 0.9s cubic-bezier(0.16,1,0.3,1)';
+          stLine.style.transform = 'scaleX(1)';
+          stLineObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    stLineObs.observe(stLine);
 
-  // Floor
-  const floorY = H*0.85, floorH = H*0.15;
-  const floorBase = ctx.createLinearGradient(0, floorY, 0, floorY+floorH);
-  floorBase.addColorStop(0, '#B89860');
-  floorBase.addColorStop(1, '#9A7D48');
-  ctx.fillStyle = floorBase;
-  ctx.fillRect(0, floorY, W, floorH);
+    const aboutWrap = document.getElementById('aboutImgWrap');
+    const aboutObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { aboutWrap.classList.add('revealed'); aboutObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.2 });
+    aboutObs.observe(aboutWrap);
 
-  const plankW = W/7;
-  for (let i=0; i<7; i++) {
-    ctx.fillStyle = i%2===0 ? 'rgba(255,255,255,.04)' : 'rgba(0,0,0,.035)';
-    ctx.fillRect(i*plankW, floorY, plankW, floorH);
-    ctx.strokeStyle = 'rgba(0,0,0,.09)'; ctx.lineWidth = 0.5;
-    ctx.beginPath(); ctx.moveTo(i*plankW, floorY); ctx.lineTo(i*plankW, floorY+floorH); ctx.stroke();
-  }
-  ctx.strokeStyle = 'rgba(80,50,15,.10)'; ctx.lineWidth = 0.4;
-  for (let i=1; i<5; i++) {
-    ctx.beginPath(); ctx.moveTo(0, floorY+(floorH/5)*i); ctx.lineTo(W, floorY+(floorH/5)*i); ctx.stroke();
-  }
-  const floorHL = ctx.createLinearGradient(0, floorY, 0, floorY+floorH*0.28);
-  floorHL.addColorStop(0, 'rgba(255,255,255,.12)');
-  floorHL.addColorStop(1, 'rgba(255,255,255,0)');
-  ctx.fillStyle = floorHL; ctx.fillRect(0, floorY, W, floorH*0.28);
-
-  ctx.fillStyle = '#E0DAD0'; ctx.fillRect(0, H*0.838, W, H*0.016);
-  ctx.fillStyle = 'rgba(0,0,0,.08)'; ctx.fillRect(0, H*0.838+H*0.016, W, 2);
-
-  // WINDOW GEOMETRY
-  const aspect = widthCm / heightCm;
-  let fX, fY, fW, fH;
-  if (installation === 'fullWall') {
-    fW = Math.min(W*0.86, H*0.70*aspect);
-    fH = fW/aspect;
-    if (fH>H*0.70) { fH=H*0.70; fW=fH*aspect; }
-    fX=(W-fW)/2; fY=H*0.12;
-  } else {
-    const maxW=W*0.62, maxH=H*0.60;
-    fW=Math.min(maxW, maxH*aspect);
-    fH=fW/aspect;
-    if (fH>maxH) { fH=maxH; fW=fH*aspect; }
-    fX=(W-fW)/2; fY=H*0.165;
-  }
-
-  let bX, bY, bW, bH;
-  if (installation==='recessed') { bX=fX+4; bY=fY; bW=fW-8; bH=fH; }
-  else if (installation==='fullWall') { bX=fX; bY=fY; bW=fW; bH=fH; }
-  else { bX=fX-8; bY=fY-14; bW=fW+16; bH=fH+19; }
-
-  // RECESSED REVEAL
-  if (installation==='recessed') {
-    const d=12;
-    ctx.fillStyle='#D8D0C4';
-    ctx.beginPath(); ctx.moveTo(fX,fY); ctx.lineTo(fX-d,fY-d); ctx.lineTo(fX+fW+d,fY-d); ctx.lineTo(fX+fW,fY); ctx.closePath(); ctx.fill();
-    const topRS=ctx.createLinearGradient(0,fY-d,0,fY);
-    topRS.addColorStop(0,'rgba(0,0,0,.10)'); topRS.addColorStop(1,'rgba(0,0,0,.02)');
-    ctx.fillStyle=topRS;
-    ctx.beginPath(); ctx.moveTo(fX,fY); ctx.lineTo(fX-d,fY-d); ctx.lineTo(fX+fW+d,fY-d); ctx.lineTo(fX+fW,fY); ctx.closePath(); ctx.fill();
-    ctx.fillStyle='#BDB5A8';
-    ctx.beginPath(); ctx.moveTo(fX,fY); ctx.lineTo(fX-d,fY-d); ctx.lineTo(fX-d,fY+fH+d); ctx.lineTo(fX,fY+fH); ctx.closePath(); ctx.fill();
-    ctx.fillStyle='#E2D9CC';
-    ctx.beginPath(); ctx.moveTo(fX+fW,fY); ctx.lineTo(fX+fW+d,fY-d); ctx.lineTo(fX+fW+d,fY+fH+d); ctx.lineTo(fX+fW,fY+fH); ctx.closePath(); ctx.fill();
-    ctx.fillStyle='#CEC6B8';
-    ctx.beginPath(); ctx.moveTo(fX,fY+fH); ctx.lineTo(fX-d,fY+fH+d); ctx.lineTo(fX+fW+d,fY+fH+d); ctx.lineTo(fX+fW,fY+fH); ctx.closePath(); ctx.fill();
-  }
-
-  // GLASS / OUTDOOR SCENE
-  ctx.save(); ctx.beginPath(); ctx.rect(fX,fY,fW,fH); ctx.clip();
-  const skyG=ctx.createLinearGradient(fX,fY,fX,fY+fH*0.55);
-  skyG.addColorStop(0,'#4898C8'); skyG.addColorStop(0.55,'#88C8E8'); skyG.addColorStop(1,'#B8E2F6');
-  ctx.fillStyle=skyG; ctx.fillRect(fX,fY,fW,fH*0.55);
-  const hazeG=ctx.createLinearGradient(fX,fY+fH*0.45,fX,fY+fH*0.58);
-  hazeG.addColorStop(0,'rgba(255,252,235,0)'); hazeG.addColorStop(1,'rgba(255,252,235,.38)');
-  ctx.fillStyle=hazeG; ctx.fillRect(fX,fY+fH*0.45,fW,fH*0.14);
-  const groundG=ctx.createLinearGradient(fX,fY+fH*0.55,fX,fY+fH);
-  groundG.addColorStop(0,'#78BC52'); groundG.addColorStop(0.55,'#5A9C38'); groundG.addColorStop(1,'#3C7820');
-  ctx.fillStyle=groundG; ctx.fillRect(fX,fY+fH*0.55,fW,fH*0.45);
-  const treePos=[0.12,0.42,0.72];
-  for (const tx of treePos) {
-    const tBaseX=fX+fW*tx, tBaseY=fY+fH*0.55, tHt=fH*0.22;
-    ctx.fillStyle='rgba(60,40,20,.40)'; ctx.fillRect(tBaseX-fW*0.008,tBaseY-tHt*0.28,fW*0.016,tHt*0.28);
-    ctx.fillStyle='rgba(35,80,28,.50)';
-    ctx.beginPath(); ctx.moveTo(tBaseX-fW*0.065,tBaseY-tHt*0.28); ctx.lineTo(tBaseX+fW*0.065,tBaseY-tHt*0.28); ctx.lineTo(tBaseX,tBaseY-tHt*0.62); ctx.closePath(); ctx.fill();
-    ctx.fillStyle='rgba(30,75,22,.55)';
-    ctx.beginPath(); ctx.moveTo(tBaseX-fW*0.05,tBaseY-tHt*0.52); ctx.lineTo(tBaseX+fW*0.05,tBaseY-tHt*0.52); ctx.lineTo(tBaseX,tBaseY-tHt*0.86); ctx.closePath(); ctx.fill();
-    ctx.fillStyle='rgba(25,70,18,.55)';
-    ctx.beginPath(); ctx.moveTo(tBaseX-fW*0.034,tBaseY-tHt*0.74); ctx.lineTo(tBaseX+fW*0.034,tBaseY-tHt*0.74); ctx.lineTo(tBaseX,tBaseY-tHt); ctx.closePath(); ctx.fill();
-  }
-  const sx=fX+fW*0.78, sy=fY+fH*0.13;
-  const sunG=ctx.createRadialGradient(sx,sy,0,sx,sy,fW*0.11);
-  sunG.addColorStop(0,'rgba(255,242,100,.95)'); sunG.addColorStop(0.45,'rgba(255,218,50,.50)'); sunG.addColorStop(1,'rgba(255,200,30,0)');
-  ctx.fillStyle=sunG; ctx.beginPath(); ctx.arc(sx,sy,fW*0.11,0,Math.PI*2); ctx.fill();
-  const cs=fW/180;
-  ctx.fillStyle='rgba(255,255,255,.88)';
-  const cx2=fX+fW*0.16, cy2=fY+fH*0.22;
-  ctx.beginPath(); ctx.arc(cx2,cy2,9*cs,0,Math.PI*2); ctx.arc(cx2+12*cs,cy2-4*cs,7*cs,0,Math.PI*2); ctx.arc(cx2+23*cs,cy2,9*cs,0,Math.PI*2); ctx.fill();
-  const glareG=ctx.createLinearGradient(fX,fY,fX+fW*0.28,fY+fH*0.32);
-  glareG.addColorStop(0,'rgba(255,255,255,.10)'); glareG.addColorStop(0.5,'rgba(255,255,255,.04)'); glareG.addColorStop(1,'rgba(255,255,255,0)');
-  ctx.fillStyle=glareG; ctx.fillRect(fX,fY,fW,fH);
-  ctx.restore();
-
-  // WINDOW FRAME
-  if (installation!=='fullWall') {
-    ctx.fillStyle='rgba(0,0,0,.14)'; ctx.fillRect(fX+2,fY+2,fW,fH);
-    ctx.lineWidth=4.5; ctx.strokeStyle='#8A806E'; ctx.strokeRect(fX,fY,fW,fH);
-    ctx.lineWidth=1; ctx.strokeStyle='#AEA696'; ctx.strokeRect(fX+2.5,fY+2.5,fW-5,fH-5);
-    ctx.lineWidth=3; ctx.strokeStyle='#8A806E';
-    ctx.beginPath(); ctx.moveTo(fX+fW/2,fY); ctx.lineTo(fX+fW/2,fY+fH); ctx.stroke();
-    ctx.beginPath(); ctx.moveTo(fX,fY+fH*0.5); ctx.lineTo(fX+fW,fY+fH*0.5); ctx.stroke();
-    if (installation==='surface') {
-      const sillG=ctx.createLinearGradient(0,fY+fH,0,fY+fH+13);
-      sillG.addColorStop(0,'#D0C8BC'); sillG.addColorStop(1,'#BCAEA0');
-      ctx.fillStyle=sillG; ctx.fillRect(fX-7,fY+fH,fW+14,13);
+    function countUp(el) {
+      const end = parseFloat(el.dataset.count);
+      const suffix = el.dataset.suffix || '';
+      const isDecimal = el.dataset.decimal === 'true';
+      if (isNaN(end)) return;
+      const duration = 1600;
+      const start = performance.now();
+      function step(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = (isDecimal ? (end * eased).toFixed(1) : Math.floor(end * eased)) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
     }
-  }
 
-  // MOUNTING HARDWARE
-  if (mounting==='ceiling' && installation!=='recessed') {
-    const bkG=ctx.createLinearGradient(bX,bY-13,bX,bY);
-    bkG.addColorStop(0,'#5A5048'); bkG.addColorStop(1,'#3C3630');
-    ctx.fillStyle=bkG; ctx.fillRect(bX,bY-13,bW,13);
-    const bc=Math.max(2,Math.floor(bW/80));
-    for (let i=0; i<=bc; i++) {
-      ctx.fillStyle='#C9A96E'; ctx.fillRect(bX+(bW/bc)*i-3,bY-18,6,7);
-    }
-  }
-
-  // BLIND
-  const headerH=10, bundleH=bH*0.12;
-  const blindTopY=bY+headerH, closedBottom=bY+bH, openBottom=bY+headerH+bundleH;
-  const blindBottomY=closedBottom-(closedBottom-openBottom)*progress;
-  const currentBlindH=blindBottomY-blindTopY;
-
-  if (currentBlindH>1) {
-    const totalSlats=Math.max(6,Math.round(heightCm/5));
-    const sH=(bH-headerH)/totalSlats;
-    const visibleSlats=Math.ceil(currentBlindH/sH);
-    ctx.save(); ctx.beginPath(); ctx.rect(bX,blindTopY,bW,currentBlindH); ctx.clip();
-    for (let i=0; i<visibleSlats; i++) {
-      const sy2=blindTopY+i*sH, even=i%2===0;
-      const sg=ctx.createLinearGradient(0,sy2,0,sy2+sH);
-      if (even) { sg.addColorStop(0,wcLighten(blindColor,18)); sg.addColorStop(0.4,blindColor); sg.addColorStop(1,wcDarken(blindColor,22)); }
-      else { sg.addColorStop(0,wcDarken(blindColor,4)); sg.addColorStop(1,wcDarken(blindColor,26)); }
-      ctx.fillStyle=sg; ctx.fillRect(bX+1,sy2+0.5,bW-2,sH-1);
-      ctx.fillStyle=`rgba(201,169,110,${even?0.22:0.06})`; ctx.fillRect(bX+1,sy2+0.5,bW-2,1.5);
-      ctx.fillStyle='rgba(0,0,0,.20)'; ctx.fillRect(bX+1,sy2+sH-2,bW-2,2);
-    }
-    const sheen=ctx.createLinearGradient(bX,0,bX+bW,0);
-    sheen.addColorStop(0,'rgba(255,255,255,.02)'); sheen.addColorStop(0.22,'rgba(255,255,255,.09)');
-    sheen.addColorStop(0.78,'rgba(255,255,255,.02)'); sheen.addColorStop(1,'rgba(0,0,0,.07)');
-    ctx.fillStyle=sheen; ctx.fillRect(bX,blindTopY,bW,currentBlindH);
-    ctx.restore();
-    ctx.fillStyle=wcDarken(blindColor,8); ctx.fillRect(bX+1,blindBottomY-4,bW-2,4);
-    ctx.fillStyle='rgba(0,0,0,.18)'; ctx.fillRect(bX+1,blindBottomY-1,bW-2,1);
-  }
-
-  // HEADER RAIL
-  const railG=ctx.createLinearGradient(bX,bY,bX,bY+headerH);
-  railG.addColorStop(0,'#252525'); railG.addColorStop(1,'#181818');
-  ctx.fillStyle=railG; ctx.fillRect(bX,bY,bW,headerH);
-  ctx.fillStyle='#C9A96E'; ctx.fillRect(bX+2,bY+2.5,bW-4,1.5);
-  ctx.fillStyle='rgba(255,255,255,.06)'; ctx.fillRect(bX,bY,bW,2);
-
-  // CORD
-  const cordX=bX+bW*0.86;
-  const tassleY=Math.max(blindBottomY-4,bY+headerH+8);
-  ctx.strokeStyle='rgba(201,169,110,.55)'; ctx.lineWidth=1.5; ctx.setLineDash([]);
-  ctx.beginPath(); ctx.moveTo(cordX,bY+headerH); ctx.lineTo(cordX,tassleY); ctx.stroke();
-  ctx.fillStyle='#C9A96E'; ctx.beginPath(); ctx.arc(cordX,tassleY,3.5,0,Math.PI*2); ctx.fill();
-
-  // SIDE CHANNELS (recessed)
-  if (installation==='recessed') {
-    ctx.fillStyle='#181818';
-    ctx.fillRect(bX-4,bY,4,bH); ctx.fillRect(bX+bW,bY,4,bH);
-  }
-
-  // DIMENSION ANNOTATIONS
-  const ann=4;
-  const wAnnY=bY+bH+20;
-  ctx.setLineDash([3,3]); ctx.strokeStyle='rgba(201,169,110,.32)'; ctx.lineWidth=1;
-  ctx.beginPath(); ctx.moveTo(bX,bY+bH+2); ctx.lineTo(bX,wAnnY-2); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(bX+bW,bY+bH+2); ctx.lineTo(bX+bW,wAnnY-2); ctx.stroke();
-  ctx.setLineDash([]); ctx.strokeStyle='rgba(201,169,110,.60)';
-  ctx.beginPath(); ctx.moveTo(bX,wAnnY); ctx.lineTo(bX+bW,wAnnY); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(bX,wAnnY); ctx.lineTo(bX+ann,wAnnY-3); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(bX,wAnnY); ctx.lineTo(bX+ann,wAnnY+3); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(bX+bW,wAnnY); ctx.lineTo(bX+bW-ann,wAnnY-3); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(bX+bW,wAnnY); ctx.lineTo(bX+bW-ann,wAnnY+3); ctx.stroke();
-  ctx.font="bold 11px 'DM Sans',sans-serif"; ctx.fillStyle='#C9A96E'; ctx.textAlign='center';
-  ctx.fillText(widthCm+' cm', bX+bW/2, wAnnY+13);
-  const hAnnX=bX-22;
-  ctx.setLineDash([3,3]); ctx.strokeStyle='rgba(201,169,110,.32)';
-  ctx.beginPath(); ctx.moveTo(bX-2,bY); ctx.lineTo(hAnnX-2,bY); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(bX-2,bY+bH); ctx.lineTo(hAnnX-2,bY+bH); ctx.stroke();
-  ctx.setLineDash([]); ctx.strokeStyle='rgba(201,169,110,.60)';
-  ctx.beginPath(); ctx.moveTo(hAnnX,bY); ctx.lineTo(hAnnX,bY+bH); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(hAnnX,bY); ctx.lineTo(hAnnX-3,bY+ann); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(hAnnX,bY); ctx.lineTo(hAnnX+3,bY+ann); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(hAnnX,bY+bH); ctx.lineTo(hAnnX-3,bY+bH-ann); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(hAnnX,bY+bH); ctx.lineTo(hAnnX+3,bY+bH-ann); ctx.stroke();
-  ctx.save(); ctx.translate(hAnnX-9,bY+bH/2); ctx.rotate(-Math.PI/2);
-  ctx.textAlign='center'; ctx.fillStyle='#C9A96E';
-  ctx.fillText(heightCm+' cm', 0, 0); ctx.restore();
-}
-
-// ── CONFIGURATOR SETUP ──────────────────────────────────────────────────────
-function setupWindowConfigurator(canvasId, accentColor) {
-  const canvas = document.getElementById(canvasId);
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-
-  let state = { widthCm:120, heightCm:150, installation:'surface', mounting:'frame', blindColor:'#2A2A2A', isOpen:false };
-  let progressRef = 0;
-  let rafId = 0;
-
-  function render(prog) {
-    const dpr = window.devicePixelRatio || 1;
-    const W = canvas.width / dpr, H = canvas.height / dpr;
-    ctx.save(); ctx.scale(dpr, dpr);
-    drawWindowCanvas(ctx, W, H, state, prog);
-    ctx.restore();
-  }
-
-  function animateTo(target) {
-    cancelAnimationFrame(rafId);
-    const start = progressRef, t0 = performance.now(), dur = 500;
-    function ease(t) { return t<0.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2; }
-    function tick(now) {
-      const t = Math.min(1,(now-t0)/dur);
-      progressRef = start + (target-start)*ease(t);
-      render(progressRef);
-      if (t<1) rafId = requestAnimationFrame(tick);
-      else progressRef = target;
-    }
-    rafId = requestAnimationFrame(tick);
-  }
-
-  function setupCanvas() {
-    const dpr = window.devicePixelRatio || 1;
-    const rect = canvas.getBoundingClientRect();
-    if (!rect.width) return;
-    canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
-    render(progressRef);
-  }
-
-  const ro = new ResizeObserver(setupCanvas);
-  ro.observe(canvas);
-  setupCanvas();
-
-  const widthSlider = document.getElementById('wc-width');
-  const widthVal = document.getElementById('wc-width-val');
-  if (widthSlider) {
-    widthSlider.addEventListener('input', () => {
-      state.widthCm = parseInt(widthSlider.value);
-      if (widthVal) widthVal.textContent = widthSlider.value;
-      render(progressRef);
-    });
-  }
-
-  const heightSlider = document.getElementById('wc-height');
-  const heightVal = document.getElementById('wc-height-val');
-  if (heightSlider) {
-    heightSlider.addEventListener('input', () => {
-      state.heightCm = parseInt(heightSlider.value);
-      if (heightVal) heightVal.textContent = heightSlider.value;
-      render(progressRef);
-    });
-  }
-
-  document.querySelectorAll('[data-wc-color]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      state.blindColor = btn.dataset.wcColor;
-      document.querySelectorAll('[data-wc-color]').forEach(b => b.classList.remove('wc-active'));
-      btn.classList.add('wc-active');
-      render(progressRef);
-    });
-  });
-
-  document.querySelectorAll('[data-wc-install]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      state.installation = btn.dataset.wcInstall;
-      if (state.installation==='recessed') state.mounting='frame';
-      if (state.installation==='fullWall') state.mounting='ceiling';
-      document.querySelectorAll('[data-wc-install]').forEach(b => b.classList.remove('wc-active'));
-      btn.classList.add('wc-active');
-      render(progressRef);
-    });
-  });
-
-  document.querySelectorAll('[data-wc-mount]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      state.mounting = btn.dataset.wcMount;
-      document.querySelectorAll('[data-wc-mount]').forEach(b => b.classList.remove('wc-active'));
-      btn.classList.add('wc-active');
-      render(progressRef);
-    });
-  });
-
-  const btnClosed = document.getElementById('wc-toggle-closed');
-  const btnOpen = document.getElementById('wc-toggle-open');
-  if (btnClosed) btnClosed.addEventListener('click', () => { state.isOpen=false; animateTo(0); btnClosed.classList.add('wc-active'); if(btnOpen) btnOpen.classList.remove('wc-active'); });
-  if (btnOpen) btnOpen.addEventListener('click', () => { state.isOpen=true; animateTo(1); btnOpen.classList.add('wc-active'); if(btnClosed) btnClosed.classList.remove('wc-active'); });
-}
-  </script>
-
-  <!-- ANIMATIONS + INIT -->
-  <script type="module">
-    import { animate, inView, stagger } from 'https://esm.sh/motion';
-
-    // Scroll-triggered fade-in for all .anim-fade elements
-    inView('.anim-fade', ({ target }) => {
-      animate(
-        target,
-        { opacity: [0, 1], transform: ['translateY(28px)', 'translateY(0px)'] },
-        { duration: 0.65, easing: [0.25, 0.46, 0.45, 0.94] }
-      );
-    }, { margin: '-60px' });
-
-    // Hero stagger on load
-    const heroEls = document.querySelectorAll('.hero .anim-fade');
-    animate(
-      heroEls,
-      { opacity: [0, 1], transform: ['translateY(36px)', 'translateY(0px)'] },
-      { duration: 0.75, delay: stagger(0.14, { start: 0.2 }), easing: [0.25, 0.46, 0.45, 0.94] }
-    );
-
-    // Stat band stagger
-    const statEls = document.querySelectorAll('.stat-item.anim-fade');
-    inView('.stat-band', () => {
-      animate(
-        statEls,
-        { opacity: [0, 1], transform: ['translateY(20px)', 'translateY(0px)'] },
-        { duration: 0.55, delay: stagger(0.10), easing: 'ease-out' }
-      );
-    }, { margin: '-40px' });
-
-    // Init configurator
-    setupWindowConfigurator('wc-canvas', '#C9A96E');
+    const statsObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('[data-count]').forEach(el => countUp(el));
+          statsObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    const statsBand = document.querySelector('.stats-band');
+    if (statsBand) statsObs.observe(statsBand);
   </script>
 
 </body>

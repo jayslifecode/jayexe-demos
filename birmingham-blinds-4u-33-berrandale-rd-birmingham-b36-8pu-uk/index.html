@@ -3,1164 +3,1558 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Birmingham Blinds 4U — Made-to-Measure Blinds &amp; Shutters</title>
+  <title>Birmingham Blinds 4U — Made-to-Measure Blinds Birmingham</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:        #16100A;
-      --bg-card:   #1E150D;
-      --bg-raised: #261B10;
-      --text:      #F4EDDF;
-      --text-muted: #B5A88E;
-      --gold:      #C9A020;
-      --gold-dim:  #A07C12;
-      --border:    #261B10;
-      --font-display: 'Playfair Display', Georgia, serif;
-      --font-body:    'DM Sans', system-ui, sans-serif;
+      --bg:     #0b0b0b;
+      --bg2:    #111111;
+      --bg3:    #161616;
+      --navy:   #1a3a6b;
+      --navy2:  #1f4580;
+      --gold:   #c8a84b;
+      --white:  #f5f5f0;
+      --muted:  rgba(245,245,240,0.45);
+      --border: rgba(245,245,240,0.08);
     }
 
     html { scroll-behavior: smooth; }
 
     body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      color: var(--white);
       background: var(--bg);
-      color: var(--text);
-      font-family: var(--font-body);
-      font-size: 16px;
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    img { display: block; max-width: 100%; }
-
-    a { color: inherit; text-decoration: none; }
-
-    /* ── NAV ─────────────────────────────────────────────────── */
-    .nav {
+    /* ── GRAIN OVERLAY ── */
+    .grain {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      background: rgba(22, 16, 10, 0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 128px 128px;
     }
 
-    .nav__inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 500;
+      padding: 0 48px;
       height: 68px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      background: linear-gradient(to bottom, rgba(11,11,11,0.95) 0%, transparent 100%);
+      transition: background 0.4s;
     }
 
-    .nav__logo {
-      font-family: var(--font-display);
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--text);
-      letter-spacing: 0.01em;
-      flex-shrink: 0;
+    nav.scrolled {
+      background: rgba(11,11,11,0.97);
+      border-bottom: 1px solid var(--border);
     }
 
-    .nav__logo span {
-      color: var(--gold);
+    .nav-brand {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
     }
 
-    .nav__links {
+    .nav-brand .wordmark {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.14em;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .nav-brand .tagline {
+      font-size: 0.54rem;
+      font-weight: 500;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .nav-links {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 36px;
       list-style: none;
-    }
-
-    .nav__links a {
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--text-muted);
-      transition: color 0.2s;
-      letter-spacing: 0.02em;
-    }
-
-    .nav__links a:hover { color: var(--text); }
-
-    .nav__cta {
-      background: var(--gold);
-      color: #16100A !important;
-      padding: 10px 20px;
-      border-radius: 4px;
-      font-weight: 600;
-      font-size: 0.875rem;
       white-space: nowrap;
-      transition: background 0.2s;
-      flex-shrink: 0;
     }
 
-    .nav__cta:hover { background: #d9b030 !important; color: #16100A !important; }
+    .nav-links a {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
 
-    .nav__hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
+    .nav-links a:hover { color: var(--white); }
+
+    .btn-nav {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+      padding: 10px 22px;
+      background: var(--navy);
+      color: var(--white);
       border: none;
-      padding: 4px;
+      cursor: pointer;
+      transition: background 0.2s;
     }
 
-    .nav__hamburger span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--text);
-      border-radius: 2px;
-      transition: 0.3s;
-    }
+    .btn-nav:hover { background: var(--navy2); }
 
-    /* ── HERO ─────────────────────────────────────────────────── */
+    /* ── HERO ── */
     .hero {
       position: relative;
-      min-height: 100svh;
+      height: 100vh;
+      min-height: 640px;
+      overflow: hidden;
       display: flex;
       align-items: center;
-      overflow: hidden;
     }
 
-    .hero__bg {
+    .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=1920&q=80');
+      background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=80');
       background-size: cover;
-      background-position: center 30%;
+      background-position: center;
+      transform: scale(1.08);
       will-change: transform;
     }
 
-    .hero__overlay {
+    .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        135deg,
-        rgba(22, 16, 10, 0.87) 0%,
-        rgba(22, 16, 10, 0.68) 50%,
-        rgba(22, 16, 10, 0.80) 100%
-      );
+      background: linear-gradient(120deg, rgba(11,11,11,0.92) 0%, rgba(11,11,11,0.55) 100%);
     }
 
-    .hero__content {
+    .hero-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.65) 100%);
+    }
+
+    .hero-inner {
       position: relative;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 120px 24px 80px;
+      z-index: 2;
       width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 48px;
     }
 
-    .hero__eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.75rem;
+    .hero-eyebrow {
+      font-size: 0.65rem;
       font-weight: 600;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.32em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 28px;
+      margin-bottom: 24px;
       opacity: 0;
     }
 
-    .hero__eyebrow::before,
-    .hero__eyebrow::after {
-      content: '';
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 9vw, 9rem);
+      line-height: 0.92;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      margin-bottom: 32px;
+      overflow: hidden;
+    }
+
+    .hero-title-line {
       display: block;
-      height: 1px;
-      width: 32px;
-      background: var(--gold);
-      opacity: 0.6;
+      overflow: hidden;
     }
 
-    .hero__headline {
-      font-family: var(--font-display);
-      font-size: clamp(2.6rem, 6vw, 5rem);
-      font-weight: 700;
-      line-height: 1.1;
-      letter-spacing: -0.01em;
-      color: var(--text);
-      max-width: 680px;
-      margin-bottom: 20px;
-      opacity: 0;
+    .hero-title-line span {
+      display: block;
+      transform: translateY(110%);
     }
 
-    .hero__headline em {
-      font-style: italic;
-      color: var(--gold);
-    }
-
-    .hero__subline {
-      font-size: clamp(1rem, 2vw, 1.2rem);
+    .hero-sub {
+      font-size: 1rem;
       font-weight: 300;
-      color: var(--text-muted);
+      color: rgba(245,245,240,0.65);
       max-width: 480px;
+      line-height: 1.85;
       margin-bottom: 44px;
       opacity: 0;
     }
 
-    .hero__actions {
+    .hero-ctas {
       display: flex;
-      gap: 16px;
+      gap: 14px;
       flex-wrap: wrap;
       opacity: 0;
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 15px 32px;
-      border-radius: 4px;
-      font-family: var(--font-body);
-      font-size: 0.9rem;
+    .btn-primary {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
       font-weight: 600;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 13px 30px;
+      background: var(--navy);
+      color: var(--white);
+      border: none;
       cursor: pointer;
-      transition: background 0.2s, color 0.2s, border-color 0.2s;
-      white-space: nowrap;
+      transition: background 0.2s;
+      display: inline-block;
     }
 
-    .btn--filled {
-      background: var(--gold);
-      color: #16100A;
-      border: 2px solid transparent;
-    }
+    .btn-primary:hover { background: var(--navy2); }
 
-    .btn--filled:hover { background: #d9b030; }
-
-    .btn--ghost {
+    .btn-ghost {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 13px 30px;
       background: transparent;
-      color: var(--text);
-      border: 2px solid var(--gold);
+      color: var(--white);
+      border: 1px solid rgba(245,245,240,0.3);
+      cursor: pointer;
+      transition: border-color 0.2s;
+      display: inline-block;
     }
 
-    .btn--ghost:hover {
-      background: rgba(201, 160, 32, 0.12);
+    .btn-ghost:hover { border-color: rgba(245,245,240,0.7); }
+
+    .hero-badges {
+      position: absolute;
+      bottom: 48px;
+      right: 48px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      opacity: 0;
+    }
+
+    .hero-badge {
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(245,245,240,0.5);
+      border: 1px solid rgba(245,245,240,0.15);
+      padding: 5px 12px;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 48px;
+      left: 48px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      opacity: 0;
+    }
+
+    .hero-scroll span {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.2); }
+    }
+
+    /* ── STATEMENT ── */
+    .statement {
+      background: var(--bg);
+      padding: 140px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .statement::before,
+    .statement::after {
+      content: '';
+      position: absolute;
+      top: 20%;
+      width: 1px;
+      height: 120px;
+      background: linear-gradient(to bottom, transparent, rgba(245,245,240,0.12), transparent);
+    }
+
+    .statement::before { left: 64px; }
+    .statement::after { right: 64px; }
+
+    .statement-eyebrow {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
       color: var(--gold);
+      margin-bottom: 28px;
     }
 
-    /* ── STAT BAND ──────────────────────────────────────────────── */
-    .stats {
-      background: var(--bg-raised);
+    .statement-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 7vw, 6.5rem);
+      line-height: 0.95;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      margin-bottom: 28px;
+    }
+
+    .statement-line {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin: 0 auto 28px;
+      transform-origin: center;
+      transform: scaleX(0);
+    }
+
+    .statement-sub {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.85;
+    }
+
+    /* ── STATS ── */
+    .stats-band {
+      background: var(--bg2);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
 
-    .stats__inner {
-      max-width: 1200px;
+    .stats-inner {
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 48px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      divide-x: 1px solid var(--border);
     }
 
     .stat {
-      padding: 36px 24px;
+      padding: 56px 32px;
       text-align: center;
       border-right: 1px solid var(--border);
-      opacity: 0;
     }
 
     .stat:last-child { border-right: none; }
 
-    .stat__value {
-      font-family: var(--font-display);
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--gold);
+    .stat-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.8rem;
+      letter-spacing: 0.04em;
+      color: var(--white);
       line-height: 1;
-      margin-bottom: 8px;
-    }
-
-    .stat__label {
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    /* ── SECTION COMMONS ────────────────────────────────────────── */
-    .section {
-      padding: 96px 24px;
-    }
-
-    .section__inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section__tag {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 12px;
-      display: block;
-    }
-
-    .section__title {
-      font-family: var(--font-display);
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      font-weight: 700;
-      line-height: 1.15;
-      color: var(--text);
-      margin-bottom: 16px;
-    }
-
-    .section__lead {
-      font-size: 1rem;
-      color: var(--text-muted);
-      max-width: 520px;
-      margin-bottom: 56px;
-    }
-
-    /* ── SERVICES ───────────────────────────────────────────────── */
-    .services__grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-    }
-
-    .service-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      padding: 40px 32px;
-      transition: background 0.25s;
-      opacity: 0;
-    }
-
-    .service-card:hover {
-      background: var(--bg-raised);
-    }
-
-    .service-card__icon {
-      width: 48px;
-      height: 48px;
-      margin-bottom: 24px;
-      color: var(--gold);
-    }
-
-    .service-card__title {
-      font-family: var(--font-display);
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--text);
       margin-bottom: 10px;
     }
 
-    .service-card__desc {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      line-height: 1.7;
+    .stat-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
     }
 
-    /* ── BENEFITS ───────────────────────────────────────────────── */
-    .benefits {
-      background: var(--bg-raised);
+    /* ── SERVICES ── */
+    .services {
+      background: var(--bg);
+      padding: 120px 48px;
     }
 
-    .benefits__grid {
+    .section-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      margin-bottom: 72px;
+    }
+
+    .section-eyebrow {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .section-header h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      letter-spacing: 0.04em;
+      color: var(--white);
+      line-height: 0.95;
+      max-width: 640px;
+    }
+
+    .section-header p {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.85;
+    }
+
+    .services-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
     }
 
-    .benefit {
-      background: var(--bg-card);
-      padding: 40px;
+    .service-card {
+      background: var(--bg2);
+      padding: 44px 40px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 1px;
+      background: var(--navy);
+      transition: width 0.4s ease;
+    }
+
+    .service-card:hover { background: var(--bg3); }
+    .service-card:hover::before { width: 100%; }
+
+    .service-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.14em;
+      color: var(--navy2);
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      margin-bottom: 14px;
+      line-height: 1.1;
+    }
+
+    .service-card p {
+      font-size: 0.84rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* ── ABOUT ── */
+    .about {
+      background: var(--bg2);
+      padding: 120px 48px;
+    }
+
+    .about-layout {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-content .section-eyebrow { color: var(--gold); }
+
+    .about-content h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      letter-spacing: 0.04em;
+      color: var(--white);
+      line-height: 0.95;
+      margin-bottom: 20px;
+    }
+
+    .about-content .intro {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 44px;
+    }
+
+    .about-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .about-item {
+      background: var(--bg3);
+      padding: 22px 24px;
+    }
+
+    .about-item-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .about-item-desc {
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+
+    .about-img-wrap {
+      position: relative;
+      overflow: hidden;
+      clip-path: inset(100% 0 0 0);
+    }
+
+    .about-img-wrap.revealed {
+      clip-path: inset(0% 0 0 0);
+      transition: clip-path 1.1s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .about-img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.08);
+      transition: transform 1.1s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .about-img-wrap.revealed .about-img {
+      transform: scale(1);
+    }
+
+    .about-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(11,11,11,0.8) 0%, transparent 50%);
+    }
+
+    .corner-tl, .corner-tr, .corner-bl, .corner-br {
+      position: absolute;
+      width: 24px; height: 24px;
+    }
+
+    .corner-tl { top: 12px; left: 12px; border-top: 1px solid rgba(245,245,240,0.3); border-left: 1px solid rgba(245,245,240,0.3); }
+    .corner-tr { top: 12px; right: 12px; border-top: 1px solid rgba(245,245,240,0.3); border-right: 1px solid rgba(245,245,240,0.3); }
+    .corner-bl { bottom: 12px; left: 12px; border-bottom: 1px solid rgba(245,245,240,0.3); border-left: 1px solid rgba(245,245,240,0.3); }
+    .corner-br { bottom: 12px; right: 12px; border-bottom: 1px solid rgba(245,245,240,0.3); border-right: 1px solid rgba(245,245,240,0.3); }
+
+    .about-badge-strip {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 24px 28px;
       display: flex;
-      gap: 24px;
-      opacity: 0;
+      gap: 8px;
+      flex-wrap: wrap;
     }
 
-    .benefit__icon-wrap {
+    .cbadge {
+      font-size: 0.56rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(245,245,240,0.6);
+      border: 1px solid rgba(245,245,240,0.18);
+      padding: 5px 10px;
+      background: rgba(11,11,11,0.6);
+    }
+
+    /* ── REVIEWS ── */
+    .reviews {
+      background: var(--bg);
+      padding: 120px 48px;
+    }
+
+    .reviews-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 64px;
+      gap: 24px;
+    }
+
+    .google-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      padding: 14px 20px;
       flex-shrink: 0;
-      width: 48px;
-      height: 48px;
-      background: rgba(201, 160, 32, 0.1);
+    }
+
+    .google-g {
+      font-size: 1.2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #4285f4 0%, #ea4335 40%, #fbbc05 70%, #34a853 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-family: 'Jost', sans-serif;
+      line-height: 1;
+    }
+
+    .google-rating-val {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.7rem;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .google-stars-row {
+      display: flex;
+      gap: 2px;
+      margin: 3px 0;
+    }
+
+    .gstar { width: 12px; height: 12px; fill: #fbbc05; }
+
+    .google-rating-label {
+      font-size: 0.62rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .review-card {
+      background: var(--bg2);
+      padding: 40px;
+    }
+
+    .review-top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .reviewer-avatar {
+      width: 44px; height: 44px;
       border-radius: 50%;
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.06em;
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-shrink: 0;
     }
 
-    .benefit__icon-wrap svg {
-      width: 22px;
-      height: 22px;
-      color: var(--gold);
-    }
-
-    .benefit__title {
-      font-family: var(--font-display);
-      font-size: 1.05rem;
+    .reviewer-name {
+      font-size: 0.88rem;
       font-weight: 600;
-      color: var(--text);
-      margin-bottom: 8px;
+      color: var(--white);
     }
 
-    .benefit__desc {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      line-height: 1.7;
+    .reviewer-meta {
+      font-size: 0.7rem;
+      font-weight: 300;
+      color: var(--muted);
+      margin-top: 2px;
     }
 
-    /* ── GALLERY ────────────────────────────────────────────────── */
-    .gallery__grid {
+    .review-stars-row {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 18px;
+    }
+
+    .rstar { width: 13px; height: 13px; fill: #fbbc05; }
+
+    .review-text {
+      font-size: 0.86rem;
+      font-weight: 300;
+      color: rgba(245,245,240,0.7);
+      line-height: 1.85;
+      font-style: italic;
+    }
+
+    /* ── WHY US BAND ── */
+    .why-band {
+      background: var(--navy);
+      padding: 0;
+    }
+
+    .why-inner {
+      max-width: 1280px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 4px;
     }
 
-    .gallery__item {
-      aspect-ratio: 3/4;
-      overflow: hidden;
-      opacity: 0;
-    }
-
-    .gallery__item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s ease;
-    }
-
-    .gallery__item:hover img {
-      transform: scale(1.04);
-    }
-
-    /* ── TESTIMONIALS ───────────────────────────────────────────── */
-    .testimonials {
-      background: var(--bg-raised);
-    }
-
-    .testimonials__grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .testimonial {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      padding: 36px 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      opacity: 0;
-    }
-
-    .testimonial__stars {
-      display: flex;
-      gap: 4px;
-    }
-
-    .testimonial__stars svg {
-      width: 16px;
-      height: 16px;
-      fill: var(--gold);
-    }
-
-    .testimonial__text {
-      font-size: 0.925rem;
-      color: var(--text-muted);
-      line-height: 1.75;
-      font-style: italic;
-      flex: 1;
-    }
-
-    .testimonial__author {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .testimonial__name {
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: var(--text);
-    }
-
-    .testimonial__location {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    /* ── CTA SECTION ────────────────────────────────────────────── */
-    .cta-section {
-      background: var(--bg-card);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .cta-section__inner {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 100px 24px;
+    .why-item {
+      padding: 52px 36px;
+      border-right: 1px solid rgba(245,245,240,0.1);
       text-align: center;
     }
 
-    .cta-section__title {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 16px;
-      line-height: 1.15;
+    .why-item:last-child { border-right: none; }
+
+    .why-item h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      margin-bottom: 10px;
     }
 
-    .cta-section__title em {
-      color: var(--gold);
-      font-style: italic;
+    .why-item p {
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: rgba(245,245,240,0.65);
+      line-height: 1.75;
     }
 
-    .cta-section__sub {
-      font-size: 1rem;
-      color: var(--text-muted);
-      margin-bottom: 40px;
+    /* ── SECTORS ── */
+    .sectors {
+      background: var(--bg2);
+      padding: 120px 48px;
     }
 
-    .cta-section__actions {
+    .sectors-layout {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .sectors-left h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      letter-spacing: 0.04em;
+      color: var(--white);
+      line-height: 0.95;
+      margin-bottom: 20px;
+    }
+
+    .sectors-left .intro {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 36px;
+    }
+
+    .btn-solid {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 13px 30px;
+      background: var(--white);
+      color: var(--bg);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      display: inline-block;
+    }
+
+    .btn-solid:hover { background: rgba(245,245,240,0.85); }
+
+    .sectors-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .sector-item {
+      background: var(--bg3);
+      padding: 22px 24px;
       display: flex;
-      gap: 16px;
+      align-items: center;
+      gap: 14px;
+      transition: background 0.2s;
+    }
+
+    .sector-item:hover { background: rgba(26,58,107,0.18); }
+
+    .sector-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--navy2);
+      flex-shrink: 0;
+    }
+
+    .sector-name {
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: rgba(245,245,240,0.75);
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: var(--bg);
+      padding: 140px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(26,58,107,0.14) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-section .section-eyebrow { color: var(--gold); text-align: center; }
+
+    .cta-section h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 6vw, 6rem);
+      letter-spacing: 0.04em;
+      color: var(--white);
+      line-height: 0.95;
+      margin-bottom: 20px;
+    }
+
+    .cta-section p {
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto 48px;
+      line-height: 1.85;
+    }
+
+    .cta-btns {
+      display: flex;
+      gap: 14px;
       justify-content: center;
       flex-wrap: wrap;
     }
 
-    /* ── FOOTER ─────────────────────────────────────────────────── */
-    .footer {
-      background: var(--bg);
-      border-top: 1px solid var(--border);
-      padding: 56px 24px 40px;
-    }
-
-    .footer__inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr;
-      gap: 48px;
-    }
-
-    .footer__brand {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .footer__logo {
-      font-family: var(--font-display);
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .footer__logo span { color: var(--gold); }
-
-    .footer__tagline {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-    }
-
-    .footer__heading {
+    .btn-cta-primary {
+      font-family: 'Jost', sans-serif;
       font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
+      font-weight: 600;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--gold);
+      text-decoration: none;
+      padding: 13px 36px;
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: inline-block;
+    }
+
+    .btn-cta-primary:hover { background: var(--navy2); }
+
+    .btn-cta-ghost {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 13px 36px;
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(245,245,240,0.25);
+      cursor: pointer;
+      transition: border-color 0.2s;
+      display: inline-block;
+    }
+
+    .btn-cta-ghost:hover { border-color: rgba(245,245,240,0.6); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #060606;
+      padding: 72px 48px 40px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner { max-width: 1280px; margin: 0 auto; }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 52px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .footer-wordmark {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.14em;
+      color: var(--white);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .footer-sub {
+      font-size: 0.54rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(245,245,240,0.25);
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .footer-brand p {
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: rgba(245,245,240,0.3);
+      line-height: 1.75;
+    }
+
+    .footer-col h5 {
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(245,245,240,0.3);
       margin-bottom: 18px;
     }
 
-    .footer__list {
+    .footer-col ul {
       list-style: none;
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
 
-    .footer__list a {
-      font-size: 0.875rem;
-      color: var(--text-muted);
+    .footer-col ul li a {
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: rgba(245,245,240,0.35);
+      text-decoration: none;
       transition: color 0.2s;
     }
 
-    .footer__list a:hover { color: var(--text); }
+    .footer-col ul li a:hover { color: var(--white); }
 
-    .footer__contact-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      margin-bottom: 12px;
+    .footer-contact p {
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: rgba(245,245,240,0.35);
+      line-height: 2;
     }
 
-    .footer__contact-item svg {
-      flex-shrink: 0;
-      width: 16px;
-      height: 16px;
-      color: var(--gold);
-      margin-top: 2px;
+    .footer-contact a {
+      color: rgba(245,245,240,0.35);
+      text-decoration: none;
+      transition: color 0.2s;
     }
 
-    .footer__bottom {
-      max-width: 1200px;
-      margin: 40px auto 0;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
+    .footer-contact a:hover { color: var(--white); }
+
+    .footer-bottom {
+      padding-top: 28px;
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
+      gap: 24px;
     }
 
-    .footer__copy {
-      font-size: 0.8rem;
-      color: var(--text-muted);
+    .footer-bottom p {
+      font-size: 0.7rem;
+      font-weight: 300;
+      color: rgba(245,245,240,0.18);
     }
 
-    /* ── DIVIDER ─────────────────────────────────────────────────── */
-    .gold-divider {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 48px;
+    .footer-legal { display: flex; gap: 24px; }
+
+    .footer-legal a {
+      font-size: 0.7rem;
+      font-weight: 300;
+      color: rgba(245,245,240,0.18);
+      text-decoration: none;
+      transition: color 0.2s;
     }
 
-    .gold-divider::before {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--gold));
-      opacity: 0.35;
+    .footer-legal a:hover { color: rgba(245,245,240,0.5); }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
-    .gold-divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(to left, transparent, var(--gold));
-      opacity: 0.35;
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .about-layout { grid-template-columns: 1fr; gap: 48px; }
+      .sectors-layout { grid-template-columns: 1fr; gap: 48px; }
     }
 
-    .gold-divider__diamond {
-      width: 8px;
-      height: 8px;
-      background: var(--gold);
-      transform: rotate(45deg);
-      flex-shrink: 0;
-    }
-
-    /* ── MOBILE ──────────────────────────────────────────────────── */
     @media (max-width: 900px) {
-      .nav__links { display: none; }
-      .nav__hamburger { display: flex; }
-
-      .stats__inner {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .stat:nth-child(2) { border-right: none; }
-      .stat:nth-child(3) { border-right: 1px solid var(--border); }
-      .stat:nth-child(3),
-      .stat:nth-child(4) {
-        border-top: 1px solid var(--border);
-      }
-
-      .services__grid {
-        grid-template-columns: 1fr;
-      }
-
-      .benefits__grid {
-        grid-template-columns: 1fr;
-      }
-
-      .gallery__grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .testimonials__grid {
-        grid-template-columns: 1fr;
-      }
-
-      .footer__inner {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .hero-inner { padding: 0 24px; }
+      .hero-badges { right: 24px; bottom: 80px; }
+      .hero-scroll { left: 24px; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); padding: 0 24px; }
+      .services { padding: 80px 24px; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .about { padding: 80px 24px; }
+      .reviews { padding: 80px 24px; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .why-inner { grid-template-columns: repeat(2, 1fr); }
+      .sectors { padding: 80px 24px; }
+      .cta-section { padding: 100px 24px; }
+      footer { padding: 60px 24px 32px; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .statement { padding: 100px 24px; }
     }
 
     @media (max-width: 600px) {
-      .section { padding: 64px 20px; }
-
-      .hero__actions { flex-direction: column; }
-      .hero__actions .btn { width: 100%; }
-
-      .stats__inner {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .gallery__grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .cta-section__actions { flex-direction: column; align-items: center; }
-      .cta-section__actions .btn { width: 100%; max-width: 300px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .why-inner { grid-template-columns: 1fr 1fr; }
+      .sectors-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .reviews-header { flex-direction: column; align-items: flex-start; }
+      .about-list { grid-template-columns: 1fr; }
+      .hero-badges { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav class="nav" id="nav">
-    <div class="nav__inner">
-      <a href="#" class="nav__logo">Birmingham <span>Blinds 4U</span></a>
-      <ul class="nav__links">
-        <li><a href="#services">Blinds</a></li>
-        <li><a href="#services">Shutters</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#contact" class="nav__cta">Book Free Consultation</a></li>
-      </ul>
-      <button class="nav__hamburger" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+  <!-- Grain -->
+  <div class="grain"></div>
+
+  <!-- ── NAV ── -->
+  <nav id="nav">
+    <div class="nav-brand">
+      <a class="wordmark" href="#">BIRMINGHAM BLINDS 4U</a>
+      <span class="tagline">Blinds Retailer &amp; Installer — Birmingham</span>
     </div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#sectors">Rooms</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="tel:+441214493000" class="btn-nav">Free Measuring &amp; Quote</a>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <div class="hero__bg" id="hero-bg"></div>
-    <div class="hero__overlay"></div>
-    <div class="hero__content">
-      <div class="hero__eyebrow" id="hero-eyebrow">Birmingham Blinds 4U</div>
-      <h1 class="hero__headline" id="hero-headline">
-        London Quality.<br /><em>Birmingham Service.</em>
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-vignette"></div>
+    <div class="hero-inner">
+      <p class="hero-eyebrow" id="heroEyebrow">Birmingham — Est. 2010 — B36 8PU</p>
+      <h1 class="hero-title">
+        <span class="hero-title-line"><span>BEAUTIFUL</span></span>
+        <span class="hero-title-line"><span>BLINDS FITTED</span></span>
+        <span class="hero-title-line"><span>THROUGHOUT BIRMINGHAM</span></span>
       </h1>
-      <p class="hero__subline" id="hero-subline">
-        15+ Years of Excellence, Now Serving Birmingham. Made-to-measure blinds and shutters crafted to transform your home.
-      </p>
-      <div class="hero__actions" id="hero-actions">
-        <a href="#contact" class="btn btn--filled">Book Free Consultation</a>
-        <a href="#services" class="btn btn--ghost">Explore Our Range</a>
+      <p class="hero-sub" id="heroSub">Birmingham's trusted blind specialists. We supply and fit roller blinds, venetians, vertical, roman, and day &amp; night blinds — all made to measure, all fitted by our own team.</p>
+      <div class="hero-ctas" id="heroCtas">
+        <a href="tel:+441214493000" class="btn-primary">Get Your Free Measuring &amp; Quote</a>
+        <a href="#services" class="btn-ghost">Our Blinds</a>
+      </div>
+    </div>
+    <div class="hero-badges" id="heroBadges">
+      <span class="hero-badge">Made to Measure</span>
+      <span class="hero-badge">Free Measuring</span>
+      <span class="hero-badge">Expert Fitting</span>
+      <span class="hero-badge">Birmingham Local</span>
+    </div>
+    <div class="hero-scroll" id="heroScroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ── STATEMENT ── -->
+  <section class="statement">
+    <p class="section-eyebrow reveal">Our promise</p>
+    <h2 class="statement-title reveal">BEAUTIFUL BLINDS FITTED<br>THROUGHOUT BIRMINGHAM</h2>
+    <div class="statement-line reveal" id="statementLine"></div>
+    <p class="statement-sub reveal">For over 15 years, Birmingham Blinds 4U has supplied and fitted made-to-measure blinds in homes and businesses across Birmingham. We measure, advise, and fit everything ourselves — giving you quality you can trust at prices you'll appreciate.</p>
+  </section>
+
+  <!-- ── STATS ── -->
+  <section class="stats-band">
+    <div class="stats-inner">
+      <div class="stat reveal">
+        <div class="stat-number" data-count="15" data-suffix="+">0+</div>
+        <div class="stat-label">Years in Birmingham</div>
+      </div>
+      <div class="stat reveal reveal-delay-1">
+        <div class="stat-number" data-count="4.7" data-suffix="" data-decimal="true">0</div>
+        <div class="stat-label">Google Rating</div>
+      </div>
+      <div class="stat reveal reveal-delay-2">
+        <div class="stat-number" data-count="100" data-suffix="%">0%</div>
+        <div class="stat-label">Free Measuring</div>
+      </div>
+      <div class="stat reveal reveal-delay-3">
+        <div class="stat-number" data-count="100" data-suffix="%">0%</div>
+        <div class="stat-label">Competitive Prices</div>
       </div>
     </div>
   </section>
 
-  <!-- STAT BAND -->
-  <section class="stats" id="about">
-    <div class="stats__inner">
-      <div class="stat" id="stat-0">
-        <div class="stat__value">15+</div>
-        <div class="stat__label">Years Experience</div>
+  <!-- ── SERVICES ── -->
+  <section class="services" id="services">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">What we supply &amp; fit</p>
+        <h2>MADE-TO-MEASURE BLINDS FOR EVERY WINDOW</h2>
+        <p>From simple roller blinds to day &amp; night dual fabric systems — we stock a wide range of styles and measure every window ourselves for a perfect fit.</p>
       </div>
-      <div class="stat" id="stat-1">
-        <div class="stat__value">100%</div>
-        <div class="stat__label">Made-to-Measure</div>
-      </div>
-      <div class="stat" id="stat-2">
-        <div class="stat__value">Free</div>
-        <div class="stat__label">Home Consultation</div>
-      </div>
-      <div class="stat" id="stat-3">
-        <div class="stat__value">5★</div>
-        <div class="stat__label">Expert Advice</div>
-      </div>
-    </div>
-  </section>
+      <div class="services-grid">
 
-  <!-- SERVICES -->
-  <section class="section" id="services">
-    <div class="section__inner">
-      <span class="section__tag">Our Products</span>
-      <h2 class="section__title">Premium Blinds &amp; Shutters</h2>
-      <p class="section__lead">Every product is made to measure for a perfect fit, using only the finest materials sourced from trusted suppliers.</p>
-
-      <div class="services__grid">
-
-        <!-- Roller Blinds -->
-        <div class="service-card" id="svc-0">
-          <svg class="service-card__icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="8" y="8" width="32" height="5" rx="1"/>
-            <line x1="24" y1="13" x2="24" y2="40"/>
-            <path d="M16 40 Q24 37 32 40"/>
-            <circle cx="24" cy="10.5" r="1.5" fill="currentColor" stroke="none"/>
-          </svg>
-          <h3 class="service-card__title">Roller Blinds</h3>
-          <p class="service-card__desc">Sleek, space-saving roller blinds available in an extensive range of fabrics — from sheer voiles to total blackout. Perfect for any room.</p>
+        <div class="service-card reveal">
+          <div class="service-num">01</div>
+          <h3>Roller Blinds</h3>
+          <p>Our most popular choice. Clean, simple, and available in blackout, light-filter, and printed fabrics. Made to your exact measurements for every room.</p>
         </div>
 
-        <!-- Plantation Shutters -->
-        <div class="service-card" id="svc-1">
-          <svg class="service-card__icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="8" y="6" width="32" height="36" rx="1"/>
-            <line x1="8" y1="24" x2="40" y2="24"/>
-            <line x1="13" y1="12" x2="35" y2="12"/>
-            <line x1="13" y1="18" x2="35" y2="18"/>
-            <line x1="13" y1="30" x2="35" y2="30"/>
-            <line x1="13" y1="36" x2="35" y2="36"/>
-          </svg>
-          <h3 class="service-card__title">Plantation Shutters</h3>
-          <p class="service-card__desc">Timeless solid shutters that add instant kerb appeal and insulation. Our London-trained fitters ensure a precise installation every time.</p>
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-num">02</div>
+          <h3>Venetian Blinds</h3>
+          <p>Aluminium and real wood venetians for precise light and privacy control. A timeless choice for kitchens, bathrooms, and home offices across Birmingham.</p>
         </div>
 
-        <!-- Venetian Blinds -->
-        <div class="service-card" id="svc-2">
-          <svg class="service-card__icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="8" y="8" width="32" height="4" rx="1"/>
-            <rect x="8" y="18" width="32" height="4" rx="1"/>
-            <rect x="8" y="28" width="32" height="4" rx="1"/>
-            <rect x="8" y="38" width="32" height="4" rx="1"/>
-            <line x1="20" y1="8" x2="20" y2="42"/>
-            <line x1="28" y1="8" x2="28" y2="42"/>
-          </svg>
-          <h3 class="service-card__title">Venetian Blinds</h3>
-          <p class="service-card__desc">Classic aluminium or real wood Venetians with adjustable slats for precise light control. A sophisticated solution for offices and living spaces alike.</p>
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-num">03</div>
+          <h3>Vertical Blinds</h3>
+          <p>Ideal for large windows, patio doors, and conservatories. Available in fabric, PVC, and blackout finishes with a wide choice of colours and textures.</p>
         </div>
 
-        <!-- Roman Blinds -->
-        <div class="service-card" id="svc-3">
-          <svg class="service-card__icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="8" y="7" width="32" height="5" rx="1"/>
-            <path d="M10 12 Q10 18 8 22 Q10 26 10 32 Q10 38 10 42"/>
-            <path d="M38 12 Q38 18 40 22 Q38 26 38 32 Q38 38 38 42"/>
-            <line x1="10" y1="22" x2="38" y2="22"/>
-            <line x1="10" y1="32" x2="38" y2="32"/>
-          </svg>
-          <h3 class="service-card__title">Roman Blinds</h3>
-          <p class="service-card__desc">Luxuriously soft fabric blinds that fold into elegant horizontal pleats. Available in hundreds of premium fabrics to complement any décor.</p>
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-num">04</div>
+          <h3>Roman Blinds</h3>
+          <p>Elegant fabric roman blinds that fold neatly when raised. Perfect for adding warmth and style to living rooms, bedrooms, and bay windows.</p>
         </div>
 
-        <!-- Blackout Blinds -->
-        <div class="service-card" id="svc-4">
-          <svg class="service-card__icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M24 6 C14 6 6 14 6 24 C6 34 14 42 24 42 C34 42 42 34 42 24 C42 14 34 6 24 6Z"/>
-            <path d="M16 24 C16 19.6 19.6 16 24 16 C28.4 16 32 19.6 32 24" stroke="currentColor"/>
-            <line x1="6" y1="6" x2="42" y2="42" stroke="currentColor"/>
-          </svg>
-          <h3 class="service-card__title">Blackout Blinds</h3>
-          <p class="service-card__desc">Total room darkening for better sleep and home cinema perfection. Our blackout blinds eliminate light bleed with precision-fitted cassette systems.</p>
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-num">05</div>
+          <h3>Day &amp; Night Blinds</h3>
+          <p>Dual-fabric roller blinds with alternating sheer and blackout zones, letting you control light and privacy precisely throughout the day.</p>
         </div>
 
-        <!-- Made-to-Measure -->
-        <div class="service-card" id="svc-5">
-          <svg class="service-card__icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M8 34 L14 8 L34 14 L28 40 Z"/>
-            <line x1="14" y1="8" x2="8" y2="34"/>
-            <circle cx="21" cy="21" r="4"/>
-            <line x1="36" y1="12" x2="42" y2="6"/>
-            <line x1="36" y1="18" x2="42" y2="18"/>
-            <line x1="30" y1="36" x2="36" y2="42"/>
-          </svg>
-          <h3 class="service-card__title">Made-to-Measure</h3>
-          <p class="service-card__desc">Every order is custom crafted to your exact window dimensions. No off-the-shelf compromise — just a perfect fit, guaranteed, with our quality warranty.</p>
+        <div class="service-card reveal reveal-delay-3">
+          <div class="service-num">06</div>
+          <h3>Supply &amp; Fit Service</h3>
+          <p>We handle everything — measuring, ordering, and fitting. Our own fitters ensure every blind is hung level, tight, and exactly as specified.</p>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- BENEFITS -->
-  <section class="section benefits" id="why-us">
-    <div class="section__inner">
-      <span class="section__tag">Why Choose Us</span>
-      <h2 class="section__title">London Pedigree.<br />Birmingham Heart.</h2>
-      <p class="section__lead">We bring over 15 years of premium London craftsmanship direct to your Birmingham home — without the London price tag.</p>
-
-      <div class="benefits__grid">
-
-        <div class="benefit" id="ben-0">
-          <div class="benefit__icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/>
-              <polyline points="12 6 12 12 16 14"/>
-            </svg>
-          </div>
-          <div>
-            <h3 class="benefit__title">15+ Years London Expertise</h3>
-            <p class="benefit__desc">Our team honed their craft fitting blinds and shutters in London's most prestigious homes. That same standard of excellence now serves Birmingham.</p>
-          </div>
-        </div>
-
-        <div class="benefit" id="ben-1">
-          <div class="benefit__icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-              <polyline points="9 22 9 12 15 12 15 22"/>
-            </svg>
-          </div>
-          <div>
-            <h3 class="benefit__title">Free Home Visit</h3>
-            <p class="benefit__desc">We come to you. Our expert consultants measure every window, advise on the best solutions, and provide a full no-obligation quote — all at no cost.</p>
-          </div>
-        </div>
-
-        <div class="benefit" id="ben-2">
-          <div class="benefit__icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
-          </div>
-          <div>
-            <h3 class="benefit__title">Quality Guarantee</h3>
-            <p class="benefit__desc">Every installation is backed by our comprehensive quality guarantee. If it is not perfect, we will return and make it right — no questions asked.</p>
-          </div>
-        </div>
-
-        <div class="benefit" id="ben-3">
-          <div class="benefit__icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
-            </svg>
-          </div>
-          <div>
-            <h3 class="benefit__title">Bespoke Fitting Service</h3>
-            <p class="benefit__desc">Our skilled fitters treat your home with the utmost care. Dust sheets, precise installation, and a thorough clean-up are all part of the standard service.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- GALLERY -->
-  <section class="section" id="gallery">
-    <div class="section__inner">
-      <span class="section__tag">Portfolio</span>
-      <h2 class="section__title">Our Recent Installations</h2>
-      <p class="section__lead">A glimpse into the beautiful homes we have transformed across Birmingham and beyond.</p>
-
-      <div class="gallery__grid">
-        <div class="gallery__item" id="gal-0">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80" alt="Living room with elegant roller blinds" loading="lazy" />
-        </div>
-        <div class="gallery__item" id="gal-1">
-          <img src="https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?auto=format&fit=crop&w=800&q=80" alt="Bedroom with blackout blinds" loading="lazy" />
-        </div>
-        <div class="gallery__item" id="gal-2">
-          <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="Modern kitchen with venetian blinds" loading="lazy" />
-        </div>
-        <div class="gallery__item" id="gal-3">
-          <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=800&q=80" alt="Stylish living room with plantation shutters" loading="lazy" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="section testimonials">
-    <div class="section__inner">
-      <span class="section__tag">Customer Reviews</span>
-      <h2 class="section__title">What Our Clients Say</h2>
-      <p class="section__lead">Real feedback from real Birmingham homeowners who trust us to elevate their living spaces.</p>
-
-      <div class="testimonials__grid">
-
-        <div class="testimonial" id="tst-0">
-          <div class="testimonial__stars">
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <p class="testimonial__text">"Absolutely superb service from start to finish. The plantation shutters they fitted in our lounge look stunning — the quality is on par with anything I have seen in London. Highly recommend."</p>
-          <div class="testimonial__author">
-            <span class="testimonial__name">Sarah M.</span>
-            <span class="testimonial__location">Solihull, Birmingham</span>
-          </div>
-        </div>
-
-        <div class="testimonial" id="tst-1">
-          <div class="testimonial__stars">
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <p class="testimonial__text">"We had blackout blinds fitted in three bedrooms. The fitter was punctual, tidy, and incredibly professional. The difference in our sleep quality has been remarkable. Worth every penny."</p>
-          <div class="testimonial__author">
-            <span class="testimonial__name">James &amp; Claire T.</span>
-            <span class="testimonial__location">Erdington, Birmingham</span>
-          </div>
-        </div>
-
-        <div class="testimonial" id="tst-2">
-          <div class="testimonial__stars">
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <p class="testimonial__text">"The free home consultation was so helpful — no pressure at all, just excellent advice. The Roman blinds they chose for our dining room are perfect. The whole experience was first class."</p>
-          <div class="testimonial__author">
-            <span class="testimonial__name">Priya K.</span>
-            <span class="testimonial__location">Sutton Coldfield, Birmingham</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA SECTION -->
-  <section class="cta-section" id="contact">
-    <div class="cta-section__inner">
-      <div class="gold-divider"><div class="gold-divider__diamond"></div></div>
-      <h2 class="cta-section__title" id="cta-title">Transform Your Home <em>Today</em></h2>
-      <p class="cta-section__sub">Book your free, no-obligation home consultation and discover the Birmingham Blinds 4U difference.</p>
-      <div class="cta-section__actions">
-        <a href="tel:+447932027717" class="btn btn--filled">Call +44 7932 027717</a>
-        <a href="mailto:info@birminghamblinds4u.co.uk" class="btn btn--ghost">Send an Enquiry</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer__inner">
-
-      <div class="footer__brand">
-        <div class="footer__logo">Birmingham <span>Blinds 4U</span></div>
-        <p class="footer__tagline">
-          Made-to-measure blinds and shutters with over 15 years of London expertise, now proudly serving Birmingham and the West Midlands.
-        </p>
-        <p class="footer__tagline" style="margin-top: 4px; font-size: 0.78rem;">
-          An extension of London Blinds 4U — the same premium quality, closer to home.
-        </p>
-      </div>
-
-      <div>
-        <p class="footer__heading">Our Services</p>
-        <ul class="footer__list">
-          <li><a href="#services">Roller Blinds</a></li>
-          <li><a href="#services">Plantation Shutters</a></li>
-          <li><a href="#services">Venetian Blinds</a></li>
-          <li><a href="#services">Roman Blinds</a></li>
-          <li><a href="#services">Blackout Blinds</a></li>
-          <li><a href="#services">Made-to-Measure</a></li>
+  <!-- ── ABOUT ── -->
+  <section class="about" id="about">
+    <div class="about-layout">
+      <div class="about-content reveal">
+        <p class="section-eyebrow">Why Birmingham Blinds 4U</p>
+        <h2>YOUR LOCAL BIRMINGHAM BLIND SPECIALISTS</h2>
+        <p class="intro">We are a Birmingham-based blind supplier and fitter serving customers across B36 and the wider West Midlands. Every order starts with a free home measuring visit — no guesswork, no flat-pack returns. We measure every window ourselves and return to fit when your blinds are ready.</p>
+        <ul class="about-list">
+          <li class="about-item">
+            <div class="about-item-name">Free Home Measuring</div>
+            <div class="about-item-desc">We visit and measure every window at no cost to you</div>
+          </li>
+          <li class="about-item">
+            <div class="about-item-name">Wide Range</div>
+            <div class="about-item-desc">Hundreds of fabrics, colours, and blind styles to choose from</div>
+          </li>
+          <li class="about-item">
+            <div class="about-item-name">Expert Fitting</div>
+            <div class="about-item-desc">All installations done by our own experienced fitters</div>
+          </li>
+          <li class="about-item">
+            <div class="about-item-name">Birmingham Local</div>
+            <div class="about-item-desc">Based in B36, serving all Birmingham postcodes since 2010</div>
+          </li>
+          <li class="about-item">
+            <div class="about-item-name">Competitive Prices</div>
+            <div class="about-item-desc">Transparent quotes with no hidden charges or upselling</div>
+          </li>
+          <li class="about-item">
+            <div class="about-item-name">Aftercare</div>
+            <div class="about-item-desc">We stand behind every installation with full support</div>
+          </li>
         </ul>
       </div>
+      <div class="about-visual reveal reveal-delay-2" id="aboutVisual">
+        <div class="about-img-wrap" id="aboutImgWrap">
+          <img
+            class="about-img"
+            src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80"
+            alt="Birmingham Blinds 4U showroom and fitting"
+          />
+          <div class="about-img-overlay"></div>
+          <div class="about-badge-strip">
+            <span class="cbadge">Made to Measure</span>
+            <span class="cbadge">Free Measuring</span>
+            <span class="cbadge">Birmingham B36</span>
+          </div>
+        </div>
+        <div class="corner-tl"></div>
+        <div class="corner-tr"></div>
+        <div class="corner-bl"></div>
+        <div class="corner-br"></div>
+      </div>
+    </div>
+  </section>
 
-      <div>
-        <p class="footer__heading">Contact Us</p>
-        <div class="footer__contact-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-            <circle cx="12" cy="10" r="3"/>
-          </svg>
-          <span>33 Berrandale Rd, Birmingham B36 8PU, United Kingdom</span>
+  <!-- ── REVIEWS ── -->
+  <section class="reviews" id="reviews">
+    <div class="section-inner">
+      <div class="reviews-header reveal">
+        <div>
+          <p class="section-eyebrow">Customer reviews</p>
+          <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,5vw,5rem);letter-spacing:0.04em;color:var(--white);line-height:0.95;">TRUSTED IN BIRMINGHAM</h2>
         </div>
-        <div class="footer__contact-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 0 0 .88 1.18 2 2 0 012.88 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.91 7.91a16 16 0 006.16 6.16l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/>
-          </svg>
-          <span><a href="tel:+447932027717" style="color: var(--text-muted);">+44 7932 027717</a></span>
-        </div>
-        <div class="footer__contact-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 16 14"/>
-          </svg>
-          <span>Mon–Sat: 9:00am – 6:00pm</span>
+        <div class="google-badge">
+          <div class="google-g">G</div>
+          <div>
+            <div class="google-rating-val">4.7</div>
+            <div class="google-stars-row">
+              <svg class="gstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="gstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="gstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="gstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="gstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div class="google-rating-label">Google Reviews</div>
+          </div>
         </div>
       </div>
+      <div class="reviews-grid">
 
+        <div class="review-card reveal">
+          <div class="review-top">
+            <div class="reviewer-avatar">SW</div>
+            <div>
+              <div class="reviewer-name">Sharon W.</div>
+              <div class="reviewer-meta">Birmingham homeowner — Roller blinds throughout</div>
+            </div>
+          </div>
+          <div class="review-stars-row">
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="review-text">"Had roller blinds fitted in every room — bedroom blackouts, kitchen light-filter, and lounge printed. All measured and fitted perfectly. The fitter was on time, tidy, and very professional. Will use again."</p>
+        </div>
+
+        <div class="review-card reveal reveal-delay-1">
+          <div class="review-top">
+            <div class="reviewer-avatar">PR</div>
+            <div>
+              <div class="reviewer-name">Paul R.</div>
+              <div class="reviewer-meta">Landlord — Multiple rental properties</div>
+            </div>
+          </div>
+          <div class="review-stars-row">
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="review-text">"I manage several rental properties across Birmingham and use Birmingham Blinds 4U for all of them. Fast, reliable, great prices, and the quality is good enough to last the duration of any tenancy. Highly recommended."</p>
+        </div>
+
+        <div class="review-card reveal reveal-delay-2">
+          <div class="review-top">
+            <div class="reviewer-avatar">AM</div>
+            <div>
+              <div class="reviewer-name">Angela M.</div>
+              <div class="reviewer-meta">Birmingham — Day &amp; night blinds bedroom</div>
+            </div>
+          </div>
+          <div class="review-stars-row">
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="review-text">"Chose day &amp; night blinds for my bedroom — they let in light during the day and block it completely at night. The advisor helped me choose the right colour and the fitting was quick and perfect. Absolutely delighted."</p>
+        </div>
+
+      </div>
     </div>
+  </section>
 
-    <div class="footer__bottom">
-      <span class="footer__copy">&copy; 2025 Birmingham Blinds 4U. All rights reserved.</span>
-      <span class="footer__copy">33 Berrandale Rd, Birmingham B36 8PU</span>
+  <!-- ── WHY US ── -->
+  <section class="why-band">
+    <div class="why-inner">
+      <div class="why-item reveal">
+        <h4>Free Home Measuring</h4>
+        <p>We visit your home, measure every window precisely, and quote — all completely free.</p>
+      </div>
+      <div class="why-item reveal reveal-delay-1">
+        <h4>Wide Range</h4>
+        <p>Hundreds of fabrics, colours, and styles across all blind types to match any room.</p>
+      </div>
+      <div class="why-item reveal reveal-delay-2">
+        <h4>Expert Fitting</h4>
+        <p>Every blind fitted by our own experienced team — level, tight, and exactly right.</p>
+      </div>
+      <div class="why-item reveal reveal-delay-3">
+        <h4>Birmingham Local</h4>
+        <p>Independently run, based in B36 — a Birmingham business serving Birmingham homes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTORS ── -->
+  <section class="sectors" id="sectors">
+    <div class="sectors-layout">
+      <div class="sectors-left reveal">
+        <p class="section-eyebrow">Every room covered</p>
+        <h2>BLINDS FOR EVERY ROOM IN YOUR HOME</h2>
+        <p class="intro">Whether you need blackout blinds for a bedroom, easy-clean venetians for a kitchen, or smart vertical blinds for a conservatory — we have the right solution and will fit it perfectly.</p>
+        <a href="tel:+441214493000" class="btn-solid">Book Free Measuring</a>
+      </div>
+      <div class="sectors-grid reveal reveal-delay-2">
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Living Rooms</div></div>
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Bedrooms</div></div>
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Kitchens</div></div>
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Home Offices</div></div>
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Conservatories</div></div>
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Rental Properties</div></div>
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Commercial Offices</div></div>
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">New Build Homes</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="cta-section" id="contact">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal">Get in touch</p>
+      <h2 class="reveal">GET YOUR FREE MEASURING<br>&amp; QUOTE TODAY</h2>
+      <p class="reveal reveal-delay-1">We'll visit your home, measure every window, and provide a full written quote — free, with no obligation to buy.</p>
+      <div class="cta-btns reveal reveal-delay-2">
+        <a href="tel:+441214493000" class="btn-cta-primary">Call Us Today</a>
+        <a href="mailto:info@birminghamblinds4u.co.uk" class="btn-cta-ghost">Send an Enquiry</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-wordmark">BIRMINGHAM BLINDS 4U</span>
+          <span class="footer-sub">Blinds Retailer &amp; Installer — Birmingham</span>
+          <p>Made-to-measure blinds supplied and fitted throughout Birmingham and the West Midlands. Free home measuring, expert fitting, and competitive prices since 2010.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="#services">Roller Blinds</a></li>
+            <li><a href="#services">Venetian Blinds</a></li>
+            <li><a href="#services">Vertical Blinds</a></li>
+            <li><a href="#services">Roman Blinds</a></li>
+            <li><a href="#services">Day &amp; Night Blinds</a></li>
+            <li><a href="#services">Supply &amp; Fit</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Rooms</h5>
+          <ul>
+            <li><a href="#sectors">Living Rooms</a></li>
+            <li><a href="#sectors">Bedrooms</a></li>
+            <li><a href="#sectors">Kitchens</a></li>
+            <li><a href="#sectors">Conservatories</a></li>
+            <li><a href="#sectors">Home Offices</a></li>
+            <li><a href="#sectors">Commercial</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-contact">
+          <h5>Contact</h5>
+          <p>
+            33 Berrandale Road<br>
+            Birmingham B36 8PU<br>
+            United Kingdom<br><br>
+            <a href="tel:+441214493000">0121 449 3000</a><br>
+            <a href="mailto:info@birminghamblinds4u.co.uk">info@birminghamblinds4u.co.uk</a>
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Birmingham Blinds 4U. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms &amp; Conditions</a>
+        </div>
+      </div>
     </div>
   </footer>
 
-  <!-- MOTION ONE ANIMATIONS -->
-  <script type="module">
-    import { animate, inView, stagger } from 'https://esm.sh/motion@10.18.0';
-
-    // Hero sequence
-    animate('#hero-eyebrow', { opacity: [0, 1], y: [20, 0] }, { duration: 0.7, delay: 0.2 });
-    animate('#hero-headline', { opacity: [0, 1], y: [30, 0] }, { duration: 0.8, delay: 0.45 });
-    animate('#hero-subline', { opacity: [0, 1], y: [20, 0] }, { duration: 0.7, delay: 0.65 });
-    animate('#hero-actions', { opacity: [0, 1], y: [20, 0] }, { duration: 0.7, delay: 0.85 });
-
-    // Stats
-    inView('.stats', () => {
-      animate('.stat', { opacity: [0, 1], y: [24, 0] }, {
-        duration: 0.55,
-        delay: stagger(0.1),
-      });
-    }, { amount: 0.3 });
-
-    // Service cards
-    inView('.services__grid', () => {
-      animate('.service-card', { opacity: [0, 1], y: [32, 0] }, {
-        duration: 0.6,
-        delay: stagger(0.08),
-      });
-    }, { amount: 0.1 });
-
-    // Benefits
-    inView('.benefits__grid', () => {
-      animate('.benefit', { opacity: [0, 1], x: [-24, 0] }, {
-        duration: 0.55,
-        delay: stagger(0.1),
-      });
-    }, { amount: 0.15 });
-
-    // Gallery
-    inView('.gallery__grid', () => {
-      animate('.gallery__item', { opacity: [0, 1], y: [20, 0] }, {
-        duration: 0.6,
-        delay: stagger(0.1),
-      });
-    }, { amount: 0.15 });
-
-    // Testimonials
-    inView('.testimonials__grid', () => {
-      animate('.testimonial', { opacity: [0, 1], y: [28, 0] }, {
-        duration: 0.6,
-        delay: stagger(0.12),
-      });
-    }, { amount: 0.15 });
-
-    // CTA title
-    inView('#cta-title', () => {
-      animate('#cta-title', { opacity: [0, 1], y: [20, 0] }, { duration: 0.7 });
-    }, { amount: 0.5 });
-
-    // Subtle hero parallax
+  <script>
+    const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
-      const y = window.scrollY;
-      const bg = document.getElementById('hero-bg');
-      if (bg) bg.style.transform = `translateY(${y * 0.35}px)`;
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    const heroBg = document.getElementById('heroBg');
+    window.addEventListener('scroll', () => {
+      heroBg.style.transform = `scale(1.08) translateY(${window.scrollY * 0.25}px)`;
     }, { passive: true });
+
+    (function heroIn() {
+      const lines = document.querySelectorAll('.hero-title-line span');
+      const eyebrow = document.getElementById('heroEyebrow');
+      const sub = document.getElementById('heroSub');
+      const ctas = document.getElementById('heroCtas');
+      const badges = document.getElementById('heroBadges');
+      const scroll = document.getElementById('heroScroll');
+
+      lines.forEach((line, i) => {
+        setTimeout(() => {
+          line.style.transition = 'transform 1s cubic-bezier(0.16, 1, 0.3, 1)';
+          line.style.transform = 'translateY(0)';
+        }, 200 + i * 140);
+      });
+
+      setTimeout(() => { eyebrow.style.transition = 'opacity 0.8s ease'; eyebrow.style.opacity = '1'; }, 100);
+      setTimeout(() => { sub.style.transition = 'opacity 0.8s ease'; sub.style.opacity = '1'; }, 700);
+      setTimeout(() => { ctas.style.transition = 'opacity 0.8s ease'; ctas.style.opacity = '1'; }, 900);
+      setTimeout(() => { badges.style.transition = 'opacity 0.8s ease'; badges.style.opacity = '1'; }, 1100);
+      setTimeout(() => { scroll.style.transition = 'opacity 0.8s ease'; scroll.style.opacity = '1'; }, 1300);
+    })();
+
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => revealObs.observe(el));
+
+    const stLine = document.getElementById('statementLine');
+    new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          stLine.style.transition = 'transform 0.9s cubic-bezier(0.16,1,0.3,1)';
+          stLine.style.transform = 'scaleX(1)';
+        }
+      });
+    }, { threshold: 0.5 }).observe(stLine);
+
+    const aboutWrap = document.getElementById('aboutImgWrap');
+    new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { aboutWrap.classList.add('revealed'); }
+      });
+    }, { threshold: 0.2 }).observe(aboutWrap);
+
+    function countUp(el) {
+      const end = parseFloat(el.dataset.count);
+      const suffix = el.dataset.suffix || '';
+      const isDecimal = el.dataset.decimal === 'true';
+      const duration = 1600;
+      const start = performance.now();
+      function step(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = (isDecimal ? (end * eased).toFixed(1) : Math.floor(end * eased)) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('[data-count]').forEach(el => countUp(el));
+        }
+      });
+    }, { threshold: 0.4 }).observe(document.querySelector('.stats-band'));
   </script>
 
 </body>

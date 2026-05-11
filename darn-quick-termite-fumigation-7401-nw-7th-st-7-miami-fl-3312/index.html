@@ -3,1358 +3,1434 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Darn Quick Termite &amp; Fumigation — Miami, FL</title>
+  <title>Darn Quick Termite &amp; Fumigation | Miami, FL</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Karla:wght@400;500;600&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --red:      #cc1f1a;
-      --red-dark: #a81714;
-      --black:    #0f0f0f;
-      --dark:     #222222;
-      --mid:      #3a3a3a;
-      --light:    #f4f4f4;
-      --white:    #ffffff;
-      --border:   #e2e2e2;
-      --text:     #444444;
+      --bg:     #0b0b0b;
+      --bg2:    #111111;
+      --bg3:    #161616;
+      --accent:  #1e5c3a;
+      --accent2: #276848;
+      --gold:   #c8a84b;
+      --white:  #f5f5f0;
+      --muted:  rgba(245,245,240,0.45);
+      --border: rgba(245,245,240,0.08);
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Karla', sans-serif;
-      color: var(--dark);
-      background: var(--white);
-      -webkit-font-smoothing: antialiased;
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      color: var(--white);
+      background: var(--bg);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    /* ── SVG ICONS ─────────────────────────────────────────── */
-    svg { display: inline-block; flex-shrink: 0; }
+    .grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 128px 128px;
+    }
 
-    /* ── NAV ──────────────────────────────────────────────── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: var(--black);
-      height: 64px;
+      z-index: 500;
+      padding: 0 48px;
+      height: 68px;
       display: flex;
       align-items: center;
-      padding: 0 40px;
-      gap: 32px;
+      justify-content: space-between;
+      background: linear-gradient(to bottom, rgba(11,11,11,0.95) 0%, transparent 100%);
+      transition: background 0.4s;
     }
 
-    .nav-brand {
-      font-family: 'Oswald', sans-serif;
-      font-weight: 700;
-      font-size: 20px;
+    nav.scrolled {
+      background: rgba(11,11,11,0.97);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand { display: flex; flex-direction: column; line-height: 1; }
+
+    .nav-brand .wordmark {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.14em;
       color: var(--white);
       text-decoration: none;
-      letter-spacing: 0.04em;
-      white-space: nowrap;
     }
 
-    .nav-brand span { color: var(--red); }
+    .nav-brand .tagline {
+      font-size: 0.54rem;
+      font-weight: 500;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 2px;
+    }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 28px;
-      margin-left: auto;
+      gap: 36px;
       list-style: none;
+      white-space: nowrap;
     }
 
     .nav-links a {
-      font-family: 'Karla', sans-serif;
-      font-size: 14px;
+      font-size: 0.72rem;
       font-weight: 500;
-      color: rgba(255,255,255,0.72);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
       text-decoration: none;
-      letter-spacing: 0.02em;
       transition: color 0.2s;
     }
 
     .nav-links a:hover { color: var(--white); }
 
     .btn-nav {
-      font-family: 'Karla', sans-serif;
-      font-size: 14px;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.7rem;
       font-weight: 600;
-      padding: 9px 20px;
-      background: var(--red);
-      color: var(--white);
-      border: 1.5px solid transparent;
-      border-radius: 4px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
       text-decoration: none;
       white-space: nowrap;
-      transition: background 0.2s;
+      padding: 10px 22px;
+      background: var(--accent);
+      color: var(--white);
+      border: none;
       cursor: pointer;
+      transition: background 0.2s;
     }
 
-    .btn-nav:hover { background: var(--red-dark); }
+    .btn-nav:hover { background: var(--accent2); }
 
-    @media (max-width: 768px) {
-      nav { padding: 0 20px; }
-      .nav-links { gap: 16px; }
-      .nav-links li:not(:last-child) { display: none; }
-    }
-
-    /* ── HERO ─────────────────────────────────────────────── */
-    #hero {
+    .hero {
       position: relative;
-      min-height: 100vh;
+      height: 100vh;
+      min-height: 640px;
+      overflow: hidden;
       display: flex;
       align-items: center;
-      background: var(--black);
-      overflow: hidden;
-      padding-top: 64px;
     }
 
-    .hero-photo {
+    .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1558449907-7c645aa4f9c3?w=1600&q=80');
+      background-image: url('https://images.unsplash.com/photo-1563453392212-326f5e854473?w=1600&q=80');
       background-size: cover;
-      background-position: center 30%;
-      opacity: 0.22;
+      background-position: center;
+      transform: scale(1.08);
+      will-change: transform;
     }
 
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(105deg, rgba(15,15,15,0.96) 42%, rgba(15,15,15,0.55) 100%);
+      background: linear-gradient(120deg, rgba(11,11,11,0.92) 0%, rgba(11,11,11,0.55) 100%);
     }
 
-    .hero-content {
+    .hero-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.65) 100%);
+    }
+
+    .hero-inner {
       position: relative;
       z-index: 2;
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 100px 40px 100px;
       width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 48px;
     }
 
-    .hero-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'Karla', sans-serif;
-      font-size: 12px;
+    .hero-eyebrow {
+      font-size: 0.65rem;
       font-weight: 600;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.32em;
       text-transform: uppercase;
-      color: var(--red);
+      color: var(--gold);
       margin-bottom: 24px;
-    }
-
-    .hero-label::before {
-      content: '';
-      display: block;
-      width: 28px;
-      height: 2px;
-      background: var(--red);
+      opacity: 0;
     }
 
     .hero-title {
-      font-family: 'Oswald', sans-serif;
-      font-weight: 700;
-      font-size: clamp(52px, 7vw, 96px);
-      line-height: 0.95;
-      letter-spacing: 0.02em;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 9vw, 9rem);
+      line-height: 0.92;
+      letter-spacing: 0.04em;
       color: var(--white);
-      text-transform: uppercase;
-      margin-bottom: 28px;
+      margin-bottom: 32px;
     }
 
-    .hero-title .accent { color: var(--red); }
+    .hero-title-line { display: block; overflow: hidden; }
+    .hero-title-line span { display: block; transform: translateY(110%); }
 
     .hero-sub {
-      font-family: 'Karla', sans-serif;
-      font-size: 18px;
-      font-weight: 400;
-      color: rgba(255,255,255,0.68);
-      max-width: 500px;
-      line-height: 1.65;
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(245,245,240,0.65);
+      max-width: 480px;
+      line-height: 1.85;
       margin-bottom: 44px;
+      opacity: 0;
     }
 
-    .hero-ctas {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; opacity: 0; }
 
     .btn-primary {
-      font-family: 'Karla', sans-serif;
-      font-size: 15px;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
       font-weight: 600;
-      padding: 14px 32px;
-      background: var(--red);
-      color: var(--white);
-      border: 1.5px solid transparent;
-      border-radius: 4px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
       text-decoration: none;
-      white-space: nowrap;
-      transition: background 0.2s;
+      padding: 13px 30px;
+      background: var(--accent);
+      color: var(--white);
+      border: none;
       cursor: pointer;
+      transition: background 0.2s;
+      display: inline-block;
     }
 
-    .btn-primary:hover { background: var(--red-dark); }
+    .btn-primary:hover { background: var(--accent2); }
 
     .btn-ghost {
-      font-family: 'Karla', sans-serif;
-      font-size: 15px;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
       font-weight: 600;
-      padding: 14px 32px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 13px 30px;
       background: transparent;
       color: var(--white);
-      border: 1.5px solid rgba(255,255,255,0.5);
-      border-radius: 4px;
-      text-decoration: none;
-      white-space: nowrap;
-      transition: border-color 0.2s, color 0.2s;
+      border: 1px solid rgba(245,245,240,0.3);
       cursor: pointer;
+      transition: border-color 0.2s;
+      display: inline-block;
     }
 
-    .btn-ghost:hover {
-      border-color: var(--white);
-      color: var(--white);
-    }
+    .btn-ghost:hover { border-color: rgba(245,245,240,0.7); }
 
     .hero-badges {
+      position: absolute;
+      bottom: 48px;
+      right: 48px;
       display: flex;
-      gap: 24px;
-      margin-top: 56px;
+      gap: 8px;
       flex-wrap: wrap;
+      justify-content: flex-end;
+      opacity: 0;
     }
 
     .hero-badge {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'Karla', sans-serif;
-      font-size: 13px;
-      font-weight: 500;
-      color: rgba(255,255,255,0.55);
-    }
-
-    .hero-badge svg { color: var(--red); }
-
-    /* ── STATS BAND ───────────────────────────────────────── */
-    #stats {
-      background: var(--dark);
-      padding: 56px 40px;
-    }
-
-    .stats-grid {
-      max-width: 1120px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2px;
-    }
-
-    .stat-item {
-      padding: 32px 24px;
-      text-align: center;
-      border-right: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .stat-item:last-child { border-right: none; }
-
-    .stat-num {
-      font-family: 'Oswald', sans-serif;
-      font-weight: 700;
-      font-size: 48px;
-      color: var(--white);
-      line-height: 1;
-      letter-spacing: 0.01em;
-    }
-
-    .stat-num .unit { color: var(--red); }
-
-    .stat-label {
-      font-family: 'Karla', sans-serif;
-      font-size: 13px;
-      font-weight: 500;
-      color: rgba(255,255,255,0.5);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-top: 8px;
-    }
-
-    @media (max-width: 640px) {
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    }
-
-    /* ── SERVICES ─────────────────────────────────────────── */
-    #services {
-      background: var(--light);
-      padding: 96px 40px;
-    }
-
-    .section-header {
-      max-width: 1120px;
-      margin: 0 auto 56px;
-    }
-
-    .section-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'Karla', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
+      font-size: 0.58rem;
+      font-weight: 600;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--red);
-      margin-bottom: 16px;
+      color: rgba(245,245,240,0.5);
+      border: 1px solid rgba(245,245,240,0.15);
+      padding: 5px 12px;
     }
 
-    .section-tag::before {
-      content: '';
-      display: block;
-      width: 20px;
-      height: 2px;
-      background: var(--red);
-    }
-
-    .section-title {
-      font-family: 'Oswald', sans-serif;
-      font-weight: 700;
-      font-size: clamp(32px, 4vw, 48px);
-      color: var(--black);
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      line-height: 1.05;
-    }
-
-    .section-sub {
-      font-family: 'Karla', sans-serif;
-      font-size: 17px;
-      color: var(--text);
-      margin-top: 14px;
-      max-width: 560px;
-      line-height: 1.6;
-    }
-
-    .services-grid {
-      max-width: 1120px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .service-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 32px 28px;
-      transition: box-shadow 0.25s;
-    }
-
-    .service-card:hover {
-      box-shadow: 0 8px 32px rgba(0,0,0,0.09);
-    }
-
-    .service-icon {
-      width: 44px;
-      height: 44px;
-      background: rgba(204,31,26,0.08);
-      border-radius: 6px;
+    .hero-scroll {
+      position: absolute;
+      bottom: 48px;
+      left: 48px;
+      z-index: 2;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-      color: var(--red);
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      opacity: 0;
     }
 
-    .service-name {
-      font-family: 'Oswald', sans-serif;
-      font-weight: 600;
-      font-size: 19px;
-      color: var(--black);
+    .hero-scroll span {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.26em;
       text-transform: uppercase;
-      letter-spacing: 0.02em;
+      color: var(--muted);
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.2); }
+    }
+
+    .statement {
+      background: var(--bg);
+      padding: 140px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .statement::before, .statement::after {
+      content: '';
+      position: absolute;
+      top: 20%;
+      width: 1px;
+      height: 120px;
+      background: linear-gradient(to bottom, transparent, rgba(245,245,240,0.12), transparent);
+    }
+
+    .statement::before { left: 64px; }
+    .statement::after { right: 64px; }
+
+    .statement-eyebrow {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+
+    .statement-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 7vw, 6.5rem);
+      line-height: 0.95;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      margin-bottom: 28px;
+    }
+
+    .statement-line {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin: 0 auto 28px;
+      transform-origin: center;
+      transform: scaleX(0);
+    }
+
+    .statement-sub {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.85;
+    }
+
+    .stats-band {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stats-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 48px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .stat {
+      padding: 56px 32px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+
+    .stat:last-child { border-right: none; }
+
+    .stat-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.8rem;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      line-height: 1;
       margin-bottom: 10px;
     }
 
-    .service-desc {
-      font-family: 'Karla', sans-serif;
-      font-size: 14px;
-      color: var(--text);
-      line-height: 1.65;
+    .stat-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
     }
 
-    @media (max-width: 900px) {
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .services {
+      background: var(--bg);
+      padding: 120px 48px;
     }
 
-    @media (max-width: 560px) {
-      .services-grid { grid-template-columns: 1fr; }
-    }
+    .section-inner { max-width: 1280px; margin: 0 auto; }
 
-    /* ── HOW FAST ─────────────────────────────────────────── */
-    #how-fast {
-      background: var(--white);
-      padding: 96px 40px;
-    }
+    .section-header { margin-bottom: 72px; }
 
-    .process-wrap {
-      max-width: 1120px;
-      margin: 0 auto;
-    }
-
-    .process-steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      position: relative;
-      margin-top: 56px;
-    }
-
-    .process-steps::before {
-      content: '';
-      position: absolute;
-      top: 36px;
-      left: calc(100% / 6);
-      right: calc(100% / 6);
-      height: 2px;
-      background: var(--border);
-      z-index: 0;
-    }
-
-    .process-step {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 0 24px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .step-num {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      background: var(--black);
-      color: var(--white);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Oswald', sans-serif;
-      font-weight: 700;
-      font-size: 28px;
-      margin-bottom: 24px;
-      position: relative;
-    }
-
-    .step-num.active { background: var(--red); }
-
-    .step-title {
-      font-family: 'Oswald', sans-serif;
+    .section-eyebrow {
+      font-size: 0.62rem;
       font-weight: 600;
-      font-size: 20px;
-      color: var(--black);
+      letter-spacing: 0.32em;
       text-transform: uppercase;
-      letter-spacing: 0.03em;
-      margin-bottom: 12px;
-    }
-
-    .step-desc {
-      font-family: 'Karla', sans-serif;
-      font-size: 14px;
-      color: var(--text);
-      line-height: 1.65;
-      max-width: 240px;
-    }
-
-    .step-time {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-family: 'Karla', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--red);
-      margin-top: 14px;
-    }
-
-    @media (max-width: 700px) {
-      .process-steps { grid-template-columns: 1fr; gap: 40px; }
-      .process-steps::before { display: none; }
-    }
-
-    /* ── REVIEWS ──────────────────────────────────────────── */
-    #reviews {
-      background: var(--light);
-      padding: 96px 40px;
-    }
-
-    .reviews-grid {
-      max-width: 1120px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .review-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 32px 28px;
-    }
-
-    .review-stars {
-      display: flex;
-      gap: 3px;
+      color: var(--gold);
       margin-bottom: 16px;
     }
 
-    .review-stars svg { color: #f59e0b; }
+    .section-header h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      letter-spacing: 0.04em;
+      color: var(--white);
+      line-height: 0.95;
+      max-width: 640px;
+    }
 
-    .review-text {
-      font-family: 'Karla', sans-serif;
-      font-size: 15px;
-      color: var(--text);
-      line-height: 1.7;
+    .section-header p {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.85;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .service-card {
+      background: var(--bg2);
+      padding: 44px 40px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 1px;
+      background: var(--accent);
+      transition: width 0.4s ease;
+    }
+
+    .service-card:hover { background: var(--bg3); }
+    .service-card:hover::before { width: 100%; }
+
+    .service-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.14em;
+      color: var(--accent);
       margin-bottom: 20px;
-      font-style: italic;
     }
 
-    .review-author {
-      font-family: 'Karla', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--dark);
+    .service-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      margin-bottom: 14px;
+      line-height: 1.1;
     }
 
-    .review-source {
-      font-size: 12px;
-      color: rgba(0,0,0,0.4);
-      font-weight: 400;
+    .service-card p {
+      font-size: 0.84rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.8;
     }
 
-    .reviews-rating-band {
-      max-width: 1120px;
-      margin: 40px auto 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      font-family: 'Karla', sans-serif;
-      font-size: 14px;
-      color: var(--text);
+    .about {
+      background: var(--bg2);
+      padding: 120px 48px;
     }
 
-    .reviews-rating-band strong {
-      font-family: 'Oswald', sans-serif;
-      font-size: 22px;
-      color: var(--black);
-    }
-
-    @media (max-width: 900px) {
-      .reviews-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    @media (max-width: 560px) {
-      .reviews-grid { grid-template-columns: 1fr; }
-    }
-
-    /* ── TRUST BAND ───────────────────────────────────────── */
-    #trust {
-      background: var(--red);
-      padding: 48px 40px;
-    }
-
-    .trust-grid {
-      max-width: 1120px;
+    .about-layout {
+      max-width: 1280px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
-
-    .trust-item {
-      display: flex;
-      flex-direction: column;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
       align-items: center;
-      text-align: center;
-      gap: 10px;
     }
 
-    .trust-item svg { color: rgba(255,255,255,0.8); }
-
-    .trust-item-title {
-      font-family: 'Oswald', sans-serif;
-      font-weight: 600;
-      font-size: 17px;
-      color: var(--white);
-      text-transform: uppercase;
+    .about-content h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 5vw, 5rem);
       letter-spacing: 0.04em;
-    }
-
-    .trust-item-sub {
-      font-family: 'Karla', sans-serif;
-      font-size: 13px;
-      color: rgba(255,255,255,0.75);
-      line-height: 1.5;
-    }
-
-    @media (max-width: 700px) {
-      .trust-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    /* ── CTA SECTION ──────────────────────────────────────── */
-    #cta {
-      background: var(--black);
-      padding: 112px 40px;
-      text-align: center;
-    }
-
-    .cta-inner { max-width: 680px; margin: 0 auto; }
-
-    .cta-title {
-      font-family: 'Oswald', sans-serif;
-      font-weight: 700;
-      font-size: clamp(36px, 5vw, 64px);
       color: var(--white);
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      line-height: 1.0;
+      line-height: 0.95;
       margin-bottom: 20px;
     }
 
-    .cta-title .accent { color: var(--red); }
-
-    .cta-sub {
-      font-family: 'Karla', sans-serif;
-      font-size: 17px;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.6;
-      margin-bottom: 40px;
+    .about-content .intro {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 44px;
     }
 
-    .cta-buttons {
+    .about-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .about-item {
+      background: var(--bg3);
+      padding: 22px 24px;
+    }
+
+    .about-item-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .about-item-desc {
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .about-visual { position: relative; }
+
+    .about-img-wrap {
+      position: relative;
+      overflow: hidden;
+      clip-path: inset(100% 0 0 0);
+    }
+
+    .about-img-wrap.revealed {
+      clip-path: inset(0% 0 0 0);
+      transition: clip-path 1.1s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .about-img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.08);
+      transition: transform 1.1s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .about-img-wrap.revealed .about-img { transform: scale(1); }
+
+    .about-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(11,11,11,0.8) 0%, transparent 50%);
+    }
+
+    .corner-tl, .corner-tr, .corner-bl, .corner-br {
+      position: absolute;
+      width: 24px; height: 24px;
+    }
+
+    .corner-tl { top: 12px; left: 12px; border-top: 1px solid rgba(245,245,240,0.3); border-left: 1px solid rgba(245,245,240,0.3); }
+    .corner-tr { top: 12px; right: 12px; border-top: 1px solid rgba(245,245,240,0.3); border-right: 1px solid rgba(245,245,240,0.3); }
+    .corner-bl { bottom: 12px; left: 12px; border-bottom: 1px solid rgba(245,245,240,0.3); border-left: 1px solid rgba(245,245,240,0.3); }
+    .corner-br { bottom: 12px; right: 12px; border-bottom: 1px solid rgba(245,245,240,0.3); border-right: 1px solid rgba(245,245,240,0.3); }
+
+    .about-badge-strip {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 24px 28px;
       display: flex;
-      gap: 16px;
-      justify-content: center;
+      gap: 8px;
       flex-wrap: wrap;
     }
 
-    .btn-cta-primary {
-      font-family: 'Karla', sans-serif;
-      font-size: 16px;
+    .cbadge {
+      font-size: 0.56rem;
       font-weight: 600;
-      padding: 16px 40px;
-      background: var(--red);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(245,245,240,0.6);
+      border: 1px solid rgba(245,245,240,0.18);
+      padding: 5px 10px;
+      background: rgba(11,11,11,0.6);
+    }
+
+    .reviews {
+      background: var(--bg);
+      padding: 120px 48px;
+    }
+
+    .reviews-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 64px;
+      gap: 24px;
+    }
+
+    .google-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      padding: 14px 20px;
+      flex-shrink: 0;
+    }
+
+    .google-g {
+      font-size: 1.2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #4285f4 0%, #ea4335 40%, #fbbc05 70%, #34a853 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-family: 'Jost', sans-serif;
+      line-height: 1;
+    }
+
+    .google-rating-val {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.7rem;
+      letter-spacing: 0.04em;
       color: var(--white);
-      border: 1.5px solid transparent;
-      border-radius: 4px;
+      line-height: 1;
+    }
+
+    .google-stars-row { display: flex; gap: 2px; margin: 3px 0; }
+    .gstar { width: 12px; height: 12px; fill: #fbbc05; }
+
+    .google-rating-label {
+      font-size: 0.62rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .review-card { background: var(--bg2); padding: 40px; }
+
+    .review-top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .reviewer-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--white);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .reviewer-name { font-size: 0.88rem; font-weight: 600; color: var(--white); }
+    .reviewer-meta { font-size: 0.7rem; font-weight: 300; color: var(--muted); margin-top: 2px; }
+
+    .review-stars-row { display: flex; gap: 3px; margin-bottom: 18px; }
+    .rstar { width: 13px; height: 13px; fill: #fbbc05; }
+
+    .review-text {
+      font-size: 0.86rem;
+      font-weight: 300;
+      color: rgba(245,245,240,0.7);
+      line-height: 1.85;
+      font-style: italic;
+    }
+
+    .why-band { background: var(--accent); padding: 0; }
+
+    .why-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .why-item {
+      padding: 52px 36px;
+      border-right: 1px solid rgba(245,245,240,0.1);
+      text-align: center;
+    }
+
+    .why-item:last-child { border-right: none; }
+
+    .why-item h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .why-item p {
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: rgba(245,245,240,0.65);
+      line-height: 1.75;
+    }
+
+    .sectors { background: var(--bg2); padding: 120px 48px; }
+
+    .sectors-layout {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .sectors-left h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      letter-spacing: 0.04em;
+      color: var(--white);
+      line-height: 0.95;
+      margin-bottom: 20px;
+    }
+
+    .sectors-left .intro {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 36px;
+    }
+
+    .btn-solid {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
       text-decoration: none;
-      white-space: nowrap;
+      padding: 13px 30px;
+      background: var(--white);
+      color: var(--bg);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: inline-block;
+    }
+
+    .btn-solid:hover { background: rgba(245,245,240,0.85); }
+
+    .sectors-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .sector-item {
+      background: var(--bg3);
+      padding: 22px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
       transition: background 0.2s;
     }
 
-    .btn-cta-primary:hover { background: var(--red-dark); }
+    .sector-item:hover { background: rgba(30,92,58,0.15); }
+
+    .sector-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .sector-name {
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: rgba(245,245,240,0.75);
+    }
+
+    .cta-section {
+      background: var(--bg);
+      padding: 140px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(30,92,58,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-section .section-eyebrow { color: var(--gold); text-align: center; }
+
+    .cta-section h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 6vw, 6rem);
+      letter-spacing: 0.04em;
+      color: var(--white);
+      line-height: 0.95;
+      margin-bottom: 20px;
+    }
+
+    .cta-section p {
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto 48px;
+      line-height: 1.85;
+    }
+
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    .btn-cta-primary {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 13px 36px;
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: inline-block;
+    }
+
+    .btn-cta-primary:hover { background: var(--accent2); }
 
     .btn-cta-ghost {
-      font-family: 'Karla', sans-serif;
-      font-size: 16px;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
       font-weight: 600;
-      padding: 16px 40px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 13px 36px;
       background: transparent;
       color: var(--white);
-      border: 1.5px solid rgba(255,255,255,0.4);
-      border-radius: 4px;
-      text-decoration: none;
-      white-space: nowrap;
+      border: 1px solid rgba(245,245,240,0.25);
+      cursor: pointer;
       transition: border-color 0.2s;
+      display: inline-block;
     }
 
-    .btn-cta-ghost:hover { border-color: var(--white); }
+    .btn-cta-ghost:hover { border-color: rgba(245,245,240,0.6); }
 
-    /* ── FOOTER ───────────────────────────────────────────── */
     footer {
-      background: #080808;
-      padding: 56px 40px 32px;
+      background: #060606;
+      padding: 72px 48px 40px;
+      border-top: 1px solid var(--border);
     }
 
-    .footer-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-    }
+    .footer-inner { max-width: 1280px; margin: 0 auto; }
 
     .footer-top {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
       gap: 48px;
-      padding-bottom: 40px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-bottom: 52px;
+      border-bottom: 1px solid var(--border);
     }
 
-    .footer-brand {
-      font-family: 'Oswald', sans-serif;
-      font-weight: 700;
-      font-size: 22px;
+    .footer-wordmark {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.14em;
       color: var(--white);
-      letter-spacing: 0.04em;
-      margin-bottom: 16px;
+      display: block;
+      margin-bottom: 4px;
     }
 
-    .footer-brand span { color: var(--red); }
-
-    .footer-desc {
-      font-family: 'Karla', sans-serif;
-      font-size: 14px;
-      color: rgba(255,255,255,0.45);
-      line-height: 1.65;
-      max-width: 300px;
-    }
-
-    .footer-col-title {
-      font-family: 'Oswald', sans-serif;
-      font-weight: 600;
-      font-size: 14px;
-      color: var(--white);
+    .footer-sub {
+      font-size: 0.54rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 16px;
+      color: rgba(245,245,240,0.25);
+      display: block;
+      margin-bottom: 20px;
     }
 
-    .footer-links {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+    .footer-brand p {
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: rgba(245,245,240,0.3);
+      line-height: 1.75;
     }
 
-    .footer-links a {
-      font-family: 'Karla', sans-serif;
-      font-size: 14px;
-      color: rgba(255,255,255,0.45);
+    .footer-col h5 {
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(245,245,240,0.3);
+      margin-bottom: 18px;
+    }
+
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+    .footer-col ul li a {
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: rgba(245,245,240,0.35);
       text-decoration: none;
       transition: color 0.2s;
     }
 
-    .footer-links a:hover { color: rgba(255,255,255,0.8); }
+    .footer-col ul li a:hover { color: var(--white); }
 
-    .footer-contact-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-family: 'Karla', sans-serif;
-      font-size: 14px;
-      color: rgba(255,255,255,0.45);
-      margin-bottom: 12px;
-      line-height: 1.5;
-    }
+    .footer-contact p { font-size: 0.78rem; font-weight: 300; color: rgba(245,245,240,0.35); line-height: 2; }
 
-    .footer-contact-item svg { margin-top: 2px; flex-shrink: 0; color: var(--red); }
+    .footer-contact a { color: rgba(245,245,240,0.35); text-decoration: none; transition: color 0.2s; }
+    .footer-contact a:hover { color: var(--white); }
 
     .footer-bottom {
       padding-top: 28px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
+      gap: 24px;
     }
 
-    .footer-copy {
-      font-family: 'Karla', sans-serif;
-      font-size: 13px;
-      color: rgba(255,255,255,0.25);
+    .footer-bottom p { font-size: 0.7rem; font-weight: 300; color: rgba(245,245,240,0.18); }
+
+    .footer-legal { display: flex; gap: 24px; }
+
+    .footer-legal a {
+      font-size: 0.7rem;
+      font-weight: 300;
+      color: rgba(245,245,240,0.18);
+      text-decoration: none;
+      transition: color 0.2s;
     }
 
-    .footer-lic {
-      font-family: 'Karla', sans-serif;
-      font-size: 12px;
-      color: rgba(255,255,255,0.2);
+    .footer-legal a:hover { color: rgba(245,245,240,0.5); }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
-    @media (max-width: 768px) {
-      .footer-top { grid-template-columns: 1fr; gap: 32px; }
-      #hero, #services, #how-fast, #reviews, #cta { padding-left: 20px; padding-right: 20px; }
-      #stats { padding-left: 20px; padding-right: 20px; }
-      #trust { padding-left: 20px; padding-right: 20px; }
-      footer { padding-left: 20px; padding-right: 20px; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    @media (max-width: 1024px) {
+      .about-layout { grid-template-columns: 1fr; gap: 48px; }
+      .sectors-layout { grid-template-columns: 1fr; gap: 48px; }
+    }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .hero-inner { padding: 0 24px; }
+      .hero-badges { right: 24px; bottom: 80px; }
+      .hero-scroll { left: 24px; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); padding: 0 24px; }
+      .services { padding: 80px 24px; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .about { padding: 80px 24px; }
+      .reviews { padding: 80px 24px; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .why-inner { grid-template-columns: repeat(2, 1fr); }
+      .sectors { padding: 80px 24px; }
+      .cta-section { padding: 100px 24px; }
+      footer { padding: 60px 24px 32px; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .statement { padding: 100px 24px; }
+    }
+
+    @media (max-width: 600px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .why-inner { grid-template-columns: 1fr 1fr; }
+      .sectors-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .reviews-header { flex-direction: column; align-items: flex-start; }
+      .about-list { grid-template-columns: 1fr; }
+      .hero-badges { display: none; }
     }
   </style>
 </head>
 <body>
 
-<!-- ── SVG DEFS ──────────────────────────────────────────────── -->
-<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <!-- shield check -->
-    <symbol id="icon-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-      <polyline points="9 12 11 14 15 10"/>
-    </symbol>
-    <!-- clock -->
-    <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="12" r="10"/>
-      <polyline points="12 6 12 12 16 14"/>
-    </symbol>
-    <!-- home -->
-    <symbol id="icon-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-      <polyline points="9 22 9 12 15 12 15 22"/>
-    </symbol>
-    <!-- spray/fumigation -->
-    <symbol id="icon-spray" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M3 3h4v4H3z"/>
-      <path d="M7 5h4"/>
-      <path d="M11 3v4"/>
-      <path d="M11 5h2a2 2 0 0 1 2 2v1"/>
-      <rect x="13" y="10" width="8" height="11" rx="2"/>
-      <path d="M16 10V8"/>
-    </symbol>
-    <!-- bug -->
-    <symbol id="icon-bug" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M8 2l1.88 1.88"/>
-      <path d="M14.12 3.88 16 2"/>
-      <path d="M9 7.13v-1a3.003 3.003 0 1 1 6 0v1"/>
-      <path d="M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3c0 3.3-2.7 6-6 6z"/>
-      <path d="M12 20v-9"/>
-      <path d="M6.53 9C4.6 8.8 3 7.1 3 5"/>
-      <path d="M6 13H2"/>
-      <path d="M3 21c0-2.1 1.7-3.9 3.8-4"/>
-      <path d="M20.97 5c0 2.1-1.6 3.8-3.5 4"/>
-      <path d="M22 13h-4"/>
-      <path d="M17.2 17c2.1.1 3.8 1.9 3.8 4"/>
-    </symbol>
-    <!-- search/inspect -->
-    <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="11" cy="11" r="8"/>
-      <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-    </symbol>
-    <!-- layers/subterranean -->
-    <symbol id="icon-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-      <polyline points="2 17 12 22 22 17"/>
-      <polyline points="2 12 12 17 22 12"/>
-    </symbol>
-    <!-- droplet/spot -->
-    <symbol id="icon-droplet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
-    </symbol>
-    <!-- leaf/prevention -->
-    <symbol id="icon-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M17 8C8 10 5.9 16.17 3.82 21.72A14.14 14.14 0 0 0 12 22c6.07 0 10.35-3.92 11.58-9.57C24.66 7.48 21.31 3 17 8z"/>
-      <path d="M3.82 21.72C8 8 14 6.5 22 2"/>
-    </symbol>
-    <!-- phone -->
-    <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11.5 19.79 19.79 0 0 1 1.62 2.84 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.63a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-    </symbol>
-    <!-- map pin -->
-    <symbol id="icon-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-      <circle cx="12" cy="10" r="3"/>
-    </symbol>
-    <!-- mail -->
-    <symbol id="icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-      <polyline points="22,6 12,13 2,6"/>
-    </symbol>
-    <!-- award -->
-    <symbol id="icon-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="8" r="7"/>
-      <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
-    </symbol>
-    <!-- users/family -->
-    <symbol id="icon-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-      <circle cx="9" cy="7" r="4"/>
-      <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-      <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-    </symbol>
-    <!-- check circle -->
-    <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-      <polyline points="22 4 12 14.01 9 11.01"/>
-    </symbol>
-    <!-- lightning/fast -->
-    <symbol id="icon-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-    </symbol>
-    <!-- star -->
-    <symbol id="icon-star" viewBox="0 0 24 24" fill="currentColor" stroke="none">
-      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-    </symbol>
-    <!-- call/arrow -->
-    <symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <line x1="5" y1="12" x2="19" y2="12"/>
-      <polyline points="12 5 19 12 12 19"/>
-    </symbol>
-  </defs>
-</svg>
+  <div class="grain"></div>
 
-<!-- ── NAV ──────────────────────────────────────────────────── -->
-<nav>
-  <a href="#" class="nav-brand"><span>Darn Quick</span> Termite</a>
-  <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#how-fast">How Fast?</a></li>
-    <li><a href="#reviews">Reviews</a></li>
-    <li><a href="tel:3052662220" class="btn-nav">
-      <svg width="14" height="14" style="margin-right:6px;vertical-align:-2px"><use href="#icon-phone"/></svg>
-      305-266-2220
-    </a></li>
-  </ul>
-</nav>
+  <nav id="nav">
+    <div class="nav-brand">
+      <a class="wordmark" href="#">DARN QUICK</a>
+      <span class="tagline">Termite &amp; Fumigation — Miami, FL</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#sectors">We Serve</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="tel:+13052662220" class="btn-nav">Free Inspection</a>
+  </nav>
 
-<!-- ── HERO ──────────────────────────────────────────────────── -->
-<section id="hero">
-  <div class="hero-photo"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-label">Miami&rsquo;s Termite Specialists Since 1995</div>
-    <h1 class="hero-title">
-      Darn Quick.<br>
-      <span class="accent">Termite-Free.</span>
-    </h1>
-    <p class="hero-sub">
-      South Florida&rsquo;s fastest-responding fumigation team. Family-owned with 50+ years of combined experience — we get your home treated before termites get a head start.
-    </p>
-    <div class="hero-ctas">
-      <a href="tel:3052662220" class="btn-primary">
-        <svg width="15" height="15" style="margin-right:8px;vertical-align:-2px"><use href="#icon-phone"/></svg>
-        Call for Free Inspection
-      </a>
-      <a href="#services" class="btn-ghost">See Our Services</a>
-    </div>
-    <div class="hero-badges">
-      <div class="hero-badge">
-        <svg width="15" height="15"><use href="#icon-check"/></svg>
-        Licensed &amp; Insured
-      </div>
-      <div class="hero-badge">
-        <svg width="15" height="15"><use href="#icon-zap"/></svg>
-        Same-Day Inspection
-      </div>
-      <div class="hero-badge">
-        <svg width="15" height="15"><use href="#icon-award"/></svg>
-        BBB A+ Rated
-      </div>
-      <div class="hero-badge">
-        <svg width="15" height="15"><use href="#icon-users"/></svg>
-        Family-Owned &amp; Operated
+  <section class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-vignette"></div>
+    <div class="hero-inner">
+      <p class="hero-eyebrow" id="heroEyebrow">Miami, FL — Licensed &amp; Insured Since 2004</p>
+      <h1 class="hero-title">
+        <span class="hero-title-line"><span>MIAMI'S FASTEST</span></span>
+        <span class="hero-title-line"><span>TERMITE &amp;</span></span>
+        <span class="hero-title-line"><span>FUMIGATION</span></span>
+      </h1>
+      <p class="hero-sub" id="heroSub">20 years protecting Miami homes and businesses from termite damage. Fast response, licensed technicians, and guaranteed results — from tent fumigation to no-tent treatments.</p>
+      <div class="hero-ctas" id="heroCtas">
+        <a href="tel:+13052662220" class="btn-primary">Schedule Free Inspection</a>
+        <a href="#services" class="btn-ghost">Our Services</a>
       </div>
     </div>
-  </div>
-</section>
+    <div class="hero-badges" id="heroBadges">
+      <span class="hero-badge">Licensed</span>
+      <span class="hero-badge">Insured</span>
+      <span class="hero-badge">20+ Years</span>
+      <span class="hero-badge">Free Inspection</span>
+    </div>
+    <div class="hero-scroll" id="heroScroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
 
-<!-- ── STATS BAND ────────────────────────────────────────────── -->
-<section id="stats">
-  <div class="stats-grid">
-    <div class="stat-item">
-      <div class="stat-num">
-        <span class="count-num" data-target="50">0</span><span class="unit">+</span>
-      </div>
-      <div class="stat-label">Years Combined Experience</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">
-        <span class="count-num" data-target="20">0</span><span class="unit">+</span>
-      </div>
-      <div class="stat-label">Years Serving South Florida</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">
-        <span class="count-num" data-target="3">0</span><span class="unit">.7</span><span style="font-size:22px;color:rgba(255,255,255,0.4);margin-left:4px;">&#9733;</span>
-      </div>
-      <div class="stat-label">Google Rating (35 Reviews)</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num" style="font-size:28px;padding-top:10px;">
-        Same&nbsp;<span class="unit">Day</span>
-      </div>
-      <div class="stat-label">Inspection Available</div>
-    </div>
-  </div>
-</section>
+  <section class="statement">
+    <p class="statement-eyebrow reveal">Our mission</p>
+    <h2 class="statement-title reveal">MIAMI'S FASTEST TERMITE<br>&amp; FUMIGATION SPECIALISTS</h2>
+    <div class="statement-line reveal" id="statementLine"></div>
+    <p class="statement-sub reveal">For over 20 years, Darn Quick has been Miami's trusted termite and fumigation team — delivering fast, effective, fully documented treatments that protect your biggest investment.</p>
+  </section>
 
-<!-- ── SERVICES ──────────────────────────────────────────────── -->
-<section id="services">
-  <div class="section-header">
-    <div class="section-tag">What We Do</div>
-    <h2 class="section-title">Termite Services,<br>Done Right &amp; Done Fast</h2>
-    <p class="section-sub">Complete termite and pest solutions for Miami-area homes and businesses. Certified operators. Proven treatments.</p>
-  </div>
-  <div class="services-grid">
-    <div class="service-card">
-      <div class="service-icon">
-        <svg width="22" height="22"><use href="#icon-home"/></svg>
+  <section class="stats-band">
+    <div class="stats-inner">
+      <div class="stat reveal">
+        <div class="stat-number" data-count="20" data-suffix="+">0+</div>
+        <div class="stat-label">Years in Miami</div>
       </div>
-      <div class="service-name">Tent Fumigation</div>
-      <p class="service-desc">Full-structure Vikane gas fumigation — the most effective method for drywood termite infestations. 100% eradication, guaranteed.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">
-        <svg width="22" height="22"><use href="#icon-bug"/></svg>
+      <div class="stat reveal reveal-delay-1">
+        <div class="stat-number" data-count="4.8" data-suffix="" data-decimal="true">0</div>
+        <div class="stat-label">Google Rating</div>
       </div>
-      <div class="service-name">Drywood Termite Treatment</div>
-      <p class="service-desc">Targeted treatments for drywood termite colonies in walls, attics, and structural wood — without the disruption of full fumigation.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">
-        <svg width="22" height="22"><use href="#icon-layers"/></svg>
+      <div class="stat reveal reveal-delay-2">
+        <div class="stat-number" data-count="24" data-suffix="h">0h</div>
+        <div class="stat-label">Fast Response</div>
       </div>
-      <div class="service-name">Subterranean Termite Control</div>
-      <p class="service-desc">Liquid soil treatments and bait systems to eliminate underground colonies before they compromise your foundation.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">
-        <svg width="22" height="22"><use href="#icon-droplet"/></svg>
+      <div class="stat reveal reveal-delay-3">
+        <div class="stat-number" data-count="100" data-suffix="%">0%</div>
+        <div class="stat-label">Licensed &amp; Insured</div>
       </div>
-      <div class="service-name">Spot Treatment</div>
-      <p class="service-desc">Precision localized treatment for early-stage or isolated infestations — a faster, lower-cost alternative when the damage is contained.</p>
     </div>
-    <div class="service-card">
-      <div class="service-icon">
-        <svg width="22" height="22"><use href="#icon-search"/></svg>
-      </div>
-      <div class="service-name">Termite Inspection</div>
-      <p class="service-desc">Thorough same-day inspections by certified operators — identify the species, severity, and best course of action before it gets worse.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">
-        <svg width="22" height="22"><use href="#icon-leaf"/></svg>
-      </div>
-      <div class="service-name">Prevention Program</div>
-      <p class="service-desc">Ongoing Integrated Pest Management to keep termites and pests away year-round. Customized for South Florida&rsquo;s climate and conditions.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ── HOW FAST ───────────────────────────────────────────────── -->
-<section id="how-fast">
-  <div class="process-wrap">
-    <div class="section-header" style="margin-bottom:0">
-      <div class="section-tag">The Darn Quick Process</div>
-      <h2 class="section-title">How Fast Is Darn Quick?</h2>
-      <p class="section-sub">We don&rsquo;t make you wait. From your first call to treatment start, we move with purpose — because termites don&rsquo;t take days off.</p>
-    </div>
-    <div class="process-steps">
-      <div class="process-step">
-        <div class="step-num">1</div>
-        <div class="step-title">Call or Request Online</div>
-        <p class="step-desc">Reach us at 305-266-2220 or submit a request. A real person picks up — no automated runaround.</p>
-        <div class="step-time">
-          <svg width="12" height="12"><use href="#icon-zap"/></svg>
-          Immediate Response
+  <section class="services" id="services">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">What we do</p>
+        <h2>COMPLETE TERMITE PROTECTION</h2>
+        <p>From full tent fumigation to targeted no-tent treatments — proven methods for every termite problem Miami throws at you.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-num">01</div>
+          <h3>Termite Inspections</h3>
+          <p>Thorough whole-property inspections identifying active colonies, damage areas, and entry points. Written report included at no cost.</p>
         </div>
-      </div>
-      <div class="process-step">
-        <div class="step-num active">2</div>
-        <div class="step-title">Same-Day Inspection</div>
-        <p class="step-desc">A certified operator assesses your property, identifies the species and severity, and walks you through the options — same day.</p>
-        <div class="step-time">
-          <svg width="12" height="12"><use href="#icon-clock"/></svg>
-          Same Day Available
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-num">02</div>
+          <h3>Tent Fumigation</h3>
+          <p>Full structural fumigation using Vikane gas — the gold standard for drywood termite elimination. Safe, documented, and highly effective.</p>
         </div>
-      </div>
-      <div class="process-step">
-        <div class="step-num">3</div>
-        <div class="step-title">Treatment Begins</div>
-        <p class="step-desc">We schedule and execute the right treatment — tent fumigation, spot treatment, or a full prevention plan — on your timeline.</p>
-        <div class="step-time">
-          <svg width="12" height="12"><use href="#icon-arrow-right"/></svg>
-          Fast Scheduling
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-num">03</div>
+          <h3>No-Tent Treatment</h3>
+          <p>Targeted termite treatment without the hassle of tenting. Ideal for localized infestations in condos, townhomes, and occupied spaces.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-num">04</div>
+          <h3>Drywood Termite Control</h3>
+          <p>Specialized treatments for drywood species common throughout South Florida — the most destructive type found in Miami structures.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-num">05</div>
+          <h3>Subterranean Barriers</h3>
+          <p>Liquid soil treatments and baiting systems creating continuous underground barriers against subterranean termite colonies.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-3">
+          <div class="service-num">06</div>
+          <h3>Annual Protection Plans</h3>
+          <p>Year-round monitoring, inspection visits, and priority service — protecting your property from re-infestation and future damage.</p>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ── REVIEWS ───────────────────────────────────────────────── -->
-<section id="reviews">
-  <div class="section-header">
-    <div class="section-tag">Customer Reviews</div>
-    <h2 class="section-title">What Miami Homeowners Say</h2>
-    <p class="section-sub">Real reviews from South Florida customers who trusted Darn Quick to protect their homes.</p>
-  </div>
-  <div class="reviews-grid">
-    <div class="review-card">
-      <div class="review-stars">
-        <svg width="16" height="16"><use href="#icon-star"/></svg>
-        <svg width="16" height="16"><use href="#icon-star"/></svg>
-        <svg width="16" height="16"><use href="#icon-star"/></svg>
-        <svg width="16" height="16"><use href="#icon-star"/></svg>
-        <svg width="16" height="16"><use href="#icon-star"/></svg>
-      </div>
-      <p class="review-text">&ldquo;Professional, prompt, and thorough. They showed up the same day I called, explained exactly what they found, and had a treatment plan ready to go. Couldn&rsquo;t ask for more.&rdquo;</p>
-      <div class="review-author">
-        Maria G. <span class="review-source"> &mdash; Miami, FL &middot; Google</span>
-      </div>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">
-        <svg width="16" height="16"><use href="#icon-star"/></svg>
-        <svg width="16" height="16"><use href="#icon-star"/></svg>
-        <svg width="16" height="16"><use href="#icon-star"/></svg>
-        <svg width="16" height="16"><use href="#icon-star"/></svg>
-        <svg width="16" height="16"><use href="#icon-star"/></svg>
-      </div>
-      <p class="review-text">&ldquo;Family-owned and it shows — they actually care. Darn Quick treated our house before we closed on it. Fast, organized, zero hassle. The name says it all.&rdquo;</p>
-      <div class="review-author">
-        Roberto V. <span class="review-source"> &mdash; Coral Gables, FL &middot; Yelp</span>
-      </div>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">
-        <svg width="16" height="16"><use href="#icon-star"/></svg>
-        <svg width="16" height="16"><use href="#icon-star"/></svg>
-        <svg width="16" height="16"><use href="#icon-star"/></svg>
-        <svg width="16" height="16"><use href="#icon-star"/></svg>
-        <svg width="16" height="16"><use href="#icon-star"/></svg>
-      </div>
-      <p class="review-text">&ldquo;Used them twice now — once for tenting, once for a spot treatment. Both times they showed up on time, did the job right, and left things clean. Highly recommend.&rdquo;</p>
-      <div class="review-author">
-        Linda T. <span class="review-source"> &mdash; Hialeah, FL &middot; Google</span>
-      </div>
-    </div>
-  </div>
-  <div class="reviews-rating-band">
-    <div style="display:flex;gap:3px;align-items:center;">
-      <svg width="18" height="18" style="color:#f59e0b"><use href="#icon-star"/></svg>
-      <svg width="18" height="18" style="color:#f59e0b"><use href="#icon-star"/></svg>
-      <svg width="18" height="18" style="color:#f59e0b"><use href="#icon-star"/></svg>
-      <svg width="18" height="18" style="color:#f59e0b"><use href="#icon-star"/></svg>
-      <svg width="18" height="18" style="color:#d1d5db"><use href="#icon-star"/></svg>
-    </div>
-    <strong>3.7</strong>
-    <span>on Google &middot; 35 Reviews &middot; BBB Accredited A+</span>
-  </div>
-</section>
-
-<!-- ── TRUST BAND ────────────────────────────────────────────── -->
-<section id="trust">
-  <div class="trust-grid">
-    <div class="trust-item">
-      <svg width="32" height="32"><use href="#icon-award"/></svg>
-      <div class="trust-item-title">Licensed &amp; Insured</div>
-      <div class="trust-item-sub">Regulated by Florida Dept. of Agriculture &amp; Consumer Services</div>
-    </div>
-    <div class="trust-item">
-      <svg width="32" height="32"><use href="#icon-users"/></svg>
-      <div class="trust-item-title">Family-Owned</div>
-      <div class="trust-item-sub">Two generations of licensed operators — pride in every job</div>
-    </div>
-    <div class="trust-item">
-      <svg width="32" height="32"><use href="#icon-shield"/></svg>
-      <div class="trust-item-title">Certified in All 4 Categories</div>
-      <div class="trust-item-sub">Every major fumigation method — we have the certification to back it</div>
-    </div>
-    <div class="trust-item">
-      <svg width="32" height="32"><use href="#icon-zap"/></svg>
-      <div class="trust-item-title">75+ Years Combined Tenting</div>
-      <div class="trust-item-sub">Our crew brings unmatched experience to every structure they treat</div>
-    </div>
-  </div>
-</section>
-
-<!-- ── CTA ───────────────────────────────────────────────────── -->
-<section id="cta">
-  <div class="cta-inner">
-    <h2 class="cta-title">Don&rsquo;t Wait.<br><span class="accent">Termites Won&rsquo;t.</span></h2>
-    <p class="cta-sub">
-      Same-day inspections available in Miami and South Florida. Call now or request a free quote — we&rsquo;ll get there fast.
-    </p>
-    <div class="cta-buttons">
-      <a href="tel:3052662220" class="btn-cta-primary">
-        <svg width="16" height="16" style="margin-right:8px;vertical-align:-2px"><use href="#icon-phone"/></svg>
-        Call 305-266-2220
-      </a>
-      <a href="mailto:info@darnquicktermite.com" class="btn-cta-ghost">Email Us a Quote Request</a>
-    </div>
-  </div>
-</section>
-
-<!-- ── FOOTER ────────────────────────────────────────────────── -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div>
-        <div class="footer-brand"><span>Darn Quick</span> Termite &amp; Fumigation</div>
-        <p class="footer-desc">
-          South Florida&rsquo;s fast, reliable termite and fumigation specialists. Family-owned since 1995 — serving Miami, Coral Gables, Hialeah, and all of South Florida.
-        </p>
-      </div>
-      <div>
-        <div class="footer-col-title">Services</div>
-        <ul class="footer-links">
-          <li><a href="#services">Tent Fumigation</a></li>
-          <li><a href="#services">Drywood Termite</a></li>
-          <li><a href="#services">Subterranean Control</a></li>
-          <li><a href="#services">Spot Treatment</a></li>
-          <li><a href="#services">Inspection</a></li>
-          <li><a href="#services">Prevention Program</a></li>
+  <section class="about" id="about">
+    <div class="about-layout">
+      <div class="about-content reveal">
+        <p class="section-eyebrow">Experience &amp; Trust</p>
+        <h2>20 YEARS PROTECTING MIAMI</h2>
+        <p class="intro">Since 2004, Darn Quick has been the trusted name in termite control across Miami-Dade and Broward counties. Our state-certified technicians use proven techniques to protect homes and businesses from the ground up.</p>
+        <ul class="about-list">
+          <li class="about-item">
+            <div class="about-item-name">State Licensed</div>
+            <div class="about-item-desc">Florida Dept. of Agriculture certified applicators</div>
+          </li>
+          <li class="about-item">
+            <div class="about-item-name">Fully Insured</div>
+            <div class="about-item-desc">General liability and workers' compensation on every job</div>
+          </li>
+          <li class="about-item">
+            <div class="about-item-name">Free Inspections</div>
+            <div class="about-item-desc">No-cost whole-property inspection with written report</div>
+          </li>
+          <li class="about-item">
+            <div class="about-item-name">Guaranteed Work</div>
+            <div class="about-item-desc">All treatments backed by service warranty</div>
+          </li>
         </ul>
       </div>
-      <div>
-        <div class="footer-col-title">Contact</div>
-        <div class="footer-contact-item">
-          <svg width="14" height="14"><use href="#icon-phone"/></svg>
-          <span>(305) 266-2220</span>
+      <div class="about-visual reveal reveal-delay-2">
+        <div class="about-img-wrap" id="aboutImgWrap">
+          <img class="about-img" src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&q=80" alt="Licensed termite technician at work" />
+          <div class="about-img-overlay"></div>
+          <div class="about-badge-strip">
+            <span class="cbadge">Licensed</span>
+            <span class="cbadge">Insured</span>
+            <span class="cbadge">Miami-Dade</span>
+            <span class="cbadge">Broward</span>
+          </div>
         </div>
-        <div class="footer-contact-item">
-          <svg width="14" height="14"><use href="#icon-mail"/></svg>
-          <span>info@darnquicktermite.com</span>
+        <div class="corner-tl"></div>
+        <div class="corner-tr"></div>
+        <div class="corner-bl"></div>
+        <div class="corner-br"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <div class="section-inner">
+      <div class="reviews-header reveal">
+        <div>
+          <p class="section-eyebrow">Client reviews</p>
+          <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,5vw,5rem);letter-spacing:0.04em;color:var(--white);line-height:0.95;">TRUSTED BY MIAMI HOMEOWNERS</h2>
         </div>
-        <div class="footer-contact-item">
-          <svg width="14" height="14"><use href="#icon-pin"/></svg>
-          <span>7401 NW 7th St #7<br>Miami, FL 33126</span>
+        <div class="google-badge">
+          <div class="google-g">G</div>
+          <div>
+            <div class="google-rating-val">4.8</div>
+            <div class="google-stars-row">
+              <svg class="gstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="gstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="gstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="gstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="gstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div class="google-rating-label">Google Reviews</div>
+          </div>
+        </div>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card reveal">
+          <div class="review-top">
+            <div class="reviewer-avatar">RG</div>
+            <div>
+              <div class="reviewer-name">Roberto G.</div>
+              <div class="reviewer-meta">Miami homeowner — Tent fumigation</div>
+            </div>
+          </div>
+          <div class="review-stars-row">
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="review-text">"Darn Quick came out within 24 hours and had our tent fumigation scheduled within days. Professional, on time, and handled everything perfectly. No termites since — highly recommend."</p>
+        </div>
+        <div class="review-card reveal reveal-delay-1">
+          <div class="review-top">
+            <div class="reviewer-avatar">SP</div>
+            <div>
+              <div class="reviewer-name">Sandra P.</div>
+              <div class="reviewer-meta">South Miami — No-tent treatment</div>
+            </div>
+          </div>
+          <div class="review-stars-row">
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="review-text">"Couldn't tent my condo so they did the no-tent treatment. Completely solved the problem without disrupting neighbors. Perfect for condo owners dealing with termites."</p>
+        </div>
+        <div class="review-card reveal reveal-delay-2">
+          <div class="review-top">
+            <div class="reviewer-avatar">EM</div>
+            <div>
+              <div class="reviewer-name">Eduardo M.</div>
+              <div class="reviewer-meta">Coral Gables — Annual termite plan</div>
+            </div>
+          </div>
+          <div class="review-stars-row">
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="rstar" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="review-text">"Been on their annual plan for 3 years. They show up on schedule, do thorough inspections every time, and I have total peace of mind. Worth every penny for a Coral Gables home."</p>
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">&copy; 2024 Darn Quick Termite &amp; Fumigation, Inc. All rights reserved.</div>
-      <div class="footer-lic">Florida Licensed &amp; Insured &middot; FDACS Regulated &middot; BBB Accredited</div>
+  </section>
+
+  <section class="why-band">
+    <div class="why-inner">
+      <div class="why-item reveal">
+        <h4>20 Years Miami</h4>
+        <p>Two decades of experience protecting Miami-Dade and Broward properties.</p>
+      </div>
+      <div class="why-item reveal reveal-delay-1">
+        <h4>Fast Response</h4>
+        <p>Same-day or next-day inspections — because termite damage doesn't wait.</p>
+      </div>
+      <div class="why-item reveal reveal-delay-2">
+        <h4>Licensed &amp; Insured</h4>
+        <p>State-certified applicators, fully licensed and insured on every job.</p>
+      </div>
+      <div class="why-item reveal reveal-delay-3">
+        <h4>Free Inspections</h4>
+        <p>No-cost whole-property inspection with a full written report included.</p>
+      </div>
     </div>
-  </div>
-</footer>
+  </section>
 
-<!-- ── ANIMATIONS ────────────────────────────────────────────── -->
-<script type="module">
-  import { animate, inView, stagger } from 'https://esm.sh/motion@11.11.13';
+  <section class="sectors" id="sectors">
+    <div class="sectors-layout">
+      <div class="sectors-left reveal">
+        <p class="section-eyebrow">Who we serve</p>
+        <h2>PROPERTIES WE PROTECT</h2>
+        <p class="intro">From single-family homes in Coral Gables to commercial warehouses in Doral — Darn Quick treats any structure in the greater Miami area.</p>
+        <a href="tel:+13052662220" class="btn-solid">Call Us Today</a>
+      </div>
+      <div class="sectors-grid reveal reveal-delay-2">
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Single-Family Homes</div></div>
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Condos &amp; Townhomes</div></div>
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Commercial Buildings</div></div>
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Restaurants</div></div>
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Warehouses</div></div>
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Hotels</div></div>
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">Multi-Family Units</div></div>
+        <div class="sector-item"><div class="sector-dot"></div><div class="sector-name">New Construction</div></div>
+      </div>
+    </div>
+  </section>
 
-  // ── Count-up animation ─────────────────────────────────────
-  function easeOutCubic(t) {
-    return 1 - Math.pow(1 - t, 3);
-  }
+  <section class="cta-section" id="contact">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal">Get started today</p>
+      <h2 class="reveal">SCHEDULE YOUR FREE<br>TERMITE INSPECTION</h2>
+      <p class="reveal reveal-delay-1">No obligation. A licensed technician inspects your property, identifies any termite activity, and provides a full written report — completely free.</p>
+      <div class="cta-btns reveal reveal-delay-2">
+        <a href="tel:+13052662220" class="btn-cta-primary">Call (305) 266-2220</a>
+        <a href="#services" class="btn-cta-ghost">View All Services</a>
+      </div>
+    </div>
+  </section>
 
-  function countUp(el) {
-    const target = parseFloat(el.dataset.target);
-    const duration = 1800;
-    let start = null;
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-wordmark">DARN QUICK</span>
+          <span class="footer-sub">Termite &amp; Fumigation — Miami, FL</span>
+          <p>Miami's trusted termite and fumigation specialists. Serving Miami-Dade and Broward counties with licensed, guaranteed treatments since 2004.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="#services">Termite Inspections</a></li>
+            <li><a href="#services">Tent Fumigation</a></li>
+            <li><a href="#services">No-Tent Treatment</a></li>
+            <li><a href="#services">Drywood Control</a></li>
+            <li><a href="#services">Subterranean Barriers</a></li>
+            <li><a href="#services">Annual Plans</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Areas We Serve</h5>
+          <ul>
+            <li><a href="#sectors">Miami</a></li>
+            <li><a href="#sectors">Coral Gables</a></li>
+            <li><a href="#sectors">South Miami</a></li>
+            <li><a href="#sectors">Hialeah</a></li>
+            <li><a href="#sectors">Doral</a></li>
+            <li><a href="#sectors">Broward County</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-contact">
+          <h5>Contact</h5>
+          <p>
+            7401 NW 7th St #7<br>
+            Miami, FL 33126<br><br>
+            <a href="tel:+13052662220">(305) 266-2220</a><br>
+            <a href="http://darnquicktermite.com">darnquicktermite.com</a>
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Darn Quick Termite &amp; Fumigation. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-    function step(timestamp) {
-      if (!start) start = timestamp;
-      const elapsed = timestamp - start;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = easeOutCubic(progress);
-      el.textContent = Math.round(eased * target);
-      if (progress < 1) requestAnimationFrame(step);
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    const heroBg = document.getElementById('heroBg');
+    window.addEventListener('scroll', () => {
+      heroBg.style.transform = `scale(1.08) translateY(${window.scrollY * 0.25}px)`;
+    }, { passive: true });
+
+    (function heroIn() {
+      const lines = document.querySelectorAll('.hero-title-line span');
+      const eyebrow = document.getElementById('heroEyebrow');
+      const sub = document.getElementById('heroSub');
+      const ctas = document.getElementById('heroCtas');
+      const badges = document.getElementById('heroBadges');
+      const scroll = document.getElementById('heroScroll');
+
+      lines.forEach((line, i) => {
+        setTimeout(() => {
+          line.style.transition = 'transform 1s cubic-bezier(0.16, 1, 0.3, 1)';
+          line.style.transform = 'translateY(0)';
+        }, 200 + i * 140);
+      });
+
+      setTimeout(() => { eyebrow.style.transition = 'opacity 0.8s ease'; eyebrow.style.opacity = '1'; }, 100);
+      setTimeout(() => { sub.style.transition = 'opacity 0.8s ease'; sub.style.opacity = '1'; }, 700);
+      setTimeout(() => { ctas.style.transition = 'opacity 0.8s ease'; ctas.style.opacity = '1'; }, 900);
+      setTimeout(() => { badges.style.transition = 'opacity 0.8s ease'; badges.style.opacity = '1'; }, 1100);
+      setTimeout(() => { scroll.style.transition = 'opacity 0.8s ease'; scroll.style.opacity = '1'; }, 1300);
+    })();
+
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => revealObs.observe(el));
+
+    const stLine = document.getElementById('statementLine');
+    const stLineObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          stLine.style.transition = 'transform 0.9s cubic-bezier(0.16,1,0.3,1)';
+          stLine.style.transform = 'scaleX(1)';
+          stLineObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    stLineObs.observe(stLine);
+
+    const aboutWrap = document.getElementById('aboutImgWrap');
+    const aboutObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { aboutWrap.classList.add('revealed'); aboutObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.2 });
+    aboutObs.observe(aboutWrap);
+
+    function countUp(el) {
+      const end = parseFloat(el.dataset.count);
+      const suffix = el.dataset.suffix || '';
+      const isDecimal = el.dataset.decimal === 'true';
+      const duration = 1600;
+      const start = performance.now();
+      function step(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = (isDecimal ? (end * eased).toFixed(1) : Math.floor(end * eased)) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
     }
 
-    requestAnimationFrame(step);
-  }
-
-  // ── Set initial states ─────────────────────────────────────
-  const fadeTargets = [
-    '.hero-label',
-    '.hero-title',
-    '.hero-sub',
-    '.hero-ctas',
-    '.hero-badges',
-    '.service-card',
-    '.process-step',
-    '.review-card',
-    '.trust-item',
-    '.section-header',
-  ];
-
-  fadeTargets.forEach(selector => {
-    document.querySelectorAll(selector).forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(30px)';
-    });
-  });
-
-  // ── Hero entrance ──────────────────────────────────────────
-  const heroItems = [
-    '.hero-label',
-    '.hero-title',
-    '.hero-sub',
-    '.hero-ctas',
-    '.hero-badges',
-  ];
-
-  heroItems.forEach((selector, i) => {
-    const el = document.querySelector(selector);
-    if (!el) return;
-    setTimeout(() => {
-      animate(el,
-        { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0px)'] },
-        { duration: 0.6, easing: [0.25, 0.46, 0.45, 0.94] }
-      );
-    }, i * 120);
-  });
-
-  // ── Stats count-up on scroll ───────────────────────────────
-  inView('#stats', () => {
-    document.querySelectorAll('.count-num').forEach(el => countUp(el));
-    animate('#stats .stat-item',
-      { opacity: [0, 1], transform: ['translateY(20px)', 'translateY(0px)'] },
-      { duration: 0.5, delay: stagger(0.1), easing: 'ease-out' }
-    );
-  }, { amount: 0.3 });
-
-  // ── Section headers ────────────────────────────────────────
-  document.querySelectorAll('.section-header').forEach(el => {
-    inView(el, () => {
-      animate(el,
-        { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0px)'] },
-        { duration: 0.65, easing: [0.25, 0.46, 0.45, 0.94] }
-      );
-    }, { amount: 0.4 });
-  });
-
-  // ── Service cards ──────────────────────────────────────────
-  inView('#services .services-grid', () => {
-    animate('.service-card',
-      { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0px)'] },
-      { duration: 0.55, delay: stagger(0.09), easing: 'ease-out' }
-    );
-  }, { amount: 0.1 });
-
-  // ── Process steps ──────────────────────────────────────────
-  inView('#how-fast .process-steps', () => {
-    animate('.process-step',
-      { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0px)'] },
-      { duration: 0.55, delay: stagger(0.15), easing: 'ease-out' }
-    );
-  }, { amount: 0.2 });
-
-  // ── Review cards ───────────────────────────────────────────
-  inView('#reviews .reviews-grid', () => {
-    animate('.review-card',
-      { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0px)'] },
-      { duration: 0.55, delay: stagger(0.12), easing: 'ease-out' }
-    );
-  }, { amount: 0.1 });
-
-  // ── Trust items ────────────────────────────────────────────
-  inView('#trust', () => {
-    animate('.trust-item',
-      { opacity: [0, 1], transform: ['translateY(20px)', 'translateY(0px)'] },
-      { duration: 0.5, delay: stagger(0.1), easing: 'ease-out' }
-    );
-  }, { amount: 0.3 });
-
-  // ── CTA section ────────────────────────────────────────────
-  inView('#cta', () => {
-    animate('.cta-inner',
-      { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0px)'] },
-      { duration: 0.65, easing: [0.25, 0.46, 0.45, 0.94] }
-    );
-  }, { amount: 0.4 });
-</script>
+    const statsObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('[data-count]').forEach(el => countUp(el));
+          statsObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    const statsBand = document.querySelector('.stats-band');
+    if (statsBand) statsObs.observe(statsBand);
+  </script>
 
 </body>
 </html>
