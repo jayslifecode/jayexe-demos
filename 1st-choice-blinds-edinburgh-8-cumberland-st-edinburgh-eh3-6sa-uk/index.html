@@ -151,11 +151,16 @@
       );
     }
 
-    .hero-content {
+    .hero-content-wrap {
       position: relative;
-      padding: 140px 32px 100px;
-      max-width: 700px;
-      margin-left: max(32px, 8vw);
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .hero-content {
+      padding: 140px 0 100px;
+      max-width: 660px;
     }
 
     .hero-eyebrow {
@@ -254,7 +259,7 @@
     .hero-scroll {
       position: absolute;
       bottom: 40px;
-      left: max(32px, 8vw);
+      left: max(32px, calc((100vw - 1200px) / 2 + 32px));
       display: flex;
       align-items: center;
       gap: 10px;
@@ -1183,6 +1188,7 @@
   <section class="hero" id="home">
     <div class="hero-bg" id="hero-bg"></div>
     <div class="hero-overlay"></div>
+    <div class="hero-content-wrap">
     <div class="hero-content">
       <div class="hero-eyebrow" id="hero-eyebrow">Edinburgh &amp; The Lothians</div>
       <h1 id="hero-title">Edinburgh's <em>First Choice</em><br>for Window Blinds</h1>
@@ -1191,6 +1197,7 @@
         <a href="tel:+441316101690" class="btn-primary">Get a Free Quote</a>
         <a href="#configurator" class="btn-ghost">Design Your Blinds</a>
       </div>
+    </div>
     </div>
     <div class="hero-scroll" id="hero-scroll">
       <span class="hero-scroll-line"></span>
