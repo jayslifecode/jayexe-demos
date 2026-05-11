@@ -6,50 +6,61 @@
   <title>1st Choice Blinds Edinburgh — Made-to-Measure Window Blinds & Shutters</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:      #0D1528;
-      --text:    #EEE8DB;
-      --muted:   #9A9282;
-      --accent:  #A09060;
-      --accent-light: #C4B07A;
-      --surface: #131E35;
-      --surface2: #1A2840;
-      --border:  rgba(160,144,96,0.20);
+      --navy:        #0D1528;
+      --navy2:       #131E35;
+      --gold:        #A09060;
+      --gold-light:  #C4B07A;
+      --gold-pale:   #F0EAD8;
+      --white:       #FFFFFF;
+      --off-white:   #F5F5F7;
+      --warm-white:  #F8F6F2;
+      --text-dark:   #1A1A2E;
+      --text-mid:    #4A4A6A;
+      --text-muted:  #8A8A9A;
+      --border:      rgba(0,0,0,0.08);
+      --border-gold: rgba(160,144,96,0.25);
       --font-display: 'Playfair Display', Georgia, serif;
       --font-body:    'DM Sans', system-ui, sans-serif;
+      --radius:       8px;
     }
 
     html { scroll-behavior: smooth; }
-
     body {
-      background: var(--bg);
-      color: var(--text);
+      background: var(--white);
+      color: var(--text-dark);
       font-family: var(--font-body);
       font-size: 16px;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── NAV ─────────────────────────────────────────────────────────── */
+    /* ── NAV ─────────────────────────────────────────────────────── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(13,21,40,0.82);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
+      z-index: 200;
+      background: rgba(255,255,255,0.82);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+
+    nav.scrolled {
+      background: rgba(255,255,255,0.95);
+      box-shadow: 0 1px 24px rgba(0,0,0,0.07);
     }
 
     .nav-inner {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 24px;
-      height: 68px;
+      padding: 0 32px;
+      height: 66px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -58,66 +69,64 @@
 
     .nav-logo {
       font-family: var(--font-display);
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       font-weight: 700;
-      color: var(--text);
+      color: var(--navy);
       text-decoration: none;
       white-space: nowrap;
       letter-spacing: 0.01em;
+      flex-shrink: 0;
     }
-
-    .nav-logo span { color: var(--accent); }
+    .nav-logo span { color: var(--gold); }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 36px;
       list-style: none;
     }
-
     .nav-links a {
-      color: var(--muted);
+      color: var(--text-mid);
       text-decoration: none;
       font-size: 0.875rem;
       font-weight: 500;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+      letter-spacing: 0.02em;
       white-space: nowrap;
       transition: color 0.2s;
     }
-
-    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover { color: var(--navy); }
 
     .btn-nav {
-      background: var(--accent);
-      color: #0D1528;
+      background: var(--navy);
+      color: #fff;
       border: none;
-      border-radius: 4px;
+      border-radius: 6px;
       padding: 10px 22px;
       font-family: var(--font-body);
       font-size: 0.8125rem;
       font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      letter-spacing: 0.04em;
       text-decoration: none;
       white-space: nowrap;
       cursor: pointer;
       transition: background 0.2s;
+      flex-shrink: 0;
     }
+    .btn-nav:hover { background: var(--gold); }
 
-    .btn-nav:hover { background: var(--accent-light); }
-
-    @media (max-width: 768px) {
+    @media (max-width: 860px) {
       .nav-links { display: none; }
+      .nav-inner { padding: 0 20px; }
     }
 
-    /* ── HERO ────────────────────────────────────────────────────────── */
+    /* ── HERO ───────────────────────────────────────────────────── */
     .hero {
       min-height: 100vh;
       position: relative;
       display: flex;
       align-items: center;
       overflow: hidden;
+      background: var(--navy);
     }
 
     .hero-bg {
@@ -127,6 +136,7 @@
       background-size: cover;
       background-position: center;
       transform: scale(1.04);
+      opacity: 0.35;
     }
 
     .hero-overlay {
@@ -134,59 +144,66 @@
       inset: 0;
       background: linear-gradient(
         120deg,
-        rgba(13,21,40,0.92) 0%,
-        rgba(13,21,40,0.70) 55%,
-        rgba(13,21,40,0.40) 100%
+        rgba(13,21,40,0.98) 0%,
+        rgba(13,21,40,0.80) 55%,
+        rgba(13,21,40,0.55) 100%
       );
     }
 
     .hero-content {
       position: relative;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 140px 24px 80px;
-      max-width: 680px;
-      margin-left: 8vw;
+      padding: 140px 32px 100px;
+      max-width: 700px;
+      margin-left: max(32px, 8vw);
     }
 
     .hero-eyebrow {
-      display: inline-block;
-      font-size: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.72rem;
       font-weight: 600;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 20px;
+      color: var(--gold);
+      margin-bottom: 24px;
       opacity: 0;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
     }
 
     .hero h1 {
       font-family: var(--font-display);
-      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+      font-size: clamp(2.6rem, 5.5vw, 4.4rem);
       font-weight: 700;
-      line-height: 1.12;
-      color: var(--text);
-      margin-bottom: 20px;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 22px;
       opacity: 0;
     }
-
     .hero h1 em {
       font-style: italic;
-      color: var(--accent-light);
+      color: var(--gold-light);
     }
 
     .hero-sub {
       font-size: 1.05rem;
-      color: rgba(238,232,219,0.78);
+      color: rgba(255,255,255,0.65);
       font-weight: 300;
-      margin-bottom: 42px;
+      margin-bottom: 44px;
       max-width: 480px;
       opacity: 0;
+      line-height: 1.75;
     }
 
     .hero-ctas {
       display: flex;
-      gap: 16px;
+      gap: 14px;
       flex-wrap: wrap;
       opacity: 0;
     }
@@ -197,625 +214,931 @@
       justify-content: center;
       height: 52px;
       padding: 0 32px;
-      background: var(--accent);
-      color: #0D1528;
+      background: var(--gold);
+      color: var(--navy);
       border: none;
-      border-radius: 4px;
+      border-radius: 6px;
       font-family: var(--font-body);
       font-size: 0.875rem;
       font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      letter-spacing: 0.04em;
       text-decoration: none;
       cursor: pointer;
-      transition: background 0.2s;
+      transition: background 0.2s, transform 0.2s;
       white-space: nowrap;
     }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
 
-    .btn-primary:hover { background: var(--accent-light); }
-
-    .btn-outline {
+    .btn-ghost {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       height: 52px;
       padding: 0 32px;
       background: transparent;
-      color: var(--text);
-      border: 1px solid rgba(238,232,219,0.35);
-      border-radius: 4px;
+      color: rgba(255,255,255,0.85);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 6px;
       font-family: var(--font-body);
       font-size: 0.875rem;
       font-weight: 500;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+      letter-spacing: 0.03em;
       text-decoration: none;
       cursor: pointer;
       transition: border-color 0.2s, color 0.2s;
       white-space: nowrap;
     }
-
-    .btn-outline:hover {
-      border-color: var(--accent);
-      color: var(--accent-light);
+    .btn-ghost:hover {
+      border-color: var(--gold);
+      color: var(--gold-light);
     }
 
-    /* ── STAT BAND ───────────────────────────────────────────────────── */
-    .stat-band {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
+    /* Hero scroll indicator */
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: max(32px, 8vw);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .hero-scroll-line {
+      width: 40px;
+      height: 1px;
+      background: rgba(255,255,255,0.3);
+      animation: scrollline 2s ease-in-out infinite;
+    }
+    @keyframes scrollline {
+      0%,100% { width: 40px; opacity: 0.3; }
+      50% { width: 60px; opacity: 0.7; }
+    }
+
+    /* ── TRUST BAR ──────────────────────────────────────────────── */
+    .trust-bar {
+      background: var(--white);
       border-bottom: 1px solid var(--border);
     }
-
-    .stat-band-inner {
+    .trust-bar-inner {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 32px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
+      divide-x: 1px solid var(--border);
     }
-
-    .stat-item {
-      padding: 28px 20px;
+    .trust-item {
+      padding: 26px 24px;
       display: flex;
       align-items: center;
       gap: 14px;
       border-right: 1px solid var(--border);
     }
-
-    .stat-item:last-child { border-right: none; }
-
-    .stat-icon {
+    .trust-item:last-child { border-right: none; }
+    .trust-icon {
       flex-shrink: 0;
-      width: 38px;
-      height: 38px;
-      color: var(--accent);
+      width: 36px;
+      height: 36px;
+      color: var(--gold);
     }
-
-    .stat-text strong {
+    .trust-text strong {
       display: block;
       font-size: 0.875rem;
       font-weight: 600;
-      color: var(--text);
-      letter-spacing: 0.02em;
+      color: var(--text-dark);
     }
-
-    .stat-text span {
+    .trust-text span {
       font-size: 0.75rem;
-      color: var(--muted);
+      color: var(--text-muted);
     }
-
-    @media (max-width: 900px) {
-      .stat-band-inner { grid-template-columns: repeat(2, 1fr); }
-      .stat-item:nth-child(2) { border-right: none; }
+    @media (max-width: 860px) {
+      .trust-bar-inner { grid-template-columns: repeat(2, 1fr); }
+      .trust-item:nth-child(2) { border-right: none; }
     }
-
     @media (max-width: 480px) {
-      .stat-band-inner { grid-template-columns: 1fr; }
-      .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
-      .stat-item:last-child { border-bottom: none; }
+      .trust-bar-inner { grid-template-columns: 1fr; }
+      .trust-item { border-right: none; border-bottom: 1px solid var(--border); }
     }
 
-    /* ── SECTIONS ────────────────────────────────────────────────────── */
+    /* ── SECTION BASE ───────────────────────────────────────────── */
     .section {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 96px 24px;
+      padding: 96px 32px;
     }
-
     .section-label {
       font-size: 0.7rem;
       font-weight: 600;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--gold);
       margin-bottom: 12px;
     }
-
     .section-title {
       font-family: var(--font-display);
-      font-size: clamp(1.9rem, 3.5vw, 2.9rem);
+      font-size: clamp(1.9rem, 3.2vw, 2.8rem);
       font-weight: 700;
       line-height: 1.15;
-      color: var(--text);
-      margin-bottom: 16px;
+      color: var(--text-dark);
+      margin-bottom: 14px;
     }
-
     .section-sub {
       font-size: 1rem;
-      color: var(--muted);
-      max-width: 520px;
-      line-height: 1.7;
+      color: var(--text-mid);
+      max-width: 540px;
+      line-height: 1.75;
     }
+    .section-header { margin-bottom: 60px; }
 
-    .section-header { margin-bottom: 56px; }
+    /* Section on dark bg */
+    .on-dark .section-title { color: #fff; }
+    .on-dark .section-sub { color: rgba(255,255,255,0.6); }
 
-    /* ── SERVICES ────────────────────────────────────────────────────── */
-    .services-grid {
+    /* ── PRODUCTS (white bg) ────────────────────────────────────── */
+    .products-section { background: var(--white); }
+
+    .products-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      background: var(--border);
+      gap: 28px;
     }
 
-    .service-card {
-      background: var(--surface);
-      padding: 36px 32px;
-      transition: background 0.25s;
+    .product-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--white);
+      border: 1px solid var(--border);
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .product-card:hover {
+      box-shadow: 0 12px 40px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
     }
 
-    .service-card:hover { background: var(--surface2); }
-
-    .service-icon {
-      width: 44px;
-      height: 44px;
-      color: var(--accent);
-      margin-bottom: 20px;
+    .product-card-img {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      background: var(--off-white);
     }
+    .product-card-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .product-card:hover .product-card-img img { transform: scale(1.04); }
 
-    .service-card h3 {
+    .product-card-body {
+      padding: 24px 24px 28px;
+    }
+    .product-card-body h3 {
       font-family: var(--font-display);
       font-size: 1.15rem;
       font-weight: 600;
-      color: var(--text);
-      margin-bottom: 10px;
+      color: var(--text-dark);
+      margin-bottom: 8px;
     }
-
-    .service-card p {
+    .product-card-body p {
       font-size: 0.875rem;
-      color: var(--muted);
+      color: var(--text-mid);
       line-height: 1.7;
+      margin-bottom: 18px;
+    }
+    .product-link {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s;
+    }
+    .product-link:hover { gap: 10px; }
+
+    @media (max-width: 960px) {
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 580px) {
+      .products-grid { grid-template-columns: 1fr; }
     }
 
-    @media (max-width: 900px) {
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    @media (max-width: 560px) {
-      .services-grid { grid-template-columns: 1fr; }
-    }
-
-    /* ── CONFIGURATOR ────────────────────────────────────────────────── */
-    .configurator-section {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
+    /* ── CONFIGURATOR (warm off-white bg) ───────────────────────── */
+    .configurator-section { background: var(--warm-white); }
 
     .configurator-inner {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 96px 24px;
+      padding: 96px 32px;
     }
 
     .configurator-layout {
       display: grid;
-      grid-template-columns: 1fr 400px;
+      grid-template-columns: 1fr 380px;
       gap: 48px;
       align-items: start;
     }
-
     @media (max-width: 960px) {
       .configurator-layout { grid-template-columns: 1fr; }
     }
 
-    /* Canvas */
     #wc-canvas {
       display: block;
       width: 100%;
       aspect-ratio: 4/3;
-      border-radius: 6px;
+      border-radius: var(--radius);
       background: #EDE8E0;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
     }
 
-    /* Controls */
     .wc-controls {
-      background: #131E35;
-      border-radius: 8px;
+      background: var(--white);
+      border-radius: var(--radius);
       padding: 32px 28px;
       display: flex;
       flex-direction: column;
-      gap: 28px;
+      gap: 24px;
       border: 1px solid var(--border);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
     }
-
     .wc-group-label {
       font-size: 0.68rem;
       font-weight: 600;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--gold);
       margin-bottom: 12px;
     }
-
-    /* Sliders */
     .wc-slider-row {
       display: flex;
       align-items: center;
       gap: 12px;
     }
-
     .wc-slider-row label {
       font-size: 0.8125rem;
-      color: var(--muted);
+      color: var(--text-mid);
       white-space: nowrap;
       min-width: 54px;
     }
-
     .wc-slider-row input[type=range] {
       flex: 1;
-      accent-color: var(--accent);
+      accent-color: var(--gold);
       height: 4px;
       cursor: pointer;
     }
-
     .wc-slider-row .wc-val {
       font-size: 0.8125rem;
       font-weight: 600;
-      color: var(--accent-light);
-      min-width: 48px;
+      color: var(--gold);
+      min-width: 54px;
       text-align: right;
     }
-
-    /* Swatches */
-    .wc-swatches {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
+    .wc-swatches { display: flex; gap: 10px; flex-wrap: wrap; }
     .wc-swatch {
-      width: 34px;
-      height: 34px;
+      width: 32px; height: 32px;
       border-radius: 50%;
       border: 2px solid transparent;
       cursor: pointer;
       transition: border-color 0.15s, transform 0.15s;
       outline: none;
     }
-
     .wc-swatch.wc-active {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 2px rgba(160,144,96,0.35);
+      border-color: var(--gold);
+      box-shadow: 0 0 0 2px rgba(160,144,96,0.3);
     }
-
-    /* Button groups */
-    .wc-btn-group {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
+    .wc-btn-group { display: flex; gap: 8px; flex-wrap: wrap; }
     .wc-btn {
       height: 36px;
       padding: 0 16px;
-      background: rgba(255,255,255,0.05);
-      color: var(--muted);
-      border: 1px solid rgba(160,144,96,0.18);
-      border-radius: 4px;
+      background: var(--off-white);
+      color: var(--text-mid);
+      border: 1px solid var(--border);
+      border-radius: 6px;
       font-family: var(--font-body);
       font-size: 0.78rem;
       font-weight: 500;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.03em;
       cursor: pointer;
       transition: background 0.18s, color 0.18s, border-color 0.18s;
       white-space: nowrap;
     }
-
     .wc-btn:hover {
-      background: rgba(160,144,96,0.12);
-      color: var(--text);
-      border-color: var(--accent);
+      background: var(--gold-pale);
+      color: var(--text-dark);
+      border-color: var(--gold);
     }
-
     .wc-btn.wc-active {
-      background: var(--accent);
-      color: #0D1528;
-      border-color: var(--accent);
+      background: var(--navy);
+      color: #fff;
+      border-color: var(--navy);
       font-weight: 600;
     }
-
     .wc-cta {
       display: flex;
       align-items: center;
       justify-content: center;
       height: 50px;
-      background: var(--accent);
-      color: #0D1528;
+      background: var(--gold);
+      color: var(--navy);
       border: none;
-      border-radius: 4px;
+      border-radius: 6px;
       font-family: var(--font-body);
       font-size: 0.875rem;
       font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      letter-spacing: 0.04em;
       text-decoration: none;
       cursor: pointer;
       transition: background 0.2s;
       width: 100%;
-      margin-top: 4px;
+    }
+    .wc-cta:hover { background: var(--gold-light); }
+    .wc-divider { height: 1px; background: var(--border); }
+
+    /* ── DARK TRUST SECTION ─────────────────────────────────────── */
+    .dark-section {
+      background: var(--navy);
     }
 
-    .wc-cta:hover { background: var(--accent-light); }
-
-    .wc-divider {
-      height: 1px;
-      background: var(--border);
-    }
-
-    /* ── BENEFITS ────────────────────────────────────────────────────── */
-    .benefits-grid {
+    .why-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 32px;
+      gap: 40px;
     }
-
-    .benefit-item {
+    .why-item {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 16px;
     }
-
-    .benefit-icon {
-      width: 42px;
-      height: 42px;
-      color: var(--accent);
-    }
-
-    .benefit-item h4 {
+    .why-number {
       font-family: var(--font-display);
-      font-size: 1rem;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      opacity: 0.9;
+    }
+    .why-item h4 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
       font-weight: 600;
-      color: var(--text);
+      color: #fff;
     }
-
-    .benefit-item p {
+    .why-item p {
       font-size: 0.875rem;
-      color: var(--muted);
-      line-height: 1.7;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.75;
     }
-
     @media (max-width: 900px) {
-      .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
     }
-
     @media (max-width: 480px) {
-      .benefits-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
     }
 
-    /* ── GALLERY ─────────────────────────────────────────────────────── */
-    .gallery-section {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+    /* ── REVIEWS (white bg) ─────────────────────────────────────── */
+    .reviews-section { background: var(--white); }
+
+    .google-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      padding: 8px 16px 8px 12px;
+      margin-bottom: 48px;
+    }
+    .google-logo {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .google-logo .g-b { color: #4285F4; }
+    .google-logo .g-r { color: #EA4335; }
+    .google-logo .g-y { color: #FBBC04; }
+    .google-logo .g-g { color: #34A853; }
+    .google-stars {
+      display: flex;
+      gap: 2px;
+      color: #FBBC04;
+    }
+    .google-stars svg { width: 14px; height: 14px; fill: currentColor; }
+    .google-badge-text {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+    .google-badge-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-left: 2px;
     }
 
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 3px;
-    }
-
-    .gallery-item {
-      position: relative;
-      aspect-ratio: 3/4;
-      overflow: hidden;
-      background: var(--surface2);
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: opacity 0.3s;
-    }
-
-    .gallery-item:hover img { opacity: 0.88; }
-
-    @media (max-width: 768px) {
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    /* ── TESTIMONIALS ────────────────────────────────────────────────── */
-    .testimonials-grid {
+    .reviews-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
     }
-
-    .testimonial-card {
-      background: var(--surface);
-      border: 1px solid rgba(238,232,219,0.10);
-      border-radius: 6px;
-      padding: 32px 28px;
-    }
-
-    .stars {
+    .review-card {
+      background: var(--off-white);
+      border-radius: var(--radius);
+      padding: 28px;
+      border: 1px solid var(--border);
       display: flex;
-      gap: 3px;
-      margin-bottom: 16px;
-      color: var(--accent);
+      flex-direction: column;
+      gap: 14px;
     }
-
-    .stars svg {
-      width: 16px;
-      height: 16px;
-      fill: currentColor;
+    .review-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
-
-    .testimonial-card blockquote {
-      font-size: 0.9375rem;
-      color: var(--text);
-      line-height: 1.72;
-      margin-bottom: 20px;
-      font-style: italic;
+    .review-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .review-author strong {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+    .review-author span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .review-stars {
+      display: flex;
+      gap: 2px;
+      color: #FBBC04;
+    }
+    .review-stars svg { width: 15px; height: 15px; fill: currentColor; }
+    .review-card blockquote {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      line-height: 1.75;
+      font-style: italic;
+    }
+    .review-google-icon {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .review-google-icon span {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+    @media (max-width: 860px) {
+      .reviews-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 580px) {
+      .reviews-section .reviews-grid { grid-template-columns: 1fr; }
     }
 
-    .testimonial-author strong {
+    /* ── GALLERY (off-white) ────────────────────────────────────── */
+    .gallery-section { background: var(--off-white); }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 240px 240px;
+      gap: 12px;
+    }
+    .gallery-item {
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--border);
+    }
+    .gallery-item:first-child {
+      grid-row: span 2;
+    }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease, opacity 0.3s;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.04);
+      opacity: 0.9;
+    }
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+      .gallery-item:first-child { grid-row: span 1; }
+    }
+
+    /* ── CONTACT (off-white) ────────────────────────────────────── */
+    .contact-section { background: var(--off-white); }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    @media (max-width: 860px) {
+      .contact-layout { grid-template-columns: 1fr; }
+    }
+
+    .contact-form-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 40px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+    }
+
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
       display: block;
       font-size: 0.8125rem;
       font-weight: 600;
-      color: var(--text);
+      color: var(--text-dark);
+      margin-bottom: 8px;
+      letter-spacing: 0.02em;
     }
-
-    .testimonial-author span {
-      font-size: 0.75rem;
-      color: var(--muted);
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
-
-    @media (max-width: 900px) {
-      .testimonials-grid { grid-template-columns: 1fr; }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(160,144,96,0.12);
+      background: var(--white);
     }
+    .form-group textarea { min-height: 120px; resize: vertical; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
 
-    /* ── CTA BAND ────────────────────────────────────────────────────── */
-    .cta-band {
-      background: var(--accent);
+    .btn-submit {
+      width: 100%;
+      height: 52px;
+      background: var(--navy);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      margin-top: 8px;
+    }
+    .btn-submit:hover { background: var(--gold); transform: translateY(-1px); }
+
+    /* Calendly-style booking card */
+    .booking-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+      overflow: hidden;
+    }
+    .booking-card-header {
+      background: var(--navy);
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .booking-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--navy);
+      flex-shrink: 0;
+    }
+    .booking-card-header h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+    }
+    .booking-card-header p {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+      margin-top: 2px;
+    }
+    .booking-duration {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.55);
+      margin-top: 8px;
+    }
+    .booking-duration svg { width: 14px; height: 14px; }
+
+    .booking-calendar {
+      padding: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .cal-month-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .cal-month-header span {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+    .cal-nav {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-mid);
+      transition: background 0.15s;
+    }
+    .cal-nav:hover { background: var(--off-white); }
+    .cal-days-header {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+    .cal-days-header span {
       text-align: center;
-      padding: 80px 24px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+    }
+    .cal-days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+    }
+    .cal-day {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+      color: var(--text-dark);
+    }
+    .cal-day:hover:not(.cal-empty):not(.cal-past) {
+      background: var(--gold-pale);
+      color: var(--gold);
+    }
+    .cal-day.cal-available { font-weight: 600; }
+    .cal-day.cal-selected {
+      background: var(--navy);
+      color: #fff;
+      font-weight: 600;
+    }
+    .cal-day.cal-past { color: var(--text-muted); cursor: default; }
+    .cal-day.cal-empty { cursor: default; }
+    .cal-day.cal-today {
+      border: 1.5px solid var(--gold);
+      color: var(--gold);
+      font-weight: 600;
     }
 
+    .booking-times {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .booking-times p {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+    .time-slots {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .time-slot {
+      padding: 9px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      text-align: center;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+      color: var(--text-dark);
+    }
+    .time-slot:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: var(--gold-pale);
+    }
+    .time-slot.selected {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #fff;
+    }
+
+    .booking-confirm {
+      padding: 20px 24px;
+    }
+    .btn-book {
+      width: 100%;
+      height: 48px;
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      border-radius: 6px;
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-book:hover { background: var(--gold-light); }
+    .booking-note {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+    }
+
+    /* ── CTA BAND ───────────────────────────────────────────────── */
+    .cta-band {
+      background: var(--navy);
+      padding: 88px 32px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-band::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 50% 110%, rgba(160,144,96,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-band-inner { position: relative; max-width: 640px; margin: 0 auto; }
     .cta-band h2 {
       font-family: var(--font-display);
       font-size: clamp(1.8rem, 3.5vw, 2.8rem);
       font-weight: 700;
-      color: #0D1528;
-      margin-bottom: 12px;
+      color: #fff;
+      margin-bottom: 14px;
     }
-
     .cta-band p {
       font-size: 1rem;
-      color: rgba(13,21,40,0.72);
-      margin-bottom: 36px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 38px;
+      line-height: 1.7;
     }
-
     .cta-band-btns {
       display: flex;
-      gap: 16px;
+      gap: 14px;
       justify-content: center;
       flex-wrap: wrap;
     }
-
-    .btn-dark {
+    .btn-gold {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       height: 52px;
       padding: 0 32px;
-      background: #0D1528;
-      color: var(--accent-light);
+      background: var(--gold);
+      color: var(--navy);
       border: none;
-      border-radius: 4px;
+      border-radius: 6px;
       font-family: var(--font-body);
       font-size: 0.875rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.04em;
       text-decoration: none;
       cursor: pointer;
-      transition: background 0.2s;
+      transition: background 0.2s, transform 0.15s;
       white-space: nowrap;
     }
-
-    .btn-dark:hover { background: #1A2840; }
-
-    .btn-outline-dark {
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-outline-white {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       height: 52px;
       padding: 0 32px;
       background: transparent;
-      color: #0D1528;
-      border: 2px solid rgba(13,21,40,0.35);
-      border-radius: 4px;
+      color: rgba(255,255,255,0.8);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 6px;
       font-family: var(--font-body);
       font-size: 0.875rem;
       font-weight: 500;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
       text-decoration: none;
       cursor: pointer;
-      transition: border-color 0.2s;
+      transition: border-color 0.2s, color 0.2s;
       white-space: nowrap;
     }
+    .btn-outline-white:hover {
+      border-color: var(--gold);
+      color: var(--gold-light);
+    }
 
-    .btn-outline-dark:hover { border-color: #0D1528; }
-
-    /* ── FOOTER ──────────────────────────────────────────────────────── */
+    /* ── FOOTER ─────────────────────────────────────────────────── */
     footer {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      padding: 56px 24px 32px;
+      background: var(--navy);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 64px 32px 32px;
     }
-
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
     .footer-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-columns: 2.2fr 1fr 1fr 1fr;
       gap: 48px;
       margin-bottom: 48px;
     }
-
     .footer-brand h3 {
       font-family: var(--font-display);
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       font-weight: 700;
-      color: var(--text);
+      color: #fff;
       margin-bottom: 10px;
     }
-
-    .footer-brand h3 span { color: var(--accent); }
-
+    .footer-brand h3 span { color: var(--gold); }
     .footer-brand p {
       font-size: 0.875rem;
-      color: var(--muted);
-      line-height: 1.7;
-      max-width: 280px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.75;
+      max-width: 260px;
       margin-bottom: 20px;
     }
-
-    .footer-contact a {
+    .footer-phones a {
       display: block;
       font-size: 0.875rem;
-      color: var(--muted);
+      color: rgba(255,255,255,0.6);
       text-decoration: none;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       transition: color 0.2s;
     }
-
-    .footer-contact a:hover { color: var(--accent-light); }
-
+    .footer-phones a:hover { color: var(--gold-light); }
     .footer-col h4 {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 600;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--text);
+      color: rgba(255,255,255,0.4);
       margin-bottom: 16px;
     }
-
-    .footer-col ul {
-      list-style: none;
-    }
-
-    .footer-col ul li { margin-bottom: 8px; }
-
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
     .footer-col ul li a {
       font-size: 0.875rem;
-      color: var(--muted);
+      color: rgba(255,255,255,0.55);
       text-decoration: none;
       transition: color 0.2s;
     }
-
-    .footer-col ul li a:hover { color: var(--accent-light); }
-
+    .footer-col ul li a:hover { color: var(--gold-light); }
     .footer-bottom {
-      border-top: 1px solid var(--border);
+      border-top: 1px solid rgba(255,255,255,0.08);
       padding-top: 24px;
       display: flex;
       justify-content: space-between;
@@ -823,22 +1146,22 @@
       gap: 16px;
       flex-wrap: wrap;
     }
-
     .footer-bottom p {
       font-size: 0.78rem;
-      color: var(--muted);
+      color: rgba(255,255,255,0.3);
+    }
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width: 560px) {
+      .footer-grid { grid-template-columns: 1fr; }
     }
 
-    @media (max-width: 768px) {
-      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-    }
-
-    /* ── REVEAL ANIMATIONS ───────────────────────────────────────────── */
+    /* ── REVEAL ─────────────────────────────────────────────────── */
     .reveal {
       opacity: 0;
-      transform: translateY(24px);
+      transform: translateY(28px);
     }
-
     .reveal.is-visible {
       opacity: 1;
       transform: none;
@@ -849,13 +1172,14 @@
 <body>
 
   <!-- NAV -->
-  <nav>
+  <nav id="main-nav">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">1st Choice <span>Blinds</span></a>
+      <a href="#home" class="nav-logo">1st Choice <span>Blinds</span></a>
       <ul class="nav-links">
-        <li><a href="#services">Blinds</a></li>
-        <li><a href="#services">Shutters</a></li>
+        <li><a href="#products">Blinds</a></li>
+        <li><a href="#configurator">Design Tool</a></li>
         <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#reviews">Reviews</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <a href="tel:+441316101690" class="btn-nav">Free Quote</a>
@@ -863,144 +1187,128 @@
   </nav>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" id="home">
     <div class="hero-bg" id="hero-bg"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <span class="hero-eyebrow" id="hero-eyebrow">Edinburgh & The Lothians</span>
-      <h1 id="hero-title">Edinburgh's <em>First Choice</em> for Window Blinds</h1>
-      <p class="hero-sub" id="hero-sub">Made-to-measure blinds and plantation shutters, expertly fitted across Edinburgh and the surrounding Lothians. Beautiful windows, beautifully done.</p>
+      <div class="hero-eyebrow" id="hero-eyebrow">Edinburgh &amp; The Lothians</div>
+      <h1 id="hero-title">Edinburgh's <em>First Choice</em><br>for Window Blinds</h1>
+      <p class="hero-sub" id="hero-sub">Made-to-measure blinds and shutters, expertly fitted across Edinburgh and the Lothians. Hundreds of fabrics, competitive prices, guaranteed fit.</p>
       <div class="hero-ctas" id="hero-ctas">
         <a href="tel:+441316101690" class="btn-primary">Get a Free Quote</a>
-        <a href="#configurator" class="btn-outline">Design Your Blinds</a>
+        <a href="#configurator" class="btn-ghost">Design Your Blinds</a>
       </div>
+    </div>
+    <div class="hero-scroll" id="hero-scroll">
+      <span class="hero-scroll-line"></span>
+      <span>Scroll</span>
     </div>
   </section>
 
-  <!-- STAT BAND -->
-  <div class="stat-band">
-    <div class="stat-band-inner">
-      <div class="stat-item">
-        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-          <polyline points="9 22 9 12 15 12 15 22"/>
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-bar-inner">
+      <div class="trust-item reveal">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
         </svg>
-        <div class="stat-text">
-          <strong>Made-to-Measure</strong>
-          <span>Every blind bespoke to your window</span>
-        </div>
+        <div class="trust-text"><strong>Made-to-Measure</strong><span>Bespoke to every window</span></div>
       </div>
-      <div class="stat-item">
-        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-          <line x1="16" y1="2" x2="16" y2="6"/>
-          <line x1="8" y1="2" x2="8" y2="6"/>
-          <line x1="3" y1="10" x2="21" y2="10"/>
+      <div class="trust-item reveal">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
         </svg>
-        <div class="stat-text">
-          <strong>Free In-Home Quote</strong>
-          <span>Expert measuring at no charge</span>
-        </div>
+        <div class="trust-text"><strong>Free In-Home Quote</strong><span>Expert measuring, no charge</span></div>
       </div>
-      <div class="stat-item">
-        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"/>
-          <polyline points="12 6 12 12 16 14"/>
+      <div class="trust-item reveal">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8A16 16 0 0 0 15.2 16.1l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
         </svg>
-        <div class="stat-text">
-          <strong>Edinburgh &amp; Lothians</strong>
-          <span>Local knowledge, local service</span>
-        </div>
+        <div class="trust-text"><strong>0800 677 1690</strong><span>Freephone, 8am–8pm daily</span></div>
       </div>
-      <div class="stat-item">
-        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <div class="trust-item reveal">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
         </svg>
-        <div class="stat-text">
-          <strong>Quality Guaranteed</strong>
-          <span>Premium materials, expert fitting</span>
-        </div>
+        <div class="trust-text"><strong>5-Star Rated</strong><span>Hundreds of happy customers</span></div>
       </div>
     </div>
   </div>
 
-  <!-- SERVICES -->
-  <section id="services">
+  <!-- PRODUCTS -->
+  <section class="products-section" id="products">
     <div class="section">
       <div class="section-header reveal">
-        <p class="section-label">Our Products</p>
-        <h2 class="section-title">Window Treatments for Every Room</h2>
-        <p class="section-sub">From elegant Roman blinds to contemporary roller shades, our full range is made-to-measure and professionally installed.</p>
+        <p class="section-label">Our Range</p>
+        <h2 class="section-title">Every Blind Type, Made for You</h2>
+        <p class="section-sub">From sleek roller blinds to custom logo blinds for businesses — all made-to-measure and professionally installed across Edinburgh.</p>
       </div>
-      <div class="services-grid">
+      <div class="products-grid">
 
-        <div class="service-card reveal">
-          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="3" width="20" height="2" rx="1"/>
-            <line x1="12" y1="5" x2="12" y2="21"/>
-            <line x1="7" y1="5" x2="7" y2="21"/>
-            <line x1="17" y1="5" x2="17" y2="21"/>
-          </svg>
-          <h3>Roller Blinds</h3>
-          <p>Sleek, streamlined and available in hundreds of fabrics — from sheer to blackout. The perfect modern solution for any room.</p>
+        <div class="product-card reveal">
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80" alt="Roller Blinds Edinburgh" loading="lazy" />
+          </div>
+          <div class="product-card-body">
+            <h3>Roller Blinds</h3>
+            <p>Sleek and streamlined, available in hundreds of fabrics — sheer to blackout. The perfect modern solution for any room in your Edinburgh home.</p>
+            <a href="#contact" class="product-link">Get a quote <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
         </div>
 
-        <div class="service-card reveal">
-          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="3" width="20" height="2" rx="1"/>
-            <path d="M5 5v3a7 7 0 0 0 14 0V5"/>
-            <line x1="12" y1="15" x2="12" y2="21"/>
-          </svg>
-          <h3>Roman Blinds</h3>
-          <p>Classic elegance with soft fabric folds. Ideal for Edinburgh's Georgian townhouses and period properties seeking timeless style.</p>
+        <div class="product-card reveal">
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=800&q=80" alt="Roman Blinds Edinburgh" loading="lazy" />
+          </div>
+          <div class="product-card-body">
+            <h3>Roman Blinds</h3>
+            <p>Classic elegance with soft fabric folds. Ideal for Edinburgh's Georgian townhouses and period properties seeking timeless style.</p>
+            <a href="#contact" class="product-link">Get a quote <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
         </div>
 
-        <div class="service-card reveal">
-          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="3" width="20" height="2" rx="1"/>
-            <line x1="5" y1="5" x2="5" y2="21"/>
-            <line x1="19" y1="5" x2="19" y2="21"/>
-            <line x1="9" y1="7" x2="9" y2="19"/>
-            <line x1="15" y1="7" x2="15" y2="19"/>
-          </svg>
-          <h3>Venetian Blinds</h3>
-          <p>Precision tilt control over light and privacy. Available in aluminium, wood and faux wood to suit every interior.</p>
+        <div class="product-card reveal">
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="Venetian Blinds Edinburgh" loading="lazy" />
+          </div>
+          <div class="product-card-body">
+            <h3>Venetian Blinds</h3>
+            <p>Precision light control with adjustable slats. Available in aluminium, real wood and faux wood — clean, modern and effortlessly stylish.</p>
+            <a href="#contact" class="product-link">Get a quote <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
         </div>
 
-        <div class="service-card reveal">
-          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="3" width="20" height="2" rx="1"/>
-            <line x1="6" y1="5" x2="6" y2="21"/>
-            <line x1="10" y1="5" x2="10" y2="21"/>
-            <line x1="14" y1="5" x2="14" y2="21"/>
-            <line x1="18" y1="5" x2="18" y2="21"/>
-          </svg>
-          <h3>Vertical Blinds</h3>
-          <p>Versatile louvres perfect for large windows, patio doors, and office spaces. Excellent light management at scale.</p>
+        <div class="product-card reveal">
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1586105251261-72a756497a11?auto=format&fit=crop&w=800&q=80" alt="Vertical Blinds Edinburgh" loading="lazy" />
+          </div>
+          <div class="product-card-body">
+            <h3>Vertical Blinds</h3>
+            <p>Ideal for large windows, patio doors and office spaces. Versatile louvres offer excellent light management and are easy to maintain.</p>
+            <a href="#contact" class="product-link">Get a quote <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
         </div>
 
-        <div class="service-card reveal">
-          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="3" width="20" height="2" rx="1"/>
-            <rect x="4" y="5" width="16" height="16" rx="1"/>
-            <line x1="4" y1="10" x2="20" y2="10"/>
-          </svg>
-          <h3>Blackout Blinds</h3>
-          <p>Total darkness when you need it most. Ideal for bedrooms, nurseries, and home cinemas. Lined for energy efficiency too.</p>
+        <div class="product-card reveal">
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=800&q=80" alt="Perfect Fit Blinds Edinburgh" loading="lazy" />
+          </div>
+          <div class="product-card-body">
+            <h3>Perfect Fit Blinds</h3>
+            <p>No drilling required — clips directly into UPVC frames. Cordless, child-safe and perfect for conservatories and tilt-and-turn windows.</p>
+            <a href="#contact" class="product-link">Get a quote <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
         </div>
 
-        <div class="service-card reveal">
-          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="3" width="20" height="18" rx="2"/>
-            <line x1="8" y1="3" x2="8" y2="21"/>
-            <line x1="16" y1="3" x2="16" y2="21"/>
-            <line x1="2" y1="8" x2="8" y2="8"/>
-            <line x1="16" y1="8" x2="22" y2="8"/>
-            <line x1="2" y1="14" x2="8" y2="14"/>
-            <line x1="16" y1="14" x2="22" y2="14"/>
-          </svg>
-          <h3>Plantation Shutters</h3>
-          <p>Timeless craftsmanship that transforms any window into a design feature. Fully bespoke, expertly fitted for Edinburgh homes.</p>
+        <div class="product-card reveal">
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Custom Logo Blinds Edinburgh" loading="lazy" />
+          </div>
+          <div class="product-card-body">
+            <h3>Custom Logo Blinds</h3>
+            <p>Turn your windows into brand ambassadors. We print your company logo directly onto roller blinds — ideal for Edinburgh businesses and offices.</p>
+            <a href="#contact" class="product-link">Get a quote <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
         </div>
 
       </div>
@@ -1013,17 +1321,11 @@
       <div class="section-header reveal">
         <p class="section-label">Interactive Tool</p>
         <h2 class="section-title">Design Your Blinds</h2>
-        <p class="section-sub">Visualise your new blinds live — adjust dimensions, colour and installation style before we visit.</p>
+        <p class="section-sub">Visualise your new blinds before we visit — adjust dimensions, colour and installation style to see exactly how they'll look.</p>
       </div>
-
       <div class="configurator-layout">
-        <!-- Canvas -->
         <canvas id="wc-canvas"></canvas>
-
-        <!-- Controls -->
         <div class="wc-controls">
-
-          <!-- Width -->
           <div>
             <p class="wc-group-label">Width</p>
             <div class="wc-slider-row">
@@ -1032,10 +1334,7 @@
               <span class="wc-val"><span id="wc-width-val">120</span> cm</span>
             </div>
           </div>
-
           <div class="wc-divider"></div>
-
-          <!-- Height -->
           <div>
             <p class="wc-group-label">Height</p>
             <div class="wc-slider-row">
@@ -1044,10 +1343,7 @@
               <span class="wc-val"><span id="wc-height-val">150</span> cm</span>
             </div>
           </div>
-
           <div class="wc-divider"></div>
-
-          <!-- Colour -->
           <div>
             <p class="wc-group-label">Blind Colour</p>
             <div class="wc-swatches">
@@ -1059,10 +1355,7 @@
               <button class="wc-swatch" data-wc-color="#6A8E6A" style="background:#6A8E6A;" title="Sage" aria-label="Sage"></button>
             </div>
           </div>
-
           <div class="wc-divider"></div>
-
-          <!-- Installation -->
           <div>
             <p class="wc-group-label">Installation</p>
             <div class="wc-btn-group">
@@ -1071,10 +1364,7 @@
               <button class="wc-btn" data-wc-install="fullWall">Full Wall</button>
             </div>
           </div>
-
           <div class="wc-divider"></div>
-
-          <!-- Open/Closed -->
           <div>
             <p class="wc-group-label">Blind Position</p>
             <div class="wc-btn-group">
@@ -1082,60 +1372,142 @@
               <button class="wc-btn" id="wc-toggle-open">Open</button>
             </div>
           </div>
-
           <div class="wc-divider"></div>
-
           <a href="tel:+441316101690" class="wc-cta">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8A16 16 0 0 0 15.2 16.1l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
             </svg>
             Book a Free Measure
           </a>
-
         </div>
       </div>
     </div>
   </section>
 
-  <!-- BENEFITS -->
-  <section id="benefits">
+  <!-- DARK SECTION — WHY US -->
+  <section class="dark-section on-dark" id="why">
     <div class="section">
       <div class="section-header reveal">
         <p class="section-label">Why Choose Us</p>
-        <h2 class="section-title">Local Expertise, Exceptional Results</h2>
+        <h2 class="section-title">Edinburgh's Most Trusted Blinds Specialist</h2>
+        <p class="section-sub">Serving Edinburgh, Fife, and the Lothians for years — with a price-match guarantee and a fitter who turns up on time.</p>
       </div>
-      <div class="benefits-grid">
-        <div class="benefit-item reveal">
-          <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-            <circle cx="12" cy="10" r="3"/>
-          </svg>
-          <h4>Edinburgh Specialists</h4>
-          <p>We know Edinburgh's architecture intimately — from New Town Georgian sash windows to modern Leith apartments.</p>
+      <div class="why-grid">
+        <div class="why-item reveal">
+          <div class="why-number">100%</div>
+          <h4>Price Guaranteed</h4>
+          <p>Find a lower price anywhere in Edinburgh and we'll beat it — no small print, no exceptions.</p>
         </div>
-        <div class="benefit-item reveal">
-          <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-            <polyline points="9 22 9 12 15 12 15 22"/>
-          </svg>
-          <h4>Free Home Measuring</h4>
-          <p>Our specialist visits your home, measures precisely, and advises on the best solutions — at no cost to you.</p>
+        <div class="why-item reveal">
+          <div class="why-number">500+</div>
+          <h4>Fabrics Available</h4>
+          <p>From sheer voile to total blackout — an enormous range across every blind type we offer.</p>
         </div>
-        <div class="benefit-item reveal">
-          <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 16 14"/>
-          </svg>
-          <h4>Wide Product Range</h4>
-          <p>Hundreds of fabrics, finishes, and styles across every blind type and shutter option — something for every taste and budget.</p>
+        <div class="why-item reveal">
+          <div class="why-number">8am</div>
+          <h4>Always Open</h4>
+          <p>8am to 8pm, every day of the week. We work around you — not the other way round.</p>
         </div>
-        <div class="benefit-item reveal">
-          <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="20 6 9 17 4 12"/>
-          </svg>
-          <h4>Professional Fitting</h4>
-          <p>Every installation carried out by our experienced fitters — clean, swift, and guaranteed to be perfect first time.</p>
+        <div class="why-item reveal">
+          <div class="why-number">★ 5</div>
+          <h4>Google Rated</h4>
+          <p>Consistently five-star reviews from Edinburgh homeowners and businesses who come back time after time.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews-section" id="reviews">
+    <div class="section">
+      <div class="section-header reveal">
+        <p class="section-label">Customer Reviews</p>
+        <h2 class="section-title">Trusted Across Edinburgh</h2>
+      </div>
+
+      <div class="google-badge reveal">
+        <div class="google-logo">
+          <span class="g-b">G</span><span class="g-r">o</span><span class="g-y">o</span><span class="g-b">g</span><span class="g-g">l</span><span class="g-r">e</span>
+        </div>
+        <div class="google-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <span class="google-badge-text">4.9</span>
+        <span class="google-badge-sub">· Google Reviews</span>
+      </div>
+
+      <div class="reviews-grid">
+
+        <div class="review-card reveal">
+          <div class="review-header">
+            <div class="review-avatar" style="background:#0D1528;">M</div>
+            <div class="review-author">
+              <strong>Margaret S.</strong>
+              <span>Edinburgh New Town</span>
+            </div>
+          </div>
+          <div class="review-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <blockquote>"Superb service from start to finish. The fitter arrived on time, measured perfectly, and the Roman blinds look stunning in our New Town flat. Could not be happier."</blockquote>
+          <div class="review-google-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            <span>Posted on Google</span>
+          </div>
+        </div>
+
+        <div class="review-card reveal">
+          <div class="review-header">
+            <div class="review-avatar" style="background:#A09060;">D</div>
+            <div class="review-author">
+              <strong>Derek T.</strong>
+              <span>Edinburgh</span>
+            </div>
+          </div>
+          <div class="review-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <blockquote>"Very satisfied and definitely the most competitive price I found. Would recommend to anyone in Edinburgh looking for quality blinds without paying over the odds."</blockquote>
+          <div class="review-google-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            <span>Posted on Google</span>
+          </div>
+        </div>
+
+        <div class="review-card reveal">
+          <div class="review-header">
+            <div class="review-avatar" style="background:#2C3E7A;">C</div>
+            <div class="review-author">
+              <strong>Claire &amp; James F.</strong>
+              <span>Morningside, Edinburgh</span>
+            </div>
+          </div>
+          <div class="review-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <blockquote>"Plantation shutters fitted throughout the whole house. The quality is exceptional, the team were professional and incredibly tidy. Every room has been transformed."</blockquote>
+          <div class="review-google-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            <span>Posted on Google</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1146,76 +1518,124 @@
       <div class="section-header reveal">
         <p class="section-label">Our Work</p>
         <h2 class="section-title">Installations Across Edinburgh</h2>
-        <p class="section-sub">A glimpse of what we have created for Edinburgh homeowners — every project made to measure, every room transformed.</p>
+        <p class="section-sub">Every project made to measure. Every room transformed.</p>
       </div>
-    </div>
-    <div class="gallery-grid">
-      <div class="gallery-item reveal">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80" alt="Edinburgh roller blind installation" loading="lazy" />
-      </div>
-      <div class="gallery-item reveal">
-        <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=800&q=80" alt="Roman blind in Edinburgh living room" loading="lazy" />
-      </div>
-      <div class="gallery-item reveal">
-        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="Plantation shutters in Edinburgh home" loading="lazy" />
-      </div>
-      <div class="gallery-item reveal">
-        <img src="https://images.unsplash.com/photo-1586105251261-72a756497a11?auto=format&fit=crop&w=800&q=80" alt="Venetian blind Edinburgh bedroom" loading="lazy" />
+      <div class="gallery-grid">
+        <div class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?auto=format&fit=crop&w=1200&q=80" alt="Edinburgh blinds installation" loading="lazy" />
+        </div>
+        <div class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80" alt="Roller blind fitting Edinburgh" loading="lazy" />
+        </div>
+        <div class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1586105251261-72a756497a11?auto=format&fit=crop&w=800&q=80" alt="Venetian blinds Edinburgh bedroom" loading="lazy" />
+        </div>
+        <div class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="Plantation shutters Edinburgh" loading="lazy" />
+        </div>
+        <div class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=800&q=80" alt="Roman blinds Edinburgh living room" loading="lazy" />
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section>
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
     <div class="section">
       <div class="section-header reveal">
-        <p class="section-label">Customer Reviews</p>
-        <h2 class="section-title">Trusted Across Edinburgh</h2>
+        <p class="section-label">Get in Touch</p>
+        <h2 class="section-title">Book a Free Home Visit</h2>
+        <p class="section-sub">We'll come to you, measure your windows, and give you a no-obligation quote — at a time that suits you.</p>
       </div>
-      <div class="testimonials-grid">
+      <div class="contact-layout">
 
-        <div class="testimonial-card reveal">
-          <div class="stars">
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <!-- Form -->
+        <div class="contact-form-card reveal">
+          <h3 style="font-family:var(--font-display);font-size:1.25rem;font-weight:600;color:var(--text-dark);margin-bottom:24px;">Send an Enquiry</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" placeholder="e.g. Margaret" />
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" placeholder="e.g. Smith" />
+            </div>
           </div>
-          <blockquote>"Absolutely superb service from start to finish. The fitter arrived on time, measured everything perfectly, and the Roman blinds look stunning in our New Town flat. Could not be happier."</blockquote>
-          <div class="testimonial-author">
-            <strong>Margaret S.</strong>
-            <span>Edinburgh New Town</span>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="your@email.com" />
           </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="e.g. 0131 000 0000" />
+          </div>
+          <div class="form-group">
+            <label>Blind Type</label>
+            <select>
+              <option value="">Select a blind type...</option>
+              <option>Roller Blinds</option>
+              <option>Roman Blinds</option>
+              <option>Venetian Blinds</option>
+              <option>Vertical Blinds</option>
+              <option>Perfect Fit Blinds</option>
+              <option>Custom Logo Blinds</option>
+              <option>Not sure — need advice</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea placeholder="Tell us about your windows — number of rooms, any specific requirements..."></textarea>
+          </div>
+          <button class="btn-submit">Send Enquiry</button>
         </div>
 
-        <div class="testimonial-card reveal">
-          <div class="stars">
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <!-- Booking widget -->
+        <div class="booking-card reveal">
+          <div class="booking-card-header">
+            <div class="booking-avatar">1C</div>
+            <div>
+              <h3>Book a Home Visit</h3>
+              <p>1st Choice Blinds Edinburgh</p>
+              <div class="booking-duration">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                45 min · Free consultation
+              </div>
+            </div>
           </div>
-          <blockquote>"We had plantation shutters fitted throughout the house. The quality is exceptional and they have transformed every room. The team were professional, tidy, and a pleasure to deal with."</blockquote>
-          <div class="testimonial-author">
-            <strong>David & Fiona M.</strong>
-            <span>Morningside, Edinburgh</span>
-          </div>
-        </div>
 
-        <div class="testimonial-card reveal">
-          <div class="stars">
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <div class="booking-calendar">
+            <div class="cal-month-header">
+              <button class="cal-nav">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+              <span>May 2026</span>
+              <button class="cal-nav">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </div>
+            <div class="cal-days-header">
+              <span>SU</span><span>MO</span><span>TU</span><span>WE</span><span>TH</span><span>FR</span><span>SA</span>
+            </div>
+            <div class="cal-days" id="cal-days"></div>
           </div>
-          <blockquote>"Blackout blinds for our nursery — measured and fitted within a week. The fitting was immaculate and the blackout is total. Our little one sleeps so much better. Highly recommended."</blockquote>
-          <div class="testimonial-author">
-            <strong>Claire T.</strong>
-            <span>Portobello, Edinburgh</span>
+
+          <div class="booking-times">
+            <p>Available times — Mon 12 May</p>
+            <div class="time-slots">
+              <div class="time-slot" onclick="selectTime(this)">9:00 am</div>
+              <div class="time-slot selected" onclick="selectTime(this)">10:00 am</div>
+              <div class="time-slot" onclick="selectTime(this)">11:00 am</div>
+              <div class="time-slot" onclick="selectTime(this)">1:00 pm</div>
+              <div class="time-slot" onclick="selectTime(this)">2:00 pm</div>
+              <div class="time-slot" onclick="selectTime(this)">4:00 pm</div>
+            </div>
+          </div>
+
+          <div class="booking-confirm">
+            <button class="btn-book">Confirm Booking</button>
+            <p class="booking-note">Or call us: <a href="tel:+448006771690" style="color:var(--gold);text-decoration:none;font-weight:600;">0800 677 1690</a></p>
           </div>
         </div>
 
@@ -1224,12 +1644,14 @@
   </section>
 
   <!-- CTA BAND -->
-  <div class="cta-band" id="contact">
-    <h2>Ready for Beautiful Windows?</h2>
-    <p>Book your free in-home consultation today — no pressure, no obligation.</p>
-    <div class="cta-band-btns">
-      <a href="tel:+441316101690" class="btn-dark">Call +44 131 610 1690</a>
-      <a href="mailto:info@1stchoiceblinds.co.uk" class="btn-outline-dark">Send an Enquiry</a>
+  <div class="cta-band">
+    <div class="cta-band-inner">
+      <h2>Ready for Beautiful Windows?</h2>
+      <p>Book your free in-home consultation today — no pressure, no obligation, just expert advice.</p>
+      <div class="cta-band-btns">
+        <a href="tel:+441316101690" class="btn-gold">Call 0131 610 1690</a>
+        <a href="#contact" class="btn-outline-white">Book Online</a>
+      </div>
     </div>
   </div>
 
@@ -1239,22 +1661,22 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <h3>1st Choice <span>Blinds</span></h3>
-          <p>Edinburgh's specialists in made-to-measure window blinds and plantation shutters. Serving the city and surrounding Lothians since day one.</p>
-          <div class="footer-contact">
-            <a href="tel:+441316101690">+44 131 610 1690</a>
-            <a href="mailto:info@1stchoiceblinds.co.uk">info@1stchoiceblinds.co.uk</a>
-            <a href="#">8 Cumberland St, Edinburgh EH3 6SA</a>
+          <p>Edinburgh's specialists in made-to-measure window blinds and shutters. Serving the city and the Lothians, 8am to 8pm every day.</p>
+          <div class="footer-phones">
+            <a href="tel:+441316101690">0131 610 1690 — Edinburgh</a>
+            <a href="tel:+448006771690">0800 677 1690 — Freephone</a>
+            <a href="mailto:info@1stchoiceblindsedinburgh.co.uk">info@1stchoiceblindsedinburgh.co.uk</a>
           </div>
         </div>
         <div class="footer-col">
           <h4>Products</h4>
           <ul>
-            <li><a href="#">Roller Blinds</a></li>
-            <li><a href="#">Roman Blinds</a></li>
-            <li><a href="#">Venetian Blinds</a></li>
-            <li><a href="#">Vertical Blinds</a></li>
-            <li><a href="#">Blackout Blinds</a></li>
-            <li><a href="#">Plantation Shutters</a></li>
+            <li><a href="#products">Roller Blinds</a></li>
+            <li><a href="#products">Roman Blinds</a></li>
+            <li><a href="#products">Venetian Blinds</a></li>
+            <li><a href="#products">Vertical Blinds</a></li>
+            <li><a href="#products">Perfect Fit</a></li>
+            <li><a href="#products">Custom Logo</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -1265,6 +1687,18 @@
             <li><a href="#">West Lothian</a></li>
             <li><a href="#">Midlothian</a></li>
             <li><a href="#">Fife</a></li>
+            <li><a href="#">Leith</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#">Child Safety</a></li>
+            <li><a href="#">Privacy Policy</a></li>
           </ul>
         </div>
       </div>
@@ -1277,370 +1711,78 @@
 
   <!-- WINDOW CANVAS SCRIPT -->
   <script>
-// Window Configurator — Vanilla JS port from LuxuryBlind project
-// drawCanvas, setupConfigurator — embed inline in each demo HTML
+function wcLighten(hex,amt){const n=parseInt(hex.replace('#',''),16);const r=Math.min(255,(n>>16)+amt);const g=Math.min(255,((n>>8)&0xff)+amt);const b=Math.min(255,(n&0xff)+amt);return '#'+r.toString(16).padStart(2,'0')+g.toString(16).padStart(2,'0')+b.toString(16).padStart(2,'0');}
+function wcDarken(hex,amt){return wcLighten(hex,-amt);}
+function drawWindowCanvas(ctx,W,H,params,progress){const{widthCm,heightCm,installation,mounting,blindColor}=params;ctx.clearRect(0,0,W,H);ctx.fillStyle='#F0EEE9';ctx.fillRect(0,0,W,H*0.10);const wallG=ctx.createLinearGradient(0,H*0.10,W,H*0.85);wallG.addColorStop(0,'#ECEAE5');wallG.addColorStop(0.45,'#F4F1EC');wallG.addColorStop(1,'#ECEAE5');ctx.fillStyle=wallG;ctx.fillRect(0,H*0.10,W,H*0.75);const wallEdge=ctx.createLinearGradient(0,0,W,0);wallEdge.addColorStop(0,'rgba(0,0,0,.05)');wallEdge.addColorStop(0.18,'rgba(0,0,0,0)');wallEdge.addColorStop(0.82,'rgba(0,0,0,0)');wallEdge.addColorStop(1,'rgba(0,0,0,.05)');ctx.fillStyle=wallEdge;ctx.fillRect(0,H*0.10,W,H*0.75);ctx.fillStyle='#E4E0D9';ctx.fillRect(0,H*0.095,W,H*0.012);ctx.fillStyle='rgba(0,0,0,.07)';ctx.fillRect(0,H*0.095+H*0.012,W,2);const floorY=H*0.85,floorH=H*0.15;const floorBase=ctx.createLinearGradient(0,floorY,0,floorY+floorH);floorBase.addColorStop(0,'#B89860');floorBase.addColorStop(1,'#9A7D48');ctx.fillStyle=floorBase;ctx.fillRect(0,floorY,W,floorH);const plankW=W/7;for(let i=0;i<7;i++){ctx.fillStyle=i%2===0?'rgba(255,255,255,.04)':'rgba(0,0,0,.035)';ctx.fillRect(i*plankW,floorY,plankW,floorH);ctx.strokeStyle='rgba(0,0,0,.09)';ctx.lineWidth=0.5;ctx.beginPath();ctx.moveTo(i*plankW,floorY);ctx.lineTo(i*plankW,floorY+floorH);ctx.stroke();}ctx.strokeStyle='rgba(80,50,15,.10)';ctx.lineWidth=0.4;for(let i=1;i<5;i++){ctx.beginPath();ctx.moveTo(0,floorY+(floorH/5)*i);ctx.lineTo(W,floorY+(floorH/5)*i);ctx.stroke();}const floorHL=ctx.createLinearGradient(0,floorY,0,floorY+floorH*0.28);floorHL.addColorStop(0,'rgba(255,255,255,.12)');floorHL.addColorStop(1,'rgba(255,255,255,0)');ctx.fillStyle=floorHL;ctx.fillRect(0,floorY,W,floorH*0.28);ctx.fillStyle='#E0DAD0';ctx.fillRect(0,H*0.838,W,H*0.016);ctx.fillStyle='rgba(0,0,0,.08)';ctx.fillRect(0,H*0.838+H*0.016,W,2);const aspect=widthCm/heightCm;let fX,fY,fW,fH;if(installation==='fullWall'){fW=Math.min(W*0.86,H*0.70*aspect);fH=fW/aspect;if(fH>H*0.70){fH=H*0.70;fW=fH*aspect;}fX=(W-fW)/2;fY=H*0.12;}else{const maxW=W*0.62,maxH=H*0.60;fW=Math.min(maxW,maxH*aspect);fH=fW/aspect;if(fH>maxH){fH=maxH;fW=fH*aspect;}fX=(W-fW)/2;fY=H*0.165;}let bX,bY,bW,bH;if(installation==='recessed'){bX=fX+4;bY=fY;bW=fW-8;bH=fH;}else if(installation==='fullWall'){bX=fX;bY=fY;bW=fW;bH=fH;}else{bX=fX-8;bY=fY-14;bW=fW+16;bH=fH+19;}if(installation==='recessed'){const d=12;ctx.fillStyle='#D8D0C4';ctx.beginPath();ctx.moveTo(fX,fY);ctx.lineTo(fX-d,fY-d);ctx.lineTo(fX+fW+d,fY-d);ctx.lineTo(fX+fW,fY);ctx.closePath();ctx.fill();const topRS=ctx.createLinearGradient(0,fY-d,0,fY);topRS.addColorStop(0,'rgba(0,0,0,.10)');topRS.addColorStop(1,'rgba(0,0,0,.02)');ctx.fillStyle=topRS;ctx.beginPath();ctx.moveTo(fX,fY);ctx.lineTo(fX-d,fY-d);ctx.lineTo(fX+fW+d,fY-d);ctx.lineTo(fX+fW,fY);ctx.closePath();ctx.fill();ctx.fillStyle='#BDB5A8';ctx.beginPath();ctx.moveTo(fX,fY);ctx.lineTo(fX-d,fY-d);ctx.lineTo(fX-d,fY+fH+d);ctx.lineTo(fX,fY+fH);ctx.closePath();ctx.fill();ctx.fillStyle='#E2D9CC';ctx.beginPath();ctx.moveTo(fX+fW,fY);ctx.lineTo(fX+fW+d,fY-d);ctx.lineTo(fX+fW+d,fY+fH+d);ctx.lineTo(fX+fW,fY+fH);ctx.closePath();ctx.fill();ctx.fillStyle='#CEC6B8';ctx.beginPath();ctx.moveTo(fX,fY+fH);ctx.lineTo(fX-d,fY+fH+d);ctx.lineTo(fX+fW+d,fY+fH+d);ctx.lineTo(fX+fW,fY+fH);ctx.closePath();ctx.fill();}ctx.save();ctx.beginPath();ctx.rect(fX,fY,fW,fH);ctx.clip();const skyG=ctx.createLinearGradient(fX,fY,fX,fY+fH*0.55);skyG.addColorStop(0,'#4898C8');skyG.addColorStop(0.55,'#88C8E8');skyG.addColorStop(1,'#B8E2F6');ctx.fillStyle=skyG;ctx.fillRect(fX,fY,fW,fH*0.55);const hazeG=ctx.createLinearGradient(fX,fY+fH*0.45,fX,fY+fH*0.58);hazeG.addColorStop(0,'rgba(255,252,235,0)');hazeG.addColorStop(1,'rgba(255,252,235,.38)');ctx.fillStyle=hazeG;ctx.fillRect(fX,fY+fH*0.45,fW,fH*0.14);const groundG=ctx.createLinearGradient(fX,fY+fH*0.55,fX,fY+fH);groundG.addColorStop(0,'#78BC52');groundG.addColorStop(0.55,'#5A9C38');groundG.addColorStop(1,'#3C7820');ctx.fillStyle=groundG;ctx.fillRect(fX,fY+fH*0.55,fW,fH*0.45);const treePos=[0.12,0.42,0.72];for(const tx of treePos){const tBaseX=fX+fW*tx,tBaseY=fY+fH*0.55,tHt=fH*0.22;ctx.fillStyle='rgba(60,40,20,.40)';ctx.fillRect(tBaseX-fW*0.008,tBaseY-tHt*0.28,fW*0.016,tHt*0.28);ctx.fillStyle='rgba(35,80,28,.50)';ctx.beginPath();ctx.moveTo(tBaseX-fW*0.065,tBaseY-tHt*0.28);ctx.lineTo(tBaseX+fW*0.065,tBaseY-tHt*0.28);ctx.lineTo(tBaseX,tBaseY-tHt*0.62);ctx.closePath();ctx.fill();ctx.fillStyle='rgba(30,75,22,.55)';ctx.beginPath();ctx.moveTo(tBaseX-fW*0.05,tBaseY-tHt*0.52);ctx.lineTo(tBaseX+fW*0.05,tBaseY-tHt*0.52);ctx.lineTo(tBaseX,tBaseY-tHt*0.86);ctx.closePath();ctx.fill();ctx.fillStyle='rgba(25,70,18,.55)';ctx.beginPath();ctx.moveTo(tBaseX-fW*0.034,tBaseY-tHt*0.74);ctx.lineTo(tBaseX+fW*0.034,tBaseY-tHt*0.74);ctx.lineTo(tBaseX,tBaseY-tHt);ctx.closePath();ctx.fill();}const sx=fX+fW*0.78,sy=fY+fH*0.13;const sunG=ctx.createRadialGradient(sx,sy,0,sx,sy,fW*0.11);sunG.addColorStop(0,'rgba(255,242,100,.95)');sunG.addColorStop(0.45,'rgba(255,218,50,.50)');sunG.addColorStop(1,'rgba(255,200,30,0)');ctx.fillStyle=sunG;ctx.beginPath();ctx.arc(sx,sy,fW*0.11,0,Math.PI*2);ctx.fill();const cs=fW/180;ctx.fillStyle='rgba(255,255,255,.88)';const cx2=fX+fW*0.16,cy2=fY+fH*0.22;ctx.beginPath();ctx.arc(cx2,cy2,9*cs,0,Math.PI*2);ctx.arc(cx2+12*cs,cy2-4*cs,7*cs,0,Math.PI*2);ctx.arc(cx2+23*cs,cy2,9*cs,0,Math.PI*2);ctx.fill();const glareG=ctx.createLinearGradient(fX,fY,fX+fW*0.28,fY+fH*0.32);glareG.addColorStop(0,'rgba(255,255,255,.10)');glareG.addColorStop(0.5,'rgba(255,255,255,.04)');glareG.addColorStop(1,'rgba(255,255,255,0)');ctx.fillStyle=glareG;ctx.fillRect(fX,fY,fW,fH);ctx.restore();if(installation!=='fullWall'){ctx.fillStyle='rgba(0,0,0,.14)';ctx.fillRect(fX+2,fY+2,fW,fH);ctx.lineWidth=4.5;ctx.strokeStyle='#8A806E';ctx.strokeRect(fX,fY,fW,fH);ctx.lineWidth=1;ctx.strokeStyle='#AEA696';ctx.strokeRect(fX+2.5,fY+2.5,fW-5,fH-5);ctx.lineWidth=3;ctx.strokeStyle='#8A806E';ctx.beginPath();ctx.moveTo(fX+fW/2,fY);ctx.lineTo(fX+fW/2,fY+fH);ctx.stroke();ctx.beginPath();ctx.moveTo(fX,fY+fH*0.5);ctx.lineTo(fX+fW,fY+fH*0.5);ctx.stroke();if(installation==='surface'){const sillG=ctx.createLinearGradient(0,fY+fH,0,fY+fH+13);sillG.addColorStop(0,'#D0C8BC');sillG.addColorStop(1,'#BCAEA0');ctx.fillStyle=sillG;ctx.fillRect(fX-7,fY+fH,fW+14,13);}}if(mounting==='ceiling'&&installation!=='recessed'){const bkG=ctx.createLinearGradient(bX,bY-13,bX,bY);bkG.addColorStop(0,'#5A5048');bkG.addColorStop(1,'#3C3630');ctx.fillStyle=bkG;ctx.fillRect(bX,bY-13,bW,13);const bc=Math.max(2,Math.floor(bW/80));for(let i=0;i<=bc;i++){ctx.fillStyle='#C9A96E';ctx.fillRect(bX+(bW/bc)*i-3,bY-18,6,7);}}const headerH=10,bundleH=bH*0.12;const blindTopY=bY+headerH,closedBottom=bY+bH,openBottom=bY+headerH+bundleH;const blindBottomY=closedBottom-(closedBottom-openBottom)*progress;const currentBlindH=blindBottomY-blindTopY;if(currentBlindH>1){const totalSlats=Math.max(6,Math.round(heightCm/5));const sH=(bH-headerH)/totalSlats;const visibleSlats=Math.ceil(currentBlindH/sH);ctx.save();ctx.beginPath();ctx.rect(bX,blindTopY,bW,currentBlindH);ctx.clip();for(let i=0;i<visibleSlats;i++){const sy2=blindTopY+i*sH,even=i%2===0;const sg=ctx.createLinearGradient(0,sy2,0,sy2+sH);if(even){sg.addColorStop(0,wcLighten(blindColor,18));sg.addColorStop(0.4,blindColor);sg.addColorStop(1,wcDarken(blindColor,22));}else{sg.addColorStop(0,wcDarken(blindColor,4));sg.addColorStop(1,wcDarken(blindColor,26));}ctx.fillStyle=sg;ctx.fillRect(bX+1,sy2+0.5,bW-2,sH-1);ctx.fillStyle=`rgba(201,169,110,${even?0.22:0.06})`;ctx.fillRect(bX+1,sy2+0.5,bW-2,1.5);ctx.fillStyle='rgba(0,0,0,.20)';ctx.fillRect(bX+1,sy2+sH-2,bW-2,2);}const sheen=ctx.createLinearGradient(bX,0,bX+bW,0);sheen.addColorStop(0,'rgba(255,255,255,.02)');sheen.addColorStop(0.22,'rgba(255,255,255,.09)');sheen.addColorStop(0.78,'rgba(255,255,255,.02)');sheen.addColorStop(1,'rgba(0,0,0,.07)');ctx.fillStyle=sheen;ctx.fillRect(bX,blindTopY,bW,currentBlindH);ctx.restore();ctx.fillStyle=wcDarken(blindColor,8);ctx.fillRect(bX+1,blindBottomY-4,bW-2,4);ctx.fillStyle='rgba(0,0,0,.18)';ctx.fillRect(bX+1,blindBottomY-1,bW-2,1);}const railG=ctx.createLinearGradient(bX,bY,bX,bY+headerH);railG.addColorStop(0,'#252525');railG.addColorStop(1,'#181818');ctx.fillStyle=railG;ctx.fillRect(bX,bY,bW,headerH);ctx.fillStyle='#C9A96E';ctx.fillRect(bX+2,bY+2.5,bW-4,1.5);ctx.fillStyle='rgba(255,255,255,.06)';ctx.fillRect(bX,bY,bW,2);const cordX=bX+bW*0.86;const tassleY=Math.max(blindBottomY-4,bY+headerH+8);ctx.strokeStyle='rgba(201,169,110,.55)';ctx.lineWidth=1.5;ctx.setLineDash([]);ctx.beginPath();ctx.moveTo(cordX,bY+headerH);ctx.lineTo(cordX,tassleY);ctx.stroke();ctx.fillStyle='#C9A96E';ctx.beginPath();ctx.arc(cordX,tassleY,3.5,0,Math.PI*2);ctx.fill();if(installation==='recessed'){ctx.fillStyle='#181818';ctx.fillRect(bX-4,bY,4,bH);ctx.fillRect(bX+bW,bY,4,bH);}const ann=4;const wAnnY=bY+bH+20;ctx.setLineDash([3,3]);ctx.strokeStyle='rgba(201,169,110,.32)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(bX,bY+bH+2);ctx.lineTo(bX,wAnnY-2);ctx.stroke();ctx.beginPath();ctx.moveTo(bX+bW,bY+bH+2);ctx.lineTo(bX+bW,wAnnY-2);ctx.stroke();ctx.setLineDash([]);ctx.strokeStyle='rgba(201,169,110,.60)';ctx.beginPath();ctx.moveTo(bX,wAnnY);ctx.lineTo(bX+bW,wAnnY);ctx.stroke();ctx.beginPath();ctx.moveTo(bX,wAnnY);ctx.lineTo(bX+ann,wAnnY-3);ctx.stroke();ctx.beginPath();ctx.moveTo(bX,wAnnY);ctx.lineTo(bX+ann,wAnnY+3);ctx.stroke();ctx.beginPath();ctx.moveTo(bX+bW,wAnnY);ctx.lineTo(bX+bW-ann,wAnnY-3);ctx.stroke();ctx.beginPath();ctx.moveTo(bX+bW,wAnnY);ctx.lineTo(bX+bW-ann,wAnnY+3);ctx.stroke();ctx.font="bold 11px 'DM Sans',sans-serif";ctx.fillStyle='#C9A96E';ctx.textAlign='center';ctx.fillText(widthCm+' cm',bX+bW/2,wAnnY+13);const hAnnX=bX-22;ctx.setLineDash([3,3]);ctx.strokeStyle='rgba(201,169,110,.32)';ctx.beginPath();ctx.moveTo(bX-2,bY);ctx.lineTo(hAnnX-2,bY);ctx.stroke();ctx.beginPath();ctx.moveTo(bX-2,bY+bH);ctx.lineTo(hAnnX-2,bY+bH);ctx.stroke();ctx.setLineDash([]);ctx.strokeStyle='rgba(201,169,110,.60)';ctx.beginPath();ctx.moveTo(hAnnX,bY);ctx.lineTo(hAnnX,bY+bH);ctx.stroke();ctx.beginPath();ctx.moveTo(hAnnX,bY);ctx.lineTo(hAnnX-3,bY+ann);ctx.stroke();ctx.beginPath();ctx.moveTo(hAnnX,bY);ctx.lineTo(hAnnX+3,bY+ann);ctx.stroke();ctx.beginPath();ctx.moveTo(hAnnX,bY+bH);ctx.lineTo(hAnnX-3,bY+bH-ann);ctx.stroke();ctx.beginPath();ctx.moveTo(hAnnX,bY+bH);ctx.lineTo(hAnnX+3,bY+bH-ann);ctx.stroke();ctx.save();ctx.translate(hAnnX-9,bY+bH/2);ctx.rotate(-Math.PI/2);ctx.textAlign='center';ctx.fillStyle='#C9A96E';ctx.fillText(heightCm+' cm',0,0);ctx.restore();}
+function setupWindowConfigurator(canvasId){const canvas=document.getElementById(canvasId);if(!canvas)return;const ctx=canvas.getContext('2d');let state={widthCm:120,heightCm:150,installation:'surface',mounting:'frame',blindColor:'#DDD5C4',isOpen:false};let progressRef=0;let rafId=0;function render(prog){const dpr=window.devicePixelRatio||1;const W=canvas.width/dpr,H=canvas.height/dpr;ctx.save();ctx.scale(dpr,dpr);drawWindowCanvas(ctx,W,H,state,prog);ctx.restore();}function animateTo(target){cancelAnimationFrame(rafId);const start=progressRef,t0=performance.now(),dur=500;function ease(t){return t<0.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;}function tick(now){const t=Math.min(1,(now-t0)/dur);progressRef=start+(target-start)*ease(t);render(progressRef);if(t<1)rafId=requestAnimationFrame(tick);else progressRef=target;}rafId=requestAnimationFrame(tick);}function setupCanvas(){const dpr=window.devicePixelRatio||1;const rect=canvas.getBoundingClientRect();if(!rect.width)return;canvas.width=rect.width*dpr;canvas.height=rect.height*dpr;render(progressRef);}const ro=new ResizeObserver(setupCanvas);ro.observe(canvas);setupCanvas();const widthSlider=document.getElementById('wc-width');const widthVal=document.getElementById('wc-width-val');if(widthSlider){widthSlider.addEventListener('input',()=>{state.widthCm=parseInt(widthSlider.value);if(widthVal)widthVal.textContent=widthSlider.value;render(progressRef);});}const heightSlider=document.getElementById('wc-height');const heightVal=document.getElementById('wc-height-val');if(heightSlider){heightSlider.addEventListener('input',()=>{state.heightCm=parseInt(heightSlider.value);if(heightVal)heightVal.textContent=heightSlider.value;render(progressRef);});}document.querySelectorAll('[data-wc-color]').forEach(btn=>{btn.addEventListener('click',()=>{state.blindColor=btn.dataset.wcColor;document.querySelectorAll('[data-wc-color]').forEach(b=>b.classList.remove('wc-active'));btn.classList.add('wc-active');render(progressRef);});});document.querySelectorAll('[data-wc-install]').forEach(btn=>{btn.addEventListener('click',()=>{state.installation=btn.dataset.wcInstall;if(state.installation==='recessed')state.mounting='frame';if(state.installation==='fullWall')state.mounting='ceiling';document.querySelectorAll('[data-wc-install]').forEach(b=>b.classList.remove('wc-active'));btn.classList.add('wc-active');render(progressRef);});});const btnClosed=document.getElementById('wc-toggle-closed');const btnOpen=document.getElementById('wc-toggle-open');if(btnClosed)btnClosed.addEventListener('click',()=>{state.isOpen=false;animateTo(0);btnClosed.classList.add('wc-active');if(btnOpen)btnOpen.classList.remove('wc-active');});if(btnOpen)btnOpen.addEventListener('click',()=>{state.isOpen=true;animateTo(1);btnOpen.classList.add('wc-active');if(btnClosed)btnClosed.classList.remove('wc-active');});}
 
-function wcLighten(hex, amt) {
-  const n = parseInt(hex.replace('#', ''), 16);
-  const r = Math.min(255, (n >> 16) + amt);
-  const g = Math.min(255, ((n >> 8) & 0xff) + amt);
-  const b = Math.min(255, (n & 0xff) + amt);
-  return '#' + r.toString(16).padStart(2,'0') + g.toString(16).padStart(2,'0') + b.toString(16).padStart(2,'0');
-}
-function wcDarken(hex, amt) { return wcLighten(hex, -amt); }
-
-function drawWindowCanvas(ctx, W, H, params, progress) {
-  const { widthCm, heightCm, installation, mounting, blindColor } = params;
-  ctx.clearRect(0, 0, W, H);
-
-  // ROOM SCENE
-  ctx.fillStyle = '#F0EEE9';
-  ctx.fillRect(0, 0, W, H * 0.10);
-
-  const wallG = ctx.createLinearGradient(0, H*0.10, W, H*0.85);
-  wallG.addColorStop(0, '#ECEAE5');
-  wallG.addColorStop(0.45, '#F4F1EC');
-  wallG.addColorStop(1, '#ECEAE5');
-  ctx.fillStyle = wallG;
-  ctx.fillRect(0, H*0.10, W, H*0.75);
-
-  const wallEdge = ctx.createLinearGradient(0, 0, W, 0);
-  wallEdge.addColorStop(0, 'rgba(0,0,0,.05)');
-  wallEdge.addColorStop(0.18, 'rgba(0,0,0,0)');
-  wallEdge.addColorStop(0.82, 'rgba(0,0,0,0)');
-  wallEdge.addColorStop(1, 'rgba(0,0,0,.05)');
-  ctx.fillStyle = wallEdge;
-  ctx.fillRect(0, H*0.10, W, H*0.75);
-
-  ctx.fillStyle = '#E4E0D9';
-  ctx.fillRect(0, H*0.095, W, H*0.012);
-  ctx.fillStyle = 'rgba(0,0,0,.07)';
-  ctx.fillRect(0, H*0.095 + H*0.012, W, 2);
-
-  // Floor
-  const floorY = H*0.85, floorH = H*0.15;
-  const floorBase = ctx.createLinearGradient(0, floorY, 0, floorY+floorH);
-  floorBase.addColorStop(0, '#B89860');
-  floorBase.addColorStop(1, '#9A7D48');
-  ctx.fillStyle = floorBase;
-  ctx.fillRect(0, floorY, W, floorH);
-
-  const plankW = W/7;
-  for (let i=0; i<7; i++) {
-    ctx.fillStyle = i%2===0 ? 'rgba(255,255,255,.04)' : 'rgba(0,0,0,.035)';
-    ctx.fillRect(i*plankW, floorY, plankW, floorH);
-    ctx.strokeStyle = 'rgba(0,0,0,.09)'; ctx.lineWidth = 0.5;
-    ctx.beginPath(); ctx.moveTo(i*plankW, floorY); ctx.lineTo(i*plankW, floorY+floorH); ctx.stroke();
-  }
-  ctx.strokeStyle = 'rgba(80,50,15,.10)'; ctx.lineWidth = 0.4;
-  for (let i=1; i<5; i++) {
-    ctx.beginPath(); ctx.moveTo(0, floorY+(floorH/5)*i); ctx.lineTo(W, floorY+(floorH/5)*i); ctx.stroke();
-  }
-  const floorHL = ctx.createLinearGradient(0, floorY, 0, floorY+floorH*0.28);
-  floorHL.addColorStop(0, 'rgba(255,255,255,.12)');
-  floorHL.addColorStop(1, 'rgba(255,255,255,0)');
-  ctx.fillStyle = floorHL; ctx.fillRect(0, floorY, W, floorH*0.28);
-
-  ctx.fillStyle = '#E0DAD0'; ctx.fillRect(0, H*0.838, W, H*0.016);
-  ctx.fillStyle = 'rgba(0,0,0,.08)'; ctx.fillRect(0, H*0.838+H*0.016, W, 2);
-
-  // WINDOW GEOMETRY
-  const aspect = widthCm / heightCm;
-  let fX, fY, fW, fH;
-  if (installation === 'fullWall') {
-    fW = Math.min(W*0.86, H*0.70*aspect);
-    fH = fW/aspect;
-    if (fH>H*0.70) { fH=H*0.70; fW=fH*aspect; }
-    fX=(W-fW)/2; fY=H*0.12;
-  } else {
-    const maxW=W*0.62, maxH=H*0.60;
-    fW=Math.min(maxW, maxH*aspect);
-    fH=fW/aspect;
-    if (fH>maxH) { fH=maxH; fW=fH*aspect; }
-    fX=(W-fW)/2; fY=H*0.165;
-  }
-
-  let bX, bY, bW, bH;
-  if (installation==='recessed') { bX=fX+4; bY=fY; bW=fW-8; bH=fH; }
-  else if (installation==='fullWall') { bX=fX; bY=fY; bW=fW; bH=fH; }
-  else { bX=fX-8; bY=fY-14; bW=fW+16; bH=fH+19; }
-
-  // RECESSED REVEAL
-  if (installation==='recessed') {
-    const d=12;
-    ctx.fillStyle='#D8D0C4';
-    ctx.beginPath(); ctx.moveTo(fX,fY); ctx.lineTo(fX-d,fY-d); ctx.lineTo(fX+fW+d,fY-d); ctx.lineTo(fX+fW,fY); ctx.closePath(); ctx.fill();
-    const topRS=ctx.createLinearGradient(0,fY-d,0,fY);
-    topRS.addColorStop(0,'rgba(0,0,0,.10)'); topRS.addColorStop(1,'rgba(0,0,0,.02)');
-    ctx.fillStyle=topRS;
-    ctx.beginPath(); ctx.moveTo(fX,fY); ctx.lineTo(fX-d,fY-d); ctx.lineTo(fX+fW+d,fY-d); ctx.lineTo(fX+fW,fY); ctx.closePath(); ctx.fill();
-    ctx.fillStyle='#BDB5A8';
-    ctx.beginPath(); ctx.moveTo(fX,fY); ctx.lineTo(fX-d,fY-d); ctx.lineTo(fX-d,fY+fH+d); ctx.lineTo(fX,fY+fH); ctx.closePath(); ctx.fill();
-    ctx.fillStyle='#E2D9CC';
-    ctx.beginPath(); ctx.moveTo(fX+fW,fY); ctx.lineTo(fX+fW+d,fY-d); ctx.lineTo(fX+fW+d,fY+fH+d); ctx.lineTo(fX+fW,fY+fH); ctx.closePath(); ctx.fill();
-    ctx.fillStyle='#CEC6B8';
-    ctx.beginPath(); ctx.moveTo(fX,fY+fH); ctx.lineTo(fX-d,fY+fH+d); ctx.lineTo(fX+fW+d,fY+fH+d); ctx.lineTo(fX+fW,fY+fH); ctx.closePath(); ctx.fill();
-  }
-
-  // GLASS / OUTDOOR SCENE
-  ctx.save(); ctx.beginPath(); ctx.rect(fX,fY,fW,fH); ctx.clip();
-  const skyG=ctx.createLinearGradient(fX,fY,fX,fY+fH*0.55);
-  skyG.addColorStop(0,'#4898C8'); skyG.addColorStop(0.55,'#88C8E8'); skyG.addColorStop(1,'#B8E2F6');
-  ctx.fillStyle=skyG; ctx.fillRect(fX,fY,fW,fH*0.55);
-  const hazeG=ctx.createLinearGradient(fX,fY+fH*0.45,fX,fY+fH*0.58);
-  hazeG.addColorStop(0,'rgba(255,252,235,0)'); hazeG.addColorStop(1,'rgba(255,252,235,.38)');
-  ctx.fillStyle=hazeG; ctx.fillRect(fX,fY+fH*0.45,fW,fH*0.14);
-  const groundG=ctx.createLinearGradient(fX,fY+fH*0.55,fX,fY+fH);
-  groundG.addColorStop(0,'#78BC52'); groundG.addColorStop(0.55,'#5A9C38'); groundG.addColorStop(1,'#3C7820');
-  ctx.fillStyle=groundG; ctx.fillRect(fX,fY+fH*0.55,fW,fH*0.45);
-  const treePos=[0.12,0.42,0.72];
-  for (const tx of treePos) {
-    const tBaseX=fX+fW*tx, tBaseY=fY+fH*0.55, tHt=fH*0.22;
-    ctx.fillStyle='rgba(60,40,20,.40)'; ctx.fillRect(tBaseX-fW*0.008,tBaseY-tHt*0.28,fW*0.016,tHt*0.28);
-    ctx.fillStyle='rgba(35,80,28,.50)';
-    ctx.beginPath(); ctx.moveTo(tBaseX-fW*0.065,tBaseY-tHt*0.28); ctx.lineTo(tBaseX+fW*0.065,tBaseY-tHt*0.28); ctx.lineTo(tBaseX,tBaseY-tHt*0.62); ctx.closePath(); ctx.fill();
-    ctx.fillStyle='rgba(30,75,22,.55)';
-    ctx.beginPath(); ctx.moveTo(tBaseX-fW*0.05,tBaseY-tHt*0.52); ctx.lineTo(tBaseX+fW*0.05,tBaseY-tHt*0.52); ctx.lineTo(tBaseX,tBaseY-tHt*0.86); ctx.closePath(); ctx.fill();
-    ctx.fillStyle='rgba(25,70,18,.55)';
-    ctx.beginPath(); ctx.moveTo(tBaseX-fW*0.034,tBaseY-tHt*0.74); ctx.lineTo(tBaseX+fW*0.034,tBaseY-tHt*0.74); ctx.lineTo(tBaseX,tBaseY-tHt); ctx.closePath(); ctx.fill();
-  }
-  const sx=fX+fW*0.78, sy=fY+fH*0.13;
-  const sunG=ctx.createRadialGradient(sx,sy,0,sx,sy,fW*0.11);
-  sunG.addColorStop(0,'rgba(255,242,100,.95)'); sunG.addColorStop(0.45,'rgba(255,218,50,.50)'); sunG.addColorStop(1,'rgba(255,200,30,0)');
-  ctx.fillStyle=sunG; ctx.beginPath(); ctx.arc(sx,sy,fW*0.11,0,Math.PI*2); ctx.fill();
-  const cs=fW/180;
-  ctx.fillStyle='rgba(255,255,255,.88)';
-  const cx2=fX+fW*0.16, cy2=fY+fH*0.22;
-  ctx.beginPath(); ctx.arc(cx2,cy2,9*cs,0,Math.PI*2); ctx.arc(cx2+12*cs,cy2-4*cs,7*cs,0,Math.PI*2); ctx.arc(cx2+23*cs,cy2,9*cs,0,Math.PI*2); ctx.fill();
-  const glareG=ctx.createLinearGradient(fX,fY,fX+fW*0.28,fY+fH*0.32);
-  glareG.addColorStop(0,'rgba(255,255,255,.10)'); glareG.addColorStop(0.5,'rgba(255,255,255,.04)'); glareG.addColorStop(1,'rgba(255,255,255,0)');
-  ctx.fillStyle=glareG; ctx.fillRect(fX,fY,fW,fH);
-  ctx.restore();
-
-  // WINDOW FRAME
-  if (installation!=='fullWall') {
-    ctx.fillStyle='rgba(0,0,0,.14)'; ctx.fillRect(fX+2,fY+2,fW,fH);
-    ctx.lineWidth=4.5; ctx.strokeStyle='#8A806E'; ctx.strokeRect(fX,fY,fW,fH);
-    ctx.lineWidth=1; ctx.strokeStyle='#AEA696'; ctx.strokeRect(fX+2.5,fY+2.5,fW-5,fH-5);
-    ctx.lineWidth=3; ctx.strokeStyle='#8A806E';
-    ctx.beginPath(); ctx.moveTo(fX+fW/2,fY); ctx.lineTo(fX+fW/2,fY+fH); ctx.stroke();
-    ctx.beginPath(); ctx.moveTo(fX,fY+fH*0.5); ctx.lineTo(fX+fW,fY+fH*0.5); ctx.stroke();
-    if (installation==='surface') {
-      const sillG=ctx.createLinearGradient(0,fY+fH,0,fY+fH+13);
-      sillG.addColorStop(0,'#D0C8BC'); sillG.addColorStop(1,'#BCAEA0');
-      ctx.fillStyle=sillG; ctx.fillRect(fX-7,fY+fH,fW+14,13);
-    }
-  }
-
-  // MOUNTING HARDWARE
-  if (mounting==='ceiling' && installation!=='recessed') {
-    const bkG=ctx.createLinearGradient(bX,bY-13,bX,bY);
-    bkG.addColorStop(0,'#5A5048'); bkG.addColorStop(1,'#3C3630');
-    ctx.fillStyle=bkG; ctx.fillRect(bX,bY-13,bW,13);
-    const bc=Math.max(2,Math.floor(bW/80));
-    for (let i=0; i<=bc; i++) {
-      ctx.fillStyle='#C9A96E'; ctx.fillRect(bX+(bW/bc)*i-3,bY-18,6,7);
-    }
-  }
-
-  // BLIND
-  const headerH=10, bundleH=bH*0.12;
-  const blindTopY=bY+headerH, closedBottom=bY+bH, openBottom=bY+headerH+bundleH;
-  const blindBottomY=closedBottom-(closedBottom-openBottom)*progress;
-  const currentBlindH=blindBottomY-blindTopY;
-
-  if (currentBlindH>1) {
-    const totalSlats=Math.max(6,Math.round(heightCm/5));
-    const sH=(bH-headerH)/totalSlats;
-    const visibleSlats=Math.ceil(currentBlindH/sH);
-    ctx.save(); ctx.beginPath(); ctx.rect(bX,blindTopY,bW,currentBlindH); ctx.clip();
-    for (let i=0; i<visibleSlats; i++) {
-      const sy2=blindTopY+i*sH, even=i%2===0;
-      const sg=ctx.createLinearGradient(0,sy2,0,sy2+sH);
-      if (even) { sg.addColorStop(0,wcLighten(blindColor,18)); sg.addColorStop(0.4,blindColor); sg.addColorStop(1,wcDarken(blindColor,22)); }
-      else { sg.addColorStop(0,wcDarken(blindColor,4)); sg.addColorStop(1,wcDarken(blindColor,26)); }
-      ctx.fillStyle=sg; ctx.fillRect(bX+1,sy2+0.5,bW-2,sH-1);
-      ctx.fillStyle=`rgba(201,169,110,${even?0.22:0.06})`; ctx.fillRect(bX+1,sy2+0.5,bW-2,1.5);
-      ctx.fillStyle='rgba(0,0,0,.20)'; ctx.fillRect(bX+1,sy2+sH-2,bW-2,2);
-    }
-    const sheen=ctx.createLinearGradient(bX,0,bX+bW,0);
-    sheen.addColorStop(0,'rgba(255,255,255,.02)'); sheen.addColorStop(0.22,'rgba(255,255,255,.09)');
-    sheen.addColorStop(0.78,'rgba(255,255,255,.02)'); sheen.addColorStop(1,'rgba(0,0,0,.07)');
-    ctx.fillStyle=sheen; ctx.fillRect(bX,blindTopY,bW,currentBlindH);
-    ctx.restore();
-    ctx.fillStyle=wcDarken(blindColor,8); ctx.fillRect(bX+1,blindBottomY-4,bW-2,4);
-    ctx.fillStyle='rgba(0,0,0,.18)'; ctx.fillRect(bX+1,blindBottomY-1,bW-2,1);
-  }
-
-  // HEADER RAIL
-  const railG=ctx.createLinearGradient(bX,bY,bX,bY+headerH);
-  railG.addColorStop(0,'#252525'); railG.addColorStop(1,'#181818');
-  ctx.fillStyle=railG; ctx.fillRect(bX,bY,bW,headerH);
-  ctx.fillStyle='#C9A96E'; ctx.fillRect(bX+2,bY+2.5,bW-4,1.5);
-  ctx.fillStyle='rgba(255,255,255,.06)'; ctx.fillRect(bX,bY,bW,2);
-
-  // CORD
-  const cordX=bX+bW*0.86;
-  const tassleY=Math.max(blindBottomY-4,bY+headerH+8);
-  ctx.strokeStyle='rgba(201,169,110,.55)'; ctx.lineWidth=1.5; ctx.setLineDash([]);
-  ctx.beginPath(); ctx.moveTo(cordX,bY+headerH); ctx.lineTo(cordX,tassleY); ctx.stroke();
-  ctx.fillStyle='#C9A96E'; ctx.beginPath(); ctx.arc(cordX,tassleY,3.5,0,Math.PI*2); ctx.fill();
-
-  // SIDE CHANNELS (recessed)
-  if (installation==='recessed') {
-    ctx.fillStyle='#181818';
-    ctx.fillRect(bX-4,bY,4,bH); ctx.fillRect(bX+bW,bY,4,bH);
-  }
-
-  // DIMENSION ANNOTATIONS
-  const ann=4;
-  const wAnnY=bY+bH+20;
-  ctx.setLineDash([3,3]); ctx.strokeStyle='rgba(201,169,110,.32)'; ctx.lineWidth=1;
-  ctx.beginPath(); ctx.moveTo(bX,bY+bH+2); ctx.lineTo(bX,wAnnY-2); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(bX+bW,bY+bH+2); ctx.lineTo(bX+bW,wAnnY-2); ctx.stroke();
-  ctx.setLineDash([]); ctx.strokeStyle='rgba(201,169,110,.60)';
-  ctx.beginPath(); ctx.moveTo(bX,wAnnY); ctx.lineTo(bX+bW,wAnnY); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(bX,wAnnY); ctx.lineTo(bX+ann,wAnnY-3); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(bX,wAnnY); ctx.lineTo(bX+ann,wAnnY+3); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(bX+bW,wAnnY); ctx.lineTo(bX+bW-ann,wAnnY-3); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(bX+bW,wAnnY); ctx.lineTo(bX+bW-ann,wAnnY+3); ctx.stroke();
-  ctx.font="bold 11px 'DM Sans',sans-serif"; ctx.fillStyle='#C9A96E'; ctx.textAlign='center';
-  ctx.fillText(widthCm+' cm', bX+bW/2, wAnnY+13);
-  const hAnnX=bX-22;
-  ctx.setLineDash([3,3]); ctx.strokeStyle='rgba(201,169,110,.32)';
-  ctx.beginPath(); ctx.moveTo(bX-2,bY); ctx.lineTo(hAnnX-2,bY); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(bX-2,bY+bH); ctx.lineTo(hAnnX-2,bY+bH); ctx.stroke();
-  ctx.setLineDash([]); ctx.strokeStyle='rgba(201,169,110,.60)';
-  ctx.beginPath(); ctx.moveTo(hAnnX,bY); ctx.lineTo(hAnnX,bY+bH); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(hAnnX,bY); ctx.lineTo(hAnnX-3,bY+ann); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(hAnnX,bY); ctx.lineTo(hAnnX+3,bY+ann); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(hAnnX,bY+bH); ctx.lineTo(hAnnX-3,bY+bH-ann); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(hAnnX,bY+bH); ctx.lineTo(hAnnX+3,bY+bH-ann); ctx.stroke();
-  ctx.save(); ctx.translate(hAnnX-9,bY+bH/2); ctx.rotate(-Math.PI/2);
-  ctx.textAlign='center'; ctx.fillStyle='#C9A96E';
-  ctx.fillText(heightCm+' cm', 0, 0); ctx.restore();
+function selectTime(el) {
+  document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+  el.classList.add('selected');
 }
 
-// ── CONFIGURATOR SETUP ──────────────────────────────────────────────────────
-function setupWindowConfigurator(canvasId, accentColor) {
-  const canvas = document.getElementById(canvasId);
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-
-  let state = { widthCm:120, heightCm:150, installation:'surface', mounting:'frame', blindColor:'#DDD5C4', isOpen:false };
-  let progressRef = 0;
-  let rafId = 0;
-
-  function render(prog) {
-    const dpr = window.devicePixelRatio || 1;
-    const W = canvas.width / dpr, H = canvas.height / dpr;
-    ctx.save(); ctx.scale(dpr, dpr);
-    drawWindowCanvas(ctx, W, H, state, prog);
-    ctx.restore();
+// Build calendar
+(function(){
+  const today = new Date(2026, 4, 11); // May 11 2026
+  const year = today.getFullYear(), month = today.getMonth();
+  const firstDay = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month+1, 0).getDate();
+  const container = document.getElementById('cal-days');
+  if (!container) return;
+  for (let i = 0; i < firstDay; i++) {
+    const d = document.createElement('div');
+    d.className = 'cal-day cal-empty';
+    container.appendChild(d);
   }
-
-  function animateTo(target) {
-    cancelAnimationFrame(rafId);
-    const start = progressRef, t0 = performance.now(), dur = 500;
-    function ease(t) { return t<0.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2; }
-    function tick(now) {
-      const t = Math.min(1,(now-t0)/dur);
-      progressRef = start + (target-start)*ease(t);
-      render(progressRef);
-      if (t<1) rafId = requestAnimationFrame(tick);
-      else progressRef = target;
+  for (let d = 1; d <= daysInMonth; d++) {
+    const el = document.createElement('div');
+    const dow = new Date(year, month, d).getDay();
+    if (d < today.getDate()) {
+      el.className = 'cal-day cal-past';
+    } else if (d === today.getDate()) {
+      el.className = 'cal-day cal-today cal-available';
+    } else if (dow === 0) {
+      el.className = 'cal-day cal-past';
+    } else {
+      el.className = 'cal-day cal-available';
     }
-    rafId = requestAnimationFrame(tick);
+    if (d === 12) el.className = 'cal-day cal-selected cal-available';
+    el.textContent = d;
+    el.addEventListener('click', () => {
+      if (el.classList.contains('cal-past')) return;
+      document.querySelectorAll('.cal-day').forEach(x => x.classList.remove('cal-selected'));
+      el.classList.add('cal-selected');
+    });
+    container.appendChild(el);
   }
-
-  function setupCanvas() {
-    const dpr = window.devicePixelRatio || 1;
-    const rect = canvas.getBoundingClientRect();
-    if (!rect.width) return;
-    canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
-    render(progressRef);
-  }
-
-  const ro = new ResizeObserver(setupCanvas);
-  ro.observe(canvas);
-  setupCanvas();
-
-  const widthSlider = document.getElementById('wc-width');
-  const widthVal = document.getElementById('wc-width-val');
-  if (widthSlider) {
-    widthSlider.addEventListener('input', () => {
-      state.widthCm = parseInt(widthSlider.value);
-      if (widthVal) widthVal.textContent = widthSlider.value;
-      render(progressRef);
-    });
-  }
-
-  const heightSlider = document.getElementById('wc-height');
-  const heightVal = document.getElementById('wc-height-val');
-  if (heightSlider) {
-    heightSlider.addEventListener('input', () => {
-      state.heightCm = parseInt(heightSlider.value);
-      if (heightVal) heightVal.textContent = heightSlider.value;
-      render(progressRef);
-    });
-  }
-
-  document.querySelectorAll('[data-wc-color]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      state.blindColor = btn.dataset.wcColor;
-      document.querySelectorAll('[data-wc-color]').forEach(b => b.classList.remove('wc-active'));
-      btn.classList.add('wc-active');
-      render(progressRef);
-    });
-  });
-
-  document.querySelectorAll('[data-wc-install]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      state.installation = btn.dataset.wcInstall;
-      if (state.installation==='recessed') state.mounting='frame';
-      if (state.installation==='fullWall') state.mounting='ceiling';
-      document.querySelectorAll('[data-wc-install]').forEach(b => b.classList.remove('wc-active'));
-      btn.classList.add('wc-active');
-      render(progressRef);
-    });
-  });
-
-  document.querySelectorAll('[data-wc-mount]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      state.mounting = btn.dataset.wcMount;
-      document.querySelectorAll('[data-wc-mount]').forEach(b => b.classList.remove('wc-active'));
-      btn.classList.add('wc-active');
-      render(progressRef);
-    });
-  });
-
-  const btnClosed = document.getElementById('wc-toggle-closed');
-  const btnOpen = document.getElementById('wc-toggle-open');
-  if (btnClosed) btnClosed.addEventListener('click', () => { state.isOpen=false; animateTo(0); btnClosed.classList.add('wc-active'); if(btnOpen) btnOpen.classList.remove('wc-active'); });
-  if (btnOpen) btnOpen.addEventListener('click', () => { state.isOpen=true; animateTo(1); btnOpen.classList.add('wc-active'); if(btnClosed) btnClosed.classList.remove('wc-active'); });
-}
+})();
   </script>
 
   <!-- PAGE SCRIPTS -->
   <script type="module">
-    import { animate, inView, stagger } from 'https://esm.sh/motion';
+    import { animate, inView } from 'https://esm.sh/motion';
+
+    // Nav scroll state
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
 
     // Hero entrance
-    animate('#hero-bg', { scale: [1.04, 1] }, { duration: 1.8, easing: 'ease-out' });
-
-    animate('#hero-eyebrow', { opacity: [0, 1], y: [16, 0] }, { duration: 0.7, delay: 0.3, easing: 'ease-out' });
-    animate('#hero-title',   { opacity: [0, 1], y: [24, 0] }, { duration: 0.7, delay: 0.5, easing: 'ease-out' });
-    animate('#hero-sub',     { opacity: [0, 1], y: [20, 0] }, { duration: 0.7, delay: 0.7, easing: 'ease-out' });
-    animate('#hero-ctas',    { opacity: [0, 1], y: [16, 0] }, { duration: 0.6, delay: 0.9, easing: 'ease-out' });
+    animate('#hero-bg',      { scale: [1.04, 1] }, { duration: 1.8, easing: 'ease-out' });
+    animate('#hero-eyebrow', { opacity: [0,1], y: [16,0] }, { duration: 0.7, delay: 0.3, easing: 'ease-out' });
+    animate('#hero-title',   { opacity: [0,1], y: [24,0] }, { duration: 0.7, delay: 0.5, easing: 'ease-out' });
+    animate('#hero-sub',     { opacity: [0,1], y: [20,0] }, { duration: 0.7, delay: 0.7, easing: 'ease-out' });
+    animate('#hero-ctas',    { opacity: [0,1], y: [16,0] }, { duration: 0.6, delay: 0.9, easing: 'ease-out' });
+    animate('#hero-scroll',  { opacity: [0,0.7] },           { duration: 0.6, delay: 1.4, easing: 'ease-out' });
 
     // Scroll reveals
     inView('.reveal', ({ target }) => {
-      animate(target, { opacity: [0, 1], y: [24, 0] }, { duration: 0.55, easing: [0.22, 1, 0.36, 1] });
+      animate(target, { opacity: [0,1], y: [28,0] }, { duration: 0.55, easing: [0.22,1,0.36,1] });
     }, { margin: '-60px' });
 
     // Init configurator
-    setupWindowConfigurator('wc-canvas', '#A09060');
+    setupWindowConfigurator('wc-canvas');
   </script>
 
 </body>
