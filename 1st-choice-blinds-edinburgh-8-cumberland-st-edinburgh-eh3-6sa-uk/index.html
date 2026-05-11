@@ -1164,15 +1164,6 @@
       opacity: 1;
       transform: none;
     }
-    .js-ready .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-    }
-    .js-ready .reveal.is-visible {
-      opacity: 1;
-      transform: none;
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
   </style>
 </head>
 <body>
@@ -1766,10 +1757,7 @@ function selectTime(el) {
 
   <!-- PAGE SCRIPTS -->
   <script type="module">
-    import { animate, inView } from 'https://esm.sh/motion';
-
-    // Enable JS-gated reveal animations
-    document.documentElement.classList.add('js-ready');
+    import { animate } from 'https://esm.sh/motion';
 
     // Nav scroll state
     const nav = document.getElementById('main-nav');
@@ -1784,11 +1772,6 @@ function selectTime(el) {
     animate('#hero-sub',     { opacity: [0,1], y: [20,0] }, { duration: 0.7, delay: 0.7, easing: 'ease-out' });
     animate('#hero-ctas',    { opacity: [0,1], y: [16,0] }, { duration: 0.6, delay: 0.9, easing: 'ease-out' });
     animate('#hero-scroll',  { opacity: [0,0.7] },           { duration: 0.6, delay: 1.4, easing: 'ease-out' });
-
-    // Scroll reveals
-    inView('.reveal', ({ target }) => {
-      animate(target, { opacity: [0,1], y: [28,0] }, { duration: 0.55, easing: [0.22,1,0.36,1] });
-    }, { margin: '-60px' });
 
     // Init configurator
     setupWindowConfigurator('wc-canvas');
