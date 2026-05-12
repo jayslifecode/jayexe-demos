@@ -3,1668 +3,447 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Joe Walker's Window Blinds — Scotland's Finest Made-to-Measure Blinds</title>
+  <title>Joe Walker's Window Blinds Ltd — Clydebank's Trusted Blinds Specialist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --bg: #141414;
-      --text: #F0EBE0;
-      --text-muted: #9A8F7E;
-      --accent: #C4A870;
-      --accent-dim: rgba(196,168,112,0.15);
-      --accent-border: rgba(196,168,112,0.30);
-      --surface: #1E1E1E;
-      --surface-2: #252525;
-      --border: rgba(240,235,224,0.10);
+      --bg: #0b0b0b; --bg2: #111111; --bg3: #161616;
+      --border: rgba(245,245,240,0.06); --white: #f5f5f0;
+      --muted: rgba(245,245,240,0.45); --gold: #c8a84b;
+      --accent: #1a3a6b; --accent2: #254d8f;
     }
-
     html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Work Sans', sans-serif;
-      font-weight: 400;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-      padding: 0 2.5rem;
-      height: 68px;
-      background: rgba(20,20,20,0.80);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-logo {
-      font-family: 'Crimson Pro', serif;
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--text);
-      text-decoration: none;
-      white-space: nowrap;
-      letter-spacing: 0.01em;
-    }
-
-    .nav-logo span { color: var(--accent); }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 500;
-      letter-spacing: 0.03em;
-      transition: color 0.2s;
-      white-space: nowrap;
-    }
-
-    .nav-links a:hover { color: var(--text); }
-
-    .nav-cta {
-      background: var(--accent);
-      color: #141414;
-      border: none;
-      padding: 0.55rem 1.25rem;
-      font-family: 'Work Sans', sans-serif;
-      font-size: 0.8125rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      cursor: pointer;
-      text-decoration: none;
-      white-space: nowrap;
-      transition: opacity 0.2s;
-    }
-
-    .nav-cta:hover { opacity: 0.85; }
-
-    /* ── HERO ── */
-    .hero {
-      position: relative;
-      min-height: 100svh;
-      display: flex;
-      align-items: flex-end;
-      padding: 0 2.5rem 6rem;
-      overflow: hidden;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=1920&q=80');
-      background-size: cover;
-      background-position: center;
-    }
-
-    .hero-bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(20,20,20,0.45) 0%,
-        rgba(20,20,20,0.30) 35%,
-        rgba(20,20,20,0.75) 70%,
-        rgba(20,20,20,0.97) 100%
-      );
-    }
-
-    .hero-content {
-      position: relative;
-      max-width: 780px;
-    }
-
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.625rem;
-      margin-bottom: 1.25rem;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      opacity: 0;
-    }
-
-    .hero-eyebrow::before {
-      content: '';
-      display: block;
-      width: 28px;
-      height: 1px;
-      background: var(--accent);
-    }
-
-    .hero h1 {
-      font-family: 'Crimson Pro', serif;
-      font-size: clamp(2.8rem, 6vw, 5.5rem);
-      font-weight: 300;
-      line-height: 1.08;
-      letter-spacing: -0.01em;
-      color: var(--text);
-      margin-bottom: 1.25rem;
-      opacity: 0;
-    }
-
-    .hero h1 em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    .hero-sub {
-      font-size: 1.0625rem;
-      color: rgba(240,235,224,0.72);
-      max-width: 520px;
-      margin-bottom: 2.25rem;
-      line-height: 1.7;
-      opacity: 0;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      opacity: 0;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      height: 52px;
-      padding: 0 2rem;
-      background: var(--accent);
-      color: #141414;
-      font-family: 'Work Sans', sans-serif;
-      font-size: 0.875rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: opacity 0.2s;
-    }
-
-    .btn-primary:hover { opacity: 0.85; }
-
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      height: 52px;
-      padding: 0 2rem;
-      background: transparent;
-      color: var(--text);
-      font-family: 'Work Sans', sans-serif;
-      font-size: 0.875rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-decoration: none;
-      border: 1px solid rgba(240,235,224,0.35);
-      cursor: pointer;
-      white-space: nowrap;
-      transition: border-color 0.2s, color 0.2s;
-    }
-
-    .btn-outline:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    /* ── STAT BAND ── */
-    .stat-band {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .stat-band-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      divide-x: 1px solid var(--border);
-    }
-
-    .stat-item {
-      padding: 1.75rem 2rem;
-      text-align: center;
-      border-right: 1px solid var(--border);
-    }
-
-    .stat-item:last-child { border-right: none; }
-
-    .stat-icon {
-      width: 32px;
-      height: 32px;
-      margin: 0 auto 0.75rem;
-      color: var(--accent);
-    }
-
-    .stat-label {
-      font-size: 0.8125rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--text);
-    }
-
-    .stat-sub {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      margin-top: 0.25rem;
-    }
-
-    /* ── SECTIONS ── */
-    section { padding: 6rem 2.5rem; }
-
-    .section-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.6875rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
-
-    .section-tag::before {
-      content: '';
-      display: block;
-      width: 20px;
-      height: 1px;
-      background: var(--accent);
-    }
-
-    .section-heading {
-      font-family: 'Crimson Pro', serif;
-      font-size: clamp(2rem, 4vw, 3.25rem);
-      font-weight: 300;
-      line-height: 1.15;
-      color: var(--text);
-      margin-bottom: 1rem;
-    }
-
-    .section-heading em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    .section-body {
-      font-size: 1rem;
-      color: var(--text-muted);
-      max-width: 560px;
-      line-height: 1.75;
-    }
-
-    /* ── SERVICES ── */
-    .services-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 2rem;
-      margin-bottom: 3.5rem;
-      flex-wrap: wrap;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5px;
-      background: var(--border);
-    }
-
-    .service-card {
-      background: var(--bg);
-      padding: 2.5rem 2rem;
-      transition: background 0.25s;
-    }
-
-    .service-card:hover { background: var(--surface); }
-
-    .service-icon {
-      width: 44px;
-      height: 44px;
-      color: var(--accent);
-      margin-bottom: 1.25rem;
-    }
-
-    .service-name {
-      font-family: 'Crimson Pro', serif;
-      font-size: 1.375rem;
-      font-weight: 400;
-      color: var(--text);
-      margin-bottom: 0.625rem;
-    }
-
-    .service-desc {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-    }
-
-    /* ── CONFIGURATOR ── */
-    #configurator {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .configurator-layout {
-      display: grid;
-      grid-template-columns: 1fr 420px;
-      gap: 0;
-      align-items: stretch;
-      min-height: 580px;
-    }
-
-    .configurator-canvas-wrap {
-      background: #EDE8E0;
-      position: relative;
-      min-height: 480px;
-    }
-
-    #wc-canvas {
-      display: block;
-      width: 100%;
-      height: 100%;
-      min-height: 480px;
-    }
-
-    .configurator-controls {
-      background: #1E1E1E;
-      padding: 2.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.75rem;
-      border-left: 1px solid var(--border);
-    }
-
-    .config-title {
-      font-family: 'Crimson Pro', serif;
-      font-size: 1.625rem;
-      font-weight: 300;
-      color: var(--text);
-      line-height: 1.2;
-    }
-
-    .config-title span { color: var(--accent); font-style: italic; }
-
-    .config-group { display: flex; flex-direction: column; gap: 0.625rem; }
-
-    .config-label {
-      font-size: 0.6875rem;
-      font-weight: 600;
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
-      color: var(--accent);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .config-label-val {
-      font-family: 'Work Sans', sans-serif;
-      font-variant-numeric: tabular-nums;
-      color: var(--text);
-    }
-
-    input[type="range"] {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 100%;
-      height: 2px;
-      background: rgba(240,235,224,0.12);
-      outline: none;
-      cursor: pointer;
-    }
-
-    input[type="range"]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: var(--accent);
-      cursor: pointer;
-      border: 2px solid #1E1E1E;
-      box-shadow: 0 0 0 1px var(--accent);
-    }
-
-    input[type="range"]::-moz-range-thumb {
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: var(--accent);
-      cursor: pointer;
-      border: 2px solid #1E1E1E;
-      box-shadow: 0 0 0 1px var(--accent);
-    }
-
-    .swatches {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-
-    .swatch {
-      width: 32px;
-      height: 32px;
-      border-radius: 2px;
-      cursor: pointer;
-      border: 2px solid transparent;
-      transition: border-color 0.15s, box-shadow 0.15s;
-      flex-shrink: 0;
-    }
-
-    .swatch.wc-active,
-    .swatch:hover {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 1px rgba(196,168,112,0.5);
-    }
-
-    .btn-group {
-      display: flex;
-      gap: 0;
-    }
-
-    .btn-toggle {
-      flex: 1;
-      height: 38px;
-      background: transparent;
-      border: 1px solid rgba(240,235,224,0.15);
-      color: var(--text-muted);
-      font-family: 'Work Sans', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      cursor: pointer;
-      transition: background 0.15s, color 0.15s, border-color 0.15s;
-      white-space: nowrap;
-    }
-
-    .btn-toggle + .btn-toggle { border-left: none; }
-
-    .btn-toggle.wc-active {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #141414;
-      font-weight: 600;
-    }
-
-    .btn-toggle:hover:not(.wc-active) {
-      border-color: var(--accent-border);
-      color: var(--text);
-    }
-
-    .config-cta {
-      margin-top: auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 48px;
-      background: var(--accent);
-      color: #141414;
-      font-family: 'Work Sans', sans-serif;
-      font-size: 0.875rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      transition: opacity 0.2s;
-    }
-
-    .config-cta:hover { opacity: 0.85; }
-
-    /* ── BENEFITS ── */
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      margin-top: 3.5rem;
-    }
-
-    .benefit-item {}
-
-    .benefit-icon {
-      width: 40px;
-      height: 40px;
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
-
-    .benefit-title {
-      font-family: 'Crimson Pro', serif;
-      font-size: 1.1875rem;
-      font-weight: 400;
-      color: var(--text);
-      margin-bottom: 0.5rem;
-    }
-
-    .benefit-desc {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-    }
-
-    /* ── GALLERY ── */
-    #gallery { background: var(--surface); }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(2, 260px);
-      gap: 3px;
-      margin-top: 3rem;
-    }
-
-    .gallery-grid .gallery-item:first-child {
-      grid-row: span 2;
-    }
-
-    .gallery-item {
-      overflow: hidden;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: opacity 0.35s;
-    }
-
-    .gallery-item:hover img { opacity: 0.88; }
-
-    /* ── TESTIMONIALS ── */
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-
-    .testimonial-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 2rem;
-    }
-
-    .stars {
-      display: flex;
-      gap: 3px;
-      margin-bottom: 1rem;
-      color: var(--accent);
-    }
-
-    .stars svg { width: 14px; height: 14px; }
-
-    .testimonial-text {
-      font-family: 'Crimson Pro', serif;
-      font-size: 1.0625rem;
-      font-weight: 300;
-      line-height: 1.65;
-      color: var(--text);
-      font-style: italic;
-      margin-bottom: 1.25rem;
-    }
-
-    .testimonial-author {
-      font-size: 0.8125rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      letter-spacing: 0.04em;
-    }
-
-    .testimonial-location {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      opacity: 0.6;
-      margin-top: 0.2rem;
-    }
-
-    /* ── FINAL CTA ── */
-    .final-cta {
-      background: var(--accent);
-      color: #141414;
-      text-align: center;
-      padding: 5rem 2.5rem;
-    }
-
-    .final-cta-heading {
-      font-family: 'Crimson Pro', serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 300;
-      line-height: 1.15;
-      margin-bottom: 1rem;
-    }
-
-    .final-cta-sub {
-      font-size: 1rem;
-      opacity: 0.75;
-      margin-bottom: 2.5rem;
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .final-cta-actions {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn-dark {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      height: 52px;
-      padding: 0 2rem;
-      background: #141414;
-      color: var(--accent);
-      font-family: 'Work Sans', sans-serif;
-      font-size: 0.875rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: opacity 0.2s;
-    }
-
-    .btn-dark:hover { opacity: 0.85; }
-
-    .btn-outline-dark {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      height: 52px;
-      padding: 0 2rem;
-      background: transparent;
-      color: #141414;
-      font-family: 'Work Sans', sans-serif;
-      font-size: 0.875rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-decoration: none;
-      border: 1px solid rgba(20,20,20,0.40);
-      cursor: pointer;
-      white-space: nowrap;
-      transition: border-color 0.2s, background 0.2s;
-    }
-
-    .btn-outline-dark:hover {
-      background: rgba(20,20,20,0.08);
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: #0D0D0D;
-      padding: 3.5rem 2.5rem 2rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .footer-top {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 3rem;
-      padding-bottom: 3rem;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 2rem;
-    }
-
-    .footer-brand {
-      font-family: 'Crimson Pro', serif;
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 0.75rem;
-    }
-
-    .footer-brand span { color: var(--accent); }
-
-    .footer-desc {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-      margin-bottom: 1.25rem;
-    }
-
-    .footer-contact a {
-      display: block;
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      text-decoration: none;
-      margin-bottom: 0.35rem;
-      transition: color 0.2s;
-    }
-
-    .footer-contact a:hover { color: var(--accent); }
-
-    .footer-col-title {
-      font-size: 0.6875rem;
-      font-weight: 600;
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
-
-    .footer-links { list-style: none; }
-
-    .footer-links li { margin-bottom: 0.5rem; }
-
-    .footer-links a {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover { color: var(--text); }
-
-    .footer-cities {
-      font-size: 0.8125rem;
-      color: var(--text-muted);
-      line-height: 1.8;
-    }
-
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-copy {
-      font-size: 0.75rem;
-      color: rgba(154,143,126,0.5);
-    }
-
-    .footer-legal {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .footer-legal a {
-      font-size: 0.75rem;
-      color: rgba(154,143,126,0.5);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-legal a:hover { color: var(--text-muted); }
-
-    /* ── DIVIDER ── */
-    .divider {
-      width: 100%;
-      height: 1px;
-      background: var(--border);
-      margin: 0;
-    }
-
-    /* ── MOBILE ── */
-    @media (max-width: 1024px) {
-      .configurator-layout { grid-template-columns: 1fr; }
-      .configurator-controls { border-left: none; border-top: 1px solid var(--border); }
-      .benefits-grid { grid-template-columns: repeat(2, 1fr); }
-      .stat-band-inner { grid-template-columns: repeat(2, 1fr); }
-      .stat-item:nth-child(2) { border-right: none; }
-      .gallery-grid { grid-template-rows: repeat(3, 220px); }
-      .gallery-grid .gallery-item:first-child { grid-row: span 1; }
-      .gallery-grid { grid-template-columns: 1fr; }
-      .gallery-grid .gallery-item { grid-row: span 1 !important; }
-    }
-
+    body { background: var(--bg); color: var(--white); font-family: 'Jost', sans-serif; font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    .grain { position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0.035; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); background-size: 200px 200px; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; transition: background 0.3s, border-bottom 0.3s; }
+    nav.scrolled { background: var(--bg2); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .nav-brand { text-decoration: none; flex-shrink: 0; }
+    .nav-wordmark { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.08em; color: var(--white); display: block; line-height: 1; }
+    .nav-tagline { font-size: 0.65rem; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { background: var(--accent); color: var(--white); border: none; border-radius: 2px; padding: 13px 30px; font-family: 'Jost', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background 0.2s; flex-shrink: 0; }
+    .nav-cta:hover { background: var(--accent2); }
+    .hero { position: relative; height: 100vh; min-height: 700px; display: flex; align-items: center; overflow: hidden; }
+    .hero-bg { position: absolute; inset: -8%; background: url('https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat; will-change: transform; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(11,11,11,0.90) 0%, rgba(11,11,11,0.70) 60%, rgba(11,11,11,0.5) 100%); }
+    .hero-vignette { position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 40%, rgba(11,11,11,0.7) 100%); }
+    .hero-inner { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 0 32px; width: 100%; padding-top: 80px; display: flex; align-items: center; gap: 48px; }
+    .hero-content { flex: 1; }
+    .hero-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .hero-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 8vw, 7.5rem); line-height: 0.9; letter-spacing: 0.02em; }
+    .hero-title-line { display: block; overflow: hidden; }
+    .hero-title-line span { display: block; transform: translateY(110%); }
+    .hero-sub { margin-top: 28px; font-size: 1.05rem; font-weight: 300; color: var(--muted); max-width: 460px; line-height: 1.7; }
+    .hero-ctas { display: flex; gap: 16px; margin-top: 36px; flex-wrap: wrap; }
+    .btn-primary { background: var(--accent); color: var(--white); border: none; border-radius: 2px; padding: 13px 36px; font-family: 'Jost', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: background 0.2s; display: inline-block; }
+    .btn-primary:hover { background: var(--accent2); }
+    .btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(245,245,240,0.25); border-radius: 2px; padding: 13px 36px; font-family: 'Jost', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: border-color 0.2s; display: inline-block; }
+    .btn-outline:hover { border-color: var(--white); }
+    .hero-badges { display: flex; flex-direction: column; gap: 10px; flex-shrink: 0; align-self: center; }
+    .badge { border: 1px solid var(--border); background: rgba(245,245,240,0.04); border-radius: 2px; padding: 10px 18px; text-align: center; }
+    .badge-val { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--gold); letter-spacing: 0.05em; }
+    .badge-lbl { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .hero-scroll { position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%); z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0.5; }
+    .hero-scroll span { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+    .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--muted), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+    @keyframes scrollPulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
+    section { padding: 100px 0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    .section-eyebrow { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.8rem, 5vw, 4.5rem); line-height: 0.95; letter-spacing: 0.02em; }
+    .section-line { width: 60px; height: 2px; background: var(--gold); margin: 24px 0; transform: scaleX(0); transform-origin: left; transition: transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    .section-line.animated { transform: scaleX(1); }
+    .section-sub { color: var(--muted); max-width: 560px; font-weight: 300; line-height: 1.75; }
+    .statement { background: var(--bg2); }
+    .statement-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .statement-right { color: var(--muted); font-weight: 300; line-height: 1.8; }
+    .stats-band { background: var(--bg3); padding: 72px 0; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); }
+    .stat-item { background: var(--bg3); padding: 40px 32px; text-align: center; }
+    .stat-number { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; color: var(--gold); letter-spacing: 0.04em; line-height: 1; }
+    .stat-label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-top: 8px; }
+    .services { background: var(--bg); }
+    .services-intro { margin-bottom: 60px; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
+    .service-card { background: var(--bg2); padding: 36px 32px; position: relative; overflow: hidden; transition: background 0.3s; }
+    .service-card:hover { background: var(--bg3); }
+    .service-card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.35s cubic-bezier(0.16,1,0.3,1); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-num { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--accent); letter-spacing: 0.05em; margin-bottom: 16px; }
+    .service-title { font-size: 1rem; font-weight: 600; letter-spacing: 0.04em; margin-bottom: 10px; }
+    .service-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.7; font-weight: 300; }
+    .about { background: var(--bg2); }
+    .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-list { margin-top: 28px; list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .about-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.9rem; color: var(--muted); font-weight: 300; }
+    .about-list li::before { content: ''; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; flex-shrink: 0; margin-top: 8px; }
+    .about-image-wrap { position: relative; overflow: hidden; border-radius: 2px; }
+    .about-image-wrap img { width: 100%; height: 480px; object-fit: cover; display: block; clip-path: inset(100% 0 0 0); transition: clip-path 0.9s cubic-bezier(0.16,1,0.3,1); }
+    .about-image-wrap.revealed img { clip-path: inset(0%); }
+    .corner-tl, .corner-tr, .corner-bl, .corner-br { position: absolute; width: 20px; height: 20px; z-index: 2; }
+    .corner-tl { top: 12px; left: 12px; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+    .corner-tr { top: 12px; right: 12px; border-top: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+    .corner-bl { bottom: 12px; left: 12px; border-bottom: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+    .corner-br { bottom: 12px; right: 12px; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+    .badge-strip { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px 20px; background: linear-gradient(to top, rgba(11,11,11,0.9), transparent); display: flex; gap: 16px; }
+    .badge-strip-item { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
+    .reviews { background: var(--bg); }
+    .reviews-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 48px; flex-wrap: wrap; gap: 24px; }
+    .reviews-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem,4vw,3.5rem); letter-spacing: 0.02em; }
+    .google-badge { display: flex; align-items: center; gap: 12px; background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; padding: 12px 20px; }
+    .g-letter { font-size: 1.4rem; font-weight: 700; background: linear-gradient(135deg,#4285F4,#EA4335,#FBBC05,#34A853); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .g-rating { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--white); letter-spacing: 0.05em; }
+    .g-stars { display: flex; gap: 3px; }
+    .g-stars svg { width: 14px; height: 14px; fill: #FBBC05; }
+    .g-label { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
+    .review-card { background: var(--bg2); padding: 32px; }
+    .review-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.05em; color: var(--white); margin-bottom: 16px; }
+    .review-name { font-weight: 600; font-size: 0.92rem; }
+    .review-meta { font-size: 0.75rem; color: var(--muted); margin-bottom: 12px; }
+    .review-stars { display: flex; gap: 3px; margin-bottom: 12px; }
+    .review-stars svg { width: 13px; height: 13px; fill: #FBBC05; }
+    .review-text { font-size: 0.88rem; color: var(--muted); font-style: italic; line-height: 1.7; font-weight: 300; }
+    .why-us { background: var(--accent); padding: 80px 0; }
+    .why-us-header { text-align: center; margin-bottom: 52px; }
+    .why-us-header h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem,4vw,4rem); letter-spacing: 0.02em; color: var(--white); }
+    .why-us-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(245,245,240,0.1); }
+    .why-item { background: var(--accent); padding: 32px 24px; }
+    .why-item h4 { font-size: 0.9rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); margin-bottom: 10px; }
+    .why-item p { font-size: 0.85rem; color: rgba(245,245,240,0.7); line-height: 1.7; font-weight: 300; }
+    .sectors { background: var(--bg2); }
+    .sectors-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .sectors-dots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .sector-dot { background: var(--bg3); border: 1px solid var(--border); padding: 16px 12px; text-align: center; border-radius: 2px; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); transition: border-color 0.2s, color 0.2s; }
+    .sector-dot:hover { border-color: var(--accent); color: var(--white); }
+    .cta-section { background: var(--bg); padding: 120px 0; text-align: center; position: relative; overflow: hidden; }
+    .cta-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(26,58,107,0.22) 0%, transparent 70%); pointer-events: none; }
+    .cta-section p { color: var(--muted); max-width: 500px; margin: 20px auto 0; font-weight: 300; line-height: 1.75; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; margin-top: 40px; flex-wrap: wrap; }
+    footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 72px 0 40px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand p { font-size: 0.85rem; color: var(--muted); font-weight: 300; line-height: 1.7; margin-top: 12px; max-width: 260px; }
+    .footer-col h5 { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-col ul li a { color: var(--muted); text-decoration: none; font-size: 0.85rem; font-weight: 300; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--white); }
+    .footer-contact p { font-size: 0.85rem; color: var(--muted); font-weight: 300; line-height: 1.8; }
+    .footer-contact a { color: var(--accent2); text-decoration: none; }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-size: 0.75rem; color: var(--muted); }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
     @media (max-width: 768px) {
-      nav { padding: 0 1.25rem; }
-      .nav-links { display: none; }
-      .hero { padding: 0 1.25rem 4rem; }
-      section { padding: 4rem 1.25rem; }
+      .statement-inner, .about-inner, .sectors-inner { grid-template-columns: 1fr; gap: 48px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .services-grid { grid-template-columns: 1fr; }
-      .services-header { flex-direction: column; align-items: flex-start; }
-      .testimonials-grid { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
-      .benefits-grid { grid-template-columns: 1fr; }
-      .stat-band-inner { grid-template-columns: 1fr; }
-      .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
-      .stat-item:last-child { border-bottom: none; }
-      .configurator-controls { padding: 1.5rem; }
-      .final-cta-actions { flex-direction: column; align-items: center; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .why-us-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+      .hero-badges { display: none; }
+      .sectors-dots { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
-
-  <!-- NAV -->
-  <nav>
-    <a href="#" class="nav-logo">Joe Walker's <span>Window Blinds</span></a>
-    <ul class="nav-links">
-      <li><a href="#services">Our Blinds</a></li>
-      <li><a href="#configurator">Commercial</a></li>
-      <li><a href="#configurator">Finance</a></li>
-      <li><a href="#footer">Contact</a></li>
-    </ul>
-    <a href="tel:+441412304028" class="nav-cta">Book Home Visit</a>
+  <div class="grain"></div>
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-brand">
+        <span class="nav-wordmark">Joe Walker's Window Blinds</span>
+        <span class="nav-tagline">Clydebank, Scotland</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services">Blinds</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="tel:+441412304028" class="nav-cta">Free Measuring</a>
+    </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
-      <p class="hero-eyebrow" id="hero-eyebrow">Scotland's Premier Blind Specialists</p>
-      <h1 id="hero-h1">Great Price,<br /><em>Amazing Service.</em></h1>
-      <p class="hero-sub" id="hero-sub">Scotland-Wide — Free Measuring, Fitting &amp; Aftercare. Made-to-measure blinds crafted for every room, every style, every budget.</p>
-      <div class="hero-actions" id="hero-actions">
-        <a href="tel:+441412304028" class="btn-primary">Book Free Home Visit</a>
-        <a href="#configurator" class="btn-outline">Design Your Blind</a>
+  <section class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-vignette"></div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Clydebank, Scotland — Free Measuring Service</p>
+        <h1 class="hero-title">
+          <span class="hero-title-line"><span>CLYDEBANK'S</span></span>
+          <span class="hero-title-line"><span>TRUSTED BLINDS</span></span>
+          <span class="hero-title-line"><span>SPECIALIST</span></span>
+        </h1>
+        <p class="hero-sub">Made-to-measure blinds for every window, every room, every budget. Free home measuring, expert fitting, and a range that covers every style from modern to traditional.</p>
+        <div class="hero-ctas">
+          <a href="tel:+441412304028" class="btn-primary">Book Free Measure</a>
+          <a href="#services" class="btn-outline">View Blinds</a>
+        </div>
+      </div>
+      <div class="hero-badges">
+        <div class="badge"><div class="badge-val">Local</div><div class="badge-lbl">Expert</div></div>
+        <div class="badge"><div class="badge-val">4.7</div><div class="badge-lbl">Google Rating</div></div>
+        <div class="badge"><div class="badge-val">Free</div><div class="badge-lbl">Measuring</div></div>
+        <div class="badge"><div class="badge-val">Expert</div><div class="badge-lbl">Fitting</div></div>
+      </div>
+    </div>
+    <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+  </section>
+
+  <section class="statement">
+    <div class="container">
+      <div class="statement-inner reveal">
+        <div>
+          <p class="section-eyebrow">Our Promise</p>
+          <h2 class="section-title">MADE TO MEASURE. FITTED TO PERFECTION.</h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="statement-right">
+          <p>Off-the-shelf blinds rarely fit and rarely last. Every blind we supply is made to measure for your exact window dimensions, using quality materials chosen to suit your room and your lifestyle. From first measure to final fit, we take care of everything so you don't have to.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- STAT BAND -->
-  <div class="stat-band">
-    <div class="stat-band-inner">
-      <div class="stat-item">
-        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
-          <path d="M8 12l3 3 5-5"/>
-        </svg>
-        <div class="stat-label">Free Measuring & Fitting</div>
-        <div class="stat-sub">No hidden charges, ever</div>
-      </div>
-      <div class="stat-item">
-        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"/>
-          <path d="M12 8v4l2.5 2.5"/>
-          <path d="M4.5 4.5l15 15" stroke-width="0" opacity="0"/>
-          <path d="M2 12h4M18 12h4M12 2v4M12 18v4" stroke-width="1.2"/>
-        </svg>
-        <div class="stat-label">Scotland-Wide Coverage</div>
-        <div class="stat-sub">Glasgow, Edinburgh &amp; beyond</div>
-      </div>
-      <div class="stat-item">
-        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="4" width="18" height="14" rx="1"/>
-          <path d="M8 4v14M12 4v14M16 4v14"/>
-          <path d="M3 9h18M3 14h18"/>
-        </svg>
-        <div class="stat-label">No Sew Bar</div>
-        <div class="stat-sub">Superior finish, every time</div>
-      </div>
-      <div class="stat-item">
-        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
-          <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-          <line x1="12" y1="22.08" x2="12" y2="12"/>
-        </svg>
-        <div class="stat-label">Made-to-Measure</div>
-        <div class="stat-sub">Perfect fit, every window</div>
+  <div class="stats-band">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal"><div class="stat-number" data-target="100" data-suffix="%">0</div><div class="stat-label">Local Expert</div></div>
+        <div class="stat-item reveal"><div class="stat-number" data-target="4.7" data-suffix="" data-decimal="1">0</div><div class="stat-label">Google Rating</div></div>
+        <div class="stat-item reveal"><div class="stat-number" data-target="100" data-suffix="%">0</div><div class="stat-label">Free Measuring</div></div>
+        <div class="stat-item reveal"><div class="stat-number" data-target="100" data-suffix="%">0</div><div class="stat-label">Expert Fitting</div></div>
       </div>
     </div>
   </div>
 
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="section-inner">
-      <div class="services-header">
-        <div>
-          <p class="section-tag">Our Range</p>
-          <h2 class="section-heading">A Blind for <em>Every Room</em></h2>
-        </div>
-        <p class="section-body">From sleek venetians to soft bedroom sheers, we supply and fit premium made-to-measure window treatments across Scotland — with free measuring and aftercare included.</p>
+  <section class="services" id="services">
+    <div class="container">
+      <div class="services-intro reveal">
+        <p class="section-eyebrow">Our Range</p>
+        <h2 class="section-title">BLINDS FOR EVERY WINDOW</h2>
+        <div class="section-line"></div>
+        <p class="section-sub">A complete range of made-to-measure blinds, each available in dozens of fabrics, colours, and finishes to suit your home perfectly.</p>
       </div>
       <div class="services-grid">
-        <!-- Bathroom Blinds -->
-        <div class="service-card">
-          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12H3v8h18v-8h-2"/>
-            <path d="M9 12V5a3 3 0 016 0v7"/>
-            <path d="M12 12v5"/>
-            <circle cx="12" cy="19" r="1" fill="currentColor" stroke="none"/>
-            <path d="M7 12h10"/>
-          </svg>
-          <h3 class="service-name">Bathroom Blinds</h3>
-          <p class="service-desc">Moisture-resistant fabrics and waterproof slats designed for humid environments. Perfect for privacy without sacrificing light.</p>
+        <div class="service-card reveal"><div class="service-num">01</div><div class="service-title">Roller Blinds</div><div class="service-desc">Clean, minimal, and incredibly versatile. Available in blackout, dimout, and sheer fabrics to suit any room from bedroom to kitchen.</div></div>
+        <div class="service-card reveal"><div class="service-num">02</div><div class="service-title">Venetian Blinds</div><div class="service-desc">Classic aluminium or real wood slats that give you precise control over light and privacy. A timeless choice for any interior style.</div></div>
+        <div class="service-card reveal"><div class="service-num">03</div><div class="service-title">Vertical Blinds</div><div class="service-desc">Ideal for large windows and patio doors. Smooth operation, excellent light control, and available in a wide range of fabrics.</div></div>
+        <div class="service-card reveal"><div class="service-num">04</div><div class="service-title">Roman Blinds</div><div class="service-desc">Soft, elegant, and beautifully tailored. Roman blinds add warmth and sophistication to living rooms, bedrooms, and dining areas.</div></div>
+        <div class="service-card reveal"><div class="service-num">05</div><div class="service-title">Blackout Blinds</div><div class="service-desc">Complete darkness guaranteed. Perfect for bedrooms, nurseries, home cinemas, and anywhere light needs to be fully blocked.</div></div>
+        <div class="service-card reveal"><div class="service-num">06</div><div class="service-title">Commercial Blinds</div><div class="service-desc">Durable, professional blinds for offices, retail, and commercial premises. Bulk supply and fitting across the Clydebank area.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-inner">
+        <div class="about-content reveal">
+          <p class="section-eyebrow">Who We Are</p>
+          <h2 class="section-title">CLYDEBANK'S BLINDS SPECIALIST</h2>
+          <div class="section-line"></div>
+          <p class="section-sub">Joe Walker's Window Blinds Ltd has been the trusted name in made-to-measure blinds across Clydebank and the greater Glasgow area. We combine local knowledge with a wide product range and professional fitting service.</p>
+          <ul class="about-list">
+            <li>Free home measuring service — no obligation, no pressure</li>
+            <li>Full fitting service by experienced, qualified installers</li>
+            <li>Wide range of fabrics, colours, and operating systems</li>
+            <li>Local business with deep roots in the Clydebank community</li>
+          </ul>
         </div>
-        <!-- Kitchen Blinds -->
-        <div class="service-card">
-          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 6h18v2H3z"/>
-            <path d="M5 8v10h14V8"/>
-            <path d="M9 12h6M9 15h4"/>
-            <path d="M8 6V3M12 6V3M16 6V3"/>
-          </svg>
-          <h3 class="service-name">Kitchen Blinds</h3>
-          <p class="service-desc">Easy-clean wipe-down blinds that handle steam and splashes. Practical elegance for the heart of your home.</p>
-        </div>
-        <!-- Bedroom Blinds -->
-        <div class="service-card">
-          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M2 20h20"/>
-            <path d="M2 14h20v6H2z"/>
-            <path d="M6 14V10a6 6 0 0112 0v4"/>
-            <path d="M10 14v-2h4v2"/>
-          </svg>
-          <h3 class="service-name">Bedroom Blinds</h3>
-          <p class="service-desc">Blackout linings for total darkness, sheer softness for gentle mornings. Crafted for restful, restorative sleep.</p>
-        </div>
-        <!-- Vertical Blinds -->
-        <div class="service-card">
-          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="2" rx="1"/>
-            <line x1="6" y1="5" x2="6" y2="21"/>
-            <line x1="10" y1="5" x2="10" y2="21"/>
-            <line x1="14" y1="5" x2="14" y2="21"/>
-            <line x1="18" y1="5" x2="18" y2="21"/>
-          </svg>
-          <h3 class="service-name">Vertical Blinds</h3>
-          <p class="service-desc">Ideal for large windows and patio doors. Smooth traversing, superb light control — a classic for open-plan living.</p>
-        </div>
-        <!-- Venetian Blinds -->
-        <div class="service-card">
-          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="2" rx="1"/>
-            <rect x="3" y="8" width="18" height="2" rx="1"/>
-            <rect x="3" y="13" width="18" height="2" rx="1"/>
-            <rect x="3" y="18" width="18" height="2" rx="1"/>
-            <line x1="12" y1="5" x2="12" y2="18" stroke-dasharray="2 2"/>
-          </svg>
-          <h3 class="service-name">Venetian Blinds</h3>
-          <p class="service-desc">Aluminium and wooden slats for precision light and privacy control. Timeless style that works in any interior.</p>
-        </div>
-        <!-- Flooring -->
-        <div class="service-card">
-          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="16" width="20" height="5" rx="1"/>
-            <rect x="2" y="10" width="9" height="5" rx="1"/>
-            <rect x="13" y="10" width="9" height="5" rx="1"/>
-            <rect x="2" y="4" width="5" height="5" rx="1"/>
-            <rect x="9" y="4" width="6" height="5" rx="1"/>
-            <rect x="17" y="4" width="5" height="5" rx="1"/>
-          </svg>
-          <h3 class="service-name">Flooring</h3>
-          <p class="service-desc">Complete your interior with our curated flooring range — from engineered hardwood to luxury vinyl tiles, fitted to perfection.</p>
+        <div class="about-image-wrap" id="aboutImg">
+          <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=800&q=80" alt="Modern blinds installed in a home" />
+          <div class="corner-tl"></div><div class="corner-tr"></div><div class="corner-bl"></div><div class="corner-br"></div>
+          <div class="badge-strip">
+            <span class="badge-strip-item">Made-to-Measure</span>
+            <span class="badge-strip-item">Expert Fitting</span>
+            <span class="badge-strip-item">Local</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONFIGURATOR -->
-  <section id="configurator" style="padding:0;">
-    <div class="section-inner" style="max-width:100%;">
-      <div class="configurator-layout">
-        <!-- Canvas -->
-        <div class="configurator-canvas-wrap">
-          <canvas id="wc-canvas"></canvas>
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="reviews-header reveal">
+        <h2 class="reviews-title">WHAT CLIENTS SAY</h2>
+        <div class="google-badge">
+          <span class="g-letter">G</span>
+          <span class="g-rating">4.7</span>
+          <div class="g-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <span class="g-label">Google Reviews</span>
         </div>
-        <!-- Controls -->
-        <div class="configurator-controls">
-          <div>
-            <p class="section-tag" style="margin-bottom:0.5rem;">Interactive Tool</p>
-            <h3 class="config-title">Measure Your <span>Window</span></h3>
-          </div>
-
-          <!-- Width -->
-          <div class="config-group">
-            <label class="config-label" for="wc-width">
-              Width
-              <span class="config-label-val"><span id="wc-width-val">120</span> cm</span>
-            </label>
-            <input type="range" id="wc-width" min="40" max="300" value="120" />
-          </div>
-
-          <!-- Height -->
-          <div class="config-group">
-            <label class="config-label" for="wc-height">
-              Height
-              <span class="config-label-val"><span id="wc-height-val">150</span> cm</span>
-            </label>
-            <input type="range" id="wc-height" min="40" max="300" value="150" />
-          </div>
-
-          <!-- Colour -->
-          <div class="config-group">
-            <p class="config-label">Blind Colour</p>
-            <div class="swatches">
-              <div class="swatch wc-active" data-wc-color="#1E1E1E" style="background:#1E1E1E;" title="Graphite"></div>
-              <div class="swatch" data-wc-color="#DDD5C4" style="background:#DDD5C4;" title="Linen"></div>
-              <div class="swatch" data-wc-color="#5B6472" style="background:#5B6472;" title="Slate"></div>
-              <div class="swatch" data-wc-color="#C0AA88" style="background:#C0AA88;" title="Sand"></div>
-              <div class="swatch" data-wc-color="#7A5C38" style="background:#7A5C38;" title="Walnut"></div>
-              <div class="swatch" data-wc-color="#6A8E6A" style="background:#6A8E6A;" title="Sage"></div>
-            </div>
-          </div>
-
-          <!-- Installation -->
-          <div class="config-group">
-            <p class="config-label">Installation</p>
-            <div class="btn-group">
-              <button class="btn-toggle" data-wc-install="recessed">Recessed</button>
-              <button class="btn-toggle wc-active" data-wc-install="surface">Surface</button>
-              <button class="btn-toggle" data-wc-install="fullWall">Full Wall</button>
-            </div>
-          </div>
-
-          <!-- Open / Closed -->
-          <div class="config-group">
-            <p class="config-label">Blind Position</p>
-            <div class="btn-group">
-              <button class="btn-toggle wc-active" id="wc-toggle-closed">Closed</button>
-              <button class="btn-toggle" id="wc-toggle-open">Open</button>
-            </div>
-          </div>
-
-          <!-- CTA -->
-          <a href="tel:+441412304028" class="config-cta">
-            Get a Free Quote — 0141 230 4028
-          </a>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card reveal">
+          <div class="review-avatar">FM</div>
+          <div class="review-name">Fiona MacLeod</div>
+          <div class="review-meta">Clydebank Homeowner</div>
+          <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <p class="review-text">"Brilliant service from start to finish. The fitter was punctual, tidy, and the blinds look fantastic. Exactly what I wanted and fitted perfectly. Will use again for the rest of the house."</p>
+        </div>
+        <div class="review-card reveal">
+          <div class="review-avatar">GT</div>
+          <div class="review-name">Gordon Thomson</div>
+          <div class="review-meta">Glasgow Flat Owner</div>
+          <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <p class="review-text">"Needed blackout blinds for two bedrooms. Joe Walker's measured up, showed me the fabric options, and had them fitted within the week. Really happy with the quality and the price."</p>
+        </div>
+        <div class="review-card reveal">
+          <div class="review-avatar">SR</div>
+          <div class="review-name">Sandra Reid</div>
+          <div class="review-meta">Dumbarton Road Resident</div>
+          <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <p class="review-text">"Local business, personal service, and genuinely good advice on what would work best. The Roman blinds in my living room have completely transformed the room. Highly recommend."</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- BENEFITS -->
-  <section id="benefits">
-    <div class="section-inner">
-      <p class="section-tag">Why Choose Us</p>
-      <h2 class="section-heading">Everything Included,<br /><em>No Surprises</em></h2>
-      <div class="benefits-grid">
-        <div class="benefit-item">
-          <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-            <polyline points="9 22 9 12 15 12 15 22"/>
-          </svg>
-          <h4 class="benefit-title">Free Home Measuring</h4>
-          <p class="benefit-desc">One of our specialists visits your home to measure every window precisely. No estimates, no guesswork — just a perfect fit guaranteed.</p>
-        </div>
-        <div class="benefit-item">
-          <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
-          </svg>
-          <h4 class="benefit-title">Free Professional Fitting</h4>
-          <p class="benefit-desc">Our experienced fitters handle every installation — cleanly, efficiently, and to the highest standard. You don't lift a finger.</p>
-        </div>
-        <div class="benefit-item">
-          <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            <path d="M9 12l2 2 4-4"/>
-          </svg>
-          <h4 class="benefit-title">Aftercare Included</h4>
-          <p class="benefit-desc">We stand behind every installation. If anything isn't right, we come back and make it right — no call-out charges, no quibble.</p>
-        </div>
-        <div class="benefit-item">
-          <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <path d="M12 2a14.5 14.5 0 000 20M2 12h20"/>
-            <path d="M12 2c-4 4-4 16 0 20M12 2c4 4 4 16 0 20" opacity=".5"/>
-          </svg>
-          <h4 class="benefit-title">Scotland-Wide Service</h4>
-          <p class="benefit-desc">From Clydebank to the Highlands, we cover all of Scotland. One call, one company, your entire home taken care of.</p>
-        </div>
+  <div class="why-us">
+    <div class="container">
+      <div class="why-us-header reveal"><h2>WHY CHOOSE JOE WALKER'S</h2></div>
+      <div class="why-us-grid">
+        <div class="why-item reveal"><h4>Free Home Measuring</h4><p>We come to you, measure every window precisely, and advise on the best options — completely free of charge.</p></div>
+        <div class="why-item reveal"><h4>Made to Measure</h4><p>Every blind is manufactured to your exact window dimensions. No trimming, no guessing, no ill-fitting results.</p></div>
+        <div class="why-item reveal"><h4>Professional Fitting</h4><p>Our fitters are experienced, tidy, and thorough. Your blinds will be installed correctly the first time, every time.</p></div>
+        <div class="why-item reveal"><h4>Local Knowledge</h4><p>We know Clydebank and the surrounding area. We're your neighbours, and we take that responsibility seriously.</p></div>
       </div>
-    </div>
-  </section>
-
-  <!-- GALLERY -->
-  <section id="gallery">
-    <div class="section-inner">
-      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;margin-bottom:3rem;">
-        <div>
-          <p class="section-tag">Our Work</p>
-          <h2 class="section-heading">Fitted Across <em>Scotland</em></h2>
-        </div>
-        <a href="tel:+441412304028" class="btn-outline" style="border-color:var(--accent-border);color:var(--accent);">View All Installations</a>
-      </div>
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80" alt="Elegant blinds installation" loading="lazy" />
-        </div>
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?auto=format&fit=crop&w=800&q=80" alt="Modern living room blinds" loading="lazy" />
-        </div>
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="Bedroom blind fitting" loading="lazy" />
-        </div>
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=800&q=80" alt="Kitchen window blinds" loading="lazy" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section id="testimonials">
-    <div class="section-inner">
-      <div style="margin-bottom:3rem;">
-        <p class="section-tag">Customer Reviews</p>
-        <h2 class="section-heading">What Scotland <em>Says</em></h2>
-      </div>
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <div class="stars">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <p class="testimonial-text">"Absolutely outstanding from start to finish. The fitter arrived on time, measured everything perfectly, and the venetian blinds look incredible. Free fitting sealed the deal for us."</p>
-          <p class="testimonial-author">Margaret T.</p>
-          <p class="testimonial-location">Glasgow, G12</p>
-        </div>
-        <div class="testimonial-card">
-          <div class="stars">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <p class="testimonial-text">"Had blinds fitted in every room of our new house. Joe Walker's handled the whole job in a single day, perfectly. The no-sew finish is something else — so much neater than anywhere else."</p>
-          <p class="testimonial-author">Duncan &amp; Fiona M.</p>
-          <p class="testimonial-location">Clydebank, G81</p>
-        </div>
-        <div class="testimonial-card">
-          <div class="stars">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <p class="testimonial-text">"The blackout blinds in our bedroom are a game-changer. The team was professional, friendly, and left not a mark on the walls. Aftercare service is top class too — genuine peace of mind."</p>
-          <p class="testimonial-author">Aisling R.</p>
-          <p class="testimonial-location">Edinburgh, EH4</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FINAL CTA -->
-  <div class="final-cta">
-    <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;opacity:0.6;margin-bottom:0.875rem;">Free, No-Obligation</p>
-    <h2 class="final-cta-heading">Ready for a Perfect Fit?</h2>
-    <p class="final-cta-sub">Book your free home visit today. We measure, we fit, we guarantee — all at no extra cost.</p>
-    <div class="final-cta-actions">
-      <a href="tel:+441412304028" class="btn-dark">Call 0141 230 4028</a>
-      <a href="#configurator" class="btn-outline-dark">Try the Configurator</a>
     </div>
   </div>
 
-  <!-- FOOTER -->
-  <footer id="footer">
-    <div class="footer-inner">
-      <div class="footer-top">
-        <div>
-          <p class="footer-brand">Joe Walker's <span>Window Blinds</span></p>
-          <p class="footer-desc">Scotland's trusted made-to-measure blind specialists. Free measuring, free fitting, free aftercare — quality you can count on.</p>
-          <div class="footer-contact">
-            <a href="tel:+441412304028">+44 141 230 4028</a>
-            <a href="#">37 Dumbarton Rd, Clydebank G81 1UA</a>
-            <a href="#">Mon – Sat: 9:00am – 5:30pm</a>
-          </div>
+  <section class="sectors">
+    <div class="container">
+      <div class="sectors-inner">
+        <div class="reveal">
+          <p class="section-eyebrow">Where We Fit</p>
+          <h2 class="section-title">EVERY ROOM AND EVERY PROPERTY</h2>
+          <div class="section-line"></div>
+          <p class="section-sub" style="margin-bottom:32px;">From a single living room window to a full commercial fitout, we supply and install blinds across the Clydebank and Glasgow area.</p>
+          <a href="tel:+441412304028" class="btn-primary">Book Free Measure</a>
         </div>
-        <div>
-          <p class="footer-col-title">Services</p>
-          <ul class="footer-links">
-            <li><a href="#services">Bathroom Blinds</a></li>
-            <li><a href="#services">Kitchen Blinds</a></li>
-            <li><a href="#services">Bedroom Blinds</a></li>
-            <li><a href="#services">Vertical Blinds</a></li>
+        <div class="sectors-dots reveal">
+          <div class="sector-dot">Living Rooms</div>
+          <div class="sector-dot">Bedrooms</div>
+          <div class="sector-dot">Kitchens</div>
+          <div class="sector-dot">Bathrooms</div>
+          <div class="sector-dot">Home Offices</div>
+          <div class="sector-dot">Conservatories</div>
+          <div class="sector-dot">Commercial Offices</div>
+          <div class="sector-dot">Rental Properties</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" id="contact">
+    <div class="cta-glow"></div>
+    <div class="container" style="position:relative;z-index:2;">
+      <p class="section-eyebrow reveal">Get in Touch</p>
+      <h2 class="section-title reveal">FREE MEASURING SERVICE<br>ACROSS CLYDEBANK</h2>
+      <p class="reveal">Call us to book your free home measuring appointment. No obligation, no pressure — just expert advice and a full range of made-to-measure options for every window.</p>
+      <div class="cta-buttons reveal">
+        <a href="tel:+441412304028" class="btn-primary">0141 230 4028</a>
+        <a href="#services" class="btn-outline">View Our Range</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand footer-col">
+          <span class="nav-wordmark">Joe Walker's Window Blinds</span>
+          <span class="nav-tagline">Clydebank, Scotland</span>
+          <p>Clydebank's trusted made-to-measure blinds specialist. Free measuring, expert fitting, and a full range for every window.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Blinds</h5>
+          <ul>
+            <li><a href="#services">Roller Blinds</a></li>
             <li><a href="#services">Venetian Blinds</a></li>
-            <li><a href="#services">Flooring</a></li>
+            <li><a href="#services">Vertical Blinds</a></li>
+            <li><a href="#services">Roman Blinds</a></li>
+            <li><a href="#services">Blackout Blinds</a></li>
           </ul>
         </div>
-        <div>
-          <p class="footer-col-title">Coverage Areas</p>
-          <p class="footer-cities">
-            Glasgow · Clydebank · Dumbarton<br />
-            Paisley · Renfrew · Bearsden<br />
-            Milngavie · Helensburgh · Loch Lomond<br />
-            Edinburgh · Stirling · Perth<br />
-            Aberdeen · Inverness · Highlands<br />
-            <em style="color:var(--accent);font-style:normal;">— All of Scotland —</em>
-          </p>
+        <div class="footer-col">
+          <h5>Rooms</h5>
+          <ul>
+            <li><a href="#">Living Rooms</a></li>
+            <li><a href="#">Bedrooms</a></li>
+            <li><a href="#">Kitchens</a></li>
+            <li><a href="#">Home Offices</a></li>
+            <li><a href="#">Commercial</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-contact">
+          <h5>Contact</h5>
+          <p>37 Dumbarton Rd<br>Clydebank G81 1UA, Scotland</p>
+          <p style="margin-top:8px;"><a href="tel:+441412304028">0141 230 4028</a></p>
+          <p style="margin-top:8px;">Mon–Fri 9am–5pm<br>Sat 9am–2pm</p>
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copy">&copy; 2025 Joe Walker's Window Blinds Ltd. All rights reserved.</p>
-        <div class="footer-legal">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms</a>
-          <a href="#">Cookie Policy</a>
-        </div>
+        <p>© 2025 Joe Walker's Window Blinds Ltd. All rights reserved.</p>
+        <p>Made-to-Measure · Expert Fitting · Clydebank</p>
       </div>
     </div>
   </footer>
 
-  <!-- SHARED CANVAS SCRIPT -->
   <script>
-// Window Configurator — Vanilla JS port from LuxuryBlind project
-// drawCanvas, setupConfigurator — embed inline in each demo HTML
-
-function wcLighten(hex, amt) {
-  const n = parseInt(hex.replace('#', ''), 16);
-  const r = Math.min(255, (n >> 16) + amt);
-  const g = Math.min(255, ((n >> 8) & 0xff) + amt);
-  const b = Math.min(255, (n & 0xff) + amt);
-  return '#' + r.toString(16).padStart(2,'0') + g.toString(16).padStart(2,'0') + b.toString(16).padStart(2,'0');
-}
-function wcDarken(hex, amt) { return wcLighten(hex, -amt); }
-
-function drawWindowCanvas(ctx, W, H, params, progress) {
-  const { widthCm, heightCm, installation, mounting, blindColor } = params;
-  ctx.clearRect(0, 0, W, H);
-
-  // ROOM SCENE
-  ctx.fillStyle = '#F0EEE9';
-  ctx.fillRect(0, 0, W, H * 0.10);
-
-  const wallG = ctx.createLinearGradient(0, H*0.10, W, H*0.85);
-  wallG.addColorStop(0, '#ECEAE5');
-  wallG.addColorStop(0.45, '#F4F1EC');
-  wallG.addColorStop(1, '#ECEAE5');
-  ctx.fillStyle = wallG;
-  ctx.fillRect(0, H*0.10, W, H*0.75);
-
-  const wallEdge = ctx.createLinearGradient(0, 0, W, 0);
-  wallEdge.addColorStop(0, 'rgba(0,0,0,.05)');
-  wallEdge.addColorStop(0.18, 'rgba(0,0,0,0)');
-  wallEdge.addColorStop(0.82, 'rgba(0,0,0,0)');
-  wallEdge.addColorStop(1, 'rgba(0,0,0,.05)');
-  ctx.fillStyle = wallEdge;
-  ctx.fillRect(0, H*0.10, W, H*0.75);
-
-  ctx.fillStyle = '#E4E0D9';
-  ctx.fillRect(0, H*0.095, W, H*0.012);
-  ctx.fillStyle = 'rgba(0,0,0,.07)';
-  ctx.fillRect(0, H*0.095 + H*0.012, W, 2);
-
-  // Floor
-  const floorY = H*0.85, floorH = H*0.15;
-  const floorBase = ctx.createLinearGradient(0, floorY, 0, floorY+floorH);
-  floorBase.addColorStop(0, '#B89860');
-  floorBase.addColorStop(1, '#9A7D48');
-  ctx.fillStyle = floorBase;
-  ctx.fillRect(0, floorY, W, floorH);
-
-  const plankW = W/7;
-  for (let i=0; i<7; i++) {
-    ctx.fillStyle = i%2===0 ? 'rgba(255,255,255,.04)' : 'rgba(0,0,0,.035)';
-    ctx.fillRect(i*plankW, floorY, plankW, floorH);
-    ctx.strokeStyle = 'rgba(0,0,0,.09)'; ctx.lineWidth = 0.5;
-    ctx.beginPath(); ctx.moveTo(i*plankW, floorY); ctx.lineTo(i*plankW, floorY+floorH); ctx.stroke();
-  }
-  ctx.strokeStyle = 'rgba(80,50,15,.10)'; ctx.lineWidth = 0.4;
-  for (let i=1; i<5; i++) {
-    ctx.beginPath(); ctx.moveTo(0, floorY+(floorH/5)*i); ctx.lineTo(W, floorY+(floorH/5)*i); ctx.stroke();
-  }
-  const floorHL = ctx.createLinearGradient(0, floorY, 0, floorY+floorH*0.28);
-  floorHL.addColorStop(0, 'rgba(255,255,255,.12)');
-  floorHL.addColorStop(1, 'rgba(255,255,255,0)');
-  ctx.fillStyle = floorHL; ctx.fillRect(0, floorY, W, floorH*0.28);
-
-  ctx.fillStyle = '#E0DAD0'; ctx.fillRect(0, H*0.838, W, H*0.016);
-  ctx.fillStyle = 'rgba(0,0,0,.08)'; ctx.fillRect(0, H*0.838+H*0.016, W, 2);
-
-  // WINDOW GEOMETRY
-  const aspect = widthCm / heightCm;
-  let fX, fY, fW, fH;
-  if (installation === 'fullWall') {
-    fW = Math.min(W*0.86, H*0.70*aspect);
-    fH = fW/aspect;
-    if (fH>H*0.70) { fH=H*0.70; fW=fH*aspect; }
-    fX=(W-fW)/2; fY=H*0.12;
-  } else {
-    const maxW=W*0.62, maxH=H*0.60;
-    fW=Math.min(maxW, maxH*aspect);
-    fH=fW/aspect;
-    if (fH>maxH) { fH=maxH; fW=fH*aspect; }
-    fX=(W-fW)/2; fY=H*0.165;
-  }
-
-  let bX, bY, bW, bH;
-  if (installation==='recessed') { bX=fX+4; bY=fY; bW=fW-8; bH=fH; }
-  else if (installation==='fullWall') { bX=fX; bY=fY; bW=fW; bH=fH; }
-  else { bX=fX-8; bY=fY-14; bW=fW+16; bH=fH+19; }
-
-  // RECESSED REVEAL
-  if (installation==='recessed') {
-    const d=12;
-    ctx.fillStyle='#D8D0C4';
-    ctx.beginPath(); ctx.moveTo(fX,fY); ctx.lineTo(fX-d,fY-d); ctx.lineTo(fX+fW+d,fY-d); ctx.lineTo(fX+fW,fY); ctx.closePath(); ctx.fill();
-    const topRS=ctx.createLinearGradient(0,fY-d,0,fY);
-    topRS.addColorStop(0,'rgba(0,0,0,.10)'); topRS.addColorStop(1,'rgba(0,0,0,.02)');
-    ctx.fillStyle=topRS;
-    ctx.beginPath(); ctx.moveTo(fX,fY); ctx.lineTo(fX-d,fY-d); ctx.lineTo(fX+fW+d,fY-d); ctx.lineTo(fX+fW,fY); ctx.closePath(); ctx.fill();
-    ctx.fillStyle='#BDB5A8';
-    ctx.beginPath(); ctx.moveTo(fX,fY); ctx.lineTo(fX-d,fY-d); ctx.lineTo(fX-d,fY+fH+d); ctx.lineTo(fX,fY+fH); ctx.closePath(); ctx.fill();
-    ctx.fillStyle='#E2D9CC';
-    ctx.beginPath(); ctx.moveTo(fX+fW,fY); ctx.lineTo(fX+fW+d,fY-d); ctx.lineTo(fX+fW+d,fY+fH+d); ctx.lineTo(fX+fW,fY+fH); ctx.closePath(); ctx.fill();
-    ctx.fillStyle='#CEC6B8';
-    ctx.beginPath(); ctx.moveTo(fX,fY+fH); ctx.lineTo(fX-d,fY+fH+d); ctx.lineTo(fX+fW+d,fY+fH+d); ctx.lineTo(fX+fW,fY+fH); ctx.closePath(); ctx.fill();
-  }
-
-  // GLASS / OUTDOOR SCENE
-  ctx.save(); ctx.beginPath(); ctx.rect(fX,fY,fW,fH); ctx.clip();
-  const skyG=ctx.createLinearGradient(fX,fY,fX,fY+fH*0.55);
-  skyG.addColorStop(0,'#4898C8'); skyG.addColorStop(0.55,'#88C8E8'); skyG.addColorStop(1,'#B8E2F6');
-  ctx.fillStyle=skyG; ctx.fillRect(fX,fY,fW,fH*0.55);
-  const hazeG=ctx.createLinearGradient(fX,fY+fH*0.45,fX,fY+fH*0.58);
-  hazeG.addColorStop(0,'rgba(255,252,235,0)'); hazeG.addColorStop(1,'rgba(255,252,235,.38)');
-  ctx.fillStyle=hazeG; ctx.fillRect(fX,fY+fH*0.45,fW,fH*0.14);
-  const groundG=ctx.createLinearGradient(fX,fY+fH*0.55,fX,fY+fH);
-  groundG.addColorStop(0,'#78BC52'); groundG.addColorStop(0.55,'#5A9C38'); groundG.addColorStop(1,'#3C7820');
-  ctx.fillStyle=groundG; ctx.fillRect(fX,fY+fH*0.55,fW,fH*0.45);
-  const treePos=[0.12,0.42,0.72];
-  for (const tx of treePos) {
-    const tBaseX=fX+fW*tx, tBaseY=fY+fH*0.55, tHt=fH*0.22;
-    ctx.fillStyle='rgba(60,40,20,.40)'; ctx.fillRect(tBaseX-fW*0.008,tBaseY-tHt*0.28,fW*0.016,tHt*0.28);
-    ctx.fillStyle='rgba(35,80,28,.50)';
-    ctx.beginPath(); ctx.moveTo(tBaseX-fW*0.065,tBaseY-tHt*0.28); ctx.lineTo(tBaseX+fW*0.065,tBaseY-tHt*0.28); ctx.lineTo(tBaseX,tBaseY-tHt*0.62); ctx.closePath(); ctx.fill();
-    ctx.fillStyle='rgba(30,75,22,.55)';
-    ctx.beginPath(); ctx.moveTo(tBaseX-fW*0.05,tBaseY-tHt*0.52); ctx.lineTo(tBaseX+fW*0.05,tBaseY-tHt*0.52); ctx.lineTo(tBaseX,tBaseY-tHt*0.86); ctx.closePath(); ctx.fill();
-    ctx.fillStyle='rgba(25,70,18,.55)';
-    ctx.beginPath(); ctx.moveTo(tBaseX-fW*0.034,tBaseY-tHt*0.74); ctx.lineTo(tBaseX+fW*0.034,tBaseY-tHt*0.74); ctx.lineTo(tBaseX,tBaseY-tHt); ctx.closePath(); ctx.fill();
-  }
-  const sx=fX+fW*0.78, sy=fY+fH*0.13;
-  const sunG=ctx.createRadialGradient(sx,sy,0,sx,sy,fW*0.11);
-  sunG.addColorStop(0,'rgba(255,242,100,.95)'); sunG.addColorStop(0.45,'rgba(255,218,50,.50)'); sunG.addColorStop(1,'rgba(255,200,30,0)');
-  ctx.fillStyle=sunG; ctx.beginPath(); ctx.arc(sx,sy,fW*0.11,0,Math.PI*2); ctx.fill();
-  const cs=fW/180;
-  ctx.fillStyle='rgba(255,255,255,.88)';
-  const cx2=fX+fW*0.16, cy2=fY+fH*0.22;
-  ctx.beginPath(); ctx.arc(cx2,cy2,9*cs,0,Math.PI*2); ctx.arc(cx2+12*cs,cy2-4*cs,7*cs,0,Math.PI*2); ctx.arc(cx2+23*cs,cy2,9*cs,0,Math.PI*2); ctx.fill();
-  const glareG=ctx.createLinearGradient(fX,fY,fX+fW*0.28,fY+fH*0.32);
-  glareG.addColorStop(0,'rgba(255,255,255,.10)'); glareG.addColorStop(0.5,'rgba(255,255,255,.04)'); glareG.addColorStop(1,'rgba(255,255,255,0)');
-  ctx.fillStyle=glareG; ctx.fillRect(fX,fY,fW,fH);
-  ctx.restore();
-
-  // WINDOW FRAME
-  if (installation!=='fullWall') {
-    ctx.fillStyle='rgba(0,0,0,.14)'; ctx.fillRect(fX+2,fY+2,fW,fH);
-    ctx.lineWidth=4.5; ctx.strokeStyle='#8A806E'; ctx.strokeRect(fX,fY,fW,fH);
-    ctx.lineWidth=1; ctx.strokeStyle='#AEA696'; ctx.strokeRect(fX+2.5,fY+2.5,fW-5,fH-5);
-    ctx.lineWidth=3; ctx.strokeStyle='#8A806E';
-    ctx.beginPath(); ctx.moveTo(fX+fW/2,fY); ctx.lineTo(fX+fW/2,fY+fH); ctx.stroke();
-    ctx.beginPath(); ctx.moveTo(fX,fY+fH*0.5); ctx.lineTo(fX+fW,fY+fH*0.5); ctx.stroke();
-    if (installation==='surface') {
-      const sillG=ctx.createLinearGradient(0,fY+fH,0,fY+fH+13);
-      sillG.addColorStop(0,'#D0C8BC'); sillG.addColorStop(1,'#BCAEA0');
-      ctx.fillStyle=sillG; ctx.fillRect(fX-7,fY+fH,fW+14,13);
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); });
+    const heroBg = document.getElementById('heroBg');
+    window.addEventListener('scroll', () => { heroBg.style.transform = `scale(1.08) translateY(${window.scrollY * 0.25}px)`; }, { passive: true });
+    document.querySelectorAll('.hero-title-line span').forEach((el, i) => {
+      setTimeout(() => { el.style.transition = 'transform 0.9s cubic-bezier(0.16,1,0.3,1)'; el.style.transform = 'translateY(0)'; }, 200 + i * 140);
+    });
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    const lineObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('animated'); lineObserver.unobserve(e.target); } });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.section-line').forEach(el => lineObserver.observe(el));
+    const imgObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); imgObserver.unobserve(e.target); } });
+    }, { threshold: 0.2 });
+    const aboutImg = document.getElementById('aboutImg');
+    if (aboutImg) imgObserver.observe(aboutImg);
+    function countUp(el) {
+      const target = parseFloat(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      const decimal = parseInt(el.dataset.decimal || '0');
+      const duration = 1800; const start = performance.now();
+      function update(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const val = target * ease;
+        el.textContent = (decimal ? val.toFixed(decimal) : Math.floor(val)) + suffix;
+        if (progress < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
     }
-  }
-
-  // MOUNTING HARDWARE
-  if (mounting==='ceiling' && installation!=='recessed') {
-    const bkG=ctx.createLinearGradient(bX,bY-13,bX,bY);
-    bkG.addColorStop(0,'#5A5048'); bkG.addColorStop(1,'#3C3630');
-    ctx.fillStyle=bkG; ctx.fillRect(bX,bY-13,bW,13);
-    const bc=Math.max(2,Math.floor(bW/80));
-    for (let i=0; i<=bc; i++) {
-      ctx.fillStyle='#C9A96E'; ctx.fillRect(bX+(bW/bc)*i-3,bY-18,6,7);
-    }
-  }
-
-  // BLIND
-  const headerH=10, bundleH=bH*0.12;
-  const blindTopY=bY+headerH, closedBottom=bY+bH, openBottom=bY+headerH+bundleH;
-  const blindBottomY=closedBottom-(closedBottom-openBottom)*progress;
-  const currentBlindH=blindBottomY-blindTopY;
-
-  if (currentBlindH>1) {
-    const totalSlats=Math.max(6,Math.round(heightCm/5));
-    const sH=(bH-headerH)/totalSlats;
-    const visibleSlats=Math.ceil(currentBlindH/sH);
-    ctx.save(); ctx.beginPath(); ctx.rect(bX,blindTopY,bW,currentBlindH); ctx.clip();
-    for (let i=0; i<visibleSlats; i++) {
-      const sy2=blindTopY+i*sH, even=i%2===0;
-      const sg=ctx.createLinearGradient(0,sy2,0,sy2+sH);
-      if (even) { sg.addColorStop(0,wcLighten(blindColor,18)); sg.addColorStop(0.4,blindColor); sg.addColorStop(1,wcDarken(blindColor,22)); }
-      else { sg.addColorStop(0,wcDarken(blindColor,4)); sg.addColorStop(1,wcDarken(blindColor,26)); }
-      ctx.fillStyle=sg; ctx.fillRect(bX+1,sy2+0.5,bW-2,sH-1);
-      ctx.fillStyle=`rgba(201,169,110,${even?0.22:0.06})`; ctx.fillRect(bX+1,sy2+0.5,bW-2,1.5);
-      ctx.fillStyle='rgba(0,0,0,.20)'; ctx.fillRect(bX+1,sy2+sH-2,bW-2,2);
-    }
-    const sheen=ctx.createLinearGradient(bX,0,bX+bW,0);
-    sheen.addColorStop(0,'rgba(255,255,255,.02)'); sheen.addColorStop(0.22,'rgba(255,255,255,.09)');
-    sheen.addColorStop(0.78,'rgba(255,255,255,.02)'); sheen.addColorStop(1,'rgba(0,0,0,.07)');
-    ctx.fillStyle=sheen; ctx.fillRect(bX,blindTopY,bW,currentBlindH);
-    ctx.restore();
-    ctx.fillStyle=wcDarken(blindColor,8); ctx.fillRect(bX+1,blindBottomY-4,bW-2,4);
-    ctx.fillStyle='rgba(0,0,0,.18)'; ctx.fillRect(bX+1,blindBottomY-1,bW-2,1);
-  }
-
-  // HEADER RAIL
-  const railG=ctx.createLinearGradient(bX,bY,bX,bY+headerH);
-  railG.addColorStop(0,'#252525'); railG.addColorStop(1,'#181818');
-  ctx.fillStyle=railG; ctx.fillRect(bX,bY,bW,headerH);
-  ctx.fillStyle='#C9A96E'; ctx.fillRect(bX+2,bY+2.5,bW-4,1.5);
-  ctx.fillStyle='rgba(255,255,255,.06)'; ctx.fillRect(bX,bY,bW,2);
-
-  // CORD
-  const cordX=bX+bW*0.86;
-  const tassleY=Math.max(blindBottomY-4,bY+headerH+8);
-  ctx.strokeStyle='rgba(201,169,110,.55)'; ctx.lineWidth=1.5; ctx.setLineDash([]);
-  ctx.beginPath(); ctx.moveTo(cordX,bY+headerH); ctx.lineTo(cordX,tassleY); ctx.stroke();
-  ctx.fillStyle='#C9A96E'; ctx.beginPath(); ctx.arc(cordX,tassleY,3.5,0,Math.PI*2); ctx.fill();
-
-  // SIDE CHANNELS (recessed)
-  if (installation==='recessed') {
-    ctx.fillStyle='#181818';
-    ctx.fillRect(bX-4,bY,4,bH); ctx.fillRect(bX+bW,bY,4,bH);
-  }
-
-  // DIMENSION ANNOTATIONS
-  const ann=4;
-  const wAnnY=bY+bH+20;
-  ctx.setLineDash([3,3]); ctx.strokeStyle='rgba(201,169,110,.32)'; ctx.lineWidth=1;
-  ctx.beginPath(); ctx.moveTo(bX,bY+bH+2); ctx.lineTo(bX,wAnnY-2); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(bX+bW,bY+bH+2); ctx.lineTo(bX+bW,wAnnY-2); ctx.stroke();
-  ctx.setLineDash([]); ctx.strokeStyle='rgba(201,169,110,.60)';
-  ctx.beginPath(); ctx.moveTo(bX,wAnnY); ctx.lineTo(bX+bW,wAnnY); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(bX,wAnnY); ctx.lineTo(bX+ann,wAnnY-3); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(bX,wAnnY); ctx.lineTo(bX+ann,wAnnY+3); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(bX+bW,wAnnY); ctx.lineTo(bX+bW-ann,wAnnY-3); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(bX+bW,wAnnY); ctx.lineTo(bX+bW-ann,wAnnY+3); ctx.stroke();
-  ctx.font="bold 11px 'DM Sans',sans-serif"; ctx.fillStyle='#C9A96E'; ctx.textAlign='center';
-  ctx.fillText(widthCm+' cm', bX+bW/2, wAnnY+13);
-  const hAnnX=bX-22;
-  ctx.setLineDash([3,3]); ctx.strokeStyle='rgba(201,169,110,.32)';
-  ctx.beginPath(); ctx.moveTo(bX-2,bY); ctx.lineTo(hAnnX-2,bY); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(bX-2,bY+bH); ctx.lineTo(hAnnX-2,bY+bH); ctx.stroke();
-  ctx.setLineDash([]); ctx.strokeStyle='rgba(201,169,110,.60)';
-  ctx.beginPath(); ctx.moveTo(hAnnX,bY); ctx.lineTo(hAnnX,bY+bH); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(hAnnX,bY); ctx.lineTo(hAnnX-3,bY+ann); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(hAnnX,bY); ctx.lineTo(hAnnX+3,bY+ann); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(hAnnX,bY+bH); ctx.lineTo(hAnnX-3,bY+bH-ann); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(hAnnX,bY+bH); ctx.lineTo(hAnnX+3,bY+bH-ann); ctx.stroke();
-  ctx.save(); ctx.translate(hAnnX-9,bY+bH/2); ctx.rotate(-Math.PI/2);
-  ctx.textAlign='center'; ctx.fillStyle='#C9A96E';
-  ctx.fillText(heightCm+' cm', 0, 0); ctx.restore();
-}
-
-// ── CONFIGURATOR SETUP ──────────────────────────────────────────────────────
-function setupWindowConfigurator(canvasId, accentColor) {
-  const canvas = document.getElementById(canvasId);
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-
-  let state = { widthCm:120, heightCm:150, installation:'surface', mounting:'frame', blindColor:'#1E1E1E', isOpen:false };
-  let progressRef = 0;
-  let rafId = 0;
-
-  function render(prog) {
-    const dpr = window.devicePixelRatio || 1;
-    const W = canvas.width / dpr, H = canvas.height / dpr;
-    ctx.save(); ctx.scale(dpr, dpr);
-    drawWindowCanvas(ctx, W, H, state, prog);
-    ctx.restore();
-  }
-
-  function animateTo(target) {
-    cancelAnimationFrame(rafId);
-    const start = progressRef, t0 = performance.now(), dur = 500;
-    function ease(t) { return t<0.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2; }
-    function tick(now) {
-      const t = Math.min(1,(now-t0)/dur);
-      progressRef = start + (target-start)*ease(t);
-      render(progressRef);
-      if (t<1) rafId = requestAnimationFrame(tick);
-      else progressRef = target;
-    }
-    rafId = requestAnimationFrame(tick);
-  }
-
-  function setupCanvas() {
-    const dpr = window.devicePixelRatio || 1;
-    const rect = canvas.getBoundingClientRect();
-    if (!rect.width) return;
-    canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
-    render(progressRef);
-  }
-
-  const ro = new ResizeObserver(setupCanvas);
-  ro.observe(canvas);
-  setupCanvas();
-
-  const widthSlider = document.getElementById('wc-width');
-  const widthVal = document.getElementById('wc-width-val');
-  if (widthSlider) {
-    widthSlider.addEventListener('input', () => {
-      state.widthCm = parseInt(widthSlider.value);
-      if (widthVal) widthVal.textContent = widthSlider.value;
-      render(progressRef);
-    });
-  }
-
-  const heightSlider = document.getElementById('wc-height');
-  const heightVal = document.getElementById('wc-height-val');
-  if (heightSlider) {
-    heightSlider.addEventListener('input', () => {
-      state.heightCm = parseInt(heightSlider.value);
-      if (heightVal) heightVal.textContent = heightSlider.value;
-      render(progressRef);
-    });
-  }
-
-  document.querySelectorAll('[data-wc-color]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      state.blindColor = btn.dataset.wcColor;
-      document.querySelectorAll('[data-wc-color]').forEach(b => b.classList.remove('wc-active'));
-      btn.classList.add('wc-active');
-      render(progressRef);
-    });
-  });
-
-  document.querySelectorAll('[data-wc-install]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      state.installation = btn.dataset.wcInstall;
-      if (state.installation==='recessed') state.mounting='frame';
-      if (state.installation==='fullWall') state.mounting='ceiling';
-      document.querySelectorAll('[data-wc-install]').forEach(b => b.classList.remove('wc-active'));
-      btn.classList.add('wc-active');
-      render(progressRef);
-    });
-  });
-
-  document.querySelectorAll('[data-wc-mount]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      state.mounting = btn.dataset.wcMount;
-      document.querySelectorAll('[data-wc-mount]').forEach(b => b.classList.remove('wc-active'));
-      btn.classList.add('wc-active');
-      render(progressRef);
-    });
-  });
-
-  const btnClosed = document.getElementById('wc-toggle-closed');
-  const btnOpen = document.getElementById('wc-toggle-open');
-  if (btnClosed) btnClosed.addEventListener('click', () => { state.isOpen=false; animateTo(0); btnClosed.classList.add('wc-active'); if(btnOpen) btnOpen.classList.remove('wc-active'); });
-  if (btnOpen) btnOpen.addEventListener('click', () => { state.isOpen=true; animateTo(1); btnOpen.classList.add('wc-active'); if(btnClosed) btnClosed.classList.remove('wc-active'); });
-}
-  </script>
-
-  <!-- MOTION ONE ANIMATIONS + INIT -->
-  <script type="module">
-    import { animate, inView } from 'https://esm.sh/motion';
-
-    // Hero entrance animations
-    animate('#hero-eyebrow', { opacity: [0, 1], y: [20, 0] }, { duration: 0.7, delay: 0.2, easing: [0.25, 0.46, 0.45, 0.94] });
-    animate('#hero-h1',      { opacity: [0, 1], y: [30, 0] }, { duration: 0.8, delay: 0.4, easing: [0.25, 0.46, 0.45, 0.94] });
-    animate('#hero-sub',     { opacity: [0, 1], y: [20, 0] }, { duration: 0.7, delay: 0.6, easing: [0.25, 0.46, 0.45, 0.94] });
-    animate('#hero-actions', { opacity: [0, 1], y: [16, 0] }, { duration: 0.7, delay: 0.8, easing: [0.25, 0.46, 0.45, 0.94] });
-
-    // Stat band items
-    inView('.stat-item', ({ target }) => {
-      animate(target, { opacity: [0, 1], y: [24, 0] }, { duration: 0.55, easing: [0.25, 0.46, 0.45, 0.94] });
-    }, { margin: '-60px' });
-
-    // Service cards
-    inView('.service-card', ({ target }) => {
-      animate(target, { opacity: [0, 1], y: [32, 0] }, { duration: 0.5, easing: [0.25, 0.46, 0.45, 0.94] });
-    }, { margin: '-80px' });
-
-    // Section headings
-    inView('.section-heading', ({ target }) => {
-      animate(target, { opacity: [0, 1], y: [24, 0] }, { duration: 0.6, easing: [0.25, 0.46, 0.45, 0.94] });
-    }, { margin: '-60px' });
-
-    // Benefits
-    inView('.benefit-item', ({ target }) => {
-      animate(target, { opacity: [0, 1], y: [28, 0] }, { duration: 0.55, easing: [0.25, 0.46, 0.45, 0.94] });
-    }, { margin: '-60px' });
-
-    // Gallery images
-    inView('.gallery-item', ({ target }) => {
-      animate(target, { opacity: [0, 1] }, { duration: 0.6, easing: 'ease-out' });
-    }, { margin: '-60px' });
-
-    // Testimonials
-    inView('.testimonial-card', ({ target }) => {
-      animate(target, { opacity: [0, 1], y: [24, 0] }, { duration: 0.55, easing: [0.25, 0.46, 0.45, 0.94] });
-    }, { margin: '-60px' });
-
-    // Init configurator
-    setupWindowConfigurator('wc-canvas', '#C4A870');
+    const statObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { countUp(e.target); statObserver.unobserve(e.target); } });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.stat-number[data-target]').forEach(el => statObserver.observe(el));
   </script>
 </body>
 </html>

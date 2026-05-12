@@ -3,1135 +3,1054 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Top Cat Window Blinds — Scotland's Premier Window Blinds</title>
-  <meta name="description" content="Top Cat Window Blinds — Made in Scotland. Scotland's premier supplier of roller blinds, shutters, venetian blinds & more. Serving Cumbernauld, Glasgow and Central Scotland." />
+  <title>Top Cat Window Blinds — Glasgow's Premium Blinds Experts</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #0E1318;
-      --bg-card: #182030;
-      --bg-section: #111820;
-      --text: #F0EAE0;
-      --text-muted: #A89F94;
-      --accent: #BFA060;
-      --accent-dark: #9E8040;
-      --border: #1E2A3A;
+      --bg: #0b0b0b;
+      --bg2: #111111;
+      --bg3: #161616;
+      --border: rgba(245,245,240,0.06);
+      --white: #f5f5f0;
+      --muted: rgba(245,245,240,0.45);
+      --gold: #c8a84b;
+      --accent: #1a3a6b;
+      --accent2: #254d8f;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Jost', sans-serif;
       font-size: 16px;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
-    /* ── NAV ── */
+    /* GRAIN OVERLAY */
+    .grain {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      pointer-events: none;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    }
+
+    /* NAV */
     nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      background: rgba(14, 19, 24, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 1.5rem;
+      top: 0; left: 0; right: 0;
+      z-index: 900;
+      padding: 0 40px;
+      transition: background 0.3s, border-bottom 0.3s;
     }
-
+    nav.scrolled {
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+    }
     .nav-inner {
       max-width: 1200px;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 68px;
-      gap: 1rem;
+      height: 72px;
     }
-
     .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.08em;
+      color: var(--white);
       text-decoration: none;
-      flex-shrink: 0;
+      white-space: nowrap;
     }
-
-    .nav-logo-icon {
-      width: 36px;
-      height: 36px;
-      flex-shrink: 0;
-    }
-
-    .nav-logo-text {
-      font-family: 'Fraunces', serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--text);
-      line-height: 1.2;
-    }
-
-    .nav-logo-text span {
-      display: block;
-      font-size: 0.62rem;
-      font-family: 'Inter', sans-serif;
-      font-weight: 400;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
+    .nav-logo span { color: var(--gold); }
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 2rem;
+      gap: 32px;
       list-style: none;
     }
-
     .nav-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.875rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
       font-weight: 500;
-      letter-spacing: 0.03em;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--text); }
-
-    .nav-cta {
-      background: var(--accent);
-      color: #0E1318;
-      font-weight: 600;
-      font-size: 0.8rem;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
+      color: var(--muted);
       text-decoration: none;
-      padding: 0.55rem 1.1rem;
-      border-radius: 4px;
+      transition: color 0.2s;
       white-space: nowrap;
-      transition: background 0.2s;
-      border: 2px solid var(--accent);
     }
-
-    .nav-cta:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
-
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0.25rem;
-      color: var(--text);
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--gold);
+      text-decoration: none;
+      padding: 10px 22px;
+      white-space: nowrap;
+      transition: opacity 0.2s;
     }
+    .nav-cta:hover { opacity: 0.85; }
 
-    /* ── HERO ── */
+    /* HERO */
     .hero {
       position: relative;
-      min-height: 100vh;
+      height: 100vh;
+      min-height: 640px;
       display: flex;
       align-items: center;
       overflow: hidden;
     }
-
-    .hero-img {
+    .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1920&q=80');
+      background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1800&q=80');
       background-size: cover;
       background-position: center;
-      z-index: 0;
+      transform: scale(1.08);
+      will-change: transform;
     }
-
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        135deg,
-        rgba(14, 19, 24, 0.88) 0%,
-        rgba(14, 19, 24, 0.65) 60%,
-        rgba(14, 19, 24, 0.50) 100%
-      );
-      z-index: 1;
+      background: linear-gradient(135deg, rgba(11,11,11,0.88) 0%, rgba(26,58,107,0.45) 60%, rgba(11,11,11,0.70) 100%);
     }
-
+    .hero-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.6) 100%);
+    }
     .hero-content {
       position: relative;
       z-index: 2;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 9rem 1.5rem 4rem;
+      padding: 0 40px;
       width: 100%;
     }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      border: 1px solid rgba(191, 160, 96, 0.4);
-      border-radius: 100px;
-      padding: 0.35rem 1rem;
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
+    .hero-eyebrow {
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 500;
-      margin-bottom: 1.75rem;
+      color: var(--gold);
+      margin-bottom: 24px;
       opacity: 0;
+      animation: fadeUp 0.6s 0.2s forwards;
     }
-
+    .hero-title-wrap { overflow: hidden; margin-bottom: 4px; }
+    .hero-title-line {
+      display: block;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(60px, 9vw, 120px);
+      line-height: 0.92;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      transform: translateY(110%);
+    }
+    .hero-title-line.l1 { animation: slideUp 0.7s 0.4s cubic-bezier(0.16,1,0.3,1) forwards; }
+    .hero-title-line.l2 { animation: slideUp 0.7s 0.54s cubic-bezier(0.16,1,0.3,1) forwards; }
+    .hero-title-line.l3 { animation: slideUp 0.7s 0.68s cubic-bezier(0.16,1,0.3,1) forwards; color: var(--gold); }
+    .hero-sub {
+      font-family: 'Jost', sans-serif;
+      font-size: 17px;
+      font-weight: 300;
+      color: rgba(245,245,240,0.7);
+      max-width: 480px;
+      margin-top: 28px;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.9s forwards;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 36px;
+      opacity: 0;
+      animation: fadeUp 0.6s 1.05s forwards;
+    }
+    .btn-primary {
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--gold);
+      text-decoration: none;
+      padding: 16px 32px;
+      display: inline-block;
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-outline {
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: transparent;
+      border: 1px solid rgba(245,245,240,0.3);
+      text-decoration: none;
+      padding: 16px 32px;
+      display: inline-block;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--white); }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 48px;
+      opacity: 0;
+      animation: fadeUp 0.6s 1.2s forwards;
+    }
+    .hero-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
     .hero-badge-dot {
       width: 6px;
       height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .scroll-indicator {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      animation: fadeUp 0.6s 1.4s forwards;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    .scroll-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* STATEMENT */
+    .statement {
+      padding: 120px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 5vw, 64px);
+      line-height: 1.05;
+      letter-spacing: 0.03em;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .gold-line {
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      margin: 0 auto 28px;
+      transition: width 1.2s cubic-bezier(0.16,1,0.3,1);
+    }
+    .gold-line.animate { width: 80px; }
+    .section-sub {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* STATS */
+    .stats {
       background: var(--accent);
+      padding: 72px 40px;
+    }
+    .stats-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+    .stat-item {
+      background: rgba(0,0,0,0.2);
+      padding: 40px 32px;
+      text-align: center;
+    }
+    .stat-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 56px;
+      line-height: 1;
+      color: var(--white);
+      letter-spacing: 0.02em;
+    }
+    .stat-suffix {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      color: var(--gold);
+    }
+    .stat-label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(245,245,240,0.6);
+      margin-top: 8px;
+    }
+
+    /* SERVICES */
+    .services {
+      padding: 120px 40px;
+      background: var(--bg2);
+    }
+    .services-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .services-header {
+      margin-bottom: 64px;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .service-card {
+      background: var(--bg3);
+      padding: 40px 36px;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s, background 0.3s;
+      cursor: default;
+    }
+    .service-card:hover {
+      border-color: var(--gold);
+      background: var(--bg2);
+    }
+    .service-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .service-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+    .service-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ABOUT */
+    .about {
+      padding: 120px 40px;
+      background: var(--bg);
+    }
+    .about-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-img-wrap {
+      position: relative;
+      aspect-ratio: 4/5;
+      clip-path: inset(100% 0 0 0);
+      transition: clip-path 1s cubic-bezier(0.16,1,0.3,1);
+    }
+    .about-img-wrap.revealed { clip-path: inset(0% 0 0 0); }
+    .about-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .corner { position: absolute; width: 24px; height: 24px; }
+    .corner-tl { top: -8px; left: -8px; border-top: 2px solid var(--gold); border-left: 2px solid var(--gold); }
+    .corner-tr { top: -8px; right: -8px; border-top: 2px solid var(--gold); border-right: 2px solid var(--gold); }
+    .corner-bl { bottom: -8px; left: -8px; border-bottom: 2px solid var(--gold); border-left: 2px solid var(--gold); }
+    .corner-br { bottom: -8px; right: -8px; border-bottom: 2px solid var(--gold); border-right: 2px solid var(--gold); }
+    .about-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 32px;
+    }
+    .about-badge {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(200,168,75,0.1);
+      border: 1px solid rgba(200,168,75,0.2);
+      padding: 8px 16px;
+    }
+    .about-text p {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    /* REVIEWS */
+    .reviews {
+      padding: 120px 40px;
+      background: var(--bg2);
+    }
+    .reviews-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .reviews-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 56px;
+    }
+    .g-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      padding: 14px 20px;
+    }
+    .g-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      background: linear-gradient(135deg, #4285F4, #EA4335, #FBBC04, #34A853);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .g-rating { font-size: 14px; font-weight: 600; color: var(--white); }
+    .g-stars { color: #FBBC04; font-size: 14px; }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .review-card {
+      background: var(--bg3);
+      padding: 36px;
+    }
+    .review-stars { color: #FBBC04; font-size: 14px; margin-bottom: 16px; }
+    .review-text {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .review-author {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--white);
+    }
+    .review-date {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* WHY US */
+    .why {
+      background: var(--accent);
+      padding: 100px 40px;
+    }
+    .why-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .why-header { margin-bottom: 56px; }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+    .why-item {
+      background: rgba(0,0,0,0.2);
+      padding: 36px 28px;
+    }
+    .why-item-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .why-item-text {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(245,245,240,0.65);
+      line-height: 1.65;
+    }
+
+    /* SECTORS */
+    .sectors {
+      padding: 120px 40px;
+      background: var(--bg3);
+    }
+    .sectors-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .sectors-dot-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+    }
+    .sector-dot-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .sector-dot-item:hover { color: var(--white); }
+    .sector-dot {
+      width: 5px;
+      height: 5px;
+      background: var(--gold);
       border-radius: 50%;
       flex-shrink: 0;
     }
 
-    .hero h1 {
-      font-family: 'Fraunces', serif;
-      font-size: clamp(2.6rem, 6vw, 4.8rem);
-      font-weight: 700;
-      line-height: 1.1;
-      max-width: 780px;
-      margin-bottom: 1.25rem;
-      opacity: 0;
-    }
-
-    .hero h1 em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    .hero-sub {
-      font-size: 1.05rem;
-      color: rgba(240, 234, 224, 0.75);
-      font-weight: 300;
-      max-width: 500px;
-      margin-bottom: 2.5rem;
-      letter-spacing: 0.02em;
-      opacity: 0;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      opacity: 0;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      background: var(--accent);
-      color: #0E1318;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 0.85rem 1.8rem;
-      border-radius: 4px;
-      border: 2px solid var(--accent);
-      transition: background 0.2s, border-color 0.2s;
-      white-space: nowrap;
-    }
-
-    .btn-primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
-
-    .btn-ghost {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      background: transparent;
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 0.85rem 1.8rem;
-      border-radius: 4px;
-      border: 2px solid var(--accent);
-      transition: background 0.2s, color 0.2s;
-      white-space: nowrap;
-    }
-
-    .btn-ghost:hover { background: rgba(191, 160, 96, 0.1); }
-
-    /* ── STAT BAND ── */
-    .stat-band {
-      background: var(--bg-card);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 2rem 1.5rem;
-    }
-
-    .stat-band-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
-
-    .stat-item {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      opacity: 0;
-    }
-
-    .stat-icon {
-      flex-shrink: 0;
-      width: 36px;
-      height: 36px;
-      color: var(--accent);
-    }
-
-    .stat-label {
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--text);
-    }
-
-    /* ── SECTION COMMON ── */
-    section { padding: 5rem 1.5rem; }
-
-    .section-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-eyebrow {
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-      opacity: 0;
-    }
-
-    .section-title {
-      font-family: 'Fraunces', serif;
-      font-size: clamp(1.9rem, 4vw, 3rem);
-      font-weight: 600;
-      line-height: 1.2;
-      margin-bottom: 1rem;
-      opacity: 0;
-    }
-
-    .section-sub {
-      color: var(--text-muted);
-      max-width: 560px;
-      font-size: 0.95rem;
-      opacity: 0;
-    }
-
-    /* ── SERVICES ── */
-    .services { background: var(--bg-section); }
-
-    .services-header { margin-bottom: 3rem; }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-
-    .service-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 2rem 1.5rem;
-      opacity: 0;
-      transition: border-color 0.25s;
-    }
-
-    .service-card:hover { border-color: rgba(191, 160, 96, 0.35); }
-
-    .service-icon {
-      width: 44px;
-      height: 44px;
-      color: var(--accent);
-      margin-bottom: 1.25rem;
-    }
-
-    .service-title {
-      font-family: 'Fraunces', serif;
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin-bottom: 0.6rem;
-    }
-
-    .service-desc {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-    }
-
-    /* ── BENEFITS ── */
-    .benefits { background: var(--bg); }
-
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .benefit-item {
-      display: flex;
-      gap: 1.25rem;
-      opacity: 0;
-    }
-
-    .benefit-icon-wrap {
-      flex-shrink: 0;
-      width: 48px;
-      height: 48px;
-      background: rgba(191, 160, 96, 0.1);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--accent);
-    }
-
-    .benefit-icon-wrap svg { width: 24px; height: 24px; }
-
-    .benefit-title {
-      font-family: 'Fraunces', serif;
-      font-size: 1.05rem;
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-    }
-
-    .benefit-desc {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-    }
-
-    /* ── GALLERY ── */
-    .gallery { background: var(--bg-section); }
-
-    .gallery-header { margin-bottom: 2.5rem; }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-    }
-
-    .gallery-item {
-      border-radius: 8px;
-      overflow: hidden;
-      aspect-ratio: 4/3;
-      opacity: 0;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.5s ease;
-    }
-
-    .gallery-item:hover img { transform: scale(1.04); }
-
-    /* ── TESTIMONIALS ── */
-    .testimonials { background: var(--bg); }
-
-    .testimonials-header { margin-bottom: 3rem; }
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-
-    .testimonial-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 2rem;
-      opacity: 0;
-    }
-
-    .testimonial-stars {
-      display: flex;
-      gap: 3px;
-      margin-bottom: 1rem;
-      color: var(--accent);
-    }
-
-    .testimonial-stars svg { width: 16px; height: 16px; }
-
-    .testimonial-quote {
-      font-size: 0.925rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-      font-style: italic;
-    }
-
-    .testimonial-author {
-      font-weight: 600;
-      font-size: 0.85rem;
-      color: var(--text);
-    }
-
-    .testimonial-location {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      margin-top: 0.2rem;
-    }
-
-    /* ── CTA SECTION ── */
+    /* CTA */
     .cta-section {
-      background: var(--bg-card);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+      padding: 140px 40px;
+      background: var(--bg);
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-
-    .cta-section .section-title { max-width: 640px; margin: 0 auto 1rem; }
-    .cta-section .section-sub { margin: 0 auto 2.5rem; max-width: 480px; }
-
-    .cta-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-      opacity: 0;
+    .cta-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(26,58,107,0.35) 0%, transparent 70%);
+      pointer-events: none;
     }
+    .cta-section .section-title { margin-bottom: 20px; }
+    .cta-section .section-sub { margin-bottom: 48px; }
 
-    /* ── FOOTER ── */
+    /* FOOTER */
     footer {
-      background: #080C10;
+      background: var(--bg2);
       border-top: 1px solid var(--border);
-      padding: 3.5rem 1.5rem 2rem;
+      padding: 80px 40px 48px;
     }
-
     .footer-inner {
       max-width: 1200px;
       margin: 0 auto;
+    }
+    .footer-grid {
       display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 3rem;
-      margin-bottom: 3rem;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 64px;
     }
-
-    .footer-brand { }
-
-    .footer-logo {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      text-decoration: none;
-      margin-bottom: 1rem;
-    }
-
-    .footer-logo-text {
-      font-family: 'Fraunces', serif;
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text);
-      line-height: 1.2;
-    }
-
-    .footer-logo-text span {
-      display: block;
-      font-size: 0.6rem;
-      font-family: 'Inter', sans-serif;
-      font-weight: 400;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
-    .footer-desc {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.65;
+    .footer-brand .nav-logo { display: block; margin-bottom: 16px; }
+    .footer-brand p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.7;
       max-width: 260px;
-      margin-bottom: 1.5rem;
     }
-
-    .footer-contact-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.6rem;
-      font-size: 0.83rem;
-      color: var(--text-muted);
-      margin-bottom: 0.65rem;
-    }
-
-    .footer-contact-item svg { width: 16px; height: 16px; color: var(--accent); flex-shrink: 0; margin-top: 2px; }
-
-    .footer-contact-item a { color: var(--text-muted); text-decoration: none; }
-    .footer-contact-item a:hover { color: var(--accent); }
-
     .footer-col-title {
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 1.25rem;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 15px;
+      letter-spacing: 0.15em;
+      color: var(--white);
+      margin-bottom: 20px;
     }
-
-    .footer-links { list-style: none; }
-
-    .footer-links li { margin-bottom: 0.65rem; }
-
-    .footer-links a {
-      font-size: 0.85rem;
-      color: var(--text-muted);
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--muted);
       text-decoration: none;
       transition: color 0.2s;
     }
-
-    .footer-links a:hover { color: var(--accent); }
-
+    .footer-col a:hover { color: var(--white); }
     .footer-bottom {
-      border-top: 1px solid var(--border);
-      padding-top: 1.5rem;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-copy {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
-    .footer-scotland {
-      display: flex;
       align-items: center;
-      gap: 0.5rem;
-      font-size: 0.78rem;
-      color: var(--text-muted);
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--muted);
     }
 
-    .scotland-flag {
-      width: 24px;
-      height: 16px;
-      border-radius: 2px;
-      overflow: hidden;
-      display: inline-block;
-      flex-shrink: 0;
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(110%); }
+      to   { transform: translateY(0); }
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.15); }
     }
 
-    /* ── MOBILE ── */
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
     @media (max-width: 900px) {
+      nav { padding: 0 24px; }
       .nav-links { display: none; }
-      .nav-toggle { display: flex; }
-
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
-      .testimonials-grid { grid-template-columns: 1fr; }
-      .footer-inner { grid-template-columns: 1fr 1fr; }
-    }
-
-    @media (max-width: 640px) {
-      .stat-band-inner { grid-template-columns: 1fr; }
+      .hero-content, .statement, .services, .about, .reviews, .why, .sectors, .cta-section, footer { padding-left: 24px; padding-right: 24px; }
+      .stats { padding: 60px 24px; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
       .services-grid { grid-template-columns: 1fr; }
-      .benefits-grid { grid-template-columns: 1fr; }
-      .gallery-grid { grid-template-columns: 1fr; }
-      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
-      .footer-bottom { flex-direction: column; text-align: center; }
-      .hero-actions { flex-direction: column; max-width: 300px; }
-      .btn-primary, .btn-ghost { justify-content: center; }
-    }
-
-    @media (min-width: 901px) {
-      .stat-band-inner { grid-template-columns: repeat(4, 1fr); }
+      .about-inner { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .sectors-inner { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
 <body>
+  <div class="grain"></div>
 
   <!-- NAV -->
-  <nav>
+  <nav id="nav">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">
-        <svg class="nav-logo-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="36" height="36" rx="6" fill="#BFA060" fill-opacity="0.15"/>
-          <rect x="8" y="10" width="20" height="2.5" rx="1.25" fill="#BFA060"/>
-          <rect x="8" y="16" width="20" height="2.5" rx="1.25" fill="#BFA060" fill-opacity="0.7"/>
-          <rect x="8" y="22" width="20" height="2.5" rx="1.25" fill="#BFA060" fill-opacity="0.4"/>
-        </svg>
-        <span class="nav-logo-text">
-          Top Cat Window Blinds
-          <span>Scotland's Premier</span>
-        </span>
-      </a>
-
+      <a class="nav-logo" href="#"><span>TOP CAT</span> WINDOW BLINDS</a>
       <ul class="nav-links">
-        <li><a href="#services">Blinds &amp; Shutters</a></li>
+        <li><a href="#services">Services</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#reviews">Reviews</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-
-      <a href="#contact" class="nav-cta">Free Quote</a>
-
-      <button class="nav-toggle" aria-label="Open menu">
-        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-          <path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-        </svg>
-      </button>
+      <a class="nav-cta" href="tel:+441412126966">Free Survey</a>
     </div>
   </nav>
 
   <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-img"></div>
+  <section class="hero">
+    <div class="hero-bg" id="heroBg"></div>
     <div class="hero-overlay"></div>
+    <div class="hero-vignette"></div>
     <div class="hero-content">
-      <div class="hero-badge" id="hero-badge">
-        <span class="hero-badge-dot"></span>
-        Made in Scotland
+      <p class="hero-eyebrow">Cumbernauld, Glasgow — Free Home Survey</p>
+      <div aria-label="Glasgow's Premium Window Blinds Experts">
+        <div class="hero-title-wrap"><span class="hero-title-line l1">GLASGOW'S</span></div>
+        <div class="hero-title-wrap"><span class="hero-title-line l2">PREMIUM WINDOW</span></div>
+        <div class="hero-title-wrap"><span class="hero-title-line l3">BLINDS EXPERTS</span></div>
       </div>
-      <h1 id="hero-h1">Scotland's <em>Premier</em><br/>Window Blinds</h1>
-      <p class="hero-sub" id="hero-sub">Made in Scotland — Serving Central Scotland &amp; Beyond</p>
-      <div class="hero-actions" id="hero-actions">
-        <a href="#contact" class="btn-primary">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M14 10.667c0 .245-.055.478-.155.69a1.9 1.9 0 0 1-.412.6c-.33.33-.69.5-1.078.5-.278 0-.577-.067-.9-.2a9.38 9.38 0 0 1-.9-.48 15.5 15.5 0 0 1-.866-.633 15.3 15.3 0 0 1-.834-.834 15.5 15.5 0 0 1-.633-.855 9.38 9.38 0 0 1-.48-.9c-.133-.322-.2-.622-.2-.9 0-.266.055-.521.166-.733.11-.22.278-.41.5-.578.267-.199.556-.289.856-.289.11 0 .222.022.323.067.111.044.21.11.29.21l1.011 1.422c.08.11.144.21.19.3a.6.6 0 0 1 .066.267c0 .11-.033.222-.1.33a1.6 1.6 0 0 1-.244.312l-.334.34c-.01.01-.011.02-.011.033 0 .011.011.033.033.066.067.111.167.256.3.43.144.177.3.344.478.51.177.166.344.322.522.467.166.133.311.233.433.3.022.01.044.022.067.033l.011.011.34-.334c.11-.11.222-.21.333-.267a.684.684 0 0 1 .334-.1.6.6 0 0 1 .266.055c.09.044.19.111.3.2L13.7 9.977c.1.08.166.177.21.289.022.11.022.222 0 .333v.068Z" fill="currentColor"/></svg>
-          Get Free Quote
-        </a>
-        <a href="#services" class="btn-ghost">
-          View Our Range
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
+      <p class="hero-sub">Made-to-measure blinds for homes and businesses across Glasgow and Central Scotland. Expert fitting. Guaranteed satisfaction.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="tel:+441412126966">Book Free Survey</a>
+        <a class="btn-outline" href="#services">View Our Range</a>
       </div>
+      <div class="hero-badges">
+        <span class="hero-badge"><span class="hero-badge-dot"></span>Free Home Measure</span>
+        <span class="hero-badge"><span class="hero-badge-dot"></span>Expert Installation</span>
+        <span class="hero-badge"><span class="hero-badge-dot"></span>Glasgow's Choice</span>
+        <span class="hero-badge"><span class="hero-badge-dot"></span>Trade & Retail</span>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span class="scroll-label">Scroll</span>
     </div>
   </section>
 
-  <!-- STAT BAND -->
-  <div class="stat-band">
-    <div class="stat-band-inner">
-      <div class="stat-item" data-stat>
-        <svg class="stat-icon" viewBox="0 0 36 36" fill="none">
-          <path d="M18 4L6 10v8c0 7.18 5.16 13.88 12 15.5C24.84 31.88 30 25.18 30 18v-8L18 4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-          <path d="M13 18l3.5 3.5L23 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span class="stat-label">Made in Scotland</span>
+  <!-- STATEMENT -->
+  <section class="statement">
+    <p class="section-eyebrow reveal">Glasgow's Window Blind Specialists</p>
+    <h2 class="section-title reveal">Precision Crafted.<br>Perfectly Fitted.</h2>
+    <div class="gold-line reveal" id="goldLine1"></div>
+    <p class="section-sub reveal">From Cumbernauld to the heart of Glasgow, we bring expert craftsmanship and a vast range of styles to transform every room in your home or business.</p>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stats-inner">
+      <div class="stat-item reveal">
+        <div class="stat-number"><span class="count-up" data-target="0" data-text="Glasgow &amp; Central Scotland">Glasgow</span></div>
+        <div class="stat-label">Area Covered</div>
       </div>
-      <div class="stat-item" data-stat>
-        <svg class="stat-icon" viewBox="0 0 36 36" fill="none">
-          <path d="M5 10h26M5 18h26M5 26h26M5 4v28M31 4v28" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-        </svg>
-        <span class="stat-label">Free Installation Quotes</span>
+      <div class="stat-item reveal reveal-delay-1">
+        <div class="stat-number"><span class="count-up" data-target="48" data-decimal="true">4.8</span><span class="stat-suffix">★</span></div>
+        <div class="stat-label">Google Rating</div>
       </div>
-      <div class="stat-item" data-stat>
-        <svg class="stat-icon" viewBox="0 0 36 36" fill="none">
-          <rect x="5" y="10" width="26" height="18" rx="2" stroke="currentColor" stroke-width="1.8"/>
-          <path d="M5 16h26M5 22h26M11 10V28M18 10v18M25 10v18" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-        </svg>
-        <span class="stat-label">Extensive Range</span>
+      <div class="stat-item reveal reveal-delay-2">
+        <div class="stat-number"><span class="count-up" data-target="0" data-text="Free Survey">Free</span></div>
+        <div class="stat-label">Home Survey</div>
       </div>
-      <div class="stat-item" data-stat>
-        <svg class="stat-icon" viewBox="0 0 36 36" fill="none">
-          <path d="M18 3l3.7 7.5L30 11.8l-6 5.85 1.42 8.25L18 21.75l-7.42 4.15L12 17.65l-6-5.85 8.3-1.3L18 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-        </svg>
-        <span class="stat-label">Pride in Every Blind</span>
+      <div class="stat-item reveal reveal-delay-3">
+        <div class="stat-number"><span class="count-up" data-target="0" data-text="Expert Fitting">Expert</span></div>
+        <div class="stat-label">Installation</div>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- SERVICES -->
   <section class="services" id="services">
-    <div class="section-inner">
+    <div class="services-inner">
       <div class="services-header">
-        <p class="section-eyebrow" data-reveal>Our Products</p>
-        <h2 class="section-title" data-reveal>Blinds &amp; Shutters for Every Home</h2>
-        <p class="section-sub" data-reveal>From classic roller blinds to bespoke plantation shutters — all crafted and fitted to the highest Scottish standard.</p>
+        <p class="section-eyebrow reveal">What We Offer</p>
+        <h2 class="section-title reveal">Our Full Range</h2>
+        <div class="gold-line reveal" id="goldLine2"></div>
       </div>
       <div class="services-grid">
-
-        <!-- Roller Blinds -->
-        <div class="service-card" data-service>
-          <svg class="service-icon" viewBox="0 0 44 44" fill="none">
-            <rect x="6" y="7" width="32" height="3" rx="1.5" fill="currentColor" fill-opacity="0.2" stroke="currentColor" stroke-width="1.6"/>
-            <rect x="10" y="13" width="24" height="2.5" rx="1.25" fill="currentColor" fill-opacity="0.55"/>
-            <rect x="10" y="19" width="24" height="2.5" rx="1.25" fill="currentColor" fill-opacity="0.4"/>
-            <rect x="10" y="25" width="24" height="2.5" rx="1.25" fill="currentColor" fill-opacity="0.25"/>
-            <path d="M22 32v5M19 37h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-          </svg>
-          <h3 class="service-title">Roller Blinds</h3>
-          <p class="service-desc">Sleek, versatile and easy to operate. Available in hundreds of fabrics including blockout, sunscreen and translucent options to suit any room.</p>
+        <div class="service-card reveal">
+          <div class="service-num">01</div>
+          <div class="service-name">Roller Blinds</div>
+          <p class="service-desc">Clean, modern roller blinds in hundreds of fabrics including blackout, dimout, and sheer options for every room.</p>
         </div>
-
-        <!-- Vertical Blinds -->
-        <div class="service-card" data-service>
-          <svg class="service-icon" viewBox="0 0 44 44" fill="none">
-            <rect x="6" y="7" width="32" height="3" rx="1.5" fill="currentColor" fill-opacity="0.2" stroke="currentColor" stroke-width="1.6"/>
-            <rect x="11" y="12" width="3.5" height="24" rx="1.75" fill="currentColor" fill-opacity="0.55"/>
-            <rect x="17.5" y="12" width="3.5" height="24" rx="1.75" fill="currentColor" fill-opacity="0.4"/>
-            <rect x="24" y="12" width="3.5" height="24" rx="1.75" fill="currentColor" fill-opacity="0.25"/>
-            <rect x="30.5" y="12" width="3.5" height="24" rx="1.75" fill="currentColor" fill-opacity="0.15"/>
-          </svg>
-          <h3 class="service-title">Vertical Blinds</h3>
-          <p class="service-desc">Perfect for large windows and patio doors. Smooth light control with a clean, contemporary aesthetic that works in any space.</p>
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-num">02</div>
+          <div class="service-name">Venetian Blinds</div>
+          <p class="service-desc">Timeless aluminium and wooden venetian blinds offering precise light control and lasting style.</p>
         </div>
-
-        <!-- Venetian Blinds -->
-        <div class="service-card" data-service>
-          <svg class="service-icon" viewBox="0 0 44 44" fill="none">
-            <rect x="6" y="7" width="32" height="3" rx="1.5" fill="currentColor" fill-opacity="0.2" stroke="currentColor" stroke-width="1.6"/>
-            <rect x="9" y="14" width="26" height="3.5" rx="1.2" fill="currentColor" fill-opacity="0.6"/>
-            <rect x="9" y="21" width="26" height="3.5" rx="1.2" fill="currentColor" fill-opacity="0.4"/>
-            <rect x="9" y="28" width="26" height="3.5" rx="1.2" fill="currentColor" fill-opacity="0.2"/>
-            <path d="M20 10v24M24 10v24" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 3" stroke-linecap="round"/>
-          </svg>
-          <h3 class="service-title">Venetian Blinds</h3>
-          <p class="service-desc">Timeless and precise. Aluminium or wooden slats that tilt to your exact preference, giving you complete control over light and privacy.</p>
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-num">03</div>
+          <div class="service-name">Vertical Blinds</div>
+          <p class="service-desc">Ideal for large windows and patio doors, available in a wide range of fabrics and colours.</p>
         </div>
-
-        <!-- Plantation Shutters -->
-        <div class="service-card" data-service>
-          <svg class="service-icon" viewBox="0 0 44 44" fill="none">
-            <rect x="7" y="6" width="30" height="32" rx="2" stroke="currentColor" stroke-width="1.6"/>
-            <path d="M22 6v32" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-            <rect x="10" y="12" width="9" height="3" rx="1.5" fill="currentColor" fill-opacity="0.55"/>
-            <rect x="10" y="18" width="9" height="3" rx="1.5" fill="currentColor" fill-opacity="0.4"/>
-            <rect x="10" y="24" width="9" height="3" rx="1.5" fill="currentColor" fill-opacity="0.25"/>
-            <rect x="24.5" y="12" width="9" height="3" rx="1.5" fill="currentColor" fill-opacity="0.55"/>
-            <rect x="24.5" y="18" width="9" height="3" rx="1.5" fill="currentColor" fill-opacity="0.4"/>
-            <rect x="24.5" y="24" width="9" height="3" rx="1.5" fill="currentColor" fill-opacity="0.25"/>
-          </svg>
-          <h3 class="service-title">Plantation Shutters</h3>
-          <p class="service-desc">The ultimate window dressing. Solid, beautiful and built to last — plantation shutters add permanent value and kerb appeal to any property.</p>
+        <div class="service-card reveal">
+          <div class="service-num">04</div>
+          <div class="service-name">Roman Blinds</div>
+          <p class="service-desc">Soft, elegant roman blinds that fold neatly, adding warmth and texture to any living space.</p>
         </div>
-
-        <!-- Roman Blinds -->
-        <div class="service-card" data-service>
-          <svg class="service-icon" viewBox="0 0 44 44" fill="none">
-            <path d="M8 8h28v5l-3 4 3 4v5l-3 4 3 4v5H8v-5l3-4-3-4v-5l3-4-3-4V8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" fill="currentColor" fill-opacity="0.08"/>
-            <path d="M8 13h28M8 22h28M8 31h28" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-          </svg>
-          <h3 class="service-title">Roman Blinds</h3>
-          <p class="service-desc">Elegant fabric folds that bring warmth and texture. Custom made to your window measurements in a vast selection of premium fabrics.</p>
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-num">05</div>
+          <div class="service-name">Plantation Shutters</div>
+          <p class="service-desc">Premium hardwood and PVC shutters made to measure for a sophisticated, permanent window solution.</p>
         </div>
-
-        <!-- Blackout Blinds -->
-        <div class="service-card" data-service>
-          <svg class="service-icon" viewBox="0 0 44 44" fill="none">
-            <rect x="6" y="7" width="32" height="3" rx="1.5" fill="currentColor" fill-opacity="0.2" stroke="currentColor" stroke-width="1.6"/>
-            <rect x="9" y="12" width="26" height="24" rx="2" fill="currentColor" fill-opacity="0.35" stroke="currentColor" stroke-width="1.4"/>
-            <path d="M18 24a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z" stroke="currentColor" stroke-width="1.4"/>
-            <path d="M15 15l14 18M29 15 15 33" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.4"/>
-          </svg>
-          <h3 class="service-title">Blackout Blinds</h3>
-          <p class="service-desc">Total darkness when you need it. Ideal for bedrooms and media rooms — our blackout range blocks up to 99% of incoming light.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- BENEFITS -->
-  <section class="benefits" id="about">
-    <div class="section-inner">
-      <p class="section-eyebrow" data-reveal>Why Choose Us</p>
-      <h2 class="section-title" data-reveal>Scottish Craftsmanship,<br/>Uncompromising Quality</h2>
-      <div class="benefits-grid">
-
-        <div class="benefit-item" data-benefit>
-          <div class="benefit-icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M12 2L3 7v6c0 5.25 3.75 10.15 9 11.25C17.25 23.15 21 18.25 21 13V7L12 2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
-              <path d="M9 12l2.5 2.5L15 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div>
-            <h4 class="benefit-title">Proudly Made in Scotland</h4>
-            <p class="benefit-desc">Every blind and shutter we supply is manufactured here in Scotland. Local production means shorter lead times, better quality control, and a product you can be proud of.</p>
-          </div>
-        </div>
-
-        <div class="benefit-item" data-benefit>
-          <div class="benefit-icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none">
-              <rect x="3" y="6" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/>
-              <path d="M3 10h18M8 10V20M16 10v10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div>
-            <h4 class="benefit-title">Extensive Product Range</h4>
-            <p class="benefit-desc">From simple roller blinds to bespoke plantation shutters — we carry the widest selection of window treatments in Central Scotland to match every style and budget.</p>
-          </div>
-        </div>
-
-        <div class="benefit-item" data-benefit>
-          <div class="benefit-icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
-              <path d="M9 11l2.5 2.5L15.5 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div>
-            <h4 class="benefit-title">Free Installation Quotes</h4>
-            <p class="benefit-desc">No hidden costs or guesswork. We provide a full, transparent installation quote so you know exactly what to expect before any work begins.</p>
-          </div>
-        </div>
-
-        <div class="benefit-item" data-benefit>
-          <div class="benefit-icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17 5.8 21.3l2.4-7.4L2 9.4h7.6L12 2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div>
-            <h4 class="benefit-title">Quality Guaranteed</h4>
-            <p class="benefit-desc">We stand behind every product we sell. Our guarantee covers workmanship and materials, giving you complete peace of mind long after installation.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- GALLERY -->
-  <section class="gallery">
-    <div class="section-inner">
-      <div class="gallery-header">
-        <p class="section-eyebrow" data-reveal>Our Work</p>
-        <h2 class="section-title" data-reveal>Transforming Scottish Homes</h2>
-      </div>
-      <div class="gallery-grid">
-        <div class="gallery-item" data-gallery>
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80" alt="Modern living room with roller blinds" loading="lazy" />
-        </div>
-        <div class="gallery-item" data-gallery>
-          <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=800&q=80" alt="Elegant bedroom with blackout blinds" loading="lazy" />
-        </div>
-        <div class="gallery-item" data-gallery>
-          <img src="https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?auto=format&fit=crop&w=800&q=80" alt="Contemporary dining room with venetian blinds" loading="lazy" />
-        </div>
-        <div class="gallery-item" data-gallery>
-          <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=800&q=80" alt="Stylish home office with plantation shutters" loading="lazy" />
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-num">06</div>
+          <div class="service-name">Commercial Blinds</div>
+          <p class="service-desc">Large-scale supply and installation for offices, schools, hotels, and commercial premises across Scotland.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="testimonials">
-    <div class="section-inner">
-      <div class="testimonials-header">
-        <p class="section-eyebrow" data-reveal>Client Reviews</p>
-        <h2 class="section-title" data-reveal>What Our Customers Say</h2>
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-img-wrap" id="aboutImg">
+        <img class="about-img" src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=800&q=80" alt="Blind fitting specialist at work" />
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
       </div>
-      <div class="testimonials-grid">
-
-        <div class="testimonial-card" data-testimonial>
-          <div class="testimonial-stars">
-            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.85 5.7H16l-4.93 3.58 1.88 5.72L8 12.44 3.05 16 4.93 10.28 0 6.7h6.15L8 1Z"/></svg>
-            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.85 5.7H16l-4.93 3.58 1.88 5.72L8 12.44 3.05 16 4.93 10.28 0 6.7h6.15L8 1Z"/></svg>
-            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.85 5.7H16l-4.93 3.58 1.88 5.72L8 12.44 3.05 16 4.93 10.28 0 6.7h6.15L8 1Z"/></svg>
-            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.85 5.7H16l-4.93 3.58 1.88 5.72L8 12.44 3.05 16 4.93 10.28 0 6.7h6.15L8 1Z"/></svg>
-            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.85 5.7H16l-4.93 3.58 1.88 5.72L8 12.44 3.05 16 4.93 10.28 0 6.7h6.15L8 1Z"/></svg>
-          </div>
-          <p class="testimonial-quote">"Absolutely outstanding service from start to finish. The plantation shutters in our lounge look incredible — exactly what we'd been searching for. The fitting team were professional, quick and left the place spotless."</p>
-          <div class="testimonial-author">Margaret F.</div>
-          <div class="testimonial-location">Cumbernauld, Glasgow</div>
+      <div class="about-text">
+        <p class="section-eyebrow reveal">Our Story</p>
+        <h2 class="section-title reveal" style="text-align:left;">Local Experts.<br>Trusted Results.</h2>
+        <div class="gold-line reveal" id="goldLine3" style="margin-left:0;"></div>
+        <p class="reveal">Top Cat Window Blinds has been Glasgow's go-to choice for made-to-measure window coverings. Based in Cumbernauld, we serve homes and businesses across Central Scotland with a personal, professional service that large retailers simply can't match.</p>
+        <p class="reveal">Every blind is measured, made, and fitted by our own experienced team — no subcontractors, no shortcuts. We stand behind every installation with our satisfaction guarantee.</p>
+        <div class="about-badges reveal">
+          <span class="about-badge">Free Measure</span>
+          <span class="about-badge">Expert Fit</span>
+          <span class="about-badge">Satisfaction Guarantee</span>
+          <span class="about-badge">Local Business</span>
         </div>
-
-        <div class="testimonial-card" data-testimonial>
-          <div class="testimonial-stars">
-            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.85 5.7H16l-4.93 3.58 1.88 5.72L8 12.44 3.05 16 4.93 10.28 0 6.7h6.15L8 1Z"/></svg>
-            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.85 5.7H16l-4.93 3.58 1.88 5.72L8 12.44 3.05 16 4.93 10.28 0 6.7h6.15L8 1Z"/></svg>
-            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.85 5.7H16l-4.93 3.58 1.88 5.72L8 12.44 3.05 16 4.93 10.28 0 6.7h6.15L8 1Z"/></svg>
-            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.85 5.7H16l-4.93 3.58 1.88 5.72L8 12.44 3.05 16 4.93 10.28 0 6.7h6.15L8 1Z"/></svg>
-            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.85 5.7H16l-4.93 3.58 1.88 5.72L8 12.44 3.05 16 4.93 10.28 0 6.7h6.15L8 1Z"/></svg>
-          </div>
-          <p class="testimonial-quote">"Top Cat came highly recommended and they didn't disappoint. We had blackout blinds fitted throughout the upstairs and the quality is exceptional. You can immediately tell these are made to a standard you don't find elsewhere."</p>
-          <div class="testimonial-author">Alasdair M.</div>
-          <div class="testimonial-location">Kirkintilloch, East Dunbartonshire</div>
-        </div>
-
-        <div class="testimonial-card" data-testimonial>
-          <div class="testimonial-stars">
-            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.85 5.7H16l-4.93 3.58 1.88 5.72L8 12.44 3.05 16 4.93 10.28 0 6.7h6.15L8 1Z"/></svg>
-            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.85 5.7H16l-4.93 3.58 1.88 5.72L8 12.44 3.05 16 4.93 10.28 0 6.7h6.15L8 1Z"/></svg>
-            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.85 5.7H16l-4.93 3.58 1.88 5.72L8 12.44 3.05 16 4.93 10.28 0 6.7h6.15L8 1Z"/></svg>
-            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.85 5.7H16l-4.93 3.58 1.88 5.72L8 12.44 3.05 16 4.93 10.28 0 6.7h6.15L8 1Z"/></svg>
-            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.85 5.7H16l-4.93 3.58 1.88 5.72L8 12.44 3.05 16 4.93 10.28 0 6.7h6.15L8 1Z"/></svg>
-          </div>
-          <p class="testimonial-quote">"We had vertical blinds fitted in our patio doors and couldn't be happier. The whole process was seamless — measurement, quote, install. No fuss, no mess. Knowing they're made locally in Scotland was a real bonus for us."</p>
-          <div class="testimonial-author">Fiona &amp; David R.</div>
-          <div class="testimonial-location">Falkirk, Central Scotland</div>
-        </div>
-
       </div>
     </div>
   </section>
 
-  <!-- CTA SECTION -->
+  <!-- REVIEWS -->
+  <section class="reviews" id="reviews">
+    <div class="reviews-inner">
+      <div class="reviews-header reveal">
+        <div class="g-badge">
+          <span class="g-logo">G</span>
+          <div>
+            <div class="g-rating">4.8 / 5</div>
+            <div class="g-stars">★★★★★</div>
+          </div>
+        </div>
+        <div>
+          <p class="section-eyebrow" style="margin-bottom:6px;">Google Reviews</p>
+          <p style="font-size:14px; color:var(--muted);">What our customers say</p>
+        </div>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card reveal">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Absolutely delighted with my new roller blinds. The fitter was professional, tidy, and the finished result looks incredible. Would recommend to anyone in Glasgow."</p>
+          <div class="review-author">Margaret T.</div>
+          <div class="review-date">Google Review</div>
+        </div>
+        <div class="review-card reveal reveal-delay-1">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Had venetian blinds fitted throughout our office. The team were efficient, the quality is excellent, and the price was very competitive. Top service all round."</p>
+          <div class="review-author">Fraser M.</div>
+          <div class="review-date">Google Review</div>
+        </div>
+        <div class="review-card reveal reveal-delay-2">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"From survey to fitting, the whole process was seamless. Love my new plantation shutters — they've completely transformed the look of my living room."</p>
+          <div class="review-author">Claire D.</div>
+          <div class="review-date">Google Review</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why">
+    <div class="why-inner">
+      <div class="why-header">
+        <p class="section-eyebrow reveal" style="color:rgba(245,245,240,0.55);">Why Choose Us</p>
+        <h2 class="section-title reveal">The Top Cat Difference</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-item reveal">
+          <div class="why-item-title">Free Home Survey</div>
+          <p class="why-item-text">We come to you, measure every window precisely, and help you choose the perfect style and fabric.</p>
+        </div>
+        <div class="why-item reveal reveal-delay-1">
+          <div class="why-item-title">Made to Measure</div>
+          <p class="why-item-text">Every blind is custom-made to your exact dimensions — no off-the-shelf compromises.</p>
+        </div>
+        <div class="why-item reveal reveal-delay-2">
+          <div class="why-item-title">Expert Fitting</div>
+          <p class="why-item-text">Our trained fitters handle every installation with care, leaving your home clean and tidy.</p>
+        </div>
+        <div class="why-item reveal reveal-delay-3">
+          <div class="why-item-title">Guaranteed Quality</div>
+          <p class="why-item-text">We stand behind our work. If you're not completely satisfied, we'll put it right.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTORS -->
+  <section class="sectors">
+    <div class="sectors-inner">
+      <div class="sectors-text">
+        <p class="section-eyebrow reveal">Where We Work</p>
+        <h2 class="section-title reveal" style="text-align:left;">Every Room.<br>Every Setting.</h2>
+        <div class="gold-line reveal" id="goldLine4" style="margin-left:0;"></div>
+        <p class="section-sub reveal" style="text-align:left;">We supply and fit blinds for every type of space — from cosy bedrooms to large commercial premises across Central Scotland.</p>
+      </div>
+      <div class="sectors-dot-grid">
+        <div class="sector-dot-item reveal"><span class="sector-dot"></span>Living Rooms</div>
+        <div class="sector-dot-item reveal reveal-delay-1"><span class="sector-dot"></span>Bedrooms</div>
+        <div class="sector-dot-item reveal"><span class="sector-dot"></span>Kitchens</div>
+        <div class="sector-dot-item reveal reveal-delay-1"><span class="sector-dot"></span>Bathrooms</div>
+        <div class="sector-dot-item reveal"><span class="sector-dot"></span>Home Offices</div>
+        <div class="sector-dot-item reveal reveal-delay-1"><span class="sector-dot"></span>Conservatories</div>
+        <div class="sector-dot-item reveal"><span class="sector-dot"></span>Commercial</div>
+        <div class="sector-dot-item reveal reveal-delay-1"><span class="sector-dot"></span>Rental Properties</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
   <section class="cta-section" id="contact">
-    <div class="section-inner" style="text-align:center;">
-      <p class="section-eyebrow" data-reveal style="text-align:center;">Ready to Transform Your Home?</p>
-      <h2 class="section-title" data-reveal style="margin-left:auto;margin-right:auto;max-width:640px;">Get Your Free Quote Today</h2>
-      <p class="section-sub" data-reveal style="margin:0 auto 2.5rem;max-width:480px;">Speak to our team about your requirements. We'll measure up, advise on the best options, and provide a full no-obligation quote — completely free.</p>
-      <div class="cta-actions" data-cta-actions>
-        <a href="tel:+441412126966" class="btn-primary">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M14 10.667c0 .245-.055.478-.155.69a1.9 1.9 0 0 1-.412.6c-.33.33-.69.5-1.078.5-.278 0-.577-.067-.9-.2a9.38 9.38 0 0 1-.9-.48 15.5 15.5 0 0 1-.866-.633 15.3 15.3 0 0 1-.834-.834 15.5 15.5 0 0 1-.633-.855 9.38 9.38 0 0 1-.48-.9c-.133-.322-.2-.622-.2-.9 0-.266.055-.521.166-.733.11-.22.278-.41.5-.578.267-.199.556-.289.856-.289.11 0 .222.022.323.067.111.044.21.11.29.21l1.011 1.422c.08.11.144.21.19.3a.6.6 0 0 1 .066.267c0 .11-.033.222-.1.33a1.6 1.6 0 0 1-.244.312l-.334.34c-.01.01-.011.02-.011.033 0 .011.011.033.033.066.067.111.167.256.3.43.144.177.3.344.478.51.177.166.344.322.522.467.166.133.311.233.433.3.022.01.044.022.067.033l.011.011.34-.334c.11-.11.222-.21.333-.267a.684.684 0 0 1 .334-.1.6.6 0 0 1 .266.055c.09.044.19.111.3.2L13.7 9.977c.1.08.166.177.21.289.022.11.022.222 0 .333v.068Z" fill="currentColor"/></svg>
-          Call +44 141 212 6966
-        </a>
-        <a href="mailto:info@topcatblinds.co.uk" class="btn-ghost">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4Z" stroke="currentColor" stroke-width="1.4"/><path d="M2 4l6 5 6-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Send an Enquiry
-        </a>
-      </div>
+    <div class="cta-glow"></div>
+    <p class="section-eyebrow reveal" style="position:relative;">Get Started Today</p>
+    <h2 class="section-title reveal" style="position:relative;">Ready to Transform<br>Your Windows?</h2>
+    <div class="gold-line reveal" id="goldLine5" style="position:relative;"></div>
+    <p class="section-sub reveal" style="position:relative;">Book your free no-obligation home survey. We'll measure up, show you samples, and provide a full quote — all at no cost.</p>
+    <div class="hero-actions reveal" style="justify-content:center; position:relative; margin-top:40px;">
+      <a class="btn-primary" href="tel:+441412126966">+44 141 212 6966</a>
+      <a class="btn-outline" href="mailto:info@topcatblinds.co.uk">Send Enquiry</a>
     </div>
+    <p class="reveal" style="position:relative; margin-top:28px; font-size:13px; color:var(--muted);">125 Deerdykes View, Cumbernauld, Glasgow G68 9HN</p>
   </section>
 
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
-      <div class="footer-brand">
-        <a href="#" class="footer-logo">
-          <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
-            <rect width="36" height="36" rx="6" fill="#BFA060" fill-opacity="0.15"/>
-            <rect x="8" y="10" width="20" height="2.5" rx="1.25" fill="#BFA060"/>
-            <rect x="8" y="16" width="20" height="2.5" rx="1.25" fill="#BFA060" fill-opacity="0.7"/>
-            <rect x="8" y="22" width="20" height="2.5" rx="1.25" fill="#BFA060" fill-opacity="0.4"/>
-          </svg>
-          <span class="footer-logo-text">
-            Top Cat Window Blinds
-            <span>Scotland's Premier</span>
-          </span>
-        </a>
-        <p class="footer-desc">Scotland's premier window blinds and shutters specialist. Made in Scotland, fitted across Central Scotland and beyond.</p>
-        <div class="footer-contact-item">
-          <svg viewBox="0 0 16 16" fill="none"><path d="M8 1.5A4.5 4.5 0 0 1 12.5 6c0 3-4.5 8.5-4.5 8.5S3.5 9 3.5 6A4.5 4.5 0 0 1 8 1.5Z" stroke="currentColor" stroke-width="1.4"/><circle cx="8" cy="6" r="1.5" stroke="currentColor" stroke-width="1.2"/></svg>
-          <span>125 Deerdykes View, Westfield,<br/>Cumbernauld, Glasgow G68 9HN, UK</span>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="nav-logo" href="#"><span>TOP CAT</span> WINDOW BLINDS</a>
+          <p>Glasgow's trusted window blind specialists. Made-to-measure, expertly fitted across Central Scotland since day one.</p>
         </div>
-        <div class="footer-contact-item">
-          <svg viewBox="0 0 16 16" fill="none"><path d="M14 10.667c0 .245-.055.478-.155.69a1.9 1.9 0 0 1-.412.6c-.33.33-.69.5-1.078.5-.278 0-.577-.067-.9-.2a9.38 9.38 0 0 1-.9-.48 15.5 15.5 0 0 1-.866-.633 15.3 15.3 0 0 1-.834-.834 15.5 15.5 0 0 1-.633-.855 9.38 9.38 0 0 1-.48-.9c-.133-.322-.2-.622-.2-.9 0-.266.055-.521.166-.733.11-.22.278-.41.5-.578.267-.199.556-.289.856-.289.11 0 .222.022.323.067.111.044.21.11.29.21l1.011 1.422c.08.11.144.21.19.3a.6.6 0 0 1 .066.267c0 .11-.033.222-.1.33a1.6 1.6 0 0 1-.244.312l-.334.34c-.01.01-.011.02-.011.033 0 .011.011.033.033.066.067.111.167.256.3.43.144.177.3.344.478.51.177.166.344.322.522.467.166.133.311.233.433.3.022.01.044.022.067.033l.011.011.34-.334c.11-.11.222-.21.333-.267a.684.684 0 0 1 .334-.1.6.6 0 0 1 .266.055c.09.044.19.111.3.2L13.7 9.977c.1.08.166.177.21.289.022.11.022.222 0 .333v.068Z" fill="currentColor"/></svg>
-          <a href="tel:+441412126966">+44 141 212 6966</a>
+        <div class="footer-col">
+          <div class="footer-col-title">Services</div>
+          <ul>
+            <li><a href="#services">Roller Blinds</a></li>
+            <li><a href="#services">Venetian Blinds</a></li>
+            <li><a href="#services">Vertical Blinds</a></li>
+            <li><a href="#services">Roman Blinds</a></li>
+            <li><a href="#services">Plantation Shutters</a></li>
+            <li><a href="#services">Commercial Blinds</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Company</div>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Contact</div>
+          <ul>
+            <li><a href="tel:+441412126966">+44 141 212 6966</a></li>
+            <li><a href="#">125 Deerdykes View</a></li>
+            <li><a href="#">Cumbernauld</a></li>
+            <li><a href="#">Glasgow G68 9HN</a></li>
+          </ul>
         </div>
       </div>
-
-      <div>
-        <p class="footer-col-title">Products</p>
-        <ul class="footer-links">
-          <li><a href="#services">Roller Blinds</a></li>
-          <li><a href="#services">Vertical Blinds</a></li>
-          <li><a href="#services">Venetian Blinds</a></li>
-          <li><a href="#services">Plantation Shutters</a></li>
-          <li><a href="#services">Roman Blinds</a></li>
-          <li><a href="#services">Blackout Blinds</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <p class="footer-col-title">Coverage</p>
-        <ul class="footer-links">
-          <li><a href="#">Cumbernauld</a></li>
-          <li><a href="#">Glasgow</a></li>
-          <li><a href="#">Falkirk</a></li>
-          <li><a href="#">Stirling</a></li>
-          <li><a href="#">Kirkintilloch</a></li>
-          <li><a href="#">Central Scotland</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p class="footer-copy">&copy; 2026 Top Cat Window Blinds. All rights reserved.</p>
-      <div class="footer-scotland">
-        <svg class="scotland-flag" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="24" height="16" fill="#003580"/>
-          <path d="M0 0L24 16M24 0L0 16" stroke="white" stroke-width="3.5"/>
-        </svg>
-        Proudly Made in Scotland
+      <div class="footer-bottom">
+        <span>&copy; 2026 Top Cat Window Blinds. All rights reserved.</span>
+        <span>Glasgow, Scotland</span>
       </div>
     </div>
   </footer>
 
-  <!-- MOTION ONE ANIMATIONS -->
-  <script type="module">
-    import { animate, inView, stagger } from 'https://esm.sh/motion';
+  <script>
+    // NAV SCROLL
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
 
-    // Hero entrance
-    animate('#hero-badge', { opacity: [0, 1], y: [20, 0] }, { duration: 0.6, delay: 0.2, easing: 'ease-out' });
-    animate('#hero-h1',    { opacity: [0, 1], y: [30, 0] }, { duration: 0.7, delay: 0.4, easing: 'ease-out' });
-    animate('#hero-sub',   { opacity: [0, 1], y: [20, 0] }, { duration: 0.6, delay: 0.65, easing: 'ease-out' });
-    animate('#hero-actions', { opacity: [0, 1], y: [20, 0] }, { duration: 0.6, delay: 0.85, easing: 'ease-out' });
+    // PARALLAX HERO
+    const heroBg = document.getElementById('heroBg');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y < window.innerHeight) {
+        heroBg.style.transform = `scale(1.08) translateY(${y * 0.25}px)`;
+      }
+    });
 
-    // Stat band
-    inView('[data-stat]', ({ target }) => {
-      animate(target, { opacity: [0, 1], x: [-20, 0] }, { duration: 0.5, easing: 'ease-out' });
-    }, { margin: '-60px' });
+    // REVEAL
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(r => revealObs.observe(r));
 
-    // Generic reveal
-    inView('[data-reveal]', ({ target }) => {
-      animate(target, { opacity: [0, 1], y: [24, 0] }, { duration: 0.55, easing: 'ease-out' });
-    }, { margin: '-60px' });
+    // GOLD LINE
+    const goldLines = document.querySelectorAll('.gold-line');
+    const lineObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('animate'); }
+      });
+    }, { threshold: 0.5 });
+    goldLines.forEach(l => lineObs.observe(l));
 
-    // Service cards
-    inView('.services-grid', ({ target }) => {
-      animate(
-        target.querySelectorAll('[data-service]'),
-        { opacity: [0, 1], y: [30, 0] },
-        { duration: 0.5, delay: stagger(0.08), easing: 'ease-out' }
-      );
-    }, { margin: '-80px' });
+    // ABOUT CLIP-PATH REVEAL
+    const aboutImg = document.getElementById('aboutImg');
+    if (aboutImg) {
+      const imgObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('revealed'); });
+      }, { threshold: 0.2 });
+      imgObs.observe(aboutImg);
+    }
 
-    // Benefits
-    inView('.benefits-grid', ({ target }) => {
-      animate(
-        target.querySelectorAll('[data-benefit]'),
-        { opacity: [0, 1], x: [-24, 0] },
-        { duration: 0.5, delay: stagger(0.1), easing: 'ease-out' }
-      );
-    }, { margin: '-80px' });
-
-    // Gallery
-    inView('.gallery-grid', ({ target }) => {
-      animate(
-        target.querySelectorAll('[data-gallery]'),
-        { opacity: [0, 1], y: [30, 0] },
-        { duration: 0.55, delay: stagger(0.1), easing: 'ease-out' }
-      );
-    }, { margin: '-80px' });
-
-    // Testimonials
-    inView('.testimonials-grid', ({ target }) => {
-      animate(
-        target.querySelectorAll('[data-testimonial]'),
-        { opacity: [0, 1], y: [24, 0] },
-        { duration: 0.5, delay: stagger(0.12), easing: 'ease-out' }
-      );
-    }, { margin: '-80px' });
-
-    // CTA actions
-    inView('[data-cta-actions]', ({ target }) => {
-      animate(target, { opacity: [0, 1], y: [20, 0] }, { duration: 0.55, delay: 0.3, easing: 'ease-out' });
-    }, { margin: '-60px' });
+    // COUNT UP
+    function animateCount(el) {
+      const target = parseFloat(el.dataset.target);
+      const isDecimal = el.dataset.decimal === 'true';
+      const text = el.dataset.text;
+      if (text) { el.textContent = text; return; }
+      const duration = 1600;
+      const start = performance.now();
+      function step(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const value = target * ease / (isDecimal ? 10 : 1);
+        el.textContent = isDecimal ? value.toFixed(1) : Math.round(value);
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    const countEls = document.querySelectorAll('.count-up');
+    const countObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { animateCount(e.target); countObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.5 });
+    countEls.forEach(el => countObs.observe(el));
   </script>
-
 </body>
 </html>

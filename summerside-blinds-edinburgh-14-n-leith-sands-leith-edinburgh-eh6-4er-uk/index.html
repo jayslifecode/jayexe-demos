@@ -3,1481 +3,967 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Summerside Blinds Edinburgh — Best Blinds Retailer of the Year 2025/26</title>
+  <title>Summerside Blinds Edinburgh — Made-to-Measure Blinds, Leith &amp; Edinburgh</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #0D1520;
-      --text: #EDE5D5;
-      --text-muted: #A89E8A;
-      --accent: #C9A96E;
-      --accent-dark: #A8823E;
-      --surface: #131E2E;
-      --surface2: #1A2840;
-      --border: rgba(201,169,110,0.18);
-      --border-neutral: rgba(237,229,213,0.12);
+      --bg: #0b0b0b;
+      --bg2: #111111;
+      --bg3: #161616;
+      --border: rgba(245,245,240,0.06);
+      --white: #f5f5f0;
+      --muted: rgba(245,245,240,0.45);
+      --gold: #c8a84b;
+      --accent: #1a3a6b;
+      --accent2: #254d8f;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       background: var(--bg);
-      color: var(--text);
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 16px;
-      line-height: 1.65;
+      color: var(--white);
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
 
-    /* ── TYPOGRAPHY ── */
-    h1, h2, h3, h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 600;
-      line-height: 1.15;
-      letter-spacing: 0.01em;
-    }
-    h1 { font-size: clamp(2.4rem, 5.5vw, 4rem); }
-    h2 { font-size: clamp(1.9rem, 3.8vw, 3rem); }
-    h3 { font-size: clamp(1.3rem, 2.5vw, 1.75rem); }
-    p { color: var(--text-muted); }
+    h1, h2, h3, h4 { font-family: 'Bebas Neue', cursive; line-height: 1.05; letter-spacing: 0.02em; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; width: 100%; }
 
-    /* ── NAV ── */
-    nav {
+    /* GRAIN */
+    .grain {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 300px 300px;
+    }
+
+    /* NAV */
+    .nav {
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      background: rgba(13,21,32,0.82);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 2.5rem;
       height: 68px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1.5rem;
-    }
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      text-decoration: none;
-      flex-shrink: 0;
-    }
-    .nav-logo-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--text);
+      transition: background 0.35s, border-bottom 0.35s;
       white-space: nowrap;
     }
-    .nav-links {
+    .nav.scrolled {
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav__logo {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.35rem;
+      letter-spacing: 0.08em;
+      color: var(--white);
+    }
+    .nav__logo span { color: var(--gold); }
+    .nav__links {
       display: flex;
       align-items: center;
-      gap: 0.2rem;
+      gap: 2rem;
       list-style: none;
-      white-space: nowrap;
-    }
-    .nav-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.875rem;
+      font-size: 0.82rem;
       font-weight: 500;
-      padding: 0.4rem 0.75rem;
-      border-radius: 4px;
-      transition: color 0.2s;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
-    .nav-links a:hover { color: var(--text); }
-    .btn-nav-cta {
-      background: var(--accent);
-      color: #0D1520 !important;
-      font-weight: 600 !important;
-      padding: 0.5rem 1.15rem !important;
-      border-radius: 4px;
-      white-space: nowrap !important;
+    .nav__links a { color: var(--muted); transition: color 0.2s; }
+    .nav__links a:hover { color: var(--white); }
+    .nav__cta {
+      background: var(--gold);
+      color: #0b0b0b;
+      padding: 0.55rem 1.4rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: opacity 0.2s;
     }
-    .btn-nav-cta:hover { background: var(--accent-dark) !important; color: #fff !important; }
+    .nav__cta:hover { opacity: 0.85; }
 
-    /* ── BUTTONS ── */
+    /* BUTTONS */
     .btn {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
       gap: 0.5rem;
-      padding: 0.875rem 2rem;
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 0.9375rem;
+      padding: 0.85rem 2rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.82rem;
       font-weight: 600;
-      border-radius: 4px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.2s, color 0.2s, border-color 0.2s;
-      border: 2px solid transparent;
-      line-height: 1;
-      height: 52px;
-    }
-    .btn-primary {
-      background: var(--accent);
-      color: #0D1520;
-      border-color: var(--accent);
-    }
-    .btn-primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); color: #fff; }
-    .btn-outline {
-      background: transparent;
-      color: var(--text);
-      border-color: rgba(237,229,213,0.35);
-    }
-    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* ── SECTION WRAPPER ── */
-    .section { padding: 6rem 2rem; }
-    .container { max-width: 1200px; margin: 0 auto; }
-    .section-label {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.85rem;
+      cursor: pointer;
+      transition: opacity 0.2s, background 0.2s;
+      border: none;
     }
+    .btn--gold { background: var(--gold); color: #0b0b0b; }
+    .btn--gold:hover { opacity: 0.85; }
+    .btn--outline {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(245,245,240,0.3);
+    }
+    .btn--outline:hover { border-color: var(--white); }
 
-    /* ── HERO ── */
-    #hero {
+    /* HERO */
+    .hero {
       position: relative;
-      min-height: 100vh;
+      height: 100vh;
+      min-height: 640px;
       display: flex;
       align-items: center;
-      padding: 0 2rem;
+      justify-content: center;
       overflow: hidden;
     }
-    .hero-bg {
+    .hero__bg {
       position: absolute;
       inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1586105251261-72a756497a11?auto=format&fit=crop&w=1920&q=80');
-      background-size: cover;
-      background-position: center;
+      background: url('https://images.unsplash.com/photo-1513694203232-719a280e022f?w=1600&q=80') center/cover no-repeat;
+      will-change: transform;
     }
-    .hero-bg::after {
-      content: '';
+    .hero__overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(105deg, rgba(13,21,32,0.92) 42%, rgba(13,21,32,0.55) 100%);
+      background: linear-gradient(135deg, rgba(11,11,11,0.82) 0%, rgba(26,58,107,0.45) 100%);
     }
-    .hero-content {
+    .hero__vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.65) 100%);
+    }
+    .hero__inner {
       position: relative;
-      z-index: 1;
-      max-width: 680px;
-      padding-top: 5rem;
+      z-index: 2;
+      text-align: center;
+      padding: 0 1.5rem;
+      max-width: 900px;
     }
-    .hero-award-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: rgba(201,169,110,0.12);
-      border: 1px solid rgba(201,169,110,0.35);
-      border-radius: 32px;
-      padding: 0.45rem 1.1rem;
-      margin-bottom: 1.6rem;
-    }
-    .hero-award-badge svg { flex-shrink: 0; }
-    .hero-award-badge span {
-      font-size: 0.8125rem;
+    .eyebrow {
+      display: inline-block;
+      color: var(--gold);
+      font-size: 0.75rem;
       font-weight: 600;
-      letter-spacing: 0.06em;
-      color: var(--accent);
+      letter-spacing: 0.2em;
       text-transform: uppercase;
+      margin-bottom: 1.4rem;
     }
-    .hero-content h1 {
-      color: var(--text);
-      margin-bottom: 1.25rem;
+    .hero__title { overflow: hidden; margin-bottom: 0; }
+    .hero__line {
+      display: block;
+      font-family: 'Bebas Neue', cursive;
+      font-size: clamp(4.5rem, 11vw, 9rem);
+      line-height: 0.95;
+      transform: translateY(110%);
+      transition: transform 0.9s cubic-bezier(0.16,1,0.3,1);
     }
-    .hero-content h1 em {
-      font-style: italic;
-      color: var(--accent);
+    .hero__line.visible { transform: translateY(0); }
+    .hero__sub {
+      margin-top: 1.6rem;
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 300;
     }
-    .hero-subtitle {
-      font-size: 1.125rem;
-      color: var(--text-muted);
-      margin-bottom: 2.25rem;
-      max-width: 500px;
-    }
-    .hero-ctas {
+    .hero__ctas {
+      margin-top: 2.4rem;
       display: flex;
+      gap: 1rem;
+      justify-content: center;
       flex-wrap: wrap;
-      gap: 0.85rem;
     }
-
-    /* ── STAT BAND ── */
-    #stats {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 0;
+    .hero__badges {
+      margin-top: 3rem;
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
     }
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      max-width: 1200px;
-      margin: 0 auto;
+    .badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
     }
-    .stat-item {
-      padding: 2rem 1.75rem;
+    .badge__dot {
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-align: center;
-      gap: 0.35rem;
-      border-right: 1px solid var(--border);
+      gap: 0.4rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      z-index: 2;
+      animation: bounce 2s infinite;
     }
-    .stat-item:last-child { border-right: none; }
-    .stat-icon { color: var(--accent); margin-bottom: 0.5rem; }
-    .stat-value {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--text);
-      line-height: 1.25;
-    }
-    .stat-label {
-      font-size: 0.8125rem;
-      color: var(--text-muted);
-      font-weight: 400;
+    .scroll-indicator svg { opacity: 0.5; }
+    @keyframes bounce {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
     }
 
-    /* ── SERVICES ── */
-    #services { background: var(--bg); }
-    .services-header { text-align: center; margin-bottom: 3.5rem; }
-    .services-grid {
+    /* STATEMENT */
+    .statement {
+      padding: 7rem 2.5rem;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .statement h2 { font-size: clamp(3rem, 6vw, 5.5rem); margin-bottom: 1.2rem; }
+    .gold-line {
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+      margin: 1.2rem auto 1.8rem;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.8s cubic-bezier(0.16,1,0.3,1);
+    }
+    .gold-line.visible { transform: scaleX(1); }
+    .statement p { color: var(--muted); font-size: 1.05rem; font-weight: 300; max-width: 580px; margin: 0 auto; }
+
+    /* STATS */
+    .stats {
+      background: var(--accent);
+      padding: 3.5rem 2.5rem;
+    }
+    .stats__grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 1px;
+      background: rgba(245,245,240,0.1);
+    }
+    .stat {
+      background: var(--accent);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .stat__num {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 3.8rem;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .stat__label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(245,245,240,0.65);
+    }
+
+    /* SERVICES */
+    .services {
+      padding: 7rem 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-header { margin-bottom: 4rem; }
+    .section-header h2 { font-size: clamp(2.8rem, 5vw, 4.5rem); margin-bottom: 0.8rem; }
+    .section-header p { color: var(--muted); font-weight: 300; max-width: 500px; }
+    .services__grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+      gap: 0;
+      border: 1px solid var(--border);
     }
     .service-card {
-      background: var(--surface);
-      border: 1px solid var(--border-neutral);
-      border-radius: 8px;
-      padding: 2rem 1.75rem;
-      transition: border-color 0.25s;
+      padding: 2.5rem 2rem;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.25s;
+      position: relative;
     }
-    .service-card:hover { border-color: var(--border); }
-    .service-icon {
-      width: 44px;
-      height: 44px;
-      color: var(--accent);
-      margin-bottom: 1.1rem;
+    .service-card:nth-child(3n) { border-right: none; }
+    .service-card:nth-child(4), .service-card:nth-child(5), .service-card:nth-child(6) { border-bottom: none; }
+    .service-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .service-card:hover { background: var(--bg3); }
+    .service-card:hover::after { transform: scaleX(1); }
+    .service-card__num {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 3rem;
+      color: var(--border);
+      line-height: 1;
+      margin-bottom: 1rem;
     }
     .service-card h3 {
-      font-size: 1.15rem;
-      color: var(--text);
-      margin-bottom: 0.6rem;
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.5rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+      color: var(--white);
     }
-    .service-card p { font-size: 0.9rem; }
+    .service-card p { font-size: 0.88rem; color: var(--muted); font-weight: 300; line-height: 1.65; }
 
-    /* ── CONFIGURATOR ── */
-    #configurator {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+    /* ABOUT */
+    .about {
+      padding: 7rem 2.5rem;
+      background: var(--bg2);
     }
-    .config-header { text-align: center; margin-bottom: 3rem; }
-    .config-layout {
-      display: grid;
-      grid-template-columns: 1fr 380px;
-      gap: 2.5rem;
-      align-items: start;
-    }
-    .config-canvas-wrap {
-      background: #EDE8E0;
-      border-radius: 8px;
-      overflow: hidden;
-      aspect-ratio: 4/3;
-    }
-    #wc-canvas {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-    .config-controls {
-      background: #131E2E;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.75rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    .ctrl-group label {
-      display: block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.65rem;
-    }
-    .slider-row {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-    }
-    .slider-row input[type="range"] {
-      flex: 1;
-      -webkit-appearance: none;
-      height: 3px;
-      background: rgba(201,169,110,0.25);
-      border-radius: 2px;
-      outline: none;
-      cursor: pointer;
-    }
-    .slider-row input[type="range"]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      width: 16px;
-      height: 16px;
-      background: var(--accent);
-      border-radius: 50%;
-      cursor: pointer;
-    }
-    .slider-row input[type="range"]::-moz-range-thumb {
-      width: 16px;
-      height: 16px;
-      background: var(--accent);
-      border-radius: 50%;
-      border: none;
-      cursor: pointer;
-    }
-    .slider-val {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text);
-      min-width: 52px;
-      text-align: right;
-    }
-    .swatches {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-    .swatch {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      cursor: pointer;
-      border: 2px solid transparent;
-      transition: border-color 0.2s, outline 0.2s;
-      outline: 2px solid transparent;
-      outline-offset: 2px;
-    }
-    .swatch.wc-active,
-    .swatch:hover {
-      border-color: var(--accent);
-      outline-color: var(--accent);
-    }
-    .btn-group {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-    .btn-ctrl {
-      flex: 1;
-      min-width: 80px;
-      padding: 0.55rem 0.75rem;
-      background: rgba(237,229,213,0.06);
-      border: 1px solid var(--border-neutral);
-      border-radius: 4px;
-      color: var(--text-muted);
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 0.8125rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s, border-color 0.2s, color 0.2s;
-      text-align: center;
-    }
-    .btn-ctrl:hover { border-color: rgba(201,169,110,0.35); color: var(--text); }
-    .btn-ctrl.wc-active {
-      background: rgba(201,169,110,0.14);
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-    .config-cta {
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-    }
-    .config-cta .btn { width: 100%; }
-    .config-cta-note {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      text-align: center;
-    }
-
-    /* ── BENEFITS ── */
-    #benefits { background: var(--bg); }
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-    }
-    .benefit-card {
-      text-align: center;
-      padding: 2rem 1.25rem;
-    }
-    .benefit-icon {
-      width: 48px;
-      height: 48px;
-      color: var(--accent);
-      margin: 0 auto 1rem;
-    }
-    .benefit-card h3 {
-      font-size: 1.05rem;
-      color: var(--text);
-      margin-bottom: 0.5rem;
-    }
-    .benefit-card p { font-size: 0.875rem; }
-
-    /* ── GALLERY ── */
-    #gallery { background: var(--surface); }
-    .gallery-header { text-align: center; margin-bottom: 3rem; }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-    }
-    .gallery-item {
-      aspect-ratio: 3/4;
-      overflow: hidden;
-      border-radius: 6px;
-      background: var(--surface2);
-    }
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: opacity 0.3s;
-    }
-    .gallery-item:hover img { opacity: 0.88; }
-
-    /* ── TESTIMONIALS ── */
-    #testimonials { background: var(--bg); }
-    .testimonials-header { text-align: center; margin-bottom: 3rem; }
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-    .testimonial-card {
-      background: var(--surface);
-      border: 1px solid var(--border-neutral);
-      border-radius: 8px;
-      padding: 2rem;
-    }
-    .testimonial-stars {
-      display: flex;
-      gap: 3px;
-      margin-bottom: 1rem;
-      color: var(--accent);
-    }
-    .testimonial-card blockquote {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      font-style: italic;
-      color: var(--text);
-      line-height: 1.5;
-      margin-bottom: 1.25rem;
-    }
-    .testimonial-author {
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--text-muted);
-    }
-    .testimonial-location {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      opacity: 0.7;
-    }
-
-    /* ── CTA SECTION ── */
-    #cta-section {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-    }
-    .cta-inner {
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .cta-inner h2 { color: var(--text); margin-bottom: 1rem; }
-    .cta-inner p { margin-bottom: 2.25rem; font-size: 1.05rem; }
-    .cta-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-    }
-    .cta-detail {
-      margin-top: 1.5rem;
-      font-size: 0.875rem;
-      color: var(--text-muted);
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: #080E16;
-      border-top: 1px solid var(--border);
-      padding: 3rem 2rem 2rem;
-    }
-    .footer-inner {
+    .about__inner {
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr 1fr;
-      gap: 2.5rem;
-      padding-bottom: 2.5rem;
-      border-bottom: 1px solid var(--border-neutral);
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
     }
-    .footer-brand p {
-      font-size: 0.875rem;
-      margin-top: 0.75rem;
-      line-height: 1.7;
+    .about__image-wrap { position: relative; overflow: hidden; }
+    .about__image {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      clip-path: inset(100% 0 0 0);
+      transition: clip-path 1.1s cubic-bezier(0.16,1,0.3,1);
     }
-    .footer-col h4 {
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 0.75rem;
+    .about__image.visible { clip-path: inset(0% 0 0 0); }
+    .corner-frame {
+      position: absolute;
+      width: 30px; height: 30px;
+      border-color: var(--gold);
+      border-style: solid;
+    }
+    .corner-frame--tl { top: 12px; left: 12px; border-width: 2px 0 0 2px; }
+    .corner-frame--tr { top: 12px; right: 12px; border-width: 2px 2px 0 0; }
+    .corner-frame--bl { bottom: 12px; left: 12px; border-width: 0 0 2px 2px; }
+    .corner-frame--br { bottom: 12px; right: 12px; border-width: 0 2px 2px 0; }
+    .about__content .eyebrow { margin-bottom: 1rem; }
+    .about__content h2 { font-size: clamp(2.5rem, 4vw, 4rem); margin-bottom: 1.2rem; }
+    .about__content p { color: var(--muted); font-weight: 300; font-size: 0.95rem; margin-bottom: 1rem; }
+    .badge-strip { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
+    .badge-pill {
+      padding: 0.5rem 1.1rem;
+      border: 1px solid var(--border);
+      font-size: 0.73rem;
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1rem;
+      color: var(--muted);
+      background: var(--bg3);
     }
-    .footer-col ul { list-style: none; }
-    .footer-col ul li { margin-bottom: 0.5rem; }
-    .footer-col ul li a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.875rem;
-      transition: color 0.2s;
+
+    /* REVIEWS */
+    .reviews {
+      padding: 7rem 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-    .footer-col ul li a:hover { color: var(--text); }
-    .footer-bottom {
+    .reviews__header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+    .g-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.6rem 1.2rem;
+      border: 1px solid var(--border);
+      background: var(--bg2);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+    .g-badge__logo { color: #4285f4; font-weight: 700; font-size: 1rem; }
+    .g-badge__stars { color: #fbbc04; letter-spacing: -1px; }
+    .reviews__grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+    .review-card { background: var(--bg2); padding: 2rem; }
+    .review-card__stars { color: #fbbc04; font-size: 0.9rem; margin-bottom: 1rem; }
+    .review-card__text { font-size: 0.9rem; color: var(--muted); font-weight: 300; font-style: italic; margin-bottom: 1.2rem; line-height: 1.7; }
+    .review-card__author { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); }
+    .review-card__location { font-size: 0.73rem; color: var(--muted); margin-top: 0.2rem; }
+
+    /* WHY US */
+    .why {
+      background: var(--accent);
+      padding: 5rem 2.5rem;
+    }
+    .why__inner { max-width: 1200px; margin: 0 auto; }
+    .why__title {
+      font-family: 'Bebas Neue', cursive;
+      font-size: clamp(2.5rem, 4vw, 3.8rem);
+      color: var(--white);
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+    .why__grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 2rem;
+    }
+    .why-item { text-align: center; }
+    .why-item__icon {
+      width: 52px; height: 52px;
+      border: 1px solid rgba(245,245,240,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.2rem;
+    }
+    .why-item__icon svg { width: 22px; height: 22px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+    .why-item h4 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.2rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+      color: var(--white);
+    }
+    .why-item p { font-size: 0.83rem; color: rgba(245,245,240,0.6); font-weight: 300; }
+
+    /* SECTORS */
+    .sectors {
+      padding: 7rem 2.5rem;
+      background: var(--bg2);
+    }
+    .sectors__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .sectors__content .eyebrow { margin-bottom: 1rem; }
+    .sectors__content h2 { font-size: clamp(2.5rem, 4vw, 4rem); margin-bottom: 1.2rem; }
+    .sectors__content p { color: var(--muted); font-weight: 300; font-size: 0.95rem; }
+    .dot-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--border);
+    }
+    .dot-item {
+      padding: 1.1rem 1.4rem;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.83rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      transition: color 0.2s, background 0.2s;
+    }
+    .dot-item:nth-child(2n) { border-right: none; }
+    .dot-item:nth-child(7), .dot-item:nth-child(8) { border-bottom: none; }
+    .dot-item:hover { background: var(--bg3); color: var(--white); }
+    .dot-item::before {
+      content: '';
+      width: 5px; height: 5px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      padding: 8rem 2.5rem;
+      text-align: center;
+      position: relative;
+      background: var(--bg);
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(26,58,107,0.3) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-section .eyebrow { margin-bottom: 1rem; }
+    .cta-section h2 { font-size: clamp(3rem, 6vw, 5.5rem); margin-bottom: 1.5rem; position: relative; }
+    .cta-section p { color: var(--muted); font-weight: 300; max-width: 500px; margin: 0 auto 2.5rem; font-size: 1rem; }
+    .cta-section .btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* FOOTER */
+    footer {
+      background: #080808;
+      border-top: 1px solid var(--border);
+      padding: 4.5rem 2.5rem 2rem;
+    }
+    .footer__grid {
+      max-width: 1200px;
+      margin: 0 auto 3rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+    }
+    .footer__brand .nav__logo { font-size: 1.5rem; margin-bottom: 1rem; display: block; }
+    .footer__brand p { color: var(--muted); font-size: 0.85rem; font-weight: 300; line-height: 1.7; max-width: 260px; }
+    .footer__col h5 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1rem;
+      letter-spacing: 0.12em;
+      color: var(--white);
+      margin-bottom: 1.2rem;
+    }
+    .footer__col ul { list-style: none; }
+    .footer__col ul li { margin-bottom: 0.6rem; }
+    .footer__col ul li a { font-size: 0.83rem; color: var(--muted); transition: color 0.2s; }
+    .footer__col ul li a:hover { color: var(--white); }
+    .footer__bottom {
       max-width: 1200px;
       margin: 0 auto;
       padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
       align-items: center;
+      font-size: 0.75rem;
+      color: var(--muted);
       flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-    .footer-bottom p {
-      font-size: 0.8125rem;
-      color: var(--text-muted);
-    }
-    .footer-bottom a {
-      color: var(--accent);
-      text-decoration: none;
+      gap: 0.5rem;
     }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 1024px) {
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .stat-item:nth-child(2) { border-right: none; }
-      .stat-item:nth-child(3), .stat-item:nth-child(4) { border-top: 1px solid var(--border); }
-      .stat-item:nth-child(4) { border-right: none; }
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
-      .config-layout { grid-template-columns: 1fr; }
-      .benefits-grid { grid-template-columns: repeat(2, 1fr); }
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-      .gallery-item { aspect-ratio: 4/3; }
-      .testimonials-grid { grid-template-columns: 1fr; }
-      .footer-inner { grid-template-columns: 1fr 1fr; }
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
     }
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .nav-inner { padding: 0 1.25rem; }
-      .section { padding: 4rem 1.25rem; }
-      .services-grid { grid-template-columns: 1fr; }
-      .benefits-grid { grid-template-columns: 1fr 1fr; }
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
-      .footer-bottom { flex-direction: column; text-align: center; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 900px) {
+      .nav__links { display: none; }
+      .stats__grid { grid-template-columns: repeat(2,1fr); }
+      .services__grid { grid-template-columns: 1fr 1fr; }
+      .service-card:nth-child(3n) { border-right: 1px solid var(--border); }
+      .service-card:nth-child(2n) { border-right: none; }
+      .service-card:nth-child(5), .service-card:nth-child(6) { border-bottom: none; }
+      .service-card:nth-child(4) { border-bottom: 1px solid var(--border); }
+      .about__inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .reviews__grid { grid-template-columns: 1fr; gap: 1px; }
+      .why__grid { grid-template-columns: repeat(2,1fr); }
+      .sectors__inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .footer__grid { grid-template-columns: 1fr 1fr; }
     }
-    @media (max-width: 480px) {
-      .stats-grid { grid-template-columns: 1fr 1fr; }
-      .benefits-grid { grid-template-columns: 1fr; }
-      .gallery-grid { grid-template-columns: 1fr 1fr; }
-      .hero-ctas { flex-direction: column; }
-      .hero-ctas .btn { width: 100%; justify-content: center; }
+    @media (max-width: 540px) {
+      .services__grid { grid-template-columns: 1fr; }
+      .service-card { border-right: none !important; }
+      .service-card:nth-child(5) { border-bottom: 1px solid var(--border) !important; }
+      .service-card:nth-child(6) { border-bottom: none !important; }
+      .footer__grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ── NAV ── -->
-  <nav>
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">
-        <!-- Trophy SVG badge -->
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M14 2L16.5 9.5H24.5L18.5 14L20.5 21.5L14 17L7.5 21.5L9.5 14L3.5 9.5H11.5L14 2Z" fill="#C9A96E" opacity="0.95"/>
-        </svg>
-        <span class="nav-logo-text">Summerside Blinds</span>
-      </a>
-      <ul class="nav-links">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#areas">Areas</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="tel:+441315531073" class="btn-nav-cta">Get a Free Quote</a></li>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav__logo">Summerside <span>Blinds</span></a>
+  <ul class="nav__links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="tel:+441315531073" class="btn btn--gold nav__cta">Free Consultation</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero__bg" id="heroBg"></div>
+  <div class="hero__overlay"></div>
+  <div class="hero__vignette"></div>
+  <div class="hero__inner">
+    <span class="eyebrow">Leith, Edinburgh — Free Home Consultation</span>
+    <h1 class="hero__title">
+      <span class="hero__line" id="line1">EDINBURGH'S</span>
+      <span class="hero__line" id="line2">MADE-TO-MEASURE</span>
+      <span class="hero__line" id="line3">BLINDS EXPERTS</span>
+    </h1>
+    <p class="hero__sub">Custom blinds designed, supplied and fitted across Edinburgh and the Lothians. Every blind made to your exact measurements for a perfect finish, every time.</p>
+    <div class="hero__ctas">
+      <a href="tel:+441315531073" class="btn btn--gold">Book Free Consultation</a>
+      <a href="#services" class="btn btn--outline">View Blinds</a>
+    </div>
+    <div class="hero__badges">
+      <span class="badge"><span class="badge__dot"></span>Edinburgh Local</span>
+      <span class="badge"><span class="badge__dot"></span>Free Consultation</span>
+      <span class="badge"><span class="badge__dot"></span>Expert Fitting</span>
+      <span class="badge"><span class="badge__dot"></span>All Styles</span>
+    </div>
+  </div>
+  <div class="scroll-indicator" aria-hidden="true">
+    <span>Scroll</span>
+    <svg width="14" height="20" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="1" y="1" width="12" height="18" rx="6" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="7" cy="7" r="2" fill="currentColor"/>
+    </svg>
+  </div>
+</section>
+
+<!-- STATEMENT -->
+<section class="statement reveal">
+  <span class="eyebrow">Our Promise</span>
+  <h2>MADE TO MEASURE.<br>FITTED TO PERFECTION.</h2>
+  <div class="gold-line"></div>
+  <p>Every blind we supply is cut to your exact window dimensions. We visit your home, take precise measurements, advise on fabrics and styles, then install everything with care and expertise.</p>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stats__grid">
+    <div class="stat reveal">
+      <div class="stat__num" data-target="100">0</div>
+      <div class="stat__label">Edinburgh Local</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat__num" data-target="4.8" data-decimal>0</div>
+      <div class="stat__label">Google Rating</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat__num" data-target="100">0</div>
+      <div class="stat__label">% Free Consultation</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat__num" data-target="100">0</div>
+      <div class="stat__label">% Expert Fitting</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-header reveal">
+    <span class="eyebrow">What We Offer</span>
+    <h2>OUR BLIND<br>COLLECTION</h2>
+    <p>From sleek rollers to classic venetians — we stock and fit every style of blind to suit any room and any budget.</p>
+  </div>
+  <div class="services__grid">
+    <div class="service-card reveal">
+      <div class="service-card__num">01</div>
+      <h3>Roller Blinds</h3>
+      <p>Clean, minimal and endlessly versatile. Available in hundreds of fabrics including blackout, dimout and moisture-resistant options for every room.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-card__num">02</div>
+      <h3>Venetian Blinds</h3>
+      <p>Timeless aluminium or real wood slats. Adjust the angle to control exactly how much light enters — perfect for offices and living spaces alike.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-card__num">03</div>
+      <h3>Roman Blinds</h3>
+      <p>Soft fabric folds that add warmth and texture to any room. Choose from our extensive range of plains, patterns and blackout linings.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-card__num">04</div>
+      <h3>Vertical Blinds</h3>
+      <p>Ideal for large windows and patio doors. Rotate the louvres for precise light control or draw them fully open for an unobstructed view.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-card__num">05</div>
+      <h3>Blackout Blinds</h3>
+      <p>Complete light exclusion for bedrooms, nurseries and home cinemas. Available in roller, roman and venetian styles to suit your décor.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-card__num">06</div>
+      <h3>Commercial Blinds</h3>
+      <p>Offices, schools and hospitality across Edinburgh. Durable, stylish blinds supplied and fitted with minimal disruption to your operations.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about__inner">
+    <div class="about__image-wrap reveal">
+      <img
+        class="about__image"
+        src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=800&q=80"
+        alt="Summerside Blinds Edinburgh showroom"
+        loading="lazy"
+      />
+      <div class="corner-frame corner-frame--tl"></div>
+      <div class="corner-frame corner-frame--tr"></div>
+      <div class="corner-frame corner-frame--bl"></div>
+      <div class="corner-frame corner-frame--br"></div>
+    </div>
+    <div class="about__content reveal">
+      <span class="eyebrow">Who We Are</span>
+      <h2>LEITH'S<br>BLINDS<br>SPECIALISTS</h2>
+      <p>Summerside Blinds is Edinburgh's independent blind specialist, based on North Leith Sands in the heart of Leith. We've been fitting beautiful blinds across Edinburgh and the Lothians for years.</p>
+      <p>As a local, independent business we take genuine pride in our work. You'll deal directly with our team from your first consultation through to final fitting — no call centres, no contractors.</p>
+      <p>Visit our showroom at 14 North Leith Sands, EH6 4ER to explore our full range of fabrics, colours and styles in person.</p>
+      <div class="badge-strip">
+        <span class="badge-pill">Independent</span>
+        <span class="badge-pill">Edinburgh Based</span>
+        <span class="badge-pill">Expert Fitters</span>
+        <span class="badge-pill">Free Consultation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="reviews__header reveal">
+    <div class="g-badge">
+      <span class="g-badge__logo">G</span>
+      <span>Google Reviews</span>
+      <span class="g-badge__stars">★★★★★</span>
+      <strong>4.8</strong>
+    </div>
+    <h2 style="font-size:clamp(2rem,3.5vw,3rem);">WHAT EDINBURGH<br>IS SAYING</h2>
+  </div>
+  <div class="reviews__grid">
+    <div class="review-card reveal">
+      <div class="review-card__stars">★★★★★</div>
+      <p class="review-card__text">"Absolutely superb service from start to finish. The venetian blinds are beautifully made and the fitter was meticulous. I wouldn't hesitate to use Summerside Blinds again — worth every penny."</p>
+      <div class="review-card__author">Fiona M.</div>
+      <div class="review-card__location">Leith, Edinburgh</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-card__stars">★★★★★</div>
+      <p class="review-card__text">"Had roller blinds fitted throughout our new flat in Stockbridge. The whole process was straightforward — measured on Monday, fitted on Friday. Beautiful quality and very competitively priced."</p>
+      <div class="review-card__author">David R.</div>
+      <div class="review-card__location">Stockbridge, Edinburgh</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-card__stars">★★★★★</div>
+      <p class="review-card__text">"Roman blinds in our living room look absolutely stunning. The team helped us choose the perfect fabric and the finish is impeccable. So glad we chose a local specialist over a big chain."</p>
+      <div class="review-card__author">Alasdair K.</div>
+      <div class="review-card__location">Morningside, Edinburgh</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why">
+  <div class="why__inner">
+    <h2 class="why__title reveal">WHY CHOOSE SUMMERSIDE BLINDS</h2>
+    <div class="why__grid">
+      <div class="why-item reveal">
+        <div class="why-item__icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h4>Free Home Visit</h4>
+        <p>We come to you, take precise measurements and guide you through every fabric and style option available.</p>
+      </div>
+      <div class="why-item reveal">
+        <div class="why-item__icon">
+          <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+        </div>
+        <h4>Made to Measure</h4>
+        <p>Every blind is cut precisely to your window dimensions. No gaps, no overlaps — a perfect fit, guaranteed.</p>
+      </div>
+      <div class="why-item reveal">
+        <div class="why-item__icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h4>Local &amp; Independent</h4>
+        <p>A real Edinburgh business. You deal directly with our team throughout — no middlemen, no call centres.</p>
+      </div>
+      <div class="why-item reveal">
+        <div class="why-item__icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h4>Expert Installation</h4>
+        <p>Our experienced fitters treat your home with care and leave every blind hanging perfectly level and square.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTORS -->
+<section class="sectors">
+  <div class="sectors__inner">
+    <div class="sectors__content reveal">
+      <span class="eyebrow">Where We Work</span>
+      <h2>BLINDS<br>FOR EVERY<br>SPACE</h2>
+      <div class="gold-line" style="margin:1.2rem 0 1.8rem;"></div>
+      <p>From compact Edinburgh flats to large commercial offices — if it has a window, we can fit the perfect blind. We work throughout Edinburgh, the Lothians and surrounding areas.</p>
+    </div>
+    <div class="dot-grid reveal">
+      <div class="dot-item">Living Rooms</div>
+      <div class="dot-item">Bedrooms</div>
+      <div class="dot-item">Kitchens</div>
+      <div class="dot-item">Bathrooms</div>
+      <div class="dot-item">Home Offices</div>
+      <div class="dot-item">Conservatories</div>
+      <div class="dot-item">Commercial</div>
+      <div class="dot-item">Rental Properties</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <span class="eyebrow">Get Started Today</span>
+  <h2 class="reveal">BOOK YOUR FREE<br>CONSULTATION</h2>
+  <p class="reveal">Call us or drop us a message. We'll arrange a convenient time to visit, measure up and provide a no-obligation quote for your blinds.</p>
+  <div class="btn-group reveal">
+    <a href="tel:+441315531073" class="btn btn--gold">+44 131 553 1073</a>
+    <a href="mailto:info@summersideblinds.co.uk" class="btn btn--outline">Email Us</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer__grid">
+    <div class="footer__brand">
+      <span class="nav__logo">Summerside <span>Blinds</span></span>
+      <p>Edinburgh's independent blind specialist. Made-to-measure blinds supplied and fitted across Edinburgh and the Lothians.</p>
+    </div>
+    <div class="footer__col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#services">Roller Blinds</a></li>
+        <li><a href="#services">Venetian Blinds</a></li>
+        <li><a href="#services">Roman Blinds</a></li>
+        <li><a href="#services">Vertical Blinds</a></li>
+        <li><a href="#services">Blackout Blinds</a></li>
+        <li><a href="#services">Commercial Blinds</a></li>
       </ul>
     </div>
-  </nav>
-
-  <!-- ── HERO ── -->
-  <section id="hero">
-    <div class="hero-bg"></div>
-    <div class="container hero-content" style="padding: 0; padding-top: 5rem;">
-      <div class="hero-award-badge">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M8 1L9.5 5.5H14.5L10.5 8.5L12 13L8 10L4 13L5.5 8.5L1.5 5.5H6.5L8 1Z" fill="#C9A96E"/>
-        </svg>
-        <span>Best Blinds Retailer of the Year 2025/26</span>
-      </div>
-      <h1>Made to Measure<br /><em>Blinds in Edinburgh</em></h1>
-      <p class="hero-subtitle">Designed, manufactured and fitted from our Leith workshop. Family-run craftsmanship serving Edinburgh and central Scotland for over 50 years.</p>
-      <div class="hero-ctas">
-        <a href="tel:+441315531073" class="btn btn-primary">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.15 2.18 2 2 0 012.11 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.45-.45a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/>
-          </svg>
-          Get a Free Quote
-        </a>
-        <a href="#configurator" class="btn btn-outline">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/>
-          </svg>
-          Design Your Blind
-        </a>
-      </div>
+    <div class="footer__col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Free Consultation</a></li>
+      </ul>
     </div>
-  </section>
-
-  <!-- ── STAT BAND ── -->
-  <section id="stats">
-    <div class="stats-grid">
-      <div class="stat-item">
-        <div class="stat-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2l2.5 7.5H22l-6.5 4.5 2.5 7.5L12 17l-6 4.5 2.5-7.5L3 9.5h7.5L12 2z"/>
-          </svg>
-        </div>
-        <div class="stat-value">Best Blinds Retailer</div>
-        <div class="stat-label">of the Year 2025/26</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-          </svg>
-        </div>
-        <div class="stat-value">50+ Years</div>
-        <div class="stat-label">Serving Edinburgh</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="20 6 9 17 4 12"/>
-          </svg>
-        </div>
-        <div class="stat-value">Free Measuring</div>
-        <div class="stat-label">&amp; Fitting Included</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          </svg>
-        </div>
-        <div class="stat-value">3-Year Guarantee</div>
-        <div class="stat-label">On Every Installation</div>
-      </div>
+    <div class="footer__col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="tel:+441315531073">+44 131 553 1073</a></li>
+        <li><a href="mailto:info@summersideblinds.co.uk">info@summersideblinds.co.uk</a></li>
+        <li><a href="#">14 North Leith Sands<br>Leith, Edinburgh EH6 4ER</a></li>
+      </ul>
     </div>
-  </section>
+  </div>
+  <div class="footer__bottom">
+    <span>&copy; 2025 Summerside Blinds Edinburgh. All rights reserved.</span>
+    <span>14 North Leith Sands, Leith, Edinburgh EH6 4ER, Scotland</span>
+  </div>
+</footer>
 
-  <!-- ── SERVICES ── -->
-  <section id="services" class="section">
-    <div class="container">
-      <div class="services-header">
-        <span class="section-label">Our Products</span>
-        <h2 style="color:var(--text);">Made-to-Measure for Every Room</h2>
-        <p style="max-width:520px;margin:0.75rem auto 0;">Every blind and curtain is measured, manufactured and fitted by our expert team from our Leith workshop.</p>
-      </div>
-      <div class="services-grid">
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
 
-        <div class="service-card">
-          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="1"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/>
-          </svg>
-          <h3>Venetian Blinds</h3>
-          <p>Classic aluminium and wood slat blinds with precise light control. Bespoke sizing for any window.</p>
-        </div>
-
-        <div class="service-card">
-          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 4h16v2a8 8 0 01-16 0V4z"/><line x1="12" y1="6" x2="12" y2="20"/><line x1="8" y1="20" x2="16" y2="20"/>
-          </svg>
-          <h3>Roller Blinds</h3>
-          <p>Sleek and minimal, available in blackout, translucent, and solar fabrics in hundreds of colours.</p>
-        </div>
-
-        <div class="service-card">
-          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 3h18v18H3z M9 3v18 M15 3v18"/>
-          </svg>
-          <h3>Vertical Blinds</h3>
-          <p>Ideal for large windows and patio doors. Custom widths, louvre sizes, and heading styles.</p>
-        </div>
-
-        <div class="service-card">
-          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
-          </svg>
-          <h3>Roman Blinds</h3>
-          <p>Elegant fabric blinds that fold neatly when raised. Crafted in premium woven and linen textiles.</p>
-        </div>
-
-        <div class="service-card">
-          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 3l7 7 7-7M5 21l7-7 7 7"/>
-          </svg>
-          <h3>Day &amp; Night Blinds</h3>
-          <p>Alternating sheer and opaque fabric bands give continuous, variable light and privacy control.</p>
-        </div>
-
-        <div class="service-card">
-          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 4v16h16V4H4z"/><path d="M4 8c2-2 6-2 8 0s6 2 8 0"/>
-          </svg>
-          <h3>Made-to-Measure Curtains</h3>
-          <p>Hand-finished curtains, pelmets, and tracks. Hundreds of fabric choices, lined and interlined.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ── CONFIGURATOR ── -->
-  <section id="configurator" class="section">
-    <div class="container">
-      <div class="config-header">
-        <span class="section-label">Interactive Tool</span>
-        <h2 style="color:var(--text);">Design Your Perfect Blind</h2>
-        <p style="max-width:480px;margin:0.75rem auto 0;">Choose your size, fabric colour, and installation style. Call us to bring it to life.</p>
-      </div>
-
-      <div class="config-layout">
-        <!-- Canvas -->
-        <div class="config-canvas-wrap">
-          <canvas id="wc-canvas"></canvas>
-        </div>
-
-        <!-- Controls -->
-        <div class="config-controls">
-
-          <div class="ctrl-group">
-            <label>Width</label>
-            <div class="slider-row">
-              <input type="range" id="wc-width" min="60" max="300" value="120" step="1" />
-              <span class="slider-val"><span id="wc-width-val">120</span> cm</span>
-            </div>
-          </div>
-
-          <div class="ctrl-group">
-            <label>Height</label>
-            <div class="slider-row">
-              <input type="range" id="wc-height" min="60" max="300" value="150" step="1" />
-              <span class="slider-val"><span id="wc-height-val">150</span> cm</span>
-            </div>
-          </div>
-
-          <div class="ctrl-group">
-            <label>Fabric Colour</label>
-            <div class="swatches">
-              <div class="swatch wc-active" data-wc-color="#1E1E1E" style="background:#1E1E1E;" title="Graphite"></div>
-              <div class="swatch" data-wc-color="#DDD5C4" style="background:#DDD5C4;" title="Linen"></div>
-              <div class="swatch" data-wc-color="#5B6472" style="background:#5B6472;" title="Slate"></div>
-              <div class="swatch" data-wc-color="#C0AA88" style="background:#C0AA88;" title="Sandstone"></div>
-              <div class="swatch" data-wc-color="#7A5C38" style="background:#7A5C38;" title="Tan"></div>
-              <div class="swatch" data-wc-color="#6A8E6A" style="background:#6A8E6A;" title="Sage"></div>
-            </div>
-          </div>
-
-          <div class="ctrl-group">
-            <label>Installation</label>
-            <div class="btn-group">
-              <button class="btn-ctrl" data-wc-install="recessed">Recessed</button>
-              <button class="btn-ctrl wc-active" data-wc-install="surface">Surface</button>
-              <button class="btn-ctrl" data-wc-install="fullWall">Full Wall</button>
-            </div>
-          </div>
-
-          <div class="ctrl-group">
-            <label>Position</label>
-            <div class="btn-group">
-              <button class="btn-ctrl wc-active" id="wc-toggle-closed">Closed</button>
-              <button class="btn-ctrl" id="wc-toggle-open">Open</button>
-            </div>
-          </div>
-
-          <div class="config-cta">
-            <a href="tel:+441315531073" class="btn btn-primary">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.15 2.18 2 2 0 012.11 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.45-.45a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/>
-              </svg>
-              Call +44 131 553 1073
-            </a>
-            <p class="config-cta-note">Free measuring &amp; fitting — no obligation</p>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── BENEFITS ── -->
-  <section id="about" class="section">
-    <div class="container">
-      <div style="text-align:center;margin-bottom:3rem;">
-        <span class="section-label">Why Choose Us</span>
-        <h2 style="color:var(--text);">Edinburgh's Award-Winning<br /><em style="font-style:italic;color:var(--accent);">Blind Specialists</em></h2>
-      </div>
-      <div class="benefits-grid">
-        <div class="benefit-card">
-          <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2l2.5 7.5H22l-6.5 4.5 2.5 7.5L12 17l-6 4.5 2.5-7.5L3 9.5h7.5L12 2z"/>
-          </svg>
-          <h3>Award-Winning</h3>
-          <p>Recognised as Scotland's Best Blinds Retailer 2025/26 — a testament to quality and service.</p>
-        </div>
-        <div class="benefit-card">
-          <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
-          </svg>
-          <h3>Made in Leith</h3>
-          <p>Every product is designed and manufactured in our own workshop on North Leith Sands, Edinburgh.</p>
-        </div>
-        <div class="benefit-card">
-          <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
-          </svg>
-          <h3>Family-Run</h3>
-          <p>A genuine family business — personal relationships, honest advice, and pride in our craft.</p>
-        </div>
-        <div class="benefit-card">
-          <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-          </svg>
-          <h3>50 Years Experience</h3>
-          <p>Half a century fitting blinds across Edinburgh and central Scotland. Experience you can trust.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── GALLERY ── -->
-  <section id="gallery" class="section">
-    <div class="container">
-      <div class="gallery-header">
-        <span class="section-label">Our Work</span>
-        <h2 style="color:var(--text);">Crafted for Edinburgh Homes</h2>
-      </div>
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80" alt="Venetian blinds in modern Edinburgh living room" loading="lazy" />
-        </div>
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?auto=format&fit=crop&w=800&q=80" alt="Roller blinds in contemporary kitchen" loading="lazy" />
-        </div>
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=800&q=80" alt="Roman blinds in elegant bedroom" loading="lazy" />
-        </div>
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=800&q=80" alt="Made-to-measure curtains in dining room" loading="lazy" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── TESTIMONIALS ── -->
-  <section id="testimonials" class="section" style="background:var(--bg);">
-    <div class="container">
-      <div class="testimonials-header">
-        <span class="section-label">Client Reviews</span>
-        <h2 style="color:var(--text);">Trusted by Edinburgh Homeowners</h2>
-      </div>
-      <div class="testimonials-grid">
-
-        <div class="testimonial-card">
-          <div class="testimonial-stars">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.5 7.5H22l-6.5 4.5 2.5 7.5L12 17l-6 4.5 2.5-7.5L3 9.5h7.5L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.5 7.5H22l-6.5 4.5 2.5 7.5L12 17l-6 4.5 2.5-7.5L3 9.5h7.5L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.5 7.5H22l-6.5 4.5 2.5 7.5L12 17l-6 4.5 2.5-7.5L3 9.5h7.5L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.5 7.5H22l-6.5 4.5 2.5 7.5L12 17l-6 4.5 2.5-7.5L3 9.5h7.5L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.5 7.5H22l-6.5 4.5 2.5 7.5L12 17l-6 4.5 2.5-7.5L3 9.5h7.5L12 2z"/></svg>
-          </div>
-          <blockquote>"Absolutely superb service from start to finish. The venetian blinds are beautifully made and the fitter was meticulous. Worth every penny."</blockquote>
-          <div class="testimonial-author">Margaret H.</div>
-          <div class="testimonial-location">Morningside, Edinburgh</div>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="testimonial-stars">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.5 7.5H22l-6.5 4.5 2.5 7.5L12 17l-6 4.5 2.5-7.5L3 9.5h7.5L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.5 7.5H22l-6.5 4.5 2.5 7.5L12 17l-6 4.5 2.5-7.5L3 9.5h7.5L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.5 7.5H22l-6.5 4.5 2.5 7.5L12 17l-6 4.5 2.5-7.5L3 9.5h7.5L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.5 7.5H22l-6.5 4.5 2.5 7.5L12 17l-6 4.5 2.5-7.5L3 9.5h7.5L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.5 7.5H22l-6.5 4.5 2.5 7.5L12 17l-6 4.5 2.5-7.5L3 9.5h7.5L12 2z"/></svg>
-          </div>
-          <blockquote>"We've used Summerside for three properties now. Consistent quality, competitive pricing, and the team always goes the extra mile."</blockquote>
-          <div class="testimonial-author">David &amp; Claire R.</div>
-          <div class="testimonial-location">Stockbridge, Edinburgh</div>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="testimonial-stars">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.5 7.5H22l-6.5 4.5 2.5 7.5L12 17l-6 4.5 2.5-7.5L3 9.5h7.5L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.5 7.5H22l-6.5 4.5 2.5 7.5L12 17l-6 4.5 2.5-7.5L3 9.5h7.5L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.5 7.5H22l-6.5 4.5 2.5 7.5L12 17l-6 4.5 2.5-7.5L3 9.5h7.5L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.5 7.5H22l-6.5 4.5 2.5 7.5L12 17l-6 4.5 2.5-7.5L3 9.5h7.5L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.5 7.5H22l-6.5 4.5 2.5 7.5L12 17l-6 4.5 2.5-7.5L3 9.5h7.5L12 2z"/></svg>
-          </div>
-          <blockquote>"The free measuring service was brilliant — took all the stress out of it. The blackout roller blinds are perfect for our bedroom."</blockquote>
-          <div class="testimonial-author">Fiona K.</div>
-          <div class="testimonial-location">Leith, Edinburgh</div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ── CTA SECTION ── -->
-  <section id="contact" class="section" id="cta-section" style="background:var(--surface);border-top:1px solid var(--border);">
-    <div class="container">
-      <div class="cta-inner">
-        <span class="section-label">Get Started Today</span>
-        <h2>Free Measuring &amp; Fitting<br /><em style="font-style:italic;color:var(--accent);">Across Edinburgh</em></h2>
-        <p>Our expert team will visit your home, measure every window precisely, and install your blinds to perfection — all with no obligation and no extra cost.</p>
-        <div class="cta-buttons">
-          <a href="tel:+441315531073" class="btn btn-primary">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.15 2.18 2 2 0 012.11 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.45-.45a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/>
-            </svg>
-            Call +44 131 553 1073
-          </a>
-          <a href="#configurator" class="btn btn-outline">Design Your Blind</a>
-        </div>
-        <p class="cta-detail">Showroom &amp; Workshop: 14 N Leith Sands, Leith, Edinburgh EH6 4ER</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── FOOTER ── -->
-  <footer id="areas">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <a href="#" class="nav-logo" style="text-decoration:none;">
-          <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
-            <path d="M14 2L16.5 9.5H24.5L18.5 14L20.5 21.5L14 17L7.5 21.5L9.5 14L3.5 9.5H11.5L14 2Z" fill="#C9A96E"/>
-          </svg>
-          <span class="nav-logo-text">Summerside Blinds</span>
-        </a>
-        <p>Best Blinds Retailer of the Year 2025/26. Made-to-measure blinds and curtains, designed and fitted from our Leith workshop since 1974. Free measuring and fitting. 3-year guarantee.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Products</h4>
-        <ul>
-          <li><a href="#services">Venetian Blinds</a></li>
-          <li><a href="#services">Roller Blinds</a></li>
-          <li><a href="#services">Vertical Blinds</a></li>
-          <li><a href="#services">Roman Blinds</a></li>
-          <li><a href="#services">Day &amp; Night Blinds</a></li>
-          <li><a href="#services">Curtains</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Areas We Serve</h4>
-        <ul>
-          <li><a href="#">Edinburgh City Centre</a></li>
-          <li><a href="#">Leith &amp; Newhaven</a></li>
-          <li><a href="#">Stockbridge</a></li>
-          <li><a href="#">Morningside</a></li>
-          <li><a href="#">Portobello</a></li>
-          <li><a href="#">Central Scotland</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="tel:+441315531073">+44 131 553 1073</a></li>
-          <li><a href="#">14 N Leith Sands</a></li>
-          <li><a href="#">Leith, Edinburgh</a></li>
-          <li><a href="#">EH6 4ER, UK</a></li>
-          <li style="margin-top:0.75rem;"><a href="#configurator">Free Quote</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Summerside Blinds Edinburgh. All rights reserved.</p>
-      <p>Demo site created by <a href="https://jayexe.com" target="_blank">Jay Web Design</a></p>
-    </div>
-  </footer>
-
-  <!-- ── SHARED CANVAS SCRIPT ── -->
-  <script>
-// Window Configurator — Vanilla JS port from LuxuryBlind project
-// drawCanvas, setupConfigurator — embed inline in each demo HTML
-
-function wcLighten(hex, amt) {
-  const n = parseInt(hex.replace('#', ''), 16);
-  const r = Math.min(255, (n >> 16) + amt);
-  const g = Math.min(255, ((n >> 8) & 0xff) + amt);
-  const b = Math.min(255, (n & 0xff) + amt);
-  return '#' + r.toString(16).padStart(2,'0') + g.toString(16).padStart(2,'0') + b.toString(16).padStart(2,'0');
-}
-function wcDarken(hex, amt) { return wcLighten(hex, -amt); }
-
-function drawWindowCanvas(ctx, W, H, params, progress) {
-  const { widthCm, heightCm, installation, mounting, blindColor } = params;
-  ctx.clearRect(0, 0, W, H);
-
-  // ROOM SCENE
-  ctx.fillStyle = '#F0EEE9';
-  ctx.fillRect(0, 0, W, H * 0.10);
-
-  const wallG = ctx.createLinearGradient(0, H*0.10, W, H*0.85);
-  wallG.addColorStop(0, '#ECEAE5');
-  wallG.addColorStop(0.45, '#F4F1EC');
-  wallG.addColorStop(1, '#ECEAE5');
-  ctx.fillStyle = wallG;
-  ctx.fillRect(0, H*0.10, W, H*0.75);
-
-  const wallEdge = ctx.createLinearGradient(0, 0, W, 0);
-  wallEdge.addColorStop(0, 'rgba(0,0,0,.05)');
-  wallEdge.addColorStop(0.18, 'rgba(0,0,0,0)');
-  wallEdge.addColorStop(0.82, 'rgba(0,0,0,0)');
-  wallEdge.addColorStop(1, 'rgba(0,0,0,.05)');
-  ctx.fillStyle = wallEdge;
-  ctx.fillRect(0, H*0.10, W, H*0.75);
-
-  ctx.fillStyle = '#E4E0D9';
-  ctx.fillRect(0, H*0.095, W, H*0.012);
-  ctx.fillStyle = 'rgba(0,0,0,.07)';
-  ctx.fillRect(0, H*0.095 + H*0.012, W, 2);
-
-  // Floor
-  const floorY = H*0.85, floorH = H*0.15;
-  const floorBase = ctx.createLinearGradient(0, floorY, 0, floorY+floorH);
-  floorBase.addColorStop(0, '#B89860');
-  floorBase.addColorStop(1, '#9A7D48');
-  ctx.fillStyle = floorBase;
-  ctx.fillRect(0, floorY, W, floorH);
-
-  const plankW = W/7;
-  for (let i=0; i<7; i++) {
-    ctx.fillStyle = i%2===0 ? 'rgba(255,255,255,.04)' : 'rgba(0,0,0,.035)';
-    ctx.fillRect(i*plankW, floorY, plankW, floorH);
-    ctx.strokeStyle = 'rgba(0,0,0,.09)'; ctx.lineWidth = 0.5;
-    ctx.beginPath(); ctx.moveTo(i*plankW, floorY); ctx.lineTo(i*plankW, floorY+floorH); ctx.stroke();
-  }
-  ctx.strokeStyle = 'rgba(80,50,15,.10)'; ctx.lineWidth = 0.4;
-  for (let i=1; i<5; i++) {
-    ctx.beginPath(); ctx.moveTo(0, floorY+(floorH/5)*i); ctx.lineTo(W, floorY+(floorH/5)*i); ctx.stroke();
-  }
-  const floorHL = ctx.createLinearGradient(0, floorY, 0, floorY+floorH*0.28);
-  floorHL.addColorStop(0, 'rgba(255,255,255,.12)');
-  floorHL.addColorStop(1, 'rgba(255,255,255,0)');
-  ctx.fillStyle = floorHL; ctx.fillRect(0, floorY, W, floorH*0.28);
-
-  ctx.fillStyle = '#E0DAD0'; ctx.fillRect(0, H*0.838, W, H*0.016);
-  ctx.fillStyle = 'rgba(0,0,0,.08)'; ctx.fillRect(0, H*0.838+H*0.016, W, 2);
-
-  // WINDOW GEOMETRY
-  const aspect = widthCm / heightCm;
-  let fX, fY, fW, fH;
-  if (installation === 'fullWall') {
-    fW = Math.min(W*0.86, H*0.70*aspect);
-    fH = fW/aspect;
-    if (fH>H*0.70) { fH=H*0.70; fW=fH*aspect; }
-    fX=(W-fW)/2; fY=H*0.12;
-  } else {
-    const maxW=W*0.62, maxH=H*0.60;
-    fW=Math.min(maxW, maxH*aspect);
-    fH=fW/aspect;
-    if (fH>maxH) { fH=maxH; fW=fH*aspect; }
-    fX=(W-fW)/2; fY=H*0.165;
-  }
-
-  let bX, bY, bW, bH;
-  if (installation==='recessed') { bX=fX+4; bY=fY; bW=fW-8; bH=fH; }
-  else if (installation==='fullWall') { bX=fX; bY=fY; bW=fW; bH=fH; }
-  else { bX=fX-8; bY=fY-14; bW=fW+16; bH=fH+19; }
-
-  // RECESSED REVEAL
-  if (installation==='recessed') {
-    const d=12;
-    ctx.fillStyle='#D8D0C4';
-    ctx.beginPath(); ctx.moveTo(fX,fY); ctx.lineTo(fX-d,fY-d); ctx.lineTo(fX+fW+d,fY-d); ctx.lineTo(fX+fW,fY); ctx.closePath(); ctx.fill();
-    const topRS=ctx.createLinearGradient(0,fY-d,0,fY);
-    topRS.addColorStop(0,'rgba(0,0,0,.10)'); topRS.addColorStop(1,'rgba(0,0,0,.02)');
-    ctx.fillStyle=topRS;
-    ctx.beginPath(); ctx.moveTo(fX,fY); ctx.lineTo(fX-d,fY-d); ctx.lineTo(fX+fW+d,fY-d); ctx.lineTo(fX+fW,fY); ctx.closePath(); ctx.fill();
-    ctx.fillStyle='#BDB5A8';
-    ctx.beginPath(); ctx.moveTo(fX,fY); ctx.lineTo(fX-d,fY-d); ctx.lineTo(fX-d,fY+fH+d); ctx.lineTo(fX,fY+fH); ctx.closePath(); ctx.fill();
-    ctx.fillStyle='#E2D9CC';
-    ctx.beginPath(); ctx.moveTo(fX+fW,fY); ctx.lineTo(fX+fW+d,fY-d); ctx.lineTo(fX+fW+d,fY+fH+d); ctx.lineTo(fX+fW,fY+fH); ctx.closePath(); ctx.fill();
-    ctx.fillStyle='#CEC6B8';
-    ctx.beginPath(); ctx.moveTo(fX,fY+fH); ctx.lineTo(fX-d,fY+fH+d); ctx.lineTo(fX+fW+d,fY+fH+d); ctx.lineTo(fX+fW,fY+fH); ctx.closePath(); ctx.fill();
-  }
-
-  // GLASS / OUTDOOR SCENE
-  ctx.save(); ctx.beginPath(); ctx.rect(fX,fY,fW,fH); ctx.clip();
-  const skyG=ctx.createLinearGradient(fX,fY,fX,fY+fH*0.55);
-  skyG.addColorStop(0,'#4898C8'); skyG.addColorStop(0.55,'#88C8E8'); skyG.addColorStop(1,'#B8E2F6');
-  ctx.fillStyle=skyG; ctx.fillRect(fX,fY,fW,fH*0.55);
-  const hazeG=ctx.createLinearGradient(fX,fY+fH*0.45,fX,fY+fH*0.58);
-  hazeG.addColorStop(0,'rgba(255,252,235,0)'); hazeG.addColorStop(1,'rgba(255,252,235,.38)');
-  ctx.fillStyle=hazeG; ctx.fillRect(fX,fY+fH*0.45,fW,fH*0.14);
-  const groundG=ctx.createLinearGradient(fX,fY+fH*0.55,fX,fY+fH);
-  groundG.addColorStop(0,'#78BC52'); groundG.addColorStop(0.55,'#5A9C38'); groundG.addColorStop(1,'#3C7820');
-  ctx.fillStyle=groundG; ctx.fillRect(fX,fY+fH*0.55,fW,fH*0.45);
-  const treePos=[0.12,0.42,0.72];
-  for (const tx of treePos) {
-    const tBaseX=fX+fW*tx, tBaseY=fY+fH*0.55, tHt=fH*0.22;
-    ctx.fillStyle='rgba(60,40,20,.40)'; ctx.fillRect(tBaseX-fW*0.008,tBaseY-tHt*0.28,fW*0.016,tHt*0.28);
-    ctx.fillStyle='rgba(35,80,28,.50)';
-    ctx.beginPath(); ctx.moveTo(tBaseX-fW*0.065,tBaseY-tHt*0.28); ctx.lineTo(tBaseX+fW*0.065,tBaseY-tHt*0.28); ctx.lineTo(tBaseX,tBaseY-tHt*0.62); ctx.closePath(); ctx.fill();
-    ctx.fillStyle='rgba(30,75,22,.55)';
-    ctx.beginPath(); ctx.moveTo(tBaseX-fW*0.05,tBaseY-tHt*0.52); ctx.lineTo(tBaseX+fW*0.05,tBaseY-tHt*0.52); ctx.lineTo(tBaseX,tBaseY-tHt*0.86); ctx.closePath(); ctx.fill();
-    ctx.fillStyle='rgba(25,70,18,.55)';
-    ctx.beginPath(); ctx.moveTo(tBaseX-fW*0.034,tBaseY-tHt*0.74); ctx.lineTo(tBaseX+fW*0.034,tBaseY-tHt*0.74); ctx.lineTo(tBaseX,tBaseY-tHt); ctx.closePath(); ctx.fill();
-  }
-  const sx=fX+fW*0.78, sy=fY+fH*0.13;
-  const sunG=ctx.createRadialGradient(sx,sy,0,sx,sy,fW*0.11);
-  sunG.addColorStop(0,'rgba(255,242,100,.95)'); sunG.addColorStop(0.45,'rgba(255,218,50,.50)'); sunG.addColorStop(1,'rgba(255,200,30,0)');
-  ctx.fillStyle=sunG; ctx.beginPath(); ctx.arc(sx,sy,fW*0.11,0,Math.PI*2); ctx.fill();
-  const cs=fW/180;
-  ctx.fillStyle='rgba(255,255,255,.88)';
-  const cx2=fX+fW*0.16, cy2=fY+fH*0.22;
-  ctx.beginPath(); ctx.arc(cx2,cy2,9*cs,0,Math.PI*2); ctx.arc(cx2+12*cs,cy2-4*cs,7*cs,0,Math.PI*2); ctx.arc(cx2+23*cs,cy2,9*cs,0,Math.PI*2); ctx.fill();
-  const glareG=ctx.createLinearGradient(fX,fY,fX+fW*0.28,fY+fH*0.32);
-  glareG.addColorStop(0,'rgba(255,255,255,.10)'); glareG.addColorStop(0.5,'rgba(255,255,255,.04)'); glareG.addColorStop(1,'rgba(255,255,255,0)');
-  ctx.fillStyle=glareG; ctx.fillRect(fX,fY,fW,fH);
-  ctx.restore();
-
-  // WINDOW FRAME
-  if (installation!=='fullWall') {
-    ctx.fillStyle='rgba(0,0,0,.14)'; ctx.fillRect(fX+2,fY+2,fW,fH);
-    ctx.lineWidth=4.5; ctx.strokeStyle='#8A806E'; ctx.strokeRect(fX,fY,fW,fH);
-    ctx.lineWidth=1; ctx.strokeStyle='#AEA696'; ctx.strokeRect(fX+2.5,fY+2.5,fW-5,fH-5);
-    ctx.lineWidth=3; ctx.strokeStyle='#8A806E';
-    ctx.beginPath(); ctx.moveTo(fX+fW/2,fY); ctx.lineTo(fX+fW/2,fY+fH); ctx.stroke();
-    ctx.beginPath(); ctx.moveTo(fX,fY+fH*0.5); ctx.lineTo(fX+fW,fY+fH*0.5); ctx.stroke();
-    if (installation==='surface') {
-      const sillG=ctx.createLinearGradient(0,fY+fH,0,fY+fH+13);
-      sillG.addColorStop(0,'#D0C8BC'); sillG.addColorStop(1,'#BCAEA0');
-      ctx.fillStyle=sillG; ctx.fillRect(fX-7,fY+fH,fW+14,13);
+  const heroBg = document.getElementById('heroBg');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (y < window.innerHeight) {
+      heroBg.style.transform = `translateY(${y * 0.35}px)`;
     }
-  }
+  }, { passive: true });
 
-  // MOUNTING HARDWARE
-  if (mounting==='ceiling' && installation!=='recessed') {
-    const bkG=ctx.createLinearGradient(bX,bY-13,bX,bY);
-    bkG.addColorStop(0,'#5A5048'); bkG.addColorStop(1,'#3C3630');
-    ctx.fillStyle=bkG; ctx.fillRect(bX,bY-13,bW,13);
-    const bc=Math.max(2,Math.floor(bW/80));
-    for (let i=0; i<=bc; i++) {
-      ctx.fillStyle='#C9A96E'; ctx.fillRect(bX+(bW/bc)*i-3,bY-18,6,7);
-    }
-  }
-
-  // BLIND
-  const headerH=10, bundleH=bH*0.12;
-  const blindTopY=bY+headerH, closedBottom=bY+bH, openBottom=bY+headerH+bundleH;
-  const blindBottomY=closedBottom-(closedBottom-openBottom)*progress;
-  const currentBlindH=blindBottomY-blindTopY;
-
-  if (currentBlindH>1) {
-    const totalSlats=Math.max(6,Math.round(heightCm/5));
-    const sH=(bH-headerH)/totalSlats;
-    const visibleSlats=Math.ceil(currentBlindH/sH);
-    ctx.save(); ctx.beginPath(); ctx.rect(bX,blindTopY,bW,currentBlindH); ctx.clip();
-    for (let i=0; i<visibleSlats; i++) {
-      const sy2=blindTopY+i*sH, even=i%2===0;
-      const sg=ctx.createLinearGradient(0,sy2,0,sy2+sH);
-      if (even) { sg.addColorStop(0,wcLighten(blindColor,18)); sg.addColorStop(0.4,blindColor); sg.addColorStop(1,wcDarken(blindColor,22)); }
-      else { sg.addColorStop(0,wcDarken(blindColor,4)); sg.addColorStop(1,wcDarken(blindColor,26)); }
-      ctx.fillStyle=sg; ctx.fillRect(bX+1,sy2+0.5,bW-2,sH-1);
-      ctx.fillStyle=`rgba(201,169,110,${even?0.22:0.06})`; ctx.fillRect(bX+1,sy2+0.5,bW-2,1.5);
-      ctx.fillStyle='rgba(0,0,0,.20)'; ctx.fillRect(bX+1,sy2+sH-2,bW-2,2);
-    }
-    const sheen=ctx.createLinearGradient(bX,0,bX+bW,0);
-    sheen.addColorStop(0,'rgba(255,255,255,.02)'); sheen.addColorStop(0.22,'rgba(255,255,255,.09)');
-    sheen.addColorStop(0.78,'rgba(255,255,255,.02)'); sheen.addColorStop(1,'rgba(0,0,0,.07)');
-    ctx.fillStyle=sheen; ctx.fillRect(bX,blindTopY,bW,currentBlindH);
-    ctx.restore();
-    ctx.fillStyle=wcDarken(blindColor,8); ctx.fillRect(bX+1,blindBottomY-4,bW-2,4);
-    ctx.fillStyle='rgba(0,0,0,.18)'; ctx.fillRect(bX+1,blindBottomY-1,bW-2,1);
-  }
-
-  // HEADER RAIL
-  const railG=ctx.createLinearGradient(bX,bY,bX,bY+headerH);
-  railG.addColorStop(0,'#252525'); railG.addColorStop(1,'#181818');
-  ctx.fillStyle=railG; ctx.fillRect(bX,bY,bW,headerH);
-  ctx.fillStyle='#C9A96E'; ctx.fillRect(bX+2,bY+2.5,bW-4,1.5);
-  ctx.fillStyle='rgba(255,255,255,.06)'; ctx.fillRect(bX,bY,bW,2);
-
-  // CORD
-  const cordX=bX+bW*0.86;
-  const tassleY=Math.max(blindBottomY-4,bY+headerH+8);
-  ctx.strokeStyle='rgba(201,169,110,.55)'; ctx.lineWidth=1.5; ctx.setLineDash([]);
-  ctx.beginPath(); ctx.moveTo(cordX,bY+headerH); ctx.lineTo(cordX,tassleY); ctx.stroke();
-  ctx.fillStyle='#C9A96E'; ctx.beginPath(); ctx.arc(cordX,tassleY,3.5,0,Math.PI*2); ctx.fill();
-
-  // SIDE CHANNELS (recessed)
-  if (installation==='recessed') {
-    ctx.fillStyle='#181818';
-    ctx.fillRect(bX-4,bY,4,bH); ctx.fillRect(bX+bW,bY,4,bH);
-  }
-
-  // DIMENSION ANNOTATIONS
-  const ann=4;
-  const wAnnY=bY+bH+20;
-  ctx.setLineDash([3,3]); ctx.strokeStyle='rgba(201,169,110,.32)'; ctx.lineWidth=1;
-  ctx.beginPath(); ctx.moveTo(bX,bY+bH+2); ctx.lineTo(bX,wAnnY-2); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(bX+bW,bY+bH+2); ctx.lineTo(bX+bW,wAnnY-2); ctx.stroke();
-  ctx.setLineDash([]); ctx.strokeStyle='rgba(201,169,110,.60)';
-  ctx.beginPath(); ctx.moveTo(bX,wAnnY); ctx.lineTo(bX+bW,wAnnY); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(bX,wAnnY); ctx.lineTo(bX+ann,wAnnY-3); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(bX,wAnnY); ctx.lineTo(bX+ann,wAnnY+3); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(bX+bW,wAnnY); ctx.lineTo(bX+bW-ann,wAnnY-3); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(bX+bW,wAnnY); ctx.lineTo(bX+bW-ann,wAnnY+3); ctx.stroke();
-  ctx.font="bold 11px 'DM Sans',sans-serif"; ctx.fillStyle='#C9A96E'; ctx.textAlign='center';
-  ctx.fillText(widthCm+' cm', bX+bW/2, wAnnY+13);
-  const hAnnX=bX-22;
-  ctx.setLineDash([3,3]); ctx.strokeStyle='rgba(201,169,110,.32)';
-  ctx.beginPath(); ctx.moveTo(bX-2,bY); ctx.lineTo(hAnnX-2,bY); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(bX-2,bY+bH); ctx.lineTo(hAnnX-2,bY+bH); ctx.stroke();
-  ctx.setLineDash([]); ctx.strokeStyle='rgba(201,169,110,.60)';
-  ctx.beginPath(); ctx.moveTo(hAnnX,bY); ctx.lineTo(hAnnX,bY+bH); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(hAnnX,bY); ctx.lineTo(hAnnX-3,bY+ann); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(hAnnX,bY); ctx.lineTo(hAnnX+3,bY+ann); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(hAnnX,bY+bH); ctx.lineTo(hAnnX-3,bY+bH-ann); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(hAnnX,bY+bH); ctx.lineTo(hAnnX+3,bY+bH-ann); ctx.stroke();
-  ctx.save(); ctx.translate(hAnnX-9,bY+bH/2); ctx.rotate(-Math.PI/2);
-  ctx.textAlign='center'; ctx.fillStyle='#C9A96E';
-  ctx.fillText(heightCm+' cm', 0, 0); ctx.restore();
-}
-
-// ── CONFIGURATOR SETUP ──────────────────────────────────────────────────────
-function setupWindowConfigurator(canvasId, accentColor) {
-  const canvas = document.getElementById(canvasId);
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-
-  let state = { widthCm:120, heightCm:150, installation:'surface', mounting:'frame', blindColor:'#1E1E1E', isOpen:false };
-  let progressRef = 0;
-  let rafId = 0;
-
-  function render(prog) {
-    const dpr = window.devicePixelRatio || 1;
-    const W = canvas.width / dpr, H = canvas.height / dpr;
-    ctx.save(); ctx.scale(dpr, dpr);
-    drawWindowCanvas(ctx, W, H, state, prog);
-    ctx.restore();
-  }
-
-  function animateTo(target) {
-    cancelAnimationFrame(rafId);
-    const start = progressRef, t0 = performance.now(), dur = 500;
-    function ease(t) { return t<0.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2; }
-    function tick(now) {
-      const t = Math.min(1,(now-t0)/dur);
-      progressRef = start + (target-start)*ease(t);
-      render(progressRef);
-      if (t<1) rafId = requestAnimationFrame(tick);
-      else progressRef = target;
-    }
-    rafId = requestAnimationFrame(tick);
-  }
-
-  function setupCanvas() {
-    const dpr = window.devicePixelRatio || 1;
-    const rect = canvas.getBoundingClientRect();
-    if (!rect.width) return;
-    canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
-    render(progressRef);
-  }
-
-  const ro = new ResizeObserver(setupCanvas);
-  ro.observe(canvas);
-  setupCanvas();
-
-  const widthSlider = document.getElementById('wc-width');
-  const widthVal = document.getElementById('wc-width-val');
-  if (widthSlider) {
-    widthSlider.addEventListener('input', () => {
-      state.widthCm = parseInt(widthSlider.value);
-      if (widthVal) widthVal.textContent = widthSlider.value;
-      render(progressRef);
-    });
-  }
-
-  const heightSlider = document.getElementById('wc-height');
-  const heightVal = document.getElementById('wc-height-val');
-  if (heightSlider) {
-    heightSlider.addEventListener('input', () => {
-      state.heightCm = parseInt(heightSlider.value);
-      if (heightVal) heightVal.textContent = heightSlider.value;
-      render(progressRef);
-    });
-  }
-
-  document.querySelectorAll('[data-wc-color]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      state.blindColor = btn.dataset.wcColor;
-      document.querySelectorAll('[data-wc-color]').forEach(b => b.classList.remove('wc-active'));
-      btn.classList.add('wc-active');
-      render(progressRef);
-    });
+  const lines = ['line1','line2','line3'];
+  lines.forEach((id, i) => {
+    setTimeout(() => {
+      document.getElementById(id).classList.add('visible');
+    }, i * 140);
   });
 
-  document.querySelectorAll('[data-wc-install]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      state.installation = btn.dataset.wcInstall;
-      if (state.installation==='recessed') state.mounting='frame';
-      if (state.installation==='fullWall') state.mounting='ceiling';
-      document.querySelectorAll('[data-wc-install]').forEach(b => b.classList.remove('wc-active'));
-      btn.classList.add('wc-active');
-      render(progressRef);
+  function countUp(el) {
+    const target = parseFloat(el.dataset.target);
+    const isDecimal = el.dataset.decimal !== undefined;
+    const duration = 1600;
+    const step = 16;
+    const steps = duration / step;
+    const increment = target / steps;
+    let current = 0;
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      el.textContent = isDecimal ? current.toFixed(1) : Math.round(current);
+    }, step);
+  }
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const goldLines = document.querySelectorAll('.gold-line');
+  const aboutImages = document.querySelectorAll('.about__image');
+  const statNums = document.querySelectorAll('.stat__num[data-target]');
+  const counted = new WeakSet();
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
     });
-  });
+  }, { threshold: 0.15 });
 
-  document.querySelectorAll('[data-wc-mount]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      state.mounting = btn.dataset.wcMount;
-      document.querySelectorAll('[data-wc-mount]').forEach(b => b.classList.remove('wc-active'));
-      btn.classList.add('wc-active');
-      render(progressRef);
+  revealEls.forEach(el => observer.observe(el));
+  goldLines.forEach(el => observer.observe(el));
+  aboutImages.forEach(el => observer.observe(el));
+
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !counted.has(entry.target)) {
+        counted.add(entry.target);
+        countUp(entry.target);
+        countObserver.unobserve(entry.target);
+      }
     });
-  });
+  }, { threshold: 0.3 });
 
-  const btnClosed = document.getElementById('wc-toggle-closed');
-  const btnOpen = document.getElementById('wc-toggle-open');
-  if (btnClosed) btnClosed.addEventListener('click', () => { state.isOpen=false; animateTo(0); btnClosed.classList.add('wc-active'); if(btnOpen) btnOpen.classList.remove('wc-active'); });
-  if (btnOpen) btnOpen.addEventListener('click', () => { state.isOpen=true; animateTo(1); btnOpen.classList.add('wc-active'); if(btnClosed) btnClosed.classList.remove('wc-active'); });
-}
-  </script>
-
-  <!-- ── PAGE ANIMATIONS ── -->
-  <script type="module">
-    import { animate, inView, stagger } from 'https://esm.sh/motion';
-
-    // Hero entrance
-    animate(
-      '.hero-award-badge',
-      { opacity: [0, 1], y: [-12, 0] },
-      { duration: 0.55, easing: 'ease-out' }
-    );
-    animate(
-      '.hero-content h1',
-      { opacity: [0, 1], y: [24, 0] },
-      { duration: 0.65, delay: 0.12, easing: 'ease-out' }
-    );
-    animate(
-      '.hero-subtitle',
-      { opacity: [0, 1], y: [18, 0] },
-      { duration: 0.6, delay: 0.28, easing: 'ease-out' }
-    );
-    animate(
-      '.hero-ctas',
-      { opacity: [0, 1], y: [14, 0] },
-      { duration: 0.55, delay: 0.44, easing: 'ease-out' }
-    );
-
-    // Stat band
-    inView('.stats-grid', () => {
-      animate(
-        '.stat-item',
-        { opacity: [0, 1], y: [20, 0] },
-        { duration: 0.5, delay: stagger(0.1), easing: 'ease-out' }
-      );
-    }, { margin: '-80px' });
-
-    // Service cards
-    inView('.services-grid', () => {
-      animate(
-        '.service-card',
-        { opacity: [0, 1], y: [28, 0] },
-        { duration: 0.5, delay: stagger(0.08), easing: 'ease-out' }
-      );
-    }, { margin: '-60px' });
-
-    // Benefits
-    inView('.benefits-grid', () => {
-      animate(
-        '.benefit-card',
-        { opacity: [0, 1], y: [22, 0] },
-        { duration: 0.5, delay: stagger(0.1), easing: 'ease-out' }
-      );
-    }, { margin: '-60px' });
-
-    // Gallery
-    inView('.gallery-grid', () => {
-      animate(
-        '.gallery-item',
-        { opacity: [0, 1], y: [20, 0] },
-        { duration: 0.55, delay: stagger(0.1), easing: 'ease-out' }
-      );
-    }, { margin: '-60px' });
-
-    // Testimonials
-    inView('.testimonials-grid', () => {
-      animate(
-        '.testimonial-card',
-        { opacity: [0, 1], y: [24, 0] },
-        { duration: 0.5, delay: stagger(0.12), easing: 'ease-out' }
-      );
-    }, { margin: '-60px' });
-
-    // Configurator
-    inView('#configurator .config-layout', () => {
-      animate(
-        '#configurator .config-canvas-wrap',
-        { opacity: [0, 1], x: [-24, 0] },
-        { duration: 0.6, easing: 'ease-out' }
-      );
-      animate(
-        '#configurator .config-controls',
-        { opacity: [0, 1], x: [24, 0] },
-        { duration: 0.6, delay: 0.1, easing: 'ease-out' }
-      );
-    }, { margin: '-80px' });
-
-    // Init configurator after DOM is ready
-    setupWindowConfigurator('wc-canvas', '#C9A96E');
-  </script>
-
+  statNums.forEach(el => countObserver.observe(el));
+</script>
 </body>
 </html>

@@ -1,556 +1,718 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Kairos Pest Control — Coral Gables, FL</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/motion@latest/dist/motion.js"></script>
-<style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kairos Pest Control — Coral Gables' Trusted Pest Control Experts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root{
-  /* 3 core colors */
-  --green:  #0C3320;   /* Primary — dark forest green */
-  --cream:  #F6F0E4;   /* Secondary — warm cream */
-  --gold:   #C18A08;   /* Contrast — amber gold */
+    :root {
+      --bg: #0b0b0b;
+      --bg2: #111111;
+      --bg3: #161616;
+      --border: rgba(245,245,240,0.06);
+      --white: #f5f5f0;
+      --muted: rgba(245,245,240,0.45);
+      --gold: #c8a84b;
+      --accent: #1e5c3a;
+      --accent2: #2d7a52;
+    }
 
-  /* Derived */
-  --green-surf:  #122b1a;
-  --green-brd:   #1e4028;
-  --green-mu:    #6b9977;
-  --cream-surf:  #EDE5D5;
-  --cream-brd:   #D9CFBE;
-  --cream-mu:    #7a7060;
-  --tx-on-green: #F0EAD8;
-  --tx-on-cream: #1a1a14;
-  --gold-light:  rgba(193,138,8,.12);
-}
+    html { scroll-behavior: smooth; }
 
-html{scroll-behavior:smooth}
-body{background:var(--cream);color:var(--tx-on-cream);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;overflow-x:hidden}
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Jost', sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
 
-/* ── NAV ── */
-nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px;background:rgba(12,51,32,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--green-brd)}
-.logo{display:flex;align-items:center;gap:10px}
-.logo-mark{width:34px;height:34px;background:var(--gold);border-radius:6px;display:flex;align-items:center;justify-content:center}
-.logo-mark svg{width:18px;height:18px;fill:var(--green)}
-.logo-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--tx-on-green);letter-spacing:.4px}
-.nav-links{display:flex;gap:32px}
-.nav-links a{color:var(--green-mu);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.04em;transition:color .2s}
-.nav-links a:hover{color:var(--tx-on-green)}
-.nav-cta{background:var(--gold);color:var(--green);padding:9px 22px;border-radius:5px;font-size:13px;font-weight:700;text-decoration:none;transition:filter .2s}
-.nav-cta:hover{filter:brightness(1.1)}
-@media(max-width:640px){.nav-links{display:none};nav{padding:0 20px}}
+    /* GRAIN */
+    .grain {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      pointer-events: none;
+      opacity: 0.035;
+    }
 
-/* ── HERO — photo + overlay ── */
-.hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden}
-.hero-photo{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1600&q=80');background-size:cover;background-position:center 30%}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(105deg, rgba(12,51,32,.88) 0%, rgba(12,51,32,.65) 55%, rgba(12,51,32,.35) 100%)}
-.hero-inner{position:relative;max-width:1080px;margin:0 auto;padding:120px 48px 100px;width:100%;display:grid;grid-template-columns:1fr 380px;gap:64px;align-items:center}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(193,138,8,.18);border:1px solid rgba(193,138,8,.3);border-radius:100px;padding:6px 16px;margin-bottom:28px;opacity:0}
-.badge-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-.badge-text{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(50px,6vw,86px);line-height:.92;letter-spacing:-2px;font-weight:700;color:var(--tx-on-green);margin-bottom:22px;opacity:0}
-h1 em{display:block;font-style:italic;color:var(--gold);font-weight:400}
-.hero-sub{color:rgba(240,234,216,.8);font-size:16px;max-width:440px;line-height:1.8;margin-bottom:40px;font-weight:300;opacity:0}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap;opacity:0}
-.btn-gold{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--green);padding:14px 28px;border-radius:6px;font-size:14px;font-weight:700;text-decoration:none;transition:filter .2s}
-.btn-gold:hover{filter:brightness(1.1)}
-.btn-gold svg{width:15px;height:15px;fill:var(--green)}
-.btn-outline{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(240,234,216,.35);color:rgba(240,234,216,.85);padding:14px 28px;border-radius:6px;font-size:14px;font-weight:500;text-decoration:none;transition:border-color .2s,color .2s}
-.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
-.btn-outline svg{width:15px;height:15px;fill:currentColor}
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 500;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(24px, 5vw, 80px);
+      height: 72px;
+      transition: background 0.4s, border-bottom 0.4s;
+    }
+    nav.scrolled {
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.08em;
+      color: var(--white);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .nav-brand span { color: var(--gold); }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--accent);
+      color: var(--white) !important;
+      padding: 10px 22px;
+      font-size: 0.78rem !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--accent2);
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--accent2) !important; }
 
-/* Hero review card — solid dark card, no blur */
-.hero-card{background:linear-gradient(150deg,#0e2818 0%,#091c11 100%);border:1px solid var(--green-brd);border-top:3px solid var(--gold);border-radius:14px;padding:32px;opacity:0;box-shadow:0 20px 60px rgba(0,0,0,.55)}
-.hc-rating{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
-.hc-num{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:700;color:#fff;line-height:1}
-.hc-stars{display:flex;gap:3px;align-self:center}
-.hc-stars svg{width:14px;height:14px;fill:var(--gold)}
-.hc-label{font-size:12px;color:rgba(255,255,255,.55);margin-bottom:20px;font-weight:300}
-.hc-divider{height:1px;background:rgba(255,255,255,.12);margin:20px 0}
-.hc-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px}
-.hc-item{padding:14px;background:rgba(255,255,255,.05);border-radius:8px;text-align:center}
-.hc-item:first-child{border-radius:8px 8px 0 0;grid-column:span 2;background:rgba(193,138,8,.12);border:1px solid rgba(193,138,8,.2)}
-.hc-val{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--gold)}
-.hc-lbl{font-size:10px;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.12em;margin-top:2px;font-weight:500}
-.hc-certs{margin-top:16px;display:flex;flex-direction:column;gap:7px}
-.hc-cert{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.6)}
-.hc-cert svg{width:13px;height:13px;fill:var(--gold);flex-shrink:0}
+    /* HERO */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 680px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: -15% 0;
+      background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80') center/cover no-repeat;
+      will-change: transform;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(11,11,11,0.88) 0%, rgba(11,11,11,0.72) 60%, rgba(11,11,11,0.55) 100%);
+    }
+    .hero-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 40%, rgba(11,11,11,0.7) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 clamp(24px, 5vw, 80px);
+      max-width: 900px;
+    }
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+    .hero-title { overflow: hidden; }
+    .hero-title-line {
+      display: block;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(5rem, 11vw, 10rem);
+      line-height: 0.92;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      transform: translateY(110%);
+      animation: lineUp 0.9s cubic-bezier(0.16,1,0.3,1) forwards;
+    }
+    .hero-title-line:nth-child(2) { animation-delay: 0.14s; }
+    .hero-title-line:nth-child(3) { animation-delay: 0.28s; }
+    @keyframes lineUp { to { transform: translateY(0); } }
+    .hero-sub {
+      margin-top: 1.8rem;
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 480px;
+      font-weight: 300;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 52px;
+      padding: 0 32px;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .btn-primary { background: var(--accent); color: var(--white); border: 1px solid var(--accent2); }
+    .btn-primary:hover { background: var(--accent2); }
+    .btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(245,245,240,0.25); }
+    .btn-outline:hover { border-color: var(--white); }
 
-@media(max-width:900px){.hero-inner{grid-template-columns:1fr}.hero-card{display:none}}
-@media(max-width:640px){.hero-inner{padding:80px 20px 60px}}
+    .hero-badges {
+      position: absolute;
+      right: clamp(24px, 5vw, 80px);
+      bottom: 15%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      z-index: 2;
+    }
+    .badge {
+      background: rgba(17,17,17,0.85);
+      border: 1px solid var(--border);
+      padding: 10px 18px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      backdrop-filter: blur(8px);
+    }
+    .badge span { color: var(--gold); display: block; font-size: 1rem; font-weight: 400; }
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2.5rem;
+      left: clamp(24px, 5vw, 80px);
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .scroll-line { width: 40px; height: 1px; background: var(--muted); }
 
-/* ── STATS BAR (on cream) ── */
-.stats-bar{background:var(--cream-surf);border-top:1px solid var(--cream-brd);border-bottom:1px solid var(--cream-brd)}
-.stats-inner{max-width:1080px;margin:0 auto;padding:0 48px;display:grid;grid-template-columns:repeat(3,1fr)}
-.stat{padding:32px 0;border-right:1px solid var(--cream-brd);text-align:center}
-.stat:last-child{border-right:none}
-.stat-num{font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:700;color:var(--gold);line-height:1;opacity:0}
-.stat-lbl{font-size:11px;color:var(--cream-mu);text-transform:uppercase;letter-spacing:.12em;font-weight:600;margin-top:6px}
-@media(max-width:640px){.stats-inner{grid-template-columns:1fr;padding:0}.stat{border-right:none;border-bottom:1px solid var(--cream-brd)}.stat:last-child{border-bottom:none}}
+    /* SECTIONS */
+    section { padding: clamp(80px, 10vw, 130px) clamp(24px, 5vw, 80px); }
 
-/* ── SERVICES (cream bg) ── */
-.section{padding:96px 48px;max-width:1080px;margin:0 auto}
-.sec-label{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
-.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4.5vw,56px);font-weight:600;letter-spacing:-1px;line-height:1.05;margin-bottom:14px;color:var(--tx-on-cream)}
-.sec-sub{color:var(--cream-mu);font-size:15px;max-width:480px;line-height:1.85;margin-bottom:60px;font-weight:300}
-.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
-.svc{background:#fff;border:1px solid var(--cream-brd);border-radius:12px;padding:32px 28px;transition:border-color .25s,box-shadow .25s}
-.svc:hover{border-color:var(--gold);box-shadow:0 4px 24px rgba(193,138,8,.1)}
-.svc-icon{width:44px;height:44px;background:var(--gold-light);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
-.svc-icon svg{width:22px;height:22px;fill:var(--gold)}
-.svc-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--tx-on-cream);margin-bottom:8px}
-.svc-desc{font-size:13px;color:var(--cream-mu);line-height:1.75}
-@media(max-width:640px){.section{padding:60px 20px}}
+    /* STATEMENT */
+    .statement { background: var(--bg); }
+    .section-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 1.2rem;
+    }
+    .statement h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: 1;
+      letter-spacing: 0.02em;
+      max-width: 800px;
+    }
+    .gold-line {
+      height: 2px;
+      background: var(--gold);
+      width: 0;
+      margin: 1.8rem 0;
+      transition: width 1.2s cubic-bezier(0.16,1,0.3,1);
+      max-width: 120px;
+    }
+    .gold-line.visible { width: 120px; }
+    .statement-sub { font-size: 1.05rem; color: var(--muted); max-width: 600px; font-weight: 300; }
 
-/* ── WHY US (dark green bg) ── */
-.why-band{background:var(--green);border-top:1px solid var(--green-brd)}
-.why-inner{max-width:1080px;margin:0 auto;padding:96px 48px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
-.why-label{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
-.why-title{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,50px);font-weight:600;color:var(--tx-on-green);letter-spacing:-1px;line-height:1.05;margin-bottom:24px}
-.why-body{color:var(--green-mu);font-size:15px;line-height:1.85;margin-bottom:36px;font-weight:300}
-.why-list{display:flex;flex-direction:column;gap:16px}
-.why-item{display:flex;align-items:flex-start;gap:12px;opacity:0}
-.why-item svg{width:17px;height:17px;fill:var(--gold);margin-top:2px;flex-shrink:0}
-.why-text{font-size:14px;color:rgba(240,234,216,.7);line-height:1.65}
-.why-text strong{color:var(--tx-on-green)}
-.why-numbers{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--green-brd);border:1px solid var(--green-brd);border-radius:12px;overflow:hidden;opacity:0}
-.wn-item{background:var(--green-surf);padding:36px 28px;text-align:center}
-.wn-big{font-family:'Cormorant Garamond',serif;font-size:50px;font-weight:700;color:var(--gold);line-height:1;letter-spacing:-2px}
-.wn-lbl{font-size:11px;color:var(--green-mu);text-transform:uppercase;letter-spacing:.1em;font-weight:600;margin-top:8px}
-@media(max-width:768px){.why-inner{grid-template-columns:1fr;gap:48px;padding:60px 20px}}
+    /* STATS */
+    .stats { background: var(--bg3); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+    .stat-item { padding: 3rem 2rem; border-right: 1px solid var(--border); text-align: center; }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      line-height: 1;
+      color: var(--white);
+      letter-spacing: 0.02em;
+    }
+    .stat-num sup { font-size: 0.45em; vertical-align: super; }
+    .stat-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-top: 0.5rem; }
 
-/* ── REVIEWS (cream bg) ── */
-.reviews-wrap{background:var(--cream-surf);border-top:1px solid var(--cream-brd);border-bottom:1px solid var(--cream-brd);padding:96px 48px}
-.reviews-inner{max-width:900px;margin:0 auto}
-.reviews-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;opacity:0}
-.rev-nav{display:flex;gap:8px}
-.rev-btn{width:44px;height:44px;background:#fff;border:1px solid var(--cream-brd);color:var(--cream-mu);border-radius:8px;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:border-color .2s,color .2s}
-.rev-btn:hover{border-color:var(--gold);color:var(--gold)}
-.rev-carousel{position:relative}
-.rev-slide{display:none;animation:revFade .35s ease}
-.rev-slide.active{display:block}
-@keyframes revFade{from{opacity:0;transform:translateX(12px)}to{opacity:1;transform:translateX(0)}}
-.rev-card{background:#fff;border:1px solid var(--cream-brd);border-radius:14px;padding:40px 44px;opacity:0}
-.rev-stars{display:flex;gap:3px;margin-bottom:14px}
-.rev-stars svg{width:14px;height:14px;fill:var(--gold)}
-.rev-quote{font-family:'Cormorant Garamond',serif;font-size:21px;font-style:italic;color:var(--tx-on-cream);line-height:1.7;margin-bottom:20px}
-.rev-author{font-size:12px;font-weight:700;color:var(--gold);letter-spacing:.08em;text-transform:uppercase}
-.rev-dots{display:flex;gap:6px;margin-top:24px}
-.rev-dot{width:7px;height:7px;border-radius:50%;background:var(--cream-brd);border:none;cursor:pointer;transition:background .2s}
-.rev-dot.active{background:var(--gold)}
-@media(max-width:640px){.reviews-wrap{padding:60px 20px}.rev-card{padding:28px 24px}.reviews-head{flex-direction:column;align-items:flex-start;gap:20px}}
+    /* SERVICES */
+    .services { background: var(--bg2); }
+    .section-header { margin-bottom: 4rem; }
+    .section-header h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: 0.03em; margin-top: 0.5rem; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--border); }
+    .service-card {
+      padding: 2.5rem 2rem;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      transition: background 0.3s;
+    }
+    .service-card:hover { background: var(--bg3); }
+    .service-card:nth-child(3n) { border-right: none; }
+    .service-card:nth-child(n+4) { border-bottom: none; }
+    .service-num { font-family: 'Bebas Neue', sans-serif; font-size: 0.85rem; letter-spacing: 0.15em; color: var(--gold); margin-bottom: 1.2rem; }
+    .service-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.05em; margin-bottom: 0.75rem; color: var(--white); }
+    .service-card p { font-size: 0.88rem; color: var(--muted); font-weight: 300; }
+    .service-bottom-border { position: absolute; bottom: 0; left: 0; height: 2px; width: 0; background: var(--accent2); transition: width 0.4s; }
+    .service-card:hover .service-bottom-border { width: 100%; }
 
-/* ── CONTACT (dark green bg) ── */
-.contact-band{background:var(--green)}
-.contact-inner{max-width:1080px;margin:0 auto;padding:96px 48px;display:grid;grid-template-columns:1fr 1fr;gap:80px;opacity:0}
-.contact-label{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
-.contact-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,46px);font-weight:600;color:var(--tx-on-green);letter-spacing:-1px;margin-bottom:36px}
-.cinfo{display:flex;flex-direction:column;gap:18px}
-.crow{display:flex;align-items:flex-start;gap:12px}
-.crow svg{width:17px;height:17px;fill:var(--gold);margin-top:2px;flex-shrink:0}
-.crow-body{}
-.crow-lbl{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green-mu);margin-bottom:3px}
-.crow-val{font-size:14px;color:var(--tx-on-green)}
-.crow-val a{color:var(--gold);text-decoration:none}
-.crow-val a:hover{text-decoration:underline}
-.form{display:flex;flex-direction:column;gap:12px}
-.fi{background:rgba(255,255,255,.06);border:1px solid var(--green-brd);color:var(--tx-on-green);padding:13px 16px;font-family:'DM Sans',sans-serif;font-size:14px;border-radius:8px;outline:none;transition:border-color .2s;width:100%}
-.fi::placeholder{color:var(--green-mu)}
-.fi:focus{border-color:var(--gold)}
-.fi-ta{resize:vertical;min-height:100px}
-.fb{background:var(--gold);color:var(--green);border:none;padding:14px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;border-radius:8px;transition:filter .2s}
-.fb:hover{filter:brightness(1.1)}
-@media(max-width:768px){.contact-inner{grid-template-columns:1fr;gap:48px;padding:60px 20px}}
+    /* ABOUT */
+    .about { background: var(--bg); }
+    .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 100px); align-items: center; }
+    .about-img-wrap { position: relative; }
+    .about-img { width: 100%; aspect-ratio: 4/5; object-fit: cover; clip-path: inset(100% 0 0 0); transition: clip-path 1.2s cubic-bezier(0.16,1,0.3,1); }
+    .about-img.visible { clip-path: inset(0% 0 0 0); }
+    .corner-frame { position: absolute; width: 24px; height: 24px; border-color: var(--gold); border-style: solid; }
+    .corner-frame.tl { top: -8px; left: -8px; border-width: 1px 0 0 1px; }
+    .corner-frame.tr { top: -8px; right: -8px; border-width: 1px 1px 0 0; }
+    .corner-frame.bl { bottom: -8px; left: -8px; border-width: 0 0 1px 1px; }
+    .corner-frame.br { bottom: -8px; right: -8px; border-width: 0 1px 1px 0; }
+    .badge-strip { display: flex; gap: 0.75rem; margin-top: 1.5rem; flex-wrap: wrap; }
+    .badge-chip { background: var(--bg3); border: 1px solid var(--border); padding: 6px 14px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .about-text h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 4.5vw, 3.8rem); letter-spacing: 0.03em; line-height: 1; margin: 1rem 0 1.5rem; }
+    .about-text p { color: var(--muted); font-size: 0.95rem; font-weight: 300; margin-bottom: 1rem; }
 
-/* ── FOOTER ── */
-footer{background:var(--green-surf);border-top:1px solid var(--green-brd);padding:28px 48px;display:flex;justify-content:space-between;align-items:center}
-.fc{font-size:12px;color:var(--green-mu)}
-.fl{font-size:12px;color:var(--green-mu);text-decoration:none;transition:color .2s}
-.fl:hover{color:var(--gold)}
-@media(max-width:640px){footer{flex-direction:column;gap:10px;padding:20px;text-align:center}}
+    /* REVIEWS */
+    .reviews { background: var(--bg2); }
+    .reviews-header { display: flex; align-items: center; gap: 2rem; margin-bottom: 3.5rem; flex-wrap: wrap; }
+    .reviews-header h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: 0.03em; }
+    .g-badge { display: flex; align-items: center; gap: 0.75rem; background: var(--bg3); border: 1px solid var(--border); padding: 10px 16px; }
+    .g-letter { font-size: 1.4rem; font-weight: 700; background: linear-gradient(135deg, #4285F4, #EA4335, #FBBC05, #34A853); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-family: 'Jost', sans-serif; }
+    .g-stars { color: #FBBC05; font-size: 0.85rem; letter-spacing: 2px; }
+    .g-rating { font-size: 0.9rem; font-weight: 600; color: var(--white); }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .review-card { background: var(--bg2); padding: 2rem; }
+    .review-stars { color: #FBBC05; letter-spacing: 2px; font-size: 0.85rem; margin-bottom: 1rem; }
+    .review-text { font-size: 0.9rem; color: var(--muted); font-weight: 300; line-height: 1.7; margin-bottom: 1.5rem; }
+    .review-author { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); }
+    .review-date { font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
 
-/* ── MOBILE CTA ── */
-.mob-cta{position:fixed;bottom:0;left:0;right:0;background:var(--gold);padding:16px;text-align:center;display:none;z-index:100}
-.mob-cta a{color:var(--green);font-weight:700;font-size:15px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:8px}
-.mob-cta svg{width:16px;height:16px;fill:var(--green)}
-@media(max-width:640px){.mob-cta{display:block};body{padding-bottom:56px}}
+    /* WHY US */
+    .why-us { background: var(--accent); border-top: 1px solid rgba(255,255,255,0.08); }
+    .why-us .section-eyebrow { color: rgba(245,245,240,0.6); }
+    .why-us h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: 0.03em; margin-bottom: 3rem; }
+    .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+    .why-item h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
+    .why-item p { font-size: 0.88rem; color: rgba(245,245,240,0.65); font-weight: 300; }
 
-/* ── DEMO BADGE ── */
-.demo-badge{position:fixed;bottom:72px;right:20px;background:rgba(12,51,32,.92);backdrop-filter:blur(8px);border:1px solid var(--green-brd);color:var(--green-mu);font-size:11px;padding:7px 14px;border-radius:100px;text-decoration:none;z-index:100;transition:color .2s}
-.demo-badge:hover{color:var(--gold)}
-.demo-badge strong{color:var(--tx-on-green)}
-@media(min-width:641px){.demo-badge{bottom:20px}}
-</style>
+    /* SECTORS */
+    .sectors { background: var(--bg3); }
+    .sectors-inner { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 100px); align-items: start; }
+    .sectors-text h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: 0.03em; margin: 1rem 0 1.5rem; line-height: 1; }
+    .sectors-text p { color: var(--muted); font-size: 0.95rem; font-weight: 300; margin-bottom: 2rem; }
+    .sectors-dot-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--border); }
+    .sector-dot { padding: 1.4rem 1rem; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-align: center; transition: color 0.2s, background 0.2s; }
+    .sector-dot:hover { color: var(--white); background: var(--bg2); }
+    .sector-dot:nth-child(4n) { border-right: none; }
+    .sector-dot:nth-child(n+5) { border-bottom: none; }
+
+    /* CTA */
+    .cta-section { background: var(--bg); text-align: center; position: relative; overflow: hidden; }
+    .cta-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 600px; height: 400px; background: radial-gradient(ellipse, rgba(30,92,58,0.15) 0%, transparent 70%); pointer-events: none; }
+    .cta-section .section-eyebrow { display: block; text-align: center; }
+    .cta-section h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 7vw, 6rem); letter-spacing: 0.02em; line-height: 1; margin: 1rem 0 1.5rem; position: relative; }
+    .cta-section p { color: var(--muted); font-size: 1rem; font-weight: 300; max-width: 480px; margin: 0 auto 2.5rem; }
+    .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* FOOTER */
+    footer { background: var(--bg2); border-top: 1px solid var(--border); padding: clamp(60px, 8vw, 100px) clamp(24px, 5vw, 80px) 40px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 4rem; }
+    .footer-brand { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.08em; color: var(--white); margin-bottom: 1rem; }
+    .footer-brand span { color: var(--gold); }
+    .footer-desc { font-size: 0.88rem; color: var(--muted); font-weight: 300; line-height: 1.7; }
+    .footer-col h4 { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white); margin-bottom: 1.2rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.6rem; }
+    .footer-col ul li a { font-size: 0.88rem; color: var(--muted); text-decoration: none; font-weight: 300; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--white); }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .footer-bottom p { font-size: 0.78rem; color: var(--muted); }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .service-card:nth-child(3n) { border-right: 1px solid var(--border); }
+      .service-card:nth-child(2n) { border-right: none; }
+      .about-inner { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .sectors-inner { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .hero-badges { display: none; }
+    }
+    @media (max-width: 600px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card { border-right: none !important; }
+      .service-card:nth-child(n+4) { border-bottom: 1px solid var(--border) !important; }
+      .service-card:last-child { border-bottom: none !important; }
+      .sectors-dot-grid { grid-template-columns: repeat(2, 1fr); }
+      .sector-dot:nth-child(2n) { border-right: none; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-<nav>
-  <div class="logo">
-    <div class="logo-mark">
-      <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-    </div>
-    <span class="logo-name">Kairos Pest Control</span>
-  </div>
-  <div class="nav-links">
-    <a href="#services">Services</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <a class="nav-cta" href="tel:+17864003830">Call Now</a>
-</nav>
+  <svg class="grain" xmlns="http://www.w3.org/2000/svg">
+    <filter id="grain-filter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+    <rect width="100%" height="100%" filter="url(#grain-filter)"/>
+  </svg>
 
-<!-- HERO -->
-<section class="hero" id="top">
-  <div class="hero-photo"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-inner">
-    <div>
-      <div class="hero-badge">
-        <div class="badge-dot"></div>
-        <span class="badge-text">Coral Gables &amp; Miami-Dade</span>
-      </div>
-      <h1>Pest Control<em>Done Right.</em></h1>
-      <p class="hero-sub">Coral Gables' highest-rated pest control service — 5.0 stars across 137 verified reviews. Licensed, insured, and built on results that last.</p>
+  <nav id="nav">
+    <a href="#" class="nav-brand">Kairos <span>Pest Control</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="tel:+17864003830" class="nav-cta">Free Inspection</a>
+  </nav>
+
+  <section class="hero" id="hero">
+    <div class="hero-bg" id="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-vignette"></div>
+    <div class="hero-content">
+      <span class="hero-eyebrow">Coral Gables, FL — Free Inspection</span>
+      <h1 class="hero-title">
+        <span class="hero-title-line">CORAL GABLES'</span>
+        <span class="hero-title-line">TRUSTED PEST</span>
+        <span class="hero-title-line">CONTROL EXPERTS</span>
+      </h1>
+      <p class="hero-sub">Professional, eco-friendly pest elimination for homes and businesses across Coral Gables and greater Miami-Dade County.</p>
       <div class="hero-actions">
-        <a class="btn-gold" href="tel:+17864003830">
-          <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.3 1L6.6 10.8z"/></svg>
-          (786) 400-3830
-        </a>
-        <a class="btn-outline" href="#contact">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          Free Estimate
-        </a>
+        <a href="tel:+17864003830" class="btn btn-primary">Free Inspection — (786) 400-3830</a>
+        <a href="#services" class="btn btn-outline">View Services</a>
       </div>
     </div>
-    <div class="hero-card">
-      <div class="hc-rating">
-        <div class="hc-num" data-count="5" data-decimals="1">5.0</div>
-        <div class="hc-stars">
-          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        </div>
+    <div class="hero-badges">
+      <div class="badge"><span>4.8★</span>Google Rated</div>
+      <div class="badge"><span>100%</span>Licensed & Insured</div>
+      <div class="badge"><span>Free</span>Inspection</div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      Scroll to explore
+    </div>
+  </section>
+
+  <section class="statement reveal" id="statement">
+    <span class="section-eyebrow">Our Promise</span>
+    <h2>PRECISION PEST CONTROL.<br>LASTING PROTECTION.</h2>
+    <div class="gold-line" id="gold-line"></div>
+    <p class="statement-sub">We don't just treat the symptom — we eliminate the source. Every Kairos treatment is backed by our guarantee: if pests return, so do we, at no extra cost.</p>
+  </section>
+
+  <section class="stats" style="padding: 0;">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-num"><span class="count" data-target="4.8" data-decimal="1">0</span><sup>★</sup></div>
+        <div class="stat-label">Google Rating</div>
       </div>
-      <div class="hc-label">137 verified Google reviews</div>
-      <div class="hc-grid">
-        <div class="hc-item" style="grid-column:span 2">
-          <div class="hc-val" data-count="50" data-prefix="$" data-suffix=" OFF">$50 OFF</div>
-          <div class="hc-lbl">First Service</div>
-        </div>
-        <div class="hc-item">
-          <div class="hc-val" data-count="24" data-suffix="h">24h</div>
-          <div class="hc-lbl">Response</div>
-        </div>
-        <div class="hc-item">
-          <div class="hc-val" data-count="100" data-suffix="%">100%</div>
-          <div class="hc-lbl">Guaranteed</div>
-        </div>
+      <div class="stat-item reveal">
+        <div class="stat-num">100<sup>%</sup></div>
+        <div class="stat-label">Licensed &amp; Insured</div>
       </div>
-      <div class="hc-divider"></div>
-      <div class="hc-certs">
-        <div class="hc-cert"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Florida Licensed &amp; Insured</div>
-        <div class="hc-cert"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>EPA Certified Applicators</div>
-        <div class="hc-cert"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Family &amp; Pet-Safe Treatments</div>
+      <div class="stat-item reveal">
+        <div class="stat-num">Free</div>
+        <div class="stat-label">Initial Inspection</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-num">Eco</div>
+        <div class="stat-label">Friendly Treatments</div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- STATS BAR (cream) -->
-<div class="stats-bar">
-  <div class="stats-inner">
-    <div class="stat"><div class="stat-num" data-count="5" data-decimals="1">5.0</div><div class="stat-lbl">Google Rating</div></div>
-    <div class="stat"><div class="stat-num" data-count="137">137</div><div class="stat-lbl">Verified Reviews</div></div>
-    <div class="stat"><div class="stat-num" data-count="50" data-prefix="$">$50</div><div class="stat-lbl">Off First Visit</div></div>
-  </div>
-</div>
-
-<!-- SERVICES (cream) -->
-<div id="services">
-  <div class="section">
-    <div class="sec-label">What we treat</div>
-    <h2 class="sec-title">Protection for Every Threat</h2>
-    <p class="sec-sub">From cockroaches to termites, rodents to bed bugs — we find the source and eliminate it permanently.</p>
+  <section class="services" id="services">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">What We Do</span>
+      <h2>OUR PEST CONTROL<br>SERVICES</h2>
+    </div>
     <div class="services-grid">
-
-      <div class="svc">
-        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H7l5-8v4h4l-5 8z"/></svg></div>
-        <div class="svc-name">Cockroach &amp; Ant Control</div>
-        <div class="svc-desc">Targeted baiting and barrier treatments that eliminate colonies at the source — not just the visible trail.</div>
+      <div class="service-card reveal">
+        <div class="service-num">01</div>
+        <h3>General Pest Control</h3>
+        <p>Comprehensive treatment for common household pests including spiders, silverfish, and more — inside and out.</p>
+        <div class="service-bottom-border"></div>
       </div>
-
-      <div class="svc">
-        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
-        <div class="svc-name">Termite Protection</div>
-        <div class="svc-desc">Liquid soil treatments, bait stations, and wood treatments that protect your property's structural integrity.</div>
+      <div class="service-card reveal">
+        <div class="service-num">02</div>
+        <h3>Cockroach &amp; Ant Control</h3>
+        <p>Targeted elimination protocols for roach and ant infestations, with barrier treatments to prevent re-entry.</p>
+        <div class="service-bottom-border"></div>
       </div>
-
-      <div class="svc">
-        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M20 12c0-1.1-.9-2-2-2h-1V8c0-2.76-2.24-5-5-5S7 5.24 7 8v2H6c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-8z"/></svg></div>
-        <div class="svc-name">Rodent Elimination</div>
-        <div class="svc-desc">Exclusion, trapping, and sanitization — stopping entry points and eliminating existing infestations.</div>
+      <div class="service-card reveal">
+        <div class="service-num">03</div>
+        <h3>Rodent Extermination</h3>
+        <p>Complete rodent removal with entry-point sealing and sanitation recommendations to keep them out for good.</p>
+        <div class="service-bottom-border"></div>
       </div>
-
-      <div class="svc">
-        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M7 14c0 1.66 1.34 3 3 3h4c1.66 0 3-1.34 3-3V8H7v6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg></div>
-        <div class="svc-name">Bed Bug Treatment</div>
-        <div class="svc-desc">Heat and targeted chemical treatment to fully eradicate infestations — guaranteed in a single service.</div>
+      <div class="service-card reveal">
+        <div class="service-num">04</div>
+        <h3>Termite Treatment</h3>
+        <p>Soil and wood treatments, plus bait systems that target the entire colony — not just what's visible.</p>
+        <div class="service-bottom-border"></div>
       </div>
-
-      <div class="svc">
-        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 1 0 0 10A5 5 0 0 0 12 2zm-1 13H9c-2.67 0-8 1.34-8 4v1h8.57c-.42-.79-.57-1.64-.57-2.5 0-.96.27-1.88.73-2.67C9.28 15.3 9.14 15 9 15zm2 0c-1.93 0-4 1.17-4 3.5V20h8v-1.5c0-2.33-2.07-3.5-4-3.5z"/></svg></div>
-        <div class="svc-name">Mosquito Control</div>
-        <div class="svc-desc">Backyard barrier spray programs that reduce mosquito populations by up to 90% through the season.</div>
+      <div class="service-card reveal">
+        <div class="service-num">05</div>
+        <h3>Bed Bug Treatment</h3>
+        <p>Heat and chemical combination treatments that reach every crack and seam, eliminating all life stages.</p>
+        <div class="service-bottom-border"></div>
       </div>
-
-      <div class="svc">
-        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg></div>
-        <div class="svc-name">Ongoing Service Plans</div>
-        <div class="svc-desc">Monthly and quarterly plans that keep your home permanently protected throughout the year.</div>
+      <div class="service-card reveal">
+        <div class="service-num">06</div>
+        <h3>Preventive Maintenance Plans</h3>
+        <p>Quarterly and monthly service plans keeping your property protected year-round with scheduled inspections.</p>
+        <div class="service-bottom-border"></div>
       </div>
-
     </div>
-  </div>
-</div>
+  </section>
 
-<!-- WHY KAIROS (dark green) -->
-<div class="why-band">
-  <div class="why-inner">
-    <div>
-      <div class="why-label">Why Kairos</div>
-      <h2 class="why-title">The Standard Has Changed</h2>
-      <p class="why-body">Most companies spray and leave. Kairos investigates the root cause, eliminates the infestation completely, and prevents re-entry — all backed by a full satisfaction guarantee.</p>
-      <div class="why-list">
-        <div class="why-item">
-          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-          <div class="why-text"><strong>Precision-first approach</strong> — We identify entry points before treatment, not after.</div>
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-img-wrap">
+        <img class="about-img reveal" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Kairos Pest Control technician" />
+        <div class="corner-frame tl"></div>
+        <div class="corner-frame tr"></div>
+        <div class="corner-frame bl"></div>
+        <div class="corner-frame br"></div>
+        <div class="badge-strip">
+          <div class="badge-chip">FL Licensed</div>
+          <div class="badge-chip">Insured</div>
+          <div class="badge-chip">Eco-Safe</div>
+          <div class="badge-chip">Guaranteed</div>
         </div>
-        <div class="why-item">
-          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-          <div class="why-text"><strong>Family &amp; pet-safe products</strong> — EPA-registered compounds safe for your home.</div>
-        </div>
-        <div class="why-item">
-          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-          <div class="why-text"><strong>Same-week scheduling</strong> — We arrive at the right moment. No weeks-long wait.</div>
-        </div>
-        <div class="why-item">
-          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-          <div class="why-text"><strong>Re-service guarantee</strong> — If pests return between visits, we come back free.</div>
+      </div>
+      <div class="about-text reveal">
+        <span class="section-eyebrow">About Kairos</span>
+        <h2>SERVING CORAL GABLES WITH INTEGRITY</h2>
+        <p>Kairos Pest Control was founded on a simple belief: every family and business deserves a safe, pest-free environment. Our certified technicians bring deep local knowledge and industry-leading techniques to every job.</p>
+        <p>We use Integrated Pest Management (IPM) strategies that minimize chemical use while maximizing results. Our treatments are safe for children, pets, and the South Florida ecosystem.</p>
+        <p>Based at 770 Ponce de Leon Blvd, Suite 102, we're proud to protect homes and businesses throughout Coral Gables, Coconut Grove, and Miami-Dade County.</p>
+        <div style="margin-top: 2rem;">
+          <a href="tel:+17864003830" class="btn btn-primary">Call (786) 400-3830</a>
         </div>
       </div>
     </div>
-    <div class="why-numbers">
-      <div class="wn-item"><div class="wn-big" data-count="5" data-decimals="1">5.0</div><div class="wn-lbl">Google Stars</div></div>
-      <div class="wn-item"><div class="wn-big" data-count="137">137</div><div class="wn-lbl">Reviews</div></div>
-      <div class="wn-item"><div class="wn-big" data-count="24" data-suffix="h">24h</div><div class="wn-lbl">Response</div></div>
-      <div class="wn-item"><div class="wn-big" data-count="50" data-prefix="$">$50</div><div class="wn-lbl">First Visit Off</div></div>
-    </div>
-  </div>
-</div>
+  </section>
 
-<!-- REVIEWS (cream) -->
-<div class="reviews-wrap" id="reviews">
-  <div class="reviews-inner">
-    <div class="reviews-head">
+  <section class="reviews" id="reviews">
+    <div class="reviews-header reveal">
+      <h2>WHAT CLIENTS SAY</h2>
+      <div class="g-badge">
+        <span class="g-letter">G</span>
+        <span class="g-stars">★★★★★</span>
+        <span class="g-rating">4.8 / 5</span>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Kairos came out the same day I called. The technician was thorough, explained everything, and our cockroach problem was completely resolved. Highly recommend to anyone in Coral Gables."</p>
+        <div class="review-author">Maria G.</div>
+        <div class="review-date">Coral Gables, FL</div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"We've been on the quarterly maintenance plan for over a year now and haven't seen a single pest. The team is professional, on time, and genuinely cares about the quality of their work."</p>
+        <div class="review-author">Robert T.</div>
+        <div class="review-date">Miami, FL</div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Used Kairos for termite treatment on my restaurant. They were discreet, fast, and the follow-up inspection gave us total peace of mind. Worth every penny."</p>
+        <div class="review-author">Alejandro M.</div>
+        <div class="review-date">Coconut Grove, FL</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why-us">
+    <span class="section-eyebrow">Why Kairos</span>
+    <h2>THE KAIROS DIFFERENCE</h2>
+    <div class="why-grid">
+      <div class="why-item reveal">
+        <h3>Same-Day Service</h3>
+        <p>We respond fast because pest problems don't wait. Same-day and next-day slots available.</p>
+      </div>
+      <div class="why-item reveal">
+        <h3>Eco-Safe Treatments</h3>
+        <p>Products that are tough on pests but gentle on your family, pets, and South Florida's environment.</p>
+      </div>
+      <div class="why-item reveal">
+        <h3>Satisfaction Guarantee</h3>
+        <p>If pests return between scheduled visits, we come back at no additional cost — that's our promise.</p>
+      </div>
+      <div class="why-item reveal">
+        <h3>Certified Technicians</h3>
+        <p>All technicians are Florida-licensed, background-checked, and continuously trained on the latest methods.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sectors">
+    <div class="sectors-inner">
+      <div class="sectors-text reveal">
+        <span class="section-eyebrow">Who We Serve</span>
+        <h2>RESIDENTIAL &amp; COMMERCIAL PEST CONTROL</h2>
+        <p>From single-family homes to large commercial facilities, Kairos Pest Control has the expertise and equipment to handle any infestation at any scale.</p>
+        <a href="tel:+17864003830" class="btn btn-primary">Get a Free Quote</a>
+      </div>
+      <div class="sectors-dot-grid reveal">
+        <div class="sector-dot">Residential</div>
+        <div class="sector-dot">Restaurants</div>
+        <div class="sector-dot">Hotels</div>
+        <div class="sector-dot">Offices</div>
+        <div class="sector-dot">Healthcare</div>
+        <div class="sector-dot">Schools</div>
+        <div class="sector-dot">Retail</div>
+        <div class="sector-dot">Warehouses</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" id="contact">
+    <div class="cta-glow"></div>
+    <span class="section-eyebrow reveal">Get Started Today</span>
+    <h2 class="reveal">SCHEDULE YOUR<br>FREE INSPECTION</h2>
+    <p class="reveal">Don't wait for a small problem to become a major infestation. Call now and let Kairos protect your home or business.</p>
+    <div class="cta-actions reveal">
+      <a href="tel:+17864003830" class="btn btn-primary">Call (786) 400-3830</a>
+      <a href="mailto:info@kairospestcontrol.com" class="btn btn-outline">Email Us</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
       <div>
-        <div class="sec-label">Google Reviews</div>
-        <h2 class="sec-title" style="color:var(--tx-on-cream);margin-bottom:0">What Coral Gables Says</h2>
+        <div class="footer-brand">Kairos <span>Pest Control</span></div>
+        <p class="footer-desc">Professional pest control services for homes and businesses across Coral Gables and Miami-Dade County. Licensed, insured, and committed to eco-friendly solutions.</p>
       </div>
-      <div class="rev-nav">
-        <button class="rev-btn" id="rev-prev">&#8592;</button>
-        <button class="rev-btn" id="rev-next">&#8594;</button>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">General Pest Control</a></li>
+          <li><a href="#services">Cockroach &amp; Ant Control</a></li>
+          <li><a href="#services">Rodent Extermination</a></li>
+          <li><a href="#services">Termite Treatment</a></li>
+          <li><a href="#services">Bed Bug Treatment</a></li>
+          <li><a href="#services">Maintenance Plans</a></li>
+        </ul>
       </div>
-    </div>
-    <div class="rev-carousel">
-      <div class="rev-slide active">
-        <div class="rev-card">
-          <div class="rev-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-          <p class="rev-quote">"We had a persistent roach problem that two other companies couldn't solve. Kairos found the source — behind a wall gap near the dishwasher — and eliminated it in one visit. Zero sightings since. These guys actually know what they're doing."</p>
-          <div class="rev-author">&#8212; Maria G., Coral Gables</div>
-        </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </div>
-      <div class="rev-slide">
-        <div class="rev-card">
-          <div class="rev-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-          <p class="rev-quote">"Fast, professional, and genuinely thorough. They explained every step of the process and answered every question patiently. The technician spent more time on inspection than the entire visit from our last company. Worth every penny."</p>
-          <div class="rev-author">&#8212; Daniel R., Miami</div>
-        </div>
-      </div>
-      <div class="rev-slide">
-        <div class="rev-card">
-          <div class="rev-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-          <p class="rev-quote">"I manage multiple commercial properties and have tried four different pest companies over the years. Kairos is the only one I've kept. They show up on time, communicate clearly, and the results are consistent. Five stars isn't enough."</p>
-          <div class="rev-author">&#8212; Robert M., Coral Gables Property Manager</div>
-        </div>
-      </div>
-      <div class="rev-slide">
-        <div class="rev-card">
-          <div class="rev-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-          <p class="rev-quote">"Called on a Tuesday, they were here Wednesday morning. Found a rodent entry point I never would have spotted under the AC unit. Sealed it, treated the area, and followed up a week later. Haven't heard a thing since. Outstanding."</p>
-          <div class="rev-author">&#8212; Ana L., South Miami</div>
-        </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+17864003830">(786) 400-3830</a></li>
+          <li><a href="#">770 Ponce de Leon Blvd</a></li>
+          <li><a href="#">Suite 102</a></li>
+          <li><a href="#">Coral Gables, FL 33134</a></li>
+        </ul>
       </div>
     </div>
-    <div class="rev-dots">
-      <button class="rev-dot active"></button>
-      <button class="rev-dot"></button>
-      <button class="rev-dot"></button>
-      <button class="rev-dot"></button>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Kairos Pest Control. All rights reserved.</p>
+      <p>Licensed &amp; Insured — Florida Department of Agriculture</p>
     </div>
-  </div>
-</div>
+  </footer>
 
-<!-- CONTACT (dark green) -->
-<section id="contact">
-  <div class="contact-band">
-    <div class="contact-inner">
-      <div>
-        <div class="contact-label">Get in touch</div>
-        <h2 class="contact-title">Request Your<br>Free Estimate</h2>
-        <div class="cinfo">
-          <div class="crow">
-            <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.3 1L6.6 10.8z"/></svg>
-            <div class="crow-body"><div class="crow-lbl">Phone</div><div class="crow-val"><a href="tel:+17864003830">(786) 400-3830</a></div></div>
-          </div>
-          <div class="crow">
-            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-            <div class="crow-body"><div class="crow-lbl">Address</div><div class="crow-val">770 Ponce de Leon Blvd #102<br>Coral Gables, FL 33134</div></div>
-          </div>
-          <div class="crow">
-            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
-            <div class="crow-body"><div class="crow-lbl">Hours</div><div class="crow-val">Monday – Saturday, 8am – 6pm</div></div>
-          </div>
-        </div>
-      </div>
-      <form class="form" id="contact-form">
-        <input class="fi" type="text" placeholder="Your name" required>
-        <input class="fi" type="tel" placeholder="Phone number" required>
-        <input class="fi" type="email" placeholder="Email (optional)">
-        <textarea class="fi fi-ta" placeholder="Describe the issue — type of pest, how long, where in the home…"></textarea>
-        <button class="fb">Send Request &mdash; Free Estimate</button>
-      </form>
-    </div>
-  </div>
-</section>
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
 
-<footer>
-  <span class="fc">&copy; 2025 Kairos Pest Control &middot; Coral Gables, FL</span>
-  <a class="fl" href="https://kairospestcontrol.com" target="_blank" rel="noopener">kairospestcontrol.com</a>
-</footer>
-
-<div class="mob-cta">
-  <a href="tel:+17864003830">
-    <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.3 1L6.6 10.8z"/></svg>
-    Call (786) 400-3830
-  </a>
-</div>
-
-<a class="demo-badge" href="https://jayexe.com" target="_blank" rel="noopener">Demo by <strong>Jay @ jayexe.com</strong></a>
-
-<script>
-const { animate, inView, stagger } = Motion;
-
-/* Count-up utility */
-function countUp(el, duration) {
-  duration = duration || 1.4;
-  const target   = parseFloat(el.dataset.count);
-  const prefix   = el.dataset.prefix  || '';
-  const suffix   = el.dataset.suffix  || '';
-  const decimals = parseInt(el.dataset.decimals || '0');
-  const start    = performance.now();
-  function tick(now) {
-    const t = Math.min((now - start) / (duration * 1000), 1);
-    const eased = 1 - Math.pow(1 - t, 3);
-    el.textContent = prefix + (target * eased).toFixed(decimals) + suffix;
-    if (t < 1) requestAnimationFrame(tick);
-  }
-  requestAnimationFrame(tick);
-}
-
-/* Hero entrance */
-animate('.hero-badge',   { opacity:[0,1], y:[16,0]  }, { duration:.5,  delay:.15 });
-animate('h1',            { opacity:[0,1], y:[28,0]  }, { duration:.65, delay:.25, easing:[.22,1,.36,1] });
-animate('.hero-sub',     { opacity:[0,1], y:[18,0]  }, { duration:.55, delay:.38 });
-animate('.hero-actions', { opacity:[0,1], y:[14,0]  }, { duration:.5,  delay:.5  });
-animate('.hero-card',    { opacity:[0,1], x:[28,0]  }, { duration:.65, delay:.3,  easing:[.22,1,.36,1] });
-/* Count up hero card numbers after card animates in */
-setTimeout(() => {
-  document.querySelectorAll('.hc-num, .hc-val').forEach(el => {
-    if (el.dataset.count) countUp(el, 1.2);
-  });
-}, 700);
-
-/* Stats */
-inView('.stats-bar', () => {
-  animate('.stat-num', { opacity:[0,1], y:[18,0] }, { duration:.55, delay:stagger(.12) });
-  document.querySelectorAll('.stat-num').forEach((el, i) => {
-    setTimeout(() => countUp(el, 1.1), i * 120);
-  });
-});
-
-/* Services */
-inView('.services-grid', () => {
-  animate('.svc', { opacity:[0,1], y:[22,0] }, { duration:.5, delay:stagger(.07), easing:[.22,1,.36,1] });
-});
-
-/* Why */
-inView('.why-inner', () => {
-  animate('.why-item',    { opacity:[0,1], x:[-14,0] }, { duration:.45, delay:stagger(.09) });
-  animate('.why-numbers', { opacity:[0,1], y:[20,0]  }, { duration:.55, delay:.2 });
-  setTimeout(() => {
-    document.querySelectorAll('.wn-big').forEach((el, i) => {
-      setTimeout(() => countUp(el, 1.2), i * 100 + 200);
+    const heroBg = document.getElementById('hero-bg');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY < window.innerHeight) heroBg.style.transform = `translateY(${window.scrollY * 0.35}px)`;
     });
-  }, 0);
-});
 
-/* Reviews */
-inView('.reviews-wrap', () => {
-  animate('.reviews-head', { opacity:[0,1], y:[14,0] }, { duration:.5 });
-  animate('.rev-card',     { opacity:[0,1], y:[18,0] }, { duration:.5, delay:.15 });
-});
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-/* Contact */
-inView('.contact-band', () => {
-  animate('.contact-inner', { opacity:[0,1], y:[20,0] }, { duration:.6, easing:[.22,1,.36,1] });
-});
+    const goldLine = document.getElementById('gold-line');
+    const goldObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { goldLine.classList.add('visible'); goldObs.unobserve(goldLine); } });
+    }, { threshold: 0.5 });
+    goldObs.observe(goldLine);
 
-/* Carousel */
-(function(){
-  let idx = 0;
-  const slides = document.querySelectorAll('.rev-slide');
-  const dots   = document.querySelectorAll('.rev-dot');
-  let timer;
-  function go(n) {
-    animate(slides[idx], { opacity:[1,0], x:[0,-14] }, { duration:.22 }).finished.then(() => {
-      slides[idx].classList.remove('active');
-      dots[idx].classList.remove('active');
-      idx = (n + slides.length) % slides.length;
-      slides[idx].classList.add('active');
-      dots[idx].classList.add('active');
-      animate(slides[idx], { opacity:[0,1], x:[14,0] }, { duration:.3, easing:[.22,1,.36,1] });
-    });
-  }
-  function start(){ timer = setInterval(() => go(idx+1), 5200); }
-  function reset(){ clearInterval(timer); start(); }
-  document.getElementById('rev-next').addEventListener('click', () => { go(idx+1); reset(); });
-  document.getElementById('rev-prev').addEventListener('click', () => { go(idx-1); reset(); });
-  dots.forEach((d,i) => d.addEventListener('click', () => { go(i); reset(); }));
-  start();
-})();
+    const aboutImg = document.querySelector('.about-img');
+    if (aboutImg) {
+      const imgObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { aboutImg.classList.add('visible'); imgObs.unobserve(aboutImg); } });
+      }, { threshold: 0.2 });
+      imgObs.observe(aboutImg);
+    }
 
-/* Form submit */
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  this.innerHTML = '<p style="color:var(--gold);font-family:Cormorant Garamond,serif;font-size:24px;padding:24px 0;font-style:italic">Thank you — we\'ll be in touch within the hour.</p>';
-});
-</script>
+    function countUp(el) {
+      const target = parseFloat(el.dataset.target);
+      const decimal = parseInt(el.dataset.decimal || '0');
+      const start = performance.now();
+      function step(now) {
+        const p = Math.min((now - start) / 1800, 1);
+        const ease = 1 - Math.pow(1 - p, 3);
+        el.textContent = decimal > 0 ? (ease * target).toFixed(decimal) : Math.floor(ease * target);
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    const countObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { countUp(e.target); countObs.unobserve(e.target); } });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.count').forEach(el => countObs.observe(el));
+  </script>
 </body>
 </html>

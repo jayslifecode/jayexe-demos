@@ -3,1521 +3,1077 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Same Day Carpet Cleaning San Diego — Spotless Results, Today</title>
+  <title>Same Day Carpet Cleaning San Diego — Same-Day Service, Spotless Results</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@700;800&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
-    /* ── CSS Variables ─────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --teal:      #0d7377;
-      --teal-dark: #095e62;
-      --teal-light:#e0f4f5;
-      --mint:      #f0fafa;
-      --gold:      #f5a623;
-      --gold-dark: #d9911a;
-      --white:     #ffffff;
-      --charcoal:  #1a1f2e;
-      --gray-mid:  #64748b;
-      --gray-light:#e2e8f0;
-      --card-bg:   #ffffff;
-      --radius:    12px;
+      --bg: #0b0b0b;
+      --bg2: #111111;
+      --bg3: #161616;
+      --border: rgba(245,245,240,0.06);
+      --white: #f5f5f0;
+      --muted: rgba(245,245,240,0.45);
+      --gold: #c8a84b;
+      --accent: #1e5c3a;
+      --accent2: #2d7a52;
     }
 
-    /* ── Reset ─────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
+
     body {
-      font-family: 'Manrope', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Jost', sans-serif;
       font-weight: 400;
-      color: var(--charcoal);
-      background: var(--white);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
-    img { display: block; max-width: 100%; }
-    a  { text-decoration: none; color: inherit; }
+
+    a { text-decoration: none; color: inherit; }
     ul { list-style: none; }
+    img { display: block; max-width: 100%; }
 
-    /* ── SVG Icon System ───────────────────────────── */
-    .icon {
-      display: inline-block;
-      width: 1em;
-      height: 1em;
-      fill: currentColor;
+    /* GRAIN OVERLAY */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
     }
 
-    /* ── Utility ───────────────────────────────────── */
-    .container {
-      max-width: 1140px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    .sr-only {
-      position: absolute; width: 1px; height: 1px;
-      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
-    }
-
-    /* ─────────────────────────────────────────────────
-       NAV
-    ───────────────────────────────────────────────── */
+    /* NAV */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      background: var(--white);
-      border-bottom: 1px solid var(--gray-light);
-      height: 68px;
-      display: flex;
-      align-items: center;
-    }
-    .nav-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 100%;
+      padding: 0 2.5rem;
+      height: 68px;
+      transition: background 0.3s, border-bottom 0.3s;
+    }
+    nav.scrolled {
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
     }
     .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      white-space: nowrap;
     }
-    .nav-logo-icon {
-      width: 36px;
-      height: 36px;
-      background: var(--teal);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .nav-logo-icon svg {
-      width: 20px;
-      height: 20px;
-      fill: var(--white);
-    }
-    .nav-brand {
-      font-family: 'Lexend', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--charcoal);
-      line-height: 1.2;
-    }
-    .nav-brand span {
-      display: block;
-      font-size: 0.7rem;
-      font-family: 'Manrope', sans-serif;
-      font-weight: 500;
-      color: var(--gray-mid);
-      letter-spacing: 0.04em;
-    }
+    .nav-logo span { color: var(--gold); }
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 2rem;
     }
     .nav-links a {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       font-weight: 500;
-      color: var(--charcoal);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
       transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--teal); }
-    .btn-nav {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--teal);
-      color: var(--white);
-      font-family: 'Manrope', sans-serif;
-      font-weight: 600;
-      font-size: 0.875rem;
-      padding: 10px 20px;
-      border-radius: 8px;
-      border: 1.5px solid transparent;
       white-space: nowrap;
-      cursor: pointer;
-      transition: background 0.2s;
     }
-    .btn-nav:hover { background: var(--teal-dark); }
-    .nav-mobile-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 4px;
+    .nav-links a:hover { color: var(--white); }
+    .btn-nav {
+      background: var(--accent);
+      color: var(--white) !important;
+      padding: 0.55rem 1.4rem;
+      font-size: 0.78rem !important;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600 !important;
+      transition: background 0.2s !important;
+      white-space: nowrap;
     }
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .nav-mobile-toggle { display: flex; }
-    }
+    .btn-nav:hover { background: var(--accent2) !important; }
 
-    /* ─────────────────────────────────────────────────
-       HERO
-    ───────────────────────────────────────────────── */
+    /* HERO */
     .hero {
       position: relative;
-      min-height: 100vh;
+      height: 100vh;
+      min-height: 680px;
       display: flex;
       align-items: center;
-      padding-top: 68px;
       overflow: hidden;
     }
-    .hero-photo {
+    .hero-bg {
       position: absolute;
       inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
+      background-image: url('https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&w=1800&q=80');
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.08);
+      transition: transform 12s ease-out;
+      will-change: transform;
     }
+    .hero-bg.loaded { transform: scale(1); }
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg,
-        rgba(13, 115, 119, 0.88) 0%,
-        rgba(13, 115, 119, 0.65) 50%,
-        rgba(13, 115, 119, 0.45) 100%
-      );
+      background: linear-gradient(135deg, rgba(11,11,11,0.9) 0%, rgba(11,11,11,0.58) 60%, rgba(11,11,11,0.32) 100%);
+    }
+    .hero-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 40%, rgba(11,11,11,0.72) 100%);
     }
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 680px;
-      padding: 80px 0;
+      padding: 0 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
     }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.3);
-      color: var(--white);
-      font-size: 0.8rem;
+    .hero-eyebrow {
+      font-size: 0.75rem;
       font-weight: 600;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      padding: 6px 14px;
-      border-radius: 100px;
-      margin-bottom: 24px;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.2s forwards;
     }
-    .hero-badge svg { width: 14px; height: 14px; fill: var(--gold); }
-    .hero-headline {
-      font-family: 'Lexend', sans-serif;
-      font-weight: 800;
-      font-size: clamp(2.4rem, 5vw, 3.8rem);
-      line-height: 1.1;
+    .hero-title { overflow: hidden; }
+    .hero-title-line {
+      display: block;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 8vw, 7.5rem);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
       color: var(--white);
-      margin-bottom: 20px;
+      transform: translateY(110%);
+      animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
-    .hero-headline .accent { color: var(--gold); }
+    .hero-title-line:nth-child(1) { animation-delay: 0.35s; }
+    .hero-title-line:nth-child(2) { animation-delay: 0.49s; }
+    .hero-title-line:nth-child(3) { animation-delay: 0.63s; color: var(--gold); }
     .hero-sub {
-      font-size: 1.1rem;
+      margin-top: 1.8rem;
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 480px;
       line-height: 1.7;
-      color: rgba(255,255,255,0.9);
-      margin-bottom: 36px;
-      max-width: 520px;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.9s forwards;
     }
-    .hero-actions {
+    .hero-ctas {
       display: flex;
-      gap: 14px;
+      gap: 1rem;
+      margin-top: 2.4rem;
       flex-wrap: wrap;
-      margin-bottom: 56px;
+      opacity: 0;
+      animation: fadeUp 0.6s 1.05s forwards;
     }
     .btn-primary {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: var(--gold);
-      color: var(--charcoal);
-      font-family: 'Manrope', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 14px 28px;
-      border-radius: 10px;
-      border: 1.5px solid transparent;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.15s;
-      white-space: nowrap;
-    }
-    .btn-primary:hover { background: var(--gold-dark); }
-    .btn-ghost {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: transparent;
+      gap: 0.5rem;
+      background: var(--accent);
       color: var(--white);
-      font-family: 'Manrope', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 14px 28px;
-      border-radius: 10px;
-      border: 1.5px solid rgba(255,255,255,0.6);
-      cursor: pointer;
-      transition: border-color 0.2s, background 0.2s;
-      white-space: nowrap;
-    }
-    .btn-ghost:hover {
-      border-color: var(--white);
-      background: rgba(255,255,255,0.1);
-    }
-    .hero-stats {
-      display: flex;
-      gap: 32px;
-      flex-wrap: wrap;
-    }
-    .hero-stat {
-      display: flex;
-      flex-direction: column;
-    }
-    .hero-stat-val {
-      font-family: 'Lexend', sans-serif;
-      font-weight: 800;
-      font-size: 1.8rem;
-      color: var(--white);
-      line-height: 1;
-    }
-    .hero-stat-label {
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: rgba(255,255,255,0.75);
-      margin-top: 4px;
-      letter-spacing: 0.04em;
-    }
-    @media (max-width: 600px) {
-      .hero-content { padding: 60px 0; }
-      .hero-stats { gap: 20px; }
-    }
-
-    /* ─────────────────────────────────────────────────
-       STATS BAND
-    ───────────────────────────────────────────────── */
-    .stats-band {
-      background: var(--white);
-      border-bottom: 1px solid var(--gray-light);
-      padding: 40px 0;
-    }
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
-    .stat-item {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .stat-icon-wrap {
-      width: 52px;
-      height: 52px;
-      border-radius: 12px;
-      background: var(--teal-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .stat-icon-wrap svg {
-      width: 24px;
-      height: 24px;
-      fill: var(--teal);
-    }
-    .stat-text-val {
-      font-family: 'Lexend', sans-serif;
-      font-weight: 700;
-      font-size: 1.4rem;
-      color: var(--charcoal);
-      line-height: 1;
-    }
-    .stat-text-label {
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--gray-mid);
-      margin-top: 3px;
-    }
-    @media (max-width: 900px) {
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 500px) {
-      .stats-grid { grid-template-columns: 1fr; }
-    }
-
-    /* ─────────────────────────────────────────────────
-       SERVICES
-    ───────────────────────────────────────────────── */
-    .services {
-      padding: 96px 0;
-      background: var(--mint);
-    }
-    .section-label {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 700;
+      padding: 0.85rem 2rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 12px;
+      transition: background 0.2s;
+      height: 48px;
+    }
+    .btn-primary:hover { background: var(--accent2); }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid rgba(245,245,240,0.25);
+      transition: border-color 0.2s, color 0.2s;
+      height: 48px;
+    }
+    .btn-outline:hover { border-color: var(--white); }
+    .hero-badges {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2.8rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.6s 1.2s forwards;
+    }
+    .hero-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+    }
+    .hero-badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 1.4s forwards;
+    }
+    .scroll-indicator span {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    /* STATEMENT */
+    .statement {
+      padding: 7rem 2.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .section-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
     }
     .section-title {
-      font-family: 'Lexend', sans-serif;
-      font-weight: 800;
-      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-      color: var(--charcoal);
-      margin-bottom: 16px;
-      line-height: 1.15;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      margin-bottom: 1.8rem;
     }
-    .section-desc {
+    .gold-line {
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      margin: 0 auto 2rem;
+      transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .gold-line.animated { width: 80px; }
+    .section-sub {
       font-size: 1.05rem;
-      line-height: 1.7;
-      color: var(--gray-mid);
-      max-width: 560px;
-      margin-bottom: 56px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* STATS */
+    .stats {
+      background: var(--bg3);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 4rem 2.5rem;
+    }
+    .stats-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .stat-item {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      border-right: 1px solid var(--border);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem;
+      line-height: 1;
+      color: var(--gold);
+      display: block;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.5rem;
+      display: block;
+    }
+
+    /* SERVICES */
+    .services {
+      padding: 7rem 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .services-header {
+      text-align: center;
+      margin-bottom: 4rem;
     }
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      gap: 0;
+      border: 1px solid var(--border);
     }
     .service-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 32px 28px;
-      border: 1px solid var(--gray-light);
-      transition: box-shadow 0.25s;
+      padding: 2.5rem;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      transition: background 0.3s;
     }
-    .service-card:hover {
-      box-shadow: 0 8px 32px rgba(13, 115, 119, 0.1);
+    .service-card:hover { background: var(--bg3); }
+    .service-card:nth-child(3n) { border-right: none; }
+    .service-card:nth-child(n+4) { border-bottom: none; }
+    .service-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      color: var(--border);
+      line-height: 1;
+      margin-bottom: 1rem;
+      transition: color 0.3s;
     }
-    .service-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 10px;
-      background: var(--teal-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
+    .service-card:hover .service-num { color: rgba(200,168,75,0.15); }
+    .service-bottom-line {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .service-icon svg {
-      width: 26px;
-      height: 26px;
-      fill: var(--teal);
-    }
+    .service-card:hover .service-bottom-line { transform: scaleX(1); }
     .service-name {
-      font-family: 'Lexend', sans-serif;
-      font-weight: 700;
-      font-size: 1.05rem;
-      color: var(--charcoal);
-      margin-bottom: 10px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      margin-bottom: 0.7rem;
     }
     .service-desc {
-      font-size: 0.9rem;
-      line-height: 1.65;
-      color: var(--gray-mid);
-    }
-    @media (max-width: 900px) {
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 560px) {
-      .services-grid { grid-template-columns: 1fr; }
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.7;
     }
 
-    /* ─────────────────────────────────────────────────
-       FEATURE SECTION (Why San Diego Chooses Us)
-    ───────────────────────────────────────────────── */
-    .feature {
-      padding: 96px 0;
-      background: var(--white);
+    /* ABOUT */
+    .about {
+      padding: 7rem 2.5rem;
+      background: var(--bg3);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
-    .feature-inner {
+    .about-inner {
+      max-width: 1200px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 72px;
+      gap: 5rem;
       align-items: center;
     }
-    .feature-points {
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-      margin-top: 36px;
-    }
-    .feature-point {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-    }
-    .feature-point-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
-      background: var(--teal-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-    .feature-point-icon svg {
-      width: 22px;
-      height: 22px;
-      fill: var(--teal);
-    }
-    .feature-point-title {
-      font-family: 'Lexend', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--charcoal);
-      margin-bottom: 6px;
-    }
-    .feature-point-text {
-      font-size: 0.9rem;
-      line-height: 1.65;
-      color: var(--gray-mid);
-    }
-    .feature-photo-wrap {
-      position: relative;
-      border-radius: 16px;
-      overflow: hidden;
-    }
-    .feature-photo {
+    .about-image-wrap { position: relative; }
+    .about-img {
       width: 100%;
-      height: 480px;
+      aspect-ratio: 4/5;
       object-fit: cover;
-      border-radius: 16px;
+      clip-path: inset(100% 0 0 0);
+      transition: clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .feature-photo-badge {
+    .about-img.revealed { clip-path: inset(0% 0 0 0); }
+    .about-frame {
       position: absolute;
-      bottom: 24px;
-      left: 24px;
-      background: var(--white);
-      border-radius: 12px;
-      padding: 16px 20px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-      display: flex;
-      align-items: center;
-      gap: 14px;
+      width: 60px; height: 60px;
+      border-color: var(--gold);
+      border-style: solid;
     }
-    .feature-photo-badge-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
-      background: var(--teal);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .about-frame-tl { top: -12px; left: -12px; border-width: 2px 0 0 2px; }
+    .about-frame-tr { top: -12px; right: -12px; border-width: 2px 2px 0 0; }
+    .about-frame-bl { bottom: -12px; left: -12px; border-width: 0 0 2px 2px; }
+    .about-frame-br { bottom: -12px; right: -12px; border-width: 0 2px 2px 0; }
+    .about-badge-strip {
+      position: absolute;
+      bottom: 2rem;
+      left: -1.5rem;
+      background: var(--accent);
+      padding: 0.8rem 1.5rem;
     }
-    .feature-photo-badge-icon svg {
-      width: 22px;
-      height: 22px;
-      fill: var(--white);
+    .about-badge-text {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      color: var(--white);
     }
-    .feature-photo-badge-val {
-      font-family: 'Lexend', sans-serif;
-      font-weight: 800;
-      font-size: 1.3rem;
-      color: var(--charcoal);
-      line-height: 1;
-    }
-    .feature-photo-badge-label {
-      font-size: 0.78rem;
-      color: var(--gray-mid);
-      margin-top: 3px;
-    }
-    @media (max-width: 900px) {
-      .feature-inner {
-        grid-template-columns: 1fr;
-        gap: 48px;
-      }
-      .feature-photo { height: 320px; }
+    .about-content .section-eyebrow { text-align: left; }
+    .about-content .section-title { text-align: left; margin-bottom: 1.5rem; }
+    .about-content .gold-line { margin-left: 0; }
+    .about-text {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 1.5rem;
     }
 
-    /* ─────────────────────────────────────────────────
-       REVIEWS
-    ───────────────────────────────────────────────── */
+    /* REVIEWS */
     .reviews {
-      padding: 96px 0;
-      background: var(--mint);
+      padding: 7rem 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
     .reviews-header {
-      text-align: center;
-      margin-bottom: 56px;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      justify-content: center;
     }
-    .reviews-header .section-desc { margin: 16px auto 0; }
+    .g-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      padding: 0.7rem 1.2rem;
+    }
+    .g-letter {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      background: linear-gradient(135deg, #4285F4, #EA4335, #FBBC05, #34A853);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .g-score {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .g-count { font-size: 0.75rem; color: var(--muted); }
+    .reviews-header h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      letter-spacing: 0.04em;
+      color: var(--white);
+    }
     .reviews-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      gap: 1.5px;
+      background: var(--border);
     }
     .review-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 32px 28px;
-      border: 1px solid var(--gray-light);
-      display: flex;
-      flex-direction: column;
+      background: var(--bg2);
+      padding: 2rem;
     }
     .review-stars {
       display: flex;
       gap: 3px;
-      margin-bottom: 16px;
+      margin-bottom: 1rem;
     }
-    .review-stars svg {
-      width: 18px;
-      height: 18px;
-      fill: var(--gold);
-    }
+    .star { color: var(--gold); font-size: 0.85rem; }
     .review-text {
-      font-size: 0.92rem;
-      line-height: 1.7;
-      color: var(--charcoal);
-      flex: 1;
-      margin-bottom: 20px;
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 1.2rem;
+      font-style: italic;
     }
     .review-author {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .review-avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: var(--teal);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Lexend', sans-serif;
-      font-weight: 700;
-      font-size: 0.9rem;
-      color: var(--white);
-      flex-shrink: 0;
-    }
-    .review-name {
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: var(--charcoal);
-    }
-    .review-meta {
       font-size: 0.78rem;
-      color: var(--gray-mid);
-      margin-top: 2px;
-    }
-    @media (max-width: 900px) {
-      .reviews-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 560px) {
-      .reviews-grid { grid-template-columns: 1fr; }
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
     }
 
-    /* ─────────────────────────────────────────────────
-       TRUST BAND
-    ───────────────────────────────────────────────── */
-    .trust-band {
-      background: var(--teal);
-      padding: 48px 0;
+    /* WHY US */
+    .why-us {
+      background: var(--accent);
+      padding: 5rem 2.5rem;
     }
-    .trust-items {
+    .why-us-inner { max-width: 1200px; margin: 0 auto; }
+    .why-us-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .why-us-header .section-eyebrow { color: rgba(245,245,240,0.6); }
+    .why-us-header .section-title { color: var(--white); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+    .why-item { text-align: center; }
+    .why-icon {
+      width: 48px; height: 48px;
+      border: 1px solid rgba(245,245,240,0.25);
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 48px;
-      flex-wrap: wrap;
+      margin: 0 auto 1.2rem;
+      font-size: 1.2rem;
     }
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+    .why-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.06em;
       color: var(--white);
+      margin-bottom: 0.5rem;
     }
-    .trust-item svg {
-      width: 24px;
-      height: 24px;
-      fill: var(--gold);
-      flex-shrink: 0;
-    }
-    .trust-item-text {
-      font-weight: 600;
-      font-size: 0.95rem;
-      white-space: nowrap;
+    .why-desc {
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: rgba(245,245,240,0.65);
+      line-height: 1.65;
     }
 
-    /* ─────────────────────────────────────────────────
-       CTA SECTION
-    ───────────────────────────────────────────────── */
-    .cta-section {
-      padding: 96px 0;
-      background: var(--white);
+    /* SECTORS */
+    .sectors {
+      padding: 7rem 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-    .cta-inner {
-      background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
-      border-radius: 20px;
-      padding: 72px 64px;
+    .sectors-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .sectors-left .section-eyebrow { text-align: left; }
+    .sectors-left .section-title { text-align: left; }
+    .sectors-left .gold-line { margin-left: 0; margin-bottom: 1.5rem; }
+    .sectors-left p {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.85;
+    }
+    .sectors-right {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--border);
+    }
+    .sector-item {
+      padding: 1.2rem 1.5rem;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      transition: background 0.2s;
+    }
+    .sector-item:hover { background: var(--bg3); }
+    .sector-item:nth-child(2n) { border-right: none; }
+    .sector-item:nth-child(n+7) { border-bottom: none; }
+    .sector-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .sector-name {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--white);
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      padding: 8rem 2.5rem;
       text-align: center;
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
       position: relative;
       overflow: hidden;
     }
-    .cta-inner::before {
-      content: '';
+    .cta-glow {
       position: absolute;
-      top: -60px;
-      right: -60px;
-      width: 240px;
-      height: 240px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.06);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse at center, rgba(30,92,58,0.3) 0%, transparent 70%);
+      pointer-events: none;
     }
-    .cta-inner::after {
-      content: '';
-      position: absolute;
-      bottom: -80px;
-      left: -40px;
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.04);
-    }
-    .cta-label {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 16px;
-    }
-    .cta-title {
-      font-family: 'Lexend', sans-serif;
-      font-weight: 800;
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      color: var(--white);
-      margin-bottom: 16px;
-      position: relative;
-      z-index: 1;
-    }
-    .cta-sub {
-      font-size: 1.05rem;
-      color: rgba(255,255,255,0.85);
-      margin-bottom: 40px;
-      position: relative;
-      z-index: 1;
-    }
-    .cta-actions {
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-      position: relative;
-      z-index: 1;
-    }
-    .btn-cta-gold {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--gold);
-      color: var(--charcoal);
-      font-family: 'Manrope', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 14px 28px;
-      border-radius: 10px;
-      border: 1.5px solid transparent;
-      cursor: pointer;
-      transition: background 0.2s;
-      white-space: nowrap;
-    }
-    .btn-cta-gold:hover { background: var(--gold-dark); }
-    .btn-cta-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: transparent;
-      color: var(--white);
-      font-family: 'Manrope', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 14px 28px;
-      border-radius: 10px;
-      border: 1.5px solid rgba(255,255,255,0.5);
-      cursor: pointer;
-      transition: border-color 0.2s, background 0.2s;
-      white-space: nowrap;
-    }
-    .btn-cta-outline:hover {
-      border-color: var(--white);
-      background: rgba(255,255,255,0.08);
-    }
-    @media (max-width: 680px) {
-      .cta-inner { padding: 48px 28px; }
-    }
+    .cta-section .section-eyebrow,
+    .cta-section .section-title,
+    .cta-section .section-sub { position: relative; }
+    .cta-section .section-sub { margin-bottom: 2.5rem; }
+    .cta-section .hero-ctas { justify-content: center; opacity: 1; animation: none; }
 
-    /* ─────────────────────────────────────────────────
-       FOOTER
-    ───────────────────────────────────────────────── */
+    /* FOOTER */
     footer {
-      background: var(--charcoal);
-      color: rgba(255,255,255,0.75);
-      padding: 64px 0 40px;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 4rem 2.5rem 2rem;
     }
     .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 48px;
-      margin-bottom: 48px;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
     }
-    .footer-brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 16px;
-    }
-    .footer-brand-icon {
-      width: 36px;
-      height: 36px;
-      background: var(--teal);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .footer-brand-icon svg {
-      width: 20px;
-      height: 20px;
-      fill: var(--white);
-    }
-    .footer-brand-name {
-      font-family: 'Lexend', sans-serif;
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: var(--white);
-    }
-    .footer-desc {
-      font-size: 0.88rem;
+    .footer-brand .nav-logo { margin-bottom: 1rem; display: block; }
+    .footer-tagline {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--muted);
       line-height: 1.7;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 20px;
+      max-width: 260px;
     }
-    .footer-contact-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 0.88rem;
-      color: rgba(255,255,255,0.65);
-      margin-bottom: 10px;
-    }
-    .footer-contact-item svg {
-      width: 16px;
-      height: 16px;
-      fill: var(--teal);
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-    .footer-col-title {
-      font-family: 'Lexend', sans-serif;
-      font-weight: 700;
-      font-size: 0.88rem;
-      color: var(--white);
+    .footer-col h4 {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 20px;
+      color: var(--white);
+      margin-bottom: 1.2rem;
     }
-    .footer-links {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .footer-links a {
-      font-size: 0.88rem;
-      color: rgba(255,255,255,0.6);
+    .footer-col ul li { margin-bottom: 0.6rem; }
+    .footer-col ul li a {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--muted);
       transition: color 0.2s;
     }
-    .footer-links a:hover { color: var(--teal-light); }
+    .footer-col ul li a:hover { color: var(--white); }
+    .footer-contact p {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+    .footer-contact a { color: var(--gold); }
     .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: 28px;
+      max-width: 1200px;
+      margin: 2rem auto 0;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
+      align-items: center;
     }
-    .footer-copy {
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.4);
+    .footer-copy { font-size: 0.75rem; color: var(--muted); }
+
+    /* REVEAL ANIMATIONS */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
     }
-    .footer-demo-note {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.3);
-      font-style: italic;
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
-    @media (max-width: 780px) {
+
+    /* KEYFRAMES */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(110%); }
+      to { transform: translateY(0); }
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .service-card:nth-child(3n) { border-right: 1px solid var(--border); }
+      .service-card:nth-child(2n) { border-right: none; }
+      .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .sectors-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .reviews-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
-    @media (max-width: 480px) {
-      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    @media (max-width: 600px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .sectors-right { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-<!-- ── SVG Icon Defs ──────────────────────────────── -->
-<svg aria-hidden="true" style="display:none">
-  <defs>
-    <!-- Sparkle/Clean -->
-    <symbol id="icon-clean" viewBox="0 0 24 24">
-      <path d="M12 2l1.09 3.26L16 5l-2.91 2.09L14 10l-2-1.5L10 10l.91-2.91L8 5l2.91-.74L12 2zm0 12l.73 2.18L15 16l-2.27 1.56.73 2.44L12 18.5l-1.46 1.5.73-2.44L9 16l2.27-.82L12 14zM4 8l.55 1.64L7 10l-2.45 1.36.55 1.64L4 11.5 2.9 13l.55-1.64L1 10l2.45-.36L4 8z"/>
-    </symbol>
-    <!-- Carpet -->
-    <symbol id="icon-carpet" viewBox="0 0 24 24">
-      <path d="M3 3h18v2H3V3zm0 4h18v2H3V7zm0 4h18v2H3v-2zm0 4h18v2H3v-2zm0 4h18v2H3v-2z"/>
-    </symbol>
-    <!-- Sofa / Upholstery -->
-    <symbol id="icon-sofa" viewBox="0 0 24 24">
-      <path d="M20 8a2 2 0 0 1 2 2v8h-2v-2H4v2H2v-8a2 2 0 0 1 2-2V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2zM6 8V6h12v2a2 2 0 0 0-2 2H8a2 2 0 0 0-2-2zm-2 2a2 2 0 0 0 0 4h16a2 2 0 0 0 0-4H4z"/>
-    </symbol>
-    <!-- Tile -->
-    <symbol id="icon-tile" viewBox="0 0 24 24">
-      <path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z"/>
-    </symbol>
-    <!-- Rug -->
-    <symbol id="icon-rug" viewBox="0 0 24 24">
-      <path d="M2 4h20v16H2V4zm2 2v12h16V6H4zm3 2h2v8H7V8zm3 0h2v8h-2V8zm3 0h2v8h-2V8z"/>
-    </symbol>
-    <!-- Paw / Pet -->
-    <symbol id="icon-pet" viewBox="0 0 24 24">
-      <path d="M4.5 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm15 0a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zM8 7.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm8 0a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zM12 22c-4 0-8-3.13-8-6.5C4 12.01 7.13 10 10 10c.75 0 1.55.25 2 .5.45-.25 1.25-.5 2-.5 2.87 0 6 2.01 6 5.5C20 18.87 16 22 12 22z"/>
-    </symbol>
-    <!-- Building / Commercial -->
-    <symbol id="icon-building" viewBox="0 0 24 24">
-      <path d="M4 2h16v20H4V2zm2 2v16h5v-3h2v3h5V4H6zm2 2h2v2H8V6zm4 0h2v2h-2V6zm4 0h2v2h-2V6zm-8 4h2v2H8v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2zm-8 4h2v2H8v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2z"/>
-    </symbol>
-    <!-- Phone -->
-    <symbol id="icon-phone" viewBox="0 0 24 24">
-      <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C9.61 21 3 14.39 3 6a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/>
-    </symbol>
-    <!-- Location -->
-    <symbol id="icon-location" viewBox="0 0 24 24">
-      <path d="M12 2a7 7 0 0 1 7 7c0 5.25-7 13-7 13S5 14.25 5 9a7 7 0 0 1 7-7zm0 2a5 5 0 0 0-5 5c0 3.5 5 9.5 5 9.5s5-6 5-9.5a5 5 0 0 0-5-5zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/>
-    </symbol>
-    <!-- Clock -->
-    <symbol id="icon-clock" viewBox="0 0 24 24">
-      <path d="M12 2a10 10 0 1 1 0 20A10 10 0 0 1 12 2zm0 2a8 8 0 1 0 0 16A8 8 0 0 0 12 4zm.5 3v5.25l3.5 2.1-.75 1.25L11 13V7h1.5z"/>
-    </symbol>
-    <!-- Leaf / Eco -->
-    <symbol id="icon-leaf" viewBox="0 0 24 24">
-      <path d="M17 8C8 10 5.9 16.17 3.82 21L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20c4 0 7-2 9-10 2.5-1.5 3.5-3 3.5-3A13 13 0 0 1 17 8zM5 17.5a5.07 5.07 0 0 1 1.5-3.5c1.5-1.5 3.5-2 3.5-2C8.5 15 7 17 5 17.5z"/>
-    </symbol>
-    <!-- Shield -->
-    <symbol id="icon-shield" viewBox="0 0 24 24">
-      <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
-    </symbol>
-    <!-- Star -->
-    <symbol id="icon-star" viewBox="0 0 24 24">
-      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-    </symbol>
-    <!-- Check -->
-    <symbol id="icon-check" viewBox="0 0 24 24">
-      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-    </symbol>
-    <!-- Calendar -->
-    <symbol id="icon-calendar" viewBox="0 0 24 24">
-      <path d="M19 3h-1V1h-2v2H8V1H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
-    </symbol>
-    <!-- Spray / Fresh -->
-    <symbol id="icon-spray" viewBox="0 0 24 24">
-      <path d="M4 20a2 2 0 0 1-2-2v-4l3-6h8l3 6v4a2 2 0 0 1-2 2H4zm1.5-2h9l-2.5-5h-4L5.5 18zm9-10V6h2V4h2V2h2v2h-2v2h-2v2h-2zm-2-2H4V4h8.5v2z"/>
-    </symbol>
-    <!-- Award -->
-    <symbol id="icon-award" viewBox="0 0 24 24">
-      <path d="M12 2a7 7 0 0 1 7 7 7 7 0 0 1-4 6.32V22l-3-1-3 1v-6.68A7 7 0 0 1 5 9a7 7 0 0 1 7-7zm0 2a5 5 0 0 0-5 5 5 5 0 0 0 5 5 5 5 0 0 0 5-5 5 5 0 0 0-5-5zm-1 14.05V20l1-.33 1 .33v-1.95A7 7 0 0 1 11 18.05z"/>
-    </symbol>
-  </defs>
-</svg>
-
-<!-- ══════════════════════════════════════════════════
-     NAV
-══════════════════════════════════════════════════ -->
-<nav>
-  <div class="container">
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">
-        <div class="nav-logo-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-spray"/></svg>
-        </div>
-        <div class="nav-brand">
-          Same Day Carpet Cleaning
-          <span>San Diego, CA</span>
-        </div>
-      </a>
-      <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#why-us">Why Us</a></li>
-        <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li>
-          <a href="tel:6196147035" class="btn-nav">
-            <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-phone"/></svg>
-            Book Now
-          </a>
-        </li>
-      </ul>
-      <button class="nav-mobile-toggle" aria-label="Open menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="#1a1f2e" aria-hidden="true">
-          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-        </svg>
-      </button>
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-logo">Same Day<span>.</span>Carpet</div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#sectors">Sectors</a>
+      <a href="tel:+16196147035" class="btn-nav">Book Now</a>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<!-- ══════════════════════════════════════════════════
-     HERO
-══════════════════════════════════════════════════ -->
-<section class="hero">
-  <img
-    class="hero-photo"
-    src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80"
-    alt="Professional carpet cleaning in progress"
-    loading="eager"
-  />
-  <div class="hero-overlay"></div>
-  <div class="container">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-vignette"></div>
     <div class="hero-content">
-      <div class="hero-badge">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-star"/></svg>
-        Trusted by San Diego Families
+      <div class="hero-eyebrow">San Diego, CA — Same-Day Service Available</div>
+      <div class="hero-title">
+        <span class="hero-title-line">SAN DIEGO'S</span>
+        <span class="hero-title-line">SAME-DAY CARPET</span>
+        <span class="hero-title-line">CLEANING EXPERTS</span>
       </div>
-      <h1 class="hero-headline">
-        Same Day.<br>
-        <span class="accent">Spotless Results.</span>
-      </h1>
-      <p class="hero-sub">
-        Professional carpet, upholstery, and tile cleaning for San Diego homes and businesses. We show up today — and leave your space immaculate.
-      </p>
-      <div class="hero-actions">
-        <a href="tel:6196147035" class="btn-primary">
-          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-phone"/></svg>
-          Call 619-614-7035
-        </a>
-        <a href="#services" class="btn-ghost">
-          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-carpet"/></svg>
-          View Services
-        </a>
+      <p class="hero-sub">Professional carpet cleaning with same-day availability across San Diego. Eco-friendly solutions, certified technicians, 100% satisfaction guaranteed.</p>
+      <div class="hero-ctas">
+        <a href="tel:+16196147035" class="btn-primary">Call (619) 614-7035</a>
+        <a href="#services" class="btn-outline">Our Services</a>
       </div>
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <span class="hero-stat-val" id="hero-rating">4.9</span>
-          <span class="hero-stat-label">Google Rating</span>
-        </div>
-        <div class="hero-stat">
-          <span class="hero-stat-val" id="hero-reviews">88+</span>
-          <span class="hero-stat-label">5-Star Reviews</span>
-        </div>
-        <div class="hero-stat">
-          <span class="hero-stat-val">Same Day</span>
-          <span class="hero-stat-label">Service Available</span>
-        </div>
-        <div class="hero-stat">
-          <span class="hero-stat-val">10+ yrs</span>
-          <span class="hero-stat-label">Serving San Diego</span>
-        </div>
+      <div class="hero-badges">
+        <div class="hero-badge"><span class="hero-badge-dot"></span> Same-Day Booking</div>
+        <div class="hero-badge"><span class="hero-badge-dot"></span> Eco-Friendly Products</div>
+        <div class="hero-badge"><span class="hero-badge-dot"></span> 100% Satisfaction</div>
       </div>
     </div>
-  </div>
-</section>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
 
-<!-- ══════════════════════════════════════════════════
-     STATS BAND
-══════════════════════════════════════════════════ -->
-<section class="stats-band">
-  <div class="container">
+  <!-- STATEMENT -->
+  <section class="statement">
+    <div class="section-eyebrow reveal">San Diego's Choice</div>
+    <h2 class="section-title reveal">DEEP CLEAN TODAY,<br>NOT NEXT WEEK</h2>
+    <div class="gold-line reveal"></div>
+    <p class="section-sub reveal">When spills happen or guests are coming, you can't wait days for an appointment. Same Day Carpet Cleaning San Diego offers true same-day service with professional-grade steam cleaning and eco-friendly solutions that are safe for your family and pets.</p>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
     <div class="stats-grid">
-      <div class="stat-item">
-        <div class="stat-icon-wrap">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-star"/></svg>
-        </div>
-        <div>
-          <div class="stat-text-val" id="stat-rating">4.9★</div>
-          <div class="stat-text-label">Google Rating</div>
-        </div>
+      <div class="stat-item reveal">
+        <span class="stat-num" data-label="Same-Day">Same-Day</span>
+        <span class="stat-label">Service Available</span>
       </div>
-      <div class="stat-item">
-        <div class="stat-icon-wrap">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-clock"/></svg>
-        </div>
-        <div>
-          <div class="stat-text-val">Same Day</div>
-          <div class="stat-text-label">Booking Available</div>
-        </div>
+      <div class="stat-item reveal">
+        <span class="stat-num" data-count="4.9" data-suffix="★">4.9★</span>
+        <span class="stat-label">Google Rating</span>
       </div>
-      <div class="stat-item">
-        <div class="stat-icon-wrap">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-leaf"/></svg>
-        </div>
-        <div>
-          <div class="stat-text-val">Eco-Safe</div>
-          <div class="stat-text-label">Green Products Used</div>
-        </div>
+      <div class="stat-item reveal">
+        <span class="stat-num" data-label="Eco">Eco</span>
+        <span class="stat-label">Friendly Products</span>
       </div>
-      <div class="stat-item">
-        <div class="stat-icon-wrap">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-shield"/></svg>
-        </div>
-        <div>
-          <div class="stat-text-val">Licensed</div>
-          <div class="stat-text-label">Bonded & Insured</div>
-        </div>
+      <div class="stat-item reveal">
+        <span class="stat-num" data-label="100%">100%</span>
+        <span class="stat-label">Satisfaction Guaranteed</span>
       </div>
     </div>
   </div>
-</section>
 
-<!-- ══════════════════════════════════════════════════
-     SERVICES
-══════════════════════════════════════════════════ -->
-<section class="services" id="services">
-  <div class="container">
-    <div class="section-label">What We Do</div>
-    <h2 class="section-title">Complete Cleaning Services</h2>
-    <p class="section-desc">From deep carpet extraction to delicate area rugs — we handle it all with professional-grade equipment and eco-friendly solutions.</p>
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="services-header">
+      <div class="section-eyebrow reveal">What We Do</div>
+      <h2 class="section-title reveal">PROFESSIONAL CLEANING SERVICES</h2>
+      <div class="gold-line reveal"></div>
+    </div>
     <div class="services-grid">
-
-      <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-carpet"/></svg>
-        </div>
-        <div class="service-name">Carpet Cleaning</div>
-        <p class="service-desc">Hot water extraction deep-cleans embedded dirt, allergens, and bacteria. Leaves carpets fresh, dry, and looking new.</p>
+      <div class="service-card reveal">
+        <div class="service-num">01</div>
+        <div class="service-name">Same-Day Carpet Cleaning</div>
+        <p class="service-desc">Book in the morning, clean by afternoon. Our rapid-response team is ready across all San Diego neighborhoods for emergency and scheduled cleans.</p>
+        <div class="service-bottom-line"></div>
       </div>
-
-      <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-sofa"/></svg>
-        </div>
+      <div class="service-card reveal">
+        <div class="service-num">02</div>
+        <div class="service-name">Deep Steam Cleaning</div>
+        <p class="service-desc">Hot water extraction reaches deep into carpet fibres, removing embedded dirt, bacteria, and allergens for a truly deep clean that lasts.</p>
+        <div class="service-bottom-line"></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">03</div>
+        <div class="service-name">Stain &amp; Odor Removal</div>
+        <p class="service-desc">Pet accidents, wine spills, food stains — our specialist treatments tackle the toughest marks and eliminate odors at the source, not just the surface.</p>
+        <div class="service-bottom-line"></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">04</div>
         <div class="service-name">Upholstery Cleaning</div>
-        <p class="service-desc">Sofas, chairs, and sectionals cleaned with fabric-safe techniques. Restores color, removes odors, and extends furniture life.</p>
+        <p class="service-desc">Sofas, chairs, and fabric furniture cleaned with care. We restore freshness and appearance without damaging delicate upholstery fabrics.</p>
+        <div class="service-bottom-line"></div>
       </div>
-
-      <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-tile"/></svg>
-        </div>
+      <div class="service-card reveal">
+        <div class="service-num">05</div>
         <div class="service-name">Tile &amp; Grout Cleaning</div>
-        <p class="service-desc">High-pressure steam cleans even the deepest grout lines. We restore shine to kitchens, bathrooms, and entryways.</p>
+        <p class="service-desc">Professional high-pressure tile cleaning that removes grime and mould from grout lines. Results that scrubbing by hand simply cannot achieve.</p>
+        <div class="service-bottom-line"></div>
       </div>
-
-      <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-rug"/></svg>
-        </div>
-        <div class="service-name">Area Rug Cleaning</div>
-        <p class="service-desc">Delicate and antique rugs cleaned with care. We use methods suited to each material — wool, silk, synthetic, and more.</p>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-pet"/></svg>
-        </div>
-        <div class="service-name">Pet Stain &amp; Odor Removal</div>
-        <p class="service-desc">Enzyme treatments that break down organic matter at the source — permanently eliminating pet odors and tough stains.</p>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-building"/></svg>
-        </div>
-        <div class="service-name">Commercial Cleaning</div>
-        <p class="service-desc">Offices, retail spaces, and hospitality properties. Flexible scheduling including evenings and weekends to minimize disruption.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════
-     FEATURE (Why San Diego Chooses Us)
-══════════════════════════════════════════════════ -->
-<section class="feature" id="why-us">
-  <div class="container">
-    <div class="feature-inner">
-      <div class="feature-text">
-        <div class="section-label">Our Difference</div>
-        <h2 class="section-title">Why San Diego Chooses Us</h2>
-        <div class="feature-points">
-          <div class="feature-point">
-            <div class="feature-point-icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-calendar"/></svg>
-            </div>
-            <div>
-              <div class="feature-point-title">Book Today, Clean Today</div>
-              <p class="feature-point-text">No waiting days for an appointment. Call us in the morning and we can often be there the same afternoon — seven days a week.</p>
-            </div>
-          </div>
-          <div class="feature-point">
-            <div class="feature-point-icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-leaf"/></svg>
-            </div>
-            <div>
-              <div class="feature-point-title">Child &amp; Pet Safe Products</div>
-              <p class="feature-point-text">We only use eco-certified, non-toxic cleaning solutions. Safe for kids, pets, and families with sensitivities — zero harsh chemical residue.</p>
-            </div>
-          </div>
-          <div class="feature-point">
-            <div class="feature-point-icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-shield"/></svg>
-            </div>
-            <div>
-              <div class="feature-point-title">Transparent Pricing</div>
-              <p class="feature-point-text">No surprise charges. We give you a clear quote before we start — what you see is exactly what you pay.</p>
-            </div>
-          </div>
-          <div class="feature-point">
-            <div class="feature-point-icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-award"/></svg>
-            </div>
-            <div>
-              <div class="feature-point-title">Satisfaction Guaranteed</div>
-              <p class="feature-point-text">If you're not completely satisfied with your clean, we come back and make it right. No questions asked.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="feature-photo-wrap">
-        <img
-          class="feature-photo"
-          src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=900&q=80"
-          alt="Professional cleaner at work"
-          loading="lazy"
-        />
-        <div class="feature-photo-badge">
-          <div class="feature-photo-badge-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-check"/></svg>
-          </div>
-          <div>
-            <div class="feature-photo-badge-val" id="badge-reviews">88</div>
-            <div class="feature-photo-badge-label">Verified 5-Star Reviews</div>
-          </div>
-        </div>
+      <div class="service-card reveal">
+        <div class="service-num">06</div>
+        <div class="service-name">Commercial Carpet Care</div>
+        <p class="service-desc">Scheduled maintenance programs for offices, hotels, and retail environments. Minimal downtime, maximum cleanliness for high-traffic areas.</p>
+        <div class="service-bottom-line"></div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ══════════════════════════════════════════════════
-     REVIEWS
-══════════════════════════════════════════════════ -->
-<section class="reviews" id="reviews">
-  <div class="container">
-    <div class="reviews-header">
-      <div class="section-label">What Customers Say</div>
-      <h2 class="section-title">Real Reviews, Real Results</h2>
-      <p class="section-desc">Hundreds of San Diego families and businesses trust us with their homes every year.</p>
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-image-wrap">
+        <img src="https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&w=800&q=80" alt="Same Day Carpet Cleaning San Diego technician" class="about-img" id="aboutImg" />
+        <div class="about-frame about-frame-tl"></div>
+        <div class="about-frame about-frame-tr"></div>
+        <div class="about-frame about-frame-bl"></div>
+        <div class="about-frame about-frame-br"></div>
+        <div class="about-badge-strip">
+          <div class="about-badge-text">San Diego's Cleaning Experts</div>
+        </div>
+      </div>
+      <div class="about-content">
+        <div class="section-eyebrow reveal">Our Story</div>
+        <h2 class="section-title reveal">SAME DAY CARPET<br>CLEANING SD</h2>
+        <div class="gold-line reveal"></div>
+        <p class="about-text reveal">Based in San Diego, our team of certified carpet cleaning technicians has been serving homeowners and businesses across the city. We built our business on a simple promise: professional results, available when you need them most.</p>
+        <p class="about-text reveal">Every technician is fully trained, insured, and equipped with professional-grade truck-mounted cleaning systems. Our eco-friendly cleaning solutions are safe for children and pets, and our rapid-drying technique means your carpets are ready to use in hours, not days.</p>
+        <a href="tel:+16196147035" class="btn-primary reveal">Call (619) 614-7035</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews" id="reviews">
+    <div class="reviews-header reveal">
+      <div class="g-badge">
+        <span class="g-letter">G</span>
+        <div>
+          <div class="g-score">4.9 / 5.0</div>
+          <div class="g-count">Google Reviews</div>
+        </div>
+      </div>
+      <h2>WHAT CLIENTS SAY</h2>
     </div>
     <div class="reviews-grid">
-
-      <div class="review-card">
+      <div class="review-card reveal">
         <div class="review-stars">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-star"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-star"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-star"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-star"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-star"/></svg>
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
         </div>
-        <p class="review-text">"They showed up on time, explained everything clearly, and had no hidden charges. My carpets look brand new — I couldn't believe the difference. Will absolutely be a repeat customer."</p>
-        <div class="review-author">
-          <div class="review-avatar">MR</div>
-          <div>
-            <div class="review-name">Maria R.</div>
-            <div class="review-meta">Mission Hills, San Diego</div>
-          </div>
-        </div>
+        <p class="review-text">"Called at 9am and they were at my house by noon. My carpet had a red wine stain I thought was permanent — completely gone. Incredibly professional and fast. Will never use anyone else."</p>
+        <div class="review-author">Maria T. — Mission Hills</div>
       </div>
-
-      <div class="review-card">
+      <div class="review-card reveal">
         <div class="review-stars">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-star"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-star"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-star"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-star"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-star"/></svg>
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
         </div>
-        <p class="review-text">"I called at 8am with a pet emergency and they were at my door by noon. The stain and odor are completely gone. Professional, fast, and reasonably priced. Highly recommend!"</p>
-        <div class="review-author">
-          <div class="review-avatar">JT</div>
-          <div>
-            <div class="review-name">James T.</div>
-            <div class="review-meta">North Park, San Diego</div>
-          </div>
-        </div>
+        <p class="review-text">"Used them for our office building in downtown San Diego. Three floors of carpet done efficiently with zero disruption to our team. The carpets look brand new. Excellent service."</p>
+        <div class="review-author">David K. — Downtown SD</div>
       </div>
-
-      <div class="review-card">
+      <div class="review-card reveal">
         <div class="review-stars">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-star"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-star"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-star"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-star"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-star"/></svg>
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
         </div>
-        <p class="review-text">"Used them for our office tile and grout cleaning. The team was professional, efficient, and the results were incredible. The grout lines look like the floors are brand new."</p>
-        <div class="review-author">
-          <div class="review-avatar">SL</div>
-          <div>
-            <div class="review-name">Sandra L.</div>
-            <div class="review-meta">Hillcrest, San Diego</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════
-     TRUST BAND
-══════════════════════════════════════════════════ -->
-<div class="trust-band">
-  <div class="container">
-    <div class="trust-items">
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-shield"/></svg>
-        <span class="trust-item-text">Licensed &amp; Insured</span>
-      </div>
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-leaf"/></svg>
-        <span class="trust-item-text">Eco-Friendly Products</span>
-      </div>
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-clock"/></svg>
-        <span class="trust-item-text">Same Day Available</span>
-      </div>
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-star"/></svg>
-        <span class="trust-item-text">4.9-Star Rated</span>
-      </div>
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-check"/></svg>
-        <span class="trust-item-text">Satisfaction Guaranteed</span>
+        <p class="review-text">"My dog had an accident on the living room carpet and the smell was awful. Same Day Carpet came out same day, treated the area properly, and the odor is completely gone. Truly impressive."</p>
+        <div class="review-author">Jennifer L. — Pacific Beach</div>
       </div>
     </div>
-  </div>
-</div>
+  </section>
 
-<!-- ══════════════════════════════════════════════════
-     CTA SECTION
-══════════════════════════════════════════════════ -->
-<section class="cta-section" id="contact">
-  <div class="container">
-    <div class="cta-inner">
-      <div class="cta-label">Ready for a Fresh Start?</div>
-      <h2 class="cta-title">Book Your Same-Day Clean Today</h2>
-      <p class="cta-sub">Serving San Diego, Mission Hills, North Park, Hillcrest, and surrounding neighborhoods. Call now for a free quote — no obligation.</p>
-      <div class="cta-actions">
-        <a href="tel:6196147035" class="btn-cta-gold">
-          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-phone"/></svg>
-          Call 619-614-7035
-        </a>
-        <a href="#services" class="btn-cta-outline">
-          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-carpet"/></svg>
-          Explore Services
-        </a>
+  <!-- WHY US -->
+  <section class="why-us">
+    <div class="why-us-inner">
+      <div class="why-us-header">
+        <div class="section-eyebrow">Why Choose Us</div>
+        <h2 class="section-title">THE SAME DAY DIFFERENCE</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-item reveal">
+          <div class="why-icon">&#9670;</div>
+          <div class="why-title">Same-Day Available</div>
+          <p class="why-desc">Book in the morning. We arrive the same day. No waiting, no inconvenience.</p>
+        </div>
+        <div class="why-item reveal">
+          <div class="why-icon">&#9670;</div>
+          <div class="why-title">Eco-Friendly</div>
+          <p class="why-desc">Child and pet-safe cleaning solutions that are tough on dirt, gentle on your home.</p>
+        </div>
+        <div class="why-item reveal">
+          <div class="why-icon">&#9670;</div>
+          <div class="why-title">Certified Techs</div>
+          <p class="why-desc">Every technician is trained, certified, and carries full insurance for your peace of mind.</p>
+        </div>
+        <div class="why-item reveal">
+          <div class="why-icon">&#9670;</div>
+          <div class="why-title">100% Guaranteed</div>
+          <p class="why-desc">Not happy with the result? We'll return and re-clean at no additional cost.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ══════════════════════════════════════════════════
-     FOOTER
-══════════════════════════════════════════════════ -->
-<footer>
-  <div class="container">
+  <!-- SECTORS -->
+  <section class="sectors" id="sectors">
+    <div class="sectors-inner">
+      <div class="sectors-left">
+        <div class="section-eyebrow reveal">Where We Work</div>
+        <h2 class="section-title reveal">SECTORS WE SERVE</h2>
+        <div class="gold-line reveal"></div>
+        <p class="reveal">From family homes in Pacific Beach to hotel suites in the Gaslamp Quarter, Same Day Carpet Cleaning San Diego serves residential and commercial clients throughout all San Diego neighborhoods and beyond.</p>
+      </div>
+      <div class="sectors-right reveal">
+        <div class="sector-item"><span class="sector-dot"></span><span class="sector-name">Residential Homes</span></div>
+        <div class="sector-item"><span class="sector-dot"></span><span class="sector-name">Apartments</span></div>
+        <div class="sector-item"><span class="sector-dot"></span><span class="sector-name">Offices</span></div>
+        <div class="sector-item"><span class="sector-dot"></span><span class="sector-name">Hotels</span></div>
+        <div class="sector-item"><span class="sector-dot"></span><span class="sector-name">Restaurants</span></div>
+        <div class="sector-item"><span class="sector-dot"></span><span class="sector-name">Medical Facilities</span></div>
+        <div class="sector-item"><span class="sector-dot"></span><span class="sector-name">Schools</span></div>
+        <div class="sector-item"><span class="sector-dot"></span><span class="sector-name">Retail</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-glow"></div>
+    <div class="section-eyebrow reveal">Ready to Book?</div>
+    <h2 class="section-title reveal">SAME-DAY SERVICE<br>IS ONE CALL AWAY</h2>
+    <p class="section-sub reveal">Don't live with dirty carpets another day. Call now and our San Diego team can be with you today. 100% satisfaction guaranteed.</p>
+    <div class="hero-ctas">
+      <a href="tel:+16196147035" class="btn-primary">Call (619) 614-7035</a>
+      <a href="#services" class="btn-outline">View Services</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
     <div class="footer-grid">
-      <div>
-        <div class="footer-brand">
-          <div class="footer-brand-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-spray"/></svg>
-          </div>
-          <div class="footer-brand-name">Same Day Carpet Cleaning</div>
-        </div>
-        <p class="footer-desc">Professional carpet, upholstery, tile, and rug cleaning for San Diego homes and businesses. Same-day appointments available seven days a week.</p>
-        <div class="footer-contact-item">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-phone"/></svg>
-          <span>619-614-7035</span>
-        </div>
-        <div class="footer-contact-item">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-location"/></svg>
-          <span>4063 Eagle St, San Diego, CA 92103</span>
-        </div>
-        <div class="footer-contact-item">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-clock"/></svg>
-          <span>Mon – Sun: 8:00 AM – 6:00 PM</span>
-        </div>
+      <div class="footer-brand">
+        <span class="nav-logo">Same Day<span style="color:var(--gold)">.</span>Carpet</span>
+        <p class="footer-tagline">San Diego's same-day carpet cleaning professionals. Eco-friendly, certified, guaranteed results.</p>
       </div>
-      <div>
-        <div class="footer-col-title">Services</div>
-        <ul class="footer-links">
-          <li><a href="#services">Carpet Cleaning</a></li>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Same-Day Cleaning</a></li>
+          <li><a href="#services">Deep Steam Cleaning</a></li>
+          <li><a href="#services">Stain Removal</a></li>
           <li><a href="#services">Upholstery Cleaning</a></li>
           <li><a href="#services">Tile &amp; Grout</a></li>
-          <li><a href="#services">Area Rug Cleaning</a></li>
-          <li><a href="#services">Pet Stain Removal</a></li>
-          <li><a href="#services">Commercial Cleaning</a></li>
+          <li><a href="#services">Commercial Care</a></li>
         </ul>
       </div>
-      <div>
-        <div class="footer-col-title">Service Areas</div>
-        <ul class="footer-links">
-          <li><a href="#contact">Mission Hills</a></li>
-          <li><a href="#contact">North Park</a></li>
-          <li><a href="#contact">Hillcrest</a></li>
-          <li><a href="#contact">Pacific Beach</a></li>
-          <li><a href="#contact">La Mesa</a></li>
-          <li><a href="#contact">Chula Vista</a></li>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#sectors">Sectors</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
+      </div>
+      <div class="footer-col footer-contact" id="contact">
+        <h4>Contact</h4>
+        <p>4063 Eagle St<br>San Diego, CA 92103</p>
+        <p style="margin-top:0.8rem"><a href="tel:+16196147035">(619) 614-7035</a></p>
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-copy">&copy; 2025 Same Day Carpet Cleaning San Diego. All rights reserved.</div>
-      <div class="footer-demo-note">Demo site — concept design by jayexe.com</div>
+      <p class="footer-copy">&copy; 2026 Same Day Carpet Cleaning San Diego. All rights reserved.</p>
+      <p class="footer-copy">Demo site by <a href="https://jayexe.com" style="color:var(--gold)">jayexe.com</a></p>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<!-- ══════════════════════════════════════════════════
-     ANIMATIONS (Motion One + count-up)
-══════════════════════════════════════════════════ -->
-<script type="module">
-  import { animate, inView, stagger } from 'https://esm.sh/motion';
-
-  /* ── Count-up helper ────────────────────────────── */
-  function countUp(el, targetVal, suffix, duration, decimals) {
-    const start     = performance.now();
-    const startNum  = 0;
-
-    function easeOutCubic(t) {
-      return 1 - Math.pow(1 - t, 3);
-    }
-
-    function tick(now) {
-      const elapsed  = now - start;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased    = easeOutCubic(progress);
-      const current  = startNum + (targetVal - startNum) * eased;
-      el.textContent = current.toFixed(decimals) + suffix;
-      if (progress < 1) requestAnimationFrame(tick);
-    }
-
-    requestAnimationFrame(tick);
-  }
-
-  /* ── Set initial states for animated elements ───── */
-  const fadeTargets = [
-    '.hero-badge',
-    '.hero-headline',
-    '.hero-sub',
-    '.hero-actions',
-    '.hero-stats',
-    '.stats-band .stat-item',
-    '.service-card',
-    '.feature-text',
-    '.feature-photo-wrap',
-    '.review-card',
-    '.trust-item',
-    '.cta-inner',
-  ];
-
-  fadeTargets.forEach(sel => {
-    document.querySelectorAll(sel).forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(30px)';
+  <script>
+    // NAV scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
     });
-  });
 
-  /* ── Hero content: animate on load ─────────────── */
-  const heroEls = [
-    document.querySelector('.hero-badge'),
-    document.querySelector('.hero-headline'),
-    document.querySelector('.hero-sub'),
-    document.querySelector('.hero-actions'),
-    document.querySelector('.hero-stats'),
-  ].filter(Boolean);
+    // Hero parallax
+    const heroBg = document.getElementById('heroBg');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y < window.innerHeight) {
+        heroBg.style.transform = `scale(1.08) translateY(${y * 0.25}px)`;
+      }
+    });
+    setTimeout(() => heroBg.classList.add('loaded'), 100);
 
-  animate(
-    heroEls,
-    { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0px)'] },
-    { delay: stagger(0.12, { start: 0.2 }), duration: 0.7, easing: [0.25, 0.1, 0.25, 1] }
-  );
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    reveals.forEach(r => revealObserver.observe(r));
 
-  /* ── Stats band ─────────────────────────────────── */
-  inView('.stats-band', () => {
-    const items = document.querySelectorAll('.stats-band .stat-item');
-    animate(
-      items,
-      { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0px)'] },
-      { delay: stagger(0.1), duration: 0.6, easing: [0.25, 0.1, 0.25, 1] }
-    );
-  }, { amount: 0.3 });
+    // Gold line observer
+    const goldLines = document.querySelectorAll('.gold-line');
+    const lineObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('animated'); });
+    }, { threshold: 0.5 });
+    goldLines.forEach(l => lineObserver.observe(l));
 
-  /* ── Services grid ──────────────────────────────── */
-  inView('.services-grid', () => {
-    const cards = document.querySelectorAll('.service-card');
-    animate(
-      cards,
-      { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0px)'] },
-      { delay: stagger(0.1), duration: 0.6, easing: [0.25, 0.1, 0.25, 1] }
-    );
-  }, { amount: 0.1 });
-
-  /* ── Feature section ────────────────────────────── */
-  inView('.feature-text', () => {
-    animate(
-      document.querySelector('.feature-text'),
-      { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0px)'] },
-      { duration: 0.7, easing: [0.25, 0.1, 0.25, 1] }
-    );
-  }, { amount: 0.2 });
-
-  inView('.feature-photo-wrap', () => {
-    animate(
-      document.querySelector('.feature-photo-wrap'),
-      { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0px)'] },
-      { duration: 0.7, delay: 0.15, easing: [0.25, 0.1, 0.25, 1] }
-    );
-
-    /* count-up for badge reviews number */
-    const badgeEl = document.getElementById('badge-reviews');
-    if (badgeEl) countUp(badgeEl, 88, '', 1500, 0);
-  }, { amount: 0.2 });
-
-  /* ── Reviews ────────────────────────────────────── */
-  inView('.reviews-grid', () => {
-    const cards = document.querySelectorAll('.review-card');
-    animate(
-      cards,
-      { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0px)'] },
-      { delay: stagger(0.12), duration: 0.65, easing: [0.25, 0.1, 0.25, 1] }
-    );
-  }, { amount: 0.1 });
-
-  /* ── Trust band ─────────────────────────────────── */
-  inView('.trust-band', () => {
-    const items = document.querySelectorAll('.trust-item');
-    animate(
-      items,
-      { opacity: [0, 1], transform: ['translateY(20px)', 'translateY(0px)'] },
-      { delay: stagger(0.08), duration: 0.5, easing: [0.25, 0.1, 0.25, 1] }
-    );
-  }, { amount: 0.4 });
-
-  /* ── CTA section ────────────────────────────────── */
-  inView('.cta-inner', () => {
-    animate(
-      document.querySelector('.cta-inner'),
-      { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0px)'] },
-      { duration: 0.7, easing: [0.25, 0.1, 0.25, 1] }
-    );
-  }, { amount: 0.3 });
-</script>
-
+    // About image reveal
+    const aboutImg = document.getElementById('aboutImg');
+    if (aboutImg) {
+      const imgObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('revealed'); });
+      }, { threshold: 0.2 });
+      imgObserver.observe(aboutImg);
+    }
+  </script>
 </body>
 </html>

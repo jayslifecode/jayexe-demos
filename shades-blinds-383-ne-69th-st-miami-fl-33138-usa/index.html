@@ -3,363 +3,411 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shades &amp; Blinds — Miami Window Treatments</title>
+  <title>Shades Blinds Miami — Custom Window Treatments &amp; Motorized Blinds</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
-    /* ── Reset & Base ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --charcoal:   #2d2a26;
-      --gold:       #c9a96e;
-      --gold-dark:  #a8854a;
-      --cream:      #fdfaf5;
-      --sand:       #f0e8d8;
-      --taupe:      #8a7560;
-      --white:      #ffffff;
-      --border:     rgba(45,42,38,.12);
-      --font-display: 'Playfair Display', Georgia, serif;
-      --font-body:    'Jost', system-ui, sans-serif;
+      --bg: #0b0b0b;
+      --bg2: #111111;
+      --bg3: #161616;
+      --border: rgba(245,245,240,0.06);
+      --white: #f5f5f0;
+      --muted: rgba(245,245,240,0.45);
+      --gold: #c8a84b;
+      --accent: #1a3a6b;
+      --accent2: #254d8f;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Jost', sans-serif;
       font-weight: 400;
-      color: var(--charcoal);
-      background: var(--cream);
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
     img { display: block; max-width: 100%; }
-    a  { text-decoration: none; color: inherit; }
 
-    /* ── SVG Icon System ── */
-    .icon {
-      display: inline-block;
-      width: 1em;
-      height: 1em;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 1.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      vertical-align: middle;
+    /* GRAIN OVERLAY */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
     }
-    .icon-lg { width: 2.25rem; height: 2.25rem; }
 
-    /* ── Buttons ── */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: .5rem;
-      font-family: var(--font-body);
-      font-weight: 500;
-      font-size: .9rem;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      padding: .85rem 2rem;
-      border-radius: 2px;
-      cursor: pointer;
-      transition: background .22s ease, color .22s ease, opacity .22s ease;
-      white-space: nowrap;
-    }
-    .btn-gold {
-      background: var(--gold);
-      color: var(--charcoal);
-      border: 1.5px solid transparent;
-    }
-    .btn-gold:hover { background: var(--gold-dark); color: var(--white); }
-
-    .btn-ghost-white {
-      background: transparent;
-      color: var(--white);
-      border: 1.5px solid var(--white);
-    }
-    .btn-ghost-white:hover { background: rgba(255,255,255,.12); }
-
-    .btn-ghost-charcoal {
-      background: transparent;
-      color: var(--charcoal);
-      border: 1.5px solid var(--charcoal);
-    }
-    .btn-ghost-charcoal:hover { background: var(--charcoal); color: var(--white); }
-
-    /* ── Nav ── */
+    /* NAV */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      background: rgba(253,250,245,.96);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-      height: 68px;
-      display: flex;
-      align-items: center;
-    }
-    .nav-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 2rem;
+      padding: 0 2.5rem;
+      height: 68px;
+      transition: background 0.3s, border-bottom 0.3s;
+    }
+    nav.scrolled {
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
     }
     .nav-logo {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--charcoal);
-      letter-spacing: .01em;
-      flex-shrink: 0;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      white-space: nowrap;
     }
     .nav-logo span { color: var(--gold); }
-
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 2.5rem;
-      list-style: none;
+      gap: 2rem;
     }
     .nav-links a {
-      font-size: .82rem;
+      font-size: 0.8rem;
       font-weight: 500;
-      letter-spacing: .08em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--taupe);
-      transition: color .18s;
-    }
-    .nav-links a:hover { color: var(--charcoal); }
-
-    .nav-cta {
-      background: var(--charcoal);
-      color: var(--gold);
-      border: 1.5px solid transparent;
-      font-family: var(--font-body);
-      font-weight: 500;
-      font-size: .8rem;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      padding: .6rem 1.4rem;
-      border-radius: 2px;
-      cursor: pointer;
-      transition: background .2s, color .2s;
+      color: var(--muted);
+      transition: color 0.2s;
       white-space: nowrap;
-      flex-shrink: 0;
     }
-    .nav-cta:hover { background: var(--gold); color: var(--charcoal); }
+    .nav-links a:hover { color: var(--white); }
+    .btn-nav {
+      background: var(--accent);
+      color: var(--white) !important;
+      padding: 0.55rem 1.4rem;
+      font-size: 0.78rem !important;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600 !important;
+      transition: background 0.2s !important;
+      white-space: nowrap;
+    }
+    .btn-nav:hover { background: var(--accent2) !important; }
 
-    /* ── Hero ── */
-    #hero {
+    /* HERO */
+    .hero {
       position: relative;
-      min-height: 100svh;
+      height: 100vh;
+      min-height: 680px;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      text-align: center;
-      padding: 8rem 2rem 5rem;
       overflow: hidden;
     }
-    .hero-img {
+    .hero-bg {
       position: absolute;
       inset: 0;
-      background: url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1600&q=80') center/cover no-repeat;
-      z-index: 0;
+      background-image: url('https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=1800&q=80');
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.08);
+      transition: transform 12s ease-out;
+      will-change: transform;
     }
+    .hero-bg.loaded { transform: scale(1); }
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        160deg,
-        rgba(25,20,15,.62) 0%,
-        rgba(35,28,20,.55) 50%,
-        rgba(45,35,22,.48) 100%
-      );
-      z-index: 1;
+      background: linear-gradient(135deg, rgba(11,11,11,0.88) 0%, rgba(11,11,11,0.55) 60%, rgba(11,11,11,0.3) 100%);
+    }
+    .hero-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 40%, rgba(11,11,11,0.7) 100%);
     }
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 820px;
+      padding: 0 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
     }
     .hero-eyebrow {
-      font-size: .75rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.2s forwards;
+    }
+    .hero-title { overflow: hidden; }
+    .hero-title-line {
+      display: block;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 9vw, 8rem);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      transform: translateY(110%);
+      animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .hero-title-line:nth-child(1) { animation-delay: 0.35s; }
+    .hero-title-line:nth-child(2) { animation-delay: 0.49s; }
+    .hero-title-line:nth-child(3) { animation-delay: 0.63s; color: var(--gold); }
+    .hero-sub {
+      margin-top: 1.8rem;
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 480px;
+      line-height: 1.7;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.9s forwards;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2.4rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.6s 1.05s forwards;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent);
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: background 0.2s;
+      height: 48px;
+    }
+    .btn-primary:hover { background: var(--accent2); }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid rgba(245,245,240,0.25);
+      transition: border-color 0.2s, color 0.2s;
+      height: 48px;
+    }
+    .btn-outline:hover { border-color: var(--white); }
+    .hero-badges {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2.8rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.6s 1.2s forwards;
+    }
+    .hero-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
       font-weight: 500;
-      letter-spacing: .18em;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+    }
+    .hero-badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 1.4s forwards;
+    }
+    .scroll-indicator span {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    /* STATEMENT */
+    .statement {
+      padding: 7rem 2.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .section-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--gold);
       margin-bottom: 1.5rem;
     }
-    .hero-title {
-      font-family: var(--font-display);
-      font-size: clamp(2.4rem, 5.5vw, 4rem);
-      font-weight: 700;
-      line-height: 1.15;
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: 0.02em;
       color: var(--white);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.8rem;
     }
-    .hero-title em {
-      font-style: italic;
-      color: var(--gold);
+    .gold-line {
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      margin: 0 auto 2rem;
+      transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .hero-sub {
+    .gold-line.animated { width: 80px; }
+    .section-sub {
       font-size: 1.05rem;
       font-weight: 300;
-      color: rgba(255,255,255,.82);
-      max-width: 520px;
-      margin: 0 auto 2.5rem;
-      line-height: 1.7;
-    }
-    .hero-ctas {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 640px;
+      margin: 0 auto;
     }
 
-    /* ── Stats Band ── */
-    #stats {
-      background: var(--sand);
-      padding: 4.5rem 2rem;
+    /* STATS */
+    .stats {
+      background: var(--bg3);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 4rem 2.5rem;
     }
     .stats-grid {
-      max-width: 1200px;
+      max-width: 1100px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
+      gap: 0;
     }
     .stat-item {
       text-align: center;
       padding: 2rem 1.5rem;
+      border-right: 1px solid var(--border);
     }
-    .stat-number {
-      font-family: var(--font-display);
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: var(--gold);
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem;
       line-height: 1;
-      margin-bottom: .5rem;
+      color: var(--gold);
+      display: block;
     }
     .stat-label {
-      font-size: .78rem;
+      font-size: 0.72rem;
       font-weight: 500;
-      letter-spacing: .1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--taupe);
+      color: var(--muted);
+      margin-top: 0.5rem;
+      display: block;
     }
 
-    /* ── Section Shared ── */
-    .section-label {
-      font-size: .72rem;
-      font-weight: 500;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: .9rem;
+    /* SERVICES */
+    .services {
+      padding: 7rem 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-    .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-      font-weight: 700;
-      line-height: 1.2;
+    .services-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+    }
+    .service-card {
+      padding: 2.5rem;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      transition: background 0.3s;
+    }
+    .service-card:hover { background: var(--bg3); }
+    .service-card:nth-child(3n) { border-right: none; }
+    .service-card:nth-child(n+4) { border-bottom: none; }
+    .service-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      color: var(--border);
+      line-height: 1;
       margin-bottom: 1rem;
+      transition: color 0.3s;
     }
-    .section-sub {
-      font-size: 1rem;
+    .service-card:hover .service-num { color: rgba(200,168,75,0.15); }
+    .service-bottom-line {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .service-card:hover .service-bottom-line { transform: scaleX(1); }
+    .service-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      margin-bottom: 0.7rem;
+    }
+    .service-desc {
+      font-size: 0.85rem;
       font-weight: 300;
-      color: var(--taupe);
-      max-width: 520px;
+      color: var(--muted);
       line-height: 1.7;
     }
 
-    /* ── Products ── */
-    #products {
-      padding: 6rem 2rem;
-      background: var(--cream);
+    /* ABOUT */
+    .about {
+      padding: 7rem 2.5rem;
+      background: var(--bg3);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
-    .products-header {
-      max-width: 1200px;
-      margin: 0 auto 3.5rem;
-      text-align: center;
-    }
-    .products-header .section-sub { margin: 0 auto; }
-
-    .products-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-    .product-card {
-      background: var(--sand);
-      border-radius: 4px;
-      padding: 2.5rem 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1.1rem;
-      transition: box-shadow .22s;
-    }
-    .product-card:hover {
-      box-shadow: 0 8px 32px rgba(45,42,38,.1);
-    }
-    .product-icon-wrap {
-      width: 52px;
-      height: 52px;
-      background: rgba(201,169,110,.14);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gold);
-    }
-    .product-name {
-      font-family: var(--font-display);
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--charcoal);
-      line-height: 1.25;
-    }
-    .product-desc {
-      font-size: .88rem;
-      font-weight: 300;
-      color: var(--taupe);
-      line-height: 1.6;
-    }
-    .product-link {
-      font-size: .78rem;
-      font-weight: 500;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--gold);
-      display: flex;
-      align-items: center;
-      gap: .4rem;
-      margin-top: auto;
-      transition: gap .18s;
-    }
-    .product-link:hover { gap: .7rem; }
-
-    /* ── Feature Section ── */
-    #feature {
-      background: var(--charcoal);
-      padding: 6rem 2rem;
-      color: var(--white);
-    }
-    .feature-inner {
+    .about-inner {
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
@@ -367,776 +415,661 @@
       gap: 5rem;
       align-items: center;
     }
-    .feature-content .section-title { color: var(--white); }
-    .feature-content .section-sub { color: rgba(255,255,255,.6); max-width: 100%; }
-
-    .feature-list {
-      list-style: none;
-      margin-top: 2.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.4rem;
-    }
-    .feature-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-    }
-    .feature-list-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: rgba(201,169,110,.18);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gold);
-      flex-shrink: 0;
-      margin-top: .1rem;
-    }
-    .feature-list-text strong {
-      display: block;
-      font-weight: 500;
-      font-size: .95rem;
-      color: var(--white);
-      margin-bottom: .2rem;
-    }
-    .feature-list-text span {
-      font-size: .85rem;
-      font-weight: 300;
-      color: rgba(255,255,255,.55);
-      line-height: 1.6;
-    }
-
-    .feature-photo {
-      border-radius: 4px;
-      overflow: hidden;
-      aspect-ratio: 4/5;
-    }
-    .feature-photo img {
+    .about-image-wrap { position: relative; }
+    .about-img {
       width: 100%;
-      height: 100%;
+      aspect-ratio: 4/5;
       object-fit: cover;
-      transition: transform .6s ease;
+      clip-path: inset(100% 0 0 0);
+      transition: clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .feature-photo:hover img { transform: scale(1.03); }
+    .about-img.revealed { clip-path: inset(0% 0 0 0); }
+    .about-frame {
+      position: absolute;
+      width: 60px; height: 60px;
+      border-color: var(--gold);
+      border-style: solid;
+    }
+    .about-frame-tl { top: -12px; left: -12px; border-width: 2px 0 0 2px; }
+    .about-frame-tr { top: -12px; right: -12px; border-width: 2px 2px 0 0; }
+    .about-frame-bl { bottom: -12px; left: -12px; border-width: 0 0 2px 2px; }
+    .about-frame-br { bottom: -12px; right: -12px; border-width: 0 2px 2px 0; }
+    .about-badge-strip {
+      position: absolute;
+      bottom: 2rem;
+      left: -1.5rem;
+      background: var(--accent);
+      padding: 0.8rem 1.5rem;
+    }
+    .about-badge-text {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      color: var(--white);
+    }
+    .about-content .section-eyebrow { text-align: left; }
+    .about-content .section-title { text-align: left; margin-bottom: 1.5rem; }
+    .about-content .gold-line { margin-left: 0; }
+    .about-text {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 1.5rem;
+    }
 
-    /* ── Reviews ── */
-    #reviews {
-      padding: 6rem 2rem;
-      background: var(--cream);
+    /* REVIEWS */
+    .reviews {
+      padding: 7rem 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
     .reviews-header {
-      max-width: 1200px;
-      margin: 0 auto 3.5rem;
-      text-align: center;
-    }
-    .reviews-header .section-sub { margin: 0 auto; }
-
-    .stars {
       display: flex;
       align-items: center;
-      gap: .2rem;
-      color: var(--gold);
-      font-size: 1rem;
-      margin-bottom: .9rem;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      justify-content: center;
     }
-
+    .g-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      padding: 0.7rem 1.2rem;
+    }
+    .g-letter {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      background: linear-gradient(135deg, #4285F4, #EA4335, #FBBC05, #34A853);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .g-score { font-size: 0.85rem; font-weight: 600; color: var(--white); }
+    .g-count { font-size: 0.75rem; color: var(--muted); }
+    .reviews-header h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      letter-spacing: 0.04em;
+      color: var(--white);
+    }
     .reviews-grid {
-      max-width: 1200px;
-      margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+      gap: 1.5px;
+      background: var(--border);
     }
     .review-card {
-      background: var(--sand);
-      border-radius: 4px;
-      padding: 2.2rem;
+      background: var(--bg2);
+      padding: 2rem;
     }
+    .review-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 1rem;
+    }
+    .star { color: var(--gold); font-size: 0.85rem; }
     .review-text {
-      font-size: .92rem;
+      font-size: 0.88rem;
       font-weight: 300;
-      color: var(--charcoal);
-      line-height: 1.7;
-      margin-bottom: 1.4rem;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 1.2rem;
       font-style: italic;
     }
-    .review-text::before { content: '\201C'; }
-    .review-text::after  { content: '\201D'; }
-
-    .reviewer-name {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: .95rem;
-      color: var(--charcoal);
-    }
-    .reviewer-meta {
-      font-size: .78rem;
-      font-weight: 400;
-      color: var(--taupe);
-      margin-top: .15rem;
+    .review-author {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
     }
 
-    /* ── Trust Band ── */
-    #trust {
-      background: var(--sand);
-      padding: 4rem 2rem;
+    /* WHY US */
+    .why-us {
+      background: var(--accent);
+      padding: 5rem 2.5rem;
     }
-    .trust-inner {
-      max-width: 1200px;
-      margin: 0 auto;
+    .why-us-inner { max-width: 1200px; margin: 0 auto; }
+    .why-us-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .why-us-header .section-eyebrow { color: rgba(245,245,240,0.6); }
+    .why-us-header .section-title { color: var(--white); }
+    .why-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 2rem;
     }
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 1.1rem;
-    }
-    .trust-icon-wrap {
-      width: 44px;
-      height: 44px;
-      background: rgba(201,169,110,.18);
+    .why-item { text-align: center; }
+    .why-icon {
+      width: 48px; height: 48px;
+      border: 1px solid rgba(245,245,240,0.25);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--gold);
-      flex-shrink: 0;
+      margin: 0 auto 1.2rem;
+      font-size: 1.2rem;
     }
-    .trust-text strong {
-      display: block;
-      font-size: .88rem;
-      font-weight: 500;
-      color: var(--charcoal);
+    .why-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      margin-bottom: 0.5rem;
     }
-    .trust-text span {
-      font-size: .78rem;
+    .why-desc {
+      font-size: 0.82rem;
       font-weight: 300;
-      color: var(--taupe);
+      color: rgba(245,245,240,0.65);
+      line-height: 1.65;
     }
 
-    /* ── CTA Section ── */
-    #cta {
-      background: var(--gold);
-      padding: 6rem 2rem;
-      text-align: center;
+    /* SECTORS */
+    .sectors {
+      padding: 7rem 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-    .cta-inner { max-width: 680px; margin: 0 auto; }
-    #cta .section-label { color: rgba(45,42,38,.6); }
-    #cta .section-title { color: var(--charcoal); }
-    #cta .section-sub { color: rgba(45,42,38,.7); margin: 0 auto 2.5rem; }
-    .cta-buttons {
+    .sectors-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .sectors-left .section-eyebrow { text-align: left; }
+    .sectors-left .section-title { text-align: left; }
+    .sectors-left .gold-line { margin-left: 0; margin-bottom: 1.5rem; }
+    .sectors-left p {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.85;
+    }
+    .sectors-right {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--border);
+    }
+    .sector-item {
+      padding: 1.2rem 1.5rem;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
+      gap: 0.7rem;
+      transition: background 0.2s;
+    }
+    .sector-item:hover { background: var(--bg3); }
+    .sector-item:nth-child(2n) { border-right: none; }
+    .sector-item:nth-child(n+7) { border-bottom: none; }
+    .sector-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .sector-name {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--white);
     }
 
-    /* ── Footer ── */
-    footer {
-      background: var(--charcoal);
-      color: rgba(255,255,255,.55);
-      padding: 3.5rem 2rem;
+    /* CTA SECTION */
+    .cta-section {
+      padding: 8rem 2.5rem;
+      text-align: center;
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
     }
-    .footer-inner {
+    .cta-glow {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse at center, rgba(26,58,107,0.3) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-section .section-eyebrow,
+    .cta-section .section-title,
+    .cta-section .section-sub { position: relative; }
+    .cta-section .section-sub { margin-bottom: 2.5rem; }
+    .cta-section .hero-ctas { justify-content: center; opacity: 1; animation: none; }
+
+    /* FOOTER */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 4rem 2.5rem 2rem;
+    }
+    .footer-grid {
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      gap: 2rem;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
     }
-    .footer-logo {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--white);
-    }
-    .footer-logo span { color: var(--gold); }
-
-    .footer-center { text-align: center; }
-    .footer-address {
-      font-size: .82rem;
+    .footer-brand .nav-logo { margin-bottom: 1rem; display: block; }
+    .footer-tagline {
+      font-size: 0.85rem;
       font-weight: 300;
+      color: var(--muted);
       line-height: 1.7;
+      max-width: 260px;
     }
-    .footer-phone {
-      color: var(--gold);
-      font-weight: 400;
-      font-size: .88rem;
+    .footer-col h4 {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1.2rem;
     }
-    .footer-right {
-      text-align: right;
-      font-size: .78rem;
+    .footer-col ul li { margin-bottom: 0.6rem; }
+    .footer-col ul li a {
+      font-size: 0.85rem;
       font-weight: 300;
-      line-height: 1.8;
+      color: var(--muted);
+      transition: color 0.2s;
     }
-    .footer-copy {
-      margin-top: 2.5rem;
-      text-align: center;
-      font-size: .75rem;
+    .footer-col ul li a:hover { color: var(--white); }
+    .footer-contact p {
+      font-size: 0.85rem;
       font-weight: 300;
-      opacity: .5;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+    .footer-contact a { color: var(--gold); }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 2rem auto 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-copy { font-size: 0.75rem; color: var(--muted); }
+
+    /* REVEAL ANIMATIONS */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    /* ── Responsive ── */
+    /* KEYFRAMES */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(110%); }
+      to { transform: translateY(0); }
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    /* RESPONSIVE */
     @media (max-width: 900px) {
-      .stats-grid          { grid-template-columns: repeat(2,1fr); }
-      .products-grid       { grid-template-columns: repeat(2,1fr); }
-      .feature-inner       { grid-template-columns: 1fr; gap: 3rem; }
-      .feature-photo       { aspect-ratio: 16/9; order: -1; }
-      .reviews-grid        { grid-template-columns: repeat(2,1fr); }
-      .trust-inner         { grid-template-columns: repeat(2,1fr); }
-      .footer-inner        { grid-template-columns: 1fr; text-align: center; }
-      .footer-right        { text-align: center; }
-      .nav-links           { display: none; }
+      .nav-links { display: none; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .service-card:nth-child(3n) { border-right: 1px solid var(--border); }
+      .service-card:nth-child(2n) { border-right: none; }
+      .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .sectors-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 600px) {
-      .products-grid       { grid-template-columns: 1fr; }
-      .reviews-grid        { grid-template-columns: 1fr; }
-      .stats-grid          { grid-template-columns: repeat(2,1fr); }
-      .trust-inner         { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .sectors-right { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-<!-- ══ SVG Symbol Definitions ══ -->
-<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
-  <symbol id="icon-roller" viewBox="0 0 24 24">
-    <rect x="3" y="3" width="18" height="3" rx="1"/>
-    <line x1="12" y1="6" x2="12" y2="20"/>
-    <rect x="9" y="8" width="6" height="10" rx="1"/>
-  </symbol>
-  <symbol id="icon-wood-blind" viewBox="0 0 24 24">
-    <rect x="3" y="3" width="18" height="2" rx="1"/>
-    <rect x="3" y="8" width="18" height="2" rx="1"/>
-    <rect x="3" y="13" width="18" height="2" rx="1"/>
-    <rect x="3" y="18" width="18" height="2" rx="1"/>
-    <line x1="12" y1="5" x2="12" y2="20"/>
-  </symbol>
-  <symbol id="icon-cellular" viewBox="0 0 24 24">
-    <rect x="3" y="3" width="18" height="18" rx="2"/>
-    <path d="M3 9h18M3 15h18M9 3v18M15 3v18"/>
-  </symbol>
-  <symbol id="icon-roman" viewBox="0 0 24 24">
-    <rect x="3" y="3" width="18" height="2" rx="1"/>
-    <path d="M5 5v4q7 3 14 0V5"/>
-    <path d="M5 9v4q7 3 14 0V9"/>
-    <path d="M5 13v4q7 3 14 0v-4"/>
-    <line x1="12" y1="3" x2="12" y2="21"/>
-  </symbol>
-  <symbol id="icon-shutter" viewBox="0 0 24 24">
-    <rect x="4" y="2" width="7" height="20" rx="1"/>
-    <rect x="13" y="2" width="7" height="20" rx="1"/>
-    <line x1="4" y1="7" x2="11" y2="7"/>
-    <line x1="4" y1="12" x2="11" y2="12"/>
-    <line x1="4" y1="17" x2="11" y2="17"/>
-    <line x1="13" y1="7" x2="20" y2="7"/>
-    <line x1="13" y1="12" x2="20" y2="12"/>
-    <line x1="13" y1="17" x2="20" y2="17"/>
-  </symbol>
-  <symbol id="icon-faux" viewBox="0 0 24 24">
-    <rect x="3" y="3" width="18" height="2" rx="1"/>
-    <rect x="3" y="8" width="18" height="1.5" rx=".75"/>
-    <rect x="3" y="12.5" width="18" height="1.5" rx=".75"/>
-    <rect x="3" y="17" width="18" height="2" rx="1"/>
-    <line x1="12" y1="5" x2="12" y2="21"/>
-  </symbol>
-  <!-- Feature icons -->
-  <symbol id="icon-home" viewBox="0 0 24 24">
-    <path d="M3 9.75 12 3l9 6.75V21H3V9.75Z"/>
-    <path d="M9 21v-8h6v8"/>
-  </symbol>
-  <symbol id="icon-measure" viewBox="0 0 24 24">
-    <rect x="2" y="8" width="20" height="8" rx="1" transform="rotate(-45 12 12)"/>
-    <line x1="9" y1="9" x2="9" y2="12"/>
-    <line x1="12" y1="9" x2="12" y2="13.5"/>
-    <line x1="15" y1="9" x2="15" y2="12"/>
-  </symbol>
-  <symbol id="icon-shield" viewBox="0 0 24 24">
-    <path d="M12 2 4 5.5V12c0 4.5 3.5 8.5 8 10 4.5-1.5 8-5.5 8-10V5.5L12 2Z"/>
-    <polyline points="9 12 11 14 15 10"/>
-  </symbol>
-  <symbol id="icon-star" viewBox="0 0 24 24">
-    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" stroke-width="1.5"/>
-  </symbol>
-  <symbol id="icon-leaf" viewBox="0 0 24 24">
-    <path d="M17 8C8 10 5.9 16.17 3.82 19.92A2 2 0 0 0 5 22c5-1 13-5 15-14"/>
-    <path d="M7.77 11.5a5 5 0 0 1 7.46 6.33"/>
-  </symbol>
-  <symbol id="icon-tool" viewBox="0 0 24 24">
-    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91A6 6 0 0 1 14.7 6.3Z"/>
-  </symbol>
-  <symbol id="icon-phone" viewBox="0 0 24 24">
-    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/>
-  </symbol>
-  <symbol id="icon-check" viewBox="0 0 24 24">
-    <polyline points="20 6 9 17 4 12"/>
-  </symbol>
-  <symbol id="icon-arrow-right" viewBox="0 0 24 24">
-    <line x1="5" y1="12" x2="19" y2="12"/>
-    <polyline points="12 5 19 12 12 19"/>
-  </symbol>
-  <symbol id="icon-award" viewBox="0 0 24 24">
-    <circle cx="12" cy="8" r="6"/>
-    <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
-  </symbol>
-  <symbol id="icon-sun" viewBox="0 0 24 24">
-    <circle cx="12" cy="12" r="4"/>
-    <line x1="12" y1="2" x2="12" y2="4"/>
-    <line x1="12" y1="20" x2="12" y2="22"/>
-    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-    <line x1="2" y1="12" x2="4" y2="12"/>
-    <line x1="20" y1="12" x2="22" y2="12"/>
-    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-  </symbol>
-</svg>
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-logo">Shades<span>.</span>Blinds</div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#sectors">Sectors</a>
+      <a href="tel:+13057263139" class="btn-nav">Free Consultation</a>
+    </div>
+  </nav>
 
-<!-- ══ Nav ══ -->
-<nav>
-  <div class="nav-inner">
-    <div class="nav-logo">Shades <span>&amp;</span> Blinds</div>
-    <ul class="nav-links">
-      <li><a href="#products">Products</a></li>
-      <li><a href="#feature">Why Us</a></li>
-      <li><a href="#reviews">Reviews</a></li>
-      <li><a href="#cta">Contact</a></li>
-    </ul>
-    <a href="tel:3057263139" class="nav-cta">Get Free Quote</a>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-vignette"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Miami, FL — Free In-Home Consultation</div>
+      <div class="hero-title">
+        <span class="hero-title-line">MIAMI'S CUSTOM</span>
+        <span class="hero-title-line">BLINDS &amp;</span>
+        <span class="hero-title-line">SHADES EXPERTS</span>
+      </div>
+      <p class="hero-sub">Custom window treatments designed for Miami's light and lifestyle. Motorized blinds, plantation shutters, roller shades — installed to perfection.</p>
+      <div class="hero-ctas">
+        <a href="tel:+13057263139" class="btn-primary">Book Free Consultation</a>
+        <a href="#services" class="btn-outline">Explore Products</a>
+      </div>
+      <div class="hero-badges">
+        <div class="hero-badge"><span class="hero-badge-dot"></span> Free In-Home Consult</div>
+        <div class="hero-badge"><span class="hero-badge-dot"></span> Motorized Options</div>
+        <div class="hero-badge"><span class="hero-badge-dot"></span> Miami Local</div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- STATEMENT -->
+  <section class="statement">
+    <div class="section-eyebrow reveal">Crafted for Miami</div>
+    <h2 class="section-title reveal">WINDOW TREATMENTS<br>BUILT FOR MIAMI LIVING</h2>
+    <div class="gold-line reveal"></div>
+    <p class="section-sub reveal">From Biscayne Bay condos to Coral Gables homes, Shades Blinds brings expert window treatment design and installation to every corner of Miami. We combine premium materials with precision craftsmanship for results that last and impress.</p>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <span class="stat-num">Free</span>
+        <span class="stat-label">In-Home Consultation</span>
+      </div>
+      <div class="stat-item reveal">
+        <span class="stat-num" data-count="4.8" data-suffix="★">4.8★</span>
+        <span class="stat-label">Google Rating</span>
+      </div>
+      <div class="stat-item reveal">
+        <span class="stat-num">Expert</span>
+        <span class="stat-label">Installation</span>
+      </div>
+      <div class="stat-item reveal">
+        <span class="stat-num">Local</span>
+        <span class="stat-label">Miami Business</span>
+      </div>
+    </div>
   </div>
-</nav>
 
-<!-- ══ Hero ══ -->
-<section id="hero">
-  <div class="hero-img"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <p class="hero-eyebrow">Miami&#39;s Custom Window Treatments</p>
-    <h1 class="hero-title">
-      Window Treatments That<br><em>Transform Your Space</em>
-    </h1>
-    <p class="hero-sub">
-      From light-filtering roller shades to classic plantation shutters — handcrafted, professionally installed, and tailored to your Miami home.
-    </p>
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="services-header">
+      <div class="section-eyebrow reveal">Our Products</div>
+      <h2 class="section-title reveal">WINDOW TREATMENT RANGE</h2>
+      <div class="gold-line reveal"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-num">01</div>
+        <div class="service-name">Roller Shades</div>
+        <p class="service-desc">Sleek and versatile roller shades available in light-filtering, blackout, and solar fabrics. Perfect for Miami's intense sun and privacy needs.</p>
+        <div class="service-bottom-line"></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">02</div>
+        <div class="service-name">Venetian Blinds</div>
+        <p class="service-desc">Classic aluminium and real wood venetians with precise slat control. Timeless style that works in every Miami interior, from modern to traditional.</p>
+        <div class="service-bottom-line"></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">03</div>
+        <div class="service-name">Plantation Shutters</div>
+        <p class="service-desc">The ultimate Miami window treatment. Our plantation shutters offer superior light control, privacy, and lasting value that enhances any property.</p>
+        <div class="service-bottom-line"></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">04</div>
+        <div class="service-name">Motorized Blinds</div>
+        <p class="service-desc">Smart home integration with motorized window treatments. Control your blinds from your phone, voice assistant, or programmed schedules.</p>
+        <div class="service-bottom-line"></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">05</div>
+        <div class="service-name">Blackout Shades</div>
+        <p class="service-desc">Complete light blockage for bedrooms, media rooms, and nurseries. Our blackout shades keep Miami's bright mornings from disturbing your sleep.</p>
+        <div class="service-bottom-line"></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">06</div>
+        <div class="service-name">Commercial Window Treatments</div>
+        <p class="service-desc">Office buildings, hotels, restaurants, and retail spaces across Miami fitted with professional-grade window treatments on any scale.</p>
+        <div class="service-bottom-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-image-wrap">
+        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80" alt="Shades Blinds Miami showroom" class="about-img" id="aboutImg" />
+        <div class="about-frame about-frame-tl"></div>
+        <div class="about-frame about-frame-tr"></div>
+        <div class="about-frame about-frame-bl"></div>
+        <div class="about-frame about-frame-br"></div>
+        <div class="about-badge-strip">
+          <div class="about-badge-text">Miami's Window Treatment Specialists</div>
+        </div>
+      </div>
+      <div class="about-content">
+        <div class="section-eyebrow reveal">Our Story</div>
+        <h2 class="section-title reveal">SHADES BLINDS<br>MIAMI</h2>
+        <div class="gold-line reveal"></div>
+        <p class="about-text reveal">Located on NE 69th Street in Miami, Shades Blinds has been serving homeowners, interior designers, and commercial clients throughout Miami-Dade County. We specialise in custom window treatments that complement Miami's unique architectural styles and climate.</p>
+        <p class="about-text reveal">Every project begins with a free in-home consultation. Our design consultants visit your home or office, take precise measurements, and recommend the perfect window treatments for your space, budget, and lifestyle. All products are then expertly installed by our own team.</p>
+        <a href="tel:+13057263139" class="btn-primary reveal">Call (305) 726-3139</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews" id="reviews">
+    <div class="reviews-header reveal">
+      <div class="g-badge">
+        <span class="g-letter">G</span>
+        <div>
+          <div class="g-score">4.8 / 5.0</div>
+          <div class="g-count">Google Reviews</div>
+        </div>
+      </div>
+      <h2>WHAT CLIENTS SAY</h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="review-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="review-text">"Had motorized roller shades installed in our Brickell condo. The whole process was seamless — consultation, measurement, installation all done professionally. The shades look incredible and work perfectly."</p>
+        <div class="review-author">Carlos M. — Brickell</div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="review-text">"Shades Blinds installed plantation shutters throughout our Coral Gables home. The quality is exceptional — exactly what we wanted. Their team was courteous, on time, and left everything spotless."</p>
+        <div class="review-author">Stephanie R. — Coral Gables</div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="review-text">"We used Shades Blinds for our Miami Beach boutique hotel. They handled 40 rooms efficiently without disturbing guests. The blackout shades have been hugely popular with our guests. Outstanding work."</p>
+        <div class="review-author">Antonio V. — Miami Beach</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why-us">
+    <div class="why-us-inner">
+      <div class="why-us-header">
+        <div class="section-eyebrow">Why Choose Us</div>
+        <h2 class="section-title">THE SHADES BLINDS DIFFERENCE</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-item reveal">
+          <div class="why-icon">&#9670;</div>
+          <div class="why-title">Free Consultation</div>
+          <p class="why-desc">We come to you. Free in-home design consultation with no obligation or pressure.</p>
+        </div>
+        <div class="why-item reveal">
+          <div class="why-icon">&#9670;</div>
+          <div class="why-title">Expert Install</div>
+          <p class="why-desc">Our own installation team delivers a flawless finish on every project, every time.</p>
+        </div>
+        <div class="why-item reveal">
+          <div class="why-icon">&#9670;</div>
+          <div class="why-title">Miami Local</div>
+          <p class="why-desc">Born and built in Miami. We know the city, the climate, and the style inside out.</p>
+        </div>
+        <div class="why-item reveal">
+          <div class="why-icon">&#9670;</div>
+          <div class="why-title">Smart Options</div>
+          <p class="why-desc">Motorized and smart home compatible window treatments for the modern Miami lifestyle.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTORS -->
+  <section class="sectors" id="sectors">
+    <div class="sectors-inner">
+      <div class="sectors-left">
+        <div class="section-eyebrow reveal">Where We Work</div>
+        <h2 class="section-title reveal">SECTORS WE SERVE</h2>
+        <div class="gold-line reveal"></div>
+        <p class="reveal">From Wynwood lofts to Coconut Grove estates, Shades Blinds serves clients across all Miami neighborhoods and property types. Whether you are furnishing a single room or an entire hotel, our team delivers the same standard of excellence.</p>
+      </div>
+      <div class="sectors-right reveal">
+        <div class="sector-item"><span class="sector-dot"></span><span class="sector-name">Living Rooms</span></div>
+        <div class="sector-item"><span class="sector-dot"></span><span class="sector-name">Bedrooms</span></div>
+        <div class="sector-item"><span class="sector-dot"></span><span class="sector-name">Kitchens</span></div>
+        <div class="sector-item"><span class="sector-dot"></span><span class="sector-name">Home Offices</span></div>
+        <div class="sector-item"><span class="sector-dot"></span><span class="sector-name">Condos &amp; Apartments</span></div>
+        <div class="sector-item"><span class="sector-dot"></span><span class="sector-name">Commercial Offices</span></div>
+        <div class="sector-item"><span class="sector-dot"></span><span class="sector-name">Hospitality</span></div>
+        <div class="sector-item"><span class="sector-dot"></span><span class="sector-name">New Construction</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-glow"></div>
+    <div class="section-eyebrow reveal">Get Started Today</div>
+    <h2 class="section-title reveal">BOOK YOUR FREE<br>IN-HOME CONSULTATION</h2>
+    <p class="section-sub reveal">Our Miami design consultants will visit your home or office, take precise measurements, and recommend the perfect window treatments for your space — completely free.</p>
     <div class="hero-ctas">
-      <a href="tel:3057263139" class="btn btn-gold">
-        <svg class="icon" aria-hidden="true"><use href="#icon-phone"/></svg>
-        Call&nbsp;305-726-3139
-      </a>
-      <a href="#products" class="btn btn-ghost-white">Explore Products</a>
+      <a href="tel:+13057263139" class="btn-primary">Call (305) 726-3139</a>
+      <a href="#services" class="btn-outline">View Products</a>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ══ Stats Band ══ -->
-<section id="stats">
-  <div class="stats-grid">
-    <div class="stat-item">
-      <div class="stat-number" data-count="4.7" data-suffix="★">4.7★</div>
-      <div class="stat-label">Google Rating</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number" data-count="47" data-suffix="+">47+</div>
-      <div class="stat-label">Verified Reviews</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number" data-count="100" data-suffix="%">100%</div>
-      <div class="stat-label">Licensed &amp; Insured</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number" data-count="0" data-text="Free">Free</div>
-      <div class="stat-label">In-Home Consultation</div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ Products ══ -->
-<section id="products">
-  <div class="products-header">
-    <p class="section-label">Our Products</p>
-    <h2 class="section-title">Window Treatments for Every Style</h2>
-    <p class="section-sub">Premium materials, precision installation, and designs that complement Miami&#39;s architectural sensibility — from modern condo to waterfront estate.</p>
-  </div>
-  <div class="products-grid">
-
-    <div class="product-card">
-      <div class="product-icon-wrap">
-        <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-roller"/></svg>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="nav-logo">Shades<span style="color:var(--gold)">.</span>Blinds</span>
+        <p class="footer-tagline">Miami's custom window treatment specialists. Free consultation, expert installation, guaranteed results.</p>
       </div>
-      <div class="product-name">Roller Shades</div>
-      <p class="product-desc">Clean, minimal, and endlessly versatile. Available in blackout, light-filtering, and solar weaves to control Miami&#39;s intense sun.</p>
-      <a href="#cta" class="product-link">
-        Learn more
-        <svg class="icon" style="width:1rem;height:1rem" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
-      </a>
-    </div>
-
-    <div class="product-card">
-      <div class="product-icon-wrap">
-        <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-wood-blind"/></svg>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="#services">Roller Shades</a></li>
+          <li><a href="#services">Venetian Blinds</a></li>
+          <li><a href="#services">Plantation Shutters</a></li>
+          <li><a href="#services">Motorized Blinds</a></li>
+          <li><a href="#services">Blackout Shades</a></li>
+          <li><a href="#services">Commercial</a></li>
+        </ul>
       </div>
-      <div class="product-name">Wood Blinds</div>
-      <p class="product-desc">Natural warmth and timeless elegance. Real hardwood slats with rich stains that bring an organic, upscale feel to any room.</p>
-      <a href="#cta" class="product-link">
-        Learn more
-        <svg class="icon" style="width:1rem;height:1rem" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
-      </a>
-    </div>
-
-    <div class="product-card">
-      <div class="product-icon-wrap">
-        <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-faux"/></svg>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#sectors">Sectors</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </div>
-      <div class="product-name">Faux Wood Blinds</div>
-      <p class="product-desc">The look of real wood with superior moisture resistance — perfect for Miami&#39;s humidity. Ideal for kitchens, bathrooms, and coastal homes.</p>
-      <a href="#cta" class="product-link">
-        Learn more
-        <svg class="icon" style="width:1rem;height:1rem" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
-      </a>
-    </div>
-
-    <div class="product-card">
-      <div class="product-icon-wrap">
-        <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-cellular"/></svg>
-      </div>
-      <div class="product-name">Cellular Shades</div>
-      <p class="product-desc">Honeycomb construction traps air for superior insulation — keeping your home cooler in summer and reducing energy costs year-round.</p>
-      <a href="#cta" class="product-link">
-        Learn more
-        <svg class="icon" style="width:1rem;height:1rem" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
-      </a>
-    </div>
-
-    <div class="product-card">
-      <div class="product-icon-wrap">
-        <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-roman"/></svg>
-      </div>
-      <div class="product-name">Roman Shades</div>
-      <p class="product-desc">Soft fabric folds that drape beautifully — adding texture, color, and a tailored, couture-inspired look to living spaces and bedrooms.</p>
-      <a href="#cta" class="product-link">
-        Learn more
-        <svg class="icon" style="width:1rem;height:1rem" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
-      </a>
-    </div>
-
-    <div class="product-card">
-      <div class="product-icon-wrap">
-        <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-shutter"/></svg>
-      </div>
-      <div class="product-name">Plantation Shutters</div>
-      <p class="product-desc">Classic Southern elegance meets Miami style. Full hardwood or poly panels that add architectural character and lasting resale value.</p>
-      <a href="#cta" class="product-link">
-        Learn more
-        <svg class="icon" style="width:1rem;height:1rem" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
-      </a>
-    </div>
-
-  </div>
-</section>
-
-<!-- ══ Feature ══ -->
-<section id="feature">
-  <div class="feature-inner">
-    <div class="feature-content">
-      <p class="section-label">Why Choose Us</p>
-      <h2 class="section-title">Why Miami Chooses Shades &amp; Blinds</h2>
-      <p class="section-sub">We&#39;re a locally owned Miami business — we know your home, your climate, and your taste.</p>
-      <ul class="feature-list">
-        <li>
-          <div class="feature-list-icon">
-            <svg class="icon" style="width:1.1rem;height:1.1rem" aria-hidden="true"><use href="#icon-home"/></svg>
-          </div>
-          <div class="feature-list-text">
-            <strong>Free In-Home Measurement</strong>
-            <span>We come to you — accurate measurements, zero guesswork, and expert product advice in your own space.</span>
-          </div>
-        </li>
-        <li>
-          <div class="feature-list-icon">
-            <svg class="icon" style="width:1.1rem;height:1.1rem" aria-hidden="true"><use href="#icon-tool"/></svg>
-          </div>
-          <div class="feature-list-text">
-            <strong>Professional Installation</strong>
-            <span>Licensed and insured installers who treat your home with care. Every treatment hung perfectly, every time.</span>
-          </div>
-        </li>
-        <li>
-          <div class="feature-list-icon">
-            <svg class="icon" style="width:1.1rem;height:1.1rem" aria-hidden="true"><use href="#icon-sun"/></svg>
-          </div>
-          <div class="feature-list-text">
-            <strong>Built for Miami&#39;s Climate</strong>
-            <span>Products selected for humidity, UV intensity, and salt air — materials that look great and last years longer.</span>
-          </div>
-        </li>
-        <li>
-          <div class="feature-list-icon">
-            <svg class="icon" style="width:1.1rem;height:1.1rem" aria-hidden="true"><use href="#icon-award"/></svg>
-          </div>
-          <div class="feature-list-text">
-            <strong>4.7-Star Customer Experience</strong>
-            <span>Dozens of verified reviews from Miami homeowners who trust us with their most visible spaces.</span>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div class="feature-photo">
-      <img
-        src="https://images.unsplash.com/photo-1616594266794-b829d813a672?w=900&q=80"
-        alt="Elegant interior with plantation shutters and natural light"
-        loading="lazy"
-        width="900"
-        height="1125"
-      />
-    </div>
-  </div>
-</section>
-
-<!-- ══ Reviews ══ -->
-<section id="reviews">
-  <div class="reviews-header">
-    <p class="section-label">Customer Reviews</p>
-    <h2 class="section-title">What Our Miami Clients Say</h2>
-    <p class="section-sub">Real feedback from homeowners across Miami-Dade who trusted us to elevate their spaces.</p>
-  </div>
-  <div class="reviews-grid">
-
-    <div class="review-card">
-      <div class="stars">
-        <svg class="icon" style="width:1rem;height:1rem;fill:currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
-        <svg class="icon" style="width:1rem;height:1rem;fill:currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
-        <svg class="icon" style="width:1rem;height:1rem;fill:currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
-        <svg class="icon" style="width:1rem;height:1rem;fill:currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
-        <svg class="icon" style="width:1rem;height:1rem;fill:currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
-      </div>
-      <p class="review-text">Great customer service, competitive pricing, and the cleanest installation I&#39;ve seen. The team was professional from the first phone call all the way through to when they left my house. My shutters look absolutely stunning.</p>
-      <div class="reviewer-name">Maria Fernandez</div>
-      <div class="reviewer-meta">Brickell, Miami &bull; Plantation Shutters</div>
-    </div>
-
-    <div class="review-card">
-      <div class="stars">
-        <svg class="icon" style="width:1rem;height:1rem;fill:currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
-        <svg class="icon" style="width:1rem;height:1rem;fill:currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
-        <svg class="icon" style="width:1rem;height:1rem;fill:currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
-        <svg class="icon" style="width:1rem;height:1rem;fill:currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
-        <svg class="icon" style="width:1rem;height:1rem;fill:currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
-      </div>
-      <p class="review-text">I was blown away by the quality. Juan and his team measured everything perfectly and the roller shades fit like they were made for the space — because they were. Worth every penny. Will be using them for my other property.</p>
-      <div class="reviewer-name">David Okonkwo</div>
-      <div class="reviewer-meta">Coconut Grove &bull; Roller Shades</div>
-    </div>
-
-    <div class="review-card">
-      <div class="stars">
-        <svg class="icon" style="width:1rem;height:1rem;fill:currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
-        <svg class="icon" style="width:1rem;height:1rem;fill:currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
-        <svg class="icon" style="width:1rem;height:1rem;fill:currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
-        <svg class="icon" style="width:1rem;height;1rem;fill:currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
-        <svg class="icon" style="width:1rem;height:1rem;fill:currentColor" aria-hidden="true"><use href="#icon-star"/></svg>
-      </div>
-      <p class="review-text">Finally found a window treatment company in Miami that actually shows up when they say they will and does immaculate work. The faux wood blinds are gorgeous — guests always ask about them. Highly recommend.</p>
-      <div class="reviewer-name">Carolina Vega</div>
-      <div class="reviewer-meta">Coral Gables &bull; Faux Wood Blinds</div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ══ Trust Band ══ -->
-<section id="trust">
-  <div class="trust-inner">
-    <div class="trust-item">
-      <div class="trust-icon-wrap">
-        <svg class="icon" style="width:1.1rem;height:1.1rem" aria-hidden="true"><use href="#icon-shield"/></svg>
-      </div>
-      <div class="trust-text">
-        <strong>Licensed &amp; Insured</strong>
-        <span>Full coverage for every job</span>
+      <div class="footer-col footer-contact" id="contact">
+        <h4>Contact</h4>
+        <p>383 NE 69th St<br>Miami, FL 33138</p>
+        <p style="margin-top:0.8rem"><a href="tel:+13057263139">(305) 726-3139</a></p>
       </div>
     </div>
-    <div class="trust-item">
-      <div class="trust-icon-wrap">
-        <svg class="icon" style="width:1.1rem;height:1.1rem" aria-hidden="true"><use href="#icon-home"/></svg>
-      </div>
-      <div class="trust-text">
-        <strong>Miami Local</strong>
-        <span>Serving Miami-Dade for years</span>
-      </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 Shades Blinds Miami. All rights reserved.</p>
+      <p class="footer-copy">Demo site by <a href="https://jayexe.com" style="color:var(--gold)">jayexe.com</a></p>
     </div>
-    <div class="trust-item">
-      <div class="trust-icon-wrap">
-        <svg class="icon" style="width:1.1rem;height:1.1rem" aria-hidden="true"><use href="#icon-check"/></svg>
-      </div>
-      <div class="trust-text">
-        <strong>Free Consultation</strong>
-        <span>No pressure, no obligation</span>
-      </div>
-    </div>
-    <div class="trust-item">
-      <div class="trust-icon-wrap">
-        <svg class="icon" style="width:1.1rem;height:1.1rem" aria-hidden="true"><use href="#icon-leaf"/></svg>
-      </div>
-      <div class="trust-text">
-        <strong>Eco-Friendly Options</strong>
-        <span>Energy-efficient cellular shades</span>
-      </div>
-    </div>
-  </div>
-</section>
+  </footer>
 
-<!-- ══ CTA ══ -->
-<section id="cta">
-  <div class="cta-inner">
-    <p class="section-label">Ready to Get Started?</p>
-    <h2 class="section-title">Transform Your Windows Today</h2>
-    <p class="section-sub">Book your free in-home consultation. We&#39;ll measure, advise, and provide a no-obligation quote — on your schedule.</p>
-    <div class="cta-buttons">
-      <a href="tel:3057263139" class="btn btn-ghost-charcoal">
-        <svg class="icon" aria-hidden="true"><use href="#icon-phone"/></svg>
-        305-726-3139
-      </a>
-      <a href="mailto:info@shadesandblindsmiami.com" class="btn btn-ghost-charcoal">Book Consultation</a>
-    </div>
-  </div>
-</section>
-
-<!-- ══ Footer ══ -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-logo">Shades <span>&amp;</span> Blinds</div>
-    <div class="footer-center footer-address">
-      383 NE 69th St, Miami, FL 33138<br>
-      <a href="tel:3057263139" class="footer-phone">305-726-3139</a>
-    </div>
-    <div class="footer-right">
-      Mon – Fri: 9:00 AM – 5:00 PM<br>
-      Sat – Sun: By Appointment
-    </div>
-  </div>
-  <p class="footer-copy">&copy; 2026 Shades &amp; Blinds Miami. All rights reserved.</p>
-</footer>
-
-<!-- ══ Motion Animations ══ -->
-<script type="module">
-  import { animate, inView, stagger } from 'https://esm.sh/motion@11';
-
-  /* ── Utility: set initial opacity via JS (never CSS) ── */
-  const hide = (...els) => els.forEach(el => {
-    if (el) el.style.opacity = '0';
-  });
-
-  /* ── Hero content ── */
-  const heroContent = document.querySelector('.hero-content');
-  if (heroContent) {
-    hide(heroContent);
-    animate(
-      heroContent,
-      { opacity: [0, 1], y: [28, 0] },
-      { duration: 1.1, easing: [0.16, 1, 0.3, 1], delay: 0.2 }
-    );
-  }
-
-  /* ── Stats count-up ── */
-  function countUp(el) {
-    const raw = el.dataset.count;
-    const suffix = el.dataset.suffix || '';
-    const text   = el.dataset.text;
-
-    if (text) return; // static text, no count-up
-
-    const target = parseFloat(raw);
-    const isDecimal = raw.includes('.');
-    const duration = 1400;
-    let start = null;
-
-    function cubicOut(t) {
-      return 1 - Math.pow(1 - t, 3);
-    }
-
-    function frame(ts) {
-      if (!start) start = ts;
-      const elapsed = ts - start;
-      const progress = Math.min(elapsed / duration, 1);
-      const value = cubicOut(progress) * target;
-      el.textContent = isDecimal
-        ? value.toFixed(1) + suffix
-        : Math.round(value) + suffix;
-      if (progress < 1) requestAnimationFrame(frame);
-    }
-
-    requestAnimationFrame(frame);
-  }
-
-  inView('#stats', () => {
-    document.querySelectorAll('.stat-number').forEach(el => {
-      hide(el);
-      animate(el, { opacity: [0, 1], y: [16, 0] }, { duration: .6, easing: 'ease-out' });
-      countUp(el);
+  <script>
+    // NAV scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
     });
-  }, { amount: 0.3 });
 
-  /* ── Product cards ── */
-  const cards = document.querySelectorAll('.product-card');
-  cards.forEach(c => hide(c));
-  inView('#products', () => {
-    animate(
-      cards,
-      { opacity: [0, 1], y: [24, 0] },
-      { duration: .65, easing: [0.16, 1, 0.3, 1], delay: stagger(0.09) }
-    );
-  }, { amount: 0.15 });
+    // Hero parallax
+    const heroBg = document.getElementById('heroBg');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y < window.innerHeight) {
+        heroBg.style.transform = `scale(1.08) translateY(${y * 0.25}px)`;
+      }
+    });
+    setTimeout(() => heroBg.classList.add('loaded'), 100);
 
-  /* ── Feature section ── */
-  const featureContent = document.querySelector('.feature-content');
-  const featurePhoto   = document.querySelector('.feature-photo');
-  if (featureContent) hide(featureContent);
-  if (featurePhoto)   hide(featurePhoto);
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    reveals.forEach(r => revealObserver.observe(r));
 
-  inView('#feature', () => {
-    if (featurePhoto) animate(featurePhoto, { opacity: [0, 1], x: [32, 0] }, { duration: .8, easing: [0.16, 1, 0.3, 1] });
-    if (featureContent) animate(featureContent, { opacity: [0, 1], x: [-28, 0] }, { duration: .8, easing: [0.16, 1, 0.3, 1], delay: 0.12 });
-  }, { amount: 0.2 });
+    // Gold line observer
+    const goldLines = document.querySelectorAll('.gold-line');
+    const lineObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('animated'); });
+    }, { threshold: 0.5 });
+    goldLines.forEach(l => lineObserver.observe(l));
 
-  /* ── Review cards ── */
-  const reviewCards = document.querySelectorAll('.review-card');
-  reviewCards.forEach(c => hide(c));
-  inView('#reviews', () => {
-    animate(
-      reviewCards,
-      { opacity: [0, 1], y: [20, 0] },
-      { duration: .6, easing: 'ease-out', delay: stagger(0.12) }
-    );
-  }, { amount: 0.2 });
-
-  /* ── Trust items ── */
-  const trustItems = document.querySelectorAll('.trust-item');
-  trustItems.forEach(t => hide(t));
-  inView('#trust', () => {
-    animate(
-      trustItems,
-      { opacity: [0, 1], y: [14, 0] },
-      { duration: .55, easing: 'ease-out', delay: stagger(0.1) }
-    );
-  }, { amount: 0.3 });
-
-  /* ── CTA ── */
-  const ctaInner = document.querySelector('.cta-inner');
-  if (ctaInner) {
-    hide(ctaInner);
-    inView('#cta', () => {
-      animate(ctaInner, { opacity: [0, 1], y: [20, 0] }, { duration: .7, easing: [0.16, 1, 0.3, 1] });
-    }, { amount: 0.3 });
-  }
-</script>
-
+    // About image reveal
+    const aboutImg = document.getElementById('aboutImg');
+    if (aboutImg) {
+      const imgObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('revealed'); });
+      }, { threshold: 0.2 });
+      imgObserver.observe(aboutImg);
+    }
+  </script>
 </body>
 </html>

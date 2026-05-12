@@ -3,1384 +3,698 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Louver Shop Shutters of Birmingham | Plantation Shutters &amp; Window Treatments</title>
-  <meta name="description" content="Birmingham's premier plantation shutters, shades, and blinds specialists. Made in the USA. Free in-home design consultation. Call (205) 517-8130." />
+  <title>Louver Shop Shutters of Birmingham — Custom Shutter Specialists</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #1A1208;
-      --bg-card: #211509;
-      --bg-section: #160f06;
-      --text: #F5F0E8;
-      --text-muted: #B8AFA0;
-      --accent: #B87333;
-      --accent-light: #D4924A;
-      --border: rgba(184, 115, 51, 0.18);
-      --border-neutral: rgba(245, 240, 232, 0.12);
-      --font-display: 'Libre Baskerville', Georgia, serif;
-      --font-body: 'Lato', system-ui, sans-serif;
+      --bg: #0b0b0b;
+      --bg2: #111111;
+      --bg3: #161616;
+      --border: rgba(245,245,240,0.06);
+      --white: #f5f5f0;
+      --muted: rgba(245,245,240,0.45);
+      --gold: #c8a84b;
+      --accent: #1a3a6b;
+      --accent2: #254d8f;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: var(--font-body);
-      font-weight: 400;
-      line-height: 1.6;
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Jost', sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
 
-    /* ─── UTILITIES ─── */
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
+    .grain {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      pointer-events: none;
+      opacity: 0.035;
     }
 
-    .section-label {
-      font-family: var(--font-body);
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 500;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(24px, 5vw, 80px);
+      height: 72px;
+      transition: background 0.4s, border-bottom 0.4s;
+    }
+    nav.scrolled {
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.08em;
+      color: var(--white);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .nav-brand span { color: var(--gold); }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--accent);
+      color: var(--white) !important;
+      padding: 10px 22px;
+      font-size: 0.78rem !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--accent2);
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--accent2) !important; }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 680px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: -15% 0;
+      background: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1600&q=80') center/cover no-repeat;
+      will-change: transform;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(11,11,11,0.90) 0%, rgba(11,11,11,0.74) 60%, rgba(11,11,11,0.55) 100%);
+    }
+    .hero-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 40%, rgba(11,11,11,0.7) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 clamp(24px, 5vw, 80px);
+      max-width: 900px;
+    }
+    .hero-eyebrow {
       font-size: 0.75rem;
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      display: block;
     }
-
-    .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(1.75rem, 4vw, 2.75rem);
-      font-weight: 700;
-      line-height: 1.2;
-      color: var(--text);
-      margin-bottom: 1rem;
+    .hero-title { overflow: hidden; }
+    .hero-title-line {
+      display: block;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(5rem, 11vw, 10rem);
+      line-height: 0.92;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      transform: translateY(110%);
+      animation: lineUp 0.9s cubic-bezier(0.16,1,0.3,1) forwards;
     }
+    .hero-title-line:nth-child(2) { animation-delay: 0.14s; }
+    .hero-title-line:nth-child(3) { animation-delay: 0.28s; }
+    @keyframes lineUp { to { transform: translateY(0); } }
 
-    .section-subtitle {
+    .hero-sub {
+      margin-top: 1.8rem;
       font-size: 1.05rem;
-      color: var(--text-muted);
-      max-width: 560px;
-      line-height: 1.7;
+      color: var(--muted);
+      max-width: 480px;
+      font-weight: 300;
     }
-
-    /* ─── BUTTONS ─── */
+    .hero-actions { display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0.875rem 2rem;
-      font-family: var(--font-body);
-      font-size: 0.875rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      cursor: pointer;
-      transition: background 0.25s, color 0.25s, opacity 0.25s;
-      white-space: nowrap;
       height: 52px;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-      border: 2px solid transparent;
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-light);
-    }
-
-    .btn-ghost {
-      background: transparent;
-      color: var(--text);
-      border: 2px solid var(--accent);
-    }
-
-    .btn-ghost:hover {
-      background: rgba(184, 115, 51, 0.12);
-    }
-
-    /* ─── NAVIGATION ─── */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      background: rgba(26, 18, 8, 0.96);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 72px;
-      gap: 1rem;
-    }
-
-    .nav-logo {
-      font-family: var(--font-display);
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--text);
-      text-decoration: none;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .nav-logo span {
-      color: var(--accent);
-    }
-
-    .nav-links {
-      display: none;
-      list-style: none;
-      gap: 2rem;
-    }
-
-    .nav-links a {
-      font-size: 0.8rem;
-      font-weight: 700;
+      padding: 0 32px;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--text-muted);
       text-decoration: none;
-      transition: color 0.2s;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
     }
+    .btn-primary { background: var(--accent); color: var(--white); border: 1px solid var(--accent2); }
+    .btn-primary:hover { background: var(--accent2); }
+    .btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(245,245,240,0.25); }
+    .btn-outline:hover { border-color: var(--white); }
 
-    .nav-links a:hover {
-      color: var(--accent);
-    }
-
-    .nav-cta {
-      flex-shrink: 0;
-      padding: 0.625rem 1.25rem;
-      height: 44px;
-      font-size: 0.75rem;
-      white-space: nowrap;
-    }
-
-    @media (min-width: 768px) {
-      .nav-links {
-        display: flex;
-      }
-    }
-
-    /* ─── HERO ─── */
-    .hero {
-      position: relative;
-      min-height: 100vh;
+    .hero-badges {
+      position: absolute;
+      right: clamp(24px, 5vw, 80px);
+      bottom: 15%;
       display: flex;
-      align-items: center;
-      overflow: hidden;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1920&q=80');
-      background-size: cover;
-      background-position: center;
-      z-index: 0;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        135deg,
-        rgba(26, 18, 8, 0.88) 0%,
-        rgba(26, 18, 8, 0.65) 50%,
-        rgba(26, 18, 8, 0.78) 100%
-      );
-      z-index: 1;
-    }
-
-    .hero-content {
-      position: relative;
+      flex-direction: column;
+      gap: 0.75rem;
       z-index: 2;
-      padding: 9rem 0 5rem;
-      max-width: 680px;
     }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(184, 115, 51, 0.15);
-      border: 1px solid rgba(184, 115, 51, 0.35);
-      padding: 0.4rem 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-badge svg {
-      color: var(--accent);
-      flex-shrink: 0;
-    }
-
-    .hero-badge-text {
+    .badge {
+      background: rgba(17,17,17,0.85);
+      border: 1px solid var(--border);
+      padding: 10px 18px;
       font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
+      font-weight: 600;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--muted);
+      backdrop-filter: blur(8px);
     }
+    .badge span { color: var(--gold); display: block; font-size: 1rem; font-weight: 400; }
 
-    .hero-headline {
-      font-family: var(--font-display);
-      font-size: clamp(2.25rem, 6vw, 4rem);
-      font-weight: 700;
-      line-height: 1.15;
-      color: var(--text);
-      margin-bottom: 1rem;
-    }
-
-    .hero-headline em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    .hero-sub {
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      margin-bottom: 2.5rem;
-      max-width: 520px;
-      line-height: 1.7;
-    }
-
-    .hero-location {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      margin-bottom: 0.5rem;
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 0.5rem;
-    }
-
-    /* ─── STAT BAND ─── */
-    .stat-band {
-      background: var(--accent);
-      padding: 1.25rem 0;
-      overflow: hidden;
-    }
-
-    .stat-band-inner {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 0;
-    }
-
-    .stat-item {
-      display: flex;
-      align-items: center;
-      gap: 0.625rem;
-      padding: 0.5rem 2rem;
-      white-space: nowrap;
-    }
-
-    .stat-item + .stat-item {
-      border-left: 1px solid rgba(255, 255, 255, 0.3);
-    }
-
-    .stat-item svg {
-      color: #fff;
-      flex-shrink: 0;
-      opacity: 0.9;
-    }
-
-    .stat-text {
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #fff;
-    }
-
-    @media (max-width: 640px) {
-      .stat-item {
-        padding: 0.4rem 1rem;
-      }
-      .stat-item + .stat-item {
-        border-left: none;
-      }
-      .stat-band-inner {
-        flex-direction: column;
-        gap: 0.25rem;
-      }
-    }
-
-    /* ─── SERVICES ─── */
-    .services {
-      padding: 6rem 0;
-      background: var(--bg);
-    }
-
-    .services-header {
-      text-align: center;
-      margin-bottom: 3.5rem;
-    }
-
-    .services-header .section-subtitle {
-      margin: 0 auto;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-
-    @media (min-width: 640px) {
-      .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .services-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    .service-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-neutral);
-      padding: 2.25rem 2rem;
-      transition: border-color 0.3s;
-    }
-
-    .service-card:hover {
-      border-color: var(--border);
-    }
-
-    .service-icon {
-      width: 52px;
-      height: 52px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(184, 115, 51, 0.1);
-      margin-bottom: 1.25rem;
-    }
-
-    .service-icon svg {
-      color: var(--accent);
-    }
-
-    .service-name {
-      font-family: var(--font-display);
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 0.6rem;
-    }
-
-    .service-desc {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-    }
-
-    /* ─── BENEFITS ─── */
-    .benefits {
-      padding: 6rem 0;
-      background: var(--bg-section);
-    }
-
-    .benefits-inner {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    @media (min-width: 900px) {
-      .benefits-inner {
-        grid-template-columns: 1fr 1fr;
-        gap: 5rem;
-      }
-    }
-
-    .benefits-visual {
-      position: relative;
-    }
-
-    .benefits-img {
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      display: block;
-    }
-
-    .benefits-badge {
+    .scroll-indicator {
       position: absolute;
-      bottom: -1.5rem;
-      right: -1rem;
-      background: var(--accent);
-      padding: 1.25rem 1.5rem;
-      text-align: center;
-    }
-
-    .benefits-badge-num {
-      font-family: var(--font-display);
-      font-size: 2rem;
-      font-weight: 700;
-      color: #fff;
-      display: block;
-      line-height: 1;
-    }
-
-    .benefits-badge-label {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.85);
-    }
-
-    .benefits-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 1.75rem;
-      margin-top: 2rem;
-    }
-
-    .benefit-item {
-      display: flex;
-      gap: 1.25rem;
-      align-items: flex-start;
-    }
-
-    .benefit-icon {
-      width: 44px;
-      height: 44px;
-      flex-shrink: 0;
-      background: rgba(184, 115, 51, 0.1);
+      bottom: 2.5rem;
+      left: clamp(24px, 5vw, 80px);
+      z-index: 2;
       display: flex;
       align-items: center;
-      justify-content: center;
-    }
-
-    .benefit-icon svg {
-      color: var(--accent);
-    }
-
-    .benefit-title {
-      font-family: var(--font-display);
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 0.25rem;
-    }
-
-    .benefit-desc {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    /* ─── GALLERY ─── */
-    .gallery {
-      padding: 6rem 0;
-      background: var(--bg);
-    }
-
-    .gallery-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto auto;
-      gap: 1rem;
-    }
-
-    @media (min-width: 768px) {
-      .gallery-grid {
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 1fr;
-      }
-    }
-
-    .gallery-item {
-      overflow: hidden;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.5s ease;
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.03);
-    }
-
-    /* ─── TESTIMONIALS ─── */
-    .testimonials {
-      padding: 6rem 0;
-      background: var(--bg-section);
-    }
-
-    .testimonials-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-
-    @media (min-width: 768px) {
-      .testimonials-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    .testimonial-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-neutral);
-      padding: 2rem;
-    }
-
-    .testimonial-stars {
-      display: flex;
-      gap: 0.25rem;
-      margin-bottom: 1rem;
-    }
-
-    .testimonial-stars svg {
-      color: var(--accent);
-    }
-
-    .testimonial-quote {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: 1rem;
-      color: var(--text);
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-    }
-
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 0.875rem;
-    }
-
-    .testimonial-avatar {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: rgba(184, 115, 51, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .testimonial-avatar svg {
-      color: var(--accent);
-    }
-
-    .testimonial-name {
-      font-weight: 700;
-      font-size: 0.875rem;
-      color: var(--text);
-    }
-
-    .testimonial-location {
-      font-size: 0.775rem;
-      color: var(--text-muted);
-    }
-
-    /* ─── CTA SECTION ─── */
-    .cta-section {
-      padding: 6rem 0;
-      background: var(--bg);
-      text-align: center;
-    }
-
-    .cta-inner {
-      max-width: 640px;
-      margin: 0 auto;
-    }
-
-    .cta-section .section-title {
-      margin-bottom: 1rem;
-    }
-
-    .cta-section .section-subtitle {
-      margin: 0 auto 2.5rem;
-    }
-
-    .cta-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-    }
-
-    .cta-phone {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      margin-top: 1.5rem;
-      font-size: 0.875rem;
-      color: var(--text-muted);
-    }
-
-    .cta-phone a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 700;
-    }
-
-    .cta-phone a:hover {
-      color: var(--accent-light);
-    }
-
-    /* ─── FOOTER ─── */
-    footer {
-      background: #100b04;
-      border-top: 1px solid var(--border);
-      padding: 3rem 0 2rem;
-    }
-
-    .footer-inner {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-    }
-
-    @media (min-width: 768px) {
-      .footer-inner {
-        grid-template-columns: 2fr 1fr 1fr;
-        gap: 3rem;
-      }
-    }
-
-    .footer-brand {
-      max-width: 280px;
-    }
-
-    .footer-logo {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 0.75rem;
-    }
-
-    .footer-logo span {
-      color: var(--accent);
-    }
-
-    .footer-tagline {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-    }
-
-    .footer-col-title {
+      gap: 0.75rem;
+      color: var(--muted);
       font-size: 0.72rem;
-      font-weight: 700;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1rem;
     }
+    .scroll-line { width: 40px; height: 1px; background: var(--muted); }
 
-    .footer-links {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
+    section { padding: clamp(80px, 10vw, 130px) clamp(24px, 5vw, 80px); }
+
+    .statement { background: var(--bg); }
+    .section-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 1.2rem;
     }
-
-    .footer-links a {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.2s;
+    .statement h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: 1;
+      letter-spacing: 0.02em;
+      max-width: 800px;
     }
-
-    .footer-links a:hover {
-      color: var(--accent);
-    }
-
-    .footer-contact-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.625rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .footer-contact-item svg {
-      color: var(--accent);
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    .footer-contact-text {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    .footer-contact-text a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .footer-bottom {
-      margin-top: 2.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border-neutral);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .footer-copy {
-      font-size: 0.775rem;
-      color: var(--text-muted);
-    }
-
-    .footer-made-in-usa {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      color: var(--accent);
-    }
-
-    /* ─── DIVIDER ─── */
-    .divider {
-      width: 48px;
+    .gold-line {
       height: 2px;
-      background: var(--accent);
-      margin: 1.25rem 0;
+      background: var(--gold);
+      width: 0;
+      margin: 1.8rem 0;
+      transition: width 1.2s cubic-bezier(0.16,1,0.3,1);
+      max-width: 120px;
     }
+    .gold-line.visible { width: 120px; }
+    .statement-sub { font-size: 1.05rem; color: var(--muted); max-width: 600px; font-weight: 300; }
 
-    .divider-center {
-      margin: 1.25rem auto;
+    .stats { background: var(--bg3); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+    .stat-item { padding: 3rem 2rem; border-right: 1px solid var(--border); text-align: center; }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      line-height: 1;
+      color: var(--white);
+      letter-spacing: 0.02em;
     }
+    .stat-num sup { font-size: 0.45em; vertical-align: super; }
+    .stat-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-top: 0.5rem; }
 
-    /* ─── SCROLL ANIMATIONS (initial state) ─── */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(32px);
+    .services { background: var(--bg2); }
+    .section-header { margin-bottom: 4rem; }
+    .section-header h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: 0.03em; margin-top: 0.5rem; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--border); }
+    .service-card {
+      padding: 2.5rem 2rem;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      transition: background 0.3s;
     }
+    .service-card:hover { background: var(--bg3); }
+    .service-card:nth-child(3n) { border-right: none; }
+    .service-card:nth-child(n+4) { border-bottom: none; }
+    .service-num { font-family: 'Bebas Neue', sans-serif; font-size: 0.85rem; letter-spacing: 0.15em; color: var(--gold); margin-bottom: 1.2rem; }
+    .service-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.05em; margin-bottom: 0.75rem; color: var(--white); }
+    .service-card p { font-size: 0.88rem; color: var(--muted); font-weight: 300; }
+    .service-bottom-border { position: absolute; bottom: 0; left: 0; height: 2px; width: 0; background: var(--accent2); transition: width 0.4s; }
+    .service-card:hover .service-bottom-border { width: 100%; }
 
-    .fade-in {
-      opacity: 0;
+    .about { background: var(--bg); }
+    .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 100px); align-items: center; }
+    .about-img-wrap { position: relative; }
+    .about-img { width: 100%; aspect-ratio: 4/5; object-fit: cover; clip-path: inset(100% 0 0 0); transition: clip-path 1.2s cubic-bezier(0.16,1,0.3,1); }
+    .about-img.visible { clip-path: inset(0% 0 0 0); }
+    .corner-frame { position: absolute; width: 24px; height: 24px; border-color: var(--gold); border-style: solid; }
+    .corner-frame.tl { top: -8px; left: -8px; border-width: 1px 0 0 1px; }
+    .corner-frame.tr { top: -8px; right: -8px; border-width: 1px 1px 0 0; }
+    .corner-frame.bl { bottom: -8px; left: -8px; border-width: 0 0 1px 1px; }
+    .corner-frame.br { bottom: -8px; right: -8px; border-width: 0 1px 1px 0; }
+    .badge-strip { display: flex; gap: 0.75rem; margin-top: 1.5rem; flex-wrap: wrap; }
+    .badge-chip { background: var(--bg3); border: 1px solid var(--border); padding: 6px 14px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .about-text h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 4.5vw, 3.8rem); letter-spacing: 0.03em; line-height: 1; margin: 1rem 0 1.5rem; }
+    .about-text p { color: var(--muted); font-size: 0.95rem; font-weight: 300; margin-bottom: 1rem; }
+
+    .reviews { background: var(--bg2); }
+    .reviews-header { display: flex; align-items: center; gap: 2rem; margin-bottom: 3.5rem; flex-wrap: wrap; }
+    .reviews-header h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: 0.03em; }
+    .g-badge { display: flex; align-items: center; gap: 0.75rem; background: var(--bg3); border: 1px solid var(--border); padding: 10px 16px; }
+    .g-letter { font-size: 1.4rem; font-weight: 700; background: linear-gradient(135deg, #4285F4, #EA4335, #FBBC05, #34A853); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .g-stars { color: #FBBC05; font-size: 0.85rem; letter-spacing: 2px; }
+    .g-rating { font-size: 0.9rem; font-weight: 600; color: var(--white); }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .review-card { background: var(--bg2); padding: 2rem; }
+    .review-stars { color: #FBBC05; letter-spacing: 2px; font-size: 0.85rem; margin-bottom: 1rem; }
+    .review-text { font-size: 0.9rem; color: var(--muted); font-weight: 300; line-height: 1.7; margin-bottom: 1.5rem; }
+    .review-author { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); }
+    .review-date { font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
+
+    .why-us { background: var(--accent); border-top: 1px solid rgba(255,255,255,0.08); }
+    .why-us .section-eyebrow { color: rgba(245,245,240,0.6); }
+    .why-us h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: 0.03em; margin-bottom: 3rem; }
+    .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+    .why-item h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
+    .why-item p { font-size: 0.88rem; color: rgba(245,245,240,0.65); font-weight: 300; }
+
+    .sectors { background: var(--bg3); }
+    .sectors-inner { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 100px); align-items: start; }
+    .sectors-text h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: 0.03em; margin: 1rem 0 1.5rem; line-height: 1; }
+    .sectors-text p { color: var(--muted); font-size: 0.95rem; font-weight: 300; margin-bottom: 2rem; }
+    .sectors-dot-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--border); }
+    .sector-dot { padding: 1.4rem 1rem; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-align: center; transition: color 0.2s, background 0.2s; }
+    .sector-dot:hover { color: var(--white); background: var(--bg2); }
+    .sector-dot:nth-child(4n) { border-right: none; }
+    .sector-dot:nth-child(n+5) { border-bottom: none; }
+
+    .cta-section { background: var(--bg); text-align: center; position: relative; overflow: hidden; }
+    .cta-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 600px; height: 400px; background: radial-gradient(ellipse, rgba(26,58,107,0.18) 0%, transparent 70%); pointer-events: none; }
+    .cta-section .section-eyebrow { display: block; text-align: center; }
+    .cta-section h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 7vw, 6rem); letter-spacing: 0.02em; line-height: 1; margin: 1rem 0 1.5rem; position: relative; }
+    .cta-section p { color: var(--muted); font-size: 1rem; font-weight: 300; max-width: 480px; margin: 0 auto 2.5rem; }
+    .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    footer { background: var(--bg2); border-top: 1px solid var(--border); padding: clamp(60px, 8vw, 100px) clamp(24px, 5vw, 80px) 40px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 4rem; }
+    .footer-brand { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.08em; color: var(--white); margin-bottom: 1rem; }
+    .footer-brand span { color: var(--gold); }
+    .footer-desc { font-size: 0.88rem; color: var(--muted); font-weight: 300; line-height: 1.7; }
+    .footer-col h4 { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white); margin-bottom: 1.2rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.6rem; }
+    .footer-col ul li a { font-size: 0.88rem; color: var(--muted); text-decoration: none; font-weight: 300; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--white); }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .footer-bottom p { font-size: 0.78rem; color: var(--muted); }
+
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .service-card:nth-child(3n) { border-right: 1px solid var(--border); }
+      .service-card:nth-child(2n) { border-right: none; }
+      .about-inner { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .sectors-inner { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .hero-badges { display: none; }
+    }
+    @media (max-width: 600px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card { border-right: none !important; }
+      .service-card:nth-child(n+4) { border-bottom: 1px solid var(--border) !important; }
+      .service-card:last-child { border-bottom: none !important; }
+      .sectors-dot-grid { grid-template-columns: repeat(2, 1fr); }
+      .sector-dot:nth-child(2n) { border-right: none; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ═══ NAVIGATION ═══ -->
-  <nav>
-    <div class="container nav-inner">
-      <a href="#" class="nav-logo">Louver Shop <span>|</span> Birmingham</a>
-      <ul class="nav-links">
-        <li><a href="#services">Shutters</a></li>
-        <li><a href="#services">Shades</a></li>
-        <li><a href="#services">Blinds</a></li>
-        <li><a href="#benefits">Design Center</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <a href="#contact" class="btn btn-primary nav-cta">Free Design Consultation</a>
-    </div>
+  <svg class="grain" xmlns="http://www.w3.org/2000/svg">
+    <filter id="grain-filter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+    <rect width="100%" height="100%" filter="url(#grain-filter)"/>
+  </svg>
+
+  <nav id="nav">
+    <a href="#" class="nav-brand">Louver Shop <span>Birmingham</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Products</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="tel:+12055178130" class="nav-cta">Free Consultation</a>
   </nav>
 
-  <!-- ═══ HERO ═══ -->
-  <section class="hero">
-    <div class="hero-bg"></div>
+  <section class="hero" id="hero">
+    <div class="hero-bg" id="hero-bg"></div>
     <div class="hero-overlay"></div>
-    <div class="container">
-      <div class="hero-content">
+    <div class="hero-vignette"></div>
+    <div class="hero-content">
+      <span class="hero-eyebrow">Birmingham, AL — Free In-Home Consultation</span>
+      <h1 class="hero-title">
+        <span class="hero-title-line">BIRMINGHAM'S</span>
+        <span class="hero-title-line">CUSTOM SHUTTER</span>
+        <span class="hero-title-line">SPECIALISTS</span>
+      </h1>
+      <p class="hero-sub">Handcrafted plantation shutters, motorized shades, and custom window treatments — designed for Birmingham homes and installed with precision.</p>
+      <div class="hero-actions">
+        <a href="tel:+12055178130" class="btn btn-primary">Free Consultation — (205) 517-8130</a>
+        <a href="#services" class="btn btn-outline">View Products</a>
+      </div>
+    </div>
+    <div class="hero-badges">
+      <div class="badge"><span>Free</span>In-Home Visit</div>
+      <div class="badge"><span>4.8★</span>Google Rated</div>
+      <div class="badge"><span>Expert</span>Installation</div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      Scroll to explore
+    </div>
+  </section>
 
-        <div class="hero-badge fade-in">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-            <polyline points="9 22 9 12 15 12 15 22"></polyline>
-          </svg>
-          <span class="hero-badge-text">Made in the USA &nbsp;·&nbsp; Birmingham, Alabama</span>
-        </div>
+  <section class="statement reveal">
+    <span class="section-eyebrow">Our Craft</span>
+    <h2>PRECISION-CRAFTED SHUTTERS.<br>BIRMINGHAM-PROUD INSTALLS.</h2>
+    <div class="gold-line" id="gold-line"></div>
+    <p class="statement-sub">Every window treatment we install is built to last — precision-measured, custom-built, and fitted by our experienced Birmingham team. We bring the showroom to your home.</p>
+  </section>
 
-        <h1 class="hero-headline fade-up">
-          Plantation Shutters &amp;<br />
-          Window Treatments,<br />
-          <em>Expertly Crafted</em>
-        </h1>
-
-        <p class="hero-sub fade-up">
-          Transform your Birmingham home with handcrafted shutters, shades, and blinds — built to last a lifetime. Every installation begins with a complimentary in-home design consultation.
-        </p>
-
-        <div class="hero-buttons fade-up">
-          <a href="#contact" class="btn btn-primary">Schedule Free Consultation</a>
-          <a href="#services" class="btn btn-ghost">Explore Our Products</a>
-        </div>
-
+  <section class="stats" style="padding: 0;">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-num">Free</div>
+        <div class="stat-label">In-Home Consultation</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-num"><span class="count" data-target="4.8" data-decimal="1">0</span><sup>★</sup></div>
+        <div class="stat-label">Google Rating</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-num">Expert</div>
+        <div class="stat-label">Professional Install</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-num">100<sup>%</sup></div>
+        <div class="stat-label">Satisfaction Guaranteed</div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ STAT BAND ═══ -->
-  <div class="stat-band">
-    <div class="container">
-      <div class="stat-band-inner">
-
-        <div class="stat-item">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-          </svg>
-          <span class="stat-text">Made in USA</span>
-        </div>
-
-        <div class="stat-item">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-            <line x1="16" y1="2" x2="16" y2="6"></line>
-            <line x1="8" y1="2" x2="8" y2="6"></line>
-            <line x1="3" y1="10" x2="21" y2="10"></line>
-          </svg>
-          <span class="stat-text">Free In-Home Consultation</span>
-        </div>
-
-        <div class="stat-item">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="12" y1="1" x2="12" y2="23"></line>
-            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-          </svg>
-          <span class="stat-text">Spring Savings — 20% Off</span>
-        </div>
-
-        <div class="stat-item">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-            <circle cx="9" cy="7" r="4"></circle>
-            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-          </svg>
-          <span class="stat-text">Expert Design Team</span>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══ SERVICES ═══ -->
   <section class="services" id="services">
-    <div class="container">
-
-      <div class="services-header">
-        <p class="section-label">Our Products &amp; Services</p>
-        <h2 class="section-title">Window Treatments Built for the South</h2>
-        <div class="divider divider-center"></div>
-        <p class="section-subtitle">From classic plantation shutters to motorized shades, every product is custom-made to complement Birmingham's finest homes.</p>
+    <div class="section-header reveal">
+      <span class="section-eyebrow">What We Offer</span>
+      <h2>CUSTOM WINDOW<br>TREATMENTS</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-num">01</div>
+        <h3>Plantation Shutters</h3>
+        <p>Timeless hardwood and poly shutters custom-measured for every window — a classic choice that elevates any Birmingham home.</p>
+        <div class="service-bottom-border"></div>
       </div>
-
-      <div class="services-grid">
-
-        <!-- Plantation Shutters -->
-        <div class="service-card fade-up">
-          <div class="service-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="2" y="3" width="20" height="18" rx="1"></rect>
-              <line x1="2" y1="8" x2="22" y2="8"></line>
-              <line x1="2" y1="13" x2="22" y2="13"></line>
-              <line x1="2" y1="18" x2="22" y2="18"></line>
-              <line x1="12" y1="3" x2="12" y2="21"></line>
-            </svg>
-          </div>
-          <h3 class="service-name">Plantation Shutters</h3>
-          <p class="service-desc">The gold standard of window treatments. Our solid-wood plantation shutters offer timeless curb appeal, superior light control, and lasting value for your home.</p>
-        </div>
-
-        <!-- Custom Shades -->
-        <div class="service-card fade-up">
-          <div class="service-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="3" rx="1"></rect>
-              <path d="M5 6v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V6"></path>
-              <line x1="9" y1="10" x2="15" y2="10"></line>
-              <line x1="9" y1="14" x2="15" y2="14"></line>
-            </svg>
-          </div>
-          <h3 class="service-name">Custom Shades</h3>
-          <p class="service-desc">Roman, roller, cellular, and woven wood shades crafted to your exact specifications — bringing softness and elegance to every room.</p>
-        </div>
-
-        <!-- Wood Blinds -->
-        <div class="service-card fade-up">
-          <div class="service-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="10" x2="21" y2="10"></line>
-              <line x1="3" y1="14" x2="21" y2="14"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-              <rect x="2" y="3" width="20" height="18" rx="1" stroke-dasharray="0"></rect>
-              <line x1="12" y1="3" x2="12" y2="21"></line>
-            </svg>
-          </div>
-          <h3 class="service-name">Wood Blinds</h3>
-          <p class="service-desc">Real hardwood blinds that warm any interior with natural beauty. Available in dozens of stains and finishes to complement your decor perfectly.</p>
-        </div>
-
-        <!-- Faux Wood Blinds -->
-        <div class="service-card fade-up">
-          <div class="service-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="2" y="3" width="20" height="18" rx="1"></rect>
-              <line x1="2" y1="7" x2="22" y2="7"></line>
-              <line x1="2" y1="11" x2="22" y2="11"></line>
-              <line x1="2" y1="15" x2="22" y2="15"></line>
-              <line x1="2" y1="19" x2="22" y2="19"></line>
-            </svg>
-          </div>
-          <h3 class="service-name">Faux Wood Blinds</h3>
-          <p class="service-desc">The look of real wood with superior moisture resistance — ideal for kitchens, bathrooms, and high-humidity spaces throughout your Alabama home.</p>
-        </div>
-
-        <!-- Motorized -->
-        <div class="service-card fade-up">
-          <div class="service-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="3"></circle>
-              <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
-            </svg>
-          </div>
-          <h3 class="service-name">Motorized Window Treatments</h3>
-          <p class="service-desc">Control your shades and blinds with a touch — or hands-free via smart home integration. The ultimate convenience for large windows and vaulted spaces.</p>
-        </div>
-
-        <!-- In-Home Consultation -->
-        <div class="service-card fade-up">
-          <div class="service-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-              <polyline points="9 22 9 12 15 12 15 22"></polyline>
-            </svg>
-          </div>
-          <h3 class="service-name">In-Home Design Consultation</h3>
-          <p class="service-desc">We come to you — our design experts visit your home, measure every window, and help you choose the perfect treatments. No pressure, no cost, ever.</p>
-        </div>
-
+      <div class="service-card reveal">
+        <div class="service-num">02</div>
+        <h3>Roller Shades</h3>
+        <p>Sleek, light-filtering or blackout roller shades in hundreds of fabrics — minimal, modern, and effortlessly functional.</p>
+        <div class="service-bottom-border"></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">03</div>
+        <h3>Cellular Shades</h3>
+        <p>Energy-efficient honeycomb shades that insulate Birmingham's windows against summer heat and winter cold.</p>
+        <div class="service-bottom-border"></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">04</div>
+        <h3>Motorized Treatments</h3>
+        <p>Smart automation for your window coverings — control light and privacy with your phone, remote, or voice assistant.</p>
+        <div class="service-bottom-border"></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">05</div>
+        <h3>Wood &amp; Faux Wood Blinds</h3>
+        <p>Classic wood blinds and moisture-resistant faux wood alternatives — durable, beautiful, and built to last.</p>
+        <div class="service-bottom-border"></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">06</div>
+        <h3>Commercial Window Coverings</h3>
+        <p>Custom solutions for offices, hotels, and commercial spaces — functional, professional, and tailored to your brand.</p>
+        <div class="service-bottom-border"></div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ BENEFITS ═══ -->
-  <section class="benefits" id="benefits">
-    <div class="container">
-      <div class="benefits-inner">
-
-        <div class="benefits-visual fade-in">
-          <img
-            class="benefits-img"
-            src="https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?auto=format&fit=crop&w=800&q=80"
-            alt="Elegant plantation shutters in a Southern home interior"
-            loading="lazy"
-          />
-          <div class="benefits-badge">
-            <span class="benefits-badge-num">25+</span>
-            <span class="benefits-badge-label">Years of Craftsmanship</span>
-          </div>
-        </div>
-
-        <div class="fade-up">
-          <p class="section-label">Why Choose Louver Shop</p>
-          <h2 class="section-title">The Standard of Excellence in Birmingham</h2>
-          <div class="divider"></div>
-          <p class="section-subtitle">We believe every home deserves window treatments that are as functional as they are beautiful — made right here in America.</p>
-
-          <ul class="benefits-list">
-
-            <li class="benefit-item">
-              <div class="benefit-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                  <line x1="16" y1="2" x2="16" y2="6"></line>
-                  <line x1="8" y1="2" x2="8" y2="6"></line>
-                  <line x1="3" y1="10" x2="21" y2="10"></line>
-                </svg>
-              </div>
-              <div>
-                <p class="benefit-title">Free In-Home Design Visit</p>
-                <p class="benefit-desc">Our certified consultants come to your home at no charge — measuring, sampling, and advising on the perfect solution for each room.</p>
-              </div>
-            </li>
-
-            <li class="benefit-item">
-              <div class="benefit-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                  <polyline points="9 12 11 14 15 10"></polyline>
-                </svg>
-              </div>
-              <div>
-                <p class="benefit-title">Premium Quality, Guaranteed</p>
-                <p class="benefit-desc">Every shutter, shade, and blind is crafted from top-tier materials, rigorously inspected before leaving our facility.</p>
-              </div>
-            </li>
-
-            <li class="benefit-item">
-              <div class="benefit-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                </svg>
-              </div>
-              <div>
-                <p class="benefit-title">Proudly Made in the USA</p>
-                <p class="benefit-desc">Our products are manufactured on American soil — supporting local workers and delivering craftsmanship you can feel in every detail.</p>
-              </div>
-            </li>
-
-            <li class="benefit-item">
-              <div class="benefit-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <circle cx="12" cy="8" r="6"></circle>
-                  <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
-                </svg>
-              </div>
-              <div>
-                <p class="benefit-title">Lifetime Warranty</p>
-                <p class="benefit-desc">We stand behind every product we install with a comprehensive lifetime warranty — because quality should last as long as your home.</p>
-              </div>
-            </li>
-
-          </ul>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ GALLERY ═══ -->
-  <section class="gallery" id="gallery">
-    <div class="container">
-
-      <div class="gallery-header fade-up">
-        <p class="section-label">Our Work</p>
-        <h2 class="section-title">Installed in Birmingham's Finest Homes</h2>
-        <div class="divider divider-center"></div>
-      </div>
-
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <img
-            src="https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?auto=format&fit=crop&w=800&q=80"
-            alt="Plantation shutters in a bright living room"
-            loading="lazy"
-          />
-        </div>
-        <div class="gallery-item">
-          <img
-            src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=800&q=80"
-            alt="Custom roller shades in a modern interior"
-            loading="lazy"
-          />
-        </div>
-        <div class="gallery-item">
-          <img
-            src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80"
-            alt="Wood blinds in an elegant dining room"
-            loading="lazy"
-          />
-        </div>
-        <div class="gallery-item">
-          <img
-            src="https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=800&q=80"
-            alt="Motorized shades in a luxury home"
-            loading="lazy"
-          />
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-img-wrap">
+        <img class="about-img reveal" src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80" alt="Louver Shop Birmingham showroom" />
+        <div class="corner-frame tl"></div>
+        <div class="corner-frame tr"></div>
+        <div class="corner-frame bl"></div>
+        <div class="corner-frame br"></div>
+        <div class="badge-strip">
+          <div class="badge-chip">Made in USA</div>
+          <div class="badge-chip">Expert Install</div>
+          <div class="badge-chip">Guaranteed</div>
+          <div class="badge-chip">Local Team</div>
         </div>
       </div>
-
-    </div>
-  </section>
-
-  <!-- ═══ TESTIMONIALS ═══ -->
-  <section class="testimonials" id="testimonials">
-    <div class="container">
-
-      <div class="testimonials-header fade-up">
-        <p class="section-label">Client Stories</p>
-        <h2 class="section-title">Trusted by Birmingham Homeowners</h2>
-        <div class="divider divider-center"></div>
-      </div>
-
-      <div class="testimonials-grid">
-
-        <div class="testimonial-card fade-up">
-          <div class="testimonial-stars">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <p class="testimonial-quote">"Absolute perfection. The plantation shutters transformed our Mountain Brook home completely. The design consultant was knowledgeable, patient, and never pushy. Made in the USA and it shows — incredible quality."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-            </div>
-            <div>
-              <p class="testimonial-name">Margaret &amp; Robert H.</p>
-              <p class="testimonial-location">Mountain Brook, Birmingham</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card fade-up">
-          <div class="testimonial-stars">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <p class="testimonial-quote">"We had motorized shades installed throughout our new build in Vestavia Hills. The installation team was professional, on time, and cleaned up perfectly. The smart home integration works flawlessly. Couldn't be happier."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-            </div>
-            <div>
-              <p class="testimonial-name">David &amp; Ashley T.</p>
-              <p class="testimonial-location">Vestavia Hills, Birmingham</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card fade-up">
-          <div class="testimonial-stars">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <p class="testimonial-quote">"The in-home consultation experience was exceptional — no sales pressure, just genuine expert advice. Our wood blinds arrived on schedule, fit perfectly, and look stunning. The Louver Shop team treated our home with total respect."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-            </div>
-            <div>
-              <p class="testimonial-name">Catherine M.</p>
-              <p class="testimonial-location">Hoover, Birmingham</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ CTA ═══ -->
-  <section class="cta-section" id="contact">
-    <div class="container">
-      <div class="cta-inner">
-        <p class="section-label">Get Started Today</p>
-        <h2 class="section-title">Schedule Your Free<br /><em style="font-style:italic; color:var(--accent);">In-Home Consultation</em></h2>
-        <div class="divider divider-center"></div>
-        <p class="section-subtitle">A Louver Shop design expert will visit your Birmingham home, take precise measurements, and help you choose the perfect window treatments — at no cost or obligation.</p>
-
-        <div class="cta-buttons">
+      <div class="about-text reveal">
+        <span class="section-eyebrow">About Us</span>
+        <h2>BIRMINGHAM'S TRUSTED WINDOW TREATMENT STUDIO</h2>
+        <p>Louver Shop of Birmingham is a locally-owned window treatment studio dedicated to transforming homes with premium, custom-crafted shutters, blinds, and shades.</p>
+        <p>We believe the perfect window treatment is one that fits your home exactly — which is why every product is custom-measured, custom-built, and installed by our own certified team.</p>
+        <p>Located at 137 W Oxmoor Rd, we serve homeowners and builders across Birmingham, Hoover, Vestavia Hills, Mountain Brook, and all of Jefferson County.</p>
+        <div style="margin-top: 2rem;">
           <a href="tel:+12055178130" class="btn btn-primary">Call (205) 517-8130</a>
-          <a href="mailto:info@louvershop.com" class="btn btn-ghost">Send a Message</a>
         </div>
-
-        <p class="cta-phone">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          Available Monday – Saturday, 8am – 6pm CT
-        </p>
       </div>
     </div>
   </section>
 
-  <!-- ═══ FOOTER ═══ -->
+  <section class="reviews" id="reviews">
+    <div class="reviews-header reveal">
+      <h2>WHAT HOMEOWNERS SAY</h2>
+      <div class="g-badge">
+        <span class="g-letter">G</span>
+        <span class="g-stars">★★★★★</span>
+        <span class="g-rating">4.8 / 5</span>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"The plantation shutters they installed throughout our home are absolutely beautiful. The team was professional, on time, and the quality exceeded our expectations. Highly recommend."</p>
+        <div class="review-author">Susan H.</div>
+        <div class="review-date">Mountain Brook, AL</div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"From consultation to installation, the Louver Shop team made the entire process easy and enjoyable. Our motorized shades have completely transformed how we live in our home."</p>
+        <div class="review-author">James W.</div>
+        <div class="review-date">Vestavia Hills, AL</div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Used them for a full house of cellular shades. The energy savings have been noticeable and the blinds look stunning. The installer was meticulous and cleaned up perfectly."</p>
+        <div class="review-author">Patricia K.</div>
+        <div class="review-date">Hoover, AL</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why-us">
+    <span class="section-eyebrow">Why Louver Shop</span>
+    <h2>THE LOUVER SHOP DIFFERENCE</h2>
+    <div class="why-grid">
+      <div class="why-item reveal">
+        <h3>Free In-Home Visit</h3>
+        <p>Our design consultants bring samples to your home — no showroom trip needed, no obligation to buy.</p>
+      </div>
+      <div class="why-item reveal">
+        <h3>Custom-Built Products</h3>
+        <p>Every product is made to the exact measurements of your windows — never an off-the-shelf compromise.</p>
+      </div>
+      <div class="why-item reveal">
+        <h3>Expert Installation</h3>
+        <p>Certified installers ensure a flawless fit every time — fast, clean, and done right the first visit.</p>
+      </div>
+      <div class="why-item reveal">
+        <h3>Lifetime Guarantee</h3>
+        <p>Our products are built to last and backed by a satisfaction guarantee on every installation we complete.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sectors">
+    <div class="sectors-inner">
+      <div class="sectors-text reveal">
+        <span class="section-eyebrow">Where We Work</span>
+        <h2>EVERY ROOM. EVERY PROJECT.</h2>
+        <p>From new construction to renovation remodels, we outfit every room in Birmingham homes and commercial spaces with custom window treatments built precisely for the space.</p>
+        <a href="tel:+12055178130" class="btn btn-primary">Schedule Your Visit</a>
+      </div>
+      <div class="sectors-dot-grid reveal">
+        <div class="sector-dot">Living Rooms</div>
+        <div class="sector-dot">Bedrooms</div>
+        <div class="sector-dot">Kitchens</div>
+        <div class="sector-dot">Home Offices</div>
+        <div class="sector-dot">New Builds</div>
+        <div class="sector-dot">Renovation</div>
+        <div class="sector-dot">Commercial</div>
+        <div class="sector-dot">Model Homes</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" id="contact">
+    <div class="cta-glow"></div>
+    <span class="section-eyebrow reveal">Book Your Visit</span>
+    <h2 class="reveal">SCHEDULE A FREE<br>IN-HOME CONSULTATION</h2>
+    <p class="reveal">Let our Birmingham design experts bring the showroom to you — no obligation, just inspired possibilities for every window in your home.</p>
+    <div class="cta-actions reveal">
+      <a href="tel:+12055178130" class="btn btn-primary">Call (205) 517-8130</a>
+      <a href="mailto:birmingham@louvershop.com" class="btn btn-outline">Email Us</a>
+    </div>
+  </section>
+
   <footer>
-    <div class="container">
-      <div class="footer-inner">
-
-        <div class="footer-brand">
-          <p class="footer-logo">Louver Shop <span>|</span> Birmingham</p>
-          <p class="footer-tagline">Birmingham's premier source for plantation shutters, custom shades, and wood blinds — handcrafted in the USA and installed with care in your home.</p>
-        </div>
-
-        <div>
-          <p class="footer-col-title">Products</p>
-          <ul class="footer-links">
-            <li><a href="#services">Plantation Shutters</a></li>
-            <li><a href="#services">Custom Shades</a></li>
-            <li><a href="#services">Wood Blinds</a></li>
-            <li><a href="#services">Faux Wood Blinds</a></li>
-            <li><a href="#services">Motorized Treatments</a></li>
-            <li><a href="#services">Design Consultation</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <p class="footer-col-title">Contact</p>
-
-          <div class="footer-contact-item">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.75a16 16 0 0 0 6 6l.94-.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 16z"></path></svg>
-            <span class="footer-contact-text"><a href="tel:+12055178130">(205) 517-8130</a></span>
-          </div>
-
-          <div class="footer-contact-item">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-            <span class="footer-contact-text">137 W Oxmoor Rd<br />Birmingham, AL 35209<br /><em style="font-size:0.8em; opacity:0.75;">(In-home consultations only)</em></span>
-          </div>
-
-          <div class="footer-contact-item">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-            <span class="footer-contact-text">Mon – Sat: 8am – 6pm CT</span>
-          </div>
-        </div>
-
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Louver Shop <span>Birmingham</span></div>
+        <p class="footer-desc">Premium plantation shutters, custom shades, and window blinds — expertly crafted and installed throughout greater Birmingham, Alabama.</p>
       </div>
-
-      <div class="footer-bottom">
-        <p class="footer-copy">&copy; 2024 Louver Shop Shutters of Birmingham. All rights reserved.</p>
-        <div class="footer-made-in-usa">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-          Proudly Made in the USA
-        </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="#services">Plantation Shutters</a></li>
+          <li><a href="#services">Roller Shades</a></li>
+          <li><a href="#services">Cellular Shades</a></li>
+          <li><a href="#services">Motorized Treatments</a></li>
+          <li><a href="#services">Wood Blinds</a></li>
+          <li><a href="#services">Commercial</a></li>
+        </ul>
       </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+12055178130">(205) 517-8130</a></li>
+          <li><a href="#">137 W Oxmoor Rd</a></li>
+          <li><a href="#">Birmingham, AL 35209</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Louver Shop Shutters of Birmingham. All rights reserved.</p>
+      <p>Custom Window Treatments — Proudly Serving Greater Birmingham</p>
     </div>
   </footer>
 
-  <!-- ═══ MOTION ONE ANIMATIONS ═══ -->
-  <script type="module">
-    import { animate, inView, stagger } from 'https://esm.sh/motion';
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
 
-    // Hero elements
-    const heroBadge = document.querySelector('.hero .fade-in');
-    if (heroBadge) {
-      animate(
-        heroBadge,
-        { opacity: [0, 1] },
-        { duration: 0.7, delay: 0.2, easing: 'ease-out' }
-      );
+    const heroBg = document.getElementById('hero-bg');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY < window.innerHeight) heroBg.style.transform = `translateY(${window.scrollY * 0.35}px)`;
+    });
+
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    const goldLine = document.getElementById('gold-line');
+    const goldObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { goldLine.classList.add('visible'); goldObs.unobserve(goldLine); } });
+    }, { threshold: 0.5 });
+    goldObs.observe(goldLine);
+
+    const aboutImg = document.querySelector('.about-img');
+    if (aboutImg) {
+      const imgObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { aboutImg.classList.add('visible'); imgObs.unobserve(aboutImg); } });
+      }, { threshold: 0.2 });
+      imgObs.observe(aboutImg);
     }
 
-    const heroFadeUps = document.querySelectorAll('.hero .fade-up');
-    heroFadeUps.forEach((el, i) => {
-      animate(
-        el,
-        { opacity: [0, 1], transform: ['translateY(32px)', 'translateY(0)'] },
-        { duration: 0.8, delay: 0.4 + i * 0.15, easing: [0.25, 0.1, 0.25, 1] }
-      );
-    });
-
-    // Benefits visual fade-in
-    inView('.benefits-visual', ({ target }) => {
-      animate(
-        target,
-        { opacity: [0, 1] },
-        { duration: 0.9, easing: 'ease-out' }
-      );
-    }, { margin: '-80px' });
-
-    // All .fade-up elements outside hero
-    const allFadeUps = document.querySelectorAll('section:not(.hero) .fade-up');
-    allFadeUps.forEach(el => {
-      inView(el, ({ target }) => {
-        animate(
-          target,
-          { opacity: [0, 1], transform: ['translateY(32px)', 'translateY(0)'] },
-          { duration: 0.75, easing: [0.25, 0.1, 0.25, 1] }
-        );
-      }, { margin: '-60px' });
-    });
-
-    // Service cards staggered
-    inView('.services-grid', ({ target }) => {
-      const cards = target.querySelectorAll('.service-card');
-      animate(
-        cards,
-        { opacity: [0, 1], transform: ['translateY(28px)', 'translateY(0)'] },
-        { delay: stagger(0.1), duration: 0.65, easing: [0.25, 0.1, 0.25, 1] }
-      );
-    }, { margin: '-40px' });
-
-    // Testimonial cards staggered
-    inView('.testimonials-grid', ({ target }) => {
-      const cards = target.querySelectorAll('.testimonial-card');
-      animate(
-        cards,
-        { opacity: [0, 1], transform: ['translateY(24px)', 'translateY(0)'] },
-        { delay: stagger(0.12), duration: 0.65, easing: [0.25, 0.1, 0.25, 1] }
-      );
-    }, { margin: '-40px' });
-
-    // Gallery items
-    inView('.gallery-grid', ({ target }) => {
-      const items = target.querySelectorAll('.gallery-item');
-      animate(
-        items,
-        { opacity: [0, 1], transform: ['translateY(20px)', 'translateY(0)'] },
-        { delay: stagger(0.1), duration: 0.6, easing: 'ease-out' }
-      );
-    }, { margin: '-40px' });
-
-    // Stat band items
-    const statItems = document.querySelectorAll('.stat-item');
-    animate(
-      statItems,
-      { opacity: [0, 1], transform: ['translateY(10px)', 'translateY(0)'] },
-      { delay: stagger(0.08, { start: 0.1 }), duration: 0.5, easing: 'ease-out' }
-    );
-
-    // Nav fade in
-    animate(
-      'nav',
-      { opacity: [0, 1] },
-      { duration: 0.6, delay: 0.1, easing: 'ease-out' }
-    );
+    function countUp(el) {
+      const target = parseFloat(el.dataset.target);
+      const decimal = parseInt(el.dataset.decimal || '0');
+      const start = performance.now();
+      function step(now) {
+        const p = Math.min((now - start) / 1800, 1);
+        const ease = 1 - Math.pow(1 - p, 3);
+        el.textContent = decimal > 0 ? (ease * target).toFixed(decimal) : Math.floor(ease * target);
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    const countObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { countUp(e.target); countObs.unobserve(e.target); } });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.count').forEach(el => countObs.observe(el));
   </script>
-
 </body>
 </html>

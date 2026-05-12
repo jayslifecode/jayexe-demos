@@ -3,1343 +3,447 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Infinity Rug & Carpet Cleaning — Boston, MA</title>
+  <title>Infinity Rug &amp; Carpets Cleaning MA — Boston's Expert Cleaning Service</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
-    /* ── Reset & Base ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Outfit', sans-serif;
-      font-weight: 400;
-      color: #1a1a2e;
-      background: #fff;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ── Design Tokens ── */
     :root {
-      --plum:    #2d1b4e;
-      --violet:  #7c3aed;
-      --violet-light: #9d5ff5;
-      --lavender: #f5f3ff;
-      --white:   #ffffff;
-      --gray:    #6b7280;
-      --gray-light: #e5e7eb;
-      --radius:  12px;
+      --bg: #0b0b0b; --bg2: #111111; --bg3: #161616;
+      --border: rgba(245,245,240,0.06); --white: #f5f5f0;
+      --muted: rgba(245,245,240,0.45); --gold: #c8a84b;
+      --accent: #1e5c3a; --accent2: #2d7a52;
     }
-
-    /* ── Typography ── */
-    .serif { font-family: 'Young Serif', serif; }
-
-    /* ── SVG Icon Sprite (hidden) ── */
-    .icon-sprite { display: none; }
-
-    /* ─────────────────────────────────────────
-       NAV
-    ───────────────────────────────────────── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: var(--plum);
-      height: 68px;
-      display: flex;
-      align-items: center;
-      padding: 0 5vw;
-      gap: 32px;
-    }
-    .nav-brand {
-      font-family: 'Young Serif', serif;
-      font-size: 1.25rem;
-      color: var(--white);
-      letter-spacing: -0.01em;
-      flex: 1;
-      white-space: nowrap;
-    }
-    .nav-brand span { color: var(--violet-light); }
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      list-style: none;
-    }
-    .nav-links a {
-      color: rgba(255,255,255,0.78);
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 400;
-      transition: color 0.2s;
-      white-space: nowrap;
-    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--white); font-family: 'Jost', sans-serif; font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    .grain { position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0.035; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); background-size: 200px 200px; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; transition: background 0.3s, border-bottom 0.3s; }
+    nav.scrolled { background: var(--bg2); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .nav-brand { text-decoration: none; flex-shrink: 0; }
+    .nav-wordmark { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.08em; color: var(--white); display: block; line-height: 1; }
+    .nav-tagline { font-size: 0.65rem; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; transition: color 0.2s; }
     .nav-links a:hover { color: var(--white); }
-    .btn-nav {
-      display: inline-block;
-      background: var(--violet);
-      color: var(--white);
-      text-decoration: none;
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.875rem;
-      font-weight: 500;
-      padding: 10px 22px;
-      border-radius: 8px;
-      border: 1.5px solid transparent;
-      white-space: nowrap;
-      transition: background 0.2s;
-      cursor: pointer;
-    }
-    .btn-nav:hover { background: var(--violet-light); }
-
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .nav-brand { font-size: 1.05rem; }
-    }
-
-    /* ─────────────────────────────────────────
-       HERO
-    ───────────────────────────────────────── */
-    .hero {
-      position: relative;
-      min-height: 100svh;
-      display: flex;
-      align-items: center;
-      padding-top: 68px;
-      overflow: hidden;
-    }
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1558618047-3c8e8a2b5e39?w=1600&q=80');
-      background-size: cover;
-      background-position: center 40%;
-      z-index: 0;
-    }
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        135deg,
-        rgba(45, 27, 78, 0.88) 0%,
-        rgba(45, 27, 78, 0.72) 50%,
-        rgba(124, 58, 237, 0.45) 100%
-      );
-      z-index: 1;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 80px 5vw 60px;
-      width: 100%;
-    }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.22);
-      color: rgba(255,255,255,0.9);
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 6px 14px;
-      border-radius: 999px;
-      margin-bottom: 28px;
-    }
-    .hero-badge svg { width: 14px; height: 14px; fill: var(--violet-light); }
-    .hero-headline {
-      font-family: 'Young Serif', serif;
-      font-size: clamp(2.6rem, 6vw, 4.4rem);
-      line-height: 1.1;
-      color: var(--white);
-      max-width: 680px;
-      margin-bottom: 22px;
-      letter-spacing: -0.02em;
-    }
-    .hero-headline em {
-      font-style: normal;
-      color: var(--violet-light);
-    }
-    .hero-sub {
-      font-size: 1.1rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.8);
-      max-width: 500px;
-      line-height: 1.7;
-      margin-bottom: 40px;
-    }
-    .hero-ctas {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-bottom: 64px;
-    }
-    .btn-primary {
-      display: inline-block;
-      background: var(--violet);
-      color: var(--white);
-      text-decoration: none;
-      font-family: 'Outfit', sans-serif;
-      font-size: 1rem;
-      font-weight: 500;
-      padding: 14px 30px;
-      border-radius: 10px;
-      border: 1.5px solid transparent;
-      white-space: nowrap;
-      transition: background 0.2s, transform 0.15s;
-      cursor: pointer;
-    }
-    .btn-primary:hover { background: var(--violet-light); }
-    .btn-ghost {
-      display: inline-block;
-      background: transparent;
-      color: var(--white);
-      text-decoration: none;
-      font-family: 'Outfit', sans-serif;
-      font-size: 1rem;
-      font-weight: 500;
-      padding: 14px 30px;
-      border-radius: 10px;
-      border: 1.5px solid rgba(255,255,255,0.6);
-      white-space: nowrap;
-      transition: border-color 0.2s, color 0.2s;
-      cursor: pointer;
-    }
-    .btn-ghost:hover { border-color: #fff; color: #fff; }
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      max-width: 680px;
-    }
-    .hero-stat {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: var(--radius);
-      padding: 18px 16px;
-      text-align: center;
-    }
-    .hero-stat-value {
-      font-family: 'Young Serif', serif;
-      font-size: 1.7rem;
-      color: var(--white);
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-    .hero-stat-label {
-      font-size: 0.72rem;
-      font-weight: 500;
-      color: rgba(255,255,255,0.65);
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-    }
-    @media (max-width: 600px) {
-      .hero-stats { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    /* ─────────────────────────────────────────
-       STATS BAND
-    ───────────────────────────────────────── */
-    .stats-band {
-      background: var(--lavender);
-      padding: 56px 5vw;
-    }
-    .stats-band-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      text-align: center;
-    }
-    .stat-item {}
-    .stat-number {
-      font-family: 'Young Serif', serif;
-      font-size: 2.8rem;
-      color: var(--plum);
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-    .stat-desc {
-      font-size: 0.9rem;
-      color: var(--gray);
-      font-weight: 400;
-      line-height: 1.5;
-    }
-    @media (max-width: 768px) {
-      .stats-band-inner { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 480px) {
-      .stats-band-inner { grid-template-columns: 1fr 1fr; }
-    }
-
-    /* ─────────────────────────────────────────
-       SERVICES
-    ───────────────────────────────────────── */
-    .services {
-      background: var(--white);
-      padding: 96px 5vw;
-    }
-    .section-header {
-      max-width: 1200px;
-      margin: 0 auto 56px;
-      text-align: center;
-    }
-    .section-tag {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--violet);
-      margin-bottom: 14px;
-    }
-    .section-title {
-      font-family: 'Young Serif', serif;
-      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-      color: var(--plum);
-      line-height: 1.15;
-      letter-spacing: -0.01em;
-      margin-bottom: 16px;
-    }
-    .section-sub {
-      font-size: 1rem;
-      font-weight: 300;
-      color: var(--gray);
-      line-height: 1.7;
-      max-width: 520px;
-      margin: 0 auto;
-    }
-    .services-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-    }
-    .service-card {
-      background: var(--white);
-      border: 1px solid var(--gray-light);
-      border-radius: 16px;
-      padding: 36px 28px;
-      transition: box-shadow 0.25s;
-    }
-    .service-card:hover {
-      box-shadow: 0 12px 40px rgba(124, 58, 237, 0.1);
-    }
-    .service-icon {
-      width: 52px;
-      height: 52px;
-      background: var(--lavender);
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-    .service-icon svg {
-      width: 26px;
-      height: 26px;
-      color: var(--violet);
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 1.75;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    .service-name {
-      font-family: 'Young Serif', serif;
-      font-size: 1.15rem;
-      color: var(--plum);
-      margin-bottom: 10px;
-    }
-    .service-desc {
-      font-size: 0.9rem;
-      font-weight: 300;
-      color: var(--gray);
-      line-height: 1.65;
-    }
-    @media (max-width: 900px) {
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 560px) {
-      .services-grid { grid-template-columns: 1fr; }
-    }
-
-    /* ─────────────────────────────────────────
-       FEATURE SECTION — "The Infinity Difference"
-    ───────────────────────────────────────── */
-    .feature {
-      background: var(--plum);
-      padding: 96px 5vw;
-    }
-    .feature-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 72px;
-      align-items: center;
-    }
-    .feature-content {}
-    .feature-tag {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--violet-light);
-      margin-bottom: 14px;
-    }
-    .feature-title {
-      font-family: 'Young Serif', serif;
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      color: var(--white);
-      line-height: 1.15;
-      letter-spacing: -0.01em;
-      margin-bottom: 24px;
-    }
-    .feature-intro {
-      font-size: 1rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.72);
-      line-height: 1.75;
-      margin-bottom: 36px;
-    }
-    .feature-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-    .feature-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-    }
-    .feature-list-icon {
-      flex-shrink: 0;
-      width: 32px;
-      height: 32px;
-      background: rgba(124, 58, 237, 0.25);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 2px;
-    }
-    .feature-list-icon svg {
-      width: 16px;
-      height: 16px;
-      fill: none;
-      stroke: var(--violet-light);
-      stroke-width: 2.2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    .feature-list-text strong {
-      display: block;
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--white);
-      margin-bottom: 3px;
-    }
-    .feature-list-text span {
-      font-size: 0.875rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.62);
-      line-height: 1.5;
-    }
-    .feature-photo {
-      position: relative;
-      border-radius: 20px;
-      overflow: hidden;
-      aspect-ratio: 4/5;
-    }
-    .feature-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .feature-photo-badge {
-      position: absolute;
-      bottom: 24px;
-      left: 24px;
-      right: 24px;
-      background: rgba(45, 27, 78, 0.88);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 12px;
-      padding: 16px 20px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .feature-photo-badge svg {
-      width: 28px;
-      height: 28px;
-      fill: none;
-      stroke: var(--violet-light);
-      stroke-width: 1.75;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      flex-shrink: 0;
-    }
-    .feature-photo-badge-text strong {
-      display: block;
-      color: var(--white);
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
-    .feature-photo-badge-text span {
-      color: rgba(255,255,255,0.6);
-      font-size: 0.8rem;
-    }
-    @media (max-width: 860px) {
-      .feature-inner { grid-template-columns: 1fr; gap: 48px; }
-      .feature-photo { aspect-ratio: 16/9; }
-    }
-
-    /* ─────────────────────────────────────────
-       REVIEWS
-    ───────────────────────────────────────── */
-    .reviews {
-      background: var(--lavender);
-      padding: 96px 5vw;
-    }
-    .reviews-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .review-card {
-      background: var(--white);
-      border: 1px solid var(--gray-light);
-      border-radius: 16px;
-      padding: 32px 28px;
-    }
-    .review-stars {
-      display: flex;
-      gap: 3px;
-      margin-bottom: 16px;
-    }
-    .review-stars svg {
-      width: 18px;
-      height: 18px;
-      fill: #f59e0b;
-      stroke: none;
-    }
-    .review-text {
-      font-size: 0.93rem;
-      font-weight: 300;
-      color: #374151;
-      line-height: 1.7;
-      margin-bottom: 22px;
-    }
-    .review-author {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .review-avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: var(--lavender);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .review-avatar span {
-      font-family: 'Young Serif', serif;
-      font-size: 1rem;
-      color: var(--plum);
-    }
-    .review-name {
-      font-family: 'Young Serif', serif;
-      font-size: 0.95rem;
-      color: var(--plum);
-    }
-    .review-date {
-      font-size: 0.78rem;
-      color: var(--gray);
-    }
-    @media (max-width: 900px) {
-      .reviews-grid { grid-template-columns: 1fr; max-width: 520px; }
-    }
-
-    /* ─────────────────────────────────────────
-       TRUST BAND
-    ───────────────────────────────────────── */
-    .trust-band {
-      background: var(--violet);
-      padding: 52px 5vw;
-    }
-    .trust-band-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      text-align: center;
-    }
-    .trust-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-    .trust-item-icon {
-      width: 48px;
-      height: 48px;
-      background: rgba(255,255,255,0.15);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .trust-item-icon svg {
-      width: 24px;
-      height: 24px;
-      fill: none;
-      stroke: var(--white);
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    .trust-item-title {
-      font-weight: 500;
-      font-size: 0.95rem;
-      color: var(--white);
-    }
-    .trust-item-desc {
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.72);
-      font-weight: 300;
-      line-height: 1.5;
-    }
-    @media (max-width: 768px) {
-      .trust-band-inner { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    /* ─────────────────────────────────────────
-       CTA SECTION
-    ───────────────────────────────────────── */
-    .cta-section {
-      background: var(--white);
-      padding: 96px 5vw;
-      text-align: center;
-    }
-    .cta-inner {
-      max-width: 680px;
-      margin: 0 auto;
-    }
-    .cta-section .section-title { margin-bottom: 16px; }
-    .cta-section .section-sub { margin-bottom: 40px; }
-    .cta-buttons {
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .btn-cta-primary {
-      display: inline-block;
-      background: var(--violet);
-      color: var(--white);
-      text-decoration: none;
-      font-family: 'Outfit', sans-serif;
-      font-size: 1rem;
-      font-weight: 500;
-      padding: 14px 32px;
-      border-radius: 10px;
-      border: 1.5px solid transparent;
-      white-space: nowrap;
-      transition: background 0.2s;
-      cursor: pointer;
-    }
-    .btn-cta-primary:hover { background: var(--violet-light); }
-    .btn-cta-ghost {
-      display: inline-block;
-      background: transparent;
-      color: var(--plum);
-      text-decoration: none;
-      font-family: 'Outfit', sans-serif;
-      font-size: 1rem;
-      font-weight: 500;
-      padding: 14px 32px;
-      border-radius: 10px;
-      border: 1.5px solid var(--plum);
-      white-space: nowrap;
-      transition: background 0.2s, color 0.2s;
-      cursor: pointer;
-    }
-    .btn-cta-ghost:hover { background: var(--plum); color: var(--white); }
-
-    /* ─────────────────────────────────────────
-       FOOTER
-    ───────────────────────────────────────── */
-    footer {
-      background: var(--plum);
-      padding: 56px 5vw 36px;
-    }
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .footer-top {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 48px;
-      margin-bottom: 48px;
-      padding-bottom: 48px;
-      border-bottom: 1px solid rgba(255,255,255,0.12);
-    }
-    .footer-brand {
-      font-family: 'Young Serif', serif;
-      font-size: 1.3rem;
-      color: var(--white);
-      margin-bottom: 12px;
-    }
-    .footer-brand span { color: var(--violet-light); }
-    .footer-tagline {
-      font-size: 0.875rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.65;
-      max-width: 280px;
-    }
-    .footer-col-title {
-      font-weight: 500;
-      font-size: 0.875rem;
-      color: var(--white);
-      margin-bottom: 16px;
-      letter-spacing: 0.04em;
-    }
-    .footer-col ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .footer-col ul li a {
-      color: rgba(255,255,255,0.6);
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 300;
-      transition: color 0.2s;
-    }
+    .nav-cta { background: var(--accent); color: var(--white); border: none; border-radius: 2px; padding: 13px 30px; font-family: 'Jost', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background 0.2s; flex-shrink: 0; }
+    .nav-cta:hover { background: var(--accent2); }
+    .hero { position: relative; height: 100vh; min-height: 700px; display: flex; align-items: center; overflow: hidden; }
+    .hero-bg { position: absolute; inset: -8%; background: url('https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat; will-change: transform; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(11,11,11,0.90) 0%, rgba(11,11,11,0.68) 60%, rgba(11,11,11,0.5) 100%); }
+    .hero-vignette { position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 40%, rgba(11,11,11,0.7) 100%); }
+    .hero-inner { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 0 32px; width: 100%; padding-top: 80px; display: flex; align-items: center; gap: 48px; }
+    .hero-content { flex: 1; }
+    .hero-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .hero-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.5rem, 7.5vw, 7rem); line-height: 0.9; letter-spacing: 0.02em; }
+    .hero-title-line { display: block; overflow: hidden; }
+    .hero-title-line span { display: block; transform: translateY(110%); }
+    .hero-sub { margin-top: 28px; font-size: 1.05rem; font-weight: 300; color: var(--muted); max-width: 460px; line-height: 1.7; }
+    .hero-ctas { display: flex; gap: 16px; margin-top: 36px; flex-wrap: wrap; }
+    .btn-primary { background: var(--accent); color: var(--white); border: none; border-radius: 2px; padding: 13px 36px; font-family: 'Jost', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: background 0.2s; display: inline-block; }
+    .btn-primary:hover { background: var(--accent2); }
+    .btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(245,245,240,0.25); border-radius: 2px; padding: 13px 36px; font-family: 'Jost', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: border-color 0.2s; display: inline-block; }
+    .btn-outline:hover { border-color: var(--white); }
+    .hero-badges { display: flex; flex-direction: column; gap: 10px; flex-shrink: 0; align-self: center; }
+    .badge { border: 1px solid var(--border); background: rgba(245,245,240,0.04); border-radius: 2px; padding: 10px 18px; text-align: center; }
+    .badge-val { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--gold); letter-spacing: 0.05em; }
+    .badge-lbl { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .hero-scroll { position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%); z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0.5; }
+    .hero-scroll span { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+    .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--muted), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+    @keyframes scrollPulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
+    section { padding: 100px 0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    .section-eyebrow { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.8rem, 5vw, 4.5rem); line-height: 0.95; letter-spacing: 0.02em; }
+    .section-line { width: 60px; height: 2px; background: var(--gold); margin: 24px 0; transform: scaleX(0); transform-origin: left; transition: transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    .section-line.animated { transform: scaleX(1); }
+    .section-sub { color: var(--muted); max-width: 560px; font-weight: 300; line-height: 1.75; }
+    .statement { background: var(--bg2); }
+    .statement-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .statement-right { color: var(--muted); font-weight: 300; line-height: 1.8; }
+    .stats-band { background: var(--bg3); padding: 72px 0; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); }
+    .stat-item { background: var(--bg3); padding: 40px 32px; text-align: center; }
+    .stat-number { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; color: var(--gold); letter-spacing: 0.04em; line-height: 1; }
+    .stat-label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-top: 8px; }
+    .services { background: var(--bg); }
+    .services-intro { margin-bottom: 60px; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
+    .service-card { background: var(--bg2); padding: 36px 32px; position: relative; overflow: hidden; transition: background 0.3s; }
+    .service-card:hover { background: var(--bg3); }
+    .service-card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.35s cubic-bezier(0.16,1,0.3,1); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-num { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--accent); letter-spacing: 0.05em; margin-bottom: 16px; }
+    .service-title { font-size: 1rem; font-weight: 600; letter-spacing: 0.04em; margin-bottom: 10px; }
+    .service-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.7; font-weight: 300; }
+    .about { background: var(--bg2); }
+    .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-list { margin-top: 28px; list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .about-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.9rem; color: var(--muted); font-weight: 300; }
+    .about-list li::before { content: ''; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; flex-shrink: 0; margin-top: 8px; }
+    .about-image-wrap { position: relative; overflow: hidden; border-radius: 2px; }
+    .about-image-wrap img { width: 100%; height: 480px; object-fit: cover; display: block; clip-path: inset(100% 0 0 0); transition: clip-path 0.9s cubic-bezier(0.16,1,0.3,1); }
+    .about-image-wrap.revealed img { clip-path: inset(0%); }
+    .corner-tl, .corner-tr, .corner-bl, .corner-br { position: absolute; width: 20px; height: 20px; z-index: 2; }
+    .corner-tl { top: 12px; left: 12px; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+    .corner-tr { top: 12px; right: 12px; border-top: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+    .corner-bl { bottom: 12px; left: 12px; border-bottom: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+    .corner-br { bottom: 12px; right: 12px; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+    .badge-strip { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px 20px; background: linear-gradient(to top, rgba(11,11,11,0.9), transparent); display: flex; gap: 16px; }
+    .badge-strip-item { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
+    .reviews { background: var(--bg); }
+    .reviews-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 48px; flex-wrap: wrap; gap: 24px; }
+    .reviews-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem,4vw,3.5rem); letter-spacing: 0.02em; }
+    .google-badge { display: flex; align-items: center; gap: 12px; background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; padding: 12px 20px; }
+    .g-letter { font-size: 1.4rem; font-weight: 700; background: linear-gradient(135deg,#4285F4,#EA4335,#FBBC05,#34A853); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .g-rating { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--white); letter-spacing: 0.05em; }
+    .g-stars { display: flex; gap: 3px; }
+    .g-stars svg { width: 14px; height: 14px; fill: #FBBC05; }
+    .g-label { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
+    .review-card { background: var(--bg2); padding: 32px; }
+    .review-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.05em; color: var(--white); margin-bottom: 16px; }
+    .review-name { font-weight: 600; font-size: 0.92rem; }
+    .review-meta { font-size: 0.75rem; color: var(--muted); margin-bottom: 12px; }
+    .review-stars { display: flex; gap: 3px; margin-bottom: 12px; }
+    .review-stars svg { width: 13px; height: 13px; fill: #FBBC05; }
+    .review-text { font-size: 0.88rem; color: var(--muted); font-style: italic; line-height: 1.7; font-weight: 300; }
+    .why-us { background: var(--accent); padding: 80px 0; }
+    .why-us-header { text-align: center; margin-bottom: 52px; }
+    .why-us-header h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem,4vw,4rem); letter-spacing: 0.02em; color: var(--white); }
+    .why-us-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(245,245,240,0.1); }
+    .why-item { background: var(--accent); padding: 32px 24px; }
+    .why-item h4 { font-size: 0.9rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); margin-bottom: 10px; }
+    .why-item p { font-size: 0.85rem; color: rgba(245,245,240,0.7); line-height: 1.7; font-weight: 300; }
+    .sectors { background: var(--bg2); }
+    .sectors-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .sectors-dots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .sector-dot { background: var(--bg3); border: 1px solid var(--border); padding: 16px 12px; text-align: center; border-radius: 2px; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); transition: border-color 0.2s, color 0.2s; }
+    .sector-dot:hover { border-color: var(--accent); color: var(--white); }
+    .cta-section { background: var(--bg); padding: 120px 0; text-align: center; position: relative; overflow: hidden; }
+    .cta-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(30,92,58,0.18) 0%, transparent 70%); pointer-events: none; }
+    .cta-section p { color: var(--muted); max-width: 500px; margin: 20px auto 0; font-weight: 300; line-height: 1.75; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; margin-top: 40px; flex-wrap: wrap; }
+    footer { background: var(--bg3); border-top: 1px solid var(--border); padding: 72px 0 40px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand p { font-size: 0.85rem; color: var(--muted); font-weight: 300; line-height: 1.7; margin-top: 12px; max-width: 260px; }
+    .footer-col h5 { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-col ul li a { color: var(--muted); text-decoration: none; font-size: 0.85rem; font-weight: 300; transition: color 0.2s; }
     .footer-col ul li a:hover { color: var(--white); }
-    .footer-address {
-      font-size: 0.875rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.8;
-    }
-    .footer-address a {
-      color: var(--violet-light);
-      text-decoration: none;
-    }
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .footer-copy {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.4);
-    }
-    .footer-demo-note {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.3);
-      font-style: italic;
-    }
+    .footer-contact p { font-size: 0.85rem; color: var(--muted); font-weight: 300; line-height: 1.8; }
+    .footer-contact a { color: var(--accent2); text-decoration: none; }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-size: 0.75rem; color: var(--muted); }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
     @media (max-width: 768px) {
-      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      .statement-inner, .about-inner, .sectors-inner { grid-template-columns: 1fr; gap: 48px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .why-us-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+      .hero-badges { display: none; }
+      .sectors-dots { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
-
-<!-- ── SVG Icon Sprite ── -->
-<svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <!-- star filled -->
-    <symbol id="icon-star" viewBox="0 0 24 24">
-      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-    </symbol>
-    <!-- shield check -->
-    <symbol id="icon-shield" viewBox="0 0 24 24">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-      <polyline points="9 12 11 14 15 10"/>
-    </symbol>
-    <!-- leaf / eco -->
-    <symbol id="icon-leaf" viewBox="0 0 24 24">
-      <path d="M17 8C8 10 5.9 16.17 3.82 21.34c1.04.31 2.39.15 3.67-.71C8.49 19.68 9.92 18 12 18c4 0 8-4 8-8V5l-3 3z"/>
-    </symbol>
-    <!-- truck -->
-    <symbol id="icon-truck" viewBox="0 0 24 24">
-      <rect x="1" y="3" width="15" height="13" rx="1"/>
-      <path d="M16 8h4l3 5v3h-7V8z"/>
-      <circle cx="5.5" cy="18.5" r="2.5"/>
-      <circle cx="18.5" cy="18.5" r="2.5"/>
-    </symbol>
-    <!-- award -->
-    <symbol id="icon-award" viewBox="0 0 24 24">
-      <circle cx="12" cy="8" r="6"/>
-      <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
-    </symbol>
-    <!-- clock -->
-    <symbol id="icon-clock" viewBox="0 0 24 24">
-      <circle cx="12" cy="12" r="10"/>
-      <polyline points="12 6 12 12 16 14"/>
-    </symbol>
-    <!-- rug / wave -->
-    <symbol id="icon-rug" viewBox="0 0 24 24">
-      <rect x="2" y="4" width="20" height="16" rx="2"/>
-      <path d="M2 9h20M2 15h20M7 4v16M17 4v16"/>
-    </symbol>
-    <!-- sparkle / clean -->
-    <symbol id="icon-sparkle" viewBox="0 0 24 24">
-      <path d="M12 2l1.8 5.4L19.2 6l-3.6 4.2L17.4 16l-5.4-2.4L6.6 16l1.8-5.8L4.8 6l5.4 1.4z"/>
-    </symbol>
-    <!-- sofa / upholstery -->
-    <symbol id="icon-sofa" viewBox="0 0 24 24">
-      <path d="M2 9a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2V9z"/>
-      <rect x="2" y="11" width="20" height="7" rx="2"/>
-      <path d="M5 18v2M19 18v2"/>
-    </symbol>
-    <!-- drop / stain -->
-    <symbol id="icon-drop" viewBox="0 0 24 24">
-      <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
-    </symbol>
-    <!-- layers / area rug -->
-    <symbol id="icon-layers" viewBox="0 0 24 24">
-      <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-      <polyline points="2 17 12 22 22 17"/>
-      <polyline points="2 12 12 17 22 12"/>
-    </symbol>
-    <!-- paw / pet -->
-    <symbol id="icon-paw" viewBox="0 0 24 24">
-      <circle cx="11" cy="4" r="2"/>
-      <circle cx="18" cy="8" r="2"/>
-      <circle cx="4" cy="8" r="2"/>
-      <path d="M12 14c-4 0-6 2-6 4s2 3 6 3 6-1 6-3-2-4-6-4z"/>
-      <circle cx="15" cy="11" r="1.5"/>
-      <circle cx="9" cy="11" r="1.5"/>
-    </symbol>
-    <!-- check -->
-    <symbol id="icon-check" viewBox="0 0 24 24">
-      <polyline points="20 6 9 17 4 12"/>
-    </symbol>
-    <!-- phone -->
-    <symbol id="icon-phone" viewBox="0 0 24 24">
-      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.72 9.79 19.79 19.79 0 0 1 1.64 1.13 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.75a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-    </symbol>
-    <!-- map pin -->
-    <symbol id="icon-pin" viewBox="0 0 24 24">
-      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-      <circle cx="12" cy="10" r="3"/>
-    </symbol>
-    <!-- infinity -->
-    <symbol id="icon-infinity" viewBox="0 0 24 24">
-      <path d="M12 12c-2-2.5-4-4-6-4a4 4 0 0 0 0 8c2 0 4-1.5 6-4z"/>
-      <path d="M12 12c2 2.5 4 4 6 4a4 4 0 0 0 0-8c-2 0-4 1.5-6 4z"/>
-    </symbol>
-  </defs>
-</svg>
-
-<!-- ─────────────────────────────────────────
-     NAV
-───────────────────────────────────────── -->
-<nav>
-  <div class="nav-brand">Infinity <span>Rug &amp; Carpet</span></div>
-  <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#difference">Our Difference</a></li>
-    <li><a href="#reviews">Reviews</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a href="tel:6173801725" class="btn-nav">Get a Quote</a>
-</nav>
-
-<!-- ─────────────────────────────────────────
-     HERO
-───────────────────────────────────────── -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-badge" id="hero-badge">
-      <svg><use href="#icon-infinity"/></svg>
-      Boston's Premier Rug &amp; Carpet Cleaners
-    </div>
-    <h1 class="hero-headline serif" id="hero-headline">
-      Infinitely Clean.<br/><em>Endlessly Fresh.</em>
-    </h1>
-    <p class="hero-sub" id="hero-sub">
-      Professional rug and carpet cleaning that restores color, eliminates odors, and protects your investment — trusted by Boston homeowners since day one.
-    </p>
-    <div class="hero-ctas" id="hero-ctas">
-      <a href="tel:6173801725" class="btn-primary">
-        Call (617) 380-1725
+  <div class="grain"></div>
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-brand">
+        <span class="nav-wordmark">Infinity Rug &amp; Carpet Cleaning</span>
+        <span class="nav-tagline">Boston, MA</span>
       </a>
-      <a href="#services" class="btn-ghost">
-        View Services
-      </a>
-    </div>
-    <div class="hero-stats" id="hero-stats">
-      <div class="hero-stat">
-        <div class="hero-stat-value" data-count="4.6" data-decimals="1" data-suffix="★">4.6★</div>
-        <div class="hero-stat-label">Google Rating</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-value" data-count="51" data-decimals="0" data-suffix="+">51+</div>
-        <div class="hero-stat-label">Happy Customers</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-value">Eco</div>
-        <div class="hero-stat-label">Safe Products</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-value">Free</div>
-        <div class="hero-stat-label">Pickup &amp; Delivery</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─────────────────────────────────────────
-     STATS BAND
-───────────────────────────────────────── -->
-<section class="stats-band" id="stats-band">
-  <div class="stats-band-inner">
-    <div class="stat-item">
-      <div class="stat-number" data-count="4.6" data-decimals="1" data-suffix="★">4.6★</div>
-      <div class="stat-desc">Average Google Rating</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number" data-count="51" data-decimals="0" data-suffix="+">51+</div>
-      <div class="stat-desc">Verified Reviews</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number" data-count="100" data-decimals="0" data-suffix="%">100%</div>
-      <div class="stat-desc">Satisfaction Guaranteed</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">5am–10pm</div>
-      <div class="stat-desc">Open 7 Days a Week</div>
-    </div>
-  </div>
-</section>
-
-<!-- ─────────────────────────────────────────
-     SERVICES
-───────────────────────────────────────── -->
-<section class="services" id="services">
-  <div class="section-header">
-    <span class="section-tag">What We Do</span>
-    <h2 class="section-title serif">Expert Cleaning for Every Surface</h2>
-    <p class="section-sub">From delicate oriental heirlooms to wall-to-wall carpet, we handle every fabric with precision and care.</p>
-  </div>
-  <div class="services-grid">
-
-    <div class="service-card">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24"><use href="#icon-rug"/></svg>
-      </div>
-      <h3 class="service-name serif">Oriental Rug Cleaning</h3>
-      <p class="service-desc">Hand-washed using specialized techniques that protect delicate fibers, vibrant dyes, and intricate patterns in heirloom-quality rugs.</p>
-    </div>
-
-    <div class="service-card">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24"><use href="#icon-sparkle"/></svg>
-      </div>
-      <h3 class="service-name serif">Carpet Deep Cleaning</h3>
-      <p class="service-desc">Hot water extraction removes embedded dirt, allergens, and bacteria from wall-to-wall carpet, restoring softness and color.</p>
-    </div>
-
-    <div class="service-card">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24"><use href="#icon-sofa"/></svg>
-      </div>
-      <h3 class="service-name serif">Upholstery Cleaning</h3>
-      <p class="service-desc">Safe, fabric-matched cleaning for sofas, chairs, and cushions. We refresh your furniture without shrinking, fading, or damaging it.</p>
-    </div>
-
-    <div class="service-card">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24"><use href="#icon-drop"/></svg>
-      </div>
-      <h3 class="service-name serif">Stain &amp; Odor Removal</h3>
-      <p class="service-desc">Professional-grade treatments that lift stubborn stains and neutralize odors at the source — not just masking them.</p>
-    </div>
-
-    <div class="service-card">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24"><use href="#icon-layers"/></svg>
-      </div>
-      <h3 class="service-name serif">Area Rug Cleaning</h3>
-      <p class="service-desc">In-plant cleaning for all area rug types — wool, silk, synthetic, and blends. Full inspection, wash, rinse, and drying included.</p>
-    </div>
-
-    <div class="service-card">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24"><use href="#icon-paw"/></svg>
-      </div>
-      <h3 class="service-name serif">Pet Hair &amp; Allergen Removal</h3>
-      <p class="service-desc">Deep extraction removes embedded pet hair, dander, and allergens, creating a cleaner and healthier environment for your family.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- ─────────────────────────────────────────
-     FEATURE — The Infinity Difference
-───────────────────────────────────────── -->
-<section class="feature" id="difference">
-  <div class="feature-inner">
-    <div class="feature-content">
-      <span class="feature-tag">Why Choose Us</span>
-      <h2 class="feature-title serif">The Infinity Difference</h2>
-      <p class="feature-intro">We don't just clean — we restore. Every job is handled with the same care we'd give our own home, using eco-safe products and proven methods that deliver lasting results.</p>
-      <ul class="feature-list">
-        <li>
-          <div class="feature-list-icon">
-            <svg viewBox="0 0 24 24"><use href="#icon-leaf"/></svg>
-          </div>
-          <div class="feature-list-text">
-            <strong>Eco-Safe, Child &amp; Pet Friendly</strong>
-            <span>All cleaning solutions are non-toxic, biodegradable, and safe for your entire household.</span>
-          </div>
-        </li>
-        <li>
-          <div class="feature-list-icon">
-            <svg viewBox="0 0 24 24"><use href="#icon-truck"/></svg>
-          </div>
-          <div class="feature-list-text">
-            <strong>Free Pickup &amp; Delivery in Boston</strong>
-            <span>We come to you, handle the heavy lifting, and return your rugs fresh and folded.</span>
-          </div>
-        </li>
-        <li>
-          <div class="feature-list-icon">
-            <svg viewBox="0 0 24 24"><use href="#icon-shield"/></svg>
-          </div>
-          <div class="feature-list-text">
-            <strong>100% Satisfaction Guarantee</strong>
-            <span>Not happy with the result? We'll re-clean at no extra charge until it's perfect.</span>
-          </div>
-        </li>
-        <li>
-          <div class="feature-list-icon">
-            <svg viewBox="0 0 24 24"><use href="#icon-clock"/></svg>
-          </div>
-          <div class="feature-list-text">
-            <strong>Open 5am to 10pm, Every Day</strong>
-            <span>Flexible scheduling that works around your life, not the other way around.</span>
-          </div>
-        </li>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
+      <a href="tel:+16173801725" class="nav-cta">Book Now</a>
     </div>
-    <div class="feature-photo">
-      <img
-        src="https://images.unsplash.com/photo-1527515545081-5db817172677?w=900&q=80"
-        alt="Clean, freshly washed carpet"
-        loading="lazy"
-      />
-      <div class="feature-photo-badge">
-        <svg viewBox="0 0 24 24"><use href="#icon-award"/></svg>
-        <div class="feature-photo-badge-text">
-          <strong>Boston Trusted Cleaner</strong>
-          <span>Serving the Greater Boston area</span>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-vignette"></div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Boston, MA — Same-Day Service Available</p>
+        <h1 class="hero-title">
+          <span class="hero-title-line"><span>BOSTON'S EXPERT</span></span>
+          <span class="hero-title-line"><span>RUG &amp; CARPET</span></span>
+          <span class="hero-title-line"><span>CLEANING SERVICE</span></span>
+        </h1>
+        <p class="hero-sub">Professional rug and carpet cleaning for Boston homes and businesses. Eco-friendly methods, same-day service, and results guaranteed every time.</p>
+        <div class="hero-ctas">
+          <a href="tel:+16173801725" class="btn-primary">Same-Day Booking</a>
+          <a href="#services" class="btn-outline">Our Services</a>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─────────────────────────────────────────
-     REVIEWS
-───────────────────────────────────────── -->
-<section class="reviews" id="reviews">
-  <div class="section-header">
-    <span class="section-tag">Customer Reviews</span>
-    <h2 class="section-title serif">What Boston Homeowners Are Saying</h2>
-    <p class="section-sub">Real results, real customers — 51 reviews and counting on Google.</p>
-  </div>
-  <div class="reviews-grid">
-
-    <div class="review-card">
-      <div class="review-stars">
-        <svg viewBox="0 0 24 24"><use href="#icon-star"/></svg>
-        <svg viewBox="0 0 24 24"><use href="#icon-star"/></svg>
-        <svg viewBox="0 0 24 24"><use href="#icon-star"/></svg>
-        <svg viewBox="0 0 24 24"><use href="#icon-star"/></svg>
-        <svg viewBox="0 0 24 24"><use href="#icon-star"/></svg>
+      <div class="hero-badges">
+        <div class="badge"><div class="badge-val">5★</div><div class="badge-lbl">Google Rating</div></div>
+        <div class="badge"><div class="badge-val">Same-Day</div><div class="badge-lbl">Service</div></div>
+        <div class="badge"><div class="badge-val">Eco</div><div class="badge-lbl">Friendly</div></div>
+        <div class="badge"><div class="badge-val">100%</div><div class="badge-lbl">Satisfaction</div></div>
       </div>
-      <p class="review-text">"They picked up my Persian rug, cleaned it beautifully, and delivered it back looking brand new. The colors came back to life — I couldn't believe the difference. Highly recommend to anyone in Boston."</p>
-      <div class="review-author">
-        <div class="review-avatar"><span>S</span></div>
+    </div>
+    <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+  </section>
+
+  <section class="statement">
+    <div class="container">
+      <div class="statement-inner reveal">
         <div>
-          <div class="review-name serif">Sarah M.</div>
-          <div class="review-date">Back Bay, Boston</div>
+          <p class="section-eyebrow">Our Philosophy</p>
+          <h2 class="section-title">DEEP CLEAN WITHOUT THE DAMAGE</h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="statement-right">
+          <p>Many cleaning services use harsh chemicals that degrade fibers and fade colors over time. At Infinity, we use carefully selected eco-friendly solutions that lift dirt and odors at a molecular level — leaving your rugs and carpets cleaner, brighter, and longer-lasting than before.</p>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="review-card">
-      <div class="review-stars">
-        <svg viewBox="0 0 24 24"><use href="#icon-star"/></svg>
-        <svg viewBox="0 0 24 24"><use href="#icon-star"/></svg>
-        <svg viewBox="0 0 24 24"><use href="#icon-star"/></svg>
-        <svg viewBox="0 0 24 24"><use href="#icon-star"/></svg>
-        <svg viewBox="0 0 24 24"><use href="#icon-star"/></svg>
+  <div class="stats-band">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal"><div class="stat-number" data-target="5" data-suffix="★">0</div><div class="stat-label">Google Rating</div></div>
+        <div class="stat-item reveal"><div class="stat-number" data-target="100" data-suffix="%">0</div><div class="stat-label">Same-Day Available</div></div>
+        <div class="stat-item reveal"><div class="stat-number" data-target="100" data-suffix="%">0</div><div class="stat-label">Eco-Friendly Products</div></div>
+        <div class="stat-item reveal"><div class="stat-number" data-target="100" data-suffix="%">0</div><div class="stat-label">Satisfaction Guarantee</div></div>
       </div>
-      <p class="review-text">"Our dog had an accident on the carpet and I thought it was ruined. Infinity removed every trace of the stain and odor. The free pickup and delivery is such a great convenience. Will use again."</p>
-      <div class="review-author">
-        <div class="review-avatar"><span>D</span></div>
-        <div>
-          <div class="review-name serif">David R.</div>
-          <div class="review-date">South End, Boston</div>
+    </div>
+  </div>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="services-intro reveal">
+        <p class="section-eyebrow">What We Do</p>
+        <h2 class="section-title">EXPERT CLEANING SERVICES</h2>
+        <div class="section-line"></div>
+        <p class="section-sub">From delicate orientals to wall-to-wall carpet, we bring professional results to every fiber in your home or business.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal"><div class="service-num">01</div><div class="service-title">Oriental Rug Cleaning</div><div class="service-desc">Hand-cleaned using techniques appropriate for delicate wool, silk, and antique rugs. We protect color and structure while eliminating deep-set dirt.</div></div>
+        <div class="service-card reveal"><div class="service-num">02</div><div class="service-title">Wall-to-Wall Carpet Cleaning</div><div class="service-desc">Hot water extraction removes allergens, bacteria, and ground-in soil from fitted carpets throughout your home or commercial space.</div></div>
+        <div class="service-card reveal"><div class="service-num">03</div><div class="service-title">Upholstery Cleaning</div><div class="service-desc">Safe, effective cleaning for sofas, armchairs, and fabric panels — restoring freshness without shrinking or damaging delicate materials.</div></div>
+        <div class="service-card reveal"><div class="service-num">04</div><div class="service-title">Area Rug Restoration</div><div class="service-desc">Fringe repair, color restoration, and deep revitalization for rugs that have lost their original brilliance over time.</div></div>
+        <div class="service-card reveal"><div class="service-num">05</div><div class="service-title">Stain &amp; Odor Removal</div><div class="service-desc">Enzyme-based treatments neutralize pet odors, wine, coffee, and other stubborn stains at the source — not just on the surface.</div></div>
+        <div class="service-card reveal"><div class="service-num">06</div><div class="service-title">Commercial Carpet Care</div><div class="service-desc">Scheduled maintenance programs for offices, hotels, and retail spaces to keep high-traffic areas looking professional year-round.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-inner">
+        <div class="about-content reveal">
+          <p class="section-eyebrow">Who We Are</p>
+          <h2 class="section-title">BOSTON'S TRUSTED CLEANING SPECIALISTS</h2>
+          <div class="section-line"></div>
+          <p class="section-sub">Infinity Rug &amp; Carpets Cleaning MA serves Boston and the surrounding area with a commitment to quality that shows in every job. Our team is trained in textile science and uses only safe, effective products.</p>
+          <ul class="about-list">
+            <li>Fully insured and professionally trained cleaning technicians</li>
+            <li>Eco-friendly, non-toxic cleaning solutions safe for children and pets</li>
+            <li>Same-day and next-day appointments available across Boston</li>
+            <li>100% satisfaction guarantee — we return if you're not happy</li>
+          </ul>
+        </div>
+        <div class="about-image-wrap" id="aboutImg">
+          <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?auto=format&fit=crop&w=800&q=80" alt="Professional rug cleaning in Boston" />
+          <div class="corner-tl"></div><div class="corner-tr"></div><div class="corner-bl"></div><div class="corner-br"></div>
+          <div class="badge-strip">
+            <span class="badge-strip-item">Insured</span>
+            <span class="badge-strip-item">Eco-Friendly</span>
+            <span class="badge-strip-item">Same-Day</span>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="review-card">
-      <div class="review-stars">
-        <svg viewBox="0 0 24 24"><use href="#icon-star"/></svg>
-        <svg viewBox="0 0 24 24"><use href="#icon-star"/></svg>
-        <svg viewBox="0 0 24 24"><use href="#icon-star"/></svg>
-        <svg viewBox="0 0 24 24"><use href="#icon-star"/></svg>
-        <svg viewBox="0 0 24 24"><use href="#icon-star"/></svg>
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="reviews-header reveal">
+        <h2 class="reviews-title">WHAT CLIENTS SAY</h2>
+        <div class="google-badge">
+          <span class="g-letter">G</span>
+          <span class="g-rating">5.0</span>
+          <div class="g-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <span class="g-label">Google Reviews</span>
+        </div>
       </div>
-      <p class="review-text">"Responsive, professional, and fairly priced. My area rug had years of built-up dirt and they brought it back to like-new condition. Open hours are fantastic — easy to schedule around work."</p>
-      <div class="review-author">
-        <div class="review-avatar"><span>L</span></div>
-        <div>
-          <div class="review-name serif">Laura T.</div>
-          <div class="review-date">Seaport, Boston</div>
+      <div class="reviews-grid">
+        <div class="review-card reveal">
+          <div class="review-avatar">SL</div>
+          <div class="review-name">Sarah Liu</div>
+          <div class="review-meta">South End Homeowner</div>
+          <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <p class="review-text">"My Persian rug came back looking brand new. They were careful, thorough, and the same-day turnaround was incredible. Will absolutely use again."</p>
+        </div>
+        <div class="review-card reveal">
+          <div class="review-avatar">TM</div>
+          <div class="review-name">Tom McCarthy</div>
+          <div class="review-meta">Back Bay Apartment</div>
+          <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <p class="review-text">"Had a terrible pet stain situation and called on short notice. They arrived same day and completely removed the odor and stain. Beyond impressed with the service."</p>
+        </div>
+        <div class="review-card reveal">
+          <div class="review-avatar">RK</div>
+          <div class="review-name">Rachel Kim</div>
+          <div class="review-meta">Cambridge Office Manager</div>
+          <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <p class="review-text">"We use Infinity for our office carpet maintenance quarterly. Punctual, professional, and the results are always consistent. Our best commercial cleaning vendor."</p>
         </div>
       </div>
     </div>
+  </section>
 
-  </div>
-</section>
-
-<!-- ─────────────────────────────────────────
-     TRUST BAND
-───────────────────────────────────────── -->
-<div class="trust-band">
-  <div class="trust-band-inner">
-    <div class="trust-item">
-      <div class="trust-item-icon">
-        <svg viewBox="0 0 24 24"><use href="#icon-shield"/></svg>
+  <div class="why-us">
+    <div class="container">
+      <div class="why-us-header reveal"><h2>WHY CHOOSE INFINITY</h2></div>
+      <div class="why-us-grid">
+        <div class="why-item reveal"><h4>Same-Day Service</h4><p>Book before noon and we can often be at your door the same day — no weeks-long waiting lists.</p></div>
+        <div class="why-item reveal"><h4>Eco-Friendly Products</h4><p>Our cleaning solutions are non-toxic, biodegradable, and safe for children, pets, and sensitive households.</p></div>
+        <div class="why-item reveal"><h4>Satisfaction Guarantee</h4><p>If you're not fully satisfied with any service, we'll return and re-clean at no additional cost.</p></div>
+        <div class="why-item reveal"><h4>Trained Specialists</h4><p>Every technician is trained in textile care and certified in safe handling of delicate and antique fibers.</p></div>
       </div>
-      <div class="trust-item-title">100% Guaranteed</div>
-      <div class="trust-item-desc">Re-clean free if you're not satisfied</div>
-    </div>
-    <div class="trust-item">
-      <div class="trust-item-icon">
-        <svg viewBox="0 0 24 24"><use href="#icon-leaf"/></svg>
-      </div>
-      <div class="trust-item-title">Eco-Safe Products</div>
-      <div class="trust-item-desc">Safe for children, pets &amp; the planet</div>
-    </div>
-    <div class="trust-item">
-      <div class="trust-item-icon">
-        <svg viewBox="0 0 24 24"><use href="#icon-truck"/></svg>
-      </div>
-      <div class="trust-item-title">Free Pickup &amp; Delivery</div>
-      <div class="trust-item-desc">We come to you anywhere in Boston</div>
-    </div>
-    <div class="trust-item">
-      <div class="trust-item-icon">
-        <svg viewBox="0 0 24 24"><use href="#icon-clock"/></svg>
-      </div>
-      <div class="trust-item-title">Open 5am–10pm Daily</div>
-      <div class="trust-item-desc">7 days a week, flexible scheduling</div>
     </div>
   </div>
-</div>
 
-<!-- ─────────────────────────────────────────
-     CTA SECTION
-───────────────────────────────────────── -->
-<section class="cta-section" id="contact">
-  <div class="cta-inner">
-    <span class="section-tag">Ready to Get Started?</span>
-    <h2 class="section-title serif">Give Your Rugs &amp; Carpets<br/>the Care They Deserve</h2>
-    <p class="section-sub">Call us today for a free quote, or schedule your free pickup online. We serve all of Boston and surrounding neighborhoods.</p>
-    <div class="cta-buttons">
-      <a href="tel:6173801725" class="btn-cta-primary">Call (617) 380-1725</a>
-      <a href="#services" class="btn-cta-ghost">View All Services</a>
-    </div>
-  </div>
-</section>
-
-<!-- ─────────────────────────────────────────
-     FOOTER
-───────────────────────────────────────── -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div>
-        <div class="footer-brand serif">Infinity <span>Rug &amp; Carpet</span></div>
-        <p class="footer-tagline">Boston's trusted rug and carpet cleaning service — delivering infinite freshness, one clean at a time.</p>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Services</div>
-        <ul>
-          <li><a href="#services">Oriental Rug Cleaning</a></li>
-          <li><a href="#services">Carpet Deep Cleaning</a></li>
-          <li><a href="#services">Upholstery Cleaning</a></li>
-          <li><a href="#services">Stain &amp; Odor Removal</a></li>
-          <li><a href="#services">Pet Hair Removal</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Contact</div>
-        <div class="footer-address">
-          <div>315 A St, Apt 201</div>
-          <div>Boston, MA 02210</div>
-          <br/>
-          <div><a href="tel:6173801725">(617) 380-1725</a></div>
-          <br/>
-          <div>Mon–Sun: 5:00am – 10:00pm</div>
+  <section class="sectors">
+    <div class="container">
+      <div class="sectors-inner">
+        <div class="reveal">
+          <p class="section-eyebrow">Who We Serve</p>
+          <h2 class="section-title">HOMES AND BUSINESSES ACROSS BOSTON</h2>
+          <div class="section-line"></div>
+          <p class="section-sub" style="margin-bottom:32px;">From a single area rug to a full commercial facility, we serve every property type across the Greater Boston area.</p>
+          <a href="tel:+16173801725" class="btn-primary">Get a Free Quote</a>
+        </div>
+        <div class="sectors-dots reveal">
+          <div class="sector-dot">Residential Homes</div>
+          <div class="sector-dot">Apartments</div>
+          <div class="sector-dot">Offices</div>
+          <div class="sector-dot">Hotels</div>
+          <div class="sector-dot">Restaurants</div>
+          <div class="sector-dot">Medical Facilities</div>
+          <div class="sector-dot">Schools</div>
+          <div class="sector-dot">Retail Spaces</div>
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">&copy; 2024 Infinity Rug &amp; Carpet's Cleaning MA. All rights reserved.</span>
-      <span class="footer-demo-note">Demo site — concept design by jayexe.com</span>
+  </section>
+
+  <section class="cta-section" id="contact">
+    <div class="cta-glow"></div>
+    <div class="container" style="position:relative;z-index:2;">
+      <p class="section-eyebrow reveal">Book Today</p>
+      <h2 class="section-title reveal">SAME-DAY SERVICE<br>ACROSS BOSTON</h2>
+      <p class="reveal">Call us now for a free quote and same-day availability. Our technicians are ready to restore your rugs and carpets to their original brilliance.</p>
+      <div class="cta-buttons reveal">
+        <a href="tel:+16173801725" class="btn-primary">(617) 380-1725</a>
+        <a href="#services" class="btn-outline">See All Services</a>
+      </div>
     </div>
-  </div>
-</footer>
+  </section>
 
-<!-- ─────────────────────────────────────────
-     ANIMATIONS
-───────────────────────────────────────── -->
-<script type="module">
-import { animate, inView, stagger } from 'https://esm.sh/motion@11';
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand footer-col">
+          <span class="nav-wordmark">Infinity Rug &amp; Carpet Cleaning</span>
+          <span class="nav-tagline">Boston, MA</span>
+          <p>Boston's expert rug and carpet cleaning service. Eco-friendly, same-day, and satisfaction guaranteed.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="#services">Oriental Rug Cleaning</a></li>
+            <li><a href="#services">Carpet Cleaning</a></li>
+            <li><a href="#services">Upholstery Cleaning</a></li>
+            <li><a href="#services">Stain Removal</a></li>
+            <li><a href="#services">Commercial Care</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Sectors</h5>
+          <ul>
+            <li><a href="#">Residential Homes</a></li>
+            <li><a href="#">Apartments &amp; Condos</a></li>
+            <li><a href="#">Hotels &amp; Hospitality</a></li>
+            <li><a href="#">Medical Facilities</a></li>
+            <li><a href="#">Retail Spaces</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-contact">
+          <h5>Contact</h5>
+          <p>315 A St, Apt 201<br>Boston, MA 02210, USA</p>
+          <p style="margin-top:8px;"><a href="tel:+16173801725">(617) 380-1725</a></p>
+          <p style="margin-top:8px;">Mon–Sat 7am–7pm<br>Same-day available</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Infinity Rug &amp; Carpets Cleaning MA. All rights reserved.</p>
+        <p>Insured · Eco-Friendly · Boston, MA</p>
+      </div>
+    </div>
+  </footer>
 
-// ── Utility: cubic ease-out count-up ──
-function easeOutCubic(t) {
-  return 1 - Math.pow(1 - t, 3);
-}
-
-function countUp(el, target, decimals, suffix, duration) {
-  const start = performance.now();
-  function tick(now) {
-    const elapsed = (now - start) / duration;
-    const progress = Math.min(elapsed, 1);
-    const eased = easeOutCubic(progress);
-    const value = eased * target;
-    el.textContent = value.toFixed(decimals) + suffix;
-    if (progress < 1) requestAnimationFrame(tick);
-  }
-  requestAnimationFrame(tick);
-}
-
-// ── Set initial opacity:0 for animated elements via JS ──
-const fadeEls = [
-  '#hero-badge',
-  '#hero-headline',
-  '#hero-sub',
-  '#hero-ctas',
-  '#hero-stats',
-  '.service-card',
-  '.feature-content',
-  '.feature-photo',
-  '.review-card',
-  '.trust-item',
-  '.cta-inner',
-];
-fadeEls.forEach(sel => {
-  document.querySelectorAll(sel).forEach(el => {
-    el.style.opacity = '0';
-  });
-});
-
-// ── Hero sequence: staggered entry ──
-(async () => {
-  await animate('#hero-badge',    { opacity: [0, 1], y: [20, 0] }, { duration: 0.5, delay: 0.15 }).finished;
-  await animate('#hero-headline', { opacity: [0, 1], y: [28, 0] }, { duration: 0.55, delay: 0.05 }).finished;
-  animate('#hero-sub',   { opacity: [0, 1], y: [20, 0] }, { duration: 0.5 });
-  animate('#hero-ctas',  { opacity: [0, 1], y: [16, 0] }, { duration: 0.45, delay: 0.1 });
-  animate('#hero-stats', { opacity: [0, 1], y: [16, 0] }, { duration: 0.5,  delay: 0.2 });
-})();
-
-// ── Stats band count-up on inView ──
-inView('#stats-band', () => {
-  document.querySelectorAll('.stat-number[data-count]').forEach(el => {
-    const target   = parseFloat(el.dataset.count);
-    const decimals = parseInt(el.dataset.decimals ?? '0', 10);
-    const suffix   = el.dataset.suffix ?? '';
-    countUp(el, target, decimals, suffix, 1600);
-  });
-});
-
-// ── Hero stats count-up (immediate, triggered by hero entry) ──
-setTimeout(() => {
-  document.querySelectorAll('.hero-stat-value[data-count]').forEach(el => {
-    const target   = parseFloat(el.dataset.count);
-    const decimals = parseInt(el.dataset.decimals ?? '0', 10);
-    const suffix   = el.dataset.suffix ?? '';
-    countUp(el, target, decimals, suffix, 1400);
-  });
-}, 900);
-
-// ── Service cards fade in with stagger ──
-inView('.services-grid', () => {
-  animate(
-    '.service-card',
-    { opacity: [0, 1], y: [30, 0] },
-    { duration: 0.5, delay: stagger(0.08) }
-  );
-});
-
-// ── Feature section ──
-inView('.feature-content', () => {
-  animate('.feature-content', { opacity: [0, 1], x: [-30, 0] }, { duration: 0.6 });
-});
-inView('.feature-photo', () => {
-  animate('.feature-photo', { opacity: [0, 1], x: [30, 0] }, { duration: 0.6, delay: 0.1 });
-});
-
-// ── Review cards ──
-inView('.reviews-grid', () => {
-  animate(
-    '.review-card',
-    { opacity: [0, 1], y: [24, 0] },
-    { duration: 0.5, delay: stagger(0.1) }
-  );
-});
-
-// ── Trust band items ──
-inView('.trust-band', () => {
-  animate(
-    '.trust-item',
-    { opacity: [0, 1], y: [20, 0] },
-    { duration: 0.45, delay: stagger(0.09) }
-  );
-});
-
-// ── CTA ──
-inView('.cta-inner', () => {
-  animate('.cta-inner', { opacity: [0, 1], y: [24, 0] }, { duration: 0.55 });
-});
-</script>
-
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); });
+    const heroBg = document.getElementById('heroBg');
+    window.addEventListener('scroll', () => { heroBg.style.transform = `scale(1.08) translateY(${window.scrollY * 0.25}px)`; }, { passive: true });
+    document.querySelectorAll('.hero-title-line span').forEach((el, i) => {
+      setTimeout(() => { el.style.transition = 'transform 0.9s cubic-bezier(0.16,1,0.3,1)'; el.style.transform = 'translateY(0)'; }, 200 + i * 140);
+    });
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    const lineObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('animated'); lineObserver.unobserve(e.target); } });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.section-line').forEach(el => lineObserver.observe(el));
+    const imgObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); imgObserver.unobserve(e.target); } });
+    }, { threshold: 0.2 });
+    const aboutImg = document.getElementById('aboutImg');
+    if (aboutImg) imgObserver.observe(aboutImg);
+    function countUp(el) {
+      const target = parseFloat(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      const decimal = parseInt(el.dataset.decimal || '0');
+      const duration = 1800; const start = performance.now();
+      function update(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const val = target * ease;
+        el.textContent = (decimal ? val.toFixed(decimal) : Math.floor(val)) + suffix;
+        if (progress < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+    }
+    const statObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { countUp(e.target); statObserver.unobserve(e.target); } });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.stat-number[data-target]').forEach(el => statObserver.observe(el));
+  </script>
 </body>
 </html>
